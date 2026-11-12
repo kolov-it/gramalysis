@@ -1,0 +1,11 @@
+gramalysis
+Copyright 2026 Assen Kolov
+https://github.com/kolov-it/gramalysis
+
+This product includes software developed as gramalysis. Under the Apache
+License, Version 2.0, section 4(d), any distribution of gramalysis or of a work
+derived from it must include this attribution notice.
+
+The data files under data/ carry their own licences, listed in
+data/it/NOTICE.md (Tatoeba sentences: CC BY 2.0 FR; Wiktionary-derived
+tables: CC BY-SA 4.0).

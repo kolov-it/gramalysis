@@ -34,3 +34,19 @@ clitics may stand and in which order, and checks person: a reflexive clitic has
 the verb's person, a 1st/2nd person clitic that is not reflexive has a
 different one. `cammello` and `pomello` come back as nouns without `clitic`,
 so they are never split.
+
+## Status after wordy #1593 (merged 2026-11-12, not yet deployed)
+
+Gaps 1–6 above are fixed in the API: one entry per reading, grammar on
+dictionary forms (noun gender, infinitive, masculine singular), the host verb's
+grammar on clitic forms, the passato remoto as indicative (`tense: preterite`),
+consistent past participles. The stopgaps gramalysis had for them are removed.
+
+Still open, in progress in wordy:
+
+| Gap | Example | Meanwhile |
+|---|---|---|
+| The verb's auxiliary in compound tenses | `accendere` → avere, `salire` → both | the grammar accepts either |
+| Forms only the conjugation tables know, and the inflected past participles | `pulite`, `salite`, `scorsero`, `soffrisse`, `svolta` | some are patched in `data/it/lexicon-patches/wordholder.txt` |
+| Truncated infinitives named as their own lemma | `aver`, `far`, `star` | patched |
+| Spanish clitic forms without host grammar (needs a data rebuild) | `dámelo` | — |

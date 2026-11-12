@@ -1,0 +1,19 @@
+# Corrections to the Word Holder API's Italian answers (dictionary v19,
+# lemmatize as of wordy 6142d263). Applied by gramalysis on top of the API;
+# `--no-patches` shows the API unpatched. Each line says why; delete a line
+# once the API answers it correctly.
+#
+# form  op  lemma  pos  features            (+ add, = replace all, - remove)
+
+# Readings the dictionary lacks
+scorsero    +  scorrere   verb  mood=indicative,tense=preterite,person=third,number=plural      # passato remoto of scorrere; only scorgere is returned
+soffrisse   +  soffrire   verb  mood=subjunctive,tense=imperfect,person=third,number=singular  # congiuntivo imperfetto of soffrire; only soffriggere is returned
+comunicato  +  comunicare verb  form=past-participle,gender=masculine,number=singular            # past participle of comunicare; only the noun and adjective are returned
+
+# Truncated infinitives come back with themselves as the lemma, or not at all
+aver   =  avere   verb  form=infinitive    # returned as lemma "aver"
+far    =  fare    verb  form=infinitive    # returned as lemma "far"
+star   -  star    verb                     # returned as verb "star"; the noun (una star) stays
+star   +  stare   verb  form=infinitive
+esser  +  essere  verb  form=infinitive    # not returned
+dir    +  dire    verb  form=infinitive    # not returned

@@ -1,0 +1,17 @@
+# Past participles whose adjective has drifted away from the verb's meaning.
+# For these, the adjective is its own word: "il significato esatto" (exact)
+# is not esigere's participle, "sono disposto" (willing) is not disporre's.
+# The verb's participle still exists where the sentence uses it as a verb
+# (ha diretto il film, è stato corretto).
+#
+# One adjective per line, masculine singular. DRAFT 2026-11-12, from the
+# Tatoeba labels; to be reviewed by the owner.
+corretto
+diretto
+disposto
+distinto
+dovuto
+esatto
+espresso
+opposto
+privato

@@ -54,6 +54,10 @@ impl WordHolderLexicon {
         Self::new(&var(URL_ENV)?, var(KEY_ENV)?, batch)
     }
 
+    pub fn batch_size(&self) -> usize {
+        self.batch_size
+    }
+
     fn post(&self, path: &str) -> reqwest::RequestBuilder {
         let request = self.http.post(format!("{}{path}", self.base_url));
         match &self.auth {

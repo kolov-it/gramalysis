@@ -75,6 +75,31 @@ pub enum PartOfSpeech {
     Other(String),
 }
 
+impl PartOfSpeech {
+    /// From the Wiktionary/Kaikki tag the Word Holder API and the patch files
+    /// use: verb, noun, name, adj, adv, pron, det, article, prep, conj, num,
+    /// intj, particle, contraction.
+    pub fn from_tag(tag: &str) -> PartOfSpeech {
+        match tag {
+            "verb" => PartOfSpeech::Verb,
+            "noun" => PartOfSpeech::Noun,
+            "name" => PartOfSpeech::ProperNoun,
+            "adj" => PartOfSpeech::Adjective,
+            "adv" => PartOfSpeech::Adverb,
+            "pron" => PartOfSpeech::Pronoun,
+            "det" => PartOfSpeech::Determiner,
+            "article" => PartOfSpeech::Article,
+            "prep" => PartOfSpeech::Preposition,
+            "conj" => PartOfSpeech::Conjunction,
+            "num" => PartOfSpeech::Numeral,
+            "intj" => PartOfSpeech::Interjection,
+            "particle" => PartOfSpeech::Particle,
+            "contraction" => PartOfSpeech::Contraction,
+            other => PartOfSpeech::Other(other.to_owned()),
+        }
+    }
+}
+
 /// Grammatical features of one reading. Values follow the source's
 /// distinctions (e.g. `Preterite` vs `Past`) so nothing is lost; mapping to
 /// Universal Dependencies happens at export.
@@ -86,6 +111,11 @@ pub struct Features {
     pub number: Option<Number>,
     pub gender: Option<Gender>,
     pub form_kind: Option<FormKind>,
+    /// For a verb: the auxiliaries it takes in compound tenses, as the
+    /// lexicon gives them (Italian ["avere"], ["essere"] or both). Empty when
+    /// the lexicon does not say.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub auxiliaries: Vec<String>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]

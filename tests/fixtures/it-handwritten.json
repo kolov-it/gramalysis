@@ -22,7 +22,15 @@
     "volontariato": [
       {
         "lemma": "volontariato",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "clitic": false,
+          "number": "singular",
+          "gender": "masculine"
+        }
       }
     ],
     "disse": [
@@ -65,13 +73,26 @@
     "trovare": [
       {
         "lemma": "trovare",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "formKind": "infinitive"
+        }
       }
     ],
     "lavoro": [
       {
         "lemma": "lavoro",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "clitic": false,
+          "number": "singular",
+          "gender": "masculine"
+        }
       },
       {
         "lemma": "lavorare",
@@ -294,7 +315,15 @@
       },
       {
         "lemma": "fatto",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "clitic": false,
+          "number": "singular",
+          "gender": "masculine"
+        }
       }
     ],
     "zio": [

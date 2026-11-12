@@ -118,7 +118,7 @@ ambiguity naturally, and can return every parse as a shared forest.
 
 ## Data and licences
 
-- Code: MIT OR Apache-2.0.
+- Code: Apache-2.0, with the NOTICE file as the required attribution.
 - Lexicon data built from Wiktionary is CC BY-SA 4.0. It is never committed here;
   it is downloaded separately with its notice. Test fixtures use a handful of
   hand-written entries.

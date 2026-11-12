@@ -1,7 +1,9 @@
 //! The `gramalysis` command line: a language and a sentence in, the grammar
 //! tree out.
 
-use std::path::PathBuf;
+mod eval;
+
+use std::path::{Path, PathBuf};
 use std::process::ExitCode;
 
 use clap::{Args, Parser, Subcommand};
@@ -9,7 +11,8 @@ use clap::{Args, Parser, Subcommand};
 use gramalysis::lang::{self, Language};
 use gramalysis::morph::{Lang, Lexicon};
 use gramalysis::syntax::feats;
-use gramalysis::wordholder::{FixtureLexicon, WordHolderLexicon, BATCH_ENV, KEY_ENV, URL_ENV};
+use gramalysis::patch::PatchedLexicon;
+use gramalysis::wordholder::{self, FixtureLexicon, WordHolderLexicon, BATCH_ENV, KEY_ENV, URL_ENV};
 use gramalysis::{analyze, SentenceAnalysis};
 
 /// Parse sentences and print their grammar trees.
@@ -29,11 +32,37 @@ struct Cli {
 #[derive(Subcommand)]
 enum Command {
     /// Save the API's answers for a sentence's words into a fixture file
-    /// (grammar only; meanings are dropped).
+    /// (grammar only; meanings are dropped). Words already in the file are
+    /// not asked again, and the file is saved after every request, so a run
+    /// stopped by a rate limit continues where it stopped.
     Record {
         file: PathBuf,
         lang: Lang,
-        sentence: String,
+        /// The sentence. Quote it.
+        sentence: Option<String>,
+        /// Record every word of a sentence set (JSON lines with a `text` field).
+        #[arg(long, conflicts_with = "sentence")]
+        set: Option<PathBuf>,
+        #[command(flatten)]
+        backend: Backend,
+    },
+    /// Run a sentence set and measure how its ambiguous words were read.
+    Eval {
+        lang: Lang,
+        /// The set, e.g. data/it/homograph-set.jsonl.
+        set: PathBuf,
+        /// Correct readings, e.g. data/it/homograph-labels.tsv.
+        #[arg(long)]
+        labels: Option<PathBuf>,
+        /// Write one JSON line per sentence here.
+        #[arg(long, value_name = "FILE")]
+        out: Option<PathBuf>,
+        /// Answer from recorded API answers instead of calling the API.
+        #[arg(long, value_name = "FILE")]
+        fixture: Option<PathBuf>,
+        /// Use the lexicon's answers as they are, without data/<lang>/lexicon-patches.
+        #[arg(long)]
+        no_patches: bool,
         #[command(flatten)]
         backend: Backend,
     },
@@ -60,8 +89,23 @@ struct ParseArgs {
     /// Answer from recorded API answers instead of calling the API.
     #[arg(long, value_name = "FILE")]
     fixture: Option<PathBuf>,
+    /// Use the lexicon's answers as they are, without data/<lang>/lexicon-patches.
+    #[arg(long)]
+    no_patches: bool,
     #[command(flatten)]
     backend: Backend,
+}
+
+/// The lexicon to use: recorded answers or the API, with or without patches.
+fn lexicon(fixture: Option<&Path>, backend: &Backend, no_patches: bool) -> Result<Box<dyn Lexicon>, Box<dyn std::error::Error>> {
+    let base: Box<dyn Lexicon> = match fixture {
+        Some(path) => Box::new(FixtureLexicon::load(path)?),
+        None => Box::new(backend.lexicon()?),
+    };
+    if no_patches {
+        return Ok(base);
+    }
+    Ok(Box::new(PatchedLexicon::new(base, wordholder::patches()?)))
 }
 
 /// Where the lexicon lives. Each flag overrides its environment variable.
@@ -118,8 +162,26 @@ async fn main() -> ExitCode {
 }
 
 async fn run(cli: Cli) -> Result<(), Box<dyn std::error::Error>> {
-    if let Some(Command::Record { file, lang, sentence, backend }) = cli.command {
-        return record(&file, lang, &sentence, &backend.lexicon()?).await;
+    match cli.command {
+        Some(Command::Record { file, lang, sentence, set, backend }) => {
+            let texts = match (sentence, set) {
+                (Some(s), None) => vec![s],
+                (None, Some(path)) => eval::load_items(&path)?.into_iter().map(|i| i.text).collect(),
+                _ => return Err("give a sentence or --set FILE".into()),
+            };
+            return record(&file, lang, &texts, &backend.lexicon()?).await;
+        }
+        Some(Command::Eval { lang, set, labels, out, fixture, no_patches, backend }) => {
+            let language = lang::load(lang)?;
+            let lexicon = lexicon(fixture.as_deref(), &backend, no_patches)?;
+            let labels = match &labels {
+                Some(path) => eval::load_labels(path)?,
+                None => Default::default(),
+            };
+            let items = eval::load_items(&set)?;
+            return eval::run(&items, &labels, lexicon.as_ref(), language.as_ref(), out.as_deref()).await;
+        }
+        None => {}
     }
     let args = cli.parse;
     let lang = args.lang.ok_or("give a language and a sentence: gramalysis it \"La ragazza ama il cane.\"")?;
@@ -134,10 +196,7 @@ async fn run(cli: Cli) -> Result<(), Box<dyn std::error::Error>> {
         (None, None) => return Err("give a sentence, or --file FILE".into()),
     };
     let language = lang::load(lang)?;
-    let lexicon: Box<dyn Lexicon> = match &args.fixture {
-        Some(path) => Box::new(FixtureLexicon::load(path)?),
-        None => Box::new(args.backend.lexicon()?),
-    };
+    let lexicon = lexicon(args.fixture.as_deref(), &args.backend, args.no_patches)?;
     for (i, text) in sentences.iter().enumerate() {
         let a = analyze(lexicon.as_ref(), language.as_ref(), text).await?;
         if args.json {
@@ -157,14 +216,15 @@ fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: boo
     if !a.unknown.is_empty() {
         println!("  unknown words: {}", a.unknown.join(", "));
     }
-    match a.parses.len() {
+    match a.parse_count {
         0 => println!("  no parse: the grammar does not accept this sentence"),
         1 => {}
+        n if n as usize > a.parses.len() => println!("  {n} parses (showing {})", a.parses.len()),
         n => println!("  {n} parses"),
     }
     for (i, p) in a.parses.iter().enumerate() {
         if a.parses.len() > 1 {
-            println!("\nparse {} of {}", i + 1, a.parses.len());
+            println!("\nparse {} of {}", i + 1, a.parse_count);
         }
         print!("{}", p.render());
         if explain {
@@ -190,26 +250,40 @@ fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: boo
     }
 }
 
-async fn record(file: &PathBuf, lang: Lang, text: &str, lexicon: &WordHolderLexicon) -> Result<(), Box<dyn std::error::Error>> {
+async fn record(file: &Path, lang: Lang, texts: &[String], lexicon: &WordHolderLexicon) -> Result<(), Box<dyn std::error::Error>> {
     let language: Box<dyn Language> = lang::load(lang)?;
-    let forms = language.lexicon_forms(&language.tokenize(text));
-    let refs: Vec<&str> = forms.iter().map(String::as_str).collect();
     let mut data: serde_json::Value = match std::fs::read_to_string(file) {
         Ok(s) => serde_json::from_str(&s)?,
         Err(e) if e.kind() == std::io::ErrorKind::NotFound => serde_json::json!({}),
         Err(e) => return Err(e.into()),
     };
-    for (form, mut lemmas) in lexicon.raw(lang, &refs).await? {
-        // Keep the grammar, drop the meanings: glosses are Wiktionary text
-        // (CC BY-SA) and the parser does not use them.
-        for entry in lemmas.as_array_mut().into_iter().flatten() {
-            if let Some(obj) = entry.as_object_mut() {
-                obj.remove("glosses");
+    let mut forms: Vec<String> = Vec::new();
+    let mut seen = std::collections::HashSet::new();
+    for text in texts {
+        for form in language.lexicon_forms(&language.tokenize(text)) {
+            if data[lang.code()].get(&form).is_none() && seen.insert(form.clone()) {
+                forms.push(form);
             }
         }
-        data[lang.code()][form.as_str()] = lemmas;
     }
-    std::fs::write(file, serde_json::to_string_pretty(&data)? + "\n")?;
-    println!("recorded {} forms into {}", refs.len(), file.display());
+    println!("{} forms to record", forms.len());
+    for (n, chunk) in forms.chunks(lexicon.batch_size()).enumerate() {
+        let refs: Vec<&str> = chunk.iter().map(String::as_str).collect();
+        for (form, mut lemmas) in lexicon.raw(lang, &refs).await? {
+            // Keep the grammar, drop the meanings: glosses are Wiktionary text
+            // (CC BY-SA) and the parser does not use them.
+            for entry in lemmas.as_array_mut().into_iter().flatten() {
+                if let Some(obj) = entry.as_object_mut() {
+                    obj.remove("glosses");
+                }
+            }
+            data[lang.code()][form.as_str()] = lemmas;
+        }
+        std::fs::write(file, serde_json::to_string_pretty(&data)? + "\n")?;
+        if (n + 1) % 10 == 0 {
+            println!("  {} of {}", ((n + 1) * lexicon.batch_size()).min(forms.len()), forms.len());
+        }
+    }
+    println!("recorded into {}", file.display());
     Ok(())
 }

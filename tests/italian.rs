@@ -28,14 +28,14 @@ fn agreed(a: &SentenceAnalysis, token: &str) -> Vec<String> {
 async fn fece_is_fare_third_singular() {
     let a = run("Tom fece del volontariato.").await;
     assert!(!a.parses.is_empty());
-    assert_eq!(agreed(&a, "fece"), ["fare Verb finite=yes,mood=ind,number=sg,person=3,tense=past"]);
+    assert_eq!(agreed(&a, "fece"), ["fare Verb finite=yes,form=fin,mood=ind,number=sg,person=3,tense=past"]);
 }
 
 #[tokio::test]
 async fn subject_agreement_picks_present_over_imperative() {
     let a = run("La ragazza ama il cane.").await;
     assert!(!a.parses.is_empty());
-    assert_eq!(agreed(&a, "ama"), ["amare Verb finite=yes,mood=ind,number=sg,person=3,tense=pres"]);
+    assert_eq!(agreed(&a, "ama"), ["amare Verb finite=yes,form=fin,mood=ind,number=sg,person=3,tense=pres"]);
     assert_eq!(agreed(&a, "La"), ["il Det definite=yes,gender=f,next=c,number=sg"]);
 }
 
@@ -50,23 +50,23 @@ async fn enclitics_on_an_imperative() {
     let a = run("Dammelo!").await;
     assert!(!a.parses.is_empty());
     let r = agreed(&a, "Dammelo");
-    assert_eq!(r[0], "dare Verb finite=yes,mood=imp,number=sg,person=2");
-    assert!(r[1].starts_with("mi Pron case=dat"));
-    assert!(r[2].starts_with("lo Pron case=acc"));
+    assert_eq!(r[0], "dare Verb finite=yes,form=fin,mood=imp,number=sg,person=2");
+    assert!(r[1].starts_with("mi Pron") && r[1].contains("case=dat"));
+    assert!(r[2].starts_with("lo Pron") && r[2].contains("case=acc"));
 }
 
 #[tokio::test]
 async fn ricordati_is_the_imperative_here() {
     let a = run("Ricordati di me.").await;
     assert!(!a.parses.is_empty());
-    assert_eq!(agreed(&a, "Ricordati")[0], "ricordare Verb finite=yes,mood=imp,number=sg,person=2");
+    assert_eq!(agreed(&a, "Ricordati")[0], "ricordare Verb finite=yes,form=fin,mood=imp,number=sg,person=2");
 }
 
 #[tokio::test]
 async fn che_clause_negation_and_infinitive() {
     let a = run("Disse che non riusciva a trovare un lavoro.").await;
     assert!(!a.parses.is_empty());
-    assert_eq!(agreed(&a, "lavoro"), ["lavoro Noun number=sg"]);
+    assert_eq!(agreed(&a, "lavoro"), ["lavoro Noun gender=m,number=sg"]);
     assert_eq!(agreed(&a, "trovare"), ["trovare Verb finite=no,form=inf"]);
 }
 

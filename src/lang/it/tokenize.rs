@@ -19,13 +19,18 @@ pub fn tokenize(text: &str) -> Vec<String> {
         if !rest.is_empty() {
             tokens.push(rest.to_owned());
         }
-        tokens.extend(trailing.chars().filter(|c| matches!(c, ',' | ';' | ':')).map(|c| c.to_string()));
+        tokens.extend(trailing.chars().filter(|c| matches!(c, ',' | ';' | ':' | '.' | '?' | '!')).map(|c| c.to_string()));
+    }
+    // Sentence-final punctuation ends the text; inside it, it separates
+    // sentences (Come stai? Hai fatto buon viaggio?).
+    while tokens.last().is_some_and(|t| matches!(t.as_str(), "." | "?" | "!")) {
+        tokens.pop();
     }
     tokens
 }
 
 pub fn is_punct(token: &str) -> bool {
-    matches!(token, "," | ";" | ":")
+    matches!(token, "," | ";" | ":" | "." | "?" | "!")
 }
 
 #[cfg(test)]

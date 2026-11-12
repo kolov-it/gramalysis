@@ -1,10 +1,12 @@
 //! Sentence in, parses out: the pipeline that ties the parts together.
 
+use std::collections::HashSet;
+
 use serde::Serialize;
 
 use crate::lang::Language;
 use crate::morph::{Lexicon, LexiconError};
-use crate::syntax::lattice::{Lattice, Morpheme};
+use crate::syntax::lattice::{Edge, Lattice, Morpheme};
 use crate::syntax::parser::{self, ParseError, Tree};
 
 #[derive(Debug, thiserror::Error)]
@@ -21,10 +23,16 @@ pub struct SentenceAnalysis {
     /// Tokens no reading was found for. A sentence with one cannot parse.
     pub unknown: Vec<String>,
     pub lattice: Lattice,
+    /// How many parses there are (saturating).
+    pub parse_count: u64,
+    /// The first parses, at most [`MAX_TREES`].
     pub parses: Vec<Tree>,
     /// Per token, the readings used by at least one parse.
     pub chosen: Vec<TokenChoice>,
 }
+
+/// Parses kept as trees; the rest are counted, and still count for `chosen`.
+pub const MAX_TREES: usize = 20;
 
 #[derive(Debug, Serialize)]
 pub struct TokenChoice {
@@ -45,30 +53,50 @@ pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str)
         .filter(|t| !lattice.edges.iter().any(|e| e.token == *t))
         .map(|t| tokens[t].clone())
         .collect();
-    let parses = parser::parse(language.grammar(), &lattice)?;
-    let chosen = choices(&tokens, &parses);
-    Ok(SentenceAnalysis { tokens, unknown, lattice, parses, chosen })
+    let forest = parser::parse(language.grammar(), &lattice)?;
+    let parse_count = forest.count();
+    let parses = forest.trees(&lattice, MAX_TREES);
+    let chosen = choices(&tokens, &lattice, &forest.used_edges(), !forest.is_empty());
+    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen })
 }
 
-fn choices(tokens: &[String], parses: &[Tree]) -> Vec<TokenChoice> {
-    let mut out: Vec<TokenChoice> = tokens
-        .iter()
-        .map(|t| TokenChoice { token: t.clone(), readings: Vec::new(), agreed: !parses.is_empty() })
-        .collect();
-    for parse in parses {
-        let mut per_token: Vec<Vec<Morpheme>> = vec![Vec::new(); tokens.len()];
-        for (token, morph) in parse.leaves() {
-            per_token[token].push(morph.clone());
-        }
-        for (t, reading) in per_token.into_iter().enumerate() {
-            let key = |r: &[Morpheme]| r.iter().map(|m| (m.lemma.clone(), m.cat.clone(), m.feats.clone())).collect::<Vec<_>>();
-            if !out[t].readings.iter().any(|r| key(r) == key(&reading)) {
-                out[t].readings.push(reading);
+/// Per token, the readings (paths of morphemes through the token) that the
+/// parses use. Built from the edges any parse uses, so it covers every parse,
+/// not only the ones kept as trees.
+fn choices(tokens: &[String], lattice: &Lattice, used: &HashSet<usize>, parsed: bool) -> Vec<TokenChoice> {
+    (0..tokens.len())
+        .map(|t| {
+            let edges: Vec<&Edge> = lattice.edges.iter().enumerate().filter(|(e, edge)| edge.token == t && used.contains(e)).map(|(_, edge)| edge).collect();
+            let starts: HashSet<usize> = edges.iter().map(|e| e.from).collect();
+            let ends: HashSet<usize> = edges.iter().map(|e| e.to).collect();
+            let first_nodes: Vec<usize> = starts.difference(&ends).copied().collect();
+            let mut readings: Vec<Vec<Morpheme>> = Vec::new();
+            for start in first_nodes {
+                walk(&edges, start, &mut Vec::new(), &mut readings);
             }
+            let key = |r: &[Morpheme]| r.iter().map(|m| (m.lemma.clone(), m.cat.clone(), m.feats.clone())).collect::<Vec<_>>();
+            let mut unique: Vec<Vec<Morpheme>> = Vec::new();
+            for r in readings {
+                if !unique.iter().any(|u| key(u) == key(&r)) {
+                    unique.push(r);
+                }
+            }
+            TokenChoice { token: tokens[t].clone(), agreed: parsed && unique.len() == 1, readings: unique }
+        })
+        .collect()
+}
+
+fn walk(edges: &[&Edge], node: usize, path: &mut Vec<Morpheme>, out: &mut Vec<Vec<Morpheme>>) {
+    let next: Vec<&&Edge> = edges.iter().filter(|e| e.from == node).collect();
+    if next.is_empty() {
+        if !path.is_empty() {
+            out.push(path.clone());
         }
+        return;
     }
-    for c in &mut out {
-        c.agreed = c.agreed && c.readings.len() == 1;
+    for e in next {
+        path.push(e.morph.clone());
+        walk(edges, e.to, path, out);
+        path.pop();
     }
-    out
 }
