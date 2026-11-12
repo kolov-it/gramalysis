@@ -84,3 +84,20 @@ async fn article_form_follows_the_next_sound() {
     assert!(!run("La ragazza ama lo zio.").await.parses.is_empty());
     assert!(run("La ragazza ama il zio.").await.parses.is_empty());
 }
+
+/// Each reading keeps the rules that used it: in "È ferito." the noun is used
+/// as a noun and the participle only like an adjective, so no reading is a
+/// verb use (Codex review on #3).
+#[tokio::test]
+async fn uses_are_per_reading() {
+    let a = run("È ferito.").await;
+    let c = a.chosen.iter().find(|c| c.token == "ferito").unwrap();
+    assert_eq!(c.readings.len(), c.uses.len());
+    for (reading, uses) in c.readings.iter().zip(&c.uses) {
+        match reading[0].cat.as_str() {
+            "Verb" => assert_eq!(uses, &["ap.participle"]),
+            "Noun" => assert!(!uses.iter().any(|u| u == "ap.participle"), "{uses:?}"),
+            other => panic!("unexpected reading {other}"),
+        }
+    }
+}

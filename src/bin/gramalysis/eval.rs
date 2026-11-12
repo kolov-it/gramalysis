@@ -165,17 +165,18 @@ async fn evaluate<'a>(
     let mut readings: Vec<Reading> = token
         .map(|t| {
             let choice = &a.chosen[t];
-            // A participle the grammar only used like an adjective (le luci
-            // sono accese) is not the verb, for a verb page; used both ways,
-            // the sentence is ambiguous.
-            let adjectival = choice.uses.iter().any(|u| u == ADJECTIVE_USE);
-            let verbal = choice.uses.iter().any(|u| u != ADJECTIVE_USE);
             choice
                 .readings
                 .iter()
-                .filter_map(|r| r.first())
-                .flat_map(|m| {
+                .zip(&choice.uses)
+                .filter_map(|(r, uses)| r.first().map(|m| (m, uses)))
+                .flat_map(|(m, uses)| {
+                    // A participle the grammar only used like an adjective (le
+                    // luci sono accese) is not the verb, for a verb page; used
+                    // both ways in this reading, the sentence is ambiguous.
                     let participle = m.cat == "Verb" && m.feats.get("form").map(String::as_str) == Some("pastpart");
+                    let adjectival = uses.iter().any(|u| u == ADJECTIVE_USE);
+                    let verbal = uses.iter().any(|u| u != ADJECTIVE_USE);
                     let mut out = Vec::new();
                     if !participle || verbal {
                         out.push(Reading { verb: m.cat == "Verb", lemma: m.lemma.to_lowercase() });

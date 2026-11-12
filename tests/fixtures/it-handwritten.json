@@ -340,6 +340,37 @@
           "clitic": false
         }
       }
+    ],
+    "ferito": [
+      {
+        "lemma": "ferito",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "clitic": false,
+          "number": "singular",
+          "gender": "masculine"
+        }
+      },
+      {
+        "lemma": "ferire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "number": "singular",
+          "gender": "masculine",
+          "auxiliaries": [
+            "avere"
+          ]
+        }
+      }
     ]
   }
 }
