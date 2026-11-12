@@ -1,0 +1,404 @@
+# French function words: articles, prepositions (with their contracted
+# forms), pronouns, conjunctions, negation. These are answered from this list,
+# not by the lexicon service: a listed word loses the lexicon's readings in the
+# categories this list owns (Det, Pron, Prep, Conj, Contraction) and every
+# lexicon reading whose lemma it lists, so a word lists ALL its categories
+# (`pas` the negation and the noun, `tout` determiner, pronoun and adverb).
+# One reading per line; a form with several readings has several lines. A
+# reading of several morphemes joins them with `+`.
+#
+# form = lemma:Category{feature=value,...} [+ lemma:Category{...}]
+#
+# Features: gender m/f, number sg/pl, person 1/2/3, definite yes/no,
+# case nom (subject) / obl (stressed, after a verb or preposition) /
+# acc (direct clitic) / dat (indirect clitic) / refl / gen (en) / loc (y),
+# clitic yes/no. `next` is the sound the next word starts with: c = a
+# consonant or an aspirated h (le héros), v = a vowel or a mute h (l'homme).
+# A form allowed before both has no `next`.
+
+# --- definite article
+le = le:Det{definite=yes,gender=m,number=sg,next=c}
+la = le:Det{definite=yes,gender=f,number=sg,next=c}
+l' = le:Det{definite=yes,number=sg,next=v}
+les = le:Det{definite=yes,number=pl}
+
+# --- indefinite and partitive articles
+un = un:Det{definite=no,gender=m,number=sg}
+une = un:Det{definite=no,gender=f,number=sg}
+des = un:Det{definite=no,number=pl}
+du = du:Det{definite=no,partitive=yes,gender=m,number=sg,next=c}
+
+# --- prepositions
+de = de:Prep
+d' = de:Prep
+à = à:Prep
+en = en:Prep
+dans = dans:Prep
+sur = sur:Prep
+sous = sous:Prep
+avec = avec:Prep
+sans = sans:Prep
+pour = pour:Prep
+par = par:Prep{agent=yes}
+chez = chez:Prep
+vers = vers:Prep
+entre = entre:Prep
+contre = contre:Prep
+depuis = depuis:Prep
+pendant = pendant:Prep
+avant = avant:Prep
+avant = avant:Adv
+après = après:Prep
+après = après:Adv
+devant = devant:Prep
+devant = devant:Adv
+derrière = derrière:Prep
+derrière = derrière:Adv
+jusqu' = jusque:Prep
+jusque = jusque:Prep
+malgré = malgré:Prep
+selon = selon:Prep
+parmi = parmi:Prep
+envers = envers:Prep
+dès = dès:Prep
+sauf = sauf:Prep
+vu = vu:Prep
+hors = hors:Prep
+durant = durant:Prep
+contre = contre:Adv
+voici = voici:Intj
+voilà = voilà:Intj
+
+# --- prepositions contracted with the definite article
+du = de:Prep + le:Det{definite=yes,gender=m,number=sg,next=c}
+des = de:Prep + le:Det{definite=yes,number=pl}
+au = à:Prep + le:Det{definite=yes,gender=m,number=sg,next=c}
+aux = à:Prep + le:Det{definite=yes,number=pl}
+
+# --- subject pronouns
+je = je:Pron{case=nom,person=1,number=sg,clitic=yes}
+j' = je:Pron{case=nom,person=1,number=sg,clitic=yes}
+tu = tu:Pron{case=nom,person=2,number=sg,clitic=yes}
+il = il:Pron{case=nom,person=3,number=sg,gender=m,clitic=yes}
+elle = il:Pron{case=nom,person=3,number=sg,gender=f,clitic=yes}
+on = on:Pron{case=nom,person=3,number=sg,clitic=yes}
+nous = nous:Pron{case=nom,person=1,number=pl,clitic=yes}
+vous = vous:Pron{case=nom,person=2,clitic=yes}
+ils = il:Pron{case=nom,person=3,number=pl,gender=m,clitic=yes}
+elles = il:Pron{case=nom,person=3,number=pl,gender=f,clitic=yes}
+ce = ce:Pron{case=nom,person=3,clitic=yes,demonstrative=yes}
+ce = ce:Dem{number=sg,gender=m}
+c' = ce:Pron{case=nom,person=3,clitic=yes,demonstrative=yes}
+ç' = ce:Pron{case=nom,person=3,clitic=yes,demonstrative=yes}
+# t'as, t'es: tu elided in speech
+t' = tu:Pron{case=nom,person=2,number=sg,clitic=yes}
+
+# --- stressed pronouns (alone, after a preposition, after c'est)
+moi = moi:Pron{case=obl,person=1,number=sg,clitic=no}
+toi = toi:Pron{case=obl,person=2,number=sg,clitic=no}
+lui = lui:Pron{case=obl,person=3,number=sg,gender=m,clitic=no}
+elle = elle:Pron{case=obl,person=3,number=sg,gender=f,clitic=no}
+soi = soi:Pron{case=obl,person=3,clitic=no}
+nous = nous:Pron{case=obl,person=1,number=pl,clitic=no}
+vous = vous:Pron{case=obl,person=2,clitic=no}
+eux = eux:Pron{case=obl,person=3,number=pl,gender=m,clitic=no}
+elles = elle:Pron{case=obl,person=3,number=pl,gender=f,clitic=no}
+# stressed pronouns can also be the subject (Moi, je…; lui seul; eux aussi)
+moi = moi:Pron{case=nom,person=1,number=sg,clitic=no}
+toi = toi:Pron{case=nom,person=2,number=sg,clitic=no}
+lui = lui:Pron{case=nom,person=3,number=sg,gender=m,clitic=no}
+eux = eux:Pron{case=nom,person=3,number=pl,gender=m,clitic=no}
+
+# --- object clitics. `slot` orders them before the verb:
+# 1 me/te/se/nous/vous, 2 le/la/les, 3 lui/leur, 4 y, 5 en.
+me = me:Pron{case=acc,person=1,number=sg,clitic=yes,slot=1}
+me = me:Pron{case=dat,person=1,number=sg,clitic=yes,slot=1}
+me = me:Pron{case=refl,person=1,number=sg,clitic=yes,slot=1}
+m' = me:Pron{case=acc,person=1,number=sg,clitic=yes,slot=1}
+m' = me:Pron{case=dat,person=1,number=sg,clitic=yes,slot=1}
+m' = me:Pron{case=refl,person=1,number=sg,clitic=yes,slot=1}
+te = te:Pron{case=acc,person=2,number=sg,clitic=yes,slot=1}
+te = te:Pron{case=dat,person=2,number=sg,clitic=yes,slot=1}
+te = te:Pron{case=refl,person=2,number=sg,clitic=yes,slot=1}
+t' = te:Pron{case=acc,person=2,number=sg,clitic=yes,slot=1}
+t' = te:Pron{case=dat,person=2,number=sg,clitic=yes,slot=1}
+t' = te:Pron{case=refl,person=2,number=sg,clitic=yes,slot=1}
+se = se:Pron{case=refl,person=3,clitic=yes,slot=1}
+s' = se:Pron{case=refl,person=3,clitic=yes,slot=1}
+nous = nous:Pron{case=acc,person=1,number=pl,clitic=yes,slot=1}
+nous = nous:Pron{case=dat,person=1,number=pl,clitic=yes,slot=1}
+nous = nous:Pron{case=refl,person=1,number=pl,clitic=yes,slot=1}
+vous = vous:Pron{case=acc,person=2,clitic=yes,slot=1}
+vous = vous:Pron{case=dat,person=2,clitic=yes,slot=1}
+vous = vous:Pron{case=refl,person=2,clitic=yes,slot=1}
+le = le:Pron{case=acc,person=3,number=sg,gender=m,clitic=yes,slot=2}
+la = le:Pron{case=acc,person=3,number=sg,gender=f,clitic=yes,slot=2}
+l' = le:Pron{case=acc,person=3,number=sg,clitic=yes,slot=2}
+les = le:Pron{case=acc,person=3,number=pl,clitic=yes,slot=2}
+lui = lui:Pron{case=dat,person=3,number=sg,clitic=yes,slot=3}
+leur = lui:Pron{case=dat,person=3,number=pl,clitic=yes,slot=3}
+y = y:Pron{case=loc,clitic=yes,slot=4}
+en = en:Pron{case=gen,clitic=yes,slot=5}
+# after an imperative: moi, toi instead of me, te (donne-moi, lève-toi)
+moi = moi:Pron{case=dat,person=1,number=sg,clitic=yes,slot=3,imperative=yes}
+moi = moi:Pron{case=acc,person=1,number=sg,clitic=yes,slot=3,imperative=yes}
+toi = toi:Pron{case=refl,person=2,number=sg,clitic=yes,slot=3,imperative=yes}
+
+# --- conjunctions
+et = et:Conj{type=coord}
+ou = ou:Conj{type=coord}
+mais = mais:Conj{type=coord}
+ni = ni:Conj{type=coord}
+car = car:Conj{type=coord}
+donc = donc:Conj{type=coord}
+donc = donc:Adv
+or = or:Conj{type=coord}
+or = or:Noun{gender=m,number=sg}
+que = que:Conj{type=sub}
+qu' = que:Conj{type=sub}
+si = si:Conj{type=sub}
+s' = si:Conj{type=sub}
+quand = quand:Conj{type=sub}
+lorsque = lorsque:Conj{type=sub}
+lorsqu' = lorsque:Conj{type=sub}
+puisque = puisque:Conj{type=sub}
+puisqu' = puisque:Conj{type=sub}
+quoique = quoique:Conj{type=sub}
+quoiqu' = quoique:Conj{type=sub}
+comme = comme:Conj{type=sub}
+comme = comme:Prep
+comme = comme:Adv
+# the first word of a conjunction ending in que (parce que, bien que,
+# pendant que, avant que, alors que…): see `sub.que` in the grammar
+parce = parce:SubLead
+alors = alors:SubLead
+alors = alors:Adv
+tandis = tandis:SubLead
+afin = afin:SubLead
+bien = bien:SubLead
+pendant = pendant:SubLead
+avant = avant:SubLead
+après = après:SubLead
+depuis = depuis:SubLead
+dès = dès:SubLead
+pour = pour:SubLead
+sans = sans:SubLead
+jusqu' = jusque:SubLead
+tant = tant:SubLead
+tant = tant:Adv
+encore = encore:SubLead
+encore = encore:Adv
+maintenant = maintenant:SubLead
+maintenant = maintenant:Adv
+ainsi = ainsi:SubLead
+ainsi = ainsi:Adv
+bien = bien:Adv
+bien = bien:Adj
+bien = bien:Noun{gender=m}
+
+# --- negation. ne/n' before the verb (and its clitics); pas, plus, jamais,
+# rien, personne, guère, point, que after the conjugated verb.
+ne = ne:Neg
+n' = ne:Neg
+pas = pas:NegAdv{only=no}
+pas = pas:Noun{gender=m}
+plus = plus:NegAdv{only=no}
+plus = plus:Adv
+jamais = jamais:NegAdv{only=no}
+jamais = jamais:Adv
+rien = rien:NegAdv{only=no}
+rien = rien:Pron{case=nom,person=3,number=sg,clitic=no,neg=yes}
+rien = rien:Pron{case=obl,person=3,number=sg,clitic=no,neg=yes}
+personne = personne:Pron{case=nom,person=3,number=sg,clitic=no,neg=yes}
+personne = personne:Pron{case=obl,person=3,number=sg,clitic=no,neg=yes}
+personne = personne:Noun{gender=f,number=sg}
+guère = guère:NegAdv{only=no}
+point = point:NegAdv{only=no}
+point = point:Noun{gender=m}
+nullement = nullement:NegAdv{only=no}
+aucun = aucun:Det{definite=no,gender=m,number=sg,neg=yes}
+aucune = aucun:Det{definite=no,gender=f,number=sg,neg=yes}
+aucun = aucun:Pron{case=nom,person=3,number=sg,gender=m,clitic=no,neg=yes}
+aucune = aucun:Pron{case=nom,person=3,number=sg,gender=f,clitic=no,neg=yes}
+aucun = aucun:Pron{case=obl,person=3,number=sg,gender=m,clitic=no,neg=yes}
+aucune = aucun:Pron{case=obl,person=3,number=sg,gender=f,clitic=no,neg=yes}
+nul = nul:Det{definite=no,gender=m,number=sg,neg=yes}
+nulle = nul:Det{definite=no,gender=f,number=sg,neg=yes}
+nul = nul:Adj{gender=m,number=sg}
+nulle = nul:Adj{gender=f,number=sg}
+# ne … que = only
+que = que:NegAdv{only=yes}
+qu' = que:NegAdv{only=yes}
+
+# --- demonstratives
+ce = ce:Det{definite=yes,gender=m,number=sg,next=c}
+cet = ce:Det{definite=yes,gender=m,number=sg,next=v}
+cette = ce:Det{definite=yes,gender=f,number=sg}
+ces = ce:Det{definite=yes,number=pl}
+ça = ça:Pron{case=nom,person=3,number=sg,clitic=no}
+ça = ça:Pron{case=obl,person=3,number=sg,clitic=no}
+ca = ça:Pron{case=nom,person=3,number=sg,clitic=no}
+ca = ça:Pron{case=obl,person=3,number=sg,clitic=no}
+cela = cela:Pron{case=nom,person=3,number=sg,clitic=no}
+cela = cela:Pron{case=obl,person=3,number=sg,clitic=no}
+ceci = ceci:Pron{case=nom,person=3,number=sg,clitic=no}
+ceci = ceci:Pron{case=obl,person=3,number=sg,clitic=no}
+celui = celui:Dem{number=sg,gender=m}
+celle = celui:Dem{number=sg,gender=f}
+ceux = celui:Dem{number=pl,gender=m}
+celles = celui:Dem{number=pl,gender=f}
+
+# --- possessive determiners: agree with the noun, not the owner. mon, ton,
+# son also stand before a feminine noun that starts with a vowel (mon amie).
+mon = mon:Det{definite=yes,gender=m,number=sg}
+mon = mon:Det{definite=yes,gender=f,number=sg,next=v}
+ma = mon:Det{definite=yes,gender=f,number=sg,next=c}
+mes = mon:Det{definite=yes,number=pl}
+ton = ton:Det{definite=yes,gender=m,number=sg}
+ton = ton:Det{definite=yes,gender=f,number=sg,next=v}
+ta = ton:Det{definite=yes,gender=f,number=sg,next=c}
+tes = ton:Det{definite=yes,number=pl}
+son = son:Det{definite=yes,gender=m,number=sg}
+son = son:Det{definite=yes,gender=f,number=sg,next=v}
+son = son:Noun{gender=m,number=sg}
+sa = son:Det{definite=yes,gender=f,number=sg,next=c}
+ses = son:Det{definite=yes,number=pl}
+notre = notre:Det{definite=yes,number=sg}
+nos = notre:Det{definite=yes,number=pl}
+votre = votre:Det{definite=yes,number=sg}
+vos = votre:Det{definite=yes,number=pl}
+leur = leur:Det{definite=yes,number=sg}
+leurs = leur:Det{definite=yes,number=pl}
+# le mien, la tienne… : the article + the possessive pronoun
+mien = mien:Noun{gender=m,number=sg}
+mienne = mien:Noun{gender=f,number=sg}
+miens = mien:Noun{gender=m,number=pl}
+miennes = mien:Noun{gender=f,number=pl}
+tien = tien:Noun{gender=m,number=sg}
+tienne = tien:Noun{gender=f,number=sg}
+tiens = tien:Noun{gender=m,number=pl}
+tiennes = tien:Noun{gender=f,number=pl}
+sien = sien:Noun{gender=m,number=sg}
+sienne = sien:Noun{gender=f,number=sg}
+siens = sien:Noun{gender=m,number=pl}
+siennes = sien:Noun{gender=f,number=pl}
+nôtre = nôtre:Noun{number=sg}
+nôtres = nôtre:Noun{number=pl}
+vôtre = vôtre:Noun{number=sg}
+vôtres = vôtre:Noun{number=pl}
+leur = leur:Noun{number=sg}
+leurs = leur:Noun{number=pl}
+
+# --- quantifiers. `tout` goes before an article (tout le monde, tous les
+# jours) and is a pronoun and an adverb too (tout est prêt, tout petit).
+chaque = chaque:Det{definite=no,number=sg}
+plusieurs = plusieurs:Det{definite=no,number=pl}
+plusieurs = plusieurs:Pron{case=nom,person=3,number=pl,clitic=no}
+plusieurs = plusieurs:Pron{case=obl,person=3,number=pl,clitic=no}
+quelques = quelque:Det{definite=no,number=pl}
+quelque = quelque:Det{definite=no,number=sg}
+certains = certain:Det{definite=no,gender=m,number=pl}
+certaines = certain:Det{definite=no,gender=f,number=pl}
+certains = certain:Pron{case=nom,person=3,number=pl,gender=m,clitic=no}
+certaines = certain:Pron{case=nom,person=3,number=pl,gender=f,clitic=no}
+certain = certain:Adj{gender=m,number=sg}
+certaine = certain:Adj{gender=f,number=sg}
+certains = certain:Adj{gender=m,number=pl}
+certaines = certain:Adj{gender=f,number=pl}
+tout = tout:Predet{gender=m,number=sg}
+toute = tout:Predet{gender=f,number=sg}
+tous = tout:Predet{gender=m,number=pl}
+toutes = tout:Predet{gender=f,number=pl}
+tout = tout:Det{definite=no,gender=m,number=sg}
+toute = tout:Det{definite=no,gender=f,number=sg}
+tout = tout:Pron{case=nom,person=3,number=sg,clitic=no}
+tout = tout:Pron{case=obl,person=3,number=sg,clitic=no}
+tous = tout:Pron{case=nom,person=3,number=pl,gender=m,clitic=no}
+tous = tout:Pron{case=obl,person=3,number=pl,gender=m,clitic=no}
+toutes = tout:Pron{case=nom,person=3,number=pl,gender=f,clitic=no}
+toutes = tout:Pron{case=obl,person=3,number=pl,gender=f,clitic=no}
+tout = tout:Adv
+toute = tout:Adv
+toutes = tout:Adv
+tout = tout:Noun{gender=m,number=sg}
+chacun = chacun:Pron{case=nom,person=3,number=sg,gender=m,clitic=no}
+chacun = chacun:Pron{case=obl,person=3,number=sg,gender=m,clitic=no}
+chacune = chacun:Pron{case=nom,person=3,number=sg,gender=f,clitic=no}
+chacune = chacun:Pron{case=obl,person=3,number=sg,gender=f,clitic=no}
+quelqu'un = quelqu'un:Pron{case=nom,person=3,number=sg,clitic=no}
+quelqu'un = quelqu'un:Pron{case=obl,person=3,number=sg,clitic=no}
+autrui = autrui:Pron{case=obl,person=3,number=sg,clitic=no}
+# quantity words before de + noun (beaucoup de gens, trop de travail); they
+# are adverbs too (j'ai beaucoup mangé)
+beaucoup = beaucoup:Quant
+beaucoup = beaucoup:Adv
+trop = trop:Quant
+trop = trop:Adv
+peu = peu:Quant
+peu = peu:Adv
+assez = assez:Quant
+assez = assez:Adv
+tant = tant:Quant
+autant = autant:Quant
+autant = autant:Adv
+moins = moins:Quant
+moins = moins:Adv
+plus = plus:Quant
+combien = combien:QQuant
+combien = combien:QAdv
+
+# --- question words
+où = où:QAdv
+quand = quand:QAdv
+comment = comment:QAdv
+pourquoi = pourquoi:QAdv
+qui = qui:QPron{person=3,number=sg}
+que = que:QPron{person=3,number=sg}
+qu' = que:QPron{person=3,number=sg}
+quoi = quoi:QPron{person=3,number=sg}
+quel = quel:QDet{gender=m,number=sg}
+quelle = quel:QDet{gender=f,number=sg}
+quels = quel:QDet{gender=m,number=pl}
+quelles = quel:QDet{gender=f,number=pl}
+lequel = lequel:QPron{gender=m,number=sg}
+laquelle = lequel:QPron{gender=f,number=sg}
+lesquels = lequel:QPron{gender=m,number=pl}
+lesquelles = lequel:QPron{gender=f,number=pl}
+
+# --- relative pronouns
+qui = qui:RelPron{role=subject}
+qui = qui:RelPron{role=prep}
+que = que:RelPron{role=object}
+qu' = que:RelPron{role=object}
+dont = dont:RelPron{role=gen}
+où = où:RelPron{role=place}
+quoi = quoi:RelPron{role=prep}
+lequel = lequel:RelPron{role=prep,gender=m,number=sg}
+laquelle = lequel:RelPron{role=prep,gender=f,number=sg}
+lesquels = lequel:RelPron{role=prep,gender=m,number=pl}
+lesquelles = lequel:RelPron{role=prep,gender=f,number=pl}
+auquel = à:Prep + lequel:RelPron{role=prep,gender=m,number=sg}
+auxquels = à:Prep + lequel:RelPron{role=prep,gender=m,number=pl}
+auxquelles = à:Prep + lequel:RelPron{role=prep,gender=f,number=pl}
+duquel = de:Prep + lequel:RelPron{role=prep,gender=m,number=sg}
+desquels = de:Prep + lequel:RelPron{role=prep,gender=m,number=pl}
+desquelles = de:Prep + lequel:RelPron{role=prep,gender=f,number=pl}
+
+# --- answers and interjections
+oui = oui:Intj
+non = non:Intj
+non = non:Adv
+si = si:Intj
+si = si:Adv
+merci = merci:Intj
+merci = merci:Noun{gender=f}
+bon = bon:Intj
+bon = bon:Adj{gender=m,number=sg}
+eh = eh:Intj
+oh = oh:Intj
+ah = ah:Intj
+hélas = hélas:Intj
+bonjour = bonjour:Intj
+bonjour = bonjour:Noun{gender=m,number=sg}
+salut = salut:Intj
+salut = salut:Noun{gender=m,number=sg}

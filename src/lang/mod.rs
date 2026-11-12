@@ -1,7 +1,8 @@
 //! Languages: what each one provides ([`Language`]) and the ones there are.
-//! Adding a language means a module like [`it`], its files under `data/<code>/`,
+//! Adding a language means a module like [`it`] or [`fr`], its files under `data/<code>/`,
 //! and a line in [`load`].
 
+pub mod fr;
 pub mod it;
 
 use std::str::FromStr;
@@ -23,17 +24,20 @@ pub trait Language: Send + Sync {
 
 #[derive(Debug, thiserror::Error)]
 pub enum LoadError {
-    #[error("{0} is not supported yet; supported: it")]
+    #[error("{0} is not supported yet; supported: it, fr")]
     Unsupported(&'static str),
     #[error(transparent)]
     Grammar(#[from] GrammarError),
     #[error(transparent)]
     Data(#[from] it::DataError),
+    #[error(transparent)]
+    DataFr(#[from] fr::DataError),
 }
 
 pub fn load(lang: Lang) -> Result<Box<dyn Language>, LoadError> {
     match lang {
         Lang::It => Ok(Box::new(it::Italian::load()?)),
+        Lang::Fr => Ok(Box::new(fr::French::load()?)),
         other => Err(LoadError::Unsupported(other.code())),
     }
 }

@@ -1,0 +1,42 @@
+# Corrections to the Word Holder API's French answers (dictionary v19,
+# lemmatize as of wordy master 2026-11-12). Applied by gramalysis on top of the
+# API; `--no-patches` shows the API unpatched. Each line says why; delete a
+# line once the API answers it correctly.
+#
+# form  op  lemma  pos  features            (+ add, = replace all, - remove)
+
+# Adjectives the dictionary lacks for a present participle
+pressant  +  pressant  adj  # "quelque chose de plus pressant": only presser's participle is returned
+
+# Plural nouns the dictionary lacks when the plural is also a verb form
+# (only the verb's 2nd singular or 1st plural is returned). Systematic in the
+# API; listed here for the forms of the Tatoeba homograph set.
+alertes     +  alerte     noun  gender=feminine,number=plural   # only alerter is returned
+approches   +  approche   noun  gender=feminine,number=plural   # only approcher is returned
+baisses     +  baisse     noun  gender=feminine,number=plural   # only baisser is returned
+combats     +  combat     noun  gender=masculine,number=plural  # only combattre is returned
+critiques   +  critique   noun  number=plural                   # only critiquer is returned
+critiques   +  critique   adj   number=plural                   # only critiquer is returned
+dates       +  date       noun  gender=feminine,number=plural   # only dater is returned
+doutes      +  doute      noun  gender=masculine,number=plural  # only douter (and a bogus infinitive) is returned
+doutes      -  doutes     verb                                  # "doutes" returned as an infinitive of itself
+mentions    +  mention    noun  gender=feminine,number=plural   # only mentir is returned
+ménages     +  ménage     noun  gender=masculine,number=plural  # only ménager is returned
+notions     +  notion     noun  gender=feminine,number=plural   # only noter is returned
+pressions   +  pression   noun  gender=feminine,number=plural   # only presser is returned
+programmes  +  programme  noun  gender=masculine,number=plural  # only programmer is returned
+ruines      +  ruine      noun  gender=feminine,number=plural   # only ruiner is returned
+répliques   +  réplique   noun  gender=feminine,number=plural   # only répliquer is returned
+réserves    +  réserve    noun  gender=feminine,number=plural   # only réserver is returned
+soutiens    +  soutien    noun  gender=masculine,number=plural  # only soutenir is returned
+visas       +  visa       noun  gender=masculine,number=plural  # only viser is returned
+casses      +  casse      noun  gender=feminine,number=plural   # only casser is returned
+
+# Feminine adjectives the dictionary lacks when the form is also a verb form
+complètes   +  complet    adj   gender=feminine,number=plural   # only compléter is returned
+fréquente   +  fréquent   adj   gender=feminine,number=singular # only fréquenter is returned
+fréquentes  +  fréquent   adj   gender=feminine,number=plural   # only fréquenter is returned
+présentes   +  présent    adj   gender=feminine,number=plural   # only the noun présente and présenter are returned
+
+# Readings that are not French words
+resta  -  resta  noun  # no French noun resta; only rester's passé simple is right

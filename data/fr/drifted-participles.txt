@@ -1,0 +1,6 @@
+# Past participles whose adjective has drifted away from the verb's meaning.
+# For these, the adjective is its own word; the verb's participle still
+# exists where the sentence uses it as a verb.
+#
+# One adjective per line, masculine singular.
+parfait
