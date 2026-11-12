@@ -94,8 +94,8 @@
 380824	amo	amare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
 3471846	andatevene	andarsene	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
 706198	anima	anima	noun		claude-opus-5.5@2026-11-12		
-1859497	animato	animare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj animato
-5778704	animato	animare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj animato
+1859497	animato	animato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+5778704	animato	animato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 14045680	animi	animo	noun		claude-opus-5.5@2026-11-12		outside candidates: plural of noun animo
 1243646	annuncio	annuncio	noun		claude-opus-5.5@2026-11-12		
 5148669	anticipato	anticipare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
@@ -149,8 +149,8 @@
 1805207	autorizzate	autorizzato	adj		claude-opus-5.5@2026-11-12		ambiguous: verb autorizzare non_finite.past_participle (stative passive)
 1805208	autorizzate	autorizzato	adj		claude-opus-5.5@2026-11-12		ambiguous: verb autorizzare non_finite.past_participle (stative passive)
 2287045	autorizzato	autorizzare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-2815972	autorizzato	autorizzare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		ambiguous: verb autorizzare non_finite.past_participle (stative passive); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj autorizzato
-2815973	autorizzato	autorizzare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		ambiguous: verb autorizzare non_finite.past_participle (stative passive); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj autorizzato
+2815972	autorizzato	autorizzato	adj		claude-opus-5.5@2026-11-12		ambiguous: verb autorizzare non_finite.past_participle (stative passive); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+2815973	autorizzato	autorizzato	adj		claude-opus-5.5@2026-11-12		ambiguous: verb autorizzare non_finite.past_participle (stative passive); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 6545949	avanzammo	avanzare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 845713	avanzarono	avanzare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
 1559298	avanzi	avanzo	noun		claude-opus-5.5@2026-11-12		outside candidates: plural noun (leftovers)
@@ -335,7 +335,7 @@
 6593054	conosceste	conoscere	verb	subjunctive.imperfect.2p	claude-opus-5.5@2026-11-12		
 2675396	conoscevate	conoscere	verb	indicative.imperfect.2p	claude-opus-5.5@2026-11-12		
 350317	conosciuto	conoscere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-388778	conosciuto	conoscere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: attributive adjective (contrasted with sconosciuta); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj conosciuto
+388778	conosciuto	conosciuto	adj		claude-opus-5.5@2026-11-12		outside candidates: attributive adjective (contrasted with sconosciuta); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 410223	consiglio	consigliare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
 838264	consiglio	consigliare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
 8423243	consumi	consumo	noun		claude-opus-5.5@2026-11-12		
@@ -357,7 +357,7 @@
 2020181	controllato	controllare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 2163423	controlli	controllare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal imperative (Lei)
 5727194	convenuto	convenire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-635221	convinto	convincere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj convinto
+635221	convinto	convinto	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 12757947	corremmo	correre	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 350280	costo	costo	noun		claude-opus-5.5@2026-11-12		outside candidates: noun (ad ogni costo)
 387939	costo	costo	noun		claude-opus-5.5@2026-11-12		outside candidates: noun
@@ -371,7 +371,7 @@
 350471	credo	credere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
 350537	credo	credere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
 2688316	crescete	crescere	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
-2194204	cresciuto	crescere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj cresciuto
+2194204	cresciuto	cresciuto	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 2823108	crollo	crollo	noun		claude-opus-5.5@2026-11-12		
 2823109	crollo	crollo	noun		claude-opus-5.5@2026-11-12		
 2823110	crollo	crollo	noun		claude-opus-5.5@2026-11-12		
@@ -402,7 +402,7 @@
 6672043	deluda	deludere	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal imperative (Lei)
 2798709	deludente	deludente	adj		claude-opus-5.5@2026-11-12		
 4459074	deluse	deluso	adj		claude-opus-5.5@2026-11-12		outside candidates: predicative adjective (fem. pl.), not past_historic
-1012626	deluso	deludere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj deluso
+1012626	deluso	deluso	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 1246118	deluso	deludere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 4428495	demmo	dare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 4428497	demmo	dare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
@@ -463,7 +463,7 @@
 361909	durante	durante	prep		claude-opus-5.5@2026-11-12		
 382118	durante	durante	prep		claude-opus-5.5@2026-11-12		
 1392389	ebbi	avere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
-2395748	emozionato	emozionare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj emozionato
+2395748	emozionato	emozionato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 613750	emozioni	emozione	noun		claude-opus-5.5@2026-11-12		
 1677692	entrammo	entrare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 1677693	entrammo	entrare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
@@ -511,8 +511,8 @@
 2834819	figura	figura	noun		claude-opus-5.5@2026-11-12		
 2834820	figura	figura	noun		claude-opus-5.5@2026-11-12		
 2834821	figura	figura	noun		claude-opus-5.5@2026-11-12		
-4487174	filato	filare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: adjective (zucchero filato); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj filato
-4487198	filato	filare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: adjective (zucchero filato); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj filato
+4487174	filato	filato	adj		claude-opus-5.5@2026-11-12		outside candidates: adjective (zucchero filato); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+4487198	filato	filato	adj		claude-opus-5.5@2026-11-12		outside candidates: adjective (zucchero filato); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 440386	fili	filo	noun		claude-opus-5.5@2026-11-12		
 7893527	fili	filo	noun		claude-opus-5.5@2026-11-12		
 1605941	filo	filo	noun		claude-opus-5.5@2026-11-12		outside candidates: noun
@@ -600,7 +600,7 @@
 6702389	imbarazzate	imbarazzato	adj		claude-opus-5.5@2026-11-12		outside candidates: predicative adjective (fem. pl.)
 7551744	imbarazzate	imbarazzato	adj		claude-opus-5.5@2026-11-12		outside candidates: predicative adjective (fem. pl.)
 3310555	imparavano	imparare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
-2018220	impegnato	impegnare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj impegnato
+2018220	impegnato	impegnato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 6784162	impiegate	impiegato	noun		claude-opus-5.5@2026-11-12		outside candidates: fem. pl. noun (impiegata)
 11033637	impiegate	impiegato	noun		claude-opus-5.5@2026-11-12		outside candidates: fem. pl. noun (impiegata)
 626443	impiegato	impiegato	noun		claude-opus-5.5@2026-11-12		
@@ -759,7 +759,7 @@
 860587	nuotò	nuotare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 14028495	nuotò	nuotare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 2356417	nutrite	nutrire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: feminine plural past participle (ci siamo nutrite)
-350477	occupato	occupare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj occupato
+350477	occupato	occupato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 6965486	odiai	odiare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 6965487	odiai	odiare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 2162679	odiaste	odiare	verb	subjunctive.imperfect.2p	claude-opus-5.5@2026-11-12		
@@ -969,7 +969,7 @@
 4527404	rubano	rubare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
 11862108	rubate	rubare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
 376598	rubato	rubare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-1885756	rubato	rubare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj rubato
+1885756	rubato	rubato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 4394417	rubino	rubare	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
 980355	ruota	ruotare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
 3136887	salimmo	salire	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
@@ -985,7 +985,7 @@
 4521	sapresti	sapere	verb	conditional.present.2s	claude-opus-5.5@2026-11-12		
 1082250	sapresti	sapere	verb	conditional.present.2s	claude-opus-5.5@2026-11-12		
 2215839	saprà	sapere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
-351099	sbagliato	sbagliare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj sbagliato
+351099	sbagliato	sbagliato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 1525331	sbaglio	sbagliare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
 11727858	sbatti	sbattere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
 13140951	scambi	scambiare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		ambiguous: indicative.present.2s statement; read as formal (Lei) negative imperative
@@ -1006,7 +1006,7 @@
 3375623	scivolo	scivolo	noun		claude-opus-5.5@2026-11-12		outside candidates: noun (slide)
 3375624	scivolo	scivolo	noun		claude-opus-5.5@2026-11-12		outside candidates: noun (slide)
 4231905	sconfiggemmo	sconfiggere	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
-3841538	sconosciuto	sconoscere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: adjective (unknown); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj sconosciuto
+3841538	sconosciuto	sconosciuto	adj		claude-opus-5.5@2026-11-12		outside candidates: adjective (unknown); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 872056	sconvolto	sconvolgere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 5336436	scoppiammo	scoppiare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 3759594	scoppiato	scoppiare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
@@ -1019,7 +1019,7 @@
 1710405	scriverà	scrivere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
 1923015	scriverà	scrivere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
 610112	scusa	scusa	noun		claude-opus-5.5@2026-11-12		
-384831	segnate	segnare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidate cells: passive participle (sono segnate)
+384831	segnate	segnato	adj		claude-opus-5.5@2026-11-12		outside candidate cells: passive participle (sono segnate); relabeled 2026-11-12 (owner policy: essere + participle of an avere verb with no passive marker is a state, an adjective use)
 3251689	segnato	segnare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 350505	seguente	seguente	adj		claude-opus-5.5@2026-11-12		outside candidates: adjective
 350567	seguirono	seguire	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
@@ -1050,7 +1050,7 @@
 3264171	sogno	sognare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
 11630061	sollevai	sollevare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 2700438	sopravvissuto	sopravvissuto	noun		claude-opus-5.5@2026-11-12		
-350792	sorpreso	sorprendere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj sorpreso
+350792	sorpreso	sorpreso	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 1016586	sorrise	sorridere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 6141956	sorrisero	sorridere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
 379317	sorto	sorgere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
@@ -1072,13 +1072,13 @@
 5868376	sperare	sperare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
 763694	spese	spesa	noun		claude-opus-5.5@2026-11-12		
 602488	spezzato	spezzare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-1274987	spezzato	spezzare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: adjective (cuore spezzato); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj spezzato
+1274987	spezzato	spezzato	adj		claude-opus-5.5@2026-11-12		outside candidates: adjective (cuore spezzato); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 2278072	spiegai	spiegare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 4860657	spinsi	spingere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 13327954	sposai	sposare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 2470442	sposaste	sposare	verb	subjunctive.imperfect.2p	claude-opus-5.5@2026-11-12		
 2038100	sposate	sposato	adj		claude-opus-5.5@2026-11-12		outside candidates: adjective (siete sposate)
-2196400	sposato	sposare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj sposato
+2196400	sposato	sposato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 6593036	sposiate	sposare	verb	subjunctive.present.2p	claude-opus-5.5@2026-11-12		
 6593039	sposiate	sposare	verb	subjunctive.present.2p	claude-opus-5.5@2026-11-12		
 3377405	sposo	sposare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
@@ -1103,7 +1103,7 @@
 375227	studiato	studiare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 378715	studiato	studiare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 2966781	stupendo	stupendo	adj		claude-opus-5.5@2026-11-12		outside candidates: adjective
-4405863	sudate	sudare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: adjective (mani sudate); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj sudato
+4405863	sudate	sudato	adj		claude-opus-5.5@2026-11-12		outside candidates: adjective (mani sudate); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 1022011	suggerii	suggerire	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 1530349	suggerii	suggerire	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 2401033	suonai	suonare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
@@ -1157,7 +1157,7 @@
 8858639	uccisi	uccidere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 8672411	umiliate	umiliato	adj		claude-opus-5.5@2026-11-12		outside candidates: adjective (sentirsi umiliate)
 4573347	umiliò	umiliare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
-968041	unito	unire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		part of proper name "Regno Unito"; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj unito
+968041	unito	unito	adj		claude-opus-5.5@2026-11-12		part of proper name "Regno Unito"; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 3482867	unito	unire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 5169325	urlai	urlare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 4465714	urli	urlare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		ambiguous: indicative.present.2s; read as formal (Lei) negative imperative
@@ -1190,7 +1190,7 @@
 3334201	versi	versare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		ambiguous: indicative.present.2s; read as formal (Lei) imperative
 380670	veste	vestire	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
 2723498	vesti	vestire	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
-872051	vestito	vestire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: adjective (dressed as); ambiguous: verb past participle; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj vestito
+872051	vestito	vestito	adj		claude-opus-5.5@2026-11-12		outside candidates: adjective (dressed as); ambiguous: verb past participle; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 2959800	viaggiai	viaggiare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 2959801	viaggiai	viaggiare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 2437016	vinco	vincere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
@@ -1285,8 +1285,8 @@
 4507144	aggiornare	aggiornare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
 5556068	aggiornare	aggiornare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
 5930540	aggiornare	aggiornare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
-717854	aggiornato	aggiornare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj aggiornato
-2170432	aggiornato	aggiornare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj aggiornato
+717854	aggiornato	aggiornato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+2170432	aggiornato	aggiornato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 11543970	aggiornò	aggiornare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 11776857	aggiornò	aggiornare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 11845347	aggiornò	aggiornare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
@@ -1362,12 +1362,12 @@
 374115	anticipo	anticipo	noun		claude-opus-5.5@2026-11-12		in anticipo
 380881	anticipo	anticipo	noun		claude-opus-5.5@2026-11-12		in anticipo
 612676	anticipo	anticipo	noun		claude-opus-5.5@2026-11-12		in anticipo
-374312	aperto	aprire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj aperto
+374312	aperto	aperto	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 11572508	apparente	apparente	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: present participle: an adjective unless it carries the verb's complements)
 2728521	appassionate	appassionato	adj		claude-opus-5.5@2026-11-12		outside candidates (adj appassionato, fem. pl.)
 2728522	appassionate	appassionato	adj		claude-opus-5.5@2026-11-12		outside candidates (adj appassionato, fem. pl.)
 3629040	appassionate	appassionato	adj		claude-opus-5.5@2026-11-12		outside candidates (adj appassionato, fem. pl.)
-662901	appassionato	appassionare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj appassionato
+662901	appassionato	appassionato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 8869559	appello	appello	noun		claude-opus-5.5@2026-11-12		outside candidates (noun)
 1246418	appese	appendere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 1545912	appoggio	appoggio	noun		claude-opus-5.5@2026-11-12		
@@ -1379,7 +1379,7 @@
 3400278	apprezzai	apprezzare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 481650	apprezzato	apprezzare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 621024	apprezzato	apprezzare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-4988060	apprezzato	apprezzare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj apprezzato
+4988060	apprezzato	apprezzato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 585803	approfittate	approfittare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
 3139658	approfittò	approfittare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 13322555	aprimmo	aprire	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
@@ -1390,7 +1390,7 @@
 713992	argomento	argomento	noun		claude-opus-5.5@2026-11-12		
 1115593	arrabbiate	arrabbiato	adj		claude-opus-5.5@2026-11-12		outside candidates (adj arrabbiato, fem. pl.)
 2059413	arrabbiate	arrabbiato	adj		claude-opus-5.5@2026-11-12		outside candidates (adj arrabbiato, fem. pl.)
-432865	arrabbiato	arrabbiare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj arrabbiato
+432865	arrabbiato	arrabbiato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 1268012	arrestare	arrestare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
 1268013	arrestare	arrestare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
 1268017	arrestare	arrestare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
@@ -1508,7 +1508,7 @@
 11576378	buttai	buttare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 664330	caccia	caccia	noun		claude-opus-5.5@2026-11-12		
 1549559	caccia	cacciare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
-844058	caduto	cadere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates (adj, un ramo caduto); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj caduto
+844058	caduto	caduto	adj		claude-opus-5.5@2026-11-12		outside candidates (adj, un ramo caduto); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 12992085	cala	calare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
 350378	calcio	calcio	noun		claude-opus-5.5@2026-11-12		outside candidates (noun)
 3487475	calcoli	calcolo	noun		claude-opus-5.5@2026-11-12		
@@ -1600,11 +1600,11 @@
 713917	chiesi	chiedere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 776154	chiusi	chiuso	adj		claude-opus-5.5@2026-11-12		
 350985	chiuso	chiudere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-851670	chiuso	chiudere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj chiuso
+851670	chiuso	chiuso	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 1068291	circolo	circolo	noun		claude-opus-5.5@2026-11-12		
-683395	coinvolto	coinvolgere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		ambiguous: passive pp of coinvolgere; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj coinvolto
-6034253	coinvolto	coinvolgere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj coinvolto
-2933176	collegato	collegare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		ambiguous: passive pp of collegare; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj collegato
+683395	coinvolto	coinvolto	adj		claude-opus-5.5@2026-11-12		ambiguous: passive pp of coinvolgere; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+6034253	coinvolto	coinvolto	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+2933176	collegato	collegato	adj		claude-opus-5.5@2026-11-12		ambiguous: passive pp of collegare; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 2942364	colleghi	collega	noun		claude-opus-5.5@2026-11-12		
 2942365	colleghi	collega	noun		claude-opus-5.5@2026-11-12		
 3139872	colleghi	collega	noun		claude-opus-5.5@2026-11-12		
@@ -1616,7 +1616,7 @@
 569594	commenti	commento	noun		claude-opus-5.5@2026-11-12		
 385814	commesso	commettere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 6585566	commisi	commettere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
-11558866	compiuto	compiere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj compiuto
+11558866	compiuto	compiuto	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 5576881	compié	compiere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 5576882	compié	compiere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 465472	completa	completare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
@@ -1638,10 +1638,10 @@
 1964324	concentrato	concentrare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 376196	condannato	condannare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 6777069	condividemmo	condividere	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
-12039118	condivisi	condividere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj condiviso
+12039118	condivisi	condiviso	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 945965	condiviso	condividere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 945966	condiviso	condividere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-13255039	condizionato	condizionare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj condizionato
+13255039	condizionato	condizionato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 606132	condizioni	condizione	noun		claude-opus-5.5@2026-11-12		
 759987	conducente	conducente	noun		claude-opus-5.5@2026-11-12		
 883302	conducente	conducente	noun		claude-opus-5.5@2026-11-12		
@@ -1685,7 +1685,7 @@
 11808097	continuammo	continuare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 13322514	contrasse	contrarre	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 610063	contratto	contratto	noun		claude-opus-5.5@2026-11-12		outside candidates
-3007438	contratto	contrarre	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj contratto
+3007438	contratto	contratto	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 2560219	controllate	controllare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
 2198454	controlli	controllare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		
 2801223	controllo	controllare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
@@ -1693,10 +1693,10 @@
 1057369	conveniente	conveniente	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: present participle: an adjective unless it carries the verb's complements)
 1307420	conveniente	conveniente	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: present participle: an adjective unless it carries the verb's complements)
 5676727	convenuto	convenire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-10960885	convenuto	convenire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj convenuto
-5339113	coordinato	coordinare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj coordinato
-5339114	coordinato	coordinare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj coordinato
-381180	coperto	coprire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; ambiguous: passive pp of coprire; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj coperto
+10960885	convenuto	convenuto	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+5339113	coordinato	coordinato	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+5339114	coordinato	coordinato	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+381180	coperto	coperto	adj		claude-opus-5.5@2026-11-12		outside candidates; ambiguous: passive pp of coprire; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 5289645	copia	copiare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
 5289647	copia	copiare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
 1548250	corona	corona	noun		claude-opus-5.5@2026-11-12		outside candidates
@@ -1745,7 +1745,7 @@
 3371430	delinquente	delinquente	noun		claude-opus-5.5@2026-11-12		outside candidates
 4509529	deludente	deludente	adj		claude-opus-5.5@2026-11-12		
 4509530	deludente	deludente	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: present participle: an adjective unless it carries the verb's complements)
-1889188	deluso	deludere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj deluso
+1889188	deluso	deluso	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 4741775	denuncia	denuncia	noun		claude-opus-5.5@2026-11-12		
 3133575	depositate	depositare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
 13123586	depositate	depositare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
@@ -1754,9 +1754,9 @@
 13123583	depositi	depositare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
 13123587	depositi	depositare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
 1875450	deposito	deposito	noun		claude-opus-5.5@2026-11-12		
-7999421	depresse	deprimere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj depresso
-6582409	depressi	deprimere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj depresso
-6582410	depressi	deprimere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj depresso
+7999421	depresse	depresso	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+6582409	depressi	depresso	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+6582410	depressi	depresso	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 10912702	descrivereste	descrivere	verb	conditional.present.2p	claude-opus-5.5@2026-11-12		
 3521761	desiderate	desiderare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
 946328	desiderato	desiderare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		passive
@@ -1813,8 +1813,8 @@
 2244126	diventai	diventare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 4841894	diventerete	diventare	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
 12750131	divertì	divertire	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
-7561830	divorziate	divorziare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj divorziato
-7561832	divorziate	divorziare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj divorziato
+7561830	divorziate	divorziato	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+7561832	divorziate	divorziato	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 612113	divorzio	divorzio	noun		claude-opus-5.5@2026-11-12		
 4472	do	dare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
 607325	documento	documento	noun		claude-opus-5.5@2026-11-12		
@@ -1848,7 +1848,7 @@
 2395745	emozionate	emozionato	adj		claude-opus-5.5@2026-11-12		outside candidates
 2496088	emozionate	emozionato	adj		claude-opus-5.5@2026-11-12		outside candidates
 2496089	emozionate	emozionato	adj		claude-opus-5.5@2026-11-12		outside candidates
-612669	emozionato	emozionare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj emozionato
+612669	emozionato	emozionato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 3483027	entrammo	entrare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 980101	entusiasmo	entusiasmo	noun		claude-opus-5.5@2026-11-12		outside candidates
 2336370	entusiasmo	entusiasmo	noun		claude-opus-5.5@2026-11-12		outside candidates
@@ -1857,7 +1857,7 @@
 9022283	ereditarono	ereditare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
 632021	esatto	esatto	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: adjective with a meaning of its own (data/it/drifted-participles.txt))
 6038894	esaurirono	esaurire	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
-3040346	escluso	escludere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; ambiguous: escludere non_finite.past_participle; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj escluso
+3040346	escluso	escluso	adj		claude-opus-5.5@2026-11-12		outside candidates; ambiguous: escludere non_finite.past_participle; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 888242	eserciti	esercitare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
 634528	esercito	esercito	noun		claude-opus-5.5@2026-11-12		outside candidates
 8326075	esercito	esercitare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
@@ -1886,7 +1886,7 @@
 388169	fate	fare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
 11546432	ferii	ferire	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 749957	ferite	ferita	noun		claude-opus-5.5@2026-11-12		
-625057	ferito	ferire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates (adj, not noun); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj ferito
+625057	ferito	ferito	adj		claude-opus-5.5@2026-11-12		outside candidates (adj, not noun); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 823781	ferma	fermare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
 11121617	fermammo	fermare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 2421021	fermate	fermare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidate cells (past participle, agreeing with le)
@@ -1896,19 +1896,19 @@
 1603858	fermo	fermo	adj		claude-opus-5.5@2026-11-12		outside candidates
 401756	fila	fila	noun		claude-opus-5.5@2026-11-12		
 996372	fila	fila	noun		claude-opus-5.5@2026-11-12		
-4415934	filato	filare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates (zucchero filato); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj filato
+4415934	filato	filato	adj		claude-opus-5.5@2026-11-12		outside candidates (zucchero filato); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 11102548	fili	filo	noun		claude-opus-5.5@2026-11-12		
 2477791	filmato	filmare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 5277497	filmato	filmare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 1548608	filo	filo	noun		claude-opus-5.5@2026-11-12		outside candidates
 828154	finissi	finire	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		
 350322	finito	finire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-1543982	finito	finire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj finito
+1543982	finito	finito	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 9024809	finsero	fingere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
 634347	finto	fingere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 1006737	finto	fingere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 1545933	firma	firma	noun		claude-opus-5.5@2026-11-12		
-7749188	firmato	firmare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj firmato
+7749188	firmato	firmato	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 3860472	fischi	fischiare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		ambiguous: indicative.present.2s
 570553	fischio	fischio	noun		claude-opus-5.5@2026-11-12		outside candidates
 11542695	fischio	fischio	noun		claude-opus-5.5@2026-11-12		outside candidates
@@ -2006,7 +2006,7 @@
 2513751	impari	imparare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		ambiguous: indicative.present.2s
 3228448	impari	imparare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		ambiguous: indicative.present.2s
 723121	impatto	impatto	noun		claude-opus-5.5@2026-11-12		outside candidates
-4440	impegnato	impegnare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj impegnato
+4440	impegnato	impegnato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 350988	impegno	impegno	noun		claude-opus-5.5@2026-11-12		
 1510472	impieghi	impiego	noun		claude-opus-5.5@2026-11-12		outside candidates
 13877499	impieghi	impiegare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
@@ -2060,7 +2060,7 @@
 2457192	insulto	insulto	noun		claude-opus-5.5@2026-11-12		outside candidates
 8942406	insultò	insultare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 350390	interessante	interessante	adj		claude-opus-5.5@2026-11-12		
-350352	interessato	interessare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj interessato
+350352	interessato	interessato	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 385094	interessi	interesse	noun		claude-opus-5.5@2026-11-12		
 1061254	interessi	interessare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
 399290	interpretare	interpretare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
@@ -2176,10 +2176,10 @@
 1004039	morse	mordere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 1988369	morse	mordere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 13084809	morsero	mordere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
-350426	morto	morire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		adjective use (un uomo morto); outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj morto
+350426	morto	morto	adj		claude-opus-5.5@2026-11-12		adjective use (un uomo morto); outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 350987	morto	morire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-3121922	mossi	muovere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj mosso
-9935853	mosso	muovere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj mosso
+3121922	mossi	mosso	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+9935853	mosso	mosso	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 376186	mostrai	mostrare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 1184974	mostrammo	mostrare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 1184978	mostrammo	mostrare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
@@ -2208,7 +2208,7 @@
 6583159	odino	odiare	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
 707142	odio	odio	noun		claude-opus-5.5@2026-11-12		
 653813	offeso	offendere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		passive with agent (dalla sua risposta); ambiguous: adj offeso
-7545037	offeso	offendere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj offeso
+7545037	offeso	offeso	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 10123696	offrimmo	offrire	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 13684887	onori	onorare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		
 374203	opera	opera	noun		claude-opus-5.5@2026-11-12		
@@ -2273,7 +2273,7 @@
 1102312	persero	perdere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
 374256	persi	perdere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 1411970	persi	perdere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
-4242526	pervertito	pervertire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj pervertito
+4242526	pervertito	pervertito	adj		claude-opus-5.5@2026-11-12		outside candidates; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 8426574	piacerai	piacere	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
 350330	piacere	piacere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
 8029958	piacerei	piacere	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
@@ -2313,7 +2313,7 @@
 13739135	praticate	praticare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
 717812	precisa	preciso	adj		claude-opus-5.5@2026-11-12		
 1946471	preferite	preferire	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
-374329	preferito	preferire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates (candidate lemma malformed); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj preferito
+374329	preferito	preferito	adj		claude-opus-5.5@2026-11-12		outside candidates (candidate lemma malformed); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 5019745	pregate	pregare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		ambiguous: indicative.present.2p
 4697174	premette	premere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 4747737	premette	premere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
@@ -2322,8 +2322,8 @@
 716377	prenderete	prendere	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
 1724601	prenderete	prendere	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
 13113309	preoccupante	preoccupante	adj		claude-opus-5.5@2026-11-12		
-395950	preoccupato	preoccupare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj preoccupato
-1217322	preoccupato	preoccupare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		ambiguous: verb past participle (passive); relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj preoccupato
+395950	preoccupato	preoccupato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
+1217322	preoccupato	preoccupato	adj		claude-opus-5.5@2026-11-12		ambiguous: verb past participle (passive); kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 621024	preparato	preparare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 350304	prese	prendere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 353211	prese	prendere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
@@ -2434,7 +2434,7 @@
 13043969	riscontro	riscontro	noun		claude-opus-5.5@2026-11-12		
 385168	risero	ridere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
 13647729	riserva	riservare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
-1611536	riservato	riservare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj riservato
+1611536	riservato	riservato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 3134057	risi	ridere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 375010	riso	riso	noun		claude-opus-5.5@2026-11-12		outside candidates (rice)
 10206582	risolsero	risolvere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
@@ -2483,7 +2483,7 @@
 2470132	sareste	essere	verb	conditional.present.2p	claude-opus-5.5@2026-11-12		
 1539328	sbagli	sbagliare	verb	subjunctive.present.2s	claude-opus-5.5@2026-11-12		ambiguous: indicative.present.2s (colloquial indicative after 'ho paura che')
 2461339	sbagliate	sbagliare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		ambiguous: subjunctive.present.2p (same form; 'sono sicura che' allows both)
-612652	sbagliato	sbagliare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj sbagliato
+612652	sbagliato	sbagliato	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 6478492	sbagliavate	sbagliare	verb	indicative.imperfect.2p	claude-opus-5.5@2026-11-12		
 351661	sbaglio	sbaglio	noun		claude-opus-5.5@2026-11-12		
 9713241	scadde	scadere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
@@ -2502,7 +2502,7 @@
 3964907	schiacciate	schiacciare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: past participle (le hai schiacciate)
 3964909	schiacciate	schiacciare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: past participle (le ha schiacciate)
 13853269	scompari	scomparire	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
-4702664	scomparso	scomparire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj scomparso
+4702664	scomparso	scomparso	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 11545448	sconfiggemmo	sconfiggere	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 393456	sconfiggere	sconfiggere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
 3337002	sconfiggere	sconfiggere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
@@ -2553,7 +2553,7 @@
 2607709	smisero	smettere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
 8942235	smisero	smettere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
 423371	soccorso	soccorso	noun		claude-opus-5.5@2026-11-12		outside candidates: noun (generatore di soccorso)
-643210	soddisfatto	soddisfare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj soddisfatto
+643210	soddisfatto	soddisfatto	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 3377285	soffocò	soffocare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 3377286	soffocò	soffocare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
 1819144	soffrirei	soffrire	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
@@ -2611,7 +2611,7 @@
 8085381	spunti	spuntare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
 11577503	spunti	spunto	noun		claude-opus-5.5@2026-11-12		
 350936	sta	stare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		outside candidates' cells: imperative 2s sta' (apostrophe form)
-13766473	stabilito	stabilire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: adj stabilito; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj stabilito
+13766473	stabilito	stabilito	adj		claude-opus-5.5@2026-11-12		outside candidates: adj stabilito; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 11623476	staccai	staccare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 350438	stai	stare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
 409305	stanca	stanco	adj		claude-opus-5.5@2026-11-12		
@@ -2633,10 +2633,10 @@
 9753939	studierei	studiare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
 9753940	studierei	studiare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
 630482	stupito	stupire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-8225765	stupito	stupire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj stupito
+8225765	stupito	stupito	adj		claude-opus-5.5@2026-11-12		kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 4642	subito	subito	adv		claude-opus-5.5@2026-11-12		
 653744	subito	subire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-4405864	sudate	sudare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: adj sudato; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj sudato
+4405864	sudate	sudato	adj		claude-opus-5.5@2026-11-12		outside candidates: adj sudato; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 1969980	suonammo	suonare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
 13279692	superai	superare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
 13201615	supero	superare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
@@ -2648,7 +2648,7 @@
 946333	taglia	tagliare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
 3893032	tagliate	tagliare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: past participle (le hai tagliate)
 839179	tagliato	tagliare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
-3697673	tagliato	tagliare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		ambiguous: tagliare non_finite.past_participle; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj tagliato
+3697673	tagliato	tagliato	adj		claude-opus-5.5@2026-11-12		ambiguous: tagliare non_finite.past_participle; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 703904	taglio	taglio	noun		claude-opus-5.5@2026-11-12		
 842584	taglio	tagliare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
 4247083	tardo	tardo	adj		claude-opus-5.5@2026-11-12		
@@ -2766,7 +2766,7 @@
 715677	versato	versare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 2452286	versi	verso	noun		claude-opus-5.5@2026-11-12		
 2807913	vesti	vestire	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
-7751920	vestite	vestire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		outside candidates: adj vestito (ragazze vestite di bianco); ambiguous: vestire non_finite.past_participle; relabeled 2026-11-12 (owner policy: a participle used like an adjective is still the verb's participle); was adj vestito
+7751920	vestite	vestito	adj		claude-opus-5.5@2026-11-12		outside candidates: adj vestito (ragazze vestite di bianco); ambiguous: vestire non_finite.past_participle; kept adj 2026-11-12 (owner policy: after essere, or next to a noun, the participle of a verb that takes avere is a state, an adjective use; the auxiliary decides)
 13981102	viaggerò	viaggiare	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
 399714	viaggi	viaggio	noun		claude-opus-5.5@2026-11-12		
 1020019	viaggiammo	viaggiare	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		

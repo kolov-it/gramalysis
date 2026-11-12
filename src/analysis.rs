@@ -1,6 +1,6 @@
 //! Sentence in, parses out: the pipeline that ties the parts together.
 
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 
 use serde::Serialize;
 
@@ -41,6 +41,11 @@ pub struct TokenChoice {
     pub readings: Vec<Vec<Morpheme>>,
     /// Every parse read this token the same way.
     pub agreed: bool,
+    /// For each reading in `readings` (same order), the grammar rules that
+    /// used it across all parses: how the word functions in that reading
+    /// (`ap.participle`: a participle used like an adjective;
+    /// `v.perfect-essere`: in a compound tense).
+    pub uses: Vec<Vec<String>>,
 }
 
 pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str) -> Result<SentenceAnalysis, Error> {
@@ -56,47 +61,70 @@ pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str)
     let forest = parser::parse(language.grammar(), &lattice)?;
     let parse_count = forest.count();
     let parses = forest.trees(&lattice, MAX_TREES);
-    let chosen = choices(&tokens, &lattice, &forest.used_edges(), !forest.is_empty());
+    let chosen = choices(&tokens, &lattice, &forest.used_edges(), &forest.edge_rules(), !forest.is_empty());
     Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen })
 }
 
 /// Per token, the readings (paths of morphemes through the token) that the
 /// parses use. Built from the edges any parse uses, so it covers every parse,
 /// not only the ones kept as trees.
-fn choices(tokens: &[String], lattice: &Lattice, used: &HashSet<usize>, parsed: bool) -> Vec<TokenChoice> {
+fn choices(
+    tokens: &[String],
+    lattice: &Lattice,
+    used: &HashSet<usize>,
+    rules: &HashMap<usize, HashSet<String>>,
+    parsed: bool,
+) -> Vec<TokenChoice> {
     (0..tokens.len())
         .map(|t| {
-            let edges: Vec<&Edge> = lattice.edges.iter().enumerate().filter(|(e, edge)| edge.token == t && used.contains(e)).map(|(_, edge)| edge).collect();
-            let starts: HashSet<usize> = edges.iter().map(|e| e.from).collect();
-            let ends: HashSet<usize> = edges.iter().map(|e| e.to).collect();
-            let first_nodes: Vec<usize> = starts.difference(&ends).copied().collect();
-            let mut readings: Vec<Vec<Morpheme>> = Vec::new();
-            for start in first_nodes {
-                walk(&edges, start, &mut Vec::new(), &mut readings);
+            let edges: Vec<(usize, &Edge)> =
+                lattice.edges.iter().enumerate().filter(|(e, edge)| edge.token == t && used.contains(e)).collect();
+            let starts: HashSet<usize> = edges.iter().map(|(_, e)| e.from).collect();
+            let ends: HashSet<usize> = edges.iter().map(|(_, e)| e.to).collect();
+            let mut readings: Vec<(usize, Vec<Morpheme>)> = Vec::new();
+            for start in starts.difference(&ends) {
+                walk(&edges, *start, None, &mut Vec::new(), &mut readings);
             }
             let key = |r: &[Morpheme]| r.iter().map(|m| (m.lemma.clone(), m.cat.clone(), m.feats.clone())).collect::<Vec<_>>();
             let mut unique: Vec<Vec<Morpheme>> = Vec::new();
-            for r in readings {
-                if !unique.iter().any(|u| key(u) == key(&r)) {
-                    unique.push(r);
-                }
+            let mut uses: Vec<Vec<String>> = Vec::new();
+            for (first_edge, r) in readings {
+                let i = match unique.iter().position(|u| key(u) == key(&r)) {
+                    Some(i) => i,
+                    None => {
+                        unique.push(r);
+                        uses.push(Vec::new());
+                        unique.len() - 1
+                    }
+                };
+                uses[i].extend(rules.get(&first_edge).into_iter().flatten().cloned());
+                uses[i].sort();
+                uses[i].dedup();
             }
-            TokenChoice { token: tokens[t].clone(), agreed: parsed && unique.len() == 1, readings: unique }
+            TokenChoice { token: tokens[t].clone(), agreed: parsed && unique.len() == 1, readings: unique, uses }
         })
         .collect()
 }
 
-fn walk(edges: &[&Edge], node: usize, path: &mut Vec<Morpheme>, out: &mut Vec<Vec<Morpheme>>) {
-    let next: Vec<&&Edge> = edges.iter().filter(|e| e.from == node).collect();
+/// Every path of morphemes through a token, with the lattice edge of its
+/// first morpheme (the one the grammar's rules consumed as the word).
+fn walk(
+    edges: &[(usize, &Edge)],
+    node: usize,
+    first: Option<usize>,
+    path: &mut Vec<Morpheme>,
+    out: &mut Vec<(usize, Vec<Morpheme>)>,
+) {
+    let next: Vec<&(usize, &Edge)> = edges.iter().filter(|(_, e)| e.from == node).collect();
     if next.is_empty() {
-        if !path.is_empty() {
-            out.push(path.clone());
+        if let Some(first) = first {
+            out.push((first, path.clone()));
         }
         return;
     }
-    for e in next {
+    for (i, e) in next {
         path.push(e.morph.clone());
-        walk(edges, e.to, path, out);
+        walk(edges, e.to, first.or(Some(*i)), path, out);
         path.pop();
     }
 }

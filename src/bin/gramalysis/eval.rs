@@ -16,6 +16,9 @@ use gramalysis::lang::Language;
 use gramalysis::morph::Lexicon;
 use gramalysis::{analyze, Error};
 
+/// The grammar rule for a past participle used like an adjective.
+const ADJECTIVE_USE: &str = "ap.participle";
+
 #[derive(Deserialize)]
 pub struct Item {
     pub tatoeba_id: u64,
@@ -161,16 +164,36 @@ async fn evaluate<'a>(
         .map(|(i, _)| i);
     let mut readings: Vec<Reading> = token
         .map(|t| {
-            a.chosen[t]
+            let choice = &a.chosen[t];
+            choice
                 .readings
                 .iter()
-                .filter_map(|r| r.first())
-                .map(|m| Reading { verb: m.cat == "Verb", lemma: m.lemma.to_lowercase() })
+                .zip(&choice.uses)
+                .filter_map(|(r, uses)| r.first().map(|m| (m, uses)))
+                .flat_map(|(m, uses)| {
+                    // A participle the grammar only used like an adjective (le
+                    // luci sono accese) is not the verb, for a verb page; used
+                    // both ways in this reading, the sentence is ambiguous.
+                    let participle = m.cat == "Verb" && m.feats.get("form").map(String::as_str) == Some("pastpart");
+                    let adjectival = uses.iter().any(|u| u == ADJECTIVE_USE);
+                    let verbal = uses.iter().any(|u| u != ADJECTIVE_USE);
+                    let mut out = Vec::new();
+                    if !participle || verbal {
+                        out.push(Reading { verb: m.cat == "Verb", lemma: m.lemma.to_lowercase() });
+                    }
+                    if participle && adjectival {
+                        out.push(Reading { verb: false, lemma: m.surface.to_lowercase() });
+                    }
+                    out
+                })
                 .collect()
         })
         .unwrap_or_default();
     readings.sort();
-    readings.dedup();
+    // For a verb page, every "not a verb" answer is the same answer, whatever
+    // the noun or adjective is (candidati: the noun candidato, or candidare's
+    // participle used like an adjective).
+    readings.dedup_by(|a, b| a == b || (!a.verb && !b.verb));
     let status = if !a.unknown.is_empty() {
         Status::UnknownWord
     } else if a.parse_count == 0 {
@@ -243,7 +266,18 @@ fn summarize(results: &[ItemResult]) {
 
 #[cfg(test)]
 mod tests {
-    use super::base_verb;
+    use super::{base_verb, Reading};
+
+    #[test]
+    fn non_verbal_answers_count_as_one() {
+        let mut readings = vec![
+            Reading { verb: false, lemma: "candidato".to_owned() },
+            Reading { verb: false, lemma: "candidati".to_owned() },
+        ];
+        readings.sort();
+        readings.dedup_by(|a, b| a == b || (!a.verb && !b.verb));
+        assert_eq!(readings.len(), 1);
+    }
 
     #[test]
     fn pronominal_infinitives_map_to_their_base_verb() {

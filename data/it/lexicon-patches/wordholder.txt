@@ -17,3 +17,6 @@ star   -  star    verb                     # returned as verb "star"; the noun (
 star   +  stare   verb  form=infinitive
 esser  +  essere  verb  form=infinitive    # not returned
 dir    +  dire    verb  form=infinitive    # not returned
+
+# Multi-word lemmas offered for a single word
+detta  -  a_detta_di  prep    # "a detta di" (according to) is a phrase, not a reading of the word detta

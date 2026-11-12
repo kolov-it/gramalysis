@@ -242,7 +242,16 @@ fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: boo
             let rs: Vec<String> = c
                 .readings
                 .iter()
-                .map(|r| r.iter().map(|m| format!("{} {} {}", m.lemma, m.cat, feats::display(&m.feats))).collect::<Vec<_>>().join(" + "))
+                .zip(&c.uses)
+                .map(|(r, uses)| {
+                    let text = r.iter().map(|m| format!("{} {} {}", m.lemma, m.cat, feats::display(&m.feats))).collect::<Vec<_>>().join(" + ");
+                    if uses.iter().any(|u| u == "ap.participle") {
+                        let how: Vec<&str> = uses.iter().map(|u| if u == "ap.participle" { "adjective" } else { u.as_str() }).collect();
+                        format!("{text} [used as: {}]", how.join(", "))
+                    } else {
+                        text
+                    }
+                })
                 .collect();
             let mark = if c.agreed { "✓" } else if rs.is_empty() { "?" } else { "~" };
             println!("  {mark} {}: {}", c.token, rs.join("  |  "));

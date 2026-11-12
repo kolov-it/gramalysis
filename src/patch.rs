@@ -18,6 +18,8 @@
 //! - `-` removes the lexicon's readings with that lemma (and part of speech,
 //!   if given).
 //!
+//! A lemma of several words is written with `_` for its spaces (`a_detta_di`).
+//!
 //! Features use the names of [`Features`]: mood, tense, person, number,
 //! gender, form (gerund, infinitive, participle, past-participle,
 //! present-participle), aux (avere|essere), and `clitic=yes`.
@@ -70,6 +72,9 @@ impl Patches {
             let (Some(form), Some(op), Some(lemma)) = (parts.next(), parts.next(), parts.next()) else {
                 return Err(err("expected `form op lemma [pos [features]]`".to_owned()));
             };
+            // A lemma of several words is written with `_` for its spaces.
+            let lemma = lemma.replace('_', " ");
+            let lemma = lemma.as_str();
             let pos = parts.next().map(PartOfSpeech::from_tag);
             let features = parts.next();
             if parts.next().is_some() {
@@ -242,7 +247,8 @@ mod tests {
             "test",
             "scorsero + scorrere verb mood=indicative,tense=preterite,person=third,number=plural  # missing\n\
              aver = avere verb form=infinitive\n\
-             dei - dio noun\n",
+             dei - dio noun\n\
+             detta - a_detta_di prep\n",
         )
         .unwrap();
 
@@ -262,6 +268,10 @@ mod tests {
         let mut a = analysis("dei", vec![reading("dio", PartOfSpeech::Noun), reading("di", PartOfSpeech::Preposition)]);
         p.apply(Lang::It, &mut a);
         assert_eq!(a.readings.iter().map(|r| r.lemma.as_str()).collect::<Vec<_>>(), ["di"]);
+
+        let mut a = analysis("detta", vec![reading("a detta di", PartOfSpeech::Preposition), reading("dire", PartOfSpeech::Verb)]);
+        p.apply(Lang::It, &mut a);
+        assert_eq!(a.readings.iter().map(|r| r.lemma.as_str()).collect::<Vec<_>>(), ["dire"]);
     }
 
     #[test]
