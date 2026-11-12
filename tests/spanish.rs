@@ -1,0 +1,123 @@
+#![cfg(feature = "wordholder")]
+//! Spanish sentences against the hand-written fixture
+//! (`tests/fixtures/es-handwritten.json`, in the Word Holder API's format),
+//! with the lexicon patches applied as the command line applies them.
+
+use std::path::Path;
+
+use gramalysis::lang::es::Spanish;
+use gramalysis::patch::PatchedLexicon;
+use gramalysis::wordholder::{self, FixtureLexicon};
+use gramalysis::{analyze, SentenceAnalysis};
+
+async fn run(text: &str) -> SentenceAnalysis {
+    let fixture = FixtureLexicon::load(Path::new("tests/fixtures/es-handwritten.json")).unwrap();
+    let lexicon = PatchedLexicon::new(Box::new(fixture), wordholder::patches().unwrap());
+    analyze(&lexicon, &Spanish::load().unwrap(), text).await.unwrap()
+}
+
+/// The single reading every parse gave `token`, as "lemma Cat feats" per morpheme.
+fn agreed(a: &SentenceAnalysis, token: &str) -> Vec<String> {
+    let c = a.chosen.iter().find(|c| c.token == token).unwrap();
+    assert!(c.agreed, "{token} read differently across parses: {:?}", c.readings);
+    c.readings[0]
+        .iter()
+        .map(|m| format!("{} {} {}", m.lemma, m.cat, gramalysis::syntax::feats::display(&m.feats)))
+        .collect()
+}
+
+/// The rules that used `token`'s single reading.
+fn uses(a: &SentenceAnalysis, token: &str) -> Vec<String> {
+    let c = a.chosen.iter().find(|c| c.token == token).unwrap();
+    assert!(c.agreed, "{token} read differently across parses: {:?}", c.readings);
+    c.uses[0].clone()
+}
+
+#[tokio::test]
+async fn fue_with_a_destination_is_ir() {
+    let a = run("Fue a Madrid ayer.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "Fue")[0].starts_with("ir Verb"));
+}
+
+#[tokio::test]
+async fn fue_with_an_adjective_is_ser() {
+    let a = run("Fue difícil.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "Fue")[0].starts_with("ser Verb"));
+}
+
+#[tokio::test]
+async fn ser_and_a_participle_is_the_passive() {
+    let a = run("La casa fue construida por los romanos.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "construida")[0].starts_with("construir Verb"));
+    assert!(!uses(&a, "construida").iter().any(|u| u == "ap.participle"));
+}
+
+#[tokio::test]
+async fn estar_and_a_participle_is_a_state() {
+    let a = run("La puerta está cerrada.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "cerrada")[0].starts_with("cerrar Verb"));
+    assert_eq!(uses(&a, "cerrada"), ["ap.participle"]);
+}
+
+#[tokio::test]
+async fn haber_and_an_invariable_participle_is_a_compound_tense() {
+    let a = run("He cerrado la puerta.").await;
+    assert!(!a.parses.is_empty());
+    assert_eq!(uses(&a, "cerrado"), ["v.perfect"]);
+    // After haber the participle never agrees.
+    assert!(run("He cerrada la puerta.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn dámelo_is_da_me_lo() {
+    let a = run("¡Dámelo!").await;
+    assert!(!a.parses.is_empty());
+    let r = agreed(&a, "Dámelo");
+    assert!(r[0].starts_with("dar Verb") && r[0].contains("mood=imp"), "{r:?}");
+    assert!(r[1].starts_with("me Pron") && r[1].contains("case=dat"));
+    assert!(r[2].starts_with("lo Pron") && r[2].contains("case=acc"));
+}
+
+#[tokio::test]
+async fn accents_keep_words_apart() {
+    let a = run("Tú tienes tu libro y él tiene el suyo.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "Tú")[0].starts_with("tú Pron"));
+    assert!(agreed(&a, "tu")[0].starts_with("tu Poss"));
+    assert!(agreed(&a, "él")[0].starts_with("él Pron"));
+    assert!(agreed(&a, "el")[0].starts_with("el Det"));
+}
+
+#[tokio::test]
+async fn se_is_the_clitic_and_sé_the_verb() {
+    let a = run("Se lo di a mi hermana.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "Se")[0].starts_with("se Pron"));
+    let a = run("Sé que vienes.").await;
+    assert!(!a.parses.is_empty());
+    assert!(a.chosen.iter().find(|c| c.token == "Sé").unwrap().readings.iter().all(|r| r[0].lemma != "se"));
+}
+
+#[tokio::test]
+async fn como_before_bread_is_comer() {
+    let a = run("Como pan todos los días.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "Como")[0].starts_with("comer Verb"));
+}
+
+#[tokio::test]
+async fn feminine_stressed_a_takes_el() {
+    assert!(!run("¿Dónde está el agua?").await.parses.is_empty());
+    assert!(run("¿Dónde está la agua?").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn clitics_before_a_negative_command() {
+    let a = run("No lo hagas.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "hagas")[0].contains("mood=sub"));
+}

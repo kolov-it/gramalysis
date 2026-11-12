@@ -17,9 +17,12 @@ use crate::morph::Lang;
 use crate::patch::{PatchError, Patches};
 
 const PATCHES_IT: &str = include_str!("../../data/it/lexicon-patches/wordholder.txt");
+const PATCHES_ES: &str = include_str!("../../data/es/lexicon-patches/wordholder.txt");
 
 /// The corrections for this lexicon's known defects
 /// (`data/<lang>/lexicon-patches/wordholder.txt`).
 pub fn patches() -> Result<Patches, PatchError> {
-    Patches::parse(Lang::It, "data/it/lexicon-patches/wordholder.txt", PATCHES_IT)
+    let mut patches = Patches::parse(Lang::It, "data/it/lexicon-patches/wordholder.txt", PATCHES_IT)?;
+    patches.add_file(Lang::Es, "data/es/lexicon-patches/wordholder.txt", PATCHES_ES)?;
+    Ok(patches)
 }

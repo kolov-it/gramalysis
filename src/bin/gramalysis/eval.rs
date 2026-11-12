@@ -13,7 +13,7 @@ use std::path::Path;
 use serde::{Deserialize, Serialize};
 
 use gramalysis::lang::Language;
-use gramalysis::morph::Lexicon;
+use gramalysis::morph::{Lang, Lexicon};
 use gramalysis::{analyze, Error};
 
 /// The grammar rule for a past participle used like an adjective.
@@ -100,14 +100,27 @@ pub fn load_labels(path: &Path) -> Result<HashMap<(u64, String), Reading>, Box<d
 
 /// A verb page needs one answer: which verb, or not a verb at all. Which noun
 /// or adjective a non-verb is (`regalino` or `regalo`) does not matter.
-fn same_for_a_verb_page(a: &Reading, b: &Reading) -> bool {
-    a.verb == b.verb && (!a.verb || base_verb(&a.lemma) == base_verb(&b.lemma))
+fn same_for_a_verb_page(a: &Reading, b: &Reading, lang: Lang) -> bool {
+    a.verb == b.verb && (!a.verb || base_verb(&a.lemma, lang) == base_verb(&b.lemma, lang))
 }
 
 /// A pronominal infinitive's base verb: mettersi → mettere, smetterla →
-/// smettere, andarsene → andare, porsi → porre. Dictionaries and labellers
-/// name such verbs either way; for a verb page they are the same verb.
-fn base_verb(lemma: &str) -> String {
+/// smettere, andarsene → andare, porsi → porre; Spanish irse → ir,
+/// arreglárselas → arreglar. Dictionaries and labellers name such verbs
+/// either way; for a verb page they are the same verb.
+fn base_verb(lemma: &str, lang: Lang) -> String {
+    if lang == Lang::Es {
+        const CLITICS: [&str; 9] = ["selas", "selos", "sela", "selo", "las", "los", "se", "la", "lo"];
+        for c in CLITICS {
+            if let Some(stem) = lemma.strip_suffix(c)
+                && stem.len() >= 2
+                && stem.ends_with('r')
+            {
+                return gramalysis::lang::es::strip_accent(stem);
+            }
+        }
+        return gramalysis::lang::es::strip_accent(lemma);
+    }
     const CLITICS: [&str; 14] =
         ["sene", "sela", "selo", "cela", "celo", "gliela", "glielo", "si", "ci", "vi", "la", "lo", "le", "ne"];
     for c in CLITICS {
@@ -208,7 +221,7 @@ async fn evaluate<'a>(
         None => (Some(spacy_reading(&item.spacy)), "spacy"),
     };
     let correct = match (status, &reference) {
-        (Status::Decided, Some(r)) => Some(same_for_a_verb_page(&readings[0], r)),
+        (Status::Decided, Some(r)) => Some(same_for_a_verb_page(&readings[0], r, language.lang())),
         _ => None,
     };
     Ok(ItemResult {
@@ -266,7 +279,7 @@ fn summarize(results: &[ItemResult]) {
 
 #[cfg(test)]
 mod tests {
-    use super::{base_verb, Reading};
+    use super::{base_verb, Lang, Reading};
 
     #[test]
     fn non_verbal_answers_count_as_one() {
@@ -283,7 +296,10 @@ mod tests {
     fn pronominal_infinitives_map_to_their_base_verb() {
         for (a, b) in [("mettersi", "mettere"), ("smetterla", "smettere"), ("andarsene", "andare"),
                        ("porsi", "porre"), ("prenderci", "prendere"), ("fare", "fare"), ("dire", "dire")] {
-            assert_eq!(base_verb(a), b, "{a}");
+            assert_eq!(base_verb(a, Lang::It), b, "{a}");
+        }
+        for (a, b) in [("irse", "ir"), ("arreglárselas", "arreglar"), ("reírse", "reir"), ("reír", "reir"), ("dar", "dar")] {
+            assert_eq!(base_verb(a, Lang::Es), b, "{a}");
         }
     }
 }
