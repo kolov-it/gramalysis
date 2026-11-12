@@ -26,12 +26,13 @@ S[]  ← clause.subject
 Each node shows its category, its features and the rule that built it.
 `--explain` adds why each rule applies ("The verb agrees with its subject in
 person and number."); `--readings` lists how each word was read and whether all
-parses agree (in *Disse che non riusciva a trovare un lavoro*, `lavoro` could be
+parses agree, and for a participle how it is used (`[used as: adjective]` in
+*le luci sono accese*) (in *Disse che non riusciva a trovare un lavoro*, `lavoro` could be
 the noun *work* or the verb *I work*; only the noun fits).
 
 Italian first; the design is multilingual from the start.
 
-**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 109 rules)
+**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 115 rules)
 covers agreement and the dropped subject; articles (with the *il / lo / l'*
 choice by the next word's first sound), demonstratives, quantifiers and
 possessives; clitic pronouns before and after the verb; compound tenses, the
@@ -41,8 +42,8 @@ questions, subordinate clauses, commas, coordination and time expressions.
 
 On the [Tatoeba homograph set](#measuring-it-the-tatoeba-homograph-set)
 (5,000 sentences built around ambiguous verb forms) it decides the ambiguous
-word in **67%** of the sentences, and **99.0%** of those decisions agree with
-the labels (2,385 of 2,409).
+word in **66%** of the sentences, and **99.7%** of those decisions agree with
+the labels (2,366 of 2,374).
 
 ## Goal: anyone can run every example
 

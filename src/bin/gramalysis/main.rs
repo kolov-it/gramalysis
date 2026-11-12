@@ -245,7 +245,12 @@ fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: boo
                 .map(|r| r.iter().map(|m| format!("{} {} {}", m.lemma, m.cat, feats::display(&m.feats))).collect::<Vec<_>>().join(" + "))
                 .collect();
             let mark = if c.agreed { "✓" } else if rs.is_empty() { "?" } else { "~" };
-            println!("  {mark} {}: {}", c.token, rs.join("  |  "));
+            let uses = if c.uses.iter().any(|u| u == "ap.participle") {
+                format!("   [used as: {}]", c.uses.iter().map(|u| if u == "ap.participle" { "adjective" } else { u.as_str() }).collect::<Vec<_>>().join(", "))
+            } else {
+                String::new()
+            };
+            println!("  {mark} {}: {}{uses}", c.token, rs.join("  |  "));
         }
     }
 }

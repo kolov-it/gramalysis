@@ -222,6 +222,31 @@ impl Forest<'_> {
         edges
     }
 
+    /// For each lattice edge any parse uses, the rules that consumed it
+    /// directly (`ap.participle` for a participle used like an adjective,
+    /// `v.perfect-essere` for one in a compound tense, …).
+    pub fn edge_rules(&self) -> HashMap<usize, HashSet<String>> {
+        let mut seen = HashSet::new();
+        let mut out: HashMap<usize, HashSet<String>> = HashMap::new();
+        let mut stack: Vec<usize> = self.roots.clone();
+        while let Some(id) = stack.pop() {
+            if !seen.insert(id) {
+                continue;
+            }
+            let rule = &self.grammar.rules[self.keys[id].rule].name;
+            for &(prev, child) in &self.back[id] {
+                stack.push(prev);
+                match child {
+                    Child::Item(c) => stack.push(c),
+                    Child::Edge(e) => {
+                        out.entry(e).or_default().insert(rule.clone());
+                    }
+                }
+            }
+        }
+        out
+    }
+
     /// Up to `limit` parses as trees.
     pub fn trees(&self, lattice: &Lattice, limit: usize) -> Vec<Tree> {
         let mut out = Vec::new();

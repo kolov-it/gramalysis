@@ -367,3 +367,9 @@ rule vp.passive-agent: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, g
 
 rule vp.copula-infinitive-adjective: VP[finite=no, form=inf] -> Verb[lemma=essere|sembrare|diventare|restare|rimanere|stare, form=inf] AP[participle_essere=no]
   "An infinitive linking verb + adjective (essere imbarazzate)."
+
+rule vp.floating-quantifier: VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g] Pron[lemma=tutto, number=pl]
+  "tutti / tutte after the verb, for the whole plural subject (se ne sono andati tutti)."
+
+rule vp.naming-passive: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere|venire, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=dire|chiamare|considerare|nominare|eleggere|ritenere|definire, form=pastpart, number=?n, gender=?g] NP
+  "essere detto / chiamato / considerato + a noun: what the subject is called or considered (è detta petroliera)."

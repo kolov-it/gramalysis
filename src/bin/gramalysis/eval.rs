@@ -16,6 +16,9 @@ use gramalysis::lang::Language;
 use gramalysis::morph::Lexicon;
 use gramalysis::{analyze, Error};
 
+/// The grammar rule for a past participle used like an adjective.
+const ADJECTIVE_USE: &str = "ap.participle";
+
 #[derive(Deserialize)]
 pub struct Item {
     pub tatoeba_id: u64,
@@ -161,11 +164,27 @@ async fn evaluate<'a>(
         .map(|(i, _)| i);
     let mut readings: Vec<Reading> = token
         .map(|t| {
-            a.chosen[t]
+            let choice = &a.chosen[t];
+            // A participle the grammar only used like an adjective (le luci
+            // sono accese) is not the verb, for a verb page; used both ways,
+            // the sentence is ambiguous.
+            let adjectival = choice.uses.iter().any(|u| u == ADJECTIVE_USE);
+            let verbal = choice.uses.iter().any(|u| u != ADJECTIVE_USE);
+            choice
                 .readings
                 .iter()
                 .filter_map(|r| r.first())
-                .map(|m| Reading { verb: m.cat == "Verb", lemma: m.lemma.to_lowercase() })
+                .flat_map(|m| {
+                    let participle = m.cat == "Verb" && m.feats.get("form").map(String::as_str) == Some("pastpart");
+                    let mut out = Vec::new();
+                    if !participle || verbal {
+                        out.push(Reading { verb: m.cat == "Verb", lemma: m.lemma.to_lowercase() });
+                    }
+                    if participle && adjectival {
+                        out.push(Reading { verb: false, lemma: m.surface.to_lowercase() });
+                    }
+                    out
+                })
                 .collect()
         })
         .unwrap_or_default();
