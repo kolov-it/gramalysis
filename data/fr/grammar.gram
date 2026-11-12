@@ -6,6 +6,10 @@
 # anything, so selections use dedicated categories (QPron, RelPron, Neg,
 # NegAdv, Quant, Dem, SubLead) and `form=fin` on conjugated forms.
 #
+# `etre=yes` marks être (the lattice sets it): être takes no direct object and
+# no object pronoun outside a compound tense, so `vp.object` and
+# `v.proclitic` ask for `etre=no`; c'est un chat is `vp.copula-noun`.
+#
 # Verb features carried upward: subj=yes when the verb has its own subject
 # pronoun after it (inversion: parlez-vous), acc=yes when an object clitic
 # already is its direct object (je le vois), neg=yes once ne or pas is there.
@@ -356,7 +360,7 @@ rule pp.adverb: PP -> Prep Adv
 # reflexive). `acc=yes` when the clitics hold the direct object, with its
 # number and gender in anum/agen for a participle after avoir to agree with.
 
-rule v.plain: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=no, acc=no, neg=no] -> Verb[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
+rule v.plain: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=no, acc=no, neg=no, etre=?e] -> Verb[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, etre=?e]
   "A verb."
 
 rule v.adverb-after: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, acc=?a, neg=?ng] -> V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, acc=?a, neg=?ng] Adv
@@ -374,7 +378,7 @@ rule v.negation-spoken: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, num
 rule v.negation-infinitive: V[lemma=?l, finite=no, form=inf, acc=?a, subj=no, neg=yes] -> Neg NegAdv[only=no] V[lemma=?l, form=inf, acc=?a, neg=no]
   "ne pas before an infinitive (pour ne pas oublier)."
 
-rule v.proclitic: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, subj=no, acc=?a, neg=no] -> Clitics[attached=no, acc=?a, refl=?r, obj=?o] Verb[lemma=?l, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n, gender=?g, person=?r, person!=?o]
+rule v.proclitic: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, subj=no, acc=?a, neg=no] -> Clitics[attached=no, acc=?a, refl=?r, obj=?o] Verb[lemma=?l, etre=no, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n, gender=?g, person=?r, person!=?o]
   "Object pronouns go before a conjugated verb (je le lui donne, il s'en va)."
 
 rule v.proclitic-nonfinite: V[lemma=?l, finite=no, form=?fm, subj=no, acc=?a, neg=no] -> Clitics[attached=no, acc=?a] Verb[lemma=?l, finite=no, form=inf|ger|prespart, form=?fm]
@@ -577,7 +581,7 @@ rule cop.perfect-other: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, n
 rule cop.perfect-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=yes, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=être, form=pastpart]
   "être in a compound tense with an adverb (il a toujours été, je n'ai jamais été)."
 
-rule cop.proclitic: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng] -> Clitics[attached=no, acc=no] Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng]
+rule cop.proclitic: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng] -> Clitics[attached=no, reflexive=no, acc=no] Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng]
   "A pronoun before the linking verb (il m'est difficile, ça me semble bizarre, j'y suis)."
 
 rule cop.proclitic-le: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng] -> Pron[attached=no, case=acc, lemma=le, number=sg, gender=m] Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng]
@@ -600,8 +604,8 @@ rule cop.adverb: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng]
 rule vp.verb: VP[bare=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s]
   "A verb on its own."
 
-rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, acc=no] NP[case=obl]
-  "The verb takes a direct object, unless le, la, les already is its object (je vois le chat, not *je le vois le chat)."
+rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, acc=no, etre=no] NP[case=obl]
+  "The verb takes a direct object, unless le, la, les already is its object (je vois le chat, not *je le vois le chat). être takes none: what follows it says what the subject is."
 
 rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, lemma=pouvoir|devoir|vouloir|savoir|aller|venir|voir|manquer|entendre|faire|laisser|aimer|préférer|adorer|détester|falloir|oser|sembler|paraître|désirer|espérer|compter|souhaiter|penser|croire|sentir|regarder|écouter|envoyer|courir|monter|descendre|sortir|rentrer|partir|retourner|valoir|affirmer|prétendre|avouer|déclarer|nier|reconnaître|imaginer|savoir] VP[form=inf]
   "A verb followed by an infinitive without a preposition: modal, motion, perception and causative verbs and a few others (je veux partir, il va pleuvoir, je l'entends chanter, fais-moi savoir)."
@@ -892,3 +896,39 @@ rule ap.more-and-more: AP[pp=?x, number=?n, gender=?g] -> Prep[lemma=de] Adv[lem
 
 rule pp.coordination: PP -> PP Conj[type=coord] PP
   "Two phrases with a preposition joined by et, ou (à votre tante et à votre oncle)."
+
+rule clause.phrase-last-comma: S[imp=?i] -> S[imp=?i] Punct PP
+  "A phrase with a preposition after a comma, at the end (Elle est partie, après le dîner)."
+
+rule clause.adverb-phrase-last-comma: S[imp=?i] -> S[imp=?i] Punct Adv PP
+  "An adverb and a phrase after a comma, at the end (…, même après sa mort)."
+
+rule clause.subordinate-comma: S[imp=?i] -> S[imp=?i] Punct Sub S[imp=no]
+  "A comma, then a clause with si, quand, parce que… (Ferme la porte, s'il te plaît)."
+
+rule ap.superlative: AP[pp=?x, number=?n, gender=?g] -> Det[definite=yes, lemma=le, number=?n, gender=?g] Adv[lemma=plus|moins] AP[pp=?x, number=?n, gender=?g]
+  "The superlative after the noun: le plus, la moins + adjective (le chemin le plus court)."
+
+rule time.date: TimeNP -> Det[lemma=le] Num Noun[lemma=janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre]
+  "A date: le 28 juillet."
+
+rule time.date-year: TimeNP -> Det[lemma=le] Num Noun[lemma=janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre] Num
+  "A date with the year: le 28 juillet 1888."
+
+rule pp.number: PP -> Prep Num
+  "A preposition before a number, usually a year (en 1860, depuis 2010)."
+
+rule clause.adverb-pair-first-comma: S[imp=?i] -> Adv Conj[type=coord] Adv Punct S[imp=?i]
+  "Two adverbs joined first, then a comma (Tôt ou tard, nous le ferons)."
+
+rule vp.phrase-object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, acc=no, etre=no] ShortPP NP[case=obl, bare=no]
+  "A short phrase between the verb and its object (mettre en évidence quelques fautes)."
+
+rule shortpp.bare: ShortPP -> Prep[lemma=en|à|de|par] Noun
+  "A preposition and a bare noun, as in fixed verb phrases (en évidence, à jour, de côté)."
+
+rule mod.tout-a-fait: Mod[neg=no] -> Adv[lemma=tout] Prep[lemma=à] Noun[lemma=fait]
+  "tout à fait between the auxiliary and the participle (j'ai tout à fait compris)."
+
+rule mod.pas-tout-a-fait: Mod[neg=yes] -> NegAdv Adv[lemma=tout] Prep[lemma=à] Noun[lemma=fait]
+  "pas tout à fait (je n'ai pas tout à fait compris)."

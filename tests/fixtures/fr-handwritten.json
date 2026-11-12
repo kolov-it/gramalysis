@@ -1,0 +1,525 @@
+{
+  "fr": {
+    "suis": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "suivre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "suivre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "suivre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      }
+    ],
+    "frère": [
+      {
+        "lemma": "frère",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "homme": [
+      {
+        "lemma": "homme",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "a": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "a",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "vu": [
+      {
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      },
+      {
+        "lemma": "vu",
+        "partOfSpeech": "prep",
+        "grammar": null
+      }
+    ],
+    "vues": [
+      {
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      },
+      {
+        "lemma": "vue",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "plural"
+          ],
+          "gender": "feminine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "mangées": [
+      {
+        "lemma": "manger",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "ai": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      }
+    ],
+    "est": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "est",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "sont": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "plural"
+        }
+      }
+    ],
+    "pommes": [
+      {
+        "lemma": "pomme",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "plural"
+          ],
+          "gender": "feminine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "bonnes": [
+      {
+        "lemma": "bon",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural"
+        }
+      }
+    ],
+    "parlez": [
+      {
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      },
+      {
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      }
+    ],
+    "asseyez": [
+      {
+        "lemma": "asseoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      },
+      {
+        "lemma": "asseoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      }
+    ],
+    "français": [
+      {
+        "lemma": "français",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "français",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "gender": "masculine"
+        }
+      }
+    ],
+    "fini": [
+      {
+        "lemma": "finir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "héros": [
+      {
+        "lemma": "héros",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "là": [
+      {
+        "lemma": "là",
+        "partOfSpeech": "adv",
+        "grammar": null
+      }
+    ],
+    "porte": [
+      {
+        "lemma": "porte",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      }
+    ],
+    "ferme": [
+      {
+        "lemma": "ferme",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "ferme",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      }
+    ],
+    "fermée": [
+      {
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      },
+      {
+        "lemma": "fermé",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular"
+        }
+      }
+    ],
+    "levée": [
+      {
+        "lemma": "lever",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      },
+      {
+        "lemma": "levée",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "heureux": [
+      {
+        "lemma": "heureux",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "gender": "masculine",
+          "clitic": false
+        }
+      }
+    ]
+  }
+}

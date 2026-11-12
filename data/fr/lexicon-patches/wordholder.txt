@@ -138,3 +138,11 @@ voilà  -  voilà  verb  # returned as an infinitive with itself as the lemma; i
 
 # Readings too rare to keep beside a function word
 la  -  la  noun  # the note la (A): every article la would also be a bare noun (à la nage read as à + la + verb)
+partis   +  parti   noun  gender=masculine,number=plural  # plural noun missing (only partir is returned)
+œuvres   -  œuvre   noun                                  # returned as masculine
+œuvres   +  œuvre   noun  gender=feminine,number=plural   # une œuvre, les œuvres complètes
+
+# Nouns returned only as plural (a plural-only sense) though the form is singular
+poussière    +  poussière    noun  gender=feminine,number=singular  # only the plural-only sense is returned
+information  +  information  noun  gender=feminine,number=singular  # only the plural-only sense is returned
+actualité    +  actualité    noun  gender=feminine,number=singular  # only the plural-only sense is returned

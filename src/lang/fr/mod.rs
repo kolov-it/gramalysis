@@ -144,7 +144,12 @@ impl French {
                 .filter(|r| capitalised || r.pos != PartOfSpeech::ProperNoun)
                 .collect();
             let lexicon = prefer_traditional_spelling(
-                lexicon.into_iter().map(without_pronoun).map(|r| without_defaulted_features(r, &lower)).collect(),
+                lexicon
+                    .into_iter()
+                    .map(without_pronoun)
+                    .map(|r| without_defaulted_features(r, &lower))
+                    .map(invariable_number)
+                    .collect(),
             );
             for reading in &lexicon {
                 let cat = feats::category(&reading.pos);
@@ -177,7 +182,10 @@ impl French {
             if readings.is_empty() && token.chars().any(|c| c.is_ascii_digit()) {
                 readings.push(vec![Morpheme { surface: token.clone(), lemma: lower.clone(), cat: "Num".to_owned(), feats: FeatMap::new() }]);
             }
-            if capitalised && (i > 0 || readings.is_empty()) {
+            // A capitalised word is a name anywhere but at the start, where
+            // it is one only if the lexicon knows it capitalised (Sami).
+            let known_capitalised = lexicon.iter().any(|r| r.lemma.chars().next().is_some_and(char::is_uppercase));
+            if capitalised && (i > 0 || readings.is_empty() || known_capitalised) {
                 let mut feats = FeatMap::new();
                 feats.insert("onset".to_owned(), first_sound.to_owned());
                 readings.push(vec![Morpheme { surface: token.clone(), lemma: token.clone(), cat: "ProperNoun".to_owned(), feats }]);
@@ -192,6 +200,9 @@ impl French {
         // The auxiliary the verb takes in compound tenses, when the lexicon
         // says: the grammar tells a compound tense (elle est partie) from a
         // state (la porte est fermée) by it. Unknown leaves both open.
+        if reading.pos == PartOfSpeech::Verb {
+            feats.insert("etre".to_owned(), if reading.lemma == "être" { "yes" } else { "no" }.to_owned());
+        }
         if reading.pos == PartOfSpeech::Verb && !reading.features.auxiliaries.is_empty() {
             for (aux, name) in [("avoir", "avoir"), ("être", "etre")] {
                 let takes = reading.features.auxiliaries.iter().any(|a| a == aux);
@@ -211,10 +222,10 @@ fn same(a: &[Morpheme], b: &[Morpheme]) -> bool {
 /// sentence. The lexicon gives some forms both ways (`tiré`: tirer and se
 /// tirer), which would only pose as two answers.
 fn without_pronoun(mut reading: Reading) -> Reading {
-    if reading.pos == PartOfSpeech::Verb {
-        if let Some(base) = reading.lemma.strip_prefix("se ").or_else(|| reading.lemma.strip_prefix("s'")) {
-            reading.lemma = base.to_owned();
-        }
+    if reading.pos == PartOfSpeech::Verb
+        && let Some(base) = reading.lemma.strip_prefix("se ").or_else(|| reading.lemma.strip_prefix("s'"))
+    {
+        reading.lemma = base.to_owned();
     }
     reading
 }
@@ -240,6 +251,15 @@ fn without_defaulted_features(mut reading: Reading, form: &str) -> Reading {
         reading.features.gender = None;
     }
     if form.ends_with(['s', 'x', 'z']) {
+        reading.features.number = None;
+    }
+    reading
+}
+
+/// A noun the source tags `invariable` (un/des sursis) is singular and
+/// plural, whatever number the API gives it.
+fn invariable_number(mut reading: Reading) -> Reading {
+    if reading.raw_tags.iter().any(|t| t == "invariable") {
         reading.features.number = None;
     }
     reading
