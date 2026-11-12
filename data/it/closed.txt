@@ -312,3 +312,8 @@ entro = entro:Prep
 dietro = dietro:Prep
 dietro = dietro:Adv
 attraverso = attraverso:Prep
+troppo = troppo:Det{definite=no,gender=m,number=sg}
+troppa = troppo:Det{definite=no,gender=f,number=sg}
+# troppo and molto are adverbs too (troppo brillante, molto bello, ci siamo avvicinate troppo)
+troppo = troppo:Adv
+molto = molto:Adv

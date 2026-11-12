@@ -32,7 +32,7 @@ the noun *work* or the verb *I work*; only the noun fits).
 
 Italian first; the design is multilingual from the start.
 
-**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 115 rules)
+**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 114 rules)
 covers agreement and the dropped subject; articles (with the *il / lo / l'*
 choice by the next word's first sound), demonstratives, quantifiers and
 possessives; clitic pronouns before and after the verb; compound tenses, the
@@ -42,8 +42,8 @@ questions, subordinate clauses, commas, coordination and time expressions.
 
 On the [Tatoeba homograph set](#measuring-it-the-tatoeba-homograph-set)
 (5,000 sentences built around ambiguous verb forms) it decides the ambiguous
-word in **66%** of the sentences, and **99.7%** of those decisions agree with
-the labels (2,366 of 2,374).
+word in **70%** of the sentences, and **99.2%** of those decisions agree with
+the labels (3,340 of 3,368).
 
 ## Goal: anyone can run every example
 
