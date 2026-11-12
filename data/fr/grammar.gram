@@ -597,7 +597,7 @@ rule cop.adverb: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng]
 
 # ------------------------------------------------------ verb phrases
 
-rule vp.verb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s]
+rule vp.verb: VP[bare=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s]
   "A verb on its own."
 
 rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, acc=no] NP[case=obl]
@@ -776,3 +776,68 @@ rule time.adverb-noun: TimeNP -> Adv[lemma=hier|demain|aujourd'hui] Noun[lemma=m
 
 rule time.numeral: TimeNP -> Num Noun[lemma=fois|heure|jour|an|minute|semaine|mois]
   "deux fois, trois heures."
+
+# ------------------------------------------------- more shapes (from the Tatoeba no-parses)
+
+rule vp.coordination: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] Conj[type=coord] VP[finite=?f, form=?fm, person=?p, number=?n, subj=no]
+  "Two verb phrases with one subject, joined by et, mais, ou, puis (il perdit patience et frappa le garçon)."
+
+rule vp.coordination-negated: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] Conj[type=coord] Neg VP[finite=?f, form=?fm, person=?p, number=?n, subj=no]
+  "… mais ne + verb phrase (elle écrivit une lettre mais ne la posta pas)."
+
+rule clause.coordination-comma: S[imp=?i] -> S Punct Conj[type=coord] S[imp=?i]
+  "A comma, then et, mais, car, donc and a clause."
+
+rule clause.infinitive-subject: S -> VP[form=inf] VP[finite=yes, form=fin, mood=ind|sub|cnd, subj=no, person=3, number=sg]
+  "An infinitive as the subject (Fumer affectera votre santé, Voir c'est croire)."
+
+rule clause.instruction: S[imp=yes] -> VP[form=inf]
+  "An infinitive as an instruction, in recipes and notices (Plier la feuille en deux)."
+
+rule clause.dislocated-first: S[imp=?i] -> NP[case=obl] Punct S[imp=?i]
+  "A stressed pronoun or a noun phrase first, picked up again in the clause (Toi, pourquoi as-tu attendu ? Moi, je reste)."
+
+rule clause.dislocated-last: S[imp=?i] -> S[imp=?i] Punct NP
+  "A noun phrase after a comma at the end, picked up again in the clause (Il est beau, ce chat)."
+
+rule np.two-names: NP[person=3, number=sg] -> ProperNoun ProperNoun
+  "A name of two words (Giuseppe Verdi, Van Gogh)."
+
+rule np.de-adjective: NP[person=3, number=sg] -> Pron[lemma=quelqu'un|rien|personne|quoi|ceci|cela|ça] Prep[lemma=de] AP
+  "rien, personne, quelqu'un + de + adjective (rien de nouveau, quelqu'un d'autre)."
+
+rule np.quelque-chose-de: NP[person=3, number=sg] -> Det[lemma=quelque] Noun[lemma=chose] Prep[lemma=de] AP
+  "quelque chose de + adjective (quelque chose de plus pressant)."
+
+rule nom.place-adverb: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] Adv[lemma=là-bas|ici|là|là-haut|dehors]
+  "A place adverb after the noun (ce chien là-bas)."
+
+rule pp.en-tant-que: PP -> Prep[lemma=en] Quant[lemma=tant] Conj[lemma=que] NP
+  "en tant que = as (en tant qu'officier public)."
+
+rule clause.merci: S -> Intj[lemma=merci] Prep[lemma=de|pour] NP
+  "merci de / pour + noun phrase (Merci pour le cadeau)."
+
+rule clause.merci-infinitive: S -> Intj[lemma=merci] Prep[lemma=de|pour] VP[form=inf]
+  "merci de / pour + infinitive (Merci de m'avoir aidé)."
+
+rule vp.object-adverb-first: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, acc=no] Adv NP[case=obl]
+  "An adverb between the verb and its object (j'aime beaucoup les opéras)."
+
+rule vp.copula-nonfinite: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] AP[participle_etre=no]
+  "An infinitive or -ant linking verb + adjective (peut paraître étrange, étant malade)."
+
+rule vp.copula-nonfinite-noun: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|rester, form=inf|prespart|ger, form=?fm] NP[case=obl]
+  "An infinitive or -ant linking verb + noun phrase (devenir médecin, étant étudiant)."
+
+rule vp.copula-nonfinite-adverb: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] Adv AP[participle_etre=no]
+  "… with an adverb after the linking verb (étant vraiment malade)."
+
+rule vp.copula-nonfinite-adverb-noun: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|rester, form=inf|prespart|ger, form=?fm] Adv NP[case=obl]
+  "… with an adverb before the noun phrase (étant seulement étudiant)."
+
+rule clause.participle-clause-first: S[imp=?i] -> VP[bare=no, form=prespart|ger] Punct S[imp=?i]
+  "An -ant clause with complements first, then a comma (Étant étudiant, je… ; Ne sachant que faire, je…). Alone, the -ant form is an adjective."
+
+rule clause.participle-clause-last: S[imp=?i] -> S[imp=?i] Punct VP[bare=no, form=prespart|ger]
+  "An -ant clause after a comma, at the end (…, formant ainsi des nuages)."

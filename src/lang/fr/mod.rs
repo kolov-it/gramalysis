@@ -129,7 +129,16 @@ impl French {
                 }));
                 readings.retain(|r| !r.iter().any(|m| m.feats.get("imperative").map(String::as_str) == Some("yes")));
             }
-            let lexicon: Vec<Reading> = analysis.map(|a| a.readings.clone()).unwrap_or_default();
+            let all_caps = token.chars().filter(|c| c.is_alphabetic()).all(char::is_uppercase);
+            let lexicon: Vec<Reading> = analysis
+                .map(|a| a.readings.clone())
+                .unwrap_or_default()
+                .into_iter()
+                // The lexicon is asked in lower case, so it also answers with
+                // acronyms (ait: AIT, ce: CE); one stands only for a word
+                // written in capitals.
+                .filter(|r| all_caps || !is_acronym(&r.lemma))
+                .collect();
             let lexicon = prefer_traditional_spelling(
                 lexicon.into_iter().map(without_pronoun).map(|r| without_defaulted_features(r, &lower)).collect(),
             );
@@ -207,6 +216,12 @@ fn without_pronoun(mut reading: Reading) -> Reading {
     reading
 }
 
+/// A lemma of two or more letters, all capitals (AIT, CE, USA).
+fn is_acronym(lemma: &str) -> bool {
+    let letters: Vec<char> = lemma.chars().filter(|c| c.is_alphabetic()).collect();
+    letters.len() >= 2 && letters.iter().all(|c| c.is_uppercase())
+}
+
 /// The API gives a French dictionary form (the form that is the lemma) the
 /// masculine singular whether or not it has one: `facile`, `jeune`, `rouge`
 /// are feminine too, `heureux`, `temps`, `bras` plural too. Such a reading has
@@ -228,13 +243,25 @@ fn without_defaulted_features(mut reading: Reading, form: &str) -> Reading {
 }
 
 /// Of two spellings of one verb, the traditional (apparaître) and the 1990
-/// reform's (apparaitre), keep the traditional: they are one verb.
+/// reform's (apparaitre), keep the traditional: they are one verb. A verb in
+/// -aitre / -oitre alone is named by its traditional spelling (paraitre →
+/// paraître), as the verb pages name it.
 fn prefer_traditional_spelling(readings: Vec<Reading>) -> Vec<Reading> {
     let fold = |s: &str| s.replace('î', "i").replace('û', "u");
     let lemmas: HashSet<String> = readings.iter().map(|r| r.lemma.clone()).collect();
     readings
         .into_iter()
         .filter(|r| !lemmas.iter().any(|other| other != &r.lemma && fold(other) == r.lemma))
+        .map(|mut r| {
+            if r.pos == PartOfSpeech::Verb {
+                for (reform, traditional) in [("aitre", "aître"), ("oitre", "oître")] {
+                    if let Some(stem) = r.lemma.strip_suffix(reform) {
+                        r.lemma = format!("{stem}{traditional}");
+                    }
+                }
+            }
+            r
+        })
         .collect()
 }
 
@@ -314,6 +341,7 @@ mod tests {
         };
         let kept = prefer_traditional_spelling(vec![r("apparaître"), r("apparaitre"), r("se tirer")]);
         assert_eq!(kept.iter().map(|r| r.lemma.as_str()).collect::<Vec<_>>(), ["apparaître", "se tirer"]);
+        assert_eq!(prefer_traditional_spelling(vec![r("comparaitre")])[0].lemma, "comparaître");
         assert_eq!(without_pronoun(r("se tirer")).lemma, "tirer");
         assert_eq!(without_pronoun(r("s'enfuir")).lemma, "enfuir");
     }

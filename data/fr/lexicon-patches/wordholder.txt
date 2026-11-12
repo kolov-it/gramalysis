@@ -40,3 +40,98 @@ présentes   +  présent    adj   gender=feminine,number=plural   # only the nou
 
 # Readings that are not French words
 resta  -  resta  noun  # no French noun resta; only rester's passé simple is right
+
+# Verbs returned beside the common one that are obsolete spellings, archaic or
+# not French; in modern text the form is always the common verb's.
+aille  -  ailler  verb  # rare verb whose forms coincide with aller's subjunctive
+aillent  -  ailler  verb  # rare verb whose forms coincide with aller's subjunctive
+ailles  -  ailler  verb  # rare verb whose forms coincide with aller's subjunctive
+assurent  -  assavoir  verb  # archaic verb (only in à savoir)
+battais  -  batter  verb  # not a French verb
+battant  -  batter  verb  # not a French verb
+batte  -  batter  verb  # not a French verb
+battions  -  batter  verb  # not a French verb
+connu  -  connoître  verb  # obsolete spelling of connaître
+connue  -  connoître  verb  # obsolete spelling of connaître
+connus  -  connoître  verb  # obsolete spelling of connaître
+connut  -  connoître  verb  # obsolete spelling of connaître
+connûmes  -  connoître  verb  # obsolete spelling of connaître
+jette  -  jetter  verb  # obsolete spelling of jeter
+jettent  -  jetter  verb  # obsolete spelling of jeter
+jettera  -  jetter  verb  # obsolete spelling of jeter
+jetterai  -  jetter  verb  # obsolete spelling of jeter
+jetterais  -  jetter  verb  # obsolete spelling of jeter
+jetterait  -  jetter  verb  # obsolete spelling of jeter
+jetteras  -  jetter  verb  # obsolete spelling of jeter
+jetterez  -  jetter  verb  # obsolete spelling of jeter
+jetterons  -  jetter  verb  # obsolete spelling of jeter
+jettes  -  jetter  verb  # obsolete spelling of jeter
+ouvrant  -  ouvrer  verb  # archaic verb whose forms coincide with ouvrir
+ouvre  -  ouvrer  verb  # archaic verb whose forms coincide with ouvrir
+ouvres  -  ouvrer  verb  # archaic verb whose forms coincide with ouvrir
+ouvrez  -  ouvrer  verb  # archaic verb whose forms coincide with ouvrir
+pesant  -  valoir_son_pesant_d'or  verb  # an idiom, not a reading of the word
+purent  -  purer  verb  # archaic verb whose forms coincide with pouvoir
+repu  -  repouvoir  verb  # not a French verb
+résolve  -  résolver  verb  # not a French verb (résoudre)
+résolviez  -  résolver  verb  # not a French verb (résoudre)
+résolvions  -  résolver  verb  # not a French verb (résoudre)
+résolvons  -  résolver  verb  # not a French verb (résoudre)
+sauraient  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+saurais  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+saurait  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+sauras  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+saurez  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+sauriez  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+saurions  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+saurons  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+seyait  -  soir  verb  # soir is a noun, not a verb
+sied  -  soir  verb  # soir is a noun, not a verb
+siée  -  soir  verb  # soir is a noun, not a verb
+siéra  -  soir  verb  # soir is a noun, not a verb
+soir  -  soir  verb  # soir is a noun, not a verb
+va  -  vader  verb  # not a French verb
+vais  -  vader  verb  # not a French verb
+verra  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verrai  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verrais  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verrait  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verras  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verre  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verres  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verrez  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verriez  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verrons  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+vont  -  vader  verb  # not a French verb
+
+# Forms returned as an infinitive of themselves (the API reads a form-of
+# entry as a lemma). doutes is above.
+accusé  -  accusé  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+aies  -  aies  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+aimez  -  aimez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+aimé  -  aimé  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+ayez  -  ayez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+ayons  -  ayons  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+commit  -  commit  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+content  -  content  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+dit  -  dit  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+expliques  -  expliques  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+expliquez  -  expliquez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+finisses  -  finisses  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+grandisses  -  grandisses  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+grandit  -  grandit  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+issu  -  issu  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+ken  -  ken  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+mentis  -  mentis  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+parlez  -  parlez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+pensé  -  pensé  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+permettant  -  permettant  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+plait  =  plaire  verb  mood=indicative,tense=present,person=third,number=singular  # reform spelling of plaît (s'il vous plait); returned only as an infinitive of itself
+poitrine  -  poitrine  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+réfléchisses  -  réfléchisses  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+serrai  -  serrai  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+soit  -  soit  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+souffres  -  souffres  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+traitez  -  traitez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+voilà  -  voilà  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+évolué  -  évolué  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive

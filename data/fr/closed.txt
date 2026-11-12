@@ -63,6 +63,7 @@ envers = envers:Prep
 dès = dès:Prep
 sauf = sauf:Prep
 vu = vu:Prep
+vu = vu:SubLead
 hors = hors:Prep
 durant = durant:Prep
 contre = contre:Adv
@@ -150,6 +151,8 @@ ou = ou:Conj{type=coord}
 mais = mais:Conj{type=coord}
 ni = ni:Conj{type=coord}
 car = car:Conj{type=coord}
+puis = puis:Conj{type=coord}
+puis = puis:Adv
 donc = donc:Conj{type=coord}
 donc = donc:Adv
 or = or:Conj{type=coord}
