@@ -42,6 +42,9 @@ pub fn from_features(f: &Features) -> FeatMap {
             Mood::Imperative => "imp",
         });
         put("finite", "yes");
+        // Conjugated: never matches a constraint asking for an infinitive,
+        // gerund or participle.
+        put("form", "fin");
     }
     if let Some(t) = f.tense {
         put("tense", match t {

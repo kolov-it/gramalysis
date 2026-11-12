@@ -164,3 +164,151 @@ quando = quando:Conj{type=sub}
 
 # --- negation
 non = non:Adv{neg=yes}
+
+# --- demonstratives (they behave like the definite article)
+questo = questo:Det{definite=yes,gender=m,number=sg}
+questa = questo:Det{definite=yes,gender=f,number=sg}
+questi = questo:Det{definite=yes,gender=m,number=pl}
+queste = questo:Det{definite=yes,gender=f,number=pl}
+quest' = questo:Det{definite=yes,number=sg,next=v}
+quel = quello:Det{definite=yes,gender=m,number=sg,next=c}
+quello = quello:Det{definite=yes,gender=m,number=sg,next=sc}
+quell' = quello:Det{definite=yes,number=sg,next=v}
+quella = quello:Det{definite=yes,gender=f,number=sg,next=c}
+quella = quello:Det{definite=yes,gender=f,number=sg,next=sc}
+quei = quello:Det{definite=yes,gender=m,number=pl,next=c}
+quegli = quello:Det{definite=yes,gender=m,number=pl,next=sc}
+quegli = quello:Det{definite=yes,gender=m,number=pl,next=v}
+quelle = quello:Det{definite=yes,gender=f,number=pl}
+questo = questo:Pron{case=nom,person=3,number=sg,gender=m,clitic=no}
+questo = questo:Pron{case=obl,person=3,number=sg,gender=m,clitic=no}
+questa = questo:Pron{case=nom,person=3,number=sg,gender=f,clitic=no}
+questa = questo:Pron{case=obl,person=3,number=sg,gender=f,clitic=no}
+quello = quello:Pron{case=nom,person=3,number=sg,gender=m,clitic=no}
+quello = quello:Pron{case=obl,person=3,number=sg,gender=m,clitic=no}
+quella = quello:Pron{case=nom,person=3,number=sg,gender=f,clitic=no}
+quella = quello:Pron{case=obl,person=3,number=sg,gender=f,clitic=no}
+
+# --- quantifiers. `tutto` goes before an article: tutti i giorni.
+ogni = ogni:Det{definite=no,number=sg}
+qualche = qualche:Det{definite=no,number=sg}
+alcuni = alcuno:Det{definite=no,gender=m,number=pl}
+alcune = alcuno:Det{definite=no,gender=f,number=pl}
+molti = molto:Det{definite=no,gender=m,number=pl}
+molte = molto:Det{definite=no,gender=f,number=pl}
+molto = molto:Det{definite=no,gender=m,number=sg}
+molta = molto:Det{definite=no,gender=f,number=sg}
+pochi = poco:Det{definite=no,gender=m,number=pl}
+poche = poco:Det{definite=no,gender=f,number=pl}
+tanti = tanto:Det{definite=no,gender=m,number=pl}
+tante = tanto:Det{definite=no,gender=f,number=pl}
+troppi = troppo:Det{definite=no,gender=m,number=pl}
+troppe = troppo:Det{definite=no,gender=f,number=pl}
+nessun = nessuno:Det{definite=no,gender=m,number=sg,next=c}
+nessun = nessuno:Det{definite=no,gender=m,number=sg,next=v}
+nessuno = nessuno:Det{definite=no,gender=m,number=sg,next=sc}
+nessuna = nessuno:Det{definite=no,gender=f,number=sg}
+tutto = tutto:Predet{gender=m,number=sg}
+tutta = tutto:Predet{gender=f,number=sg}
+tutti = tutto:Predet{gender=m,number=pl}
+tutte = tutto:Predet{gender=f,number=pl}
+tutto = tutto:Pron{case=nom,person=3,number=sg,clitic=no}
+tutto = tutto:Pron{case=obl,person=3,number=sg,clitic=no}
+tutti = tutto:Pron{case=nom,person=3,number=pl,clitic=no}
+tutti = tutto:Pron{case=obl,person=3,number=pl,clitic=no}
+niente = niente:Pron{case=obl,person=3,number=sg,clitic=no}
+niente = niente:Pron{case=nom,person=3,number=sg,clitic=no}
+nulla = nulla:Pron{case=obl,person=3,number=sg,clitic=no}
+qualcosa = qualcosa:Pron{case=obl,person=3,number=sg,clitic=no}
+qualcosa = qualcosa:Pron{case=nom,person=3,number=sg,clitic=no}
+qualcuno = qualcuno:Pron{case=nom,person=3,number=sg,clitic=no}
+qualcuno = qualcuno:Pron{case=obl,person=3,number=sg,clitic=no}
+nessuno = nessuno:Pron{case=nom,person=3,number=sg,clitic=no}
+nessuno = nessuno:Pron{case=obl,person=3,number=sg,clitic=no}
+ognuno = ognuno:Pron{case=nom,person=3,number=sg,clitic=no}
+
+# --- possessives: agree with the noun, not the owner (la sua casa = his/her house)
+mio = mio:Poss{gender=m,number=sg,owner=1s}
+mia = mio:Poss{gender=f,number=sg,owner=1s}
+miei = mio:Poss{gender=m,number=pl,owner=1s}
+mie = mio:Poss{gender=f,number=pl,owner=1s}
+tuo = tuo:Poss{gender=m,number=sg,owner=2s}
+tua = tuo:Poss{gender=f,number=sg,owner=2s}
+tuoi = tuo:Poss{gender=m,number=pl,owner=2s}
+tue = tuo:Poss{gender=f,number=pl,owner=2s}
+suo = suo:Poss{gender=m,number=sg,owner=3s}
+sua = suo:Poss{gender=f,number=sg,owner=3s}
+suoi = suo:Poss{gender=m,number=pl,owner=3s}
+sue = suo:Poss{gender=f,number=pl,owner=3s}
+nostro = nostro:Poss{gender=m,number=sg,owner=1p}
+nostra = nostro:Poss{gender=f,number=sg,owner=1p}
+nostri = nostro:Poss{gender=m,number=pl,owner=1p}
+nostre = nostro:Poss{gender=f,number=pl,owner=1p}
+vostro = vostro:Poss{gender=m,number=sg,owner=2p}
+vostra = vostro:Poss{gender=f,number=sg,owner=2p}
+vostri = vostro:Poss{gender=m,number=pl,owner=2p}
+vostre = vostro:Poss{gender=f,number=pl,owner=2p}
+loro = loro:Poss{owner=3p}
+
+# --- question words
+dove = dove:QAdv
+quando = quando:QAdv
+come = come:QAdv
+perché = perché:QAdv
+chi = chi:QPron{person=3,number=sg}
+cosa = cosa:QPron{person=3,number=sg}
+che = che:QPron{person=3,number=sg}
+che = che:QDet
+quale = quale:QDet{number=sg}
+quali = quale:QDet{number=pl}
+quale = quale:QPron{person=3,number=sg}
+quanto = quanto:QDet{gender=m,number=sg}
+quanta = quanto:QDet{gender=f,number=sg}
+quanti = quanto:QDet{gender=m,number=pl}
+quante = quanto:QDet{gender=f,number=pl}
+
+# --- relative pronouns
+che = che:RelPron
+cui = cui:RelPron
+
+# --- answers and interjections
+sì = sì:Intj
+no = no:Intj
+ecco = ecco:Intj
+# `come` and `dove` also outside questions: bianco come la neve, la città dove vivo
+come = come:Prep
+come = come:Conj{type=sub}
+dove = dove:Conj{type=sub}
+
+# --- more subordinating conjunctions
+appena = appena:Conj{type=sub}
+mentre = mentre:Conj{type=sub}
+finché = finché:Conj{type=sub}
+benché = benché:Conj{type=sub}
+sebbene = sebbene:Conj{type=sub}
+affinché = affinché:Conj{type=sub}
+
+# --- more prepositions; most are adverbs too (ci vediamo dopo)
+dopo = dopo:Prep
+dopo = dopo:Adv
+prima = prima:Adv
+senza = senza:Prep
+verso = verso:Prep
+contro = contro:Prep
+durante = durante:Prep
+sopra = sopra:Prep
+sopra = sopra:Adv
+sotto = sotto:Prep
+sotto = sotto:Adv
+dentro = dentro:Prep
+dentro = dentro:Adv
+fuori = fuori:Adv
+presso = presso:Prep
+oltre = oltre:Prep
+oltre = oltre:Adv
+tranne = tranne:Prep
+lungo = lungo:Prep
+entro = entro:Prep
+dietro = dietro:Prep
+dietro = dietro:Adv
+attraverso = attraverso:Prep

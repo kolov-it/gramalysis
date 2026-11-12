@@ -12,3 +12,14 @@ pub mod fixture;
 
 pub use client::{WordHolderLexicon, BATCH_ENV, KEY_ENV, URL_ENV};
 pub use fixture::FixtureLexicon;
+
+use crate::morph::Lang;
+use crate::patch::{PatchError, Patches};
+
+const PATCHES_IT: &str = include_str!("../../data/it/lexicon-patches/wordholder.txt");
+
+/// The corrections for this lexicon's known defects
+/// (`data/<lang>/lexicon-patches/wordholder.txt`).
+pub fn patches() -> Result<Patches, PatchError> {
+    Patches::parse(Lang::It, "data/it/lexicon-patches/wordholder.txt", PATCHES_IT)
+}

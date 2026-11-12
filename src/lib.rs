@@ -4,6 +4,7 @@
 //!   lexicon implements.
 //! - [`syntax`]: grammar files, the morpheme lattice, the Earley parser.
 //! - [`lang`]: the [`lang::Language`] trait and each language ([`lang::it`]).
+//! - [`patch`]: corrections to a lexicon's known defects, applied on top of it.
 //! - [`analysis`]: the pipeline, [`analyze`].
 //! - [`wordholder`] (feature `wordholder`): the Word Holder API as a lexicon.
 //!
@@ -12,6 +13,7 @@
 pub mod analysis;
 pub mod lang;
 pub mod morph;
+pub mod patch;
 pub mod syntax;
 #[cfg(feature = "wordholder")]
 pub mod wordholder;

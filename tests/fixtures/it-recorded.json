@@ -3,9 +3,43 @@
     "a": [
       {
         "confidence": "high",
-        "definition": "ready",
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": [
+            "invariable"
+          ]
+        },
         "lemma": "a",
         "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "a"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "plural",
+          "rawTags": [
+            "invariable"
+          ]
+        },
+        "lemma": "a",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "a"
+      },
+      {
+        "confidence": "high",
+        "lemma": "a",
+        "partOfSpeech": "prep",
+        "source": "kaikki",
+        "surface": "a"
+      },
+      {
+        "confidence": "high",
+        "lemma": "a",
+        "partOfSpeech": "conj",
         "source": "kaikki",
         "surface": "a"
       }
@@ -13,7 +47,6 @@
     "ama": [
       {
         "confidence": "high",
-        "definition": "plan",
         "form": {
           "label": "indicative present singular third-person",
           "tags": [
@@ -40,12 +73,37 @@
         "partOfSpeech": "verb",
         "source": "kaikki",
         "surface": "ama"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "amare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ama"
       }
     ],
     "arrivata": [
       {
         "confidence": "high",
-        "definition": "ready",
         "form": {
           "label": "feminine singular",
           "tags": [
@@ -69,7 +127,6 @@
       },
       {
         "confidence": "high",
-        "definition": "ready",
         "form": {
           "label": "feminine participle singular",
           "tags": [
@@ -80,14 +137,15 @@
         },
         "grammar": {
           "clitic": false,
-          "formKind": "participle",
+          "formKind": "past-participle",
           "gender": "feminine",
           "number": "singular",
           "rawTags": [
             "feminine",
             "participle",
             "singular"
-          ]
+          ],
+          "tense": "past"
         },
         "lemma": "arrivare",
         "partOfSpeech": "verb",
@@ -98,7 +156,12 @@
     "arrivato": [
       {
         "confidence": "high",
-        "definition": "ready",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
         "lemma": "arrivato",
         "partOfSpeech": "adj",
         "source": "kaikki",
@@ -106,7 +169,6 @@
       },
       {
         "confidence": "high",
-        "definition": "ready",
         "form": {
           "label": "participle past",
           "tags": [
@@ -117,6 +179,8 @@
         "grammar": {
           "clitic": false,
           "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
           "rawTags": [
             "participle",
             "past"
@@ -132,7 +196,14 @@
     "cane": [
       {
         "confidence": "high",
-        "definition": "ready",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
         "lemma": "cane",
         "partOfSpeech": "noun",
         "source": "kaikki",
@@ -140,7 +211,19 @@
       },
       {
         "confidence": "high",
-        "definition": "plan",
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "invariable"
+          ]
+        },
+        "lemma": "cane",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "cane"
+      },
+      {
+        "confidence": "high",
         "form": {
           "label": "feminine plural",
           "tags": [
@@ -164,7 +247,6 @@
       },
       {
         "confidence": "high",
-        "definition": "plan",
         "form": {
           "label": "feminine plural",
           "tags": [
@@ -190,9 +272,28 @@
     "che": [
       {
         "confidence": "high",
-        "definition": "free",
         "lemma": "che",
         "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "che"
+      },
+      {
+        "confidence": "high",
+        "lemma": "che",
+        "partOfSpeech": "conj",
+        "source": "kaikki",
+        "surface": "che"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "invariable"
+          ]
+        },
+        "lemma": "che",
+        "partOfSpeech": "det",
         "source": "kaikki",
         "surface": "che"
       }
@@ -200,17 +301,24 @@
     "dammelo": [
       {
         "confidence": "high",
-        "definition": "ready",
         "form": {
-          "label": "compound-of",
+          "label": "compound of da'",
           "tags": [
-            "compound-of"
+            "compound",
+            "of",
+            "da'"
           ]
         },
         "grammar": {
           "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
           "rawTags": [
-            "compound-of"
+            "compound-of",
+            "imperative",
+            "second-person",
+            "singular"
           ]
         },
         "lemma": "dare",
@@ -222,7 +330,6 @@
     "del": [
       {
         "confidence": "high",
-        "definition": "free",
         "lemma": "del",
         "partOfSpeech": "contraction",
         "source": "kaikki",
@@ -232,9 +339,40 @@
     "di": [
       {
         "confidence": "high",
-        "definition": "free",
         "lemma": "di",
         "partOfSpeech": "prep",
+        "source": "kaikki",
+        "surface": "di"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "invariable"
+          ]
+        },
+        "lemma": "di",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "di"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "invariable"
+          ]
+        },
+        "lemma": "di",
+        "partOfSpeech": "noun",
         "source": "kaikki",
         "surface": "di"
       }
@@ -242,7 +380,6 @@
     "disse": [
       {
         "confidence": "high",
-        "definition": "ready",
         "form": {
           "label": "historic past singular third-person",
           "tags": [
@@ -254,6 +391,7 @@
         },
         "grammar": {
           "clitic": false,
+          "mood": "indicative",
           "number": "singular",
           "person": "third",
           "rawTags": [
@@ -262,7 +400,7 @@
             "singular",
             "third-person"
           ],
-          "tense": "past"
+          "tense": "preterite"
         },
         "lemma": "dire",
         "partOfSpeech": "verb",
@@ -273,7 +411,12 @@
     "fatto": [
       {
         "confidence": "high",
-        "definition": "ready",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
         "lemma": "fatto",
         "partOfSpeech": "adj",
         "source": "kaikki",
@@ -281,7 +424,21 @@
       },
       {
         "confidence": "high",
-        "definition": "ready",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "fatto",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "fatto"
+      },
+      {
+        "confidence": "high",
         "form": {
           "label": "participle past",
           "tags": [
@@ -292,6 +449,8 @@
         "grammar": {
           "clitic": false,
           "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
           "rawTags": [
             "participle",
             "past"
@@ -307,7 +466,6 @@
     "fece": [
       {
         "confidence": "high",
-        "definition": "ready",
         "form": {
           "label": "historic past singular third-person",
           "tags": [
@@ -319,6 +477,7 @@
         },
         "grammar": {
           "clitic": false,
+          "mood": "indicative",
           "number": "singular",
           "person": "third",
           "rawTags": [
@@ -327,7 +486,7 @@
             "singular",
             "third-person"
           ],
-          "tense": "past"
+          "tense": "preterite"
         },
         "lemma": "fare",
         "partOfSpeech": "verb",
@@ -338,7 +497,6 @@
     "ho": [
       {
         "confidence": "high",
-        "definition": "ready",
         "form": {
           "label": "first-person indicative present singular",
           "tags": [
@@ -370,9 +528,33 @@
     "il": [
       {
         "confidence": "high",
-        "definition": "free",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
         "lemma": "il",
         "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "il"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "il",
+        "partOfSpeech": "pron",
         "source": "kaikki",
         "surface": "il"
       }
@@ -380,9 +562,61 @@
     "l'": [
       {
         "confidence": "high",
-        "definition": "plan",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
         "lemma": "l'",
         "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "l'"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "l'",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "l'"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "l'",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "l'"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "l'",
+        "partOfSpeech": "pron",
         "source": "kaikki",
         "surface": "l'"
       }
@@ -390,7 +624,15 @@
     "la": [
       {
         "confidence": "high",
-        "definition": "free",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
         "lemma": "la",
         "partOfSpeech": "article",
         "source": "kaikki",
@@ -398,7 +640,61 @@
       },
       {
         "confidence": "high",
-        "definition": "free",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "la"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "la"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "la"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
         "lemma": "La",
         "partOfSpeech": "pron",
         "source": "kaikki",
@@ -408,7 +704,14 @@
     "lavoro": [
       {
         "confidence": "high",
-        "definition": "ready",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
         "lemma": "lavoro",
         "partOfSpeech": "noun",
         "source": "kaikki",
@@ -416,7 +719,6 @@
       },
       {
         "confidence": "high",
-        "definition": "ready",
         "form": {
           "label": "first-person indicative present singular",
           "tags": [
@@ -448,7 +750,6 @@
     "me": [
       {
         "confidence": "high",
-        "definition": "free",
         "lemma": "me",
         "partOfSpeech": "pron",
         "source": "kaikki",
@@ -456,7 +757,6 @@
       },
       {
         "confidence": "high",
-        "definition": "free",
         "lemma": "Me",
         "partOfSpeech": "pron",
         "source": "kaikki",
@@ -466,7 +766,6 @@
     "non": [
       {
         "confidence": "high",
-        "definition": "free",
         "lemma": "non",
         "partOfSpeech": "adv",
         "source": "kaikki",
@@ -476,7 +775,14 @@
     "ragazza": [
       {
         "confidence": "high",
-        "definition": "ready",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
         "lemma": "ragazza",
         "partOfSpeech": "noun",
         "source": "kaikki",
@@ -486,7 +792,6 @@
     "ricordati": [
       {
         "confidence": "high",
-        "definition": "plan",
         "form": {
           "label": "imperative second-person singular",
           "tags": [
@@ -496,7 +801,7 @@
           ]
         },
         "grammar": {
-          "clitic": false,
+          "clitic": true,
           "mood": "imperative",
           "number": "singular",
           "person": "second",
@@ -510,12 +815,38 @@
         "partOfSpeech": "verb",
         "source": "kaikki",
         "surface": "ricordati"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine participle plural",
+          "tags": [
+            "masculine",
+            "participle",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "participle",
+            "plural"
+          ],
+          "tense": "past"
+        },
+        "lemma": "ricordare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ricordati"
       }
     ],
     "riusciva": [
       {
         "confidence": "high",
-        "definition": "plan",
         "form": {
           "label": "imperfect indicative singular third-person",
           "tags": [
@@ -548,7 +879,11 @@
     "trovare": [
       {
         "confidence": "high",
-        "definition": "ready",
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
         "lemma": "trovare",
         "partOfSpeech": "verb",
         "source": "kaikki",
@@ -558,9 +893,36 @@
     "un": [
       {
         "confidence": "high",
-        "definition": "plan",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
         "lemma": "un",
         "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "un"
+      },
+      {
+        "confidence": "high",
+        "lemma": "un",
+        "partOfSpeech": "num",
+        "source": "kaikki",
+        "surface": "un"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "pron",
         "source": "kaikki",
         "surface": "un"
       }
@@ -568,7 +930,14 @@
     "volontariato": [
       {
         "confidence": "high",
-        "definition": "plan",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
         "lemma": "volontariato",
         "partOfSpeech": "noun",
         "source": "kaikki",
@@ -578,7 +947,6 @@
     "è": [
       {
         "confidence": "high",
-        "definition": "ready",
         "form": {
           "label": "indicative present singular third-person",
           "tags": [

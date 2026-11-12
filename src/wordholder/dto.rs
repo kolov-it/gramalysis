@@ -47,6 +47,7 @@ pub(super) fn reading_from_entry(entry: LemmaEntry) -> Reading {
                 number: g.number,
                 gender: g.gender,
                 form_kind: g.form_kind,
+                auxiliaries: g.auxiliaries,
             },
             g.clitic,
             g.raw_tags,
@@ -56,7 +57,7 @@ pub(super) fn reading_from_entry(entry: LemmaEntry) -> Reading {
     };
     Reading {
         lemma: entry.lemma,
-        pos: part_of_speech(&entry.part_of_speech),
+        pos: PartOfSpeech::from_tag(&entry.part_of_speech),
         features,
         clitic,
         raw_tags,
@@ -64,25 +65,6 @@ pub(super) fn reading_from_entry(entry: LemmaEntry) -> Reading {
     }
 }
 
-fn part_of_speech(tag: &str) -> PartOfSpeech {
-    match tag {
-        "verb" => PartOfSpeech::Verb,
-        "noun" => PartOfSpeech::Noun,
-        "name" => PartOfSpeech::ProperNoun,
-        "adj" => PartOfSpeech::Adjective,
-        "adv" => PartOfSpeech::Adverb,
-        "pron" => PartOfSpeech::Pronoun,
-        "det" => PartOfSpeech::Determiner,
-        "article" => PartOfSpeech::Article,
-        "prep" => PartOfSpeech::Preposition,
-        "conj" => PartOfSpeech::Conjunction,
-        "num" => PartOfSpeech::Numeral,
-        "intj" => PartOfSpeech::Interjection,
-        "particle" => PartOfSpeech::Particle,
-        "contraction" => PartOfSpeech::Contraction,
-        other => PartOfSpeech::Other(other.to_owned()),
-    }
-}
 
 #[derive(Serialize)]
 pub(super) struct BatchRequest<'a> {
@@ -128,6 +110,8 @@ pub(super) struct Grammar {
     pub(super) number: Option<Number>,
     pub(super) gender: Option<Gender>,
     pub(super) form_kind: Option<FormKind>,
+    #[serde(default)]
+    pub(super) auxiliaries: Vec<String>,
     pub(super) clitic: bool,
 }
 
