@@ -190,7 +190,10 @@ async fn evaluate<'a>(
         })
         .unwrap_or_default();
     readings.sort();
-    readings.dedup();
+    // For a verb page, every "not a verb" answer is the same answer, whatever
+    // the noun or adjective is (candidati: the noun candidato, or candidare's
+    // participle used like an adjective).
+    readings.dedup_by(|a, b| a == b || (!a.verb && !b.verb));
     let status = if !a.unknown.is_empty() {
         Status::UnknownWord
     } else if a.parse_count == 0 {
@@ -263,7 +266,18 @@ fn summarize(results: &[ItemResult]) {
 
 #[cfg(test)]
 mod tests {
-    use super::base_verb;
+    use super::{base_verb, Reading};
+
+    #[test]
+    fn non_verbal_answers_count_as_one() {
+        let mut readings = vec![
+            Reading { verb: false, lemma: "candidato".to_owned() },
+            Reading { verb: false, lemma: "candidati".to_owned() },
+        ];
+        readings.sort();
+        readings.dedup_by(|a, b| a == b || (!a.verb && !b.verb));
+        assert_eq!(readings.len(), 1);
+    }
 
     #[test]
     fn pronominal_infinitives_map_to_their_base_verb() {
