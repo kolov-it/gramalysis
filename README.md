@@ -42,8 +42,8 @@ questions, subordinate clauses, commas, coordination and time expressions.
 
 On the [Tatoeba homograph set](#measuring-it-the-tatoeba-homograph-set)
 (5,000 sentences built around ambiguous verb forms) it decides the ambiguous
-word in **68%** of the sentences, and **99.2%** of those decisions agree with
-the labels (3,316 of 3,344).
+word in **70%** of the sentences, and **99.2%** of those decisions agree with
+the labels (3,340 of 3,368).
 
 ## Goal: anyone can run every example
 

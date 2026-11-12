@@ -3587,7 +3587,7 @@
 626384	privato	privare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 3348260	processi	processo	noun		claude-opus-5.5@2026-11-12		
 621831	processo	processo	noun		claude-opus-5.5@2026-11-12		
-418775	prodotto	produrre	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
+418775	prodotto	prodotto	noun		claude-opus-5.5@2026-11-12		corrected 2026-11-12 (Codex review on #5): "una copia del prodotto finale" is the noun product
 671724	prodotto	produrre	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		
 8681903	profondi	profondo	adj		claude-opus-5.5@2026-11-12		outside candidates
 534955	progetti	progetto	noun		claude-opus-5.5@2026-11-12		
