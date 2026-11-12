@@ -26,6 +26,9 @@ les = le:Det{definite=yes,number=pl}
 un = un:Det{definite=no,gender=m,number=sg}
 une = un:Det{definite=no,gender=f,number=sg}
 des = un:Det{definite=no,number=pl}
+# un, une as pronouns: un des garçons, l'une d'elles
+un = un:One{gender=m}
+une = un:One{gender=f}
 du = du:Det{definite=no,partitive=yes,gender=m,number=sg,next=c}
 
 # --- prepositions

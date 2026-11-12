@@ -135,3 +135,6 @@ souffres  -  souffres  verb  # returned as an infinitive with itself as the lemm
 traitez  -  traitez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
 voilà  -  voilà  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
 évolué  -  évolué  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+
+# Readings too rare to keep beside a function word
+la  -  la  noun  # the note la (A): every article la would also be a bare noun (à la nage read as à + la + verb)

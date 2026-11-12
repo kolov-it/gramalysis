@@ -603,7 +603,7 @@ rule vp.verb: VP[bare=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n, g
 rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, acc=no] NP[case=obl]
   "The verb takes a direct object, unless le, la, les already is its object (je vois le chat, not *je le vois le chat)."
 
-rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, lemma=pouvoir|devoir|vouloir|savoir|aller|venir|voir|entendre|faire|laisser|aimer|préférer|adorer|détester|falloir|oser|sembler|paraître|désirer|espérer|compter|souhaiter|penser|croire|sentir|regarder|écouter|envoyer|courir|monter|descendre|sortir|rentrer|partir|retourner|valoir|affirmer|prétendre|avouer|déclarer|nier|reconnaître|imaginer|savoir] VP[form=inf]
+rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, lemma=pouvoir|devoir|vouloir|savoir|aller|venir|voir|manquer|entendre|faire|laisser|aimer|préférer|adorer|détester|falloir|oser|sembler|paraître|désirer|espérer|compter|souhaiter|penser|croire|sentir|regarder|écouter|envoyer|courir|monter|descendre|sortir|rentrer|partir|retourner|valoir|affirmer|prétendre|avouer|déclarer|nier|reconnaître|imaginer|savoir] VP[form=inf]
   "A verb followed by an infinitive without a preposition: modal, motion, perception and causative verbs and a few others (je veux partir, il va pleuvoir, je l'entends chanter, fais-moi savoir)."
 
 rule vp.object-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, lemma=voir|entendre|faire|laisser|regarder|écouter|sentir|envoyer, acc=no] NP[case=obl] VP[form=inf]
@@ -841,3 +841,54 @@ rule clause.participle-clause-first: S[imp=?i] -> VP[bare=no, form=prespart|ger]
 
 rule clause.participle-clause-last: S[imp=?i] -> S[imp=?i] Punct VP[bare=no, form=prespart|ger]
   "An -ant clause after a comma, at the end (…, formant ainsi des nuages)."
+
+rule np.article-name: NP[person=3, number=?n, gender=?g] -> Det[definite=yes, number=?n, gender=?g] ProperNoun[gender=?g]
+  "The article before a country, a region or a river (le Japon, la France, la Grande-Bretagne)."
+
+rule np.one-of: NP[person=3, number=sg, gender=?g] -> One[gender=?g] PP
+  "un, une + de + a plural (un des garçons, une de mes amies)."
+
+rule np.the-one-of: NP[person=3, number=sg, gender=?g] -> Det[lemma=le, number=sg] One[gender=?g] PP
+  "l'un, l'une + de + a plural (l'une d'elles)."
+
+rule clause.absolute: S[imp=?i] -> NP VP[form=prespart|ger] Punct S[imp=?i]
+  "An absolute participle clause with its own subject, first (Les années passant, elle devenait plus belle)."
+
+rule np.de-plural-adjective: NP[person=3, number=pl, gender=?g] -> Prep[lemma=de] Adj[number=pl, gender=?g] Nom[number=pl, gender=?g]
+  "de + adjective + plural noun, as a subject too (De nombreux artistes vivent à Paris)."
+
+rule nom.name-after: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] ProperNoun
+  "A name after a common noun (le lac Biwa, la rue Pasteur)."
+
+rule v.floating-quantifier: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, acc=?a, neg=?ng] -> V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, acc=?a, neg=?ng] Pron[lemma=tout, number=pl]
+  "tous, toutes right after the verb (nous devrons tous mourir)."
+
+rule vp.clitic-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s, lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer, acc=yes] AP
+  "A verb with le, la, les as its object and an adjective saying what the object is (je la trouvai plongée dans un livre, tu ne peux pas le garder secret)."
+
+rule vp.supposed: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> Cop[mood=?m, person=?p, number=?n, subj=?s] AP[participle=supposer|censer, number=?n, gender=?g] VP[form=inf]
+  "être supposé / censé + infinitive = be supposed to (il était supposé venir)."
+
+rule vp.indirect-question-pronoun-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, subj=?s] QPron VP[form=inf]
+  "quoi or qui + infinitive inside the sentence (je ne sais pas quoi dire)."
+
+rule rel.ou-inverted: Rel -> RelPron[role=place] VP[finite=yes, form=fin, subj=no, person=?p, number=?n] NP[case=nom, person=?p, number=?n]
+  "où + verb + noun subject (le pays où coule le lait)."
+
+rule rel.object-inverted: Rel -> RelPron[role=object] VP[finite=yes, form=fin, subj=no, person=?p, number=?n] NP[case=nom, person=?p, number=?n]
+  "que + verb + noun subject (le livre que lit mon père)."
+
+rule clause.incise-noun: S -> S Punct VP[finite=yes, form=fin, subj=no, person=3, number=?n] NP[case=nom, person=3, number=?n]
+  "A reporting verb after the quotation, with a noun subject after it (…, dit Tom)."
+
+rule clause.interjection-alone: S -> Intj
+  "An interjection on its own (Bonjour ! Merci.)."
+
+rule clause.adverb-pair-first: S[imp=?i] -> Adv Conj[type=coord] Adv S[imp=?i]
+  "Two adverbs joined first (Tôt ou tard, nous saurons)."
+
+rule ap.more-and-more: AP[pp=?x, number=?n, gender=?g] -> Prep[lemma=de] Adv[lemma=plus|moins] Prep[lemma=en] Adv[lemma=plus|moins] AP[pp=?x, number=?n, gender=?g]
+  "de plus en plus, de moins en moins + adjective."
+
+rule pp.coordination: PP -> PP Conj[type=coord] PP
+  "Two phrases with a preposition joined by et, ou (à votre tante et à votre oncle)."

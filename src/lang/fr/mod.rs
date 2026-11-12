@@ -130,6 +130,7 @@ impl French {
                 readings.retain(|r| !r.iter().any(|m| m.feats.get("imperative").map(String::as_str) == Some("yes")));
             }
             let all_caps = token.chars().filter(|c| c.is_alphabetic()).all(char::is_uppercase);
+            let capitalised = token.chars().next().is_some_and(char::is_uppercase);
             let lexicon: Vec<Reading> = analysis
                 .map(|a| a.readings.clone())
                 .unwrap_or_default()
@@ -138,6 +139,9 @@ impl French {
                 // acronyms (ait: AIT, ce: CE); one stands only for a word
                 // written in capitals.
                 .filter(|r| all_caps || !is_acronym(&r.lemma))
+                // …and with names (mariage: Mariage); a name stands only for
+                // a capitalised word.
+                .filter(|r| capitalised || r.pos != PartOfSpeech::ProperNoun)
                 .collect();
             let lexicon = prefer_traditional_spelling(
                 lexicon.into_iter().map(without_pronoun).map(|r| without_defaulted_features(r, &lower)).collect(),
@@ -173,7 +177,6 @@ impl French {
             if readings.is_empty() && token.chars().any(|c| c.is_ascii_digit()) {
                 readings.push(vec![Morpheme { surface: token.clone(), lemma: lower.clone(), cat: "Num".to_owned(), feats: FeatMap::new() }]);
             }
-            let capitalised = token.chars().next().is_some_and(char::is_uppercase);
             if capitalised && (i > 0 || readings.is_empty()) {
                 let mut feats = FeatMap::new();
                 feats.insert("onset".to_owned(), first_sound.to_owned());
