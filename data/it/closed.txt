@@ -1,0 +1,166 @@
+# Italian function words: articles, prepositions (with their contracted
+# forms), pronouns, conjunctions. These are answered from this list, not by
+# the lexicon service. One reading per line; a form with several readings has
+# several lines. A reading of several morphemes joins them with `+`.
+#
+# form = lemma:Category{feature=value,...} [+ lemma:Category{...}]
+#
+# Features: gender m/f, number sg/pl, person 1/2/3, definite yes/no,
+# case nom (subject) / obl (stressed, after a verb or preposition) /
+# acc (direct clitic) / dat (indirect clitic) / refl / gen (ne) / loc (ci, vi),
+# clitic yes/no, combining yes (me, te, se, ce, ve, glie before lo/la/li/le/ne).
+
+# --- definite article
+# `next` is the sound the following word starts with: c = an ordinary
+# consonant (il cane), sc = s + consonant, z, gn, ps, pn, x, y or i + vowel
+# (lo zio, lo studente), v = a vowel (l'amico). A form allowed before two kinds
+# of sound has a line for each.
+il = il:Det{definite=yes,gender=m,number=sg,next=c}
+lo = il:Det{definite=yes,gender=m,number=sg,next=sc}
+la = il:Det{definite=yes,gender=f,number=sg,next=c}
+la = il:Det{definite=yes,gender=f,number=sg,next=sc}
+l' = il:Det{definite=yes,number=sg,next=v}
+i = il:Det{definite=yes,gender=m,number=pl,next=c}
+gli = il:Det{definite=yes,gender=m,number=pl,next=sc}
+gli = il:Det{definite=yes,gender=m,number=pl,next=v}
+le = il:Det{definite=yes,gender=f,number=pl}
+
+# --- indefinite article
+un = un:Det{definite=no,gender=m,number=sg,next=c}
+un = un:Det{definite=no,gender=m,number=sg,next=v}
+uno = un:Det{definite=no,gender=m,number=sg,next=sc}
+una = un:Det{definite=no,gender=f,number=sg,next=c}
+una = un:Det{definite=no,gender=f,number=sg,next=sc}
+un' = un:Det{definite=no,gender=f,number=sg,next=v}
+
+# --- prepositions
+di = di:Prep
+d' = di:Prep
+a = a:Prep
+ad = a:Prep
+da = da:Prep
+in = in:Prep
+con = con:Prep
+su = su:Prep
+per = per:Prep
+tra = tra:Prep
+fra = fra:Prep
+
+# --- prepositions contracted with the definite article
+del = di:Prep + il:Det{definite=yes,gender=m,number=sg,next=c}
+dello = di:Prep + il:Det{definite=yes,gender=m,number=sg,next=sc}
+della = di:Prep + il:Det{definite=yes,gender=f,number=sg,next=c}
+della = di:Prep + il:Det{definite=yes,gender=f,number=sg,next=sc}
+dell' = di:Prep + il:Det{definite=yes,number=sg,next=v}
+dei = di:Prep + il:Det{definite=yes,gender=m,number=pl,next=c}
+degli = di:Prep + il:Det{definite=yes,gender=m,number=pl,next=sc}
+degli = di:Prep + il:Det{definite=yes,gender=m,number=pl,next=v}
+delle = di:Prep + il:Det{definite=yes,gender=f,number=pl}
+al = a:Prep + il:Det{definite=yes,gender=m,number=sg,next=c}
+allo = a:Prep + il:Det{definite=yes,gender=m,number=sg,next=sc}
+alla = a:Prep + il:Det{definite=yes,gender=f,number=sg,next=c}
+alla = a:Prep + il:Det{definite=yes,gender=f,number=sg,next=sc}
+all' = a:Prep + il:Det{definite=yes,number=sg,next=v}
+ai = a:Prep + il:Det{definite=yes,gender=m,number=pl,next=c}
+agli = a:Prep + il:Det{definite=yes,gender=m,number=pl,next=sc}
+agli = a:Prep + il:Det{definite=yes,gender=m,number=pl,next=v}
+alle = a:Prep + il:Det{definite=yes,gender=f,number=pl}
+dal = da:Prep + il:Det{definite=yes,gender=m,number=sg,next=c}
+dallo = da:Prep + il:Det{definite=yes,gender=m,number=sg,next=sc}
+dalla = da:Prep + il:Det{definite=yes,gender=f,number=sg,next=c}
+dalla = da:Prep + il:Det{definite=yes,gender=f,number=sg,next=sc}
+dall' = da:Prep + il:Det{definite=yes,number=sg,next=v}
+dai = da:Prep + il:Det{definite=yes,gender=m,number=pl,next=c}
+dagli = da:Prep + il:Det{definite=yes,gender=m,number=pl,next=sc}
+dagli = da:Prep + il:Det{definite=yes,gender=m,number=pl,next=v}
+dalle = da:Prep + il:Det{definite=yes,gender=f,number=pl}
+nel = in:Prep + il:Det{definite=yes,gender=m,number=sg,next=c}
+nello = in:Prep + il:Det{definite=yes,gender=m,number=sg,next=sc}
+nella = in:Prep + il:Det{definite=yes,gender=f,number=sg,next=c}
+nella = in:Prep + il:Det{definite=yes,gender=f,number=sg,next=sc}
+nell' = in:Prep + il:Det{definite=yes,number=sg,next=v}
+nei = in:Prep + il:Det{definite=yes,gender=m,number=pl,next=c}
+negli = in:Prep + il:Det{definite=yes,gender=m,number=pl,next=sc}
+negli = in:Prep + il:Det{definite=yes,gender=m,number=pl,next=v}
+nelle = in:Prep + il:Det{definite=yes,gender=f,number=pl}
+sul = su:Prep + il:Det{definite=yes,gender=m,number=sg,next=c}
+sullo = su:Prep + il:Det{definite=yes,gender=m,number=sg,next=sc}
+sulla = su:Prep + il:Det{definite=yes,gender=f,number=sg,next=c}
+sulla = su:Prep + il:Det{definite=yes,gender=f,number=sg,next=sc}
+sull' = su:Prep + il:Det{definite=yes,number=sg,next=v}
+sui = su:Prep + il:Det{definite=yes,gender=m,number=pl,next=c}
+sugli = su:Prep + il:Det{definite=yes,gender=m,number=pl,next=sc}
+sugli = su:Prep + il:Det{definite=yes,gender=m,number=pl,next=v}
+sulle = su:Prep + il:Det{definite=yes,gender=f,number=pl}
+col = con:Prep + il:Det{definite=yes,gender=m,number=sg,next=c}
+coi = con:Prep + il:Det{definite=yes,gender=m,number=pl,next=c}
+
+# --- subject pronouns
+io = io:Pron{case=nom,person=1,number=sg,clitic=no}
+tu = tu:Pron{case=nom,person=2,number=sg,clitic=no}
+lui = lui:Pron{case=nom,person=3,number=sg,gender=m,clitic=no}
+lei = lei:Pron{case=nom,person=3,number=sg,gender=f,clitic=no}
+noi = noi:Pron{case=nom,person=1,number=pl,clitic=no}
+voi = voi:Pron{case=nom,person=2,number=pl,clitic=no}
+loro = loro:Pron{case=nom,person=3,number=pl,clitic=no}
+
+# --- stressed pronouns (after a verb or a preposition)
+me = me:Pron{case=obl,person=1,number=sg,clitic=no}
+te = te:Pron{case=obl,person=2,number=sg,clitic=no}
+lui = lui:Pron{case=obl,person=3,number=sg,gender=m,clitic=no}
+lei = lei:Pron{case=obl,person=3,number=sg,gender=f,clitic=no}
+sé = sé:Pron{case=obl,person=3,clitic=no}
+noi = noi:Pron{case=obl,person=1,number=pl,clitic=no}
+voi = voi:Pron{case=obl,person=2,number=pl,clitic=no}
+loro = loro:Pron{case=obl,person=3,number=pl,clitic=no}
+
+# --- clitic pronouns
+mi = mi:Pron{case=acc,person=1,number=sg,clitic=yes}
+mi = mi:Pron{case=dat,person=1,number=sg,clitic=yes}
+mi = mi:Pron{case=refl,person=1,number=sg,clitic=yes}
+ti = ti:Pron{case=acc,person=2,number=sg,clitic=yes}
+ti = ti:Pron{case=dat,person=2,number=sg,clitic=yes}
+ti = ti:Pron{case=refl,person=2,number=sg,clitic=yes}
+ci = ci:Pron{case=acc,person=1,number=pl,clitic=yes}
+ci = ci:Pron{case=dat,person=1,number=pl,clitic=yes}
+ci = ci:Pron{case=refl,person=1,number=pl,clitic=yes}
+ci = ci:Pron{case=loc,clitic=yes}
+vi = vi:Pron{case=acc,person=2,number=pl,clitic=yes}
+vi = vi:Pron{case=dat,person=2,number=pl,clitic=yes}
+vi = vi:Pron{case=refl,person=2,number=pl,clitic=yes}
+vi = vi:Pron{case=loc,clitic=yes}
+si = si:Pron{case=refl,person=3,clitic=yes}
+lo = lo:Pron{case=acc,person=3,number=sg,gender=m,clitic=yes}
+la = lo:Pron{case=acc,person=3,number=sg,gender=f,clitic=yes}
+l' = lo:Pron{case=acc,person=3,number=sg,clitic=yes}
+li = lo:Pron{case=acc,person=3,number=pl,gender=m,clitic=yes}
+le = lo:Pron{case=acc,person=3,number=pl,gender=f,clitic=yes}
+le = gli:Pron{case=dat,person=3,number=sg,gender=f,clitic=yes}
+gli = gli:Pron{case=dat,person=3,clitic=yes}
+ne = ne:Pron{case=gen,clitic=yes}
+
+# --- clitics in their combining form, before lo/la/li/le/ne
+me = mi:Pron{case=dat,person=1,number=sg,clitic=yes,combining=yes}
+me = mi:Pron{case=refl,person=1,number=sg,clitic=yes,combining=yes}
+te = ti:Pron{case=dat,person=2,number=sg,clitic=yes,combining=yes}
+te = ti:Pron{case=refl,person=2,number=sg,clitic=yes,combining=yes}
+se = si:Pron{case=refl,person=3,clitic=yes,combining=yes}
+ce = ci:Pron{case=dat,person=1,number=pl,clitic=yes,combining=yes}
+ce = ci:Pron{case=refl,person=1,number=pl,clitic=yes,combining=yes}
+ce = ci:Pron{case=loc,clitic=yes,combining=yes}
+ve = vi:Pron{case=dat,person=2,number=pl,clitic=yes,combining=yes}
+ve = vi:Pron{case=refl,person=2,number=pl,clitic=yes,combining=yes}
+glie = gli:Pron{case=dat,person=3,clitic=yes,combining=yes}
+
+# --- conjunctions
+e = e:Conj{type=coord}
+ed = e:Conj{type=coord}
+o = o:Conj{type=coord}
+ma = ma:Conj{type=coord}
+che = che:Conj{type=sub}
+se = se:Conj{type=sub}
+perché = perché:Conj{type=sub}
+quando = quando:Conj{type=sub}
+
+# --- negation
+non = non:Adv{neg=yes}

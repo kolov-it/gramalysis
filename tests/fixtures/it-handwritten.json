@@ -1,0 +1,316 @@
+{
+  "it": {
+    "fece": [
+      {
+        "lemma": "fare",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "historic",
+            "past",
+            "singular",
+            "third-person"
+          ],
+          "mood": "indicative",
+          "tense": "past",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "volontariato": [
+      {
+        "lemma": "volontariato",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "disse": [
+      {
+        "lemma": "dire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "historic",
+            "past",
+            "singular",
+            "third-person"
+          ],
+          "mood": "indicative",
+          "tense": "past",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "riusciva": [
+      {
+        "lemma": "riuscire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "imperfect",
+            "singular",
+            "third-person"
+          ],
+          "mood": "indicative",
+          "tense": "imperfect",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "trovare": [
+      {
+        "lemma": "trovare",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "lavoro": [
+      {
+        "lemma": "lavoro",
+        "partOfSpeech": "noun"
+      },
+      {
+        "lemma": "lavorare",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "present",
+            "singular",
+            "first-person"
+          ],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "ragazza": [
+      {
+        "lemma": "ragazza",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "number": "singular",
+          "gender": "feminine",
+          "clitic": false
+        }
+      }
+    ],
+    "ama": [
+      {
+        "lemma": "amare",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "amare",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "imperative",
+            "singular",
+            "second-person"
+          ],
+          "mood": "imperative",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "cane": [
+      {
+        "lemma": "cane",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "number": "singular",
+          "gender": "masculine",
+          "clitic": false
+        }
+      }
+    ],
+    "dammelo": [
+      {
+        "lemma": "dare",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "imperative",
+            "singular",
+            "second-person"
+          ],
+          "mood": "imperative",
+          "person": "second",
+          "number": "singular",
+          "clitic": true
+        }
+      }
+    ],
+    "è": [
+      {
+        "lemma": "essere",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "arrivata": [
+      {
+        "lemma": "arrivare",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "past",
+            "participle",
+            "feminine",
+            "singular"
+          ],
+          "formKind": "past-participle",
+          "number": "singular",
+          "gender": "feminine",
+          "clitic": false
+        }
+      }
+    ],
+    "arrivato": [
+      {
+        "lemma": "arrivare",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "past",
+            "participle",
+            "masculine",
+            "singular"
+          ],
+          "formKind": "past-participle",
+          "number": "singular",
+          "gender": "masculine",
+          "clitic": false
+        }
+      }
+    ],
+    "ricordati": [
+      {
+        "lemma": "ricordare",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "imperative",
+            "singular",
+            "second-person"
+          ],
+          "mood": "imperative",
+          "person": "second",
+          "number": "singular",
+          "clitic": true
+        }
+      },
+      {
+        "lemma": "ricordare",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "past",
+            "participle",
+            "masculine",
+            "plural"
+          ],
+          "formKind": "past-participle",
+          "number": "plural",
+          "gender": "masculine",
+          "clitic": false
+        }
+      }
+    ],
+    "ho": [
+      {
+        "lemma": "avere",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "present",
+            "singular",
+            "first-person"
+          ],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "fatto": [
+      {
+        "lemma": "fare",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [
+            "past",
+            "participle",
+            "masculine",
+            "singular"
+          ],
+          "formKind": "past-participle",
+          "number": "singular",
+          "gender": "masculine",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "fatto",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "zio": [
+      {
+        "lemma": "zio",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "number": "singular",
+          "gender": "masculine",
+          "clitic": false
+        }
+      }
+    ]
+  }
+}

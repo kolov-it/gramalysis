@@ -1,0 +1,31 @@
+[package]
+name = "gramalysis"
+version = "0.1.0"
+edition = "2024"
+description = "Morphological and syntactic analysis of sentences, with explanations"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/kolov-it/gramalysis"
+
+[features]
+default = ["cli"]
+# The Word Holder API as the lexicon (network client + recorded-answer fixtures).
+wordholder = ["dep:reqwest", "dep:serde_json"]
+# The `gramalysis` command-line tool.
+cli = ["wordholder", "dep:tokio", "dep:clap"]
+
+[[bin]]
+name = "gramalysis"
+required-features = ["cli"]
+
+[dependencies]
+async-trait = "0.1.92"
+clap = { version = "4.6.7", features = ["derive"], optional = true }
+reqwest = { version = "0.13.5", default-features = false, features = ["json", "rustls", "http2"], optional = true }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = { version = "1.0.154", optional = true }
+thiserror = "2.0.21"
+tokio = { version = "1.54.1", features = ["macros", "rt-multi-thread"], optional = true }
+
+[dev-dependencies]
+serde_json = "1.0.154"
+tokio = { version = "1.54.1", features = ["macros", "rt-multi-thread"] }

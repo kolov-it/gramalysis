@@ -1,0 +1,125 @@
+# Italian grammar, first version: simple clauses.
+#
+# Feature names: person 1/2/3, number sg/pl, gender m/f, case nom/obl/acc/dat/
+# refl/gen/loc, finite yes/no, form inf/ger/pastpart/…, mood ind/sub/cnd/imp.
+# A feature a word does not have (e.g. a noun's gender when the dictionary
+# does not give it) is unknown and matches anything.
+
+start S
+
+# ---------------------------------------------------------------- clauses
+
+rule clause.subject: S -> NP[case=nom, person=?p, number=?n, gender=?g] VP[finite=yes, person=?p, number=?n, gender=?g]
+  "The verb agrees with its subject in person and number."
+
+rule clause.null-subject: S -> VP[finite=yes]
+  "Italian can leave the subject out: the verb ending says who acts."
+
+rule clause.coordination: S -> S Conj[type=coord] S
+  "Two clauses joined by e, ma or o."
+
+# ---------------------------------------------------------- noun phrases
+
+rule np.name: NP[person=3, number=sg, gender=?g] -> ProperNoun[gender=?g]
+  "A name is a third-person singular noun phrase."
+
+rule np.pronoun: NP[person=?p, number=?n, gender=?g, case=?c] -> Pron[clitic=no, person=?p, number=?n, gender=?g, case=?c]
+  "A stressed pronoun stands on its own as a noun phrase."
+
+rule np.article: NP[person=3, number=?n, gender=?g] -> Det[number=?n, gender=?g, next=?o] Nom[number=?n, gender=?g, onset=?o]
+  "The article agrees with its noun in gender and number, and its form follows the next word's first sound: il/i/un before a consonant (il cane), lo/gli/uno before s + consonant, z, gn, ps (lo zio, lo studente), l'/gli before a vowel (l'amico)."
+
+rule np.partitive: NP[person=3, number=?n, gender=?g] -> Prep[lemma=di] Det[definite=yes, number=?n, gender=?g, next=?o] Nom[number=?n, gender=?g, onset=?o]
+  "di + the definite article before a noun means 'some': the partitive article (del pane, delle cose)."
+
+rule np.numeral: NP[person=3, number=pl, gender=?g] -> Num Nom[number=pl, gender=?g]
+  "A number before a plural noun."
+
+rule nom.noun: Nom[number=?n, gender=?g, onset=?o] -> Noun[number=?n, gender=?g, onset=?o]
+  "A noun."
+
+rule nom.adjective-after: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] Adj[number=?n, gender=?g]
+  "An adjective after its noun agrees with it in gender and number."
+
+rule nom.adjective-before: Nom[number=?n, gender=?g, onset=?o] -> Adj[number=?n, gender=?g, onset=?o] Nom[number=?n, gender=?g]
+  "An adjective before its noun agrees with it in gender and number."
+
+# ------------------------------------------------- prepositional phrases
+
+rule pp.basic: PP -> Prep NP[case=obl]
+  "A preposition takes a noun phrase (di + il = del, a + la = alla)."
+
+# --------------------------------------------- the verb and its clitics
+#
+# Clitics carries two features for the verb to check: `refl`, the person of a
+# reflexive clitic (it must be the verb's person: ti ricordi, ricordati), and
+# `obj`, the person of a 1st or 2nd person clitic that is not reflexive (it
+# must differ from the verb's: mi dai, but not *mi do for "I give me").
+
+rule v.plain: V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> Verb[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
+  "A verb."
+
+rule v.proclitic: V[finite=yes, mood=?m, person=?p, number=?n, gender=?g] -> Clitics[refl=?r, obj=?o] Verb[mood=ind|sub|cnd, person=?p, number=?n, gender=?g, person=?r, person!=?o]
+  "Clitic pronouns go before a conjugated verb (me lo dà)."
+
+rule v.enclitic-nonfinite: V[finite=no, form=?fm] -> Verb[finite=no, form=?fm] Clitics
+  "Clitic pronouns attach to the end of an infinitive or gerund (prenderlo, prendendolo)."
+
+rule v.enclitic-imperative: V[finite=yes, mood=imp, person=?p, number=?n] -> Verb[mood=imp, person=?p, number=?n] Clitics[refl=?p, obj!=?p]
+  "Clitic pronouns attach to the end of an affirmative imperative (dammelo, ricordati)."
+
+rule v.perfect-avere: V[finite=yes, mood=?m, person=?p, number=?n] -> Verb[lemma=avere, finite=yes, mood=?m, person=?p, number=?n] Verb[form=pastpart]
+  "A compound tense with avere: avere + past participle (ho fatto)."
+
+rule v.perfect-essere: V[finite=yes, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[form=pastpart, number=?n, gender=?g]
+  "A compound tense with essere: the participle agrees with the subject in gender and number (è arrivata)."
+
+rule v.proclitic-perfect: V[finite=yes, mood=?m, person=?p, number=?n] -> Clitics[refl=?r, obj=?o] Verb[lemma=avere|essere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[form=pastpart]
+  "Clitic pronouns go before the auxiliary of a compound tense (l'ho fatto)."
+
+rule clitics.reflexive: Clitics[refl=?p] -> Pron[clitic=yes, combining=no, case=refl, person=?p]
+  "A reflexive clitic: the action falls back on the subject (ricordati, mi lavo)."
+
+rule clitics.local: Clitics[obj=?p] -> Pron[clitic=yes, combining=no, case=acc|dat, person=1|2, person=?p]
+  "A 1st or 2nd person clitic pronoun (mi, ti, ci, vi)."
+
+rule clitics.other: Clitics -> Pron[clitic=yes, combining=no, case=acc|dat|gen|loc, person=3]
+  "A clitic pronoun: lo, la, li, le, gli, ne, ci."
+
+rule clitics.two-reflexive: Clitics[refl=?p] -> Pron[clitic=yes, combining=yes, case=refl, person=?p] Pron[clitic=yes, case=acc|gen]
+  "A reflexive clitic before lo/la/li/le/ne turns into me, te, se, ce, ve (andarsene, me lo ricordo)."
+
+rule clitics.two-local: Clitics[obj=?p] -> Pron[clitic=yes, combining=yes, case=dat, person=1|2, person=?p] Pron[clitic=yes, case=acc|gen]
+  "Two clitics: the indirect one comes first and turns into me, te, ce or ve (dammelo, te lo do)."
+
+rule clitics.two-other: Clitics -> Pron[clitic=yes, combining=yes, case=dat|loc, person=3] Pron[clitic=yes, case=acc|gen]
+  "Two clitics: gli/le before lo/la/li/le/ne fuse into glie- (glielo), ci becomes ce (ce n'è)."
+
+# ----------------------------------------------------------- verb phrases
+
+rule vp.verb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
+  "A verb on its own."
+
+rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] NP[case=obl]
+  "The verb takes a direct object."
+
+rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] VP[form=inf]
+  "A verb followed by an infinitive (voglio partire)."
+
+rule vp.preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Prep[lemma=a|di|da] VP[form=inf]
+  "A verb followed by a, di or da and an infinitive (riusciva a trovare, ha deciso di partire)."
+
+rule vp.che-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[lemma=che] S
+  "The verb introduces a clause with che (disse che…)."
+
+rule vp.copula: VP[finite=yes, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Adj[number=?n, gender=?g]
+  "With essere, the adjective agrees with the subject in gender and number (la casa è bella)."
+
+rule vp.prepositional-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] PP
+  "A prepositional phrase adds where, when, for whom or how."
+
+rule vp.adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Adv[neg=no]
+  "An adverb after the verb."
+
+rule vp.negation: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> Adv[lemma=non] VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
+  "non goes right before the verb and its clitics."
