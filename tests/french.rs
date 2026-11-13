@@ -436,3 +436,19 @@ async fn object_agreement_through_ne_pas_before_an_infinitive() {
     assert!(parses(&run("Je veux ne pas la rendre heureuse.").await));
     assert!(!parses(&run("Je veux ne pas la rendre heureux.").await));
 }
+
+#[tokio::test]
+async fn subject_controls_an_infinitive_predicate() {
+    assert!(parses(&run("Elle veut être heureuse.").await));
+    // heureux is also a noun, but bare after être it is the adjective
+    assert!(!parses(&run("Elle veut être heureux.").await));
+    assert!(!parses(&run("La femme est heureux.").await));
+}
+
+#[tokio::test]
+async fn bare_nouns_after_avoir_stay_but_participle_nouns_need_a_determiner() {
+    assert!(parses(&run("Vous avez froid.").await));
+    // écrit is also a noun (un écrit), but bare it is the participle
+    assert!(parses(&run("Quelles lettres lui as-tu écrites ?").await));
+    assert!(!parses(&run("Quelles lettres lui as-tu écrit ?").await));
+}

@@ -167,7 +167,7 @@ the one a verb page needs: *which verb, or not a verb at all*.
 
 ## French
 
-`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (388 rules) and
+`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (393 rules) and
 the function words in `data/fr/closed.txt`. What is French-specific:
 
 - **Tokens:** elision is split off (*l'*, *d'*, *j'*, *qu'*, *jusqu'*,
@@ -203,13 +203,13 @@ the function words in `data/fr/closed.txt`. What is French-specific:
 **The auxiliaries are not in the lexicon yet**: the Word Holder API gives
 `grammar.auxiliaries` for Italian only. Until it does, every rule that selects
 on the auxiliary accepts both, so *être* + participle reads both as a compound
-tense and as a state, and such sentences stay ambiguous (most of the 10%
+tense and as a state, and such sentences stay ambiguous (most of the 8%
 below).
 
 On the French Tatoeba homograph set (4,384 sentences, 1,750 ambiguous forms of
 699 verbs that have a page on wordholder.com and no example sentence for that
-form) it decides the word in **78.9%** of the sentences, and **99.9%** of the
-decisions agree with the labels (3,454 of 3,457); 11.0% do not parse, 9.7% stay
+form) it decides the word in **80.1%** of the sentences, and **99.9%** of the
+decisions agree with the labels (3,508 of 3,510); 11.9% do not parse, 7.6% stay
 ambiguous.
 
 ```sh
@@ -219,8 +219,8 @@ cargo run -- --fixture tests/fixtures/fr-recorded.json --file examples/fr.txt fr
 ```
 
 The files in `data/fr/` mirror `data/it/` (`tools/fr_homographs.py import`,
-`select`), plus `verified-examples.tsv`: the 2,102 sentences (1,154 forms of
-525 verbs) where gramalysis decides the word is the page verb and the label
+`select`), plus `verified-examples.tsv`: the 2,160 sentences (1,184 forms of
+532 verbs) where gramalysis decides the word is the page verb and the label
 agrees, 5–20 words long, in the format wordy's verb-form-examples builder
 reads (`tools/fr_homographs.py verified`). Inflected participles (*vues*,
 *avertis*) are left out of it: a verb table's participle cell holds only the

@@ -171,6 +171,7 @@ impl French {
                     readings.push(morphs);
                 }
             }
+            mark_substantivised_adjectives(&mut readings);
             merge_participle_adjectives(&mut readings, &self.drifted);
             readings.iter_mut().flatten().for_each(set_predicate_number);
             // Only par introduces an agent (closed.txt); every other
@@ -353,6 +354,35 @@ fn prefer_traditional_spelling(readings: Vec<Reading>) -> Vec<Reading> {
             r
         })
         .collect()
+}
+
+/// A noun that is also a verb's past participle (un écrit, l'accusé) is the
+/// participle used as a noun: it needs a determiner, and bare the word is the
+/// participle (as-tu écrit ?): `needs_det=yes`. A noun that is also an
+/// adjective of the same lemma (un heureux, le froid) gets `adj_twin=yes`:
+/// bare after être it is the adjective (elle est heureuse), though bare after
+/// avoir or faire it stays a noun (avoir froid, il fait chaud).
+fn mark_substantivised_adjectives(readings: &mut [Vec<Morpheme>]) {
+    let single = |r: &Vec<Morpheme>, cat: &str| match r.as_slice() {
+        [m] if m.cat == cat => Some(m.clone()),
+        _ => None,
+    };
+    let adjectives: HashSet<String> = readings.iter().filter_map(|r| single(r, "Adj")).map(|m| m.lemma).collect();
+    let participle = readings
+        .iter()
+        .filter_map(|r| single(r, "Verb"))
+        .any(|m| m.feats.get("form").map(String::as_str) == Some("pastpart"));
+    for r in readings.iter_mut() {
+        if let [m] = r.as_mut_slice()
+            && m.cat == "Noun"
+        {
+            if participle {
+                m.feats.insert("needs_det".to_owned(), "yes".to_owned());
+            } else if adjectives.contains(&m.lemma) {
+                m.feats.insert("adj_twin".to_owned(), "yes".to_owned());
+            }
+        }
+    }
 }
 
 /// A past participle is one form of its verb, whether the sentence uses it

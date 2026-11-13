@@ -521,6 +521,17 @@
           "gender": "masculine",
           "clitic": false
         }
+      },
+      {
+        "lemma": "heureux",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "clitic": false
+        }
       }
     ],
     "êtes": [
@@ -896,6 +907,18 @@
           "number": "singular",
           "gender": "masculine",
           "formKind": "past-participle",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "écrit",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
           "clitic": false
         }
       }
@@ -1573,6 +1596,46 @@
             "plural"
           ],
           "gender": "feminine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "froid": [
+      {
+        "lemma": "froid",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "froid",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "avez": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
           "number": "plural",
           "clitic": false
         }
