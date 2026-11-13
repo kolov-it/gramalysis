@@ -173,3 +173,17 @@ async fn par_and_an_agent_make_etre_and_a_participle_a_passive() {
     let c = a.chosen.iter().find(|c| c.token == "fermée").unwrap();
     assert!(!c.uses.iter().flatten().any(|u| u == "ap.participle"), "{:?}", c.uses);
 }
+
+#[tokio::test]
+async fn inverted_compound_tense_with_an_object_pronoun_and_an_adverb() {
+    let a = run("L'as-tu déjà vu ?").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "vu")[0].starts_with("voir Verb"));
+    assert!(parses(&run("Ne l'as-tu pas vu ?").await));
+}
+
+#[tokio::test]
+async fn object_and_reflexive_pronouns_after_an_order() {
+    assert!(parses(&run("Donne-le-moi !").await));
+    assert!(parses(&run("Donne-le-toi !").await));
+}

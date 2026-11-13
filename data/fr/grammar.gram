@@ -467,6 +467,9 @@ rule v.inverted-perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m,
 rule v.proclitic-inverted-perfect-avoir: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=?a, neg=no] -> Clitics[attached=no, reflexive=no, acc=?a, anum=?on, agen=?og, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A pronoun, then inverted avoir and the participle (L'as-tu vue ? M'avez-vous appelé ?)."
 
+rule v.proclitic-inverted-perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=?a, neg=?ng] -> Clitics[attached=no, reflexive=no, acc=?a, anum=?on, agen=?og, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+  "A pronoun, inverted avoir, an adverb or pas, then the participle, which agrees with a direct object pronoun (L'as-tu déjà vue ? Ne l'as-tu pas vu ?)."
+
 rule v.inverted-perfect-etre: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=no] -> Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A compound tense with être, inverted (Est-il parti ?)."
 
@@ -573,6 +576,9 @@ rule encl.other: EnCl[acc=no] -> Pron[attached=yes, case=dat|loc|gen, person=3]
 
 rule encl.acc-dat: EnCl[acc=yes, obj=?p] -> Pron[attached=yes, case=acc, person=3] Pron[attached=yes, case=dat, person=?p]
   "le, la, les before moi, lui, nous, leur after an order (donne-le-moi)."
+
+rule encl.acc-reflexive: EnCl[acc=yes, refl=?p] -> Pron[attached=yes, case=acc, person=3] Pron[attached=yes, case=refl, person=?p]
+  "le, la, les before a reflexive moi, toi, nous, vous after an order (donne-le-toi, offrez-la-vous)."
 
 rule encl.reflexive-en: EnCl[refl=?p, acc=no] -> Pron[attached=yes, case=refl, person=?p] Pron[attached=yes, case=gen|loc]
   "A reflexive pronoun + en after an order (va-t'en, allez-vous-en)."

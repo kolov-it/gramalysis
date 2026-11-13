@@ -770,6 +770,51 @@
           "clitic": false
         }
       }
+    ],
+    "donne": [
+      {
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "déjà": [
+      {
+        "lemma": "déjà",
+        "partOfSpeech": "adv",
+        "grammar": null
+      }
     ]
   }
 }
