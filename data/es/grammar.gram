@@ -4,7 +4,8 @@
 # refl/sedat, finite yes/no, form fin/inf/ger/pastpart, mood ind/sub/cnd/imp.
 # A feature a word does not have is unknown and matches anything, so rules
 # select on features every candidate word carries: every verb has `class`
-# (ser, estar, haber or lex), every conjugated form has form=fin, every
+# (ser, estar, haber or lex) and `obj` (no for ir, which never takes a
+# direct object), every conjugated form has form=fin, every
 # clitic has `attached`, every adjective phrase has `participle`.
 
 start S
@@ -190,34 +191,34 @@ rule pp.question: PP[prep=?l] -> Prep[lemma=?l] Wh S
 # and `obj`, the person of a 1st or 2nd person clitic that is not reflexive
 # (it must differ from the verb's: me das, but not *me doy for "I give me").
 
-rule v.plain: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> Verb[class=lex, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
+rule v.plain: V[obj=?ob, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> Verb[class=lex, obj=?ob, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
   "A verb (ser, estar and haber have rules of their own)."
 
-rule v.adverb-after: V[lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Adv[neg=no]
+rule v.adverb-after: V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Adv[neg=no]
   "An adverb right after the verb (habla bien, llegó tarde)."
 
-rule v.proclitic: V[lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] V[lemma=?l, form=fin, mood=ind|sub|cnd, person=?p, number=?n, gender=?g, person=?r, person!=?o]
+rule v.proclitic: V[obj=?ob, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] V[obj=?ob, lemma=?l, form=fin, mood=ind|sub|cnd, person=?p, number=?n, gender=?g, person=?r, person!=?o]
   "Clitic pronouns go before a conjugated verb (me lo da, se fue)."
 
-rule v.enclitic-nonfinite: V[lemma=?l, clitic_case=?k, finite=no, form=?fm] -> Verb[class=lex|estar|haber|ser, lemma=?l, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, case=?k]
+rule v.enclitic-nonfinite: V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=?fm] -> Verb[class=lex|estar|haber|ser, obj=?ob, lemma=?l, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, case=?k]
   "Clitic pronouns attach to the end of an infinitive or gerund (hacerlo, diciéndoselo)."
 
-rule v.enclitic-imperative: V[lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=imp, person=?p, number=?n] -> Verb[class=lex|estar|ser, lemma=?l, form=fin, mood=imp|sub, person=?p, number=?n] Clitics[attached=yes, case=?k, refl=?p, obj!=?p]
+rule v.enclitic-imperative: V[obj=?ob, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=imp, person=?p, number=?n] -> Verb[class=lex|estar|ser, obj=?ob, lemma=?l, form=fin, mood=imp|sub, person=?p, number=?n] Clitics[attached=yes, case=?k, refl=?p, obj!=?p]
   "Clitic pronouns attach to the end of an affirmative command (dámelo, siéntese, hagámoslo)."
 
-rule v.perfect: V[aux=haber, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[class=lex|estar|haber, lemma=?l, form=pastpart, gender=m, number=sg]
+rule v.perfect: V[obj=?ob, aux=haber, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[class=lex|estar|haber, obj=?ob, lemma=?l, form=pastpart, gender=m, number=sg]
   "A compound tense: haber + past participle, which does not agree (he cerrado, había llegado, habiendo dicho)."
 
-rule v.perfect-proclitic: V[aux=haber, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[class=haber, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[class=lex|estar|haber, lemma=?l, form=pastpart, gender=m, number=sg]
+rule v.perfect-proclitic: V[obj=?ob, aux=haber, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[class=haber, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[class=lex|estar|haber, obj=?ob, lemma=?l, form=pastpart, gender=m, number=sg]
   "Clitic pronouns before haber in a compound tense (lo he hecho, me he levantado)."
 
-rule v.perfect-enclitic: V[aux=haber, lemma=?l, clitic_case=?k, finite=no, form=?fm] -> Verb[class=haber, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, case=?k] Verb[class=lex|estar|haber, lemma=?l, form=pastpart, gender=m, number=sg]
+rule v.perfect-enclitic: V[obj=?ob, aux=haber, lemma=?l, clitic_case=?k, finite=no, form=?fm] -> Verb[class=haber, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, case=?k] Verb[class=lex|estar|haber, obj=?ob, lemma=?l, form=pastpart, gender=m, number=sg]
   "Clitics on haber in a compound infinitive or gerund (haberlo hecho, habiéndose ido)."
 
-rule v.progressive: V[lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=estar|lex, lemma=estar|seguir|ir|andar|venir|llevar|continuar, finite=?f, form=?fm, mood=?m, person=?p, number=?n] V[lemma=?l, clitic_case=?k, finite=no, form=ger]
+rule v.progressive: V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=estar|lex, lemma=estar|seguir|ir|andar|venir|llevar|continuar, finite=?f, form=?fm, mood=?m, person=?p, number=?n] V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=ger]
   "estar, seguir, ir, andar, venir or llevar + gerund: an action in progress (estoy leyendo, sigue lloviendo)."
 
-rule v.progressive-perfect: V[lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[lemma=estar, form=pastpart, gender=m, number=sg] V[lemma=?l, clitic_case=?k, finite=no, form=ger]
+rule v.progressive-perfect: V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[lemma=estar, form=pastpart, gender=m, number=sg] V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=ger]
   "haber estado + gerund (he estado trabajando)."
 
 rule clitics.reflexive: Clitics[reflexive=yes, attached=?a, refl=?p, case=?k] -> Pron[attached=?a, clitic=yes, case=?k, case=refl, person=?p]
@@ -243,10 +244,10 @@ rule clitics.two-other: Clitics[reflexive=no, attached=?a, case=?k] -> Pron[atta
 rule vp.verb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
   "A verb on its own."
 
-rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=dat|refl|sedat, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] NP[case=obl]
+rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[obj=yes, clitic_case=dat|refl|sedat, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] NP[case=obl]
   "The verb takes a direct object, unless lo, la, los or las already is its object (lo hice, not *lo hice un pastel)."
 
-rule vp.object-personal: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=dat|refl|sedat, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Prep[lemma=a] NP[case=obl, person=?op, person!=?p]
+rule vp.object-personal: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[obj=yes, clitic_case=dat|refl|sedat, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Prep[lemma=a] NP[case=obl, person=?op, person!=?p]
   "A person as the direct object takes a (veo a María, busco a mi hermano)."
 
 rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=dat|refl|sedat, lemma=poder|deber|querer|saber|soler|ver|oír|hacer|dejar|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|decidir|prometer|odiar|amar|temer|evitar|parecer|gustar|encantar|importar|interesar|apetecer|sentir|escuchar|mirar|permitir|prohibir|mandar|merecer|procurar|pretender|planear|olvidar|recordar|lamentar|admitir|negar|asegurar|confesar|creer|declarar|afirmar|imaginar|resultar|convenir|bastar|costar|faltar|urgir|acordar|ansiar|anhelar|elegir|fingir|osar|rehusar|proponer|ordenar|impedir|aconsejar|sugerir|agradecer|confiar|ofrecer|jurar|aceptar|adorar|reconocer|detestar|soportar|aguantar|tolerar|suponer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] VP[form=inf]
@@ -261,7 +262,7 @@ rule vp.tener-que: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender
 rule vp.que-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[lemma=que] S
   "The verb introduces a clause with que (dijo que…, quiero que vengas)."
 
-rule vp.object-que-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] NP[case=obl] Conj[lemma=que] S
+rule vp.object-que-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[obj=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] NP[case=obl] Conj[lemma=que] S
   "Verb + person + que-clause (le dije a Juan que…, avisa a tu madre que…)."
 
 rule vp.si-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=saber|preguntar|ver|decidir|dudar|depender|mirar|comprobar|averiguar|importar|entender|recordar|decir|imaginar, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[lemma=si] S

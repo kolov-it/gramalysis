@@ -376,3 +376,18 @@ async fn cuántos_stands_alone() {
         assert!(!run(q).await.parses.is_empty(), "{q}");
     }
 }
+
+#[tokio::test]
+async fn quantifiers_stand_for_an_understood_noun() {
+    for s in ["Tengo mucha.", "Tengo tantas.", "Tengo demasiadas."] {
+        assert!(!run(s).await.parses.is_empty(), "{s}");
+    }
+}
+
+#[tokio::test]
+async fn ir_takes_no_direct_object() {
+    for s in ["Él fue médico.", "Él fue un médico."] {
+        let a = run(s).await;
+        assert!(agreed(&a, "fue")[0].starts_with("ser Verb"), "{s}");
+    }
+}

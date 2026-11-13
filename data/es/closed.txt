@@ -374,3 +374,22 @@ poco = poco:Noun{gender=m,number=sg}
 cualquier = cualquiera:Det{definite=no,number=sg}
 cualquiera = cualquiera:Det{definite=no,number=sg}
 cualquiera = cualquiera:Pron{person=3,number=sg,clitic=no}
+
+# --- quantifiers standing for an understood noun (tengo mucha, quiero tantas)
+mucha = mucho:Pron{person=3,number=sg,gender=f,clitic=no}
+poca = poco:Pron{person=3,number=sg,gender=f,clitic=no}
+pocas = poco:Pron{person=3,number=pl,gender=f,clitic=no}
+varios = varios:Pron{person=3,number=pl,gender=m,clitic=no}
+varias = varios:Pron{person=3,number=pl,gender=f,clitic=no}
+ambos = ambos:Pron{person=3,number=pl,gender=m,clitic=no}
+ambas = ambos:Pron{person=3,number=pl,gender=f,clitic=no}
+tanto = tanto:Pron{person=3,number=sg,gender=m,clitic=no}
+tanta = tanto:Pron{person=3,number=sg,gender=f,clitic=no}
+tantos = tanto:Pron{person=3,number=pl,gender=m,clitic=no}
+tantas = tanto:Pron{person=3,number=pl,gender=f,clitic=no}
+demasiado = demasiado:Pron{person=3,number=sg,gender=m,clitic=no}
+demasiada = demasiado:Pron{person=3,number=sg,gender=f,clitic=no}
+demasiados = demasiado:Pron{person=3,number=pl,gender=m,clitic=no}
+demasiadas = demasiado:Pron{person=3,number=pl,gender=f,clitic=no}
+bastante = bastante:Pron{person=3,number=sg,clitic=no}
+bastantes = bastante:Pron{person=3,number=pl,clitic=no}

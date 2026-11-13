@@ -155,6 +155,9 @@ impl Spanish {
                 for m in reading.iter_mut() {
                     if m.cat == "Verb" {
                         m.feats.insert("class".to_owned(), verb_class(&m.lemma).to_owned());
+                        // ir never takes a direct object: fue médico is ser.
+                        let obj = if m.lemma == "ir" { "no" } else { "yes" };
+                        m.feats.insert("obj".to_owned(), obj.to_owned());
                         if m.lemma == "haber" {
                             // ha only forms compound tenses; there is = hay.
                             let exist = if m.surface.to_lowercase() == "ha" { "no" } else { "yes" };

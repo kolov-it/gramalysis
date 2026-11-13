@@ -778,6 +778,21 @@
         "partOfSpeech": "prep"
       }
     ],
+    "demasiadas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "demasiado",
+        "partOfSpeech": "adj"
+      }
+    ],
     "deme": [
       {
         "grammar": {
@@ -2330,10 +2345,91 @@
         "partOfSpeech": "noun"
       }
     ],
+    "mucha": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "mucho",
+        "partOfSpeech": "det"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "mucho",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "mucho",
+        "partOfSpeech": "pron"
+      }
+    ],
     "muy": [
       {
         "lemma": "muy",
         "partOfSpeech": "adv"
+      }
+    ],
+    "médico": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "médico",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "médico",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "médico",
+        "partOfSpeech": "adj"
       }
     ],
     "mí": [
@@ -3355,6 +3451,40 @@
       }
     ],
     "sér": [],
+    "tantas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "tanto",
+        "partOfSpeech": "det"
+      }
+    ],
+    "tengo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tener",
+        "partOfSpeech": "verb"
+      }
+    ],
     "tiene": [
       {
         "grammar": {
