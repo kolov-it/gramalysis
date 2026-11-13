@@ -829,6 +829,60 @@
           "clitic": false
         }
       }
+    ],
+    "été": [
+      {
+        "lemma": "été",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "fermé": [
+      {
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "devenu": [
+      {
+        "lemma": "devenir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
     ]
   }
 }

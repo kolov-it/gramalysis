@@ -494,8 +494,17 @@ rule v.perfect-gerund: V[lemma=?l, finite=no, form=prespart, subj=no, acc=no, ne
 rule v.passive-event: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=no] -> Verb[lemma=être, finite=yes, tense=pret|fut, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
   "The passive with être in the passé simple or the future: an event, not a state (il fut tué, ce sera fait)."
 
+rule v.passive-event-inverted: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=no] -> Verb[lemma=être, finite=yes, tense=pret|fut, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
+  "The passive with être in the passé simple or the future, inverted (Sera-t-elle fermée ? Fut-il tué ?)."
+
 rule v.passive-perfect: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=no] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=être, form=pastpart] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
   "The passive in a compound tense: a été + participle (il a été tué, elles ont été vendues)."
+
+rule v.passive-perfect-inverted: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=no] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=être, form=pastpart] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
+  "The passive in a compound tense, inverted: the participle agrees with the subject pronoun (A-t-elle été fermée ?)."
+
+rule v.passive-perfect-inverted-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=être, form=pastpart] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
+  "The inverted passive in a compound tense with an adverb or pas (A-t-elle déjà été vendue ? N'a-t-il pas été invité ?)."
 
 rule v.passive-perfect-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=être, form=pastpart] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
   "The passive in a compound tense with an adverb (il a déjà été vendu, il n'a pas été invité)."
@@ -624,6 +633,12 @@ rule cop.perfect-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=y
 rule cop.perfect-other: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=no] -> Verb[lemma=avoir|être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart]
   "Another linking verb in a compound tense (il est devenu, elle a semblé)."
 
+rule cop.perfect-other-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=?ng] -> Verb[lemma=avoir|être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart]
+  "Another linking verb in a compound tense with an adverb or pas (il est déjà devenu, il n'est pas resté)."
+
+rule cop.perfect-other-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=no, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=avoir|être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart]
+  "Another linking verb in a compound tense, inverted (Est-elle devenue riche ?)."
+
 rule cop.perfect-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=yes, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=être, form=pastpart]
   "être in a compound tense with an adverb (il a toujours été, je n'ai jamais été)."
 
@@ -635,6 +650,9 @@ rule cop.proclitic-le: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, ne
 
 rule cop.negation: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=yes] -> Neg Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=no]
   "ne before the linking verb."
+
+rule cop.negated-compound: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=yes, pnum=?pn, gender=?g] -> Neg Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=yes, pnum=?pn, gender=?g]
+  "ne before a compound linking verb that holds pas (il n'a pas été malade, il n'est pas devenu riche)."
 
 rule cop.negation-word: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=yes] -> Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=yes] NegAdv
   "pas, plus, jamais after the linking verb (il n'est pas là)."

@@ -1677,6 +1677,7 @@ saisir	saisis	126655	indicative.past_historic.1s	gramalysis+label 2026-11-12
 saisir	saisis	858963	indicative.present.2s	gramalysis+label 2026-11-12
 saisir	saisis	1340710	indicative.present.1s	gramalysis+label 2026-11-12
 saisir	saisissant	1031705	non_finite.gerund	gramalysis+label 2026-11-12
+satisfaire	satisfait	131007	non_finite.past_participle	gramalysis+label 2026-11-12
 sauter	sautes	4208715	indicative.present.2s	gramalysis+label 2026-11-12
 sauter	sautes	10493171	indicative.present.2s	gramalysis+label 2026-11-12
 sauver	sauve	1967287	indicative.present.1s	gramalysis+label 2026-11-12
@@ -2098,5 +2099,6 @@ vêtir	vêt	567501	indicative.present.3s	gramalysis+label 2026-11-12
 être	étaient	7139	indicative.imperfect.3p	gramalysis+label 2026-11-12
 être	étais	3134	indicative.imperfect.1s	gramalysis+label 2026-11-12
 être	étant	787713	non_finite.gerund	gramalysis+label 2026-11-12
+être	été	3172	non_finite.past_participle	gramalysis+label 2026-11-12
 être	été	3192	non_finite.past_participle	gramalysis+label 2026-11-12
 œuvrer	œuvre	7051945	indicative.present.1s	gramalysis+label 2026-11-12

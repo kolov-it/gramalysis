@@ -195,3 +195,16 @@ async fn inverted_etre_compound_tense_with_an_adverb_keeps_the_verb() {
     let c = a.chosen.iter().find(|c| c.token == "venu").unwrap();
     assert!(c.uses.iter().flatten().any(|u| u == "v.inverted-perfect-etre-adverb"), "{:?}", c.uses);
 }
+
+#[tokio::test]
+async fn inverted_compound_passive_agrees_with_its_subject() {
+    let a = run("A-t-elle été fermée ?").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "fermée")[0].starts_with("fermer Verb"));
+    assert!(!parses(&run("A-t-elle été fermé ?").await));
+}
+
+#[tokio::test]
+async fn other_linking_verb_in_a_compound_tense_with_pas() {
+    assert!(parses(&run("Il n'est pas devenu heureux.").await));
+}

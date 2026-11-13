@@ -430,3 +430,8 @@ vers = vers:Noun{gender=m}
 ton = ton:Noun{gender=m,number=sg}
 bon = bon:Noun{gender=m,number=sg}
 sauf = sauf:Adj{gender=m,number=sg}
+
+# The noun été (summer) takes a determiner except after a preposition (en
+# été): bare, it would pose as the object of avoir (a-t-elle été fermé).
+# Listing it keeps the lexicon's reading of être's participle.
+été = été:Noun{gender=m,needs_det=yes}
