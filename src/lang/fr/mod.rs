@@ -410,6 +410,11 @@ fn mark_substantivised_adjectives(readings: &mut [Vec<Morpheme>]) {
     }
 }
 
+/// After en, a token that is also a present participle loses its noun
+/// reading: it is the gerund (en courant, en étudiant). The noun reading is
+/// real but rare (s'habiller en étudiant); in the homograph set all 69 such
+/// sentences are gerunds, and telling the two apart needs valency the
+/// lexicon does not give.
 fn drop_nouns_after_en(readings: &mut Vec<Vec<Morpheme>>) {
     let prespart = readings
         .iter()
