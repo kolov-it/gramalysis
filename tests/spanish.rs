@@ -300,3 +300,13 @@ async fn singular_subjects_joined_by_o() {
 async fn sentir_takes_an_adjective_about_its_object() {
     assert!(!run("Él la siente fría.").await.parses.is_empty());
 }
+
+#[tokio::test]
+async fn adverbs_between_ser_and_the_participle() {
+    let a = run("Fue muy bien recibido.").await;
+    assert!(!a.parses.is_empty());
+    // bien is also a noun (el bien), so "bien recibido" can be a bare noun
+    // phrase too; the passive reading must be there.
+    let c = a.chosen.iter().find(|c| c.token == "recibido").unwrap();
+    assert!(c.uses.iter().flatten().any(|u| u == "vp.passive-adverb"), "{:?}", c.uses);
+}

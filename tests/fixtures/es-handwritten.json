@@ -247,6 +247,54 @@
         "partOfSpeech": "verb"
       }
     ],
+    "bien": [
+      {
+        "lemma": "bien",
+        "partOfSpeech": "adv"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "bien",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "bien",
+        "partOfSpeech": "adj"
+      },
+      {
+        "lemma": "bien",
+        "partOfSpeech": "conj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "bien",
+        "partOfSpeech": "noun"
+      }
+    ],
     "bueno": [
       {
         "grammar": {
@@ -1791,6 +1839,12 @@
         "partOfSpeech": "noun"
       }
     ],
+    "muy": [
+      {
+        "lemma": "muy",
+        "partOfSpeech": "adv"
+      }
+    ],
     "mí": [
       {
         "lemma": "mí",
@@ -2046,6 +2100,23 @@
       {
         "lemma": "quién",
         "partOfSpeech": "pron"
+      }
+    ],
+    "recibido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "recibir",
+        "partOfSpeech": "verb"
       }
     ],
     "rega": [],

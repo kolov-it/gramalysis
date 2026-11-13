@@ -402,8 +402,14 @@ rule vp.ser-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -
 rule vp.passive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[form=pastpart, drifted=no, number=?n, gender=?g]
   "ser + an agreeing past participle: the passive (fue construida, han sido vendidos, será publicado)."
 
-rule vp.passive-adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] Adv[neg=no] Verb[form=pastpart, drifted=no, number=?n, gender=?g]
-  "An adverb between ser and the participle (fue muy criticado, es ampliamente usado)."
+rule vp.passive-adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] AdvP Verb[form=pastpart, drifted=no, number=?n, gender=?g]
+  "Adverbs between ser and the participle (fue muy criticado, fue muy bien recibido, es ampliamente usado)."
+
+rule advp.one: AdvP -> Adv[neg=no]
+  "An adverb."
+
+rule advp.more: AdvP -> Adv[neg=no] AdvP
+  "An adverb before another (muy bien, tan mal)."
 
 # ------------------------------------------------- estar and other linking verbs
 #
