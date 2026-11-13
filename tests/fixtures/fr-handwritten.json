@@ -1498,11 +1498,23 @@
         "partOfSpeech": "verb",
         "grammar": {
           "rawTags": [],
+          "clitic": false,
           "tense": "past",
           "number": "singular",
           "gender": "masculine",
-          "formKind": "past-participle",
-          "clitic": false
+          "formKind": "past-participle"
+        }
+      },
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
         }
       }
     ],
@@ -1763,6 +1775,31 @@
           "gender": "masculine",
           "number": "singular",
           "clitic": false
+        }
+      }
+    ],
+    "faits": [
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "partir": [
+      {
+        "lemma": "partir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "formKind": "infinitive"
         }
       }
     ]

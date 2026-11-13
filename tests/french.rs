@@ -559,3 +559,16 @@ async fn time_expressions_agree() {
     assert!(parses(&run("Elle est heureuse ce matin.").await));
     assert!(!parses(&run("Elle est heureuse cette matin.").await));
 }
+
+#[tokio::test]
+async fn object_agreement_in_a_negative_imperative() {
+    assert!(parses(&run("Ne la rends pas heureuse.").await));
+    assert!(!parses(&run("Ne la rends pas heureux.").await));
+}
+
+#[tokio::test]
+async fn causative_fait_stays_invariable_before_an_infinitive() {
+    assert!(parses(&run("Elle les a fait partir.").await));
+    assert!(!parses(&run("Elle les a faits partir.").await));
+    assert!(parses(&run("Elle les fait partir.").await));
+}
