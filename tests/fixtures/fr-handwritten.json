@@ -520,6 +520,77 @@
           "clitic": false
         }
       }
+    ],
+    "êtes": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      }
+    ],
+    "sera": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "future",
+          "person": "third",
+          "number": "singular"
+        }
+      }
+    ],
+    "fatigué": [
+      {
+        "lemma": "fatiguer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "fatigués": [
+      {
+        "lemma": "fatiguer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "rendez-vous": [
+      {
+        "lemma": "rendez-vous",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
     ]
   }
 }

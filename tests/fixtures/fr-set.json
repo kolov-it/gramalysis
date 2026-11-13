@@ -51748,6 +51748,15 @@
         "surface": "chêne"
       }
     ],
+    "ci": [
+      {
+        "confidence": "high",
+        "lemma": "ci",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "ci"
+      }
+    ],
     "ci-dessus": [
       {
         "confidence": "high",
@@ -237523,6 +237532,40 @@
         "partOfSpeech": "verb",
         "source": "kaikki",
         "surface": "rendez"
+      }
+    ],
+    "rendez-vous": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "rendez-vous",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "rendez-vous"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "rendez-vous",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "rendez-vous"
       }
     ],
     "rendit": [

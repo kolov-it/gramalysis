@@ -17,6 +17,11 @@ const HYPHEN_PRONOUNS: [&str; 19] = [
     "en", "ce",
 ];
 
+/// Nouns written with a hyphen before a pronoun: they stay one word. The
+/// imperative they share a spelling with (rendez-vous = give yourselves up) is
+/// rare beside the noun, and a token has one spelling in the lattice.
+const HYPHENATED_NOUNS: [&str; 4] = ["rendez-vous", "chez-moi", "chez-toi", "chez-soi"];
+
 /// -ci and -là after a demonstrative (celui-ci, ce jour-là).
 pub const DEMONSTRATIVE: [&str; 2] = ["ci", "là"];
 
@@ -55,7 +60,7 @@ pub fn tokenize(text: &str) -> Vec<String> {
 /// whole (`peut-être`, `grand-mère`, `là-bas`).
 fn hyphen_parts(word: &str) -> Vec<&str> {
     let parts: Vec<&str> = word.split('-').collect();
-    if parts.len() < 2 || parts[0].is_empty() {
+    if parts.len() < 2 || parts[0].is_empty() || HYPHENATED_NOUNS.contains(&word.to_lowercase().as_str()) {
         return vec![word];
     }
     let pronoun = |p: &str| {
@@ -115,6 +120,7 @@ mod tests {
         assert_eq!(tokenize("Va-t'en !"), ["Va", "-t'", "-en"]);
         assert_eq!(tokenize("Qu'est-ce que c'est ?"), ["Qu'", "est", "-ce", "que", "c'", "est", "?"]);
         assert_eq!(tokenize("C'est peut-être ma grand-mère."), ["C'", "est", "peut-être", "ma", "grand-mère"]);
+        assert_eq!(tokenize("J'ai un rendez-vous."), ["J'", "ai", "un", "rendez-vous"]);
         assert_eq!(tokenize("Ce jour-là, celle-ci était là-bas."), ["Ce", "jour", "-là", ",", "celle", "-ci", "était", "là-bas"]);
     }
 

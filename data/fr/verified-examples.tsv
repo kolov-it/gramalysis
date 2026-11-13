@@ -667,6 +667,7 @@ démissionner	démissionniez	2527430	subjunctive.present.2p	gramalysis+label 202
 démissionner	démissionnât	1372724	subjunctive.imperfect.3s	gramalysis+label 2026-11-12
 déménager	déménagea	500743	indicative.past_historic.3s	gramalysis+label 2026-11-12
 déménager	déménagea	531468	indicative.past_historic.3s	gramalysis+label 2026-11-12
+déménager	déménagea	910558	indicative.past_historic.3s	gramalysis+label 2026-11-12
 déménager	déménagerai	14029	indicative.future.1s	gramalysis+label 2026-11-12
 déménager	déménagerai	15037	indicative.future.1s	gramalysis+label 2026-11-12
 déménager	déménagerai	11070633	indicative.future.1s	gramalysis+label 2026-11-12
@@ -1347,6 +1348,7 @@ plonger	plonge	3660007	indicative.present.3s	gramalysis+label 2026-11-12
 pointer	pointe	330367	imperative.present.2s	gramalysis+label 2026-11-12
 pointer	pointe	2289843	imperative.present.2s	gramalysis+label 2026-11-12
 pointer	pointer	1803331	non_finite.infinitive	gramalysis+label 2026-11-12
+pointer	pointer	1954289	non_finite.infinitive	gramalysis+label 2026-11-12
 porter	porte	4131	indicative.present.3s	gramalysis+label 2026-11-12
 porter	porte	7364	indicative.present.1s	gramalysis+label 2026-11-12
 porter	porter	9880	non_finite.infinitive	gramalysis+label 2026-11-12
@@ -2073,6 +2075,7 @@ vêtir	vêt	567501	indicative.present.3s	gramalysis+label 2026-11-12
 être	fut	3815	indicative.past_historic.3s	gramalysis+label 2026-11-12
 être	fut	2106515	indicative.past_historic.3s	gramalysis+label 2026-11-12
 être	fût	391416	subjunctive.imperfect.3s	gramalysis+label 2026-11-12
+être	fûtes	910558	indicative.past_historic.2p	gramalysis+label 2026-11-12
 être	seriez	13628	conditional.present.2p	gramalysis+label 2026-11-12
 être	seriez	130108	conditional.present.2p	gramalysis+label 2026-11-12
 être	serions	429062	conditional.present.1p	gramalysis+label 2026-11-12

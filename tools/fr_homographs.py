@@ -195,10 +195,21 @@ def load_homographs():
         if len(parts) < 4:
             continue
         readings = []
-        for r in parts[3].split("; "):
-            m = re.match(r"(.+?)/(\w+)", r.strip())
-            if m:
-                readings.append({"lemma": m.group(1), "pos": m.group(2)})
+        if parts[2].startswith("C"):
+            # Kind C: one form, several entries, `pos#n: glosses || pos#n: …`.
+            # Each entry other than a verb is a reading of the form itself;
+            # the glosses stay out.
+            for entry in parts[3].split(" || "):
+                m = re.match(r"(\w+)#\d+:", entry.strip())
+                # a verb's readings come from the tables, with their cells
+                if m and m.group(1) != "verb" and not any(x["pos"] == m.group(1) for x in readings):
+                    readings.append({"lemma": parts[0], "pos": m.group(1)})
+        else:
+            # Kinds A and B: `lemma/pos(+pos)(count); …`.
+            for r in parts[3].split("; "):
+                m = re.match(r"(.+?)/(\w+)", r.strip())
+                if m:
+                    readings.append({"lemma": m.group(1), "pos": m.group(2)})
         out[parts[0]] = readings
     return out
 

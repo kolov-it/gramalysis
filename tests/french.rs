@@ -114,3 +114,25 @@ async fn etre_with_a_participle_is_open_while_the_auxiliary_is_unknown() {
     let c = a.chosen.iter().find(|c| c.token == "fermée").unwrap();
     assert!(c.uses.iter().flatten().any(|u| u == "ap.participle"));
 }
+
+#[tokio::test]
+async fn polite_vous_takes_a_plural_verb_and_a_singular_predicate() {
+    assert!(parses(&run("Vous êtes fatigué.").await));
+    assert!(parses(&run("Vous êtes fatigués.").await));
+    assert!(!parses(&run("Ils sont fatigué.").await));
+}
+
+#[tokio::test]
+async fn etre_in_the_future_with_a_participle_is_a_passive() {
+    let a = run("La porte sera fermée.").await;
+    assert!(parses(&a));
+    let c = a.chosen.iter().find(|c| c.token == "fermée").unwrap();
+    assert!(!c.uses.iter().flatten().any(|u| u == "ap.participle"), "{:?}", c.uses);
+}
+
+#[tokio::test]
+async fn rendez_vous_is_one_noun() {
+    let a = run("J'ai un rendez-vous.").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "rendez-vous")[0].starts_with("rendez-vous Noun"));
+}
