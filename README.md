@@ -167,7 +167,7 @@ the one a verb page needs: *which verb, or not a verb at all*.
 
 ## French
 
-`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (395 rules) and
+`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (397 rules) and
 the function words in `data/fr/closed.txt`. What is French-specific:
 
 - **Tokens:** elision is split off (*l'*, *d'*, *j'*, *qu'*, *jusqu'*,
@@ -209,7 +209,7 @@ below).
 On the French Tatoeba homograph set (4,384 sentences, 1,750 ambiguous forms of
 699 verbs that have a page on wordholder.com and no example sentence for that
 form) it decides the word in **80.1%** of the sentences, and **99.9%** of the
-decisions agree with the labels (3,511 of 3,513); 11.8% do not parse, 7.6% stay
+decisions agree with the labels (3,508 of 3,510); 11.9% do not parse, 7.6% stay
 ambiguous.
 
 ```sh
@@ -219,8 +219,8 @@ cargo run -- --fixture tests/fixtures/fr-recorded.json --file examples/fr.txt fr
 ```
 
 The files in `data/fr/` mirror `data/it/` (`tools/fr_homographs.py import`,
-`select`), plus `verified-examples.tsv`: the 2,164 sentences (1,184 forms of
-532 verbs) where gramalysis decides the word is the page verb and the label
+`select`), plus `verified-examples.tsv`: the 2,162 sentences (1,182 forms of
+531 verbs) where gramalysis decides the word is the page verb and the label
 agrees, 5–20 words long, in the format wordy's verb-form-examples builder
 reads (`tools/fr_homographs.py verified`). Inflected participles (*vues*,
 *avertis*) are left out of it: a verb table's participle cell holds only the

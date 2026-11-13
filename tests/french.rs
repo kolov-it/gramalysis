@@ -475,3 +475,15 @@ async fn a_subjunctive_clause_cannot_stand_alone_even_after_an_adverb() {
     assert!(!parses(&run("Il soit heureux.").await));
     assert!(!parses(&run("Demain il soit heureux.").await));
 }
+
+#[tokio::test]
+async fn a_reflexive_predicative_in_an_infinitive() {
+    assert!(parses(&run("Elle veut se rendre heureuse.").await));
+    assert!(!parses(&run("Elle veut se rendre heureux.").await));
+}
+
+#[tokio::test]
+async fn coordinated_subject_pronouns_stay_subjects() {
+    assert!(parses(&run("Il et elle sont là.").await));
+    assert!(!parses(&run("Je vois il et elle.").await));
+}

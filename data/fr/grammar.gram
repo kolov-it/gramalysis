@@ -24,7 +24,8 @@
 # rel.object-agreement, which checks the participle against the antecedent.
 #
 # A coordinated noun phrase is feminine when every conjunct is, masculine as
-# soon as one is (np.coordination and its -masculine variants, lists, ni … ni).
+# soon as one is (np.coordination and its -masculine variants, lists, ni … ni),
+# and keeps its conjuncts' case (il et elle is a subject, not an object).
 #
 # `pnum` is the number of a participle or adjective agreeing with the subject
 # (elle est partie, ils sont fatigués). It is kept apart from the verb's own
@@ -319,85 +320,85 @@ rule np.relative: NP[person=?p, number=?n, gender=?g, case=?c, pnum=?pn] -> NP[p
 rule np.bare: NP[case=obl, bare=yes, adj_twin=?at, person=3, number=?n, gender=?g, pnum=?n] -> Nom[needs_det=no, adj_twin=?at, number=?n, gender=?g]
   "A noun without a determiner, as an object, after être or a preposition (avoir faim, il est médecin, en France); not as a subject."
 
-rule np.coordination: NP[number=pl, pnum=pl, person=3, gender=f] -> NP[person=3, gender=f] Conj[type=coord] NP[person=3, gender=f]
+rule np.coordination: NP[number=pl, pnum=pl, person=3, gender=f, case=?c] -> NP[person=3, gender=f, case=?c] Conj[type=coord] NP[person=3, gender=f, case=?c]
   "Two noun phrases joined by et, ou: third person when both are (Tom et Marie, le chat et le chien)."
 
-rule np.coordination-masculine: NP[number=pl, pnum=pl, person=3, gender=m] -> NP[person=3, gender=m] Conj[type=coord] NP[person=3]
+rule np.coordination-masculine: NP[number=pl, pnum=pl, person=3, gender=m, case=?c] -> NP[person=3, gender=m, case=?c] Conj[type=coord] NP[person=3, case=?c]
   "… masculine as soon as one conjunct is masculine (le chat et la souris sont blancs)."
 
-rule np.coordination-masculine-second: NP[number=pl, pnum=pl, person=3, gender=m] -> NP[person=3] Conj[type=coord] NP[person=3, gender=m]
+rule np.coordination-masculine-second: NP[number=pl, pnum=pl, person=3, gender=m, case=?c] -> NP[person=3, case=?c] Conj[type=coord] NP[person=3, gender=m, case=?c]
   "… or the second one."
 
-rule np.coordination-first: NP[number=pl, pnum=pl, person=1, gender=f] -> NP[person=1, gender=f] Conj[type=coord] NP[gender=f]
+rule np.coordination-first: NP[number=pl, pnum=pl, person=1, gender=f, case=?c] -> NP[person=1, gender=f, case=?c] Conj[type=coord] NP[gender=f, case=?c]
   "With a first-person conjunct the whole is first person (moi et Tom, nous et vous)."
 
-rule np.coordination-first-masculine: NP[number=pl, pnum=pl, person=1, gender=m] -> NP[person=1, gender=m] Conj[type=coord] NP
+rule np.coordination-first-masculine: NP[number=pl, pnum=pl, person=1, gender=m, case=?c] -> NP[person=1, gender=m, case=?c] Conj[type=coord] NP[case=?c]
   "… masculine as soon as one conjunct is masculine (le chat et la souris sont blancs)."
 
-rule np.coordination-first-masculine-second: NP[number=pl, pnum=pl, person=1, gender=m] -> NP[person=1] Conj[type=coord] NP[gender=m]
+rule np.coordination-first-masculine-second: NP[number=pl, pnum=pl, person=1, gender=m, case=?c] -> NP[person=1, case=?c] Conj[type=coord] NP[gender=m, case=?c]
   "… or the second one."
 
-rule np.coordination-first-second: NP[number=pl, pnum=pl, person=1, gender=f] -> NP[person=2|3, gender=f] Conj[type=coord] NP[person=1, gender=f]
+rule np.coordination-first-second: NP[number=pl, pnum=pl, person=1, gender=f, case=?c] -> NP[person=2|3, gender=f, case=?c] Conj[type=coord] NP[person=1, gender=f, case=?c]
   "… or with the first person second (Tom et moi)."
 
-rule np.coordination-first-second-masculine: NP[number=pl, pnum=pl, person=1, gender=m] -> NP[person=2|3, gender=m] Conj[type=coord] NP[person=1]
+rule np.coordination-first-second-masculine: NP[number=pl, pnum=pl, person=1, gender=m, case=?c] -> NP[person=2|3, gender=m, case=?c] Conj[type=coord] NP[person=1, case=?c]
   "… masculine as soon as one conjunct is masculine (le chat et la souris sont blancs)."
 
-rule np.coordination-first-second-masculine-second: NP[number=pl, pnum=pl, person=1, gender=m] -> NP[person=2|3] Conj[type=coord] NP[person=1, gender=m]
+rule np.coordination-first-second-masculine-second: NP[number=pl, pnum=pl, person=1, gender=m, case=?c] -> NP[person=2|3, case=?c] Conj[type=coord] NP[person=1, gender=m, case=?c]
   "… or the second one."
 
-rule np.coordination-second: NP[number=pl, pnum=pl, person=2, gender=f] -> NP[person=2, gender=f] Conj[type=coord] NP[person=2|3, gender=f]
+rule np.coordination-second: NP[number=pl, pnum=pl, person=2, gender=f, case=?c] -> NP[person=2, gender=f, case=?c] Conj[type=coord] NP[person=2|3, gender=f, case=?c]
   "With a second-person conjunct and no first, second person (toi et Tom)."
 
-rule np.coordination-second-masculine: NP[number=pl, pnum=pl, person=2, gender=m] -> NP[person=2, gender=m] Conj[type=coord] NP[person=2|3]
+rule np.coordination-second-masculine: NP[number=pl, pnum=pl, person=2, gender=m, case=?c] -> NP[person=2, gender=m, case=?c] Conj[type=coord] NP[person=2|3, case=?c]
   "… masculine as soon as one conjunct is masculine (le chat et la souris sont blancs)."
 
-rule np.coordination-second-masculine-second: NP[number=pl, pnum=pl, person=2, gender=m] -> NP[person=2] Conj[type=coord] NP[person=2|3, gender=m]
+rule np.coordination-second-masculine-second: NP[number=pl, pnum=pl, person=2, gender=m, case=?c] -> NP[person=2, case=?c] Conj[type=coord] NP[person=2|3, gender=m, case=?c]
   "… or the second one."
 
-rule np.coordination-second-second: NP[number=pl, pnum=pl, person=2, gender=f] -> NP[person=3, gender=f] Conj[type=coord] NP[person=2, gender=f]
+rule np.coordination-second-second: NP[number=pl, pnum=pl, person=2, gender=f, case=?c] -> NP[person=3, gender=f, case=?c] Conj[type=coord] NP[person=2, gender=f, case=?c]
   "… or with the second person second (Tom et toi)."
 
-rule np.coordination-second-second-masculine: NP[number=pl, pnum=pl, person=2, gender=m] -> NP[person=3, gender=m] Conj[type=coord] NP[person=2]
+rule np.coordination-second-second-masculine: NP[number=pl, pnum=pl, person=2, gender=m, case=?c] -> NP[person=3, gender=m, case=?c] Conj[type=coord] NP[person=2, case=?c]
   "… masculine as soon as one conjunct is masculine (le chat et la souris sont blancs)."
 
-rule np.coordination-second-second-masculine-second: NP[number=pl, pnum=pl, person=2, gender=m] -> NP[person=3] Conj[type=coord] NP[person=2, gender=m]
+rule np.coordination-second-second-masculine-second: NP[number=pl, pnum=pl, person=2, gender=m, case=?c] -> NP[person=3, case=?c] Conj[type=coord] NP[person=2, gender=m, case=?c]
   "… or the second one."
 
-rule np.list: NP[number=pl, pnum=pl, person=3, gender=f] -> NP[person=3, gender=f] Punct NPList[gender=f]
+rule np.list: NP[number=pl, pnum=pl, person=3, gender=f, case=?c] -> NP[person=3, gender=f, case=?c] Punct NPList[gender=f, case=?c]
   "A list of third-person noun phrases separated by commas, the last joined by et or ou (du pain, du vin et du fromage)."
 
-rule np.list-masculine: NP[number=pl, pnum=pl, person=3, gender=m] -> NP[person=3, gender=m] Punct NPList
+rule np.list-masculine: NP[number=pl, pnum=pl, person=3, gender=m, case=?c] -> NP[person=3, gender=m, case=?c] Punct NPList[case=?c]
   "… masculine as soon as one conjunct is masculine (le chat et la souris sont blancs)."
 
-rule np.list-masculine-second: NP[number=pl, pnum=pl, person=3, gender=m] -> NP[person=3] Punct NPList[gender=m]
+rule np.list-masculine-second: NP[number=pl, pnum=pl, person=3, gender=m, case=?c] -> NP[person=3, case=?c] Punct NPList[gender=m, case=?c]
   "… or the second one."
 
-rule nplist.last: NPList[gender=f] -> NP[person=3, gender=f] Conj[type=coord] NP[person=3, gender=f]
+rule nplist.last: NPList[gender=f, case=?c] -> NP[person=3, gender=f, case=?c] Conj[type=coord] NP[person=3, gender=f, case=?c]
   "The end of a list: … et …"
 
-rule nplist.last-masculine: NPList[gender=m] -> NP[person=3, gender=m] Conj[type=coord] NP[person=3]
+rule nplist.last-masculine: NPList[gender=m, case=?c] -> NP[person=3, gender=m, case=?c] Conj[type=coord] NP[person=3, case=?c]
   "… masculine as soon as one conjunct is masculine (le chat et la souris sont blancs)."
 
-rule nplist.last-masculine-second: NPList[gender=m] -> NP[person=3] Conj[type=coord] NP[person=3, gender=m]
+rule nplist.last-masculine-second: NPList[gender=m, case=?c] -> NP[person=3, case=?c] Conj[type=coord] NP[person=3, gender=m, case=?c]
   "… or the second one."
 
-rule nplist.more: NPList[gender=f] -> NP[person=3, gender=f] Punct NPList[gender=f]
+rule nplist.more: NPList[gender=f, case=?c] -> NP[person=3, gender=f, case=?c] Punct NPList[gender=f, case=?c]
   "A list item followed by a comma."
 
-rule nplist.more-masculine: NPList[gender=m] -> NP[person=3, gender=m] Punct NPList
+rule nplist.more-masculine: NPList[gender=m, case=?c] -> NP[person=3, gender=m, case=?c] Punct NPList[case=?c]
   "… masculine as soon as one conjunct is masculine (le chat et la souris sont blancs)."
 
-rule nplist.more-masculine-second: NPList[gender=m] -> NP[person=3] Punct NPList[gender=m]
+rule nplist.more-masculine-second: NPList[gender=m, case=?c] -> NP[person=3, case=?c] Punct NPList[gender=m, case=?c]
   "… or the second one."
 
-rule np.ni-ni: NP[number=pl, pnum=pl, person=3, gender=f] -> Conj[lemma=ni] NP[person=3, gender=f] Conj[lemma=ni] NP[person=3, gender=f]
+rule np.ni-ni: NP[number=pl, pnum=pl, person=3, gender=f, case=?c] -> Conj[lemma=ni] NP[person=3, gender=f, case=?c] Conj[lemma=ni] NP[person=3, gender=f, case=?c]
   "ni … ni = neither … nor, with third-person noun phrases."
 
-rule np.ni-ni-masculine: NP[number=pl, pnum=pl, person=3, gender=m] -> Conj[lemma=ni] NP[person=3, gender=m] Conj[lemma=ni] NP[person=3]
+rule np.ni-ni-masculine: NP[number=pl, pnum=pl, person=3, gender=m, case=?c] -> Conj[lemma=ni] NP[person=3, gender=m, case=?c] Conj[lemma=ni] NP[person=3, case=?c]
   "… masculine as soon as one conjunct is masculine (le chat et la souris sont blancs)."
 
-rule np.ni-ni-masculine-second: NP[number=pl, pnum=pl, person=3, gender=m] -> Conj[lemma=ni] NP[person=3] Conj[lemma=ni] NP[person=3, gender=m]
+rule np.ni-ni-masculine-second: NP[number=pl, pnum=pl, person=3, gender=m, case=?c] -> Conj[lemma=ni] NP[person=3, case=?c] Conj[lemma=ni] NP[person=3, gender=m, case=?c]
   "… or the second one."
 
 # --------------------------------------------------- relative clauses
@@ -902,8 +903,11 @@ rule vp.verb: VP[bare=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n, g
 rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, irefl=?ir, irnum=?irn] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no, etre=no, irefl=?ir, irnum=?irn] NP[case=obl|obj, bare=no]
   "The verb takes a direct object, unless le, la, les already is its object (je vois le chat, not *je le vois le chat). être takes none: what follows it says what the subject is. A noun without a determiner as the object is vp.bare-object, with listed verbs only."
 
-rule vp.bare-object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no, etre=no, lemma=avoir|faire|prendre|donner|rendre|porter|perdre|tenir|mettre|courir|garder|reprendre|chercher|demander|trouver|tirer|livrer|rendre|prêter|lâcher|ficher|foutre|chanter|parler|jouer|crier|manger|boire|lire|écrire|apprendre|enseigner|étudier|vendre|acheter|cultiver|fabriquer|produire|offrir|servir|risquer|subir|nier|avouer|annoncer|appeler|bâtir|garder|planter] NP[case=obl|obj, bare=yes]
+rule vp.bare-object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no, etre=no, lemma=avoir|faire|prendre|donner|rendre|porter|perdre|tenir|mettre|courir|garder|reprendre|chercher|demander|trouver|tirer|livrer|rendre|prêter|lâcher|ficher|foutre|chanter|parler|jouer|crier|manger|boire|lire|écrire|apprendre|enseigner|étudier|vendre|acheter|cultiver|fabriquer|produire|offrir|servir|risquer|subir|nier|avouer|annoncer|appeler|bâtir|garder|planter] NP[case=obl|obj, bare=yes, adj_twin=no]
   "A noun without a determiner as the object, in verb + noun phrases and with verbs that take a mass or generic noun (avoir faim, faire attention, prendre part, perdre patience, parler français, jouer aux cartes)."
+
+rule vp.bare-object-avoir-faire: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no, etre=no, lemma=avoir|faire] NP[case=obl|obj, bare=yes]
+  "avoir and faire also take a bare noun that is an adjective too (avoir froid, avoir chaud, il fait chaud); after other verbs such a word is the adjective (se rendre heureux)."
 
 rule vp.language-object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no, etre=no, acc=no, lemma=parler|apprendre|étudier|enseigner|comprendre|écrire|lire|savoir|traduire|maîtriser] Nom
   "A language name without a determiner after parler, apprendre… (il parle français, j'apprends l'anglais is the same with the article). The noun may also be an adjective here (français)."
@@ -1203,6 +1207,9 @@ rule vp.reflexive-predicative: VP[finite=yes, form=fin, mood=?m, person=?p, numb
 
 rule vp.reflexive-predicative-negated: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no] -> Neg Clitics[attached=no, reflexive=yes, acc=no, refl=?p, rnum=?n] Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, etre=no, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n] NegAdv[only=no] AP[number=?pn, gender=?g]
   "The same with ne … pas (elle ne se rend pas heureuse, je ne me vois pas fatigué)."
+
+rule vp.reflexive-predicative-nonfinite: VP[finite=no, form=inf, subj=no, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?ir, rnum=?irn] Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, form=inf] AP[number=?pn, gender=?g]
+  "The same in an infinitive: the adjective and the reflexive pronoun agree with whoever controls the infinitive (elle veut se rendre heureuse)."
 
 rule vp.supposed: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> Cop[mood=?m, person=?p, number=?n, subj=?s, gender=?g] AP[participle=supposer|censer, number=?pn, gender=?g] VP[form=inf]
   "être supposé / censé + infinitive = be supposed to (il était supposé venir)."
