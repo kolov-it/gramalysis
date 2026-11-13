@@ -53,13 +53,16 @@ rule sentence.question: Sentence -> S[imp=no, smood=ind|cnd] Question
 
 # ---------------------------------------------------------------- clauses
 
-rule clause.subject: S[gap=?gp, smood=?m, sperson=?p, snum=?n, spnum=?pn, sgender=?g] -> NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g] VP[finite=yes, form=fin, mood=ind|sub|cnd, mood=?m, subj=no, person=?p, number=?n, pnum=?pn, gender=?g, gap=?gp]
+rule clause.subject: S[gap=?gp, smood=?m, sperson=?p, snum=?n, spnum=?pn, sgender=?g] -> NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g] VP[impers=no, finite=yes, form=fin, mood=ind|sub|cnd, mood=?m, subj=no, person=?p, number=?n, pnum=?pn, gender=?g, gap=?gp]
   "The verb agrees with its subject in person and number, and an adjective or participle after être agrees with it too (pnum). French always says the subject, except in an order. Polite vous has no number: the verb is plural, the adjective singular (vous êtes fatigué)."
+
+rule clause.impersonal-subject: S[gap=?gp, smood=?m, sperson=3, snum=sg, spnum=sg, sgender=m] -> Pron[case=nom, lemma=il|ce|ça|cela, gender=m, attached=no] VP[impers=yes, finite=yes, form=fin, mood=ind|sub|cnd, mood=?m, subj=no, person=3, number=sg, pnum=sg, gender=m, gap=?gp]
+  "An impersonal il, ce, ça or cela before an impersonal construction (il est difficile de se laver, c'est facile à dire); only these subjects can take vp.copula-infinitive-impersonal, so a personal subject keeps its agreement checks (*Tom est heureux d'être heureuses)."
 
 rule clause.inverted: S[inv=yes, gap=?gp, cesubj=?cs, smood=?m] -> VP[finite=yes, form=fin, subj=yes, gap=?gp, cesubj=?cs, mood=?m]
   "Inversion: the subject pronoun follows the verb, joined by a hyphen (Parlez-vous français ? A-t-il fini ?)."
 
-rule clause.complex-inversion: S[inv=yes, gap=?gp, smood=?m] -> NP[person=3, number=?n, gender=?g] VP[finite=yes, form=fin, subj=yes, person=3, number=?n, gender=?g, gap=?gp, mood=?m]
+rule clause.complex-inversion: S[inv=yes, gap=?gp, smood=?m] -> NP[person=3, number=?n, gender=?g] VP[impers=no, finite=yes, form=fin, subj=yes, person=3, number=?n, gender=?g, gap=?gp, mood=?m]
   "A noun subject, then the verb with il/elle after it, which agrees with it in number and gender (Pierre est-il là ? La femme est-elle heureuse ?)."
 
 rule clause.imperative: S[imp=yes] -> VP[finite=yes, mood=imp, subj=no]
@@ -442,7 +445,7 @@ rule np.ni-ni-masculine-second: NP[number=pl, pnum=pl, person=3, gender=m, case=
 
 # --------------------------------------------------- relative clauses
 
-rule rel.subject: Rel[person=?p, number=?n, pnum=?pn, gender=?g] -> RelPron[role=subject] VP[finite=yes, form=fin, mood=ind|sub|cnd, subj=no, person=?p, number=?n, pnum=?pn, gender=?g]
+rule rel.subject: Rel[person=?p, number=?n, pnum=?pn, gender=?g] -> RelPron[role=subject] VP[impers=no, finite=yes, form=fin, mood=ind|sub|cnd, subj=no, person=?p, number=?n, pnum=?pn, gender=?g]
   "qui + verb: the noun is that verb's subject; the verb agrees with it, and so does an adjective or participle after être (l'homme qui parle, c'est moi qui suis, la femme qui est fatiguée)."
 
 rule rel.object: Rel -> RelPron[role=object] S[imp=no, gap=no]
@@ -1059,10 +1062,10 @@ rule vp.copula-alone: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, su
 rule vp.copula-infinitive: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, pnum=?pn, gender=?g, subj=?s] -> Cop[mood=?m, person=?p, number=?n, subj=?s, pnum=?pn, gender=?g] AP[number=?pn, gender=?g] Prep[lemma=de|à] VP[form=inf, irefl=?p, irnum=?n, pnum=?pn, gender=?g]
   "être + an adjective + de or à + an infinitive whose subject is the clause's subject: a reflexive or a predicate in it agrees with that subject (je suis heureux de me laver, elle est fière d'être libre)."
 
-rule vp.copula-infinitive-impersonal: VP[finite=yes, form=fin, mood=?m, person=3, number=sg, pnum=sg, gender=m, subj=?s] -> Cop[mood=?m, person=3, number=sg, subj=?s, pnum=sg, gender=m] AP[number=sg, gender=m] Prep[lemma=de|à] VP[form=inf]
+rule vp.copula-infinitive-impersonal: VP[impers=yes, finite=yes, form=fin, mood=?m, person=3, number=sg, pnum=sg, gender=m, subj=?s] -> Cop[mood=?m, person=3, number=sg, subj=?s, pnum=sg, gender=m] AP[number=sg, gender=m] Prep[lemma=de|à] VP[form=inf]
   "Impersonal il or ce + a masculine singular adjective + de or à + an infinitive with no subject of its own: nothing in it agrees with il (il est difficile de se laver, il est important d'être heureuse, c'est facile à dire)."
 
-rule vp.copula-noun-infinitive: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=?s, gender=?g] -> Cop[mood=?m, person=?p, number=?n, subj=?s, gender=?g] NP Prep[lemma=de|à] VP[form=inf]
+rule vp.copula-noun-infinitive: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=?s, gender=?g] -> Cop[mood=?m, person=?p, number=?n, subj=?s, gender=?g] NP[adj_twin=no] Prep[lemma=de|à] VP[form=inf]
   "être + noun + de + infinitive (c'est une honte de mentir)."
 
 rule vp.copula-que: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, pnum=?pn, gender=?g, subj=?s] -> Cop[cesubj=no, mood=?m, person=?p, number=?n, subj=?s, pnum=?pn, gender=?g] AP[number=?pn, gender=?g] Conj[lemma=que] S[imp=no]
@@ -1074,34 +1077,34 @@ rule vp.passive-agent: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, g
 rule vp.passive-agent-negated: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no] -> Neg Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?pn, gender=?g] Prep[lemma=par] NP
   "A negated passive with par + agent (il n'est pas aimé par ses voisins)."
 
-rule vp.prepositional-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] PP[agent=no, pinf=yes|no, pnum=?pn, gender=?g, irefl=?p, irefl=?ir, irnum=?n, irnum=?irn]
+rule vp.prepositional-phrase: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] PP[agent=no, pinf=yes|no, pnum=?pn, gender=?g, irefl=?p, irefl=?ir, irnum=?n, irnum=?irn]
   "A phrase with a preposition adds where, when, for whom or how. An infinitive in it (pour, sans, avant de…) has the clause's subject as its subject (je suis venu pour me laver)."
 
-rule vp.prepositional-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[aperson=none, dperson=none, gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] PP[agent=no, pinf=da, pnum=?pn, gender=?g, irefl=?p, irefl=?ir, irnum=?n, irnum=?irn]
+rule vp.prepositional-infinitive: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[impers=?im, aperson=none, dperson=none, gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] PP[agent=no, pinf=da, pnum=?pn, gender=?g, irefl=?p, irefl=?ir, irnum=?n, irnum=?irn]
   "de or à + an infinitive after a verb phrase with no me/te or direct object pronoun: the clause's subject is its subject (cela ne sert à rien de le nier). With such a pronoun the pronoun is the subject, so only the object-control rules apply (elle me dit de me laver)."
 
-rule vp.agent-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, state=no] PP[agent=yes]
+rule vp.agent-phrase: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, state=no] PP[agent=yes]
   "par + a noun phrase after the verb. Not after être + participle read as a state: par + agent makes it a passive (la porte est fermée par le gardien)."
 
-rule vp.adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Adv
+rule vp.adverb: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Adv
   "An adverb after the verb phrase."
 
-rule vp.time: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] TimeNP
+rule vp.time: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] TimeNP
   "A time expression after the verb (je travaille tous les jours)."
 
-rule vp.ago: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] IlYa NP
+rule vp.ago: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] IlYa NP
   "il y a + a length of time = ago (je l'ai vu il y a deux ans)."
 
 rule ilya.ago: IlYa -> Pron[lemma=il] Pron[lemma=y] Verb[lemma=avoir, person=3, number=sg]
   "il y a."
 
-rule vp.floating-quantifier: VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, pnum=?pn, subj=?s] Pron[lemma=tout, number=pl, gender=?g]
+rule vp.floating-quantifier: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, pnum=?pn, subj=?s] Pron[lemma=tout, number=pl, gender=?g]
   "tous / toutes after the verb, for the whole plural subject (ils sont tous partis)."
 
 rule vp.object-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|avoir, acc=no] NP[case=obl, bare=no, number=?on, gender=?og] AP[number=?on, gender=?og]
   "Verb + object + an adjective saying what the object is or becomes (rendre les gens heureux, laisser la porte ouverte)."
 
-rule vp.comparison: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[lemma=que] NP
+rule vp.comparison: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[lemma=que] NP
   "plus, moins, autant … que + noun phrase (il court plus vite que moi)."
 
 rule vp.aller-gerund: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=aller] Verb[form=ger|prespart]
@@ -1110,10 +1113,10 @@ rule vp.aller-gerund: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gen
 rule vp.naming-passive: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=appeler|nommer|surnommer|élire|considérer|déclarer|proclamer, form=pastpart, number=?pn, gender=?g] NP[case=obl, adj_twin=no]
   "être appelé / nommé / élu + a noun: what the subject is called or made, a passive (il était appelé le grain de la pauvreté)."
 
-rule vp.un-peu: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Det[lemma=un] Quant[lemma=peu]
+rule vp.un-peu: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Det[lemma=un] Quant[lemma=peu]
   "un peu = a little (je parle un peu)."
 
-rule vp.quantity: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Quant
+rule vp.quantity: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Quant
   "beaucoup, trop, assez after the verb (je t'aime beaucoup)."
 
 # ------------------------------------------------- adjective phrases
@@ -1196,16 +1199,16 @@ rule time.numeral: TimeNP[number=?n] -> Num[number=?n] Noun[number=?n, lemma=foi
 
 # ------------------------------------------------- more shapes (from the Tatoeba no-parses)
 
-rule vp.coordination: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=?m]
+rule vp.coordination: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] VP[impers=?im, finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=?m]
   "Two verb phrases with one subject, joined by et, mais, ou, puis; a participle that agrees with nothing in either (gap) stays marked, so an object relative still checks it (il perdit patience et frappa le garçon); both agree with it, predicates too (elle est heureuse et fatiguée)."
 
-rule vp.coordination-mixed-mood: VP[finite=?f, form=?fm, mood=ind, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=ind|cnd, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=ind|cnd]
+rule vp.coordination-mixed-mood: VP[impers=?im, finite=?f, form=?fm, mood=ind, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=ind|cnd, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] VP[impers=?im, finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=ind|cnd]
   "… or an indicative and a conditional (il viendra et il serait content: vient et serait)."
 
-rule vp.coordination-negated: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] Neg VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=?m]
+rule vp.coordination-negated: VP[impers=?im, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] Neg VP[impers=?im, finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=?m]
   "… mais ne + verb phrase (elle écrivit une lettre mais ne la posta pas)."
 
-rule vp.coordination-negated-mixed-mood: VP[finite=?f, form=?fm, mood=ind, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=ind|cnd, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] Neg VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=ind|cnd]
+rule vp.coordination-negated-mixed-mood: VP[impers=?im, finite=?f, form=?fm, mood=ind, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[impers=?im, gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=ind|cnd, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] Neg VP[impers=?im, finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=ind|cnd]
   "… or an indicative and a conditional (il viendra et il serait content: vient et serait)."
 
 rule clause.coordination-comma: S[imp=?i, smood=?sm] -> S[smood=?sm] Punct Conj[type=coord] S[imp=?i, smood=?sm]

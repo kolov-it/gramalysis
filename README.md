@@ -167,7 +167,7 @@ the one a verb page needs: *which verb, or not a verb at all*.
 
 ## French
 
-`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (440 rules) and
+`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (441 rules) and
 the function words in `data/fr/closed.txt`. What is French-specific:
 
 - **Tokens:** elision is split off (*l'*, *d'*, *j'*, *qu'*, *jusqu'*,

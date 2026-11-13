@@ -803,3 +803,15 @@ async fn est_ce_que_takes_a_plain_clause() {
     assert!(parses(&run("Est-ce qu'il est heureux ?").await));
     assert!(!parses(&run("Est-ce qu'est-il heureux ?").await));
 }
+
+#[tokio::test]
+async fn only_an_impersonal_subject_skips_the_infinitive_checks() {
+    assert!(parses(&run("Il est difficile de se laver.").await));
+    assert!(parses(&run("Tom est heureux d'être heureux.").await));
+    assert!(!parses(&run("Tom est heureux d'être heureuses.").await));
+}
+
+#[tokio::test]
+async fn si_the_musical_note() {
+    assert!(parses(&run("Je chante le si.").await));
+}

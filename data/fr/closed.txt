@@ -410,6 +410,7 @@ non = non:Intj
 non = non:Adv
 si = si:Intj
 si = si:Adv
+si = si:Noun{gender=m,needs_det=yes}
 merci = merci:Intj
 merci = merci:Noun{gender=m}
 merci = merci:Noun{gender=f}
