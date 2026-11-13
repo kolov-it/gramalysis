@@ -193,10 +193,13 @@ impl French {
             // lexicon reads it as (20 as a noun, 2 as de).
             if token.chars().any(|c| c.is_ascii_digit()) {
                 // A quantity below two takes a singular noun (1 lettre, 0 minute,
-                // 1,5 heure), every other number a plural. 000 is a group of a
-                // larger number (100 000 yens), not zero.
-                let group = lower.len() > 1 && lower.starts_with('0') && !lower.starts_with("0,");
-                let below_two = !group && lower.replace(',', ".").parse::<f64>().is_ok_and(|v| v.abs() < 2.0);
+                // 1,5 heure), every other number a plural. The number is read
+                // whole across its space-separated groups of three: in 1 000 and
+                // 100 000 neither 1 nor 000 is the quantity.
+                let is_group = |t: &String| t.len() == 3 && t.chars().all(|c| c.is_ascii_digit());
+                let grouped = tokens.get(i + 1).is_some_and(is_group)
+                    || (is_group(token) && i > 0 && tokens[i - 1].chars().all(|c| c.is_ascii_digit()));
+                let below_two = !grouped && lower.replace(',', ".").parse::<f64>().is_ok_and(|v| v.abs() < 2.0);
                 let number = if below_two { "sg" } else { "pl" };
                 let feats = FeatMap::from([("number".to_owned(), number.to_owned())]);
                 readings.push(vec![Morpheme { surface: token.clone(), lemma: lower.clone(), cat: "Num".to_owned(), feats }]);
@@ -281,7 +284,8 @@ fn without_untagged_duplicates(readings: Vec<Reading>, form: &str) -> Vec<Readin
 /// it. Only an imperative is followed by a hyphenated y or en (inversion
 /// takes a subject pronoun: où vas-tu), so that indicative reading gets an
 /// imperative twin. A form with its own s (allons, prends, faites) is left
-/// as it is.
+/// as it is. avoir and être are the exceptions: their imperative is not
+/// their indicative (aie, sois).
 fn with_liaison_imperative(mut readings: Vec<Reading>, form: &str) -> Vec<Reading> {
     if !form.strip_suffix('s').is_some_and(|stem| stem.ends_with(['e', 'a'])) {
         return readings;
@@ -290,6 +294,7 @@ fn with_liaison_imperative(mut readings: Vec<Reading>, form: &str) -> Vec<Readin
         .iter()
         .filter(|r| {
             r.pos == PartOfSpeech::Verb
+                && !matches!(r.lemma.as_str(), "avoir" | "être")
                 && r.features.mood == Some(Mood::Indicative)
                 && r.features.tense == Some(Tense::Present)
                 && r.features.person == Some(Person::Second)

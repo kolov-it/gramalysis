@@ -53,7 +53,7 @@ rule sentence.question: Sentence -> S[imp=no, smood=ind|cnd] Question
 
 # ---------------------------------------------------------------- clauses
 
-rule clause.subject: S[gap=?gp, smood=?m] -> NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g] VP[finite=yes, form=fin, mood=ind|sub|cnd, mood=?m, subj=no, person=?p, number=?n, pnum=?pn, gender=?g, gap=?gp]
+rule clause.subject: S[gap=?gp, smood=?m, sperson=?p, snum=?n] -> NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g] VP[finite=yes, form=fin, mood=ind|sub|cnd, mood=?m, subj=no, person=?p, number=?n, pnum=?pn, gender=?g, gap=?gp]
   "The verb agrees with its subject in person and number, and an adjective or participle after être agrees with it too (pnum). French always says the subject, except in an order. Polite vous has no number: the verb is plural, the adjective singular (vous êtes fatigué)."
 
 rule clause.inverted: S[inv=yes, gap=?gp, cesubj=?cs, smood=?m] -> VP[finite=yes, form=fin, subj=yes, gap=?gp, cesubj=?cs, mood=?m]
@@ -110,10 +110,10 @@ rule clause.adverb-first: S[imp=?i, smood=?sm] -> Adv S[imp=?i, smood=?sm]
 rule clause.adverb-first-comma: S[imp=?i, smood=?sm] -> Adv Punct S[imp=?i, smood=?sm]
   "An adverb at the start, then a comma."
 
-rule clause.phrase-first: S[imp=?i, smood=?sm] -> PP S[imp=?i, smood=?sm]
+rule clause.phrase-first: S[imp=?i, smood=?sm] -> PP[irefl=?sp, irnum=?sn] S[imp=?i, smood=?sm, sperson=?sp, snum=?sn]
   "A phrase with a preposition at the start of the clause (Après le dîner, nous sortons)."
 
-rule clause.phrase-first-comma: S[imp=?i, smood=?sm] -> PP Punct S[imp=?i, smood=?sm]
+rule clause.phrase-first-comma: S[imp=?i, smood=?sm] -> PP[irefl=?sp, irnum=?sn] Punct S[imp=?i, smood=?sm, sperson=?sp, snum=?sn]
   "A phrase with a preposition at the start, then a comma."
 
 rule clause.time-first: S[imp=?i, smood=?sm] -> TimeNP S[imp=?i, smood=?sm]
@@ -1150,7 +1150,7 @@ rule compl.more: Compl -> Compl PP
 rule clause.participle-first: S -> PartP Punct S
   "A participle phrase at the start, then a comma (Arrivé à Paris, il appela sa mère)."
 
-rule clause.gerund-first: S -> PP[gerund=yes] Punct S
+rule clause.gerund-first: S -> PP[gerund=yes, irefl=?sp, irnum=?sn] Punct S[sperson=?sp, snum=?sn]
   "A gérondif at the start, then a comma (En arrivant, il a vu…)."
 
 # ------------------------------------------------- time expressions
@@ -1250,10 +1250,10 @@ rule vp.copula-nonfinite-adverb: VP[finite=no, form=?fm, subj=no, pnum=?pn, gend
 rule vp.copula-nonfinite-adverb-noun: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|rester, form=inf|prespart|ger, form=?fm] Adv NP[case=obl, adj_twin=no]
   "… with an adverb before the noun phrase (étant seulement étudiant)."
 
-rule clause.participle-clause-first: S[imp=?i, smood=?sm] -> VP[bare=no, form=prespart|ger] Punct S[imp=?i, smood=?sm]
+rule clause.participle-clause-first: S[imp=?i, smood=?sm] -> VP[bare=no, form=prespart|ger, irefl=?sp, irnum=?sn] Punct S[imp=?i, smood=?sm, sperson=?sp, snum=?sn]
   "An -ant clause with complements first, then a comma (Étant étudiant, je… ; Ne sachant que faire, je…). Alone, the -ant form is an adjective."
 
-rule clause.participle-clause-last: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm] Punct VP[bare=no, form=prespart|ger]
+rule clause.participle-clause-last: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm, sperson=?sp, snum=?sn] Punct VP[bare=no, form=prespart|ger, irefl=?sp, irnum=?sn]
   "An -ant clause after a comma, at the end (…, formant ainsi des nuages)."
 
 rule np.article-name: NP[person=3, number=?n, gender=?g, pnum=?n] -> Det[definite=yes, number=?n, gender=?g] ProperNoun[gender=?g]
@@ -1298,8 +1298,14 @@ rule vp.reflexive-predicative-perfect-negated: VP[finite=yes, form=fin, mood=?m,
 rule vp.reflexive-predicative-nonfinite: VP[finite=no, form=inf, subj=no, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?ir, rnum=?irn] Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, form=inf] AP[number=?pn, gender=?g]
   "The same in an infinitive: the adjective and the reflexive pronoun agree with whoever controls the infinitive (elle veut se rendre heureuse)."
 
-rule vp.reflexive-predicative-imperative: VP[finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no] -> Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, form=fin, mood=imp, person=?p, number=?n] EnCl[refl=?p, rnum=?n, acc=no] AP
+rule vp.reflexive-predicative-imperative: VP[finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no] -> Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, form=fin, mood=imp, person=?p, number=?n, number=sg] EnCl[refl=?p, rnum=?n, acc=no] AP[number=sg]
   "An order with a reflexive pronoun and an adjective (rends-toi heureux, rendez-vous utiles)."
+
+rule vp.reflexive-predicative-imperative-nous: VP[finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no] -> Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, form=fin, mood=imp, person=?p, number=?n, person=1, number=pl] EnCl[refl=?p, rnum=?n, acc=no] AP[number=pl]
+  "The same with nous: a plural adjective (rendons-nous utiles)."
+
+rule vp.reflexive-predicative-imperative-vous: VP[finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no] -> Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, form=fin, mood=imp, person=?p, number=?n, person=2, number=pl] EnCl[refl=?p, rnum=?n, acc=no] AP
+  "The same with vous, which may address one person: the adjective is singular or plural (rendez-vous utile, rendez-vous utiles)."
 
 rule vp.supposed: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> Cop[mood=?m, person=?p, number=?n, subj=?s, gender=?g] AP[participle=supposer|censer, number=?pn, gender=?g] VP[form=inf, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
   "être supposé / censé + infinitive = be supposed to (il était supposé venir)."
@@ -1331,7 +1337,7 @@ rule ap.more-and-more: AP[pp=?x, number=?n, gender=?g] -> Prep[lemma=de] Adv[lem
 rule pp.coordination: PP[agent=no] -> PP Conj[type=coord] PP
   "Two phrases with a preposition joined by et, ou (à votre tante et à votre oncle)."
 
-rule clause.phrase-last-comma: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm] Punct PP
+rule clause.phrase-last-comma: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm, sperson=?sp, snum=?sn] Punct PP[irefl=?sp, irnum=?sn]
   "A phrase with a preposition after a comma, at the end (Elle est partie, après le dîner)."
 
 rule clause.adverb-phrase-last-comma: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm] Punct Adv PP

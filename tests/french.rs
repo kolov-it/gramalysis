@@ -689,3 +689,29 @@ async fn indirect_questions_do_not_invert_a_subject_pronoun() {
     assert!(parses(&run("Je sais où est la gare.").await));
     assert!(!parses(&run("Je sais où est-il.").await));
 }
+
+#[tokio::test]
+async fn a_reflexive_order_agrees_with_its_adjective() {
+    assert!(parses(&run("Rends-toi heureux.").await));
+    assert!(!parses(&run("Rends-toi heureuses.").await));
+    assert!(parses(&run("Tenez-vous prêts.").await));
+}
+
+#[tokio::test]
+async fn a_fronted_reflexive_gerund_is_controlled_by_the_subject() {
+    assert!(parses(&run("En me lavant, je suis venu.").await));
+    assert!(!parses(&run("En se lavant, je suis venu.").await));
+}
+
+#[tokio::test]
+async fn a_grouped_number_is_read_whole() {
+    assert!(parses(&run("J'ai 1 000 lettres.").await));
+    assert!(!parses(&run("J'ai 1 000 lettre.").await));
+}
+
+#[tokio::test]
+async fn avoir_and_etre_have_no_liaison_imperative() {
+    assert!(parses(&run("Penses-y.").await));
+    assert!(!parses(&run("As-en.").await));
+    assert!(!parses(&run("Es-y.").await));
+}

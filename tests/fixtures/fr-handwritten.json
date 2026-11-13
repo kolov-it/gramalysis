@@ -2975,6 +2975,142 @@
         "source": "kaikki",
         "surface": "une"
       }
+    ],
+    "tenez": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative plural present second-person",
+          "tags": [
+            "indicative",
+            "plural",
+            "present",
+            "second-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "present",
+            "second-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tenir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "tenez"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative plural second-person",
+          "tags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "tenir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "tenez"
+      }
+    ],
+    "prêts": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "prêt",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "prêts"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "prêt",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "prêts"
+      }
+    ],
+    "es": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present second-person singular",
+          "tags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "es"
+      }
     ]
   }
 }
