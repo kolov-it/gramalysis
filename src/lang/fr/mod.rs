@@ -65,13 +65,15 @@ impl Language for French {
             .filter(|(_, t)| !is_punct(t))
             .map(|(i, t)| {
                 let lower = t.trim_start_matches('-').to_lowercase();
-                // Before an attached y or en, a 2nd singular imperative takes
-                // a liaison s (vas-y, donnes-en, penses-y): the lexicon knows
-                // the imperative without it. Only an imperative is followed by
-                // a hyphenated y or en, so the s-less form is the one to ask.
+                // Before an attached y or en, an imperative ending in -e or -a
+                // takes a liaison s (vas-y, donnes-en, penses-y): the lexicon
+                // knows it without the s. Only imperatives in -e / -a take it,
+                // so allons-y and prends-en keep their own s.
                 let before_y_en = tokens.get(i + 1).is_some_and(|n| matches!(n.to_lowercase().as_str(), "-y" | "-en"));
                 match lower.strip_suffix('s') {
-                    Some(stem) if before_y_en && !t.starts_with('-') && stem.len() > 1 => stem.to_owned(),
+                    Some(stem) if before_y_en && !t.starts_with('-') && stem.len() > 1 && stem.ends_with(['e', 'a']) => {
+                        stem.to_owned()
+                    }
                     _ => lower,
                 }
             })

@@ -138,6 +138,7 @@ async fn polite_vous_takes_a_plural_verb_and_a_singular_predicate() {
 async fn an_inverted_subject_agrees_with_the_adjective() {
     assert!(parses(&run("Est-elle heureuse ?").await));
     assert!(!parses(&run("Est-il heureuse ?").await));
+    assert!(!parses(&run("N'est-il pas heureuse ?").await));
     assert!(parses(&run("Deviendra-t-elle heureuse ?").await));
 }
 
@@ -259,4 +260,6 @@ async fn liaison_s_before_an_attached_y_is_the_imperative() {
     let a = run("Vas-y !").await;
     assert!(parses(&a));
     assert!(agreed(&a, "Vas")[0].contains("mood=imp"));
+    // allons keeps its own s
+    assert!(agreed(&run("Allons-y !").await, "Allons")[0].contains("mood=imp"));
 }

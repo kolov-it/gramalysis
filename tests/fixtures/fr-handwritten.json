@@ -1030,6 +1030,32 @@
           "clitic": false
         }
       }
+    ],
+    "allons": [
+      {
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "imperative",
+          "tense": "present",
+          "person": "first",
+          "number": "plural",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "plural",
+          "clitic": false
+        }
+      }
     ]
   }
 }
