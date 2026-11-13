@@ -457,3 +457,23 @@ async fn se_then_te_or_os_attached() {
     assert!(!run("Puede caérsete.").await.parses.is_empty());
     assert!(!run("Puede caérseos.").await.parses.is_empty());
 }
+
+#[tokio::test]
+async fn a_clitic_climbed_onto_tener_que_is_the_object() {
+    assert!(!run("Lo tengo que leer.").await.parses.is_empty());
+    assert!(!run("Tengo que leer un libro.").await.parses.is_empty());
+    assert!(run("Lo tengo que leer un libro.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn a_person_object_with_an_adjective() {
+    assert!(!run("Vi a María feliz.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn a_qué_hora_with_ser() {
+    assert!(!run("¿A qué hora es?").await.parses.is_empty());
+    let a = run("¿A qué hora fue?").await;
+    let c = a.chosen.iter().find(|c| c.token == "fue").unwrap();
+    assert!(c.readings.iter().any(|r| r[0].lemma == "ser"), "{:?}", c.readings);
+}

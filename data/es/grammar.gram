@@ -259,7 +259,7 @@ rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gende
 rule vp.infinitive-climbed: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=acc, lemma=poder|deber|querer|saber|soler|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|decidir|prometer|odiar|amar|temer|evitar|parecer|gustar|encantar|importar|interesar|apetecer|merecer|procurar|pretender|planear|olvidar|recordar|lamentar|admitir|negar|asegurar|confesar|creer|declarar|afirmar|imaginar|resultar|convenir|bastar|costar|faltar|urgir|acordar|ansiar|anhelar|elegir|fingir|osar|rehusar|proponer|sugerir|agradecer|confiar|ofrecer|jurar|aceptar|adorar|reconocer|detestar|soportar|aguantar|tolerar|suponer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] InfChain
   "A direct-object clitic before the verb belongs to the infinitive (lo puedo leer = puedo leerlo), which then takes no other object; phrases and adverbs still attach to the whole."
 
-rule vp.tener-que: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=tener, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[lemma=que] VP[form=inf]
+rule vp.tener-que: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=tener, clitic_case=dat|refl|sedat, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[lemma=que] VP[form=inf]
   "tener que + infinitive: having to (tengo que irme)."
 
 rule vp.que-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[lemma=que] S
@@ -332,6 +332,12 @@ rule infchain.more: InfChain -> V[lemma=poder|deber|querer|saber|soler|desear|pr
 
 rule vp.infinitive-climbed-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=acc, lemma=poder|deber|querer|saber|soler|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|decidir|prometer|odiar|amar|temer|evitar|parecer|gustar|encantar|importar|interesar|apetecer|merecer|procurar|pretender|planear|olvidar|recordar|lamentar|admitir|negar|asegurar|confesar|creer|declarar|afirmar|imaginar|resultar|convenir|bastar|costar|faltar|urgir|acordar|ansiar|anhelar|elegir|fingir|osar|rehusar|proponer|sugerir|agradecer|confiar|ofrecer|jurar|aceptar|adorar|reconocer|detestar|soportar|aguantar|tolerar|suponer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] V[lemma=hacer|dejar|tener|encontrar|ver|sentir|considerar|llevar|mantener|poner|volver|creer|querer|preferir|imaginar|declarar|nombrar|elegir|llamar|traer, form=inf] AP
   "A climbed object clitic with an adjective saying what the object is (lo puedo tener preparado, la quiero dejar abierta)."
+
+rule vp.tener-que-climbed: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=tener, clitic_case=acc, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[lemma=que] InfChain
+  "A climbed object clitic with tener que is the infinitive's object (lo tengo que leer)."
+
+rule vp.object-predicative-personal: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[obj=yes, lemma=hacer|dejar|tener|encontrar|ver|sentir|considerar|llevar|mantener|poner|volver|creer|querer|preferir|imaginar|declarar|nombrar|elegir|llamar|traer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Prep[lemma=a] NP[case=obl, number=?on, gender=?og] AP[number=?on, gender=?og]
+  "Verb + a + a person + an adjective saying how that person is (vi a María feliz)."
 
 rule vp.existential-progressive: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=estar|lex, lemma=estar|seguir|ir|venir, finite=?f, form=?fm, mood=?m, person=3, number=sg] Verb[class=haber, form=ger] NP[case=obl]
   "estar / seguir + habiendo + a noun phrase: there is, in progress (está habiendo problemas)."
@@ -677,6 +683,12 @@ rule qs.preposition-wh: QS -> Prep[lemma=de|para|con|desde|sobre|por|contra] Wh 
 
 rule qs.preposition-wh-subject: QS -> Prep[lemma=de|para|con|desde|sobre|por|contra] Wh SerV NP
   "¿De quién es este libro?"
+
+rule qs.clock: QS -> Prep[lemma=a] QDet[lemma=qué] Noun[lemma=hora] SerV
+  "a qué hora + ser: when an event is (¿A qué hora es?)."
+
+rule qs.clock-subject: QS -> Prep[lemma=a] QDet[lemma=qué] Noun[lemma=hora] SerV NP
+  "¿A qué hora es la reunión?"
 
 rule qs.estar: QS -> QAdv Cop[lemma=estar]
   "¿Cómo estás? ¿Dónde está?"

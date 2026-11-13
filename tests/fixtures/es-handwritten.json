@@ -2103,6 +2103,20 @@
         "partOfSpeech": "verb"
       }
     ],
+    "hora": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "hora",
+        "partOfSpeech": "noun"
+      }
+    ],
     "ir": [
       {
         "grammar": {
@@ -2481,6 +2495,43 @@
       }
     ],
     "mary": [],
+    "maría": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "María",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "María",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "maría",
+        "partOfSpeech": "noun"
+      }
+    ],
     "mañana": [
       {
         "lemma": "mañana",
@@ -3192,6 +3243,24 @@
       {
         "lemma": "quién",
         "partOfSpeech": "pron"
+      }
+    ],
+    "qué": [
+      {
+        "lemma": "qué",
+        "partOfSpeech": "det"
+      },
+      {
+        "lemma": "qué",
+        "partOfSpeech": "adv"
+      },
+      {
+        "lemma": "qué",
+        "partOfSpeech": "pron"
+      },
+      {
+        "lemma": "qué",
+        "partOfSpeech": "intj"
       }
     ],
     "recibido": [
