@@ -4938,6 +4938,15 @@
         "source": "kaikki",
         "surface": "le"
       }
+    ],
+    "hier": [
+      {
+        "confidence": "high",
+        "lemma": "hier",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "hier"
+      }
     ]
   }
 }

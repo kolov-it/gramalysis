@@ -137,6 +137,7 @@ voilà  -  voilà  verb  # returned as an infinitive with itself as the lemma; i
 évolué  -  évolué  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
 
 # Readings too rare to keep beside a function word
+hier  -  hier  verb  # archaic verb (to ram paving stones); hier is the adverb yesterday, and as a verb it gave adverbs a direct object
 la  -  la  noun  # the note la (A): every article la would also be a bare noun (à la nage read as à + la + verb)
 partis   +  parti   noun  gender=masculine,number=plural  # plural noun missing (only partir is returned)
 œuvres   -  œuvre   noun                                  # returned as masculine

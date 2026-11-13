@@ -929,3 +929,15 @@ async fn relative_que_needs_a_free_object_position() {
     assert!(!parses(&run("Les lettres que je les ai lues sont là.").await));
     assert!(parses(&run("Le langage tel que nous le connaissons est une invention humaine.").await));
 }
+
+#[tokio::test]
+async fn an_infinitive_subject_clause_keeps_the_mood() {
+    assert!(parses(&run("Partir est difficile.").await));
+    assert!(!parses(&run("Partir soit difficile.").await));
+}
+
+#[tokio::test]
+async fn an_adverb_does_not_give_a_passive_an_object() {
+    assert!(parses(&run("Elle a vu hier la porte.").await));
+    assert!(!parses(&run("Elle a été vue hier la porte.").await));
+}
