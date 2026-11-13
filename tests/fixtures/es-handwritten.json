@@ -31,6 +31,49 @@
         "partOfSpeech": "intj"
       }
     ],
+    "abierta": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "abierta",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "abierto",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "abrir",
+        "partOfSpeech": "verb"
+      }
+    ],
     "agua": [
       {
         "grammar": {
@@ -330,6 +373,43 @@
         "partOfSpeech": "verb"
       }
     ],
+    "de": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "de",
+        "partOfSpeech": "noun"
+      },
+      {
+        "lemma": "de",
+        "partOfSpeech": "prep"
+      }
+    ],
+    "deme": [
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "object-first-person",
+            "object-singular",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "di": [
       {
         "grammar": {
@@ -404,6 +484,59 @@
         "partOfSpeech": "verb"
       }
     ],
+    "dé": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "días": [
       {
         "grammar": {
@@ -441,6 +574,44 @@
       {
         "lemma": "el",
         "partOfSpeech": "article"
+      }
+    ],
+    "ella": [
+      {
+        "lemma": "ella",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "es": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "e",
+        "partOfSpeech": "noun"
       }
     ],
     "está": [
@@ -843,6 +1014,28 @@
         },
         "lemma": "no",
         "partOfSpeech": "noun"
+      }
+    ],
+    "o": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "o",
+        "partOfSpeech": "noun"
+      },
+      {
+        "lemma": "o",
+        "partOfSpeech": "conj"
+      },
+      {
+        "lemma": "o",
+        "partOfSpeech": "adv"
       }
     ],
     "pan": [

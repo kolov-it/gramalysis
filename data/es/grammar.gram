@@ -342,6 +342,9 @@ rule serv.modal-preposition: SerV[finite=?f, form=?fm, mood=?m, person=?p, numbe
 rule serv.tener-que: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> V[lemma=tener, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Conj[lemma=que] SerV[form=inf]
   "tener que ser."
 
+rule vp.ser-lo: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Pron[attached=no, clitic=yes, case=acc, lemma=lo, gender=m, number=sg] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
+  "lo stands for a predicate already said (Ella lo es, lo fue)."
+
 rule serv.negation: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Adv[neg=yes] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "no es, nunca fue."
 
@@ -458,11 +461,8 @@ rule ap.comparative: AP[participle=no, number=?n, gender=?g] -> AP[participle=no
 rule ap.como: AP[participle=?x, number=?n, gender=?g] -> AP[participle=?x, number=?n, gender=?g] Prep[lemma=como] NP
   "tan + adjective + como (tan alto como su padre, blanco como la nieve)."
 
-rule ap.coordination: AP[participle=?x, number=?n, gender=?g] -> AP[participle=?x, number=?n, gender=?g] Conj[type=coord] AP[participle=?x, number=?n, gender=?g]
-  "Two adjectives joined by y, o or pero (inteligente y práctico)."
-
-rule ap.coordination-mixed: AP[participle=no, number=?n, gender=?g] -> AP[participle=no, number=?n, gender=?g] Conj[type=coord] AP[number=?n, gender=?g]
-  "An adjective and then a participle joined by y (limpio y ordenado)."
+rule ap.coordination: AP[participle=?x, number=?n, gender=?g] -> AP[participle=?x, number=?n, gender=?g] Conj[type=coord] AP[number=?n, gender=?g]
+  "Two adjectives or participles joined by y, o or pero, agreeing with the noun (inteligente y práctico, abierta o cerrada, limpio y ordenado); the first decides whether the phrase is a participle."
 
 # ------------------------------------------------- relative clauses
 

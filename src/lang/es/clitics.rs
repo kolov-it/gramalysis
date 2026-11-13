@@ -73,6 +73,11 @@ pub fn split_enclitics(form: &str) -> Vec<Split> {
         if plain != host {
             hosts.push(plain);
         }
+        // dé keeps its accent on its own but loses it under clitics (deme,
+        // dele): restore it, or the host reads as the preposition de.
+        if host == "de" {
+            hosts.push("dé".to_owned());
+        }
         out.push(Split { hosts, clitics: chain.into_iter().map(str::to_owned).collect() });
     }
     out
@@ -111,6 +116,7 @@ mod tests {
         assert!(has("sentémonos", "sentemos", &["nos"]));
         assert!(has("sentaos", "sentad", &["os"]));
         assert!(has("dígaselo", "diga", &["se", "lo"]));
+        assert!(has("deme", "dé", &["me"]));
     }
 
     #[test]

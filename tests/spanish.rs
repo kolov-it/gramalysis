@@ -121,3 +121,30 @@ async fn clitics_before_a_negative_command() {
     assert!(!a.parses.is_empty());
     assert!(agreed(&a, "hagas")[0].contains("mood=sub"));
 }
+
+#[tokio::test]
+async fn deme_restores_the_accent_of_dé() {
+    let a = run("Deme el libro.").await;
+    assert!(!a.parses.is_empty());
+    let c = a.chosen.iter().find(|c| c.token == "Deme").unwrap();
+    assert!(c.readings.iter().all(|r| r[0].lemma == "dar"));
+}
+
+#[tokio::test]
+async fn participles_of_different_verbs_coordinate() {
+    let a = run("La puerta está abierta o cerrada.").await;
+    assert!(!a.parses.is_empty());
+    assert_eq!(uses(&a, "abierta"), ["ap.participle"]);
+    assert_eq!(uses(&a, "cerrada"), ["ap.participle"]);
+}
+
+#[tokio::test]
+async fn lo_stands_for_the_predicate_of_ser() {
+    let a = run("Ella lo es.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "es")[0].starts_with("ser Verb"));
+    // ser stays a reading of fue with attributive lo.
+    let a = run("Ella lo fue.").await;
+    let c = a.chosen.iter().find(|c| c.token == "fue").unwrap();
+    assert!(c.readings.iter().any(|r| r[0].lemma == "ser"));
+}
