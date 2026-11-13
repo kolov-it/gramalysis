@@ -162,7 +162,7 @@ rule sub.de-sorte: Sub -> Prep[lemma=de] Noun[lemma=sorte|façon|manière] Conj[
 
 # ---------------------------------------------------------- questions
 
-rule question.est-ce-que: S[inv=yes, smood=?sm, cesubj=?cs, gap=?gp] -> QMark S[smood=?sm, cesubj=?cs, imp=no, gap=?gp]
+rule question.est-ce-que: S[inv=yes, smood=?sm, cesubj=?cs, gap=?gp] -> QMark S[smood=?sm, cesubj=?cs, imp=no, inv=no, gap=?gp]
   "est-ce que before a clause makes it a question (Est-ce que tu viens ?)."
 
 rule qmark.est-ce-que: QMark -> Verb[lemma=être, person=3, number=sg] Pron[attached=yes, lemma=ce] Conj[lemma=que]
@@ -171,7 +171,7 @@ rule qmark.est-ce-que: QMark -> Verb[lemma=être, person=3, number=sg] Pron[atta
 rule question.wh-adverb: S[inv=yes, smood=?sm, cesubj=?cs] -> QAdv S[smood=?sm, cesubj=?cs, imp=no]
   "où, quand, comment, pourquoi, combien open a question (Où vas-tu ? Comment tu t'appelles ?)."
 
-rule question.wh-adverb-est-ce-que: S[inv=yes, smood=?sm, cesubj=?cs] -> QAdv QMark S[smood=?sm, cesubj=?cs, imp=no]
+rule question.wh-adverb-est-ce-que: S[inv=yes, smood=?sm, cesubj=?cs] -> QAdv QMark S[smood=?sm, cesubj=?cs, imp=no, inv=no]
   "A question word + est-ce que (Où est-ce que tu vas ?)."
 
 rule question.wh-stylistic: S[inv=yes] -> QAdv VP[finite=yes, form=fin, subj=no, person=?p, number=?n, pnum=?pn, gender=?g] NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g]
@@ -186,7 +186,7 @@ rule question.qui-predicate: S[inv=yes] -> QPron[lemma=qui] Cop[subj=no, person=
 rule question.wh-object: S[inv=yes, smood=?sm, cesubj=?cs] -> QPron S[smood=?sm, cesubj=?cs, imp=no, gap=no]
   "que, qui or quoi opens the question as its object (Que fais-tu ? Qui as-tu vu ?)."
 
-rule question.qu-est-ce-que: S[inv=yes, smood=?sm, cesubj=?cs] -> QPron QMark S[smood=?sm, cesubj=?cs, imp=no]
+rule question.qu-est-ce-que: S[inv=yes, smood=?sm, cesubj=?cs] -> QPron QMark S[smood=?sm, cesubj=?cs, imp=no, inv=no]
   "qu'est-ce que = what (Qu'est-ce que tu fais ?)."
 
 rule question.qu-est-ce-qui: S[inv=yes] -> QPron Verb[lemma=être, person=3, number=sg] Pron[attached=yes, lemma=ce] RelPron[role=subject] VP[finite=yes, form=fin, subj=no, person=3, number=sg]
@@ -599,13 +599,13 @@ rule v.perfect-avoir-shared: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?
 rule v.perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, pnum=?pn, subj=no, acc=no, neg=?ng, gap=yes] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng, qnum=?pn] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
   "An adverb or pas between avoir and the participle (j'ai déjà vu, je n'ai pas fini)."
 
-rule v.perfect-etre: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=no] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+rule v.perfect-etre: V[intrans=yes, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=no] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A compound tense with être, for verbs that take être (aller, venir, partir, naître): the participle agrees with the subject (elle est partie)."
 
-rule v.perfect-etre-shared: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=no] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[form=pastpart, takes_etre=yes, number=?pn, gender=?g] Conj[type=coord] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+rule v.perfect-etre-shared: V[intrans=yes, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=no] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[form=pastpart, takes_etre=yes, number=?pn, gender=?g] Conj[type=coord] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "One être for two participles, both agreeing with the subject (elle est née et morte à Paris)."
 
-rule v.perfect-etre-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=?ng] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng, qnum=?pn, qgen=?g] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+rule v.perfect-etre-adverb: V[intrans=yes, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=?ng] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng, qnum=?pn, qgen=?g] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "An adverb or pas between être and the participle (elle est déjà partie, il n'est pas venu)."
 
 rule v.proclitic-perfect-avoir: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=no, gap=yes] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
@@ -972,8 +972,8 @@ rule cop.adverb: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng,
 rule vp.verb: VP[bare=yes, cesubj=?cs, aperson=?ap, dperson=?dp, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> V[cesubj=?cs, aperson=?ap, dperson=?dp, needs_obj=no, causative=no, gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s]
   "A verb on its own. Not one that needs a complement (needs_obj=yes: a reflexive compound read as an indirect object, ils se sont dit que…)."
 
-rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, irefl=?ir, irnum=?irn] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no, etre=no, irefl=?ir, irnum=?irn] NP[case=obl|obj, bare=no]
-  "The verb takes a direct object, unless le, la, les already is its object (je vois le chat, not *je le vois le chat). être takes none: what follows it says what the subject is. A noun without a determiner as the object is vp.bare-object, with listed verbs only."
+rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, irefl=?ir, irnum=?irn] -> V[intrans=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no, etre=no, irefl=?ir, irnum=?irn] NP[case=obl|obj, bare=no]
+  "The verb takes a direct object, unless le, la, les already is its object (je vois le chat, not *je le vois le chat). être takes none: what follows it says what the subject is. A noun without a determiner as the object is vp.bare-object, with listed verbs only. Not after a compound tense with être: a verb that takes être has no direct object (*elle est venue tous)."
 
 rule vp.bare-object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no, etre=no, lemma=avoir|faire|prendre|donner|rendre|porter|perdre|tenir|mettre|courir|garder|reprendre|chercher|demander|trouver|tirer|livrer|rendre|prêter|lâcher|ficher|foutre|chanter|parler|jouer|crier|manger|boire|lire|écrire|apprendre|enseigner|étudier|vendre|acheter|cultiver|fabriquer|produire|offrir|servir|risquer|subir|nier|avouer|annoncer|appeler|bâtir|garder|planter] NP[case=obl|obj, bare=yes, adj_twin=no]
   "A noun without a determiner as the object, in verb + noun phrases and with verbs that take a mass or generic noun (avoir faim, faire attention, prendre part, perdre patience, parler français, jouer aux cartes)."
@@ -1005,10 +1005,10 @@ rule vp.preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, numb
 rule vp.preposition-infinitive-purpose: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, irefl=?p, irnum=?n] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Prep[lemma=pour|par|sans] VP[form=inf, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
   "pour, par, sans + an infinitive: its subject is the clause's subject even with an object pronoun (je suis venu pour me laver, je t'attends pour me laver)."
 
-rule vp.preposition-infinitive-promise: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, irefl=?p, irnum=?n] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=promettre|jurer] Prep[lemma=de] VP[form=inf, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
-  "promettre and jurer keep subject control with an indirect object (il me promet de se laver)."
+rule vp.preposition-infinitive-promise: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, irefl=?p, irnum=?n] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=promettre|jurer|parler|écrire|répondre|téléphoner|avouer|confier] Prep[lemma=de] VP[form=inf, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
+  "promettre and jurer, and verbs whose indirect object only receives the message (parler, écrire, répondre…), keep subject control with an indirect object (il me promet de se laver, elle me parle de partir)."
 
-rule vp.preposition-infinitive-object-control: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, dperson=?dp, dnum=?dn, aperson=?ap, anum=?an, lemma=demander|dire|permettre|conseiller|ordonner|interdire|avertir|prévenir|contraindre|signifier|proposer|défendre|prier|empêcher|forcer|obliger|aider|inviter|encourager|apprendre|enseigner|persuader|convaincre|pousser|autoriser|charger|supplier|recommander|reprocher|remercier|féliciter|accuser|pardonner] Prep[lemma=à|de] VP[form=inf, irefl=?dp, irefl=?ap, irnum=?dn, irnum=?an]
+rule vp.preposition-infinitive-object-control: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, dperson=?dp, dnum=?dn, aperson=?ap, anum=?an, lemma=demander|dire|permettre|conseiller|ordonner|interdire|avertir|prévenir|contraindre|signifier|proposer|défendre|prier|empêcher|forcer|obliger|aider|inviter|encourager|apprendre|enseigner|persuader|convaincre|pousser|autoriser|charger|supplier|recommander|reprocher|remercier|féliciter|accuser|pardonner] Prep[lemma=à|de] VP[form=inf, irefl=?dp, irefl=?ap, irnum=?dn, irnum=?an, pnum=?dn, pnum=?an]
   "Verbs whose object controls the infinitive after à or de (il m'a demandé de me laver, je t'aide à porter): the infinitive is not checked against the subject."
 
 rule vp.object-preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[etre=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no] NP[case=obl] Prep[lemma=à|de] VP[form=inf]
@@ -1095,7 +1095,7 @@ rule vp.ago: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, p
 rule ilya.ago: IlYa -> Pron[lemma=il] Pron[lemma=y] Verb[lemma=avoir, person=3, number=sg]
   "il y a."
 
-rule vp.floating-quantifier: VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, pnum=?pn, subj=?s] Pron[lemma=tout, number=pl]
+rule vp.floating-quantifier: VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, pnum=?pn, subj=?s] Pron[lemma=tout, number=pl, gender=?g]
   "tous / toutes after the verb, for the whole plural subject (ils sont tous partis)."
 
 rule vp.object-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|avoir, acc=no] NP[case=obl, bare=no, number=?on, gender=?og] AP[number=?on, gender=?og]
@@ -1178,6 +1178,9 @@ rule clause.gerund-first: S[smood=?sm] -> PP[gerund=yes, irefl=?sp, irnum=?sn, p
 
 rule time.det-noun: TimeNP[number=?n, gender=?g] -> Det[number=?n, gender=?g, next=?o] Noun[number=?n, gender=?g, onset=?o, lemma=jour|nuit|matin|soir|semaine|mois|an|année|heure|minute|seconde|fois|été|hiver|printemps|automne|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|week-end|après-midi|soirée|matinée|journée|instant|moment|siècle]
   "A time expression (ce matin, chaque jour, la semaine dernière, une fois)."
+
+rule time.adjective-before: TimeNP[number=?n, gender=?g] -> Det[number=?n, gender=?g, next=?o] Adj[lemma=autre|même|dernier|prochain, number=?n, gender=?g, onset=?o] Noun[number=?n, gender=?g, lemma=jour|nuit|matin|soir|semaine|mois|an|année|fois]
+  "A time noun with autre, même, dernier or prochain before it (l'autre jour, la même nuit, la dernière fois)."
 
 rule time.all: TimeNP[number=?n, gender=?g] -> Predet[number=?n, gender=?g] TimeNP[number=?n, gender=?g]
   "tous les jours, toute la nuit."
@@ -1304,8 +1307,11 @@ rule np.de-plural-adjective: NP[person=3, number=pl, gender=?g, pnum=pl] -> Prep
 rule nom.name-after: Nom[needs_det=?d, inf_twin=?it, adj_twin=?at, number=?n, gender=?g, onset=?o] -> Nom[needs_det=?d, inf_twin=?it, adj_twin=?at, number=?n, gender=?g, onset=?o] ProperNoun
   "A name after a common noun (le lac Biwa, la rue Pasteur)."
 
-rule v.floating-quantifier: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=?a, neg=?ng, gap=?gp, irefl=?ir, irnum=?irn, needs_obj=?no, agreed=?agr, causative=?cz, etre=?e, anum=?an, agen=?ag, aperson=?ap, dperson=?dp, dnum=?dn] -> V[gap=?gp, irefl=?ir, irnum=?irn, needs_obj=?no, agreed=?agr, causative=?cz, etre=?e, anum=?an, agen=?ag, aperson=?ap, dperson=?dp, dnum=?dn, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=?a, neg=?ng] Pron[lemma=tout, number=pl]
-  "tous, toutes right after the verb (nous devrons tous mourir)."
+rule v.floating-quantifier: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=?a, neg=?ng, gap=?gp, irefl=?ir, irnum=?irn, needs_obj=?no, agreed=?agr, causative=?cz, etre=?e, anum=?an, agen=?ag, aperson=?ap, dperson=?dp, dnum=?dn] -> V[gap=?gp, irefl=?ir, irnum=?irn, needs_obj=?no, agreed=?agr, causative=?cz, etre=?e, anum=?an, agen=?ag, aperson=?ap, dperson=?dp, dnum=?dn, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=?a, neg=?ng] Pron[lemma=tout, number=pl, number=?pn, gender=?g]
+  "tous, toutes right after the verb (nous devrons tous mourir). tous agrees with the subject (ils sont partis tous, not *elle est venue tous)."
+
+rule v.floating-quantifier-object: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=?a, neg=?ng, gap=?gp, irefl=?ir, irnum=?irn, needs_obj=?no, agreed=?agr, causative=?cz, etre=?e, anum=?an, agen=?ag, aperson=?ap, dperson=?dp, dnum=?dn] -> V[acc=yes, gap=?gp, irefl=?ir, irnum=?irn, needs_obj=?no, agreed=?agr, causative=?cz, etre=?e, anum=?an, agen=?ag, aperson=?ap, dperson=?dp, dnum=?dn, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=?a, neg=?ng] Pron[lemma=tout, number=pl, number=?an, gender=?ag]
+  "tous after the verb referring to a direct object pronoun agrees with it (je les ai vus tous)."
 
 rule vp.clitic-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer, acc=yes, anum=?an, agen=?ag] AP[number=?an, gender=?ag]
   "A verb with le, la, les as its object and an adjective saying what the object is, agreeing with it (je la trouvai plongée dans un livre, tu ne peux pas le garder secret)."

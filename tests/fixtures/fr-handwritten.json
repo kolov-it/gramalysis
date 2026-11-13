@@ -3643,6 +3643,35 @@
         "source": "kaikki",
         "surface": "filles"
       }
+    ],
+    "venus": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine participle plural",
+          "tags": [
+            "masculine",
+            "participle",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "participle",
+            "plural"
+          ],
+          "tense": "past"
+        },
+        "lemma": "venir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "venus"
+      }
     ]
   }
 }

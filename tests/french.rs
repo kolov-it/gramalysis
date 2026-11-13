@@ -779,3 +779,27 @@ async fn the_antecedent_agent_of_a_perception_infinitive_agrees() {
     assert!(parses(&run("Les filles que j'ai vues partir sont là.").await));
     assert!(!parses(&run("Les filles que j'ai vus partir sont là.").await));
 }
+
+#[tokio::test]
+async fn a_recipient_indirect_object_keeps_subject_control() {
+    assert!(parses(&run("Elle me parle de partir.").await));
+    assert!(!parses(&run("Elle me dit de se laver.").await));
+}
+
+#[tokio::test]
+async fn an_object_controlled_predicate_agrees_with_the_object() {
+    assert!(parses(&run("Elle me dit d'être heureuse.").await));
+    assert!(!parses(&run("Elle me dit d'être heureuses.").await));
+}
+
+#[tokio::test]
+async fn tous_after_the_verb_agrees() {
+    assert!(parses(&run("Ils sont venus tous.").await));
+    assert!(!parses(&run("Elle est venue tous.").await));
+}
+
+#[tokio::test]
+async fn est_ce_que_takes_a_plain_clause() {
+    assert!(parses(&run("Est-ce qu'il est heureux ?").await));
+    assert!(!parses(&run("Est-ce qu'est-il heureux ?").await));
+}
