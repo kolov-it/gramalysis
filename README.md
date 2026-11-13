@@ -32,12 +32,13 @@ the noun *work* or the verb *I work*; only the noun fits).
 
 Italian first; the design is multilingual from the start.
 
-**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 114 rules)
+**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 118 rules)
 covers agreement and the dropped subject; articles (with the *il / lo / l'*
 choice by the next word's first sound), demonstratives, quantifiers and
 possessives; clitic pronouns before and after the verb; compound tenses, the
-passive and *stare* + gerund; participles used like adjectives and participle
-phrases; infinitive complements, *che* and *cui* clauses, indirect questions,
+passive and *stare* + gerund; participles used like adjectives, participle
+phrases and participle clauses (*Arrivato a casa, …*; *dopo mangiato*);
+infinitive complements, *che* and *cui* clauses, indirect questions,
 questions, subordinate clauses, commas, coordination and time expressions.
 
 On the [Tatoeba homograph set](#measuring-it-the-tatoeba-homograph-set)

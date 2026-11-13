@@ -371,6 +371,1232 @@
           ]
         }
       }
+    ],
+    "giunto": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "giunto",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "giunto"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere",
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "giungere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "giunto"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "giuntare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "giunto"
+      }
+    ],
+    "dinanzi": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "invariable"
+          ]
+        },
+        "lemma": "dinanzi",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "dinanzi"
+      },
+      {
+        "confidence": "high",
+        "lemma": "dinanzi",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "dinanzi"
+      }
+    ],
+    "casa": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "casa",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "casa"
+      }
+    ],
+    "trovò": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "historic past singular third-person",
+          "tags": [
+            "historic",
+            "past",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "historic",
+            "past",
+            "singular",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "trovare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "trovò"
+      }
+    ],
+    "uscio": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "uscio",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "uscio"
+      }
+    ],
+    "strada": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "strada",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "strada"
+      }
+    ],
+    "socchiuso": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "socchiudere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "socchiuso"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "socchiuso",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "socchiuso"
+      }
+    ],
+    "amiamo": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative plural present subjunctive",
+          "tags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "amare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "amiamo"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative plural present subjunctive",
+          "tags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "amare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "amiamo"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person imperative plural",
+          "tags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "lemma": "amare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "amiamo"
+      }
+    ],
+    "amato": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "amato",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "amato"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "amato",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "amato"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "amare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "amato"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Amato",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "amato"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Amato",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "amato"
+      }
+    ],
+    "usciamo": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative plural present subjunctive",
+          "tags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "uscire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "usciamo"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative plural present subjunctive",
+          "tags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere"
+          ],
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "uscire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "usciamo"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person imperative plural",
+          "tags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere"
+          ],
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "lemma": "uscire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "usciamo"
+      }
+    ],
+    "giunta": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "giunta",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "giunta"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle singular",
+          "tags": [
+            "feminine",
+            "participle",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere",
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "giungere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "giunta"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "giuntare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "giunta"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "giuntare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "giunta"
+      }
+    ],
+    "sera": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "sera",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "sera"
+      }
+    ],
+    "tornammo": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person historic past plural",
+          "tags": [
+            "first-person",
+            "historic",
+            "past",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "historic",
+            "past",
+            "plural"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "tornare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "tornammo"
+      }
+    ],
+    "mangiato": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "mangiare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "mangiato"
+      }
+    ],
+    "finito": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "finito",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "finito"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere",
+            "essere"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "finire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "finito"
+      }
+    ],
+    "siamo": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative plural present subjunctive",
+          "tags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "essere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "siamo"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative plural present subjunctive",
+          "tags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere"
+          ],
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "essere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "siamo"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person imperative plural",
+          "tags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere"
+          ],
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "lemma": "essere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "siamo"
+      }
+    ],
+    "usciti": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine participle plural",
+          "tags": [
+            "masculine",
+            "participle",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "participle",
+            "plural"
+          ],
+          "tense": "past"
+        },
+        "lemma": "uscire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "usciti"
+      }
+    ],
+    "dormo": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dormire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "dormo"
+      }
+    ],
+    "era": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "era",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "era"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperfect indicative singular third-person",
+          "tags": [
+            "imperfect",
+            "indicative",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperfect",
+            "indicative",
+            "singular",
+            "third-person"
+          ],
+          "tense": "imperfect"
+        },
+        "lemma": "essere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "era"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "Era",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "era"
+      }
+    ],
+    "sedia": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "sedia",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "sedia"
+      }
+    ],
+    "messa": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "messa",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "messa"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle singular",
+          "tags": [
+            "feminine",
+            "participle",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "mettere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "messa"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "Messa",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "messa"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Messa",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "messa"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Messa",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "messa"
+      }
+    ],
+    "trovato": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "trovato",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "trovato"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "trovare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "trovato"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Trovato",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "trovato"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Trovato",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "trovato"
+      }
+    ],
+    "bici": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "invariable"
+          ]
+        },
+        "lemma": "bici",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "bici"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "invariable"
+          ]
+        },
+        "lemma": "bici",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "bici"
+      }
+    ],
+    "lasciata": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle singular",
+          "tags": [
+            "feminine",
+            "participle",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "lasciare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "lasciata"
+      }
     ]
   }
 }
