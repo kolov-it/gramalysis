@@ -71,6 +71,18 @@ rule clause.coordination: S[imp=?i, smood=?sm] -> S[smood=?sm] Conj[type=coord] 
 rule clause.comma: S[imp=?i, smood=?sm] -> S[smood=?sm] Punct S[imp=?i, smood=?sm]
   "Two clauses separated by a comma."
 
+rule clause.coordination-ind-cnd: S[imp=no, smood=ind] -> S[imp=no, smood=ind] Conj[type=coord] S[imp=no, smood=cnd]
+  "Clauses with their own subjects need not share a mood: an indicative and a conditional can be joined (il est heureux et elle serait heureuse). The pair can stand alone, so it counts as indicative; a subjunctive clause still cannot join without que."
+
+rule clause.coordination-cnd-ind: S[imp=no, smood=ind] -> S[imp=no, smood=cnd] Conj[type=coord] S[imp=no, smood=ind]
+  "The same the other way round (elle serait heureuse mais il est triste)."
+
+rule clause.comma-ind-cnd: S[imp=no, smood=ind] -> S[imp=no, smood=ind] Punct S[imp=no, smood=cnd]
+  "An indicative and a conditional clause separated by a comma."
+
+rule clause.comma-cnd-ind: S[imp=no, smood=ind] -> S[imp=no, smood=cnd] Punct S[imp=no, smood=ind]
+  "A conditional and an indicative clause separated by a comma (je viendrais, mais je suis malade)."
+
 rule clause.after-question: S -> S Question S
   "A question, then another sentence."
 
@@ -1246,6 +1258,12 @@ rule vp.reflexive-predicative: VP[finite=yes, form=fin, mood=?m, person=?p, numb
 
 rule vp.reflexive-predicative-negated: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no] -> Neg Clitics[attached=no, reflexive=yes, acc=no, refl=?p, rnum=?n] Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, etre=no, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n] NegAdv[only=no] AP[number=?pn, gender=?g]
   "The same with ne … pas (elle ne se rend pas heureuse, je ne me vois pas fatigué)."
+
+rule vp.reflexive-predicative-perfect: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p, rnum=?n] Verb[lemma=être, finite=yes, mood=ind|sub|cnd, mood=?m, person=?p, number=?n] Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, form=pastpart, number=?pn, gender=?g] AP[number=?pn, gender=?g]
+  "The same in a compound tense: the participle and the adjective both agree with the subject (je me suis rendu heureux, elle s'est trouvée seule)."
+
+rule vp.reflexive-predicative-perfect-negated: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no] -> Neg Clitics[attached=no, reflexive=yes, acc=no, refl=?p, rnum=?n] Verb[lemma=être, finite=yes, mood=ind|sub|cnd, mood=?m, person=?p, number=?n] NegAdv[only=no] Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, form=pastpart, number=?pn, gender=?g] AP[number=?pn, gender=?g]
+  "The same with ne … pas (elle ne s'est pas rendue heureuse)."
 
 rule vp.reflexive-predicative-nonfinite: VP[finite=no, form=inf, subj=no, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?ir, rnum=?irn] Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, form=inf] AP[number=?pn, gender=?g]
   "The same in an infinitive: the adjective and the reflexive pronoun agree with whoever controls the infinitive (elle veut se rendre heureuse)."

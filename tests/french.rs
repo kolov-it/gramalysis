@@ -608,3 +608,17 @@ async fn quel_with_etre_agrees_with_the_noun_phrase() {
     assert!(parses(&run("Quel est ton chat ?").await));
     assert!(!parses(&run("Quel sont ton chat ?").await));
 }
+
+#[tokio::test]
+async fn indicative_and_conditional_clauses_coordinate() {
+    assert!(parses(&run("Il est heureux et elle serait heureuse.").await));
+    assert!(parses(&run("Elle serait heureuse et il est heureux.").await));
+    assert!(!parses(&run("Il est heureux et elle soit heureuse.").await));
+}
+
+#[tokio::test]
+async fn a_reflexive_predicative_in_a_compound_tense() {
+    assert!(parses(&run("Je me suis rendu heureux.").await));
+    assert!(parses(&run("Elle s'est rendue heureuse.").await));
+    assert!(!parses(&run("Elle s'est rendue heureux.").await));
+}

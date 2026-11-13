@@ -1816,6 +1816,120 @@
           "clitic": false
         }
       }
+    ],
+    "serait": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "conditional singular third-person",
+          "tags": [
+            "conditional",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "conditional",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "conditional",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "serait"
+      }
+    ],
+    "rendu": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "rendu",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "rendu"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "rendu"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Rendu",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "rendu"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Rendu",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "rendu"
+      }
+    ],
+    "rendue": [
+      {
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      }
     ]
   }
 }
