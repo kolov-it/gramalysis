@@ -154795,6 +154795,31 @@
         "surface": "lesbienne"
       }
     ],
+    "lesquelles": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "lequel",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "lesquelles"
+      }
+    ],
     "lettre": [
       {
         "confidence": "high",

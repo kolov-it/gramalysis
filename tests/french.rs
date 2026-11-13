@@ -398,3 +398,28 @@ async fn auquel_in_a_question() {
 async fn object_pronoun_before_ayant() {
     assert!(parses(&run("En les ayant vus, je suis heureux.").await));
 }
+
+#[tokio::test]
+async fn object_pronoun_agreement_through_infinitives() {
+    assert!(parses(&run("Je veux la rendre heureuse.").await));
+    assert!(!parses(&run("Je veux la rendre heureux.").await));
+}
+
+#[tokio::test]
+async fn negated_reflexive_predicative() {
+    assert!(parses(&run("Elle ne se rend pas heureuse.").await));
+}
+
+#[tokio::test]
+async fn cru_meaning_raw_stays_an_adjective() {
+    let a = run("Je mange du poisson cru.").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "cru")[0].starts_with("cru Adj"));
+}
+
+#[tokio::test]
+async fn a_question_pronoun_object_makes_the_participle_agree() {
+    let a = run("Qu'as-tu fait ?").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "fait")[0].starts_with("faire Verb"));
+}

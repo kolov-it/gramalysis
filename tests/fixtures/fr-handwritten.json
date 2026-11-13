@@ -1441,6 +1441,111 @@
           "clitic": false
         }
       }
+    ],
+    "rendre": [
+      {
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "infinitive",
+          "clitic": false
+        }
+      }
+    ],
+    "rend": [
+      {
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "fait": [
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "cru": [
+      {
+        "lemma": "cru",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "croire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "poisson": [
+      {
+        "lemma": "poisson",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "mange": [
+      {
+        "lemma": "manger",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "veux": [
+      {
+        "lemma": "vouloir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular",
+          "clitic": false
+        }
+      }
     ]
   }
 }

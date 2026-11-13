@@ -5,9 +5,11 @@
 # One adjective per line, masculine singular.
 parfait
 # Adjectives that stand before the noun with a meaning of their own
-# (un foutu mal de crâne, un prétendu expert, une sacrée chance).
+# (un foutu mal de crâne, un prétendu expert, une sacrée chance), and cru
+# (raw: du poisson cru), which is not croire's participle.
 foutu
 fichu
 maudit
 prétendu
 sacré
+cru
