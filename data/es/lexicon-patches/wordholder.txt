@@ -1,5 +1,5 @@
 # Corrections to the Word Holder API's Spanish answers (dictionary v19,
-# lemmatize as of wordy master 2026-11-12). Applied by gramalysis on top of
+# lemmatize as of wordy master 2026-11-12). Applied by syntango on top of
 # the API; `--no-patches` shows the API unpatched. Each line says why; delete
 # a line once the API answers it correctly.
 #
@@ -44,7 +44,7 @@ digna          -  digna          verb   # dignarse's form, not an infinitive
 había          -  había          verb   # haber's imperfect stays
 arrepiente     -  arrepiente     verb   # arrepentirse's present
 arrepintiendo  -  arrepintiendo  verb   # arrepentirse's gerund
-pasarlo        -  pasarlo        verb   # pasar + lo, split by gramalysis
+pasarlo        -  pasarlo        verb   # pasar + lo, split by syntango
 sacrificado    -  sacrificado    verb   # sacrificar's participle stays
 
 # Rare verbs that only pose as a second answer: the form also belongs to a

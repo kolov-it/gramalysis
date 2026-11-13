@@ -1,4 +1,4 @@
-//! `gramalysis eval`: runs a sentence set (data/it/homograph-set.jsonl) and
+//! `syntango eval`: runs a sentence set (data/it/homograph-set.jsonl) and
 //! measures how the ambiguous word in each sentence was read.
 //!
 //! The reference for an item is its label (data/it/homograph-labels.tsv) when
@@ -12,9 +12,9 @@ use std::path::Path;
 
 use serde::{Deserialize, Serialize};
 
-use gramalysis::lang::Language;
-use gramalysis::morph::{Lang, Lexicon};
-use gramalysis::{analyze, Error};
+use syntango::lang::Language;
+use syntango::morph::{Lang, Lexicon};
+use syntango::{analyze, Error};
 
 /// The grammar rule for a past participle used like an adjective.
 const ADJECTIVE_USE: &str = "ap.participle";
@@ -116,10 +116,10 @@ fn base_verb(lemma: &str, lang: Lang) -> String {
                 && stem.len() >= 2
                 && stem.ends_with('r')
             {
-                return gramalysis::lang::es::strip_accent(stem);
+                return syntango::lang::es::strip_accent(stem);
             }
         }
-        return gramalysis::lang::es::strip_accent(lemma);
+        return syntango::lang::es::strip_accent(lemma);
     }
     const CLITICS: [&str; 14] =
         ["sene", "sela", "selo", "cela", "celo", "gliela", "glielo", "si", "ci", "vi", "la", "lo", "le", "ne"];

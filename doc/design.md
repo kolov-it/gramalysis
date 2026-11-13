@@ -1,4 +1,4 @@
-# gramalysis — design (draft 1, 2026-11-12)
+# syntango — design (draft 1, 2026-11-12)
 
 ## Goal
 

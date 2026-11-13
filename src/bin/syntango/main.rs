@@ -1,4 +1,4 @@
-//! The `gramalysis` command line: a language and a sentence in, the grammar
+//! The `syntango` command line: a language and a sentence in, the grammar
 //! tree out.
 
 mod eval;
@@ -8,12 +8,12 @@ use std::process::ExitCode;
 
 use clap::{Args, Parser, Subcommand};
 
-use gramalysis::lang::{self, Language};
-use gramalysis::morph::{Lang, Lexicon};
-use gramalysis::syntax::feats;
-use gramalysis::patch::PatchedLexicon;
-use gramalysis::wordholder::{self, FixtureLexicon, WordHolderLexicon, BATCH_ENV, KEY_ENV, URL_ENV};
-use gramalysis::{analyze, SentenceAnalysis};
+use syntango::lang::{self, Language};
+use syntango::morph::{Lang, Lexicon};
+use syntango::syntax::feats;
+use syntango::patch::PatchedLexicon;
+use syntango::wordholder::{self, FixtureLexicon, WordHolderLexicon, BATCH_ENV, KEY_ENV, URL_ENV};
+use syntango::{analyze, SentenceAnalysis};
 
 /// Parse sentences and print their grammar trees.
 ///
@@ -184,7 +184,7 @@ async fn run(cli: Cli) -> Result<(), Box<dyn std::error::Error>> {
         None => {}
     }
     let args = cli.parse;
-    let lang = args.lang.ok_or("give a language and a sentence: gramalysis it \"La ragazza ama il cane.\"")?;
+    let lang = args.lang.ok_or("give a language and a sentence: syntango it \"La ragazza ama il cane.\"")?;
     let sentences: Vec<String> = match (&args.file, &args.sentence) {
         (Some(path), _) => std::fs::read_to_string(path)?
             .lines()

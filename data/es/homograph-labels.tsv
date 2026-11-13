@@ -11,12 +11,12 @@
 #   cannot tell them apart); empty for other parts of speech.
 # labeled_by: who chose the label (e.g. claude-opus-5.5@2026-11-12). Every
 #   row was labelled from the sentence, the word and its candidate readings
-#   alone, never from gramalysis's answer.
+#   alone, never from syntango's answer.
 # checked_by: comma-separated reviewers who agreed (model id or "owner"),
 #   with the date; a reviewer who disagrees changes the row and says so in
 #   the note.
 #
-# Conventions (decided for gramalysis; the grammar follows the same ones):
+# Conventions (decided for syntango; the grammar follows the same ones):
 # - A past participle is one form of its verb; its use decides the label.
 #   * haber + participle is a compound tense: the verb (he cerrado). The
 #     participle after haber never agrees.

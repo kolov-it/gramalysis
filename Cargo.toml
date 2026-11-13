@@ -1,21 +1,21 @@
 [package]
-name = "gramalysis"
+name = "syntango"
 version = "0.1.0"
 edition = "2024"
 description = "Morphological and syntactic analysis of sentences, with explanations"
 license = "Apache-2.0"
-repository = "https://github.com/kolov-it/gramalysis"
+repository = "https://github.com/kolov-it/syntango"
 
 [features]
 default = ["cli"]
 # The Word Holder API as the lexicon (network client + recorded-answer fixtures).
 wordholder = ["dep:reqwest", "dep:serde_json"]
-# The `gramalysis` command-line tool.
+# The `syntango` command-line tool.
 cli = ["wordholder", "dep:tokio", "dep:clap"]
 
 [[bin]]
-name = "gramalysis"
-path = "src/bin/gramalysis/main.rs"
+name = "syntango"
+path = "src/bin/syntango/main.rs"
 required-features = ["cli"]
 
 [dependencies]

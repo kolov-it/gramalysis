@@ -1,4 +1,4 @@
-//! gramalysis: morphological and syntactic analysis, with explanations.
+//! syntango: morphological and syntactic analysis, with explanations.
 //!
 //! - [`morph`]: readings and features, and the [`morph::Lexicon`] trait any
 //!   lexicon implements.

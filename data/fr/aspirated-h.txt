@@ -3,7 +3,7 @@
 # hibou, le yoga, le yacht), unlike a mute h or a vowel y (l'homme, l'heure,
 # cet hôtel, les yeux). One word per line, as it is written in the
 # dictionary; an inflected form matches when it is the word plus -s, -x, -e
-# or -es (héros, haricots, hautes). Written for gramalysis; extend it when a
+# or -es (héros, haricots, hautes). Written for syntango; extend it when a
 # sentence needs a word that is missing.
 hache
 hacher
