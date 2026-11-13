@@ -144,6 +144,7 @@ impl French {
                 // a capitalised word.
                 .filter(|r| capitalised || r.pos != PartOfSpeech::ProperNoun)
                 .collect();
+            let lexicon = without_untagged_duplicates(lexicon, &lower);
             let lexicon = prefer_traditional_spelling(
                 lexicon
                     .into_iter()
@@ -249,6 +250,19 @@ fn without_pronoun(mut reading: Reading) -> Reading {
         reading.lemma = base.to_owned();
     }
     reading
+}
+
+/// The API gives some verb forms twice, once with their grammar and once
+/// with none (parlé: parler past participle, and parler with no features).
+/// The untagged copy says nothing the tagged one does not, and with no
+/// features it matches any slot, bypassing agreement (ils se sont parlé
+/// read through it as agreeing). It is dropped when a tagged reading of the
+/// same verb is there.
+fn without_untagged_duplicates(readings: Vec<Reading>, form: &str) -> Vec<Reading> {
+    let untagged = |r: &Reading| r.pos == PartOfSpeech::Verb && r.lemma != form && r.features == Default::default();
+    let tagged: HashSet<String> =
+        readings.iter().filter(|r| r.pos == PartOfSpeech::Verb && !untagged(r)).map(|r| r.lemma.clone()).collect();
+    readings.into_iter().filter(|r| !(untagged(r) && tagged.contains(&r.lemma))).collect()
 }
 
 /// A lemma of two or more letters, all capitals (AIT, CE, USA).

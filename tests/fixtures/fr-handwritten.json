@@ -964,6 +964,39 @@
           "clitic": false
         }
       }
+    ],
+    "levé": [
+      {
+        "lemma": "lever",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "parlé": [
+      {
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "grammar": null
+      }
     ]
   }
 }

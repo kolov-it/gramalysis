@@ -108,6 +108,11 @@ async fn pronominal_verb_takes_etre() {
     let a = run("Elle s'est levée.").await;
     assert!(parses(&a));
     assert!(agreed(&a, "levée")[0].starts_with("lever Verb"));
+    // a direct reflexive agrees with the subject, inverted too
+    assert!(!parses(&run("Elle s'est levé.").await));
+    assert!(parses(&run("S'est-elle levée ?").await));
+    // an untagged duplicate reading of parlé does not bypass agreement
+    assert!(!parses(&run("Elles se sont parlé.").await));
 }
 
 #[tokio::test]

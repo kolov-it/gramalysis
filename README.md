@@ -167,7 +167,7 @@ the one a verb page needs: *which verb, or not a verb at all*.
 
 ## French
 
-`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (318 rules) and
+`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (326 rules) and
 the function words in `data/fr/closed.txt`. What is French-specific:
 
 - **Tokens:** elision is split off (*l'*, *d'*, *j'*, *qu'*, *jusqu'*,
@@ -191,6 +191,10 @@ the function words in `data/fr/closed.txt`. What is French-specific:
   *avoir* + participle (which agrees only with a direct object before it:
   *je les ai vues*, *les pommes que j'ai mangées*), *être* + participle of an
   *être* verb, every pronominal verb with *être* (*elle s'est levée*), and
+  a reflexive participle agreeing with the subject (*elle s'est levée*), or
+  staying masculine singular when a complement follows (*elle s'est lavé les
+  mains*; without transitivity data a bare *ils se sont parlé* is not
+  accepted), and
   *être* + participle of an *avoir* verb a passive when marked (*par* + agent,
   *a été*, *fut*, *sera*) and otherwise a state, an adjective use (*la porte
   est fermée*). Polite *vous* takes a plural verb and a singular predicate

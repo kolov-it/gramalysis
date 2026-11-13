@@ -212,7 +212,11 @@ def load_homographs():
                 if m:
                     for pos in m.group(2).split("+"):
                         readings.append({"lemma": m.group(1), "pos": pos})
-        out[parts[0]] = readings
+        # A form can have an A/B row and a C row: their readings add up.
+        merged = out.setdefault(parts[0], [])
+        for r in readings:
+            if r not in merged:
+                merged.append(r)
     return out
 
 
