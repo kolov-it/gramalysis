@@ -1192,6 +1192,84 @@
         "partOfSpeech": "name"
       }
     ],
+    "fría": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "fría",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "frío",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "freír",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "freír",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "freír",
+        "partOfSpeech": "verb"
+      }
+    ],
     "fue": [
       {
         "grammar": {
@@ -2304,6 +2382,20 @@
         "partOfSpeech": "verb"
       }
     ],
+    "sien": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "sien",
+        "partOfSpeech": "noun"
+      }
+    ],
     "siendo": [
       {
         "grammar": {
@@ -2314,6 +2406,91 @@
           ]
         },
         "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "siente": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "sentar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "sentar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "sentar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "sentir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "sentir",
         "partOfSpeech": "verb"
       }
     ],
@@ -2330,6 +2507,7 @@
         "partOfSpeech": "verb"
       }
     ],
+    "sién": [],
     "soy": [
       {
         "grammar": {

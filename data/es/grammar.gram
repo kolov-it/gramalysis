@@ -297,10 +297,10 @@ rule vp.gerund: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g
 rule vp.floating-quantifier: VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g] Pron[lemma=todo, number=pl]
   "todos / todas after the verb, for the whole plural subject (se fueron todos)."
 
-rule vp.object-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=hacer|dejar|tener|encontrar|ver|considerar|llevar|mantener|poner|volver|creer|querer|preferir|imaginar|declarar|nombrar|elegir|llamar|traer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] NP[case=obl, number=?on, gender=?og] AP[number=?on, gender=?og]
+rule vp.object-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=hacer|dejar|tener|encontrar|ver|sentir|considerar|llevar|mantener|poner|volver|creer|querer|preferir|imaginar|declarar|nombrar|elegir|llamar|traer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] NP[case=obl, number=?on, gender=?og] AP[number=?on, gender=?og]
   "Verb + object + an adjective saying what the object is or becomes (dejó la puerta abierta, tengo las manos atadas)."
 
-rule vp.clitic-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=hacer|dejar|tener|encontrar|ver|considerar|llevar|mantener|poner|volver|creer|querer|preferir|imaginar|declarar|nombrar|elegir|llamar|traer, clitic_case=acc, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] AP
+rule vp.clitic-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=hacer|dejar|tener|encontrar|ver|sentir|considerar|llevar|mantener|poner|volver|creer|querer|preferir|imaginar|declarar|nombrar|elegir|llamar|traer, clitic_case=acc, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] AP
   "Clitic object + verb + an adjective saying what the object is (la encontré dormida, lo tengo preparado)."
 
 # ------------------------------------------------- haber: there is

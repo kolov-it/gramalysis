@@ -212,7 +212,9 @@ them in full):
   cerrada*); after a noun, the verb only with the verb's own complements
   (*un libro escrito en inglés*); *lo* + participle is an adjective use.
   Adjectives whose meaning drifted (*divertido*, *complicado*, *conocido*) are
-  in `data/es/drifted-participles.txt`.
+  in `data/es/drifted-participles.txt`: after *ser* they are the adjective
+  (*es complicado*), a passive only with an agent (*fue exagerado por los
+  medios*); after *haber* they are the verb.
 - **Commands**: *usted* is `subjunctive.present.3s`, *ustedes* `…3p`, a
   negative command the subjunctive; *tú*/*vosotros* the imperative.
 - **ser / ir** (*fui, fue, fueron, fuera*…): *ir* for motion or a destination,

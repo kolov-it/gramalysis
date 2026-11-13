@@ -295,3 +295,8 @@ async fn singular_subjects_joined_by_o() {
     assert!(!a.parses.is_empty());
     assert!(agreed(&a, "fue")[0].starts_with("ir Verb"));
 }
+
+#[tokio::test]
+async fn sentir_takes_an_adjective_about_its_object() {
+    assert!(!run("Él la siente fría.").await.parses.is_empty());
+}
