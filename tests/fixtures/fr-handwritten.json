@@ -911,6 +911,59 @@
           "clitic": false
         }
       }
+    ],
+    "femme": [
+      {
+        "lemma": "femme",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "fatiguée": [
+      {
+        "lemma": "fatiguer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "feminine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "semble": [
+      {
+        "lemma": "sembler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "avoir": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "infinitive",
+          "clitic": false
+        }
+      }
     ]
   }
 }

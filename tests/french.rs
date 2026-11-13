@@ -221,3 +221,16 @@ async fn a_linking_verb_with_etre_agrees_in_its_compound_tense() {
     assert!(!parses(&run("Elle est devenu heureuse.").await));
     assert!(parses(&run("Il est devenu heureux.").await));
 }
+
+#[tokio::test]
+async fn a_subject_relative_keeps_predicate_agreement() {
+    assert!(parses(&run("La femme qui est fatiguée est là.").await));
+    assert!(!parses(&run("La femme qui est fatigué est là.").await));
+}
+
+#[tokio::test]
+async fn past_infinitive_of_etre_takes_an_adjective() {
+    let a = run("Elle semble avoir été heureuse.").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "heureuse")[0].starts_with("heureux Adj"));
+}

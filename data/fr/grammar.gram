@@ -255,7 +255,7 @@ rule nom.infinitive: Nom[needs_det=?d, number=?n, gender=?g, onset=?o] -> Nom[ne
 rule np.predeterminer: NP[person=3, number=?n, gender=?g, pnum=?n] -> Predet[number=?n, gender=?g] NP[number=?n, gender=?g]
   "tout before the determiner agrees with the noun (tout le monde, tous les jours, toutes mes amies)."
 
-rule np.demonstrative-relative: NP[person=3, number=?n, gender=?g, pnum=?n] -> Dem[number=?n, gender=?g] Rel[person=3, number=?n, gender=?g]
+rule np.demonstrative-relative: NP[person=3, number=?n, gender=?g, pnum=?n] -> Dem[number=?n, gender=?g] Rel[person=3, number=?n, pnum=?n, gender=?g]
   "celui, celle, ce + a relative clause (celui qui parle, ce que tu dis)."
 
 rule np.demonstrative-phrase: NP[person=3, number=?n, gender=?g, pnum=?n] -> Dem[lemma=celui, number=?n, gender=?g] PP
@@ -267,7 +267,7 @@ rule np.demonstrative-alone: NP[person=3, number=?n, gender=?g, pnum=?n] -> Dem[
 rule nom.demonstrative-suffix: Nom[needs_det=?d, number=?n, gender=?g, onset=?o] -> Nom[needs_det=?d, number=?n, gender=?g, onset=?o] DemSuffix
   "-ci or -là after the noun points nearer or further (ce jour-là, cette fois-ci)."
 
-rule np.relative: NP[person=?p, number=?n, gender=?g, case=?c, pnum=?pn] -> NP[person=?p, number=?n, gender=?g, case=?c, pnum=?pn] Rel[person=?p, number=?n, gender=?g]
+rule np.relative: NP[person=?p, number=?n, gender=?g, case=?c, pnum=?pn] -> NP[person=?p, number=?n, gender=?g, case=?c, pnum=?pn] Rel[person=?p, number=?n, pnum=?pn, gender=?g]
   "A relative clause describes the noun phrase (l'homme qui parle, le livre que je lis)."
 
 rule np.bare: NP[case=obl, bare=yes, person=3, number=?n, gender=?g, pnum=?n] -> Nom[needs_det=no, number=?n, gender=?g]
@@ -290,8 +290,8 @@ rule np.ni-ni: NP[number=pl, pnum=pl] -> Conj[lemma=ni] NP Conj[lemma=ni] NP
 
 # --------------------------------------------------- relative clauses
 
-rule rel.subject: Rel[person=?p, number=?n] -> RelPron[role=subject] VP[finite=yes, form=fin, mood=ind|sub|cnd, subj=no, person=?p, number=?n]
-  "qui + verb: the noun is that verb's subject, and the verb agrees with it (l'homme qui parle, c'est moi qui suis)."
+rule rel.subject: Rel[person=?p, number=?n, pnum=?pn, gender=?g] -> RelPron[role=subject] VP[finite=yes, form=fin, mood=ind|sub|cnd, subj=no, person=?p, number=?n, pnum=?pn, gender=?g]
+  "qui + verb: the noun is that verb's subject; the verb agrees with it, and so does an adjective or participle after être (l'homme qui parle, c'est moi qui suis, la femme qui est fatiguée)."
 
 rule rel.object: Rel -> RelPron[role=object] S[imp=no, gap=no]
   "que + clause: the noun is that clause's object (le livre que je lis). Not with avoir + a participle that agrees with nothing (gap=yes): there que is the participle's object and rel.object-agreement checks it (les pommes que j'ai mangées, not *mangé)."
@@ -490,6 +490,9 @@ rule v.inverted-perfect-etre-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, 
 
 rule v.perfect-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=no, neg=no] -> Verb[lemma=avoir|être, form=inf] Verb[lemma=?l, form=pastpart]
   "The past infinitive: avoir or être + participle (après avoir mangé, sans être vu)."
+
+rule v.passive-past-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=no, neg=no] -> Verb[lemma=avoir, form=inf] Verb[lemma=être, form=pastpart] Verb[lemma=?l, form=pastpart, takes_avoir=yes]
+  "The passive in the past infinitive: avoir été + participle (après avoir été blessé)."
 
 rule v.proclitic-perfect-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=?a, neg=no] -> Clitics[attached=no, acc=?a] Verb[lemma=avoir|être, form=inf] Verb[lemma=?l, form=pastpart]
   "The past infinitive with pronouns (après s'être levé, pour l'avoir fait)."
@@ -915,6 +918,12 @@ rule vp.object-adverb-first: VP[finite=?f, form=?fm, mood=?m, person=?p, number=
 
 rule vp.copula-nonfinite: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] AP[participle_etre=no]
   "An infinitive or -ant linking verb + adjective (peut paraître étrange, étant malade)."
+
+rule vp.copula-past-infinitive: VP[finite=no, form=inf, subj=no] -> Verb[lemma=avoir, form=inf] Verb[lemma=être, form=pastpart] AP[pp=no]
+  "The past infinitive of être + adjective (elle semble avoir été heureuse). A participle there is a passive (v.passive-past-infinitive)."
+
+rule vp.copula-past-infinitive-noun: VP[finite=no, form=inf, subj=no] -> Verb[lemma=avoir, form=inf] Verb[lemma=être, form=pastpart] NP[case=obl]
+  "The past infinitive of être + noun phrase (après avoir été médecin)."
 
 rule vp.copula-nonfinite-noun: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|rester, form=inf|prespart|ger, form=?fm] NP[case=obl]
   "An infinitive or -ant linking verb + noun phrase (devenir médecin, étant étudiant)."
