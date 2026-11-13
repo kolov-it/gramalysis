@@ -800,11 +800,17 @@ rule clitics.dat-en: Clitics[reflexive=no, attached=?t, acc=no] -> Pron[attached
 rule encl.reflexive: EnCl[refl=?p, acc=no, rnum=?rn] -> Pron[attached=yes, case=refl, person=?p, number=?rn]
   "A reflexive pronoun after an order (lève-toi, asseyez-vous)."
 
-rule encl.local: EnCl[obj=?p, acc=no] -> Pron[attached=yes, case=acc|dat, person=1|2, person=?p]
+rule encl.local: EnCl[obj=?p, acc=no] -> Pron[attached=yes, case=dat, person=1|2, person=?p]
   "me (moi), nous, vous after an order (aide-moi, dis-nous)."
 
-rule encl.local-plural: EnCl[acc=no] -> Pron[attached=yes, case=acc|dat, person=1, person=?p, number=pl]
+rule encl.local-plural: EnCl[acc=no] -> Pron[attached=yes, case=dat, person=1, person=?p, number=pl]
   "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
+
+rule encl.local-acc: EnCl[obj=?p, acc=yes, anum=?an] -> Pron[attached=yes, case=acc, person=1|2, person=?p, number=?an]
+  "moi, nous, vous as the direct object after an order; an adjective after it agrees with it (rends-moi heureux, aide-nous)."
+
+rule encl.local-acc-plural: EnCl[acc=yes, anum=pl] -> Pron[attached=yes, case=acc, person=1, person=?p, number=pl]
+  "nous as the direct object of a singular order (rends-nous heureux)."
 
 rule encl.acc: EnCl[acc=yes, anum=?an, agen=?ag] -> Pron[attached=yes, case=acc, person=3, number=?an, gender=?ag]
   "le, la, les after an order (prends-le)."
@@ -1232,7 +1238,7 @@ rule vp.reflexive-predicative-negated: VP[finite=yes, form=fin, mood=?m, person=
 rule vp.reflexive-predicative-nonfinite: VP[finite=no, form=inf, subj=no, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?ir, rnum=?irn] Verb[lemma=rendre|trouver|laisser|croire|considérer|juger|garder|tenir|voir|vouloir|imaginer|préférer|aimer|sentir|montrer|déclarer|dire|savoir, form=inf] AP[number=?pn, gender=?g]
   "The same in an infinitive: the adjective and the reflexive pronoun agree with whoever controls the infinitive (elle veut se rendre heureuse)."
 
-rule vp.supposed: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> Cop[mood=?m, person=?p, number=?n, subj=?s, gender=?g] AP[participle=supposer|censer, number=?pn, gender=?g] VP[form=inf]
+rule vp.supposed: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> Cop[mood=?m, person=?p, number=?n, subj=?s, gender=?g] AP[participle=supposer|censer, number=?pn, gender=?g] VP[form=inf, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
   "être supposé / censé + infinitive = be supposed to (il était supposé venir)."
 
 rule vp.indirect-question-pronoun-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] QPron VP[form=inf]

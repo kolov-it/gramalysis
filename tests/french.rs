@@ -572,3 +572,14 @@ async fn causative_fait_stays_invariable_before_an_infinitive() {
     assert!(!parses(&run("Elle les a faits partir.").await));
     assert!(parses(&run("Elle les fait partir.").await));
 }
+
+#[tokio::test]
+async fn etre_cense_keeps_the_controller_checks() {
+    assert!(parses(&run("Je suis censé me laver.").await));
+    assert!(!parses(&run("Je suis censé se laver.").await));
+}
+
+#[tokio::test]
+async fn moi_as_the_direct_object_of_an_order() {
+    assert!(parses(&run("Rends-moi heureux.").await));
+}
