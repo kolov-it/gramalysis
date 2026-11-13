@@ -138,6 +138,55 @@
         "partOfSpeech": "noun"
       }
     ],
+    "bajo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "bajo",
+        "partOfSpeech": "adj"
+      },
+      {
+        "lemma": "bajo",
+        "partOfSpeech": "adv"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "bajo",
+        "partOfSpeech": "noun"
+      },
+      {
+        "lemma": "bajo",
+        "partOfSpeech": "prep"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "bajar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "casa": [
       {
         "grammar": {
@@ -252,6 +301,24 @@
         },
         "lemma": "cerrar",
         "partOfSpeech": "verb"
+      }
+    ],
+    "cinco": [
+      {
+        "lemma": "cinco",
+        "partOfSpeech": "num"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "cinco",
+        "partOfSpeech": "noun"
       }
     ],
     "como": [
@@ -614,6 +681,25 @@
         "partOfSpeech": "noun"
       }
     ],
+    "estoy": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "está": [
       {
         "grammar": {
@@ -844,6 +930,75 @@
         "partOfSpeech": "pron"
       }
     ],
+    "las": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "las",
+        "partOfSpeech": "article"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "las",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "accusative",
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "ellas",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "accusative",
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "ustedes",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "noun"
+      }
+    ],
     "libro": [
       {
         "grammar": {
@@ -996,7 +1151,6 @@
     ],
     "mía": [
       {
-        "confidence": "high",
         "grammar": {
           "clitic": false,
           "gender": "feminine",
@@ -1006,19 +1160,9 @@
           ]
         },
         "lemma": "mía",
-        "partOfSpeech": "noun",
-        "source": "kaikki",
-        "surface": "mía"
+        "partOfSpeech": "noun"
       },
       {
-        "confidence": "high",
-        "form": {
-          "label": "feminine singular",
-          "tags": [
-            "feminine",
-            "singular"
-          ]
-        },
         "grammar": {
           "clitic": false,
           "gender": "feminine",
@@ -1029,19 +1173,9 @@
           ]
         },
         "lemma": "mío",
-        "partOfSpeech": "det",
-        "source": "kaikki",
-        "surface": "mía"
+        "partOfSpeech": "det"
       },
       {
-        "confidence": "high",
-        "form": {
-          "label": "feminine singular",
-          "tags": [
-            "feminine",
-            "singular"
-          ]
-        },
         "grammar": {
           "clitic": false,
           "gender": "feminine",
@@ -1052,9 +1186,7 @@
           ]
         },
         "lemma": "mío",
-        "partOfSpeech": "pron",
-        "source": "kaikki",
-        "surface": "mía"
+        "partOfSpeech": "pron"
       }
     ],
     "mío": [
@@ -1201,6 +1333,31 @@
         "partOfSpeech": "pron"
       }
     ],
+    "reunión": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "reunión",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "Reunión",
+        "partOfSpeech": "name"
+      }
+    ],
     "roma": [
       {
         "grammar": {
@@ -1264,6 +1421,43 @@
         },
         "lemma": "Romanos",
         "partOfSpeech": "name"
+      }
+    ],
+    "salvo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "salvo",
+        "partOfSpeech": "adj"
+      },
+      {
+        "lemma": "salvo",
+        "partOfSpeech": "adv"
+      },
+      {
+        "lemma": "salvo",
+        "partOfSpeech": "conj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "salvar",
+        "partOfSpeech": "verb"
       }
     ],
     "se": [
@@ -1350,6 +1544,19 @@
         },
         "lemma": "se",
         "partOfSpeech": "pron"
+      }
+    ],
+    "siendo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "gerund"
+          ]
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
       }
     ],
     "suyo": [
@@ -1474,6 +1681,37 @@
           "tense": "present"
         },
         "lemma": "tener",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "toco": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "toco",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tocar",
         "partOfSpeech": "verb"
       }
     ],

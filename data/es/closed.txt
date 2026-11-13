@@ -65,10 +65,15 @@ sobre = sobre:Prep
 tras = tras:Prep
 excepto = excepto:Prep
 salvo = salvo:Prep
-# bajo and sobre are other words too: un hombre bajo, habla bajo, el sobre
+# bajo, sobre, salvo and contra are other words too: un hombre bajo, habla
+# bajo, toca el bajo, el sobre, a salvo, en mi contra, mientras tanto
 bajo = bajo:Adj{gender=m,number=sg}
 bajo = bajo:Adv
+bajo = bajo:Noun{gender=m,number=sg}
 sobre = sobre:Noun{gender=m,number=sg}
+salvo = salvo:Adj{gender=m,number=sg}
+contra = contra:Noun{gender=f,number=sg}
+mientras = mientras:Adv
 
 # --- prepositions contracted with the article
 al = a:Prep + el:Det{definite=yes,gender=m,number=sg}

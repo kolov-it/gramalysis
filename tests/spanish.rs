@@ -161,3 +161,27 @@ async fn coordinated_destinations_keep_fue_as_ir() {
     assert!(!a.parses.is_empty());
     assert!(agreed(&a, "Fue")[0].starts_with("ir Verb"));
 }
+
+#[tokio::test]
+async fn ser_takes_a_clock_time_with_a() {
+    let a = run("La reunión fue a las cinco.").await;
+    let c = a.chosen.iter().find(|c| c.token == "fue").unwrap();
+    assert!(c.readings.iter().any(|r| r[0].lemma == "ser"), "{:?}", c.readings);
+}
+
+#[tokio::test]
+async fn siendo_in_a_progressive() {
+    let a = run("La casa está siendo construida.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "construida")[0].starts_with("construir Verb"));
+    assert!(!uses(&a, "construida").iter().any(|u| u == "ap.participle"));
+    assert!(!run("Está siendo difícil.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn listed_words_keep_their_other_categories() {
+    assert!(!run("Estoy a salvo.").await.parses.is_empty());
+    let a = run("Toco el bajo.").await;
+    let c = a.chosen.iter().find(|c| c.token == "bajo").unwrap();
+    assert!(c.readings.iter().any(|r| r[0].cat == "Noun"), "{:?}", c.readings);
+}

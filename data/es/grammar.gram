@@ -345,6 +345,12 @@ rule serv.tener-que: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] ->
 rule vp.ser-possessive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] PossAfter[number=?n, gender=?g]
   "ser + a stressed possessive says whose it is; it agrees with the subject (el libro es mío, las llaves son tuyas)."
 
+rule vp.ser-clock: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> SerV[finite=?f, form=?fm, mood=?m, person=3, number=sg] Prep[lemma=a] Det[definite=yes, gender=f] Num
+  "ser + a + a clock time: when an event is (la reunión fue a las cinco). Only a time: ser + a + a place is ir."
+
+rule serv.progressive: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=estar|lex, lemma=estar|seguir|ir|andar|venir|continuar, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[class=ser, form=ger]
+  "estar / seguir + siendo: ser in progress, for the passive and the copula (está siendo construida, sigue siendo difícil)."
+
 rule vp.ser-lo: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Pron[attached=no, clitic=yes, case=acc, lemma=lo, gender=m, number=sg] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "lo stands for a predicate already said (Ella lo es, lo fue)."
 
