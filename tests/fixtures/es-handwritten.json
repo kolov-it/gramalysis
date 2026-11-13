@@ -1,5 +1,6 @@
 {
   "es": {
+    "10": [],
     "a": [
       {
         "grammar": {
@@ -150,6 +151,37 @@
           ]
         },
         "lemma": "aguar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "ahorro": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "ahorro",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ahorrar",
         "partOfSpeech": "verb"
       }
     ],
@@ -356,6 +388,59 @@
         },
         "lemma": "Bueno",
         "partOfSpeech": "name"
+      }
+    ],
+    "buscas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "plural"
+          ]
+        },
+        "lemma": "busca",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "plural"
+          ]
+        },
+        "lemma": "busca",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "buscar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "cada": [
+      {
+        "lemma": "cada",
+        "partOfSpeech": "det"
+      },
+      {
+        "lemma": "cada",
+        "partOfSpeech": "adv"
       }
     ],
     "cansado": [
@@ -1073,6 +1158,21 @@
         "partOfSpeech": "noun"
       }
     ],
+    "dólares": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "dólar",
+        "partOfSpeech": "noun"
+      }
+    ],
     "dónde": [
       {
         "lemma": "dónde",
@@ -1375,6 +1475,45 @@
     ],
     "estád": [],
     "estár": [],
+    "exagerado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "exagerado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "exagerado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "exagerar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "feliz": [
       {
         "grammar": {
@@ -2308,6 +2447,79 @@
         "partOfSpeech": "pron"
       }
     ],
+    "medid": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "medir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "medios": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "medio",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "medio",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "medios",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "medíd": [],
+    "mes": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "mes",
+        "partOfSpeech": "noun"
+      }
+    ],
     "mi": [
       {
         "grammar": {
@@ -2833,6 +3045,55 @@
           "tense": "past"
         },
         "lemma": "recibir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "recibo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "recibo",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "recibir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "obsolete",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "recebir",
         "partOfSpeech": "verb"
       }
     ],

@@ -174,6 +174,13 @@ impl Spanish {
                 }
             }
             let capitalised = token.chars().next().is_some_and(char::is_uppercase);
+            // A number written in digits (10, 1.000) is a numeral; the
+            // lexicon has no entries for digits.
+            if readings.is_empty() && token.chars().next().is_some_and(|c| c.is_ascii_digit())
+                && token.chars().all(|c| c.is_ascii_digit() || c == '.' || c == ',')
+            {
+                readings.push(vec![Morpheme { surface: token.clone(), lemma: token.clone(), cat: "Num".to_owned(), feats: FeatMap::new() }]);
+            }
             // A capital after . ? ! or : starts a sentence, like the first word.
             let starts_sentence = i == 0 || matches!(tokens[i - 1].as_str(), "." | "?" | "!" | ":");
             if capitalised && (!starts_sentence || readings.is_empty()) {

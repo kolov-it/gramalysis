@@ -5,8 +5,8 @@
 pub fn tokenize(text: &str) -> Vec<String> {
     let mut tokens = Vec::new();
     for raw in text.split_whitespace() {
-        let word = raw.trim_start_matches(['"', '«', '(', '“', '¿', '¡', '—', '-']);
-        let core = word.trim_end_matches(['.', ',', ';', ':', '!', '?', '"', '»', ')', '”', '…', '—']);
+        let word = raw.trim_start_matches(['"', '\'', '‘', '«', '(', '“', '¿', '¡', '—', '-']);
+        let core = word.trim_end_matches(['.', ',', ';', ':', '!', '?', '"', '\'', '’', '»', ')', '”', '…', '—']);
         let trailing = &word[core.len()..];
         // ¿ or ¡ inside a word's leading run (",¿") is dropped the same way.
         let core = core.trim_start_matches(['¿', '¡']);
@@ -36,5 +36,6 @@ mod tests {
         assert_eq!(tokenize("¿Dónde está?"), ["Dónde", "está"]);
         assert_eq!(tokenize("Juan, ¡ven aquí!"), ["Juan", ",", "ven", "aquí"]);
         assert_eq!(tokenize("¿Vienes? Te espero."), ["Vienes", "?", "Te", "espero"]);
+        assert_eq!(tokenize("''Ya lo sé'', dijo."), ["Ya", "lo", "sé", ",", "dijo"]);
     }
 }

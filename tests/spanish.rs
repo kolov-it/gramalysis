@@ -391,3 +391,23 @@ async fn ir_takes_no_direct_object() {
         assert!(agreed(&a, "fue")[0].starts_with("ser Verb"), "{s}");
     }
 }
+
+#[tokio::test]
+async fn an_agentive_passive_with_adverbs() {
+    let a = run("Fue muy exagerado por los medios.").await;
+    let c = a.chosen.iter().find(|c| c.token == "exagerado").unwrap();
+    assert!(c.uses.iter().flatten().any(|u| u == "vp.passive-agent-adverb"), "{:?}", c.uses);
+}
+
+#[tokio::test]
+async fn digits_are_numerals() {
+    let a = run("Ahorro 10 dólares cada mes.").await;
+    assert!(a.unknown.is_empty());
+    assert!(!a.parses.is_empty());
+}
+
+#[tokio::test]
+async fn a_locative_adverb_before_estar() {
+    assert!(!run("Aquí está mi recibo.").await.parses.is_empty());
+    assert!(!run("Aquí está el libro que buscas.").await.parses.is_empty());
+}

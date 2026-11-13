@@ -29723,6 +29723,22 @@
         "surface": "aún"
       }
     ],
+    "b": [
+      {
+        "confidence": "high",
+        "lemma": "b",
+        "partOfSpeech": "character",
+        "source": "kaikki",
+        "surface": "b"
+      },
+      {
+        "confidence": "high",
+        "lemma": "B",
+        "partOfSpeech": "character",
+        "source": "kaikki",
+        "surface": "b"
+      }
+    ],
     "ba": [
       {
         "confidence": "high",
@@ -76560,6 +76576,22 @@
       }
     ],
     "cór": [],
+    "d": [
+      {
+        "confidence": "high",
+        "lemma": "d",
+        "partOfSpeech": "character",
+        "source": "kaikki",
+        "surface": "d"
+      },
+      {
+        "confidence": "high",
+        "lemma": "D",
+        "partOfSpeech": "character",
+        "source": "kaikki",
+        "surface": "d"
+      }
+    ],
     "da": [
       {
         "confidence": "high",
@@ -160421,6 +160453,7 @@
         "surface": "lavás"
       }
     ],
+    "lay": [],
     "lazo": [
       {
         "confidence": "high",

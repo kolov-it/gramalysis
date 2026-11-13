@@ -684,6 +684,15 @@ rule passp.adverb: PassP[number=?n, gender=?g] -> Adv[neg=no] PassP[number=?n, g
 rule vp.passive-agent: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[form=pastpart, number=?n, gender=?g] PP[prep=por|como]
   "ser + participle + por + agent (or como + what) is the passive, also for a participle that is an adjective of its own (fue exagerado por los medios, ha sido considerado como un soñador)."
 
+rule vp.passive-agent-adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] AdvP Verb[form=pastpart, number=?n, gender=?g] PP[prep=por|como]
+  "The passive with an agent and adverbs before the participle (fue muy exagerado por los medios)."
+
+rule clause.locative-estar: S -> Adv[lemma=aquí|ahí|allí|allá|acá] Cop[lemma=estar, person=?p, number=?n] NP[case=nom, person=?p, number=?n]
+  "aquí / ahí / allí + estar + what is there (Aquí está mi recibo)."
+
+rule clause.locative-estar-bare: S -> Adv[lemma=aquí|ahí|allí|allá|acá] Cop[lemma=estar]
+  "aquí / ahí + estar, the subject left out (Aquí estoy, Ahí está)."
+
 rule vp.ser-adverb-noun: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] Adv[neg=no] NP[case=nom|obl]
   "ser + an adverb + a noun phrase (fue probablemente lo que…, es también un amigo)."
 

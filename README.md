@@ -195,11 +195,11 @@ cargo run --release -- eval es data/es/homograph-set.jsonl \
 
 On the Tatoeba set (5,000 sentences, 2,034 ambiguous forms of 832 page verbs,
 at most 3 sentences a form, alternating spaCy's verb and non-verb readings)
-it decides the ambiguous word in **79.1%** of the sentences, and **99.5%** of
-those decisions agree with the labels (3,934 of 3,954); 10.9% do not parse and
-2.0% have a word the lexicon does not know. `data/es/verified-examples.tsv`
-holds the 1,931 decided sentences of 5–20 words where the decision is the page
-verb and the label agrees (1,200 forms of 568 verbs), in the format of wordy's
+it decides the ambiguous word in **79.9%** of the sentences, and **99.5%** of
+those decisions agree with the labels (3,973 of 3,993); 11.2% do not parse and
+0.8% have a word the lexicon does not know. `data/es/verified-examples.tsv`
+holds the 1,955 decided sentences of 5–20 words where the decision is the page
+verb and the label agrees (1,207 forms of 569 verbs), in the format of wordy's
 `verified-<lang>.tsv`.
 
 **Labelling conventions** (the header of `data/es/homograph-labels.tsv` has

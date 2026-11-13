@@ -257,6 +257,7 @@ burlar	burla	1349664	indicative.present.3s	gramalysis+label 2026-11-12
 buscar	busca	343570	imperative.present.2s	gramalysis+label 2026-11-12
 buscar	busca	346393	indicative.present.3s	gramalysis+label 2026-11-12
 buscar	buscas	2595	indicative.present.2s	gramalysis+label 2026-11-12
+buscar	buscas	354997	indicative.present.2s	gramalysis+label 2026-11-12
 buscar	buscaste	8298701	indicative.preterite.2s	gramalysis+label 2026-11-12
 buscar	buscaste	12287580	indicative.preterite.2s	gramalysis+label 2026-11-12
 buscar	buscáis	10238753	indicative.present.2p	gramalysis+label 2026-11-12
@@ -271,6 +272,7 @@ calentar	caliento	720471	indicative.present.1s	gramalysis+label 2026-11-12
 callar	calle	9471839	subjunctive.present.3s	gramalysis+label 2026-11-12
 calmar	calma	961585	indicative.present.3s	gramalysis+label 2026-11-12
 calmar	calma	3720345	indicative.present.3s	gramalysis+label 2026-11-12
+cambiar	cambiado	457505	non_finite.past_participle	gramalysis+label 2026-11-12
 cambiar	cambiado	496939	non_finite.past_participle	gramalysis+label 2026-11-12
 cambiar	cambio	1818176	indicative.present.1s	gramalysis+label 2026-11-12
 caminar	caminaría	2055589	conditional.present.1s	gramalysis+label 2026-11-12
@@ -334,6 +336,7 @@ citar	cita	342001	indicative.present.3s	gramalysis+label 2026-11-12
 citar	citado	1138998	non_finite.past_participle	gramalysis+label 2026-11-12
 citar	citado	1349794	non_finite.past_participle	gramalysis+label 2026-11-12
 cobrar	cobra	436186	indicative.present.3s	gramalysis+label 2026-11-12
+cobrar	cobra	673752	indicative.present.3s	gramalysis+label 2026-11-12
 cobrar	cobra	863819	indicative.present.3s	gramalysis+label 2026-11-12
 cobrar	cobras	12956808	indicative.present.2s	gramalysis+label 2026-11-12
 cobrar	cobras	12956810	indicative.present.2s	gramalysis+label 2026-11-12
@@ -487,6 +490,7 @@ cosechar	cosecha	6837493	indicative.present.3s	gramalysis+label 2026-11-12
 cosechar	cosechas	1203160	indicative.present.2s	gramalysis+label 2026-11-12
 costar	costado	496188	non_finite.past_participle	gramalysis+label 2026-11-12
 costar	costado	593710	non_finite.past_participle	gramalysis+label 2026-11-12
+costar	cuesta	345243	indicative.present.3s	gramalysis+label 2026-11-12
 crear	creado	627881	non_finite.past_participle	gramalysis+label 2026-11-12
 crear	creado	665530	non_finite.past_participle	gramalysis+label 2026-11-12
 crecer	crecer	461042	non_finite.infinitive	gramalysis+label 2026-11-12
@@ -591,6 +595,7 @@ descansar	descansar	584713	non_finite.infinitive	gramalysis+label 2026-11-12
 descansar	descansé	6156446	indicative.preterite.1s	gramalysis+label 2026-11-12
 descansar	descansé	6564566	indicative.preterite.1s	gramalysis+label 2026-11-12
 descansar	descansé	6564568	indicative.preterite.1s	gramalysis+label 2026-11-12
+descargar	descarga	623773	indicative.present.3s	gramalysis+label 2026-11-12
 descubrir	descubierto	339933	non_finite.past_participle	gramalysis+label 2026-11-12
 descubrir	descubierto	503368	non_finite.past_participle	gramalysis+label 2026-11-12
 descuidar	descuida	3837835	indicative.present.3s	gramalysis+label 2026-11-12
@@ -834,6 +839,7 @@ estudiar	estudiáis	7904377	indicative.present.2p	gramalysis+label 2026-11-12
 estudiar	estudiéis	9193700	subjunctive.present.2p	gramalysis+label 2026-11-12
 evitar	evita	1339890	indicative.present.3s	gramalysis+label 2026-11-12
 evitar	evita	1342751	indicative.present.3s	gramalysis+label 2026-11-12
+existir	existe	329761	indicative.present.3s	gramalysis+label 2026-11-12
 existir	existe	338918	indicative.present.3s	gramalysis+label 2026-11-12
 existir	existieras	1241424	subjunctive.imperfect.2s	gramalysis+label 2026-11-12
 existir	existieras	2150301	subjunctive.imperfect.2s	gramalysis+label 2026-11-12
@@ -903,6 +909,8 @@ fumar	fumas	10186737	indicative.present.2s	gramalysis+label 2026-11-12
 fumar	fumaste	1751424	indicative.preterite.2s	gramalysis+label 2026-11-12
 fumar	fumo	434547	indicative.present.1s	gramalysis+label 2026-11-12
 fumar	fumo	1745864	indicative.present.1s	gramalysis+label 2026-11-12
+ganar	gana	330627	indicative.present.3s	gramalysis+label 2026-11-12
+ganar	gana	339989	indicative.present.3s	gramalysis+label 2026-11-12
 ganar	ganado	435077	non_finite.past_participle	gramalysis+label 2026-11-12
 ganar	gane	620775	subjunctive.present.3s	gramalysis+label 2026-11-12
 ganar	gane	962936	subjunctive.present.3s	gramalysis+label 2026-11-12
@@ -1014,6 +1022,7 @@ ir	fuésemos	562119	subjunctive.imperfect.1p	gramalysis+label 2026-11-12
 ir	ir	2599	non_finite.infinitive	gramalysis+label 2026-11-12
 ir	ir	2601	non_finite.infinitive	gramalysis+label 2026-11-12
 ir	ir	1933210	non_finite.infinitive	gramalysis+label 2026-11-12
+ir	irán	1435329	indicative.future.3p	gramalysis+label 2026-11-12
 ir	irías	1410107	conditional.present.2s	gramalysis+label 2026-11-12
 ir	irías	1476317	conditional.present.2s	gramalysis+label 2026-11-12
 ir	va	2503	indicative.present.3s	gramalysis+label 2026-11-12
@@ -1048,6 +1057,7 @@ lavar	lavaste	1751416	indicative.preterite.2s	gramalysis+label 2026-11-12
 leer	lea	456654	subjunctive.present.3s	gramalysis+label 2026-11-12
 leer	lea	950982	subjunctive.present.3s	gramalysis+label 2026-11-12
 leer	leed	3667105	imperative.present.2p	gramalysis+label 2026-11-12
+leer	leer	329786	non_finite.infinitive	gramalysis+label 2026-11-12
 leer	leer	329916	non_finite.infinitive	gramalysis+label 2026-11-12
 leer	leer	339316	non_finite.infinitive	gramalysis+label 2026-11-12
 leer	leo	569575	indicative.present.1s	gramalysis+label 2026-11-12
@@ -1185,6 +1195,7 @@ montar	montas	5210426	indicative.present.2s	gramalysis+label 2026-11-12
 montar	monto	673032	indicative.present.1s	gramalysis+label 2026-11-12
 montar	monto	6803792	indicative.present.1s	gramalysis+label 2026-11-12
 montar	monto	6803798	indicative.present.1s	gramalysis+label 2026-11-12
+morir	morir	3011	non_finite.infinitive	gramalysis+label 2026-11-12
 morir	morir	1156405	non_finite.infinitive	gramalysis+label 2026-11-12
 morir	morí	983473	indicative.preterite.1s	gramalysis+label 2026-11-12
 morir	morí	986574	indicative.preterite.1s	gramalysis+label 2026-11-12
@@ -1331,9 +1342,11 @@ perdonar	perdones	2314660	subjunctive.present.2s	gramalysis+label 2026-11-12
 permitir	permitirías	2840754	conditional.present.2s	gramalysis+label 2026-11-12
 pesar	pesa	553612	indicative.present.3s	gramalysis+label 2026-11-12
 pesar	pesa	611223	indicative.present.3s	gramalysis+label 2026-11-12
+pesar	pesa	725739	indicative.present.3s	gramalysis+label 2026-11-12
 pesar	pesado	3039312	non_finite.past_participle	gramalysis+label 2026-11-12
 pesar	pesas	543919	indicative.present.2s	gramalysis+label 2026-11-12
 pesar	peso	3697440	indicative.present.1s	gramalysis+label 2026-11-12
+pescar	pesca	486806	indicative.present.3s	gramalysis+label 2026-11-12
 pescar	pesca	7528176	indicative.present.3s	gramalysis+label 2026-11-12
 pescar	pescado	735557	non_finite.past_participle	gramalysis+label 2026-11-12
 pescar	pescado	1719056	non_finite.past_participle	gramalysis+label 2026-11-12
@@ -1458,6 +1471,7 @@ probar	pruebas	523689	indicative.present.2s	gramalysis+label 2026-11-12
 proceder	proceder	1604519	non_finite.infinitive	gramalysis+label 2026-11-12
 proceder	proceder	10198464	non_finite.infinitive	gramalysis+label 2026-11-12
 producir	producido	1448054	non_finite.past_participle	gramalysis+label 2026-11-12
+producir	producido	1712895	non_finite.past_participle	gramalysis+label 2026-11-12
 prohibir	prohibido	2314110	non_finite.past_participle	gramalysis+label 2026-11-12
 prometer	prometido	875179	non_finite.past_participle	gramalysis+label 2026-11-12
 prometer	prometido	1330803	non_finite.past_participle	gramalysis+label 2026-11-12
@@ -1490,7 +1504,9 @@ recibir	recibas	2173806	subjunctive.present.2s	gramalysis+label 2026-11-12
 recibir	recibe	339544	indicative.present.3s	gramalysis+label 2026-11-12
 recibir	recibe	638153	indicative.present.3s	gramalysis+label 2026-11-12
 recibir	recibe	706506	indicative.present.3s	gramalysis+label 2026-11-12
+recibir	reciben	119881	indicative.present.3p	gramalysis+label 2026-11-12
 recibir	reciben	711377	indicative.present.3p	gramalysis+label 2026-11-12
+recibir	reciben	844032	indicative.present.3p	gramalysis+label 2026-11-12
 recibir	recibes	2266500	indicative.present.2s	gramalysis+label 2026-11-12
 recibir	recibes	5998999	indicative.present.2s	gramalysis+label 2026-11-12
 recibir	recibiendo	531087	non_finite.gerund	gramalysis+label 2026-11-12
@@ -1533,6 +1549,7 @@ reinar	reina	980679	indicative.present.3s	gramalysis+label 2026-11-12
 reinar	reina	1128031	indicative.present.3s	gramalysis+label 2026-11-12
 relajar	relajo	3720342	indicative.present.1s	gramalysis+label 2026-11-12
 rellenar	rellena	5869215	imperative.present.2s	gramalysis+label 2026-11-12
+rellenar	rellenases	5869218	subjunctive.imperfect.2s	gramalysis+label 2026-11-12
 rendir	rendido	1638246	non_finite.past_participle	gramalysis+label 2026-11-12
 rendir	rendido	2269025	non_finite.past_participle	gramalysis+label 2026-11-12
 rendir	rendimos	5568055	indicative.preterite.1p	gramalysis+label 2026-11-12
@@ -1627,6 +1644,7 @@ saber	sepa	854638	subjunctive.present.3s	gramalysis+label 2026-11-12
 saber	supisteis	1748268	indicative.preterite.2p	gramalysis+label 2026-11-12
 saber	supisteis	6825596	indicative.preterite.2p	gramalysis+label 2026-11-12
 saber	sé	2493	indicative.present.1s	gramalysis+label 2026-11-12
+sacar	saca	456472	indicative.present.3s	gramalysis+label 2026-11-12
 sacar	saca	594612	indicative.present.3s	gramalysis+label 2026-11-12
 sacar	saca	2266252	indicative.present.3s	gramalysis+label 2026-11-12
 sacar	sacad	11736062	imperative.present.2p	gramalysis+label 2026-11-12
@@ -1672,6 +1690,7 @@ secar	secado	1021805	non_finite.past_participle	gramalysis+label 2026-11-12
 seguir	seguid	13559780	imperative.present.2p	gramalysis+label 2026-11-12
 seguir	seguido	665869	non_finite.past_participle	gramalysis+label 2026-11-12
 seguir	siga	480359	subjunctive.present.3s	gramalysis+label 2026-11-12
+sembrar	sembrado	181006	non_finite.past_participle	gramalysis+label 2026-11-12
 sembrar	sembrado	6682052	non_finite.past_participle	gramalysis+label 2026-11-12
 sembrar	siembra	4387659	indicative.present.3s	gramalysis+label 2026-11-12
 sembrar	siembras	854356	indicative.present.2s	gramalysis+label 2026-11-12
@@ -1692,6 +1711,7 @@ ser	eras	743371	indicative.imperfect.2s	gramalysis+label 2026-11-12
 ser	eras	1326016	indicative.imperfect.2s	gramalysis+label 2026-11-12
 ser	eres	2529	indicative.present.2s	gramalysis+label 2026-11-12
 ser	eres	490897	indicative.present.2s	gramalysis+label 2026-11-12
+ser	es	2485	indicative.present.3s	gramalysis+label 2026-11-12
 ser	fue	2550	indicative.preterite.3s	gramalysis+label 2026-11-12
 ser	fueras	1053851	subjunctive.imperfect.2s	gramalysis+label 2026-11-12
 ser	fueras	1409170	subjunctive.imperfect.2s	gramalysis+label 2026-11-12
@@ -1734,6 +1754,7 @@ soltar	suelta	5905279	indicative.present.3s	gramalysis+label 2026-11-12
 solucionar	solucionaste	4940514	indicative.preterite.2s	gramalysis+label 2026-11-12
 sonar	sonado	331715	non_finite.past_participle	gramalysis+label 2026-11-12
 sonar	sonado	1130932	non_finite.past_participle	gramalysis+label 2026-11-12
+sonar	sonar	329829	non_finite.infinitive	gramalysis+label 2026-11-12
 sonar	sonar	343224	non_finite.infinitive	gramalysis+label 2026-11-12
 sonar	suenas	1163699	indicative.present.2s	gramalysis+label 2026-11-12
 sonar	suenas	1651122	indicative.present.2s	gramalysis+label 2026-11-12
@@ -1765,6 +1786,7 @@ sujetar	sujeta	1979888	imperative.present.2s	gramalysis+label 2026-11-12
 sumar	suma	1148232	indicative.present.3s	gramalysis+label 2026-11-12
 sumar	sumamos	2152486	indicative.present.1p	gramalysis+label 2026-11-12
 sumar	suman	630474	indicative.present.3p	gramalysis+label 2026-11-12
+sumar	suman	1788444	indicative.present.3p	gramalysis+label 2026-11-12
 sumar	sumas	1747879	indicative.present.2s	gramalysis+label 2026-11-12
 sumar	sume	2252892	subjunctive.present.3s	gramalysis+label 2026-11-12
 suplicar	suplicar	9114327	non_finite.infinitive	gramalysis+label 2026-11-12
@@ -1860,6 +1882,7 @@ traducir	tradujiste	1751481	indicative.preterite.2s	gramalysis+label 2026-11-12
 traducir	traduzcas	655266	subjunctive.present.2s	gramalysis+label 2026-11-12
 traer	traerías	1456165	conditional.present.2s	gramalysis+label 2026-11-12
 traer	traerías	14056765	conditional.present.2s	gramalysis+label 2026-11-12
+traer	traje	993259	indicative.preterite.1s	gramalysis+label 2026-11-12
 traer	trajeras	989254	subjunctive.imperfect.2s	gramalysis+label 2026-11-12
 traer	trajeras	1274235	subjunctive.imperfect.2s	gramalysis+label 2026-11-12
 tragar	trago	1726736	indicative.present.1s	gramalysis+label 2026-11-12
@@ -1912,6 +1935,7 @@ ver	vean	550490	subjunctive.present.3p	gramalysis+label 2026-11-12
 ver	veas	1192317	subjunctive.present.2s	gramalysis+label 2026-11-12
 ver	veo	338516	indicative.present.1s	gramalysis+label 2026-11-12
 ver	veo	343399	indicative.present.1s	gramalysis+label 2026-11-12
+ver	ver	3011	non_finite.infinitive	gramalysis+label 2026-11-12
 ver	ver	1209358	non_finite.infinitive	gramalysis+label 2026-11-12
 ver	veía	336357	indicative.imperfect.3s	gramalysis+label 2026-11-12
 ver	veíamos	338941	indicative.imperfect.1p	gramalysis+label 2026-11-12
