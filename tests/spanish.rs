@@ -185,3 +185,18 @@ async fn listed_words_keep_their_other_categories() {
     let c = a.chosen.iter().find(|c| c.token == "bajo").unwrap();
     assert!(c.readings.iter().any(|r| r[0].cat == "Noun"), "{:?}", c.readings);
 }
+
+#[tokio::test]
+async fn denme_is_den_me() {
+    let a = run("Denme el libro.").await;
+    assert!(!a.parses.is_empty());
+    let c = a.chosen.iter().find(|c| c.token == "Denme").unwrap();
+    assert!(c.readings.iter().all(|r| r[0].lemma == "dar" && r.len() == 2), "{:?}", c.readings);
+}
+
+#[tokio::test]
+async fn a_participle_before_its_noun_is_an_adjective_use() {
+    let a = run("El esperado resultado es bueno.").await;
+    assert!(!a.parses.is_empty());
+    assert_eq!(uses(&a, "esperado"), ["ap.participle"]);
+}

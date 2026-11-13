@@ -198,8 +198,8 @@ at most 3 sentences a form, alternating spaCy's verb and non-verb readings)
 it decides the ambiguous word in **78.9%** of the sentences, and **99.4%** of
 those decisions agree with the labels (3,923 of 3,946); 11.1% do not parse and
 2.0% have a word the lexicon does not know. `data/es/verified-examples.tsv`
-holds the 1,924 decided sentences of 5–20 words where the decision is the page
-verb and the label agrees (1,198 forms of 569 verbs), in the format of wordy's
+holds the 1,922 decided sentences of 5–20 words where the decision is the page
+verb and the label agrees (1,197 forms of 568 verbs), in the format of wordy's
 `verified-<lang>.tsv`.
 
 **Labelling conventions** (the header of `data/es/homograph-labels.tsv` has

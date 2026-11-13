@@ -187,6 +187,46 @@
         "partOfSpeech": "verb"
       }
     ],
+    "bueno": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "bueno",
+        "partOfSpeech": "adj"
+      },
+      {
+        "lemma": "bueno",
+        "partOfSpeech": "intj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Bueno",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Bueno",
+        "partOfSpeech": "name"
+      }
+    ],
     "casa": [
       {
         "grammar": {
@@ -477,6 +517,59 @@
         "partOfSpeech": "verb"
       }
     ],
+    "den": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "plural",
+            "present",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "third-person"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "denme": [
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "object-first-person",
+            "object-singular",
+            "plural",
+            "third-person"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "di": [
       {
         "grammar": {
@@ -679,6 +772,33 @@
         },
         "lemma": "e",
         "partOfSpeech": "noun"
+      }
+    ],
+    "esperado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "esperado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "esperar",
+        "partOfSpeech": "verb"
       }
     ],
     "estoy": [
@@ -1331,6 +1451,35 @@
       {
         "lemma": "que",
         "partOfSpeech": "pron"
+      }
+    ],
+    "resultado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "resultado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "resultar",
+        "partOfSpeech": "verb"
       }
     ],
     "reunión": [

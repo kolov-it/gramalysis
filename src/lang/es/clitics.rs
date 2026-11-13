@@ -9,8 +9,8 @@ const FIRST: [&str; 5] = ["me", "te", "se", "nos", "os"];
 const SECOND: [&str; 8] = ["lo", "la", "los", "las", "le", "les", "me", "nos"];
 const SINGLE: [&str; 11] = ["me", "te", "se", "nos", "os", "lo", "la", "los", "las", "le", "les"];
 /// One-syllable imperatives, which take clitics without an accent (dame,
-/// hazlo, ponte, dime, vete, deme).
-const SHORT_IMPERATIVES: [&str; 11] = ["da", "de", "di", "haz", "pon", "ten", "sal", "ven", "ve", "sé", "id"];
+/// hazlo, ponte, dime, vete, deme, denme).
+const SHORT_IMPERATIVES: [&str; 12] = ["da", "de", "den", "di", "haz", "pon", "ten", "sal", "ven", "ve", "sé", "id"];
 
 /// One way to read a form as host + clitics.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -117,6 +117,7 @@ mod tests {
         assert!(has("sentaos", "sentad", &["os"]));
         assert!(has("dígaselo", "diga", &["se", "lo"]));
         assert!(has("deme", "dé", &["me"]));
+        assert!(has("denme", "den", &["me"]));
     }
 
     #[test]

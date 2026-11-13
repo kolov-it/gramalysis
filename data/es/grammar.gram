@@ -133,6 +133,9 @@ rule nom.noun: Nom[number=?n, gender=?g, onset=?o] -> Noun[number=?n, gender=?g,
 rule nom.adjective-after: Nom[after_participle=?x, number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] AP[participle=?x, number=?n, gender=?g]
   "An adjective after its noun agrees with it in gender and number."
 
+rule nom.participle-before: Nom[number=?n, gender=?g, onset=?o] -> AP[prenominal=yes, number=?n, gender=?g, onset=?o] Nom[number=?n, gender=?g]
+  "A participle before its noun, used like an adjective (el esperado resultado)."
+
 rule nom.adjective-before: Nom[number=?n, gender=?g, onset=?o] -> Adj[number=?n, gender=?g, onset=?o] Nom[number=?n, gender=?g]
   "An adjective before its noun agrees with it in gender and number (una buena idea)."
 
@@ -446,31 +449,31 @@ rule vp.estar-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> 
 
 # ------------------------------------------------- adjective phrases
 
-rule ap.adjective: AP[participle=no, number=?n, gender=?g] -> Adj[participle=no, number=?n, gender=?g]
+rule ap.adjective: AP[prenominal=no, participle=no, number=?n, gender=?g] -> Adj[participle=no, number=?n, gender=?g]
   "An adjective."
 
-rule ap.participle: AP[participle=?l, number=?n, gender=?g] -> Verb[lemma=?l, form=pastpart, drifted=no, number=?n, gender=?g]
+rule ap.participle: AP[prenominal=yes, participle=?l, number=?n, gender=?g, onset=?o] -> Verb[lemma=?l, form=pastpart, drifted=no, number=?n, gender=?g, onset=?o]
   "A past participle used like an adjective; it is still the verb's participle (la puerta cerrada: cerrar, participio). Not for adjectives whose meaning drifted (divertido)."
 
-rule ap.adverb: AP[participle=?x, number=?n, gender=?g] -> Adv[neg=no] AP[participle=?x, number=?n, gender=?g]
+rule ap.adverb: AP[prenominal=no, participle=?x, number=?n, gender=?g] -> Adv[neg=no] AP[participle=?x, number=?n, gender=?g]
   "An adverb before an adjective (muy bonito, más alto, demasiado caro)."
 
-rule ap.negation: AP[participle=?x, number=?n, gender=?g] -> Adv[neg=yes] AP[participle=?x, number=?n, gender=?g]
+rule ap.negation: AP[prenominal=no, participle=?x, number=?n, gender=?g] -> Adv[neg=yes] AP[participle=?x, number=?n, gender=?g]
   "no before an adjective (no muy lejos, nada fácil)."
 
-rule ap.complement: AP[participle=no, number=?n, gender=?g] -> AP[participle=no, number=?n, gender=?g] PP
+rule ap.complement: AP[prenominal=no, participle=no, number=?n, gender=?g] -> AP[participle=no, number=?n, gender=?g] PP
   "A phrase after an adjective (lleno de gente, más alto que…, fácil de entender)."
 
-rule ap.participle-complement: AP[participle=?l, number=?n, gender=?g] -> AP[participle=?l, number=?n, gender=?g] PP[prep=de|con|a|en]
+rule ap.participle-complement: AP[prenominal=no, participle=?l, number=?n, gender=?g] -> AP[participle=?l, number=?n, gender=?g] PP[prep=de|con|a|en]
   "A participle used like an adjective can take a phrase too (cansado de esperar, cubierto de nieve, acostumbrado a…)."
 
-rule ap.comparative: AP[participle=no, number=?n, gender=?g] -> AP[participle=no, number=?n, gender=?g] Conj[lemma=que] NP
+rule ap.comparative: AP[prenominal=no, participle=no, number=?n, gender=?g] -> AP[participle=no, number=?n, gender=?g] Conj[lemma=que] NP
   "más / menos + adjective + que + noun phrase (más alto que tú)."
 
-rule ap.como: AP[participle=?x, number=?n, gender=?g] -> AP[participle=?x, number=?n, gender=?g] Prep[lemma=como] NP
+rule ap.como: AP[prenominal=no, participle=?x, number=?n, gender=?g] -> AP[participle=?x, number=?n, gender=?g] Prep[lemma=como] NP
   "tan + adjective + como (tan alto como su padre, blanco como la nieve)."
 
-rule ap.coordination: AP[participle=?x, number=?n, gender=?g] -> AP[participle=?x, number=?n, gender=?g] Conj[type=coord] AP[number=?n, gender=?g]
+rule ap.coordination: AP[prenominal=no, participle=?x, number=?n, gender=?g] -> AP[participle=?x, number=?n, gender=?g] Conj[type=coord] AP[number=?n, gender=?g]
   "Two adjectives or participles joined by y, o or pero, agreeing with the noun (inteligente y práctico, abierta o cerrada, limpio y ordenado); the first decides whether the phrase is a participle."
 
 # ------------------------------------------------- relative clauses
@@ -676,7 +679,7 @@ rule cop.enclitic-imperative: Cop[lemma=?l, finite=yes, form=fin, mood=imp, pers
 rule pp.gracias: PP[prep=a] -> Noun[lemma=gracia] PP[prep=a]
   "gracias a: thanks to (gracias a ti)."
 
-rule ap.a-little: AP[participle=?x, number=?n, gender=?g] -> Det[lemma=un] Noun[lemma=poco] AP[participle=?x, number=?n, gender=?g]
+rule ap.a-little: AP[prenominal=no, participle=?x, number=?n, gender=?g] -> Det[lemma=un] Noun[lemma=poco] AP[participle=?x, number=?n, gender=?g]
   "un poco + adjective: a little (un poco cansado)."
 
 rule vp.a-little: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Det[lemma=un] Noun[lemma=poco]
