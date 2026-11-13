@@ -76,6 +76,45 @@
         "partOfSpeech": "verb"
       }
     ],
+    "abierto": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "abierto",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "abierto",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "abrir",
+        "partOfSpeech": "verb"
+      }
+    ],
     "adónde": [
       {
         "lemma": "adónde",
@@ -862,6 +901,17 @@
       {
         "lemma": "de",
         "partOfSpeech": "prep"
+      }
+    ],
+    "dejar": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "dejar",
+        "partOfSpeech": "verb"
       }
     ],
     "demasiadas": [
@@ -2889,6 +2939,45 @@
         "partOfSpeech": "intj"
       }
     ],
+    "preparado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "preparado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "preparado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "preparar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "problemas": [
       {
         "grammar": {
@@ -3747,6 +3836,17 @@
         "partOfSpeech": "det"
       }
     ],
+    "tener": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "tener",
+        "partOfSpeech": "verb"
+      }
+    ],
     "tengo": [
       {
         "grammar": {
@@ -3983,6 +4083,20 @@
       {
         "lemma": "y",
         "partOfSpeech": "conj"
+      }
+    ],
+    "ya": [
+      {
+        "lemma": "ya",
+        "partOfSpeech": "adv"
+      },
+      {
+        "lemma": "ya",
+        "partOfSpeech": "conj"
+      },
+      {
+        "lemma": "ya",
+        "partOfSpeech": "intj"
       }
     ],
     "yo": [

@@ -324,6 +324,9 @@ rule vp.existential-clitic: VP[finite=yes, form=fin, mood=?m, person=3, number=s
 rule vp.infinitive-perception: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=acc, lemma=ver|oír|hacer|dejar|escuchar|mirar|sentir|mandar|permitir|prohibir|impedir|ordenar|aconsejar, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] VP[form=inf]
   "With a perception or causative verb the clitic is that verb's object, and the infinitive keeps its own (lo vi comprar un libro, la hice venir)."
 
+rule vp.infinitive-climbed-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=acc, lemma=poder|deber|querer|saber|soler|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|decidir|prometer|odiar|amar|temer|evitar|parecer|gustar|encantar|importar|interesar|apetecer|merecer|procurar|pretender|planear|olvidar|recordar|lamentar|admitir|negar|asegurar|confesar|creer|declarar|afirmar|imaginar|resultar|convenir|bastar|costar|faltar|urgir|acordar|ansiar|anhelar|elegir|fingir|osar|rehusar|proponer|sugerir|agradecer|confiar|ofrecer|jurar|aceptar|adorar|reconocer|detestar|soportar|aguantar|tolerar|suponer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] V[lemma=hacer|dejar|tener|encontrar|ver|sentir|considerar|llevar|mantener|poner|volver|creer|querer|preferir|imaginar|declarar|nombrar|elegir|llamar|traer, form=inf] AP
+  "A climbed object clitic with an adjective saying what the object is (lo puedo tener preparado, la quiero dejar abierta)."
+
 rule vp.existential-progressive: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=estar|lex, lemma=estar|seguir|ir|venir, finite=?f, form=?fm, mood=?m, person=3, number=sg] Verb[class=haber, form=ger] NP[case=obl]
   "estar / seguir + habiendo + a noun phrase: there is, in progress (está habiendo problemas)."
 
@@ -605,8 +608,11 @@ rule clause.exclamation: S -> QDet[lemma=qué] Nom
 rule clause.exclamation-adjective: S -> QDet[lemma=qué] AP
   "qué + adjective as an exclamation (¡Qué bonito!)."
 
+rule clause.estar-alone: S -> Adv[neg=no] Cop[lemma=estar, form=fin]
+  "an adverb and estar: ya está, aquí estoy."
+
 rule clause.ser-alone: S -> Adv SerV
-  "así es, ya está: an adverb and ser."
+  "así es: an adverb and ser."
 
 rule clause.or-not: S -> S Conj[lemma=o] Intj[lemma=no]
   "… o no? asks for a yes or no."
@@ -756,7 +762,7 @@ rule clause.inverted-ser: S -> SerV[person=?p, number=?n] NP[case=nom, person=?p
 rule clause.inverted-ser-noun: S -> SerV[person=?p, number=?n] NP[case=nom, person=?p, number=?n] NP[case=nom|obl]
   "ser + subject + noun in a question (¿Es usted médico?)."
 
-rule clause.inverted: S -> V[finite=yes, form=fin, person=?p, number=?n] NP[case=nom, person=?p, number=?n] NP[case=obl]
+rule clause.inverted: S -> V[obj=yes, clitic_case=dat|refl|sedat, finite=yes, form=fin, person=?p, number=?n] NP[case=nom, person=?p, number=?n] NP[case=obl]
   "verb + subject + object in a question (¿Tiene usted un fósforo?)."
 
 rule vp.object-predicative-before: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=llevar|tener|tomar|dejar|pedir|coger, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] AP[number=?on, gender=?og] NP[case=obl, number=?on, gender=?og]

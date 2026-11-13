@@ -428,3 +428,21 @@ async fn the_subject_between_copula_and_predicate() {
     assert!(!run("¿Está usted cansado?").await.parses.is_empty());
     assert!(!run("¿Es usted médico?").await.parses.is_empty());
 }
+
+#[tokio::test]
+async fn inverted_questions_keep_ir_without_object() {
+    let a = run("¿Fue él un médico?").await;
+    assert!(agreed(&a, "Fue")[0].starts_with("ser Verb"));
+}
+
+#[tokio::test]
+async fn ya_está() {
+    assert!(!run("Ya está.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn a_climbed_clitic_with_an_object_predicate() {
+    assert!(!run("Lo puedo tener preparado.").await.parses.is_empty());
+    assert!(!run("Lo puedo dejar abierto.").await.parses.is_empty());
+    assert!(run("Lo puedo leer un libro.").await.parses.is_empty());
+}
