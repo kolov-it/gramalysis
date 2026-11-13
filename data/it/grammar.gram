@@ -362,6 +362,18 @@ rule compl.phrase: Compl -> PP
 rule compl.more: Compl -> Compl PP
   "Another complement."
 
+rule compl.adverb-phrase: Compl -> Adv[neg=no] PP
+  "An adverb with its own prepositional phrase as the complement (dinanzi a casa, fuori di casa)."
+
+rule clause.participle-first: S -> PartP Punct S
+  "A participle clause before the main clause, then a comma: it says what happened first (Arrivato a casa, ho mangiato)."
+
+rule clause.absolute-participle: S -> Verb[form=pastpart, drifted=no, number=?n, gender=?g] NP[case=nom, number=?n, gender=?g] Punct S
+  "An absolute participle with its own noun phrase, agreeing with it in gender and number (Finito il lavoro, siamo usciti; Giunta la sera, tornammo a casa)."
+
+rule pp.dopo-participle: PP -> Prep[lemma=dopo] Verb[form=pastpart, drifted=no]
+  "dopo + past participle: after doing it (dopo mangiato)."
+
 rule vp.passive-agent: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[form=pastpart, takes_avere=yes, number=?n, gender=?g] Prep[lemma=da] NP
   "essere + past participle + da + agent: the passive (è amato da tutti)."
 
