@@ -747,3 +747,29 @@ async fn a_final_question_word_keeps_the_clause_mood() {
     assert!(parses(&run("Il est où ?").await));
     assert!(!parses(&run("Il soit où ?").await));
 }
+
+#[tokio::test]
+async fn a_fronted_gerund_predicate_agrees_with_the_subject() {
+    assert!(parses(&run("En étant heureuse, elle est venue.").await));
+    assert!(!parses(&run("En étant heureux, elle est venue.").await));
+}
+
+#[tokio::test]
+async fn an_object_pronoun_controls_an_infinitive_after_de() {
+    assert!(parses(&run("Elle me dit de me laver.").await));
+    assert!(!parses(&run("Elle me dit de se laver.").await));
+    assert!(parses(&run("Je t'attends pour me laver.").await));
+}
+
+#[tokio::test]
+async fn floating_tous_agrees_with_the_subject() {
+    assert!(parses(&run("Ils ont tous mangé.").await));
+    assert!(!parses(&run("Il a tous mangé.").await));
+    assert!(!parses(&run("Elle est tous venue.").await));
+}
+
+#[tokio::test]
+async fn quelque_chose_de_takes_a_masculine_singular_adjective() {
+    assert!(parses(&run("Je vois quelque chose d'heureux.").await));
+    assert!(!parses(&run("Je vois quelque chose d'heureuses.").await));
+}

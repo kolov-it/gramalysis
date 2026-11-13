@@ -3277,6 +3277,347 @@
         "source": "kaikki",
         "surface": "qui"
       }
+    ],
+    "dit": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "dit",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "dit"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "dit",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "dit"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "dire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "dit"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "dit"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "historic past singular third-person",
+          "tags": [
+            "historic",
+            "past",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "historic",
+            "past",
+            "singular",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "dire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "dit"
+      }
+    ],
+    "attends": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "attendre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "attends"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "attendre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "attends"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "attendre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "attends"
+      }
+    ],
+    "ont": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative plural present third-person",
+          "tags": [
+            "indicative",
+            "plural",
+            "present",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "present",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ont"
+      }
+    ],
+    "chose": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "chose",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "chose"
+      }
+    ],
+    "quelque": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "quelque",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "quelque"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "quelque",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "quelque"
+      }
+    ],
+    "tous": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "tous",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "tous"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "tous"
+      }
+    ],
+    "ils": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "ils",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "ils"
+      }
     ]
   }
 }
