@@ -182867,6 +182867,15 @@
         "surface": "movimiento"
       }
     ],
+    "mu": [
+      {
+        "confidence": "high",
+        "lemma": "mu",
+        "partOfSpeech": "intj",
+        "source": "kaikki",
+        "surface": "mu"
+      }
+    ],
     "mucha": [
       {
         "confidence": "high",
@@ -185659,6 +185668,7 @@
         "surface": "móviles"
       }
     ],
+    "mú": [],
     "múltip": [],
     "múltiples": [
       {

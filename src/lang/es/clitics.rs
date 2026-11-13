@@ -6,7 +6,7 @@
 //! os (sentad + os = sentaos).
 
 const FIRST: [&str; 5] = ["me", "te", "se", "nos", "os"];
-const SECOND: [&str; 8] = ["lo", "la", "los", "las", "le", "les", "me", "nos"];
+const SECOND: [&str; 10] = ["lo", "la", "los", "las", "le", "les", "me", "te", "nos", "os"];
 const SINGLE: [&str; 11] = ["me", "te", "se", "nos", "os", "lo", "la", "los", "las", "le", "les"];
 /// One-syllable imperatives, which take clitics without an accent (dame,
 /// hazlo, ponte, dime, vete, deme, denme).
@@ -148,6 +148,7 @@ mod tests {
         assert!(has("denme", "den", &["me"]));
         assert!(has("mantente", "mantén", &["te"]));
         assert!(has("démoselo", "demos", &["se", "lo"]));
+        assert!(has("caérsete", "caer", &["se", "te"]));
         assert!(has("digámoselo", "digamos", &["se", "lo"]));
         assert!(has("estate", "está", &["te"]));
     }

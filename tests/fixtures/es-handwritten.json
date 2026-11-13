@@ -483,6 +483,32 @@
         "partOfSpeech": "adv"
       }
     ],
+    "caer": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "caer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "caerse": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "infinitive",
+            "reflexive"
+          ]
+        },
+        "lemma": "caer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "caersed": [],
     "cansado": [
       {
         "grammar": {
@@ -583,6 +609,11 @@
         "partOfSpeech": "verb"
       }
     ],
+    "caér": [],
+    "caérse": [],
+    "caérsed": [],
+    "caérseos": [],
+    "caérsete": [],
     "cerrada": [
       {
         "grammar": {
@@ -2927,6 +2958,29 @@
         },
         "lemma": "Podemos",
         "partOfSpeech": "name"
+      }
+    ],
+    "poder": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "poder",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "poder",
+        "partOfSpeech": "noun"
       }
     ],
     "por": [

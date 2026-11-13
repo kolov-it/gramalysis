@@ -446,3 +446,14 @@ async fn a_climbed_clitic_with_an_object_predicate() {
     assert!(!run("Lo puedo dejar abierto.").await.parses.is_empty());
     assert!(run("Lo puedo leer un libro.").await.parses.is_empty());
 }
+
+#[tokio::test]
+async fn a_clitic_climbs_over_two_modals() {
+    assert!(!run("Lo quiero poder leer.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn se_then_te_or_os_attached() {
+    assert!(!run("Puede caérsete.").await.parses.is_empty());
+    assert!(!run("Puede caérseos.").await.parses.is_empty());
+}
