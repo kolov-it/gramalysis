@@ -586,3 +586,25 @@ async fn etre_cense_keeps_the_controller_checks() {
 async fn moi_as_the_direct_object_of_an_order() {
     assert!(parses(&run("Rends-moi heureux.").await));
 }
+
+#[tokio::test]
+async fn an_object_pronoun_controls_a_reflexive_infinitive() {
+    assert!(parses(&run("Elle me laisse me laver.").await));
+    assert!(!parses(&run("Elle me laisse se laver.").await));
+}
+
+#[tokio::test]
+async fn a_subordinate_clause_does_not_license_a_subjunctive_main_clause() {
+    assert!(!parses(&run("Il soit heureux quand il est là.").await));
+}
+
+#[tokio::test]
+async fn a_reflexive_order_with_an_adjective() {
+    assert!(parses(&run("Rends-toi heureux.").await));
+}
+
+#[tokio::test]
+async fn quel_with_etre_agrees_with_the_noun_phrase() {
+    assert!(parses(&run("Quel est ton chat ?").await));
+    assert!(!parses(&run("Quel sont ton chat ?").await));
+}
