@@ -517,3 +517,22 @@ async fn nested_infinitives_keep_the_reflexive_controller_check() {
     assert!(parses(&run("Je veux pouvoir me laver.").await));
     assert!(!parses(&run("Je veux pouvoir se laver.").await));
 }
+
+#[tokio::test]
+async fn d_abord_inside_a_compound_tense() {
+    let a = run("J'ai d'abord écrit la lettre.").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "écrit")[0].starts_with("écrire Verb"));
+}
+
+#[tokio::test]
+async fn an_attached_object_pronoun_agrees_with_a_predicative_adjective() {
+    assert!(parses(&run("Rends-la heureuse.").await));
+    assert!(!parses(&run("Rends-la heureux.").await));
+}
+
+#[tokio::test]
+async fn ne_pas_keeps_predicate_agreement_in_an_infinitive() {
+    assert!(parses(&run("Elle veut ne pas avoir été fermée.").await));
+    assert!(!parses(&run("Elle veut ne pas avoir été fermé.").await));
+}

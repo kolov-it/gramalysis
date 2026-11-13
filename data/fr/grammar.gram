@@ -523,7 +523,7 @@ rule v.negation-word: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, numbe
 rule v.negation-spoken: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=?a, neg=yes, gap=?gp, irefl=?ir, irnum=?irn, needs_obj=?no, etre=?e, anum=?an, agen=?ag] -> V[gap=?gp, irefl=?ir, irnum=?irn, needs_obj=?no, etre=?e, anum=?an, agen=?ag, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=?a, neg=no] NegAdv[only=no]
   "pas without ne, in speech (je sais pas)."
 
-rule v.negation-infinitive: V[lemma=?l, finite=no, form=inf, acc=?a, subj=no, neg=yes, anum=?an, agen=?ag, irefl=?ir, irnum=?irn] -> Neg NegAdv[only=no] V[lemma=?l, form=inf, acc=?a, neg=no, anum=?an, agen=?ag, irefl=?ir, irnum=?irn]
+rule v.negation-infinitive: V[lemma=?l, finite=no, form=inf, acc=?a, subj=no, neg=yes, anum=?an, agen=?ag, irefl=?ir, irnum=?irn, pnum=?pn, gender=?g] -> Neg NegAdv[only=no] V[lemma=?l, form=inf, acc=?a, neg=no, anum=?an, agen=?ag, irefl=?ir, irnum=?irn, pnum=?pn, gender=?g]
   "ne pas before an infinitive (pour ne pas oublier)."
 
 rule v.proclitic: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, subj=no, acc=?a, neg=no, anum=?an, agen=?ag] -> Clitics[attached=no, acc=?a, refl=?r, obj=?o, anum=?an, agen=?ag, rnum=?n] Verb[lemma=?l, etre=no, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n, gender=?g, person=?r, person!=?o]
@@ -538,7 +538,7 @@ rule v.proclitic-inverted: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p,
 rule v.inverted: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=no, etre=?e, gender=?g] -> Verb[lemma=?l, etre=?e, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, gender=?g]
   "Inversion: the subject pronoun after the verb (parlez-vous, a-t-il, puis-je)."
 
-rule v.imperative-enclitic: V[lemma=?l, finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no, acc=?a, neg=no] -> Verb[lemma=?l, form=fin, mood=imp, person=?p, number=?n] EnCl[acc=?a, refl=?p, obj!=?p, rnum=?n]
+rule v.imperative-enclitic: V[lemma=?l, finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no, acc=?a, neg=no, anum=?an, agen=?ag] -> Verb[lemma=?l, form=fin, mood=imp, person=?p, number=?n] EnCl[acc=?a, refl=?p, obj!=?p, rnum=?n, anum=?an, agen=?ag]
   "In an order, the object pronouns follow the verb, with hyphens (donne-le-moi, lève-toi, allez-y)."
 
 rule v.imperative-negated: V[lemma=?l, finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no, acc=?a, neg=yes] -> Neg Clitics[attached=no, acc=?a, refl=?r, obj=?o, rnum=?n] Verb[lemma=?l, form=fin, mood=imp, person=?p, number=?n, person=?r, person!=?o]
@@ -717,6 +717,9 @@ rule v.passive-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=no, neg
 rule mod.adverb: Mod[neg=no] -> Adv
   "An adverb between the auxiliary and the participle (déjà, toujours, bien)."
 
+rule mod.d-abord: Mod[neg=no] -> Prep[lemma=de] Noun[lemma=abord]
+  "d'abord between the auxiliary and the participle (j'ai d'abord écrit la lettre)."
+
 rule mod.negation: Mod[neg=yes] -> NegAdv
   "pas, plus, jamais, rien between the auxiliary and the participle."
 
@@ -803,19 +806,19 @@ rule encl.local: EnCl[obj=?p, acc=no] -> Pron[attached=yes, case=acc|dat, person
 rule encl.local-plural: EnCl[acc=no] -> Pron[attached=yes, case=acc|dat, person=1, person=?p, number=pl]
   "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
 
-rule encl.acc: EnCl[acc=yes] -> Pron[attached=yes, case=acc, person=3]
+rule encl.acc: EnCl[acc=yes, anum=?an, agen=?ag] -> Pron[attached=yes, case=acc, person=3, number=?an, gender=?ag]
   "le, la, les after an order (prends-le)."
 
 rule encl.other: EnCl[acc=no] -> Pron[attached=yes, case=dat|loc|gen, person=3]
   "lui, leur, y, en after an order (dis-lui, allez-y, prends-en)."
 
-rule encl.acc-dat: EnCl[acc=yes, obj=?p] -> Pron[attached=yes, case=acc, person=3] Pron[attached=yes, case=dat, person=?p]
+rule encl.acc-dat: EnCl[acc=yes, obj=?p, anum=?an, agen=?ag] -> Pron[attached=yes, case=acc, person=3, number=?an, gender=?ag] Pron[attached=yes, case=dat, person=?p]
   "le, la, les before moi, lui, nous, leur after an order (donne-le-moi)."
 
-rule encl.acc-dat-plural: EnCl[acc=yes] -> Pron[attached=yes, case=acc, person=3] Pron[attached=yes, case=dat, person=?p, person=1, number=pl]
+rule encl.acc-dat-plural: EnCl[acc=yes, anum=?an, agen=?ag] -> Pron[attached=yes, case=acc, person=3, number=?an, gender=?ag] Pron[attached=yes, case=dat, person=?p, person=1, number=pl]
   "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
 
-rule encl.acc-reflexive: EnCl[acc=yes, refl=?p] -> Pron[attached=yes, case=acc, person=3] Pron[attached=yes, case=refl, person=?p]
+rule encl.acc-reflexive: EnCl[acc=yes, refl=?p, anum=?an, agen=?ag] -> Pron[attached=yes, case=acc, person=3, number=?an, gender=?ag] Pron[attached=yes, case=refl, person=?p]
   "le, la, les before a reflexive moi, toi, nous, vous after an order (donne-le-toi, offrez-la-vous)."
 
 rule encl.reflexive-en: EnCl[refl=?p, acc=no, rnum=?rn] -> Pron[attached=yes, case=refl, person=?p, number=?rn] Pron[attached=yes, case=gen|loc]

@@ -1711,6 +1711,46 @@
           "clitic": false
         }
       }
+    ],
+    "rends": [
+      {
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "abord": [
+      {
+        "lemma": "abord",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
     ]
   }
 }
