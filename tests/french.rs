@@ -487,3 +487,21 @@ async fn coordinated_subject_pronouns_stay_subjects() {
     assert!(parses(&run("Il et elle sont là.").await));
     assert!(!parses(&run("Je vois il et elle.").await));
 }
+
+#[tokio::test]
+async fn object_question_with_a_noun_subject_and_inversion_agrees() {
+    assert!(parses(&run("Quelles lettres la femme a-t-elle écrites ?").await));
+    assert!(!parses(&run("Quelles lettres la femme a-t-elle écrit ?").await));
+}
+
+#[tokio::test]
+async fn ne_pas_keeps_the_reflexive_controller_check() {
+    assert!(parses(&run("Je veux ne pas me laver.").await));
+    assert!(!parses(&run("Je veux ne pas se laver.").await));
+}
+
+#[tokio::test]
+async fn an_etre_based_infinitive_agrees_with_its_controller() {
+    assert!(parses(&run("Elle veut avoir été fermée.").await));
+    assert!(!parses(&run("Elle veut avoir été fermé.").await));
+}
