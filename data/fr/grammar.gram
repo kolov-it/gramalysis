@@ -148,7 +148,7 @@ rule question.wh-adverb: S[inv=yes] -> QAdv S[imp=no]
 rule question.wh-adverb-est-ce-que: S[inv=yes] -> QAdv QMark S[imp=no]
   "A question word + est-ce que (Où est-ce que tu vas ?)."
 
-rule question.wh-stylistic: S[inv=yes] -> QAdv VP[finite=yes, form=fin, subj=no, person=?p, number=?n] NP[case=nom, person=?p, number=?n]
+rule question.wh-stylistic: S[inv=yes] -> QAdv VP[finite=yes, form=fin, subj=no, person=?p, number=?n, pnum=?pn, gender=?g] NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g]
   "After a question word the noun subject can follow the verb (Où est la gare ? Comment s'appelle ton frère ?)."
 
 rule question.wh-subject: S[inv=yes] -> QPron[lemma=qui] VP[finite=yes, form=fin, mood=ind|cnd, subj=no, person=3, number=sg]
@@ -899,10 +899,10 @@ rule time.numeral: TimeNP -> Num Noun[lemma=fois|heure|jour|an|minute|semaine|mo
 
 # ------------------------------------------------- more shapes (from the Tatoeba no-parses)
 
-rule vp.coordination: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] VP[finite=?f, form=?fm, person=?p, number=?n, subj=no]
-  "Two verb phrases with one subject, joined by et, mais, ou, puis (il perdit patience et frappa le garçon)."
+rule vp.coordination: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no]
+  "Two verb phrases with one subject, joined by et, mais, ou, puis (il perdit patience et frappa le garçon); both agree with it, predicates too (elle est heureuse et fatiguée)."
 
-rule vp.coordination-negated: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] Neg VP[finite=?f, form=?fm, person=?p, number=?n, subj=no]
+rule vp.coordination-negated: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] Neg VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no]
   "… mais ne + verb phrase (elle écrivit une lettre mais ne la posta pas)."
 
 rule clause.coordination-comma: S[imp=?i] -> S Punct Conj[type=coord] S[imp=?i]
@@ -1001,13 +1001,13 @@ rule vp.supposed: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender
 rule vp.indirect-question-pronoun-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] QPron VP[form=inf]
   "quoi or qui + infinitive inside the sentence (je ne sais pas quoi dire)."
 
-rule rel.ou-inverted: Rel -> RelPron[role=place] VP[finite=yes, form=fin, subj=no, person=?p, number=?n] NP[case=nom, person=?p, number=?n]
+rule rel.ou-inverted: Rel -> RelPron[role=place] VP[finite=yes, form=fin, subj=no, person=?p, number=?n, pnum=?pn, gender=?g] NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g]
   "où + verb + noun subject (le pays où coule le lait)."
 
-rule rel.object-inverted: Rel -> RelPron[role=object] VP[finite=yes, form=fin, subj=no, person=?p, number=?n] NP[case=nom, person=?p, number=?n]
+rule rel.object-inverted: Rel -> RelPron[role=object] VP[finite=yes, form=fin, subj=no, person=?p, number=?n, pnum=?pn, gender=?g] NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g]
   "que + verb + noun subject (le livre que lit mon père)."
 
-rule clause.incise-noun: S -> S Punct VP[finite=yes, form=fin, subj=no, person=3, number=?n] NP[case=nom, person=3, number=?n]
+rule clause.incise-noun: S -> S Punct VP[finite=yes, form=fin, subj=no, person=3, number=?n, pnum=?pn, gender=?g] NP[case=nom, person=3, number=?n, pnum=?pn, gender=?g]
   "A reporting verb after the quotation, with a noun subject after it (…, dit Tom)."
 
 rule clause.interjection-alone: S -> Intj

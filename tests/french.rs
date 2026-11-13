@@ -239,3 +239,9 @@ async fn past_infinitive_of_etre_takes_an_adjective() {
     assert!(parses(&a));
     assert!(agreed(&a, "heureuse")[0].starts_with("heureux Adj"));
 }
+
+#[tokio::test]
+async fn coordinated_verb_phrases_both_agree_with_the_subject() {
+    assert!(parses(&run("Elle est heureuse et est fatiguée.").await));
+    assert!(!parses(&run("Elle est heureuse et est fatigué.").await));
+}
