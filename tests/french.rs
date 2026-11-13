@@ -843,3 +843,26 @@ async fn an_object_agreement_question_keeps_the_auxiliary_mood() {
     assert!(parses(&run("Quelles lettres aurait-il lues ?").await));
     assert!(!parses(&run("Quelles lettres ait-il lues ?").await));
 }
+
+#[tokio::test]
+async fn a_dative_controller_checks_the_predicate_number() {
+    assert!(parses(&run("Elle me laisse être heureuse.").await));
+    assert!(!parses(&run("Elle me laisse être heureuses.").await));
+}
+
+#[tokio::test]
+async fn coordinated_gerunds_keep_their_controller() {
+    assert!(!parses(&run("Je suis venu en me lavant et en se lavant.").await));
+    assert!(!parses(&run("Elle est venue en étant heureuse et en étant heureux.").await));
+}
+
+#[tokio::test]
+async fn the_question_marker_is_present_est() {
+    assert!(parses(&run("Est-ce qu'il est heureux ?").await));
+    assert!(!parses(&run("Soit-ce qu'il est heureux ?").await));
+}
+
+#[tokio::test]
+async fn jusque_la() {
+    assert!(parses(&run("Jusque-là, tout va bien.").await));
+}

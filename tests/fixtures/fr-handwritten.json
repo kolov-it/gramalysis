@@ -3994,6 +3994,230 @@
         "source": "kaikki",
         "surface": "aurait"
       }
+    ],
+    "va": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "VA",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "va"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "active indicative present singular third-person",
+          "tags": [
+            "active",
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "active",
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "va"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "va"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "active indicative present singular third-person",
+          "tags": [
+            "active",
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "active",
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "vader",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "va"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "vader",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "va"
+      }
+    ],
+    "bien": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "invariable"
+          ]
+        },
+        "lemma": "bien",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "bien"
+      },
+      {
+        "confidence": "high",
+        "lemma": "bien",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "bien"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "bien",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "bien"
+      }
+    ],
+    "tout": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "tout"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "tout"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "tout"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "neuter",
+          "rawTags": [
+            "neuter"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "tout"
+      }
     ]
   }
 }

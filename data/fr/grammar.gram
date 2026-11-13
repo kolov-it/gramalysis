@@ -168,7 +168,7 @@ rule sub.de-sorte: Sub -> Prep[lemma=de] Noun[lemma=sorte|façon|manière] Conj[
 rule question.est-ce-que: S[inv=yes, smood=?sm, cesubj=?cs, gap=?gp] -> QMark S[smood=?sm, cesubj=?cs, imp=no, inv=no, gap=?gp]
   "est-ce que before a clause makes it a question (Est-ce que tu viens ?)."
 
-rule qmark.est-ce-que: QMark -> Verb[lemma=être, person=3, number=sg] Pron[attached=yes, lemma=ce] Conj[lemma=que]
+rule qmark.est-ce-que: QMark -> Verb[lemma=être, mood=ind, tense=pres, person=3, number=sg] Pron[attached=yes, lemma=ce] Conj[lemma=que]
   "est-ce que: the question marker."
 
 rule question.wh-adverb: S[inv=yes, smood=?sm, cesubj=?cs] -> QAdv S[smood=?sm, cesubj=?cs, imp=no]
@@ -192,7 +192,7 @@ rule question.wh-object: S[inv=yes, smood=?sm, cesubj=?cs] -> QPron S[smood=?sm,
 rule question.qu-est-ce-que: S[inv=yes, smood=?sm, cesubj=?cs] -> QPron QMark S[smood=?sm, cesubj=?cs, imp=no, inv=no]
   "qu'est-ce que = what (Qu'est-ce que tu fais ?)."
 
-rule question.qu-est-ce-qui: S[inv=yes] -> QPron Verb[lemma=être, person=3, number=sg] Pron[attached=yes, lemma=ce] RelPron[role=subject] VP[finite=yes, form=fin, subj=no, person=3, number=sg, pnum=sg]
+rule question.qu-est-ce-qui: S[inv=yes] -> QPron Verb[lemma=être, mood=ind, tense=pres, person=3, number=sg] Pron[attached=yes, lemma=ce] RelPron[role=subject] VP[finite=yes, form=fin, subj=no, person=3, number=sg, pnum=sg]
   "qu'est-ce qui = what, as the subject (Qu'est-ce qui se passe ?)."
 
 rule question.wh-phrase: S[inv=yes, smood=?sm, cesubj=?cs] -> WhP S[smood=?sm, cesubj=?cs, imp=no, gap=no]
@@ -999,7 +999,7 @@ rule vp.language-object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, 
 rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, irefl=?p, irnum=?n] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=pouvoir|devoir|vouloir|savoir|aller|venir|manquer|aimer|préférer|adorer|détester|falloir|oser|sembler|paraître|désirer|espérer|compter|souhaiter|penser|croire|courir|monter|descendre|sortir|rentrer|partir|retourner|valoir|affirmer|prétendre|avouer|déclarer|nier|reconnaître|imaginer|savoir, acc=no] VP[form=inf, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
   "A verb followed by an infinitive without a preposition: modal, motion, perception and causative verbs and a few others (je veux partir, il va pleuvoir, je l'entends chanter, fais-moi savoir). The subject controls the infinitive: an adjective after an infinitive linking verb agrees with it (elle veut être heureuse), and a reflexive pronoun on the infinitive is the subject's person and number (je veux me laver, not *je veux se laver)."
 
-rule vp.infinitive-causative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=voir|entendre|faire|laisser|regarder|écouter|sentir|envoyer, acc=no, dperson=?dp, dnum=?dn] VP[form=inf, irefl=?dp, irnum=?dn]
+rule vp.infinitive-causative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=voir|entendre|faire|laisser|regarder|écouter|sentir|envoyer, acc=no, dperson=?dp, dnum=?dn] VP[form=inf, irefl=?dp, irnum=?dn, pnum=?dn]
   "A perception or causative verb + infinitive with no direct object pronoun: the infinitive's agent is unsaid or an indirect pronoun, never the subject, so a reflexive on it follows that pronoun (je vois partir le train, elle me laisse me laver)."
 
 rule vp.infinitive-object-control: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=voir|entendre|laisser|regarder|écouter|sentir|envoyer|empêcher, acc=yes, anum=?an, agen=?ag, aperson=?ap] VP[form=inf, pnum=?an, gender=?ag, irefl=?ap, irnum=?an]
@@ -1379,7 +1379,7 @@ rule clause.adverb-pair-first: S[imp=?i, smood=?sm] -> Adv Conj[type=coord] Adv 
 rule ap.more-and-more: AP[pp=?x, number=?n, gender=?g] -> Prep[lemma=de] Adv[lemma=plus|moins] Prep[lemma=en] Adv[lemma=plus|moins] AP[pp=?x, number=?n, gender=?g]
   "de plus en plus, de moins en moins + adjective."
 
-rule pp.coordination: PP[agent=no] -> PP Conj[type=coord] PP
+rule pp.coordination: PP[agent=no, irefl=?ir, irnum=?irn, pnum=?pn, gender=?g] -> PP[irefl=?ir, irnum=?irn, pnum=?pn, gender=?g] Conj[type=coord] PP[irefl=?ir, irnum=?irn, pnum=?pn, gender=?g]
   "Two phrases with a preposition joined by et, ou (à votre tante et à votre oncle)."
 
 rule clause.phrase-last-comma: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg] Punct PP[irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg]

@@ -445,3 +445,6 @@ sauf = sauf:Adj{gender=m,number=sg}
 # été): bare, it would pose as the object of avoir (a-t-elle été fermé).
 # Listing it keeps the lexicon's reading of être's participle.
 été = été:Noun{gender=m,needs_det=yes}
+
+# hyphenated adverbs kept whole by the tokenizer
+jusque-là = jusque-là:Adv
