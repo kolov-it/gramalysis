@@ -176,6 +176,9 @@ rule question.wh-object-agreement: S[inv=yes] -> WhP[number=?on, gender=?og] Ver
 rule question.wh-object-agreement-adverb: S[inv=yes] -> WhP[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "The same with an adverb (Quels livres as-tu déjà lus ?)."
 
+rule question.wh-object-agreement-negated: S[inv=yes] -> WhP[number=?on, gender=?og] Neg Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+  "The same with ne … pas (Quelles lettres n'as-tu pas écrites ?)."
+
 rule question.wh-object-agreement-more: S[inv=yes] -> WhP[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og] Tail
   "The same, then more (Quelles lettres as-tu écrites hier ?)."
 
@@ -590,6 +593,15 @@ rule v.perfect-gerund: V[lemma=?l, finite=no, form=prespart, subj=no, acc=no, ne
 rule v.perfect-gerund-etre: V[lemma=?l, finite=no, form=prespart, subj=no, acc=no, neg=no] -> Verb[lemma=être, form=prespart|ger] Verb[lemma=?l, form=pastpart, takes_etre=yes]
   "étant + participle of an être verb (étant arrivé)."
 
+rule v.proclitic-perfect-gerund: V[lemma=?l, finite=no, form=prespart, subj=no, acc=yes, neg=no] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?on, agen=?og] Verb[lemma=avoir, form=prespart|ger] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+  "le, la, les before ayant + participle, which agrees with it (en les ayant vus)."
+
+rule v.indirect-perfect-gerund: V[lemma=?l, finite=no, form=prespart, subj=no, acc=no, neg=no] -> Clitics[attached=no, reflexive=no, acc=no] Verb[lemma=avoir, form=prespart|ger] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
+  "An indirect pronoun before ayant + participle (en lui ayant parlé)."
+
+rule v.reflexive-perfect-gerund: V[lemma=?l, finite=no, form=prespart, subj=no, acc=?a, neg=no] -> Clitics[attached=no, reflexive=yes, acc=?a] Verb[lemma=être, form=prespart|ger] Verb[lemma=?l, form=pastpart]
+  "A pronominal verb with étant (s'étant levé)."
+
 rule v.passive-event: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=no] -> Verb[lemma=être, finite=yes, tense=pret|fut, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
   "The passive with être in the passé simple or the future: an event, not a state (il fut tué, ce sera fait)."
 
@@ -645,8 +657,14 @@ rule clitics.reflexive: Clitics[reflexive=yes, attached=?t, refl=?p, acc=no, rnu
 rule clitics.local-acc: Clitics[reflexive=no, attached=?t, obj=?p, acc=yes, anum=?n] -> Pron[attached=?t, clitic=yes, case=acc, person=1|2, person=?p, number=?n]
   "A 1st or 2nd person direct object pronoun (il me voit, je vous aime)."
 
+rule clitics.local-acc-plural: Clitics[reflexive=no, attached=?t, acc=yes, anum=?n] -> Pron[attached=?t, clitic=yes, case=acc, person=1, person=?p, number=?n, number=pl]
+  "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
+
 rule clitics.local-dat: Clitics[reflexive=no, attached=?t, obj=?p, acc=no] -> Pron[attached=?t, clitic=yes, case=dat, person=1|2, person=?p]
   "A 1st or 2nd person indirect object pronoun (il me parle, je te donne)."
+
+rule clitics.local-dat-plural: Clitics[reflexive=no, attached=?t, acc=no] -> Pron[attached=?t, clitic=yes, case=dat, person=1, person=?p, number=pl]
+  "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
 
 rule clitics.acc: Clitics[reflexive=no, attached=?t, acc=yes, anum=?n, agen=?g] -> Pron[attached=?t, clitic=yes, case=acc, person=3, number=?n, gender=?g]
   "A direct object pronoun: le, la, l', les."
@@ -663,11 +681,20 @@ rule clitics.reflexive-other: Clitics[reflexive=yes, attached=?t, refl=?p, acc=n
 rule clitics.local-acc3: Clitics[reflexive=no, attached=?t, obj=?p, acc=yes, anum=?n, agen=?g] -> Pron[attached=?t, clitic=yes, case=dat, person=1|2, person=?p] Pron[clitic=yes, case=acc, person=3, number=?n, gender=?g]
   "me, te, nous, vous before le, la, les (il me le donne)."
 
+rule clitics.local-acc3-plural: Clitics[reflexive=no, attached=?t, acc=yes, anum=?n, agen=?g] -> Pron[attached=?t, clitic=yes, case=dat, person=1, person=?p, number=pl] Pron[clitic=yes, case=acc, person=3, number=?n, gender=?g]
+  "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
+
 rule clitics.local-other: Clitics[reflexive=no, attached=?t, obj=?p, acc=no] -> Pron[attached=?t, clitic=yes, case=dat, person=1|2, person=?p] Pron[clitic=yes, case=gen]
   "me, te, nous, vous before en (il m'en parle)."
 
+rule clitics.local-other-plural: Clitics[reflexive=no, attached=?t, acc=no] -> Pron[attached=?t, clitic=yes, case=dat, person=1, person=?p, number=pl] Pron[clitic=yes, case=gen]
+  "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
+
 rule clitics.local-acc-y: Clitics[reflexive=no, attached=?t, obj=?p, acc=yes, anum=?n] -> Pron[attached=?t, clitic=yes, case=acc, person=1|2, person=?p, number=?n] Pron[clitic=yes, case=loc]
   "me, te before y (je t'y emmène)."
+
+rule clitics.local-acc-y-plural: Clitics[reflexive=no, attached=?t, acc=yes, anum=?n] -> Pron[attached=?t, clitic=yes, case=acc, person=1, person=?p, number=?n, number=pl] Pron[clitic=yes, case=loc]
+  "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
 
 rule clitics.acc-dat: Clitics[reflexive=no, attached=?t, acc=yes, anum=?n, agen=?g] -> Pron[attached=?t, clitic=yes, case=acc, person=3, number=?n, gender=?g] Pron[clitic=yes, case=dat, person=3]
   "le, la, les before lui, leur (je le lui donne)."
@@ -688,6 +715,9 @@ rule encl.reflexive: EnCl[refl=?p, acc=no, rnum=?rn] -> Pron[attached=yes, case=
 rule encl.local: EnCl[obj=?p, acc=no] -> Pron[attached=yes, case=acc|dat, person=1|2, person=?p]
   "me (moi), nous, vous after an order (aide-moi, dis-nous)."
 
+rule encl.local-plural: EnCl[acc=no] -> Pron[attached=yes, case=acc|dat, person=1, person=?p, number=pl]
+  "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
+
 rule encl.acc: EnCl[acc=yes] -> Pron[attached=yes, case=acc, person=3]
   "le, la, les after an order (prends-le)."
 
@@ -697,6 +727,9 @@ rule encl.other: EnCl[acc=no] -> Pron[attached=yes, case=dat|loc|gen, person=3]
 rule encl.acc-dat: EnCl[acc=yes, obj=?p] -> Pron[attached=yes, case=acc, person=3] Pron[attached=yes, case=dat, person=?p]
   "le, la, les before moi, lui, nous, leur after an order (donne-le-moi)."
 
+rule encl.acc-dat-plural: EnCl[acc=yes] -> Pron[attached=yes, case=acc, person=3] Pron[attached=yes, case=dat, person=?p, person=1, number=pl]
+  "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
+
 rule encl.acc-reflexive: EnCl[acc=yes, refl=?p] -> Pron[attached=yes, case=acc, person=3] Pron[attached=yes, case=refl, person=?p]
   "le, la, les before a reflexive moi, toi, nous, vous after an order (donne-le-toi, offrez-la-vous)."
 
@@ -705,6 +738,9 @@ rule encl.reflexive-en: EnCl[refl=?p, acc=no, rnum=?rn] -> Pron[attached=yes, ca
 
 rule encl.dat-en: EnCl[obj=?p, acc=no] -> Pron[attached=yes, case=dat, person=?p] Pron[attached=yes, case=gen|loc]
   "moi, lui + en after an order (donne-m'en, parle-lui-en)."
+
+rule encl.dat-en-plural: EnCl[acc=no] -> Pron[attached=yes, case=dat, person=?p, person=1, number=pl] Pron[attached=yes, case=gen|loc]
+  "nous as the object may share a singular subject's person (je nous vois): no obj check. Not vous, which is also the polite singular (tu vous laves stays out)."
 
 # ------------------------------------------------- linking verbs
 

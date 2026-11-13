@@ -396,6 +396,13 @@ auxquelles = à:Prep + lequel:RelPron{role=prep,gender=f,number=pl}
 duquel = de:Prep + lequel:RelPron{role=prep,gender=m,number=sg}
 desquels = de:Prep + lequel:RelPron{role=prep,gender=m,number=pl}
 desquelles = de:Prep + lequel:RelPron{role=prep,gender=f,number=pl}
+# … and in questions (Auquel penses-tu ? Duquel parles-tu ?)
+auquel = à:Prep + lequel:QPron{gender=m,number=sg}
+auxquels = à:Prep + lequel:QPron{gender=m,number=pl}
+auxquelles = à:Prep + lequel:QPron{gender=f,number=pl}
+duquel = de:Prep + lequel:QPron{gender=m,number=sg}
+desquels = de:Prep + lequel:QPron{gender=m,number=pl}
+desquelles = de:Prep + lequel:QPron{gender=f,number=pl}
 
 # --- answers and interjections
 oui = oui:Intj

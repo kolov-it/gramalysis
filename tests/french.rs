@@ -378,3 +378,23 @@ async fn the_reflexive_pronoun_agrees_with_the_verb_in_number() {
     assert!(parses(&run("Vous vous lavez.").await));
     assert!(!parses(&run("Tu vous laves.").await));
 }
+
+#[tokio::test]
+async fn a_plural_object_can_share_the_subjects_person() {
+    assert!(parses(&run("Je nous ai vus.").await));
+}
+
+#[tokio::test]
+async fn negated_object_question_agrees() {
+    assert!(parses(&run("Quelles lettres n'as-tu pas écrites ?").await));
+}
+
+#[tokio::test]
+async fn auquel_in_a_question() {
+    assert!(parses(&run("Auquel penses-tu ?").await));
+}
+
+#[tokio::test]
+async fn object_pronoun_before_ayant() {
+    assert!(parses(&run("En les ayant vus, je suis heureux.").await));
+}

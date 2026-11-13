@@ -25645,6 +25645,22 @@
         "surface": "auprès"
       }
     ],
+    "auquel": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "auquel",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "auquel"
+      }
+    ],
     "aura": [
       {
         "confidence": "high",

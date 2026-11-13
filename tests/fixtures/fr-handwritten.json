@@ -1402,6 +1402,45 @@
           "clitic": false
         }
       }
+    ],
+    "vus": [
+      {
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "plural",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "penses": [
+      {
+        "lemma": "penser",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "ayant": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "present-participle",
+          "clitic": false
+        }
+      }
     ]
   }
 }
