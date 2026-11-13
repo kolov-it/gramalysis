@@ -117,8 +117,8 @@ async fn pronominal_verb_takes_etre() {
     // a direct reflexive agrees with the subject, inverted too
     assert!(!parses(&run("Elle s'est levé.").await));
     assert!(parses(&run("S'est-elle levée ?").await));
-    // an untagged duplicate reading of parlé does not bypass agreement
-    assert!(!parses(&run("Elles se sont parlé.").await));
+    // parler's reflexive is indirect: the participle stays invariable
+    assert!(parses(&run("Elles se sont parlé.").await));
 }
 
 #[tokio::test]
@@ -831,4 +831,15 @@ async fn lui_and_leur_control_an_infinitive() {
 #[tokio::test]
 async fn faire_partie() {
     assert!(parses(&run("Il fait partie de la famille.").await));
+}
+
+#[tokio::test]
+async fn qu_est_ce_qui_takes_a_singular_predicate() {
+    assert!(!parses(&run("Qu'est-ce qui est heureuses ?").await));
+}
+
+#[tokio::test]
+async fn an_object_agreement_question_keeps_the_auxiliary_mood() {
+    assert!(parses(&run("Quelles lettres aurait-il lues ?").await));
+    assert!(!parses(&run("Quelles lettres ait-il lues ?").await));
 }

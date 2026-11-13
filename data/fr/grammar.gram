@@ -192,58 +192,58 @@ rule question.wh-object: S[inv=yes, smood=?sm, cesubj=?cs] -> QPron S[smood=?sm,
 rule question.qu-est-ce-que: S[inv=yes, smood=?sm, cesubj=?cs] -> QPron QMark S[smood=?sm, cesubj=?cs, imp=no, inv=no]
   "qu'est-ce que = what (Qu'est-ce que tu fais ?)."
 
-rule question.qu-est-ce-qui: S[inv=yes] -> QPron Verb[lemma=être, person=3, number=sg] Pron[attached=yes, lemma=ce] RelPron[role=subject] VP[finite=yes, form=fin, subj=no, person=3, number=sg]
+rule question.qu-est-ce-qui: S[inv=yes] -> QPron Verb[lemma=être, person=3, number=sg] Pron[attached=yes, lemma=ce] RelPron[role=subject] VP[finite=yes, form=fin, subj=no, person=3, number=sg, pnum=sg]
   "qu'est-ce qui = what, as the subject (Qu'est-ce qui se passe ?)."
 
 rule question.wh-phrase: S[inv=yes, smood=?sm, cesubj=?cs] -> WhP S[smood=?sm, cesubj=?cs, imp=no, gap=no]
   "A question phrase opens the question (Quel livre lis-tu ? Combien de temps faut-il ?). Before avoir + a participle that agrees with nothing it is the participle's object: question.wh-object-agreement."
 
-rule question.wh-object-agreement: S[inv=yes] -> WhP[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-object-agreement: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A question phrase as the object of an inverted compound tense: the participle agrees with it (Quelles lettres as-tu écrites ?)."
 
-rule question.wh-pronoun-object-agreement: S[inv=yes] -> QPron[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-pronoun-object-agreement: S[inv=yes, smood=?qm] -> QPron[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A question pronoun (que, qui, lequel…) as the object of an inverted compound tense: the participle agrees with it (Qu'as-tu fait ? Lesquelles as-tu écrites ?)."
 
-rule question.wh-object-agreement-adverb: S[inv=yes] -> WhP[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-object-agreement-adverb: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "The same with an adverb (Quels livres as-tu déjà lus ?)."
 
-rule question.wh-pronoun-object-agreement-adverb: S[inv=yes] -> QPron[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-pronoun-object-agreement-adverb: S[inv=yes, smood=?qm] -> QPron[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A question pronoun (que, qui, lequel…) as the object of an inverted compound tense: the participle agrees with it (Qu'as-tu fait ? Lesquelles as-tu écrites ?)."
 
-rule question.wh-object-agreement-negated: S[inv=yes] -> WhP[number=?on, gender=?og] Neg Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-object-agreement-negated: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] Neg Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "The same with ne … pas (Quelles lettres n'as-tu pas écrites ?)."
 
-rule question.wh-pronoun-object-agreement-negated: S[inv=yes] -> QPron[number=?on, gender=?og] Neg Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-pronoun-object-agreement-negated: S[inv=yes, smood=?qm] -> QPron[number=?on, gender=?og] Neg Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A question pronoun (que, qui, lequel…) as the object of an inverted compound tense: the participle agrees with it (Qu'as-tu fait ? Lesquelles as-tu écrites ?)."
 
-rule question.wh-object-agreement-more: S[inv=yes] -> WhP[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og] Tail
+rule question.wh-object-agreement-more: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og] Tail
   "The same, then more (Quelles lettres as-tu écrites hier ?)."
 
-rule question.wh-object-agreement-est-ce-que: S[inv=yes] -> WhP[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-object-agreement-est-ce-que: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A question phrase as the object, then est-ce que and the ordinary subject-first compound tense: the participle agrees with the question phrase (Quelles lettres est-ce que tu as écrites ?)."
 
-rule question.wh-object-agreement-est-ce-que-adverb: S[inv=yes] -> WhP[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Neg Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-object-agreement-est-ce-que-adverb: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Neg Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "The same with ne … pas (Quelles lettres est-ce que tu n'as pas écrites ?)."
 
-rule question.wh-object-agreement-est-ce-que-mod: S[inv=yes] -> WhP[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-object-agreement-est-ce-que-mod: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "The same with an adverb (Quels livres est-ce que tu as déjà lus ?)."
 
-rule question.wh-pronoun-object-agreement-est-ce-que: S[inv=yes] -> QPron[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-pronoun-object-agreement-est-ce-que: S[inv=yes, smood=?qm] -> QPron[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A question pronoun as the object, then est-ce que and a subject-first compound tense (Lesquelles est-ce que tu as écrites ?)."
 
-rule question.wh-object-agreement-complex: S[inv=yes] -> WhP[number=?on, gender=?og] NP[person=3, number=?n, gender=?g] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=3, number=?n] Pron[attached=yes, case=nom, person=3, number=?n, gender=?g] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-object-agreement-complex: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] NP[person=3, number=?n, gender=?g] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=3, number=?n] Pron[attached=yes, case=nom, person=3, number=?n, gender=?g] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A question phrase as the object, a noun subject and inverted avoir: the participle agrees with the question phrase, the pronoun with the noun (Quelles lettres la femme a-t-elle écrites ?)."
 
-rule question.wh-object-agreement-indirect: S[inv=yes] -> WhP[number=?on, gender=?og] Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-object-agreement-indirect: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A question phrase as the object, an indirect pronoun before inverted avoir: the participle agrees with the question phrase (Quelles lettres lui as-tu écrites ?)."
 
-rule question.wh-object-agreement-indirect-adverb: S[inv=yes] -> WhP[number=?on, gender=?og] Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-object-agreement-indirect-adverb: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "The same with an adverb (Quelles lettres lui as-tu déjà écrites ?)."
 
-rule question.wh-object-agreement-indirect-negated: S[inv=yes] -> WhP[number=?on, gender=?og] Neg Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule question.wh-object-agreement-indirect-negated: S[inv=yes, smood=?qm] -> WhP[number=?on, gender=?og] Neg Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "The same with ne … pas (Quelles lettres ne lui as-tu pas écrites ?)."
 
-rule question.wh-pronoun-object-agreement-more: S[inv=yes] -> QPron[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og] Tail
+rule question.wh-pronoun-object-agreement-more: S[inv=yes, smood=?qm] -> QPron[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?qm, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og] Tail
   "A question pronoun (que, qui, lequel…) as the object of an inverted compound tense: the participle agrees with it (Qu'as-tu fait ? Lesquelles as-tu écrites ?)."
 
 rule question.wh-phrase-subject: S[inv=yes] -> WhP[number=?n, gender=?g] VP[finite=yes, form=fin, subj=no, person=3, number=?n, pnum=?n, gender=?g]
@@ -647,6 +647,9 @@ rule v.reflexive-perfect: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, 
 
 rule v.reflexive-perfect-indirect: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=no, needs_obj=yes] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p, rnum=?n] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, number=sg, gender=m]
   "The reflexive pronoun is an indirect object: the participle stays masculine singular, and a complement follows (elle s'est lavé les mains, ils se sont dit que…)."
+
+rule v.reflexive-perfect-indirect-only: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=no] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p, rnum=?n] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=parler|téléphoner|écrire|sourire|plaire|déplaire|nuire|succéder|mentir|ressembler|rire|suffire|demander|répondre|convenir|survivre, form=pastpart, number=sg, gender=m]
+  "Verbs whose reflexive can only be indirect (parler à, sourire à, plaire à…): the participle stays masculine singular even with nothing after it (elles se sont parlé, ils se sont souri)."
 
 rule v.reflexive-perfect-object-pronoun: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=yes, neg=no, anum=?on, agen=?og] -> Clitics[attached=no, reflexive=yes, acc=yes, refl=?p, anum=?on, agen=?og, rnum=?n] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, number=?on, gender=?og]
   "A reflexive pronoun with le, la or les: the participle agrees with that direct object (elle se les est écrites)."

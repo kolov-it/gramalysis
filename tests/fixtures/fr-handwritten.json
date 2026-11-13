@@ -3903,6 +3903,97 @@
         "source": "kaikki",
         "surface": "famille"
       }
+    ],
+    "ait": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "present singular subjunctive third-person",
+          "tags": [
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ait"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "AIT",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "ait"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "AIT",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "ait"
+      }
+    ],
+    "aurait": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "conditional singular third-person",
+          "tags": [
+            "conditional",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "conditional",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "conditional",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "aurait"
+      }
     ]
   }
 }
