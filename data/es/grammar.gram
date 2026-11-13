@@ -83,6 +83,9 @@ rule np.article: NP[person=3, number=?n, gender=?g] -> Det[number=?n, gender=?g,
 rule np.numeral: NP[person=3, number=pl, gender=?g] -> Num Nom[number=pl, gender=?g]
   "A number before a plural noun (dos libros)."
 
+rule np.numeral-one: NP[person=3, number=sg, gender=?g] -> Num[number=sg] Nom[number=sg, gender=?g]
+  "1 / uno before a singular noun (1 libro)."
+
 rule np.article-numeral: NP[person=3, number=pl, gender=?g] -> Det[number=pl, gender=?g] Num Nom[number=pl, gender=?g]
   "An article and a number before a plural noun (los dos libros)."
 
@@ -743,6 +746,15 @@ rule np.name-more: NP[person=3, number=sg] -> ProperNoun ProperNoun
 
 rule np.que-infinitive: NP[person=?p, number=?n, gender=?g, case=?c] -> NP[person=?p, number=?n, gender=?g, case=?c] Conj[lemma=que] VP[form=inf]
   "nada / mucho / algo + que + infinitive: something to do (no hay nada que temer)."
+
+rule clause.inverted-copula: S -> Cop[person=?p, number=?n] NP[case=nom, person=?p, number=?n, gender=?g] AP[number=?n, gender=?g]
+  "estar / parecer + subject + adjective in a question (¿Está usted cansado?)."
+
+rule clause.inverted-ser: S -> SerV[person=?p, number=?n] NP[case=nom, person=?p, number=?n, gender=?g] AP[participle=no, number=?n, gender=?g]
+  "ser + subject + adjective in a question (¿Es usted feliz?)."
+
+rule clause.inverted-ser-noun: S -> SerV[person=?p, number=?n] NP[case=nom, person=?p, number=?n] NP[case=nom|obl]
+  "ser + subject + noun in a question (¿Es usted médico?)."
 
 rule clause.inverted: S -> V[finite=yes, form=fin, person=?p, number=?n] NP[case=nom, person=?p, number=?n] NP[case=obl]
   "verb + subject + object in a question (¿Tiene usted un fósforo?)."

@@ -40,7 +40,7 @@ uno = uno:Pron{case=nom,person=3,number=sg,clitic=no}
 uno = uno:Pron{case=obl,person=3,number=sg,clitic=no}
 una = uno:Pron{case=nom,person=3,number=sg,gender=f,clitic=no}
 una = uno:Pron{case=obl,person=3,number=sg,gender=f,clitic=no}
-uno = uno:Num
+uno = uno:Num{number=sg}
 unos = uno:Pron{case=obl,person=3,number=pl,clitic=no}
 
 # --- prepositions
@@ -274,6 +274,7 @@ toda = todo:Predet{gender=f,number=sg}
 todos = todo:Predet{gender=m,number=pl}
 todas = todo:Predet{gender=f,number=pl}
 todo = todo:Pron{person=3,number=sg,clitic=no}
+toda = todo:Pron{person=3,number=sg,gender=f,clitic=no}
 todos = todo:Pron{person=3,number=pl,gender=m,clitic=no}
 todas = todo:Pron{person=3,number=pl,gender=f,clitic=no}
 algo = algo:Pron{person=3,number=sg,clitic=no}

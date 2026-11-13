@@ -411,3 +411,20 @@ async fn a_locative_adverb_before_estar() {
     assert!(!run("Aquí está mi recibo.").await.parses.is_empty());
     assert!(!run("Aquí está el libro que buscas.").await.parses.is_empty());
 }
+
+#[tokio::test]
+async fn one_takes_a_singular_noun() {
+    assert!(!run("Tengo 1 libro.").await.parses.is_empty());
+    assert!(!run("Ahorro 10 dólares cada mes.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn toda_stands_for_a_feminine_object() {
+    assert!(!run("La quiero toda.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn the_subject_between_copula_and_predicate() {
+    assert!(!run("¿Está usted cansado?").await.parses.is_empty());
+    assert!(!run("¿Es usted médico?").await.parses.is_empty());
+}

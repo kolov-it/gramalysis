@@ -179,7 +179,9 @@ impl Spanish {
             if readings.is_empty() && token.chars().next().is_some_and(|c| c.is_ascii_digit())
                 && token.chars().all(|c| c.is_ascii_digit() || c == '.' || c == ',')
             {
-                readings.push(vec![Morpheme { surface: token.clone(), lemma: token.clone(), cat: "Num".to_owned(), feats: FeatMap::new() }]);
+                let mut feats = FeatMap::new();
+                feats.insert("number".to_owned(), if token == "1" { "sg" } else { "pl" }.to_owned());
+                readings.push(vec![Morpheme { surface: token.clone(), lemma: token.clone(), cat: "Num".to_owned(), feats }]);
             }
             // A capital after . ? ! or : starts a sentence, like the first word.
             let starts_sentence = i == 0 || matches!(tokens[i - 1].as_str(), "." | "?" | "!" | ":");

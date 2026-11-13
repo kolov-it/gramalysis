@@ -1,5 +1,6 @@
 {
   "es": {
+    "1": [],
     "10": [],
     "a": [
       {
@@ -3025,6 +3026,25 @@
         "partOfSpeech": "verb"
       }
     ],
+    "quiero": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "querer",
+        "partOfSpeech": "verb"
+      }
+    ],
     "quién": [
       {
         "lemma": "quién",
@@ -3816,6 +3836,21 @@
       }
     ],
     "tod": [],
+    "toda": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "todo",
+        "partOfSpeech": "det"
+      }
+    ],
     "todos": [
       {
         "grammar": {
@@ -3878,6 +3913,32 @@
         },
         "lemma": "un",
         "partOfSpeech": "num"
+      }
+    ],
+    "usted": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "usted",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "usted",
+        "partOfSpeech": "pron"
       }
     ],
     "vi": [
