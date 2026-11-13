@@ -878,3 +878,23 @@ async fn tous_in_a_compound_copula_agrees() {
     assert!(parses(&run("Ils ont tous été heureux.").await));
     assert!(!parses(&run("Il a tous été heureux.").await));
 }
+
+#[tokio::test]
+async fn indirect_only_reflexives_with_adverbs_and_inversion() {
+    assert!(parses(&run("Elles se sont déjà parlé.").await));
+    assert!(parses(&run("Elles ne se sont pas parlé.").await));
+    assert!(parses(&run("Se sont-elles parlé ?").await));
+    assert!(!parses(&run("Elles se sont parlé partir.").await));
+}
+
+#[tokio::test]
+async fn qu_est_ce_qui_keeps_the_mood() {
+    assert!(parses(&run("Qu'est-ce qui est heureux ?").await));
+    assert!(!parses(&run("Qu'est-ce qui soit heureux ?").await));
+}
+
+#[tokio::test]
+async fn a_negative_order_puts_the_pronoun_first() {
+    assert!(parses(&run("Ne le donne pas.").await));
+    assert!(!parses(&run("Ne donne-le pas.").await));
+}
