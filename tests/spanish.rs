@@ -356,3 +356,23 @@ async fn copular_perfects_take_the_invariable_participle() {
     assert!(!run("He estado cansado.").await.parses.is_empty());
     assert!(run("He estados cansado.").await.parses.is_empty());
 }
+
+#[tokio::test]
+async fn adverbs_in_coordinated_passives() {
+    let a = run("Fue gravemente herido y atendido.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "herido")[0].starts_with("herir Verb"));
+}
+
+#[tokio::test]
+async fn impersonal_se_with_ser() {
+    assert!(!run("Aquí se es feliz.").await.parses.is_empty());
+    assert!(!run("Se es feliz.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn cuántos_stands_alone() {
+    for q in ["¿Cuántos tienes?", "¿Cuántas son?", "¿Cuántos fueron a Madrid?"] {
+        assert!(!run(q).await.parses.is_empty(), "{q}");
+    }
+}

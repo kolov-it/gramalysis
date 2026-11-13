@@ -180,6 +180,29 @@
         "partOfSpeech": "verb"
       }
     ],
+    "aquí": [
+      {
+        "lemma": "aquí",
+        "partOfSpeech": "adv"
+      }
+    ],
+    "atendido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "atender",
+        "partOfSpeech": "verb"
+      }
+    ],
     "ayer": [
       {
         "lemma": "ayer",
@@ -623,6 +646,65 @@
         },
         "lemma": "construir",
         "partOfSpeech": "verb"
+      }
+    ],
+    "cuant": [],
+    "cuánt": [],
+    "cuántas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "cuánto",
+        "partOfSpeech": "det"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "cuántas",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "cuántos": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "cuánto",
+        "partOfSpeech": "det"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "interrogative",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "cuánto",
+        "partOfSpeech": "adv"
       }
     ],
     "da": [
@@ -1278,6 +1360,34 @@
     ],
     "estád": [],
     "estár": [],
+    "feliz": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "feliz",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "feliz",
+        "partOfSpeech": "adj"
+      }
+    ],
     "flores": [
       {
         "grammar": {
@@ -1465,6 +1575,50 @@
         "partOfSpeech": "verb"
       }
     ],
+    "fueron": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "preterite",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "ir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "preterite",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "gravemen": [],
+    "gravemente": [
+      {
+        "lemma": "gravemente",
+        "partOfSpeech": "adv"
+      }
+    ],
+    "gravemén": [],
     "ha": [
       {
         "grammar": {
@@ -1637,6 +1791,33 @@
           ]
         },
         "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "herido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "herido",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "herir",
         "partOfSpeech": "verb"
       }
     ],
@@ -3036,6 +3217,37 @@
       }
     ],
     "sién": [],
+    "son": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "son",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "present",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
     "soy": [
       {
         "grammar": {

@@ -378,6 +378,9 @@ rule serv.enclitic: SerV[finite=no, form=?fm] -> Verb[class=ser, finite=no, form
 rule serv.perfect-enclitic: SerV[finite=no, form=?fm] -> Verb[class=haber, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, reflexive=no, case=dat] Verb[class=ser, form=pastpart, gender=m, number=sg]
   "A dative clitic on haber before sido (puede haberme sido útil)."
 
+rule serv.impersonal-se: SerV[finite=yes, form=fin, mood=?m, person=3, number=sg] -> Pron[lemma=se, case=refl, attached=no] SerV[form=fin, mood=?m, person=3, number=sg]
+  "Impersonal se with ser: one is (aquí se es feliz)."
+
 rule serv.negation: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Adv[neg=yes] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "no es, nunca fue."
 
@@ -580,6 +583,9 @@ rule qs.preposition-ser: QS -> Prep[lemma=de|desde|hasta|para] QAdv[lemma=dónde
 rule qs.preposition-ser-subject: QS -> Prep[lemma=de|desde|hasta|para] QAdv[lemma=dónde|cuándo] SerV NP
   "¿De dónde es tu amigo?"
 
+rule question.phrase-alone: S -> WhP
+  "A question phrase on its own (¿Cuántas muestras? ¿Qué hora?)."
+
 rule wh.pronoun: Wh -> QPron
   "A question pronoun."
 
@@ -665,8 +671,14 @@ rule qs.estar-subject: QS -> QAdv Cop[lemma=estar] NP[case=nom]
 rule partp.recent: PartP[number=?n, gender=?g] -> Adv[lemma=recién] Verb[form=pastpart, drifted=no, number=?n, gender=?g]
   "recién + participle says when it was done (pasto recién cortado)."
 
-rule vp.passive-coordinated: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[form=pastpart, drifted=no, number=?n, gender=?g] Conj[type=coord] Verb[form=pastpart, drifted=no, number=?n, gender=?g]
-  "One ser for two participles (fue torturado y asesinado)."
+rule vp.passive-coordinated: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] PassP[number=?n, gender=?g] Conj[type=coord] PassP[number=?n, gender=?g]
+  "One ser for two participles, each with its adverbs (fue torturado y asesinado, fue gravemente herido y atendido)."
+
+rule passp.participle: PassP[number=?n, gender=?g] -> Verb[form=pastpart, drifted=no, number=?n, gender=?g]
+  "A participle of the passive."
+
+rule passp.adverb: PassP[number=?n, gender=?g] -> Adv[neg=no] PassP[number=?n, gender=?g]
+  "An adverb before a participle of the passive (gravemente herido)."
 
 rule vp.passive-agent: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[form=pastpart, number=?n, gender=?g] PP[prep=por|como]
   "ser + participle + por + agent (or como + what) is the passive, also for a participle that is an adjective of its own (fue exagerado por los medios, ha sido considerado como un soñador)."

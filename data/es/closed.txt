@@ -320,6 +320,9 @@ cuánta = cuánto:QDet{gender=f,number=sg}
 cuántos = cuánto:QDet{gender=m,number=pl}
 cuántas = cuánto:QDet{gender=f,number=pl}
 cuánto = cuánto:QPron{person=3,number=sg}
+cuánta = cuánto:QPron{person=3,number=sg,gender=f}
+cuántos = cuánto:QPron{person=3,number=pl,gender=m}
+cuántas = cuánto:QPron{person=3,number=pl,gender=f}
 cuánto = cuánto:QAdv
 dónde = dónde:QAdv
 adónde = adónde:QAdv
