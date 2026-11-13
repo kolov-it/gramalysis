@@ -1362,6 +1362,46 @@
           "clitic": false
         }
       }
+    ],
+    "laves": [
+      {
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "lavez": [
+      {
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural",
+          "clitic": false
+        }
+      }
     ]
   }
 }

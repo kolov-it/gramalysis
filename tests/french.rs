@@ -371,3 +371,10 @@ async fn a_question_phrase_object_makes_the_participle_agree() {
 async fn afin_de_and_an_infinitive() {
     assert!(parses(&run("Je travaille afin de vivre.").await));
 }
+
+#[tokio::test]
+async fn the_reflexive_pronoun_agrees_with_the_verb_in_number() {
+    assert!(parses(&run("Tu te laves.").await));
+    assert!(parses(&run("Vous vous lavez.").await));
+    assert!(!parses(&run("Tu vous laves.").await));
+}

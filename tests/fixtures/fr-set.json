@@ -21717,6 +21717,63 @@
         "surface": "asseoir"
       }
     ],
+    "asseyez": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative plural present second-person",
+          "tags": [
+            "indicative",
+            "plural",
+            "present",
+            "second-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "present",
+            "second-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "asseoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "asseyez"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative plural second-person",
+          "tags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "asseoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "asseyez"
+      }
+    ],
     "assez": [
       {
         "confidence": "high",
@@ -154302,6 +154359,63 @@
         "surface": "laves"
       }
     ],
+    "lavez": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative plural present second-person",
+          "tags": [
+            "indicative",
+            "plural",
+            "present",
+            "second-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "present",
+            "second-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "lavez"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative plural second-person",
+          "tags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "lavez"
+      }
+    ],
     "layla": [
       {
         "confidence": "high",
@@ -155145,6 +155259,63 @@
         "partOfSpeech": "noun",
         "source": "kaikki",
         "surface": "lever"
+      }
+    ],
+    "levons": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative plural present",
+          "tags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "lever",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "levons"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person imperative plural",
+          "tags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "lemma": "lever",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "levons"
       }
     ],
     "levure": [

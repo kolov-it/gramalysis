@@ -138,7 +138,7 @@ nous = nous:Pron{case=dat,person=1,number=pl,clitic=yes,slot=1}
 nous = nous:Pron{case=refl,person=1,number=pl,clitic=yes,slot=1}
 vous = vous:Pron{case=acc,person=2,clitic=yes,slot=1}
 vous = vous:Pron{case=dat,person=2,clitic=yes,slot=1}
-vous = vous:Pron{case=refl,person=2,clitic=yes,slot=1}
+vous = vous:Pron{case=refl,person=2,number=pl,clitic=yes,slot=1}
 le = le:Pron{case=acc,person=3,number=sg,gender=m,clitic=yes,slot=2}
 la = le:Pron{case=acc,person=3,number=sg,gender=f,clitic=yes,slot=2}
 l' = le:Pron{case=acc,person=3,number=sg,clitic=yes,slot=2}
