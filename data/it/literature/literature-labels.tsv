@@ -1,0 +1,1115 @@
+# Correct readings for literature-set.jsonl. One row per (sentence, form, occurrence).
+#
+# sentence_id  form  occurrence  lemma  pos  cell  labeled_by  checked_by  note
+#
+# Same conventions as ../homograph-labels.tsv. lemma is the base verb for a
+# pronominal use (andarsene -> andare). An inflected past participle (arrivate)
+# has cell non_finite.past_participle.
+8325	abbiano	0	avere	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
+7463	abbiano	0	avere	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
+1595	abbiate	0	avere	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		negative imperative (voi)
+8807	abiti	0	abito	noun		claude-opus-5.5@2026-11-12		clothes
+7464	accadere	0	accadere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+8682	accadere	0	accadere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+783	accaduto	0	accadere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+256	accendere	0	accendere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+8575	accolsero	0	accogliere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+5500	acquisto	0	acquisto	noun		claude-opus-5.5@2026-11-12		"di buon acquisto" = purchase
+5748	alloggiare	0	alloggiare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3211	alzare	0	alzare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3003	alzarono	0	alzare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+2694	amato	0	amare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		participle clause (dopo + pp); participle use per README convention (relabelled 2026-11-13)
+8495	ammazza	0	ammazzare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+8495	ammazzerà	0	ammazzare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+5409	andandosene	0	andare	verb	non_finite.gerund	claude-opus-5.5@2026-11-12		andarsene; cell listed under andarsene
+15	anima	0	anima	noun		claude-opus-5.5@2026-11-12		"anima viva" = soul
+1471	apparire	0	apparire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+427	apposta	0	apposta	adv		claude-opus-5.5@2026-11-12		on purpose
+2850	apposta	0	apposta	adv		claude-opus-5.5@2026-11-12		on purpose
+1943	argomento	0	argomento	noun		claude-opus-5.5@2026-11-12		topic
+2145	argomento	0	argomento	noun		claude-opus-5.5@2026-11-12		topic
+4153	arrivai	0	arrivare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+457	arrivare	0	arrivare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+605	arrivare	0	arrivare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+6655	arrivate	0	arrivare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		absolute participle clause; participle use per README convention (relabelled 2026-11-13)
+1106	arrivavo	0	arrivare	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+234	ascolto	0	ascolto	noun		claude-opus-5.5@2026-11-12		"stare in ascolto"
+3082	ascolto	0	ascoltare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+1250	aspettare	0	aspettare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+4646	aspettate	0	aspettare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+4646	aspettate	1	aspettare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+4649	aspettate	0	aspettare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+466	aspetto	0	aspettare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+605	aspetto	0	aspettare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+7581	assistere	0	assistere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+7583	assistito	0	assistito	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb, no passive marker; participle use per README convention (relabelled 2026-11-13)
+489	attaccare	0	attaccare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		harness (horses to a carriage)
+2835	attaccare	0	attaccare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		pronominal attaccarsi (catch an infection)
+5523	attendere	0	attendere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		attendere a = attend to
+5261	attivi	0	attivo	adj		claude-opus-5.5@2026-11-12		
+6561	augurate	0	augurare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		negative imperative (voi)
+8692	avere	0	avere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3891	aveste	0	avere	verb	subjunctive.imperfect.2p	claude-opus-5.5@2026-11-12		optative "che aveste"
+1809	avranno	0	avere	verb	indicative.future.3p	claude-opus-5.5@2026-11-12		
+8550	avrebbero	0	avere	verb	conditional.present.3p	claude-opus-5.5@2026-11-12		auxiliary (future in the past)
+5678	avreste	0	avere	verb	conditional.present.2p	claude-opus-5.5@2026-11-12		auxiliary
+3994	avrete	0	avere	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		auxiliary (future perfect)
+8935	avrò	0	avere	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+3810	avvenuto	0	avvenire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+1950	avvicinare	0	avvicinare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+4351	avviso	0	avviso	noun		claude-opus-5.5@2026-11-12		advice
+2460	baciare	0	baciare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2886	bacio	0	bacio	noun		claude-opus-5.5@2026-11-12		kiss
+5526	bacio	0	baciare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+6498	badare	0	badare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+5564	ballare	0	ballare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+5564	ballo	0	ballo	noun		claude-opus-5.5@2026-11-12		"essere in ballo" idiom
+6495	ballo	0	ballo	noun		claude-opus-5.5@2026-11-12		"mettere in ballo" idiom
+281	basta	0	bastare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		"Basta così!" impersonal
+8389	bastare	0	bastare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1152	battente	0	battente	noun		claude-opus-5.5@2026-11-12		door knocker
+3196	batteranno	0	battere	verb	indicative.future.3p	claude-opus-5.5@2026-11-12		battersi = fight a duel
+3221	battere	0	battere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		battersi = fight a duel
+1207	benedetto	0	benedetto	adj		claude-opus-5.5@2026-11-12		modifier of noun; participle use per README convention (relabelled 2026-11-13)
+2708	bere	0	bere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3036	brillante	0	brillante	noun		claude-opus-5.5@2026-11-12		theatre role (comic lead actor)
+7787	brucerebbe	0	bruciare	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+4433	butterei	0	buttare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		buttarsi
+5915	cacciato	0	cacciare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, reflexive; participle use per README convention (relabelled 2026-11-13)
+3204	cadere	0	cadere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1152	calci	0	calcio	noun		claude-opus-5.5@2026-11-12		kicks
+84	calcio	0	calcio	noun		claude-opus-5.5@2026-11-12		kick
+366	calcio	0	calcio	noun		claude-opus-5.5@2026-11-12		kick (idiom "dare un calcio alla fortuna")
+4892	cancellato	0	cancellato	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb; participle use per README convention (relabelled 2026-11-13)
+1050	capita	0	capitare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+7030	capitare	0	capitare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+6	capitato	0	capitare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+2424	capiva	0	capire	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		impersonal "si capiva"
+6935	cascare	0	cascare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+725	cascate	0	cascare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+3916	cavereste	0	cavare	verb	conditional.present.2p	claude-opus-5.5@2026-11-12		
+2660	cena	0	cena	noun		claude-opus-5.5@2026-11-12		dinner
+8785	centri	0	centro	noun		claude-opus-5.5@2026-11-12		"centri frenici"
+8807	cercare	0	cercare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1452	cerchi	0	cerchio	noun		claude-opus-5.5@2026-11-12		hoops
+2273	cerco	0	cercare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+3236	cercò	0	cercare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+1600	cessa	0	cessare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+7721	cessare	0	cessare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1792	chiamai	0	chiamare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+2229	chiamare	0	chiamare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1972	chiamassimo	0	chiamare	verb	subjunctive.imperfect.1p	claude-opus-5.5@2026-11-12		chiamarsi
+2460	chiamò	0	chiamare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+4781	chiedessimo	0	chiedere	verb	subjunctive.imperfect.1p	claude-opus-5.5@2026-11-12		
+389	chiese	0	chiedere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+1000	chiusi	0	chiuso	adj		claude-opus-5.5@2026-11-12		predicative state, no complements; participle use per README convention (relabelled 2026-11-13)
+2266	chiuso	0	chiuso	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb; participle use per README convention (relabelled 2026-11-13)
+2266	chiuso	1	chiuso	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb; participle use per README convention (relabelled 2026-11-13)
+2891	cogliere	0	cogliere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2277	collega	0	collega	noun		claude-opus-5.5@2026-11-12		colleague
+5590	colto	0	cogliere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		participle with own complement (sul fatto); participle use per README convention (relabelled 2026-11-13)
+4507	comando	0	comando	noun		claude-opus-5.5@2026-11-12		command
+3155	cominciaste	0	cominciare	verb	indicative.past_historic.2p	claude-opus-5.5@2026-11-12		
+3680	compiere	0	compiere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2355	componga	0	comporre	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		comporsi; indirect question
+222	compra	0	comprare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		impersonal si
+255	comprare	0	comprare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+6068	comprese	0	comprendere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+6155	condurre	0	condurre	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+4454	condurremo	0	condurre	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+1621	condurrò	0	condurre	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+2061	confesso	0	confessare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+6660	confondevano	0	confondere	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+2983	confronto	0	confronto	noun		claude-opus-5.5@2026-11-12		"mettere in confronto"
+762	conoscerai	0	conoscere	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+5133	consegnare	0	consegnare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2366	consigli	0	consiglio	noun		claude-opus-5.5@2026-11-12		advice (pl)
+4340	consigli	0	consigliare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal (Lei) imperative
+1164	contare	0	contare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+375	conto	0	conto	noun		claude-opus-5.5@2026-11-12		calculation
+8134	conto	0	conto	noun		claude-opus-5.5@2026-11-12		"per conto mio"
+5970	conveniente	0	conveniente	adj		claude-opus-5.5@2026-11-12		suitable
+1314	convieni	0	convenire	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		"ne convieni?" = do you agree
+2086	copia	0	copia	noun		claude-opus-5.5@2026-11-12		archaic "copia" = abundance/supply
+2042	corona	0	corona	noun		claude-opus-5.5@2026-11-12		crown
+1875	corremmo	0	correre	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
+241	correre	0	correre	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+8634	corresse	0	correggere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		"corrected" (said, correcting); not correre
+1933	corse	0	correre	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+4743	corsero	0	correre	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+1842	corsi	0	correre	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+1810	corso	0	corso	noun		claude-opus-5.5@2026-11-12		course (school year)
+1669	costa	0	costare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+6157	costa	0	costare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+1694	costa	0	costare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+961	costringi	0	costringere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+2181	credemmo	0	credere	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
+17	credere	0	credere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3711	credere	0	credere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+565	crescere	0	crescere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+572	cresciuto	0	crescere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere (change of state); participle use per README convention (relabelled 2026-11-13)
+3814	cura	0	cura	noun		claude-opus-5.5@2026-11-12		"prendersi cura"
+8180	dai	0	da	prep		claude-opus-5.5@2026-11-12		articulated preposition da + i
+874	dandosi	0	dare	verb	non_finite.gerund	claude-opus-5.5@2026-11-12		darsi; cell listed under darsi
+2366	danno	0	dare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+1426	danza	0	danza	noun		claude-opus-5.5@2026-11-12		dance (title)
+5345	darete	0	dare	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
+1549	darsi	0	dare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		impersonal "darsi il caso"; cell listed under darsi
+46	date	0	dare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		question "me lo date?"
+3711	dedica	0	dedica	noun		claude-opus-5.5@2026-11-12		dedication
+1943	descrissi	0	descrivere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+6053	descrivere	0	descrivere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2098	desiderare	0	desiderare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2886	desiderato	0	desiderato	adj		claude-opus-5.5@2026-11-12		modifier of noun; participle use per README convention (relabelled 2026-11-13)
+1080	desideri	0	desiderare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+6567	desidero	0	desiderare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+3218	destare	0	destare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2470	destava	0	destare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+7030	destinate	0	destinare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		participle with own complement (agli ecclesiastici); participle use per README convention (relabelled 2026-11-13)
+6755	destinato	0	destinato	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb; participle use per README convention (relabelled 2026-11-13)
+1875	detti	0	dare	verb		claude-opus-5.5@2026-11-12		archaic passato remoto 1s of dare (= diedi), "gli detti dietro"; not dettare; cell not in table_cells
+2541	devi	0	dovere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+1625	dia	0	dare	verb	subjunctive.present.1s	claude-opus-5.5@2026-11-12		subject is the speaker
+5992	dia	0	dare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal (Lei) imperative
+3415	dimostrare	0	dimostrare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1447	dipinto	0	dipinto	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb; participle use per README convention (relabelled 2026-11-13)
+5841	diranno	0	dire	verb	indicative.future.3p	claude-opus-5.5@2026-11-12		
+186	direte	0	dire	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
+1135	dirà	0	dire	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+4053	dirà	0	dire	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+5820	discorrere	0	discorrere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3248	disegno	0	disegno	noun		claude-opus-5.5@2026-11-12		plan
+294	dispiacere	0	dispiacere	noun		claude-opus-5.5@2026-11-12		sorrow
+3716	dispiacere	0	dispiacere	noun		claude-opus-5.5@2026-11-12		sorrow
+2277	dissi	0	dire	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+6068	distinguere	0	distinguere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3174	divertito	0	divertire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, reflexive; participle use per README convention (relabelled 2026-11-13)
+4839	do	0	dare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		"dare per fatto"
+9001	do	0	dare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+2356	domanda	0	domanda	noun		claude-opus-5.5@2026-11-12		question
+3174	domandarono	0	domandare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+4663	domandate	0	domandare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		negative imperative (voi)
+5145	domandate	0	domandare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		negative imperative (voi): "don't ask"
+2355	domanderete	0	domandare	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
+308	domando	0	domandare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+733	dormivi	0	dormire	verb	indicative.imperfect.2s	claude-opus-5.5@2026-11-12		
+2149	dovere	0	dovere	noun		claude-opus-5.5@2026-11-12		duty
+1895	dovevano	0	dovere	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+8666	dovrà	0	dovere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+3218	dovuto	0	dovere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+5693	duri	0	durare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		"pur che la duri" (popular "la" = it)
+84	ebbe	0	avere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		auxiliary (trapassato remoto)
+776	entrarono	0	entrare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+8013	entro	0	entro	prep		claude-opus-5.5@2026-11-12		"entro di sè" = within herself
+1774	era	0	essere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+863	ero	0	essere	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+6272	espresso	0	espresso	adj		claude-opus-5.5@2026-11-12		"comando espresso" = explicit; meaning drifted
+6053	esprimere	0	esprimere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1896	essere	0	essere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+8013	essere	0	essere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+672	facesse	0	fare	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		"farsi buio"
+294	facessi	0	fare	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		speaker (Mangiafuoco): "if I had you thrown"
+3941	faceste	0	fare	verb	subjunctive.imperfect.2p	claude-opus-5.5@2026-11-12		
+24	fai	0	fare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+2817	fai	0	fare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+6	fare	0	fare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+159	fareste	0	fare	verb	conditional.present.2p	claude-opus-5.5@2026-11-12		
+829	fareste	0	fare	verb	conditional.present.2p	claude-opus-5.5@2026-11-12		
+1452	farete	0	fare	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
+32	fate	0	fare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+2983	fate	0	fare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+6480	fatevi	0	fare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		"farsi coraggio"; cell listed under farsi
+8651	fecero	0	fare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		causative
+1013	ferito	0	ferire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		passive: è stato + pp; participle use per README convention (relabelled 2026-11-13)
+4632	ferma	0	fermare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		fermarsi
+7181	fidare	0	fidare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		fidarsi
+4690	fidate	0	fidare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		fidarsi; question
+961	figura	0	figura	noun		claude-opus-5.5@2026-11-12		"fare una brutta figura"
+136	figurare	0	figurare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		figurarsi = imagine
+6373	figuri	0	figurare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal (Lei) imperative "Si figuri"
+76	finite	0	finire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		absolute participle clause; participle use per README convention (relabelled 2026-11-13)
+4427	fissato	0	fissare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+8870	fissi	0	fisso	adj		claude-opus-5.5@2026-11-12		"occhi fissi" = fixed (adj fisso, not fissare)
+29	forza	0	forza	noun		claude-opus-5.5@2026-11-12		strength
+132	fosse	0	essere	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+149	fossi	0	essere	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		speaker (Pinocchio)
+2098	fossi	0	essere	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		first-person narrator
+3164	fossimo	0	essere	verb	subjunctive.imperfect.1p	claude-opus-5.5@2026-11-12		auxiliary
+4191	freno	0	freno	noun		claude-opus-5.5@2026-11-12		restraint
+6491	freno	0	freno	noun		claude-opus-5.5@2026-11-12		"rodere il freno" idiom
+186	frutta	0	frutta	noun		claude-opus-5.5@2026-11-12		fruit
+28	fu	0	essere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		impersonal passive "fu bussato"
+3329	fuggisse	0	fuggire	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+1810	fui	0	essere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		passive auxiliary
+1190	furono	0	essere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		passive auxiliary
+294	gettare	0	gettare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3899	gettate	0	gettare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+8855	getto	0	gettare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		historic present
+4552	giocheresti	0	giocare	verb	conditional.present.2s	claude-opus-5.5@2026-11-12		
+37	girare	0	girare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1677	girare	0	girare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+103	giunto	0	giungere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		participle clause; participle use per README convention (relabelled 2026-11-13)
+49	giuro	0	giurare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+8568	giuro	0	giurare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+4852	godersi	0	godere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		godersi; cell listed under godersi
+7010	governante	0	governante	noun		claude-opus-5.5@2026-11-12		housekeeper
+4852	gradito	0	gradito	adj		claude-opus-5.5@2026-11-12		modifier of noun; participle use per README convention (relabelled 2026-11-13)
+270	grida	0	gridare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		historic present
+4246	gridare	0	gridare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+437	gridarono	0	gridare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+5225	grido	0	grido	noun		claude-opus-5.5@2026-11-12		cry
+1422	guadagnare	0	guadagnare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+342	guarda	0	guardare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+344	guarda	0	guardare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+1072	guardi	0	guardare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal (Lei) imperative
+3085	guardo	0	guardare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+988	guarire	0	guarire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3234	guida	0	guida	noun		claude-opus-5.5@2026-11-12		guidebook ("la Guida di Torino", title)
+5357	guida	0	guida	noun		claude-opus-5.5@2026-11-12		guide (person)
+172	hanno	0	avere	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		auxiliary
+2139	hanno	0	avere	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		auxiliary
+1960	immaginate	0	immaginare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+4073	imparate	0	imparare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+1770	imparato	0	imparare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+3221	impedire	0	impedire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+7916	impegni	0	impegno	noun		claude-opus-5.5@2026-11-12		commitments/obligations
+2170	impiegato	0	impiegato	noun		claude-opus-5.5@2026-11-12		clerk
+425	incontrare	0	incontrare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3448	incrociarono	0	incrociare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+3028	incrociate	0	incrociato	adj		claude-opus-5.5@2026-11-12		modifier of noun; participle use per README convention (relabelled 2026-11-13)
+1966	indicate	0	indicare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		passive: erano state + pp; participle use per README convention (relabelled 2026-11-13)
+3003	indovinare	0	indovinare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+5523	informare	0	informare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+6709	informare	0	informare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2773	insista	0	insistere	verb	subjunctive.present.2s	claude-opus-5.5@2026-11-12		
+2985	insulto	0	insulto	noun		claude-opus-5.5@2026-11-12		
+3711	intese	0	intendere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2230	intesi	0	intendere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		intendere = hear
+3094	invitai	0	invitare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+5783	invitato	0	invitare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+2366	lanciano	0	lanciare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+7052	lascerebbe	0	lasciare	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+8884	lasciate	0	lasciare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+6120	lascino	0	lasciare	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
+2277	lavorato	0	lavorare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1422	lavori	0	lavorare	verb	subjunctive.present.2s	claude-opus-5.5@2026-11-12		perché = so that (purpose), parallel to faccia
+1944	lavori	0	lavoro	noun		claude-opus-5.5@2026-11-12		lavori forzati
+2146	lavoro	0	lavoro	noun		claude-opus-5.5@2026-11-12		
+8414	legate	0	legare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		passive: da + agent; participle use per README convention (relabelled 2026-11-13)
+1770	leggere	0	leggere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2133	leggevamo	0	leggere	verb	indicative.imperfect.1p	claude-opus-5.5@2026-11-12		
+1992	lesse	0	leggere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+896	lessi	0	leggere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+3827	leverebbe	0	levare	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+528	levò	0	levare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+3827	liberi	0	liberare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		optative "Dio liberi!"
+6169	liberi	0	liberare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal (Lei) imperative
+651	libero	0	libero	adj		claude-opus-5.5@2026-11-12		
+4001	libero	0	libero	adj		claude-opus-5.5@2026-11-12		stato libero = unmarried status
+1943	lotta	0	lotta	noun		claude-opus-5.5@2026-11-12		
+8810	maledica	0	maledico	adj		claude-opus-5.5@2026-11-12		lingua maledica = slanderous tongue
+4544	mandiate	0	mandare	verb	subjunctive.present.2p	claude-opus-5.5@2026-11-12		
+1234	mangino	0	mangiare	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
+388	mangiò	0	mangiare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2839	mangiò	0	mangiare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+1684	menate	0	menare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		question
+4143	mentite	0	mentire	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+8929	meraviglia	0	meraviglia	noun		claude-opus-5.5@2026-11-12		a meraviglia = wonderfully
+1637	meritate	0	meritare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		pronominal meritarselo
+7405	meriti	0	meritare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+1316	merito	0	merito	noun		claude-opus-5.5@2026-11-12		
+1810	messo	0	mettere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		passive: essere in passato remoto; participle use per README convention (relabelled 2026-11-13)
+8565	messo	0	mettere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, reflexive; participle use per README convention (relabelled 2026-11-13)
+3776	metterebbe	0	mettere	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+4340	mettersi	0	mettere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		pronominal mettersi; table key is mettersi
+6002	mettessimo	0	mettere	verb	subjunctive.imperfect.1p	claude-opus-5.5@2026-11-12		
+3448	misero	0	mettere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		mettersi in guardia
+3211	molla	0	molla	noun		claude-opus-5.5@2026-11-12		spring
+132	morire	0	morire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+439	morto	0	morire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+1792	mosse	0	muovere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		pronominal muoversi
+4804	movimenti	0	movimento	noun		claude-opus-5.5@2026-11-12		
+8786	movimenti	0	movimento	noun		claude-opus-5.5@2026-11-12		
+18	nascosto	0	nascosto	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb; participle use per README convention (relabelled 2026-11-13)
+4858	nascosto	0	nascondere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		participle with own complement (alle compagne); participle use per README convention (relabelled 2026-11-13)
+2098	nato	0	nascere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+6434	nota	0	noto	adj		claude-opus-5.5@2026-11-12		la nota voce = the familiar voice
+1051	nuotare	0	nuotare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+830	offeso	0	offeso	adj		claude-opus-5.5@2026-11-12		predicative state, avere-verb; participle use per README convention (relabelled 2026-11-13)
+2809	offrire	0	offrire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+5028	onorato	0	onorato	adj		claude-opus-5.5@2026-11-12		drifted: honourable/respectable refuge
+6325	operato	0	operare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+2366	ordini	0	ordine	noun		claude-opus-5.5@2026-11-12		
+6590	pagare	0	pagare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+37	pare	0	parere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+1750	pare	0	parere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+3715	parere	0	parere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+491	pari	0	pari	adv		claude-opus-5.5@2026-11-12		pari pari = flat/exactly, adverbial
+2145	parlare	0	parlare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3095	parlassi	0	parlare	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		narrator is the subject (io)
+764	parlato	0	parlare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+2475	parlato	0	parlare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1843	partito	0	partire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+1832	parto	0	partire	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+8071	passa	0	passare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+1895	passare	0	passare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+29	passate	0	passare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+1896	passo	0	passo	noun		claude-opus-5.5@2026-11-12		step
+444	penseremo	0	pensare	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+118	perdere	0	perdere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+793	persero	0	perdere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+1622	pesi	0	peso	adj		claude-opus-5.5@2026-11-12		Tuscan peso = heavy
+3975	piangere	0	piangere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+503	pianti	0	pianto	noun		claude-opus-5.5@2026-11-12		
+1461	piazza	0	piazza	noun		claude-opus-5.5@2026-11-12		
+1823	piazza	0	piazza	noun		claude-opus-5.5@2026-11-12		piazza d'armi
+2456	picchiassero	0	picchiare	verb	subjunctive.imperfect.3p	claude-opus-5.5@2026-11-12		pronominal picchiarsi
+5169	picchiate	0	picchiare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		knock
+94	picchierebbe	0	picchiare	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+28	porta	0	porta	noun		claude-opus-5.5@2026-11-12		
+5661	portate	0	portare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+7014	portate	0	portare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+4050	portato	0	portare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+6120	portino	0	portare	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
+1676	possiamo	0	potere	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		
+8393	posta	0	porre	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		participle with own complement; participle use per README convention (relabelled 2026-11-13)
+1798	potei	0	potere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+1839	potei	0	potere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+1914	potessero	0	potere	verb	subjunctive.imperfect.3p	claude-opus-5.5@2026-11-12		
+5389	potessero	0	potere	verb	subjunctive.imperfect.3p	claude-opus-5.5@2026-11-12		
+2065	potessero	0	potere	verb	subjunctive.imperfect.3p	claude-opus-5.5@2026-11-12		
+7030	potessero	0	potere	verb	subjunctive.imperfect.3p	claude-opus-5.5@2026-11-12		
+3916	potreste	0	potere	verb	conditional.present.2p	claude-opus-5.5@2026-11-12		
+5135	potrete	0	potere	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
+1176	potrà	0	potere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+1002	potrò	0	potere	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+1057	potrò	0	potere	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+1029	preferito	0	preferire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1161	pregate	0	pregare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+4254	premano	0	premere	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		premere a = matter to
+3930	premere	0	premere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+5357	preparate	0	preparare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+2137	presso	0	presso	adv		claude-opus-5.5@2026-11-12		idiom presso a poco = roughly
+8786	prestare	0	prestare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1476	pretenderesti	0	pretendere	verb	conditional.present.2s	claude-opus-5.5@2026-11-12		
+1870	procedette	0	procedere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		impersonal si
+3082	profonda	0	profondo	adj		claude-opus-5.5@2026-11-12		
+915	promesso	0	promettere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+2937	promesso	0	promettere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+7571	promettere	0	promettere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3354	proseguire	0	proseguire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+5500	provare	0	provare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3154	provaste	0	provare	verb	indicative.past_historic.2p	claude-opus-5.5@2026-11-12		parallel to vedeste; voi of address
+4221	provocherai	0	provocare	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+434	provò	0	provare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		provarsi a = try
+28	punto	0	punto	noun		claude-opus-5.5@2026-11-12		in quel punto = at that moment
+6068	raccogliere	0	raccogliere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3000	raccolto	0	raccolto	adj		claude-opus-5.5@2026-11-12		drifted: concentrated, absorbed
+4373	raccontare	0	raccontare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1798	reggere	0	reggere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3177	regno	0	regno	noun		claude-opus-5.5@2026-11-12		
+830	regola	0	regola	noun		claude-opus-5.5@2026-11-12		per vostra regola = for your information
+2872	regolare	0	regolare	adj		claude-opus-5.5@2026-11-12		
+6449	renda	0	rendere	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		optative, subject Dio
+6463	renda	0	rendere	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		optative, subject Dio
+6909	rendere	0	rendere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3936	reso	0	rendere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1933	respirasse	0	respirare	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+2872	respiro	0	respiro	noun		claude-opus-5.5@2026-11-12		
+3118	resta	0	restare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+83	restavano	0	restare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+6789	ricerca	0	ricercare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		idiom "cerca e ricerca" = searching and searching
+3218	ricevere	0	ricevere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1893	riconoscevo	0	riconoscere	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+4507	ricordate	0	ricordare	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		negative question, ricordarsi
+3373	ricordò	0	ricordare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		ricordarsi
+6225	ridotto	0	ridotto	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb; participle use per README convention (relabelled 2026-11-13)
+2258	rientrai	0	rientrare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+4061	riguardo	0	riguardo	noun		claude-opus-5.5@2026-11-12		persona di riguardo
+2258	rimanente	0	rimanente	noun		claude-opus-5.5@2026-11-12		the rest
+5069	rimanente	0	rimanente	noun		claude-opus-5.5@2026-11-12		nel rimanente = otherwise
+8400	rimanere	0	rimanere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+5779	rimanevano	0	rimanere	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+3717	rimedio	0	rimedio	noun		claude-opus-5.5@2026-11-12		
+1026	ripetere	0	ripetere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2047	risposero	0	rispondere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+1232	ritornare	0	ritornare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+8017	ritorno	0	ritorno	noun		claude-opus-5.5@2026-11-12		essere di ritorno
+1447	ritratto	0	ritratto	noun		claude-opus-5.5@2026-11-12		portrait
+8815	rivedere	0	rivedere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+5779	rivolse	0	rivolgere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		rivolgersi
+6491	rodere	0	rodere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		idiom rodere il freno
+4068	rompere	0	rompere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+977	rotto	0	rotto	adj		claude-opus-5.5@2026-11-12		modifier of noun; participle use per README convention (relabelled 2026-11-13)
+8273	rovina	0	rovina	noun		claude-opus-5.5@2026-11-12		
+5896	rovina	0	rovina	noun		claude-opus-5.5@2026-11-12		
+5191	ruba	0	ruba	noun		claude-opus-5.5@2026-11-12		idiom mettere a ruba = loot
+1640	ruba	0	rubare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+588	rubare	0	rubare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1914	rubare	0	rubare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1832	sai	0	sapere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+1286	salire	0	salire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1452	saltare	0	saltare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3874	saltato	0	saltare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere (motion); participle use per README convention (relabelled 2026-11-13)
+1438	salutate	0	salutare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+144	saluti	0	saluto	noun		claude-opus-5.5@2026-11-12		
+3446	saluto	0	saluto	noun		claude-opus-5.5@2026-11-12		
+790	salvare	0	salvare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+457	salvo	0	salvo	adj		claude-opus-5.5@2026-11-12		safe
+2163	sapere	0	sapere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3928	sapere	0	sapere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+6562	sapeste	0	sapere	verb	subjunctive.imperfect.2p	claude-opus-5.5@2026-11-12		se clause
+570	sapete	0	sapere	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+4350	saprebbe	0	sapere	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+1554	saprete	0	sapere	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
+8346	saprete	0	sapere	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
+4901	saprà	0	sapere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+8017	sarebbero	0	essere	verb	conditional.present.3p	claude-opus-5.5@2026-11-12		
+4781	saremmo	0	essere	verb	conditional.present.1p	claude-opus-5.5@2026-11-12		
+8993	sareste	0	essere	verb	conditional.present.2p	claude-opus-5.5@2026-11-12		
+5552	sarete	0	essere	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
+3899	sbagliato	0	sbagliare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+2503	sbaglio	0	sbaglio	noun		claude-opus-5.5@2026-11-12		per sbaglio
+3897	sbaglio	0	sbaglio	noun		claude-opus-5.5@2026-11-12		
+434	scappare	0	scappare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1156	scendere	0	scendere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+6453	scesero	0	scendere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+1480	scherzi	0	scherzo	noun		claude-opus-5.5@2026-11-12		
+962	scomparire	0	scomparire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+6789	scrivesse	0	scrivere	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+497	scuotere	0	scuotere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+712	scusa	0	scusa	noun		claude-opus-5.5@2026-11-12		domandare scusa
+4235	sedere	0	sedere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		da sedere = a seat
+2181	seguisse	0	seguire	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+8839	sentire	0	sentire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+277	sentito	0	sentire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, si + essere; participle use per README convention (relabelled 2026-11-13)
+76	sentì	0	sentire	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2872	sentì	0	sentire	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+5779	seppe	0	sapere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+6924	serva	0	serva	noun		claude-opus-5.5@2026-11-12		servant
+1678	serve	0	servire	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+8038	serve	0	servire	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+1419	servire	0	servire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+4306	servite	0	servire	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+2740	sfida	0	sfida	noun		claude-opus-5.5@2026-11-12		
+8504	sfida	0	sfida	noun		claude-opus-5.5@2026-11-12		
+1750	sia	0	essere	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		
+3014	siate	0	essere	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+8134	so	0	sapere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+3017	soffrire	0	soffrire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3335	soglia	0	soglia	noun		claude-opus-5.5@2026-11-12		threshold
+2648	sognino	0	sognare	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
+2227	sogno	0	sogno	noun		claude-opus-5.5@2026-11-12		
+4839	somma	0	somma	noun		claude-opus-5.5@2026-11-12		in somma = in short
+49	sono	0	essere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+2133	sorriso	0	sorriso	noun		claude-opus-5.5@2026-11-12		
+3937	sorte	0	sorte	noun		claude-opus-5.5@2026-11-12		di questa sorte = of this kind
+3218	sospetti	0	sospetto	noun		claude-opus-5.5@2026-11-12		
+7782	sostenere	0	sostenere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+8861	spento	0	spegnere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+8862	spento	0	spegnere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+6938	sperare	0	sperare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+7023	speriamo	0	sperare	verb	imperative.present.1p	claude-opus-5.5@2026-11-12		hortative "let's hope"; form identical to indicative
+7824	speriamo	0	sperare	verb	imperative.present.1p	claude-opus-5.5@2026-11-12		hortative "let's hope"; form identical to indicative
+1299	sposo	0	sposo	noun		claude-opus-5.5@2026-11-12		
+444	sputare	0	sputare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+40	sta	0	stare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		imperative sta'; cell not in table_cells
+1997	sta	0	stare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		Dante quote, imperative (with lascia); cell not in table_cells
+4020	sta	0	stare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+600	staccato	0	staccare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, reflexive; participle use per README convention (relabelled 2026-11-13)
+3403	stai	0	stare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+5809	stai	0	stare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+2660	stanca	0	stanco	adj		claude-opus-5.5@2026-11-12		
+1966	state	0	essere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound auxiliary essere (erano state); participle use per README convention (relabelled 2026-11-13)
+40	stato	0	essere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere (sarò stato); participle use per README convention (relabelled 2026-11-13)
+2468	stesse	0	stare	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		stare di casa = live
+234	stette	0	stare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+3003	stettero	0	stare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+144	stia	0	stare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal (Lei) imperative
+8996	stimi	0	stimare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+197	sto	0	stare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+5431	sto	0	stare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+1823	stringemmo	0	stringere	verb	indicative.past_historic.1p	claude-opus-5.5@2026-11-12		
+6319	stringere	0	stringere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1700	studi	0	studio	noun		claude-opus-5.5@2026-11-12		
+343	studiare	0	studiare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+2826	stupire	0	stupire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+503	suono	0	suono	noun		claude-opus-5.5@2026-11-12		
+3082	suono	0	suono	noun		claude-opus-5.5@2026-11-12		
+2283	sveglia	0	svegliare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+3315	svegliare	0	svegliare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+733	sveglio	0	sveglio	adj		claude-opus-5.5@2026-11-12		awake
+3318	tarda	0	tardo	adj		claude-opus-5.5@2026-11-12		ora tarda
+8199	tardi	0	tardi	adv		claude-opus-5.5@2026-11-12		
+3354	temere	0	temere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1051	tenendosi	0	tenere	verb	non_finite.gerund	claude-opus-5.5@2026-11-12		pronominal tenersi; table key is tenersi
+6501	tenere	0	tenere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+8870	tenevano	0	tenere	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+4858	tenne	0	tenere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+8471	tirare	0	tirare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+5056	tirassi	0	tirare	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		subject io
+3937	tiro	0	tiro	noun		claude-opus-5.5@2026-11-12		trick
+4054	tocca	0	toccare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+4750	tornate	0	tornare	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+2772	tornerebbe	0	tornare	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+7634	tornerei	0	tornare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+7634	tornerei	1	tornare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+4634	torniamo	0	tornare	verb	imperative.present.1p	claude-opus-5.5@2026-11-12		hortative "let's go back"
+4646	torno	0	tornare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+4649	torno	0	tornare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+3942	torto	0	torto	noun		claude-opus-5.5@2026-11-12		wrong
+2850	torturare	0	torturare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+7312	tradire	0	tradire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+8049	trascinare	0	trascinare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+1072	tratta	0	trattare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+3942	tratta	0	trattare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		impersonal "si tratta di"
+3218	trattare	0	trattare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+991	trattato	0	trattato	noun		claude-opus-5.5@2026-11-12		"Trattato" = treatise
+2221	trovato	0	trovare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+8128	trovato	0	trovare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+2698	troverebbe	0	trovare	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+132	troverei	0	trovare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+8817	troverei	0	trovare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+149	troverei	0	trovare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+8325	trovino	0	trovare	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
+2973	usato	0	usare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+7824	usato	0	usare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1944	uscii	0	uscire	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+2258	uscii	0	uscire	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+610	vai	0	andare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		question "perché non vai"
+2047	vari	0	vario	adj		claude-opus-5.5@2026-11-12		"vari battibecchi" = various
+2650	vario	0	vario	adj		claude-opus-5.5@2026-11-12		"più vario" = varied
+3154	vedeste	0	vedere	verb	indicative.past_historic.2p	claude-opus-5.5@2026-11-12		main clause after "quando"
+1845	vedevano	0	vedere	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+8010	vedranno	0	vedere	verb	indicative.future.3p	claude-opus-5.5@2026-11-12		
+228	vende	0	vendere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+259	vengano	0	venire	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
+2046	vengano	0	venire	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		jussive subjunctive (polite command)
+7023	vengano	0	venire	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
+4340	venire	0	venire	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+5689	venissero	0	venire	verb	subjunctive.imperfect.3p	claude-opus-5.5@2026-11-12		
+7984	venuto	0	venire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		participle with own complements (in Sicilia); participle use per README convention (relabelled 2026-11-13)
+1960	vergogna	0	vergogna	noun		claude-opus-5.5@2026-11-12		"la mia vergogna" = shame
+6856	verrebbe	0	venire	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+6896	verrebbe	0	venire	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+2205	versare	0	versare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+8970	veste	0	veste	noun		claude-opus-5.5@2026-11-12		"la veste" = dress
+3680	viaggio	0	viaggio	noun		claude-opus-5.5@2026-11-12		"quel viaggio" = journey
+793	videro	0	vedere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+6688	vinciate	0	vincere	verb	subjunctive.present.2p	claude-opus-5.5@2026-11-12		
+8494	visto	0	vedere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+15	viva	0	vivo	adj		claude-opus-5.5@2026-11-12		"anima viva" = living soul
+592	vivere	0	vivere	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+3719	vivi	0	vivere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		exhortation "vivi dunque sicuro" in a letter
+277	volare	0	volare	verb	non_finite.infinitive	claude-opus-5.5@2026-11-12		
+588	volevano	0	volere	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+5056	volevate	0	volere	verb	indicative.imperfect.2p	claude-opus-5.5@2026-11-12		
+8815	volle	0	volere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+8902	volse	0	volgere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+4	volta	0	volta	noun		claude-opus-5.5@2026-11-12		"una volta" = once
+2077	volta	0	volta	noun		claude-opus-5.5@2026-11-12		"una buona volta" = once and for all
+1837	vorranno	0	volere	verb	indicative.future.3p	claude-opus-5.5@2026-11-12		
+6	è	0	essere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+1770	abbia	0	avere	verb	subjunctive.present.1s	claude-opus-5.5@2026-11-12		subject "io"
+546	abbiamo	0	avere	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		
+2575	abbiamo	0	avere	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		colloquial "ci abbiamo"
+8180	abitavano	0	abitare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+5874	accadde	0	accadere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+266	accadde	0	accadere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+9022	accettasse	0	accettare	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+3360	accompagna	0	accompagnare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+5466	addormentato	0	addormentato	noun		claude-opus-5.5@2026-11-12		noun use (il povero addormentato); participle use per README convention (relabelled 2026-11-13)
+1729	addormentò	0	addormentare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		pronominal addormentarsi
+1022	affidiamo	0	affidare	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		
+4221	affronterai	0	affrontare	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+5829	aiuta	0	aiutare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+3721	ama	0	amare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		elided "t'ama"
+2064	amavano	0	amare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+2694	amiamo	0	amare	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		
+2139	ammazzato	0	ammazzare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+382	andiamo	0	andare	verb	imperative.present.1p	claude-opus-5.5@2026-11-12		"Andiamo subito" = let's go
+2045	andiamo	0	andare	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		
+3400	andrà	0	andare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+8858	apre	0	aprire	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+6434	apri	0	aprire	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+3945	aprite	0	aprire	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+795	arriva	0	arrivare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+4636	arrivarono	0	arrivare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+2426	arrivato	0	arrivare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+1604	arriveremo	0	arrivare	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+444	aspetta	0	aspettare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+8408	aspettano	0	aspettare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+6294	aspettato	0	aspettare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+4967	aspettava	0	aspettare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+1010	assisto	0	assistere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+7426	attendevano	0	attendere	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+457	avessi	0	avere	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		subject "io"
+2487	avessi	0	avere	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		"non avrei" fixes 1s
+1331	avessi	0	avere	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		"feel whether I have a fever"; 2s unlikely
+3938	avete	0	avere	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+8023	aveva	0	avere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+8239	avevano	0	avere	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+2783	avevi	0	avere	verb	indicative.imperfect.2s	claude-opus-5.5@2026-11-12		
+1810	avevo	0	avere	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+3397	avrai	0	avere	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+2926	avresti	0	avere	verb	conditional.present.2s	claude-opus-5.5@2026-11-12		
+5926	avresti	0	avere	verb	conditional.present.2s	claude-opus-5.5@2026-11-12		
+6676	avvertito	0	avvertire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+8949	avverto	0	avvertire	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+1521	avvicina	0	avvicinare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		pronominal avvicinarsi
+683	avvicinavano	0	avvicinare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		pronominal avvicinarsi
+2239	avviene	0	avvenire	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+2916	baciò	0	baciare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+3152	badava	0	badare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+323	ballavano	0	ballare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+3354	bastassero	0	bastare	verb	subjunctive.imperfect.3p	claude-opus-5.5@2026-11-12		
+5229	basti	0	bastare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		relative "tanto che basti"
+1896	batteva	0	battere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		subject "il cuore"
+8056	batteva	0	battere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+3445	batteva	0	battere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+3415	batto	0	battere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		pronominal battersi = to fight a duel
+3439	battono	0	battere	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		pronominal battersi
+2657	benedica	0	benedire	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		optative, subject "Dio"
+7698	benedica	0	benedire	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		optative, subject "Dio"
+5426	beve	0	bere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+1045	bevuto	0	bere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+28	bussato	0	bussare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		passive: fu + pp (impersonal); participle use per README convention (relabelled 2026-11-13)
+5154	butta	0	buttare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		passive "si butta"
+1911	buttavo	0	buttare	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+25	cadde	0	cadere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+5457	cadde	0	cadere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+8855	cade	0	cadere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+6625	cadeva	0	cadere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+5611	camminato	0	camminare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound infinitive, avere; participle use per README convention (relabelled 2026-11-13)
+2045	cantano	0	cantare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+1943	capisce	0	capire	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		impersonal "si capisce" = of course
+5869	capitò	0	capitare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+8920	caschiamo	0	cascare	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		idiom "cascare dal sonno"
+6272	cedette	0	cedere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2204	celebrato	0	celebrare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+8292	cercano	0	cercare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+5475	cercherò	0	cercare	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+8236	chiamano	0	chiamare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+1810	chiamava	0	chiamare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+1651	chiami	0	chiamare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+5484	chiami	0	chiamare	verb	subjunctive.present.2s	claude-opus-5.5@2026-11-12		after "cosa m'importa che"; form same as indicative 2s
+7552	chiamo	0	chiamare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+2772	chiede	0	chiedere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+64	chiedeva	0	chiedere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+214	chiudi	0	chiudere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+6068	circondavano	0	circondare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+6993	colgono	0	cogliere	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+6993	colgono	1	cogliere	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+2769	combatte	0	combattere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+118	cominciava	0	cominciare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+8013	cominciava	0	cominciare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+1695	comprai	0	comprare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+1422	comprato	0	comprare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+5585	concluda	0	concludere	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		jussive, subject "nessuno"
+2579	concorda	0	concordare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+6416	conduceva	0	condurre	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+7082	confessato	0	confessare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+8402	conforta	0	confortare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+2503	confuso	0	confondere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		participle with own complements (per sbaglio, con); participle use per README convention (relabelled 2026-11-13)
+4278	conosce	0	conoscere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+3235	conosceva	0	conoscere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+4446	conosci	0	conoscere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+332	conosco	0	conoscere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+3474	consigliò	0	consigliare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+6794	conteneva	0	contenere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+3986	continuò	0	continuare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+5154	copre	0	coprire	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+1221	corri	0	correre	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		question "dove corri"
+1521	corri	0	correre	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+2283	credeva	0	credere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		formal "Lei"
+2562	credeva	0	credere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+5648	credevo	0	credere	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+872	crescono	0	crescere	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+6700	curando	0	curare	verb	non_finite.gerund	claude-opus-5.5@2026-11-12		
+8997	darei	0	dare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+3815	darà	0	dare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+750	darà	0	dare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+2145	dava	0	dare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+2470	davano	0	dare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+8134	davo	0	dare	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+4967	desiderava	0	desiderare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+2527	desideravo	0	desiderare	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+266	destò	0	destare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+605	deve	0	dovere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+118	dica	0	dire	verb	subjunctive.present.1s	claude-opus-5.5@2026-11-12		"vuoi che te lo dica" = I tell you
+5312	dicevo	0	dire	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+1189	dici	0	dire	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+41	dico	0	dire	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+1752	diede	0	dare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+981	difendeva	0	difendere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+5154	diffonde	0	diffondere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+6325	diffonde	0	diffondere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+8681	dipende	0	dipendere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+901	dirò	0	dire	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+3984	dirò	0	dire	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+2775	dispiace	0	dispiacere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+3899	dite	0	dire	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+1600	diventa	0	diventare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+875	diventassi	0	diventare	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		"anch'io"
+8917	diventato	0	diventare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+2298	diventi	0	diventare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		"vedi che diventi"
+1343	divertiremo	0	divertire	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		pronominal divertirsi
+4736	domandava	0	domandare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+7270	domandavo	0	domandare	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+4944	domanderà	0	domandare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+1972	domandò	0	domandare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+214	dormi	0	dormire	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+2872	dormiva	0	dormire	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+4928	dormiva	0	dormire	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+2163	dovete	0	dovere	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+6172	dovete	0	dovere	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+1896	doveva	0	dovere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+4939	dovrebbe	0	dovere	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+8471	dovrebbe	0	dovere	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+425	dovrei	0	dovere	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+4426	dovremmo	0	dovere	verb	conditional.present.1p	claude-opus-5.5@2026-11-12		
+356	dovresti	0	dovere	verb	conditional.present.2s	claude-opus-5.5@2026-11-12		
+7305	dubiti	0	dubitare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		polite (Lei) imperative "non dubiti"
+8089	durarono	0	durare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+1933	durò	0	durare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+527	dà	0	dare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+2423	entrava	0	entrare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+733	eri	0	essere	verb	indicative.imperfect.2s	claude-opus-5.5@2026-11-12		
+3248	espose	0	esporre	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2149	facciamo	0	fare	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		
+709	faccio	0	fare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+694	farai	0	fare	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+901	farai	0	fare	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+808	farebbe	0	fare	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		polite (Lei) request
+8889	farei	0	fare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+281	faremo	0	fare	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+988	faresti	0	fare	verb	conditional.present.2s	claude-opus-5.5@2026-11-12		
+3719	farò	0	fare	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+3393	faticato	0	faticare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+69	fece	0	fare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+3467	fermato	0	fermare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+234	fermò	0	fermare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		pronominal fermarsi
+8978	fermò	0	fermare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		pronominal fermarsi
+1944	finisse	0	finire	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+920	finiva	0	finire	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+4559	finì	0	finire	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+7739	fregava	0	fregare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+3158	frenato	0	frenato	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb; participle use per README convention (relabelled 2026-11-13)
+1845	fuggente	0	fuggente	adj		claude-opus-5.5@2026-11-12		present participle "treno fuggente"; "sul ponte" is a locative adjunct, not a verb complement
+8272	fuggito	0	fuggire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere (motion); participle use per README convention (relabelled 2026-11-13)
+600	gettato	0	gettare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+4956	giunsero	0	giungere	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+1045	gonfiato	0	gonfiare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere (change of state); participle use per README convention (relabelled 2026-11-13)
+1224	gridato	0	gridare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1253	gridato	0	gridare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+170	gridava	0	gridare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+8324	guardano	0	guardare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+7182	guarisco	0	guarire	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+4776	guiderà	0	guidare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+961	importa	0	importare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		"ce ne importa"
+3094	incontrai	0	incontrare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+1129	incontrato	0	incontrare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+4804	indicavano	0	indicare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+2827	indovinato	0	indovinare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+241	infilò	0	infilare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2823	insegnato	0	insegnare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1410	intendeva	0	intendere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+4373	intendiamo	0	intendere	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		
+683	interrotto	0	interrompere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		passive: fu + pp + da agent; participle use per README convention (relabelled 2026-11-13)
+3776	interruppe	0	interrompere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+6195	invitò	0	invitare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+4221	lascerai	0	lasciare	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+5902	lascerò	0	lasciare	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+5134	lasci	0	lasciare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		polite (Lei) imperative "mi lasci entrare"
+473	lascia	0	lasciare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+1997	lascia	0	lasciare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		Dante quotation, parallel to imperative "sta"
+4475	lasciamo	0	lasciare	verb	imperative.present.1p	claude-opus-5.5@2026-11-12		"Lasciamo fare" = let's leave it
+4540	lasciamo	0	lasciare	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		
+97	lasciano	0	lasciare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+6018	lascio	0	lasciare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+8855	lascio	0	lasciare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+1784	lasciò	0	lasciare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+389	lasciò	0	lasciare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2985	lavora	0	lavorare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+2982	lavorano	0	lavorare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+6633	lavorava	0	lavorare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+7467	lavoravano	0	lavorare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+245	leggerò	0	leggere	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+1798	leggesse	0	leggere	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+1554	leggete	0	leggere	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+1314	liberato	0	liberare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, reflexive; participle use per README convention (relabelled 2026-11-13)
+1250	mancasse	0	mancare	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+8050	mancava	0	mancare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+5423	manda	0	mandare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+6676	mandava	0	mandare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+6769	manderò	0	mandare	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+2229	mandò	0	mandare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+186	mangerò	0	mangiare	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+196	mangerò	0	mangiare	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+183	mangi	0	mangiare	verb	subjunctive.present.1s	claude-opus-5.5@2026-11-12		volete che (io) le mangi
+2431	mangiando	0	mangiare	verb	non_finite.gerund	claude-opus-5.5@2026-11-12		
+8035	mangiano	0	mangiare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+8036	mangiano	0	mangiare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+172	mangiato	0	mangiare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+2802	mangio	0	mangiare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+7952	menato	0	menare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+830	meraviglio	0	meravigliare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		pronominal meravigliarsi
+8532	meritavano	0	meritare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+61	metterò	0	mettere	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+8264	metteva	0	mettere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+439	metti	0	mettere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+1918	montava	0	montare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+3664	mostrò	0	mostrare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2799	muoia	0	morire	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		subject likely lei (the girl refusing food); 1s not fully excluded
+1144	muoio	0	morire	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+873	muoiono	0	morire	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+1640	muore	0	morire	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+2184	nacque	0	nascere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+873	nascono	0	nascere	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+501	nascose	0	nascondere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+7794	nega	0	negare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+6332	nominò	0	nominare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+6459	nominò	0	nominare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+8400	obbliga	0	obbligare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+1019	occorre	0	occorrere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+2077	occorre	0	occorrere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+2460	ordinò	0	ordinare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+8494	osato	0	osare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+5859	ottenuto	0	ottenere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, si + essere; participle use per README convention (relabelled 2026-11-13)
+4452	pagherai	0	pagare	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+1229	pagherei	0	pagare	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+5084	pagherà	0	pagare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+3141	paiono	0	parere	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+1798	pareva	0	parere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+1533	parla	0	parlare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+4324	parlerà	0	parlare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+3716	parli	0	parlare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		hortative with impersonal si
+4169	parli	0	parlare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		hortative with impersonal si
+5806	parliamo	0	parlare	verb	imperative.present.1p	claude-opus-5.5@2026-11-12		"let's not talk about it"; indicative reading possible
+3712	parlo	0	parlare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+6501	parrebbe	0	parere	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+1164	passano	0	passare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+1229	passasse	0	passare	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+572	passava	0	passare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+5563	passeremo	0	passare	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+2170	passò	0	passare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+1280	pensa	0	pensare	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+2655	penso	0	pensare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+2308	perdonato	0	perdonare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1625	permetti	0	permettere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+514	piace	0	piacere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+8253	piangeva	0	piangere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		transitive: mourned her
+8545	piangeva	0	piangere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+4711	porge	0	porgere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+833	portava	0	portare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+840	portava	0	portare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+62	porterà	0	portare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+3235	portò	0	portare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+1394	portò	0	portare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+17	posso	0	potere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+8049	posso	0	potere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+8008	posò	0	posare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+600	potesse	0	potere	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+1549	potrebbe	0	potere	verb	conditional.present.3s	claude-opus-5.5@2026-11-12		
+1895	precedeva	0	precedere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+1080	preferisci	0	preferire	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+1286	preferisco	0	preferire	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+2556	pregai	0	pregare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+6351	pregato	0	pregare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+7658	preghiamo	0	pregare	verb	imperative.present.1p	claude-opus-5.5@2026-11-12		
+7658	preghiamo	1	pregare	verb	imperative.present.1p	claude-opus-5.5@2026-11-12		
+7308	prenda	0	prendere	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal imperative (Lei)
+3814	prenderà	0	prendere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+4903	prenderà	0	prendere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+489	prendi	0	prendere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+620	prendi	0	prendere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+8673	prendo	0	prendere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+3145	preparavano	0	preparare	verb	indicative.imperfect.3p	claude-opus-5.5@2026-11-12		
+6688	pretende	0	pretendere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+6144	pretendete	0	pretendere	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+3664	procurato	0	procurare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1955	produsse	0	produrre	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+7463	proibito	0	proibito	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb; participle use per README convention (relabelled 2026-11-13)
+4221	prometti	0	promettere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+5925	proseguiva	0	proseguire	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+896	provai	0	provare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+3756	provasse	0	provare	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+8183	provava	0	provare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+8768	provi	0	provare	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal imperative (Provi lei)
+5959	provocato	0	provocato	adj		claude-opus-5.5@2026-11-12		state after essere, avere-verb, no passive marker; participle use per README convention (relabelled 2026-11-13)
+375	puoi	0	potere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+2785	raccomando	0	raccomandare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+5312	raccontano	0	raccontare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+5140	racconteremo	0	raccontare	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+8839	racconterò	0	raccontare	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+1526	raggiunto	0	raggiungere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+2417	rappresentava	0	rappresentare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+1044	reggeva	0	reggere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+3194	regolato	0	regolare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound infinitive, avere; participle use per README convention (relabelled 2026-11-13)
+6578	renderà	0	rendere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+8924	respira	0	respirare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+4779	restava	0	restare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+1923	restituì	0	restituire	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+3309	ricevuto	0	ricevere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+5033	ricevuto	0	ricevere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		passive: essere in future; participle use per README convention (relabelled 2026-11-13)
+8573	ricevuto	0	ricevere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1805	richiamò	0	richiamare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+672	ricominciò	0	ricominciare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2878	riconobbe	0	riconoscere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+1709	riconosci	0	riconoscere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+3422	ride	0	ridere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+1299	riderà	0	ridere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+631	ridi	0	ridere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+569	rido	0	ridere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+3017	riesce	0	riuscire	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+8112	riflettete	0	riflettere	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+4794	rileva	0	rilevare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+1273	rimani	0	rimanere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+8	rimase	0	rimanere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+550	rimesso	0	rimettere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+3834	rimette	0	rimettere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+4750	ringrazio	0	ringraziare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+3236	ringraziò	0	ringraziare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+3999	ripeteva	0	ripetere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+72	ripeto	0	ripetere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+6457	ripreso	0	riprendere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+310	risparmiato	0	risparmiare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+4260	risponda	0	rispondere	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		formal imperative (Lei)
+6698	rispondete	0	rispondere	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+8035	rispondi	0	rispondere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+3115	rispondo	0	rispondere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+2541	risposto	0	rispondere	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+977	ritornerai	0	ritornare	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+1222	ritorni	0	ritornare	verb	subjunctive.present.1s	claude-opus-5.5@2026-11-12		Pinocchio about himself: vuole che (io) ritorni
+795	ritrova	0	ritrovare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+3082	rivedo	0	rivedere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+6171	rivedremo	0	rivedere	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+3104	rivolge	0	rivolgere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+6309	rode	0	rodere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+94	sa	0	sapere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+2907	salì	0	salire	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+896	sapessi	0	sapere	verb	subjunctive.imperfect.2s	claude-opus-5.5@2026-11-12		
+2926	sapevo	0	sapere	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+7270	sapevo	0	sapere	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+8036	sappia	0	sapere	verb	subjunctive.present.1s	claude-opus-5.5@2026-11-12		
+3865	sappia	0	sapere	verb	subjunctive.present.1s	claude-opus-5.5@2026-11-12		
+2470	saprei	0	sapere	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+8943	saranno	0	essere	verb	indicative.future.3p	claude-opus-5.5@2026-11-12		
+457	sarei	0	essere	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+1250	sarei	0	essere	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+1226	saremo	0	essere	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+6938	saremo	0	essere	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+40	sarò	0	essere	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		future perfect auxiliary (sarò stato)
+149	scappato	0	scappare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+3240	scappato	0	scappare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+471	scappi	0	scappare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+1219	scappo	0	scappare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+8852	sceglie	0	scegliere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+430	scherza	0	scherzare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		impersonal si
+5944	scommetterei	0	scommettere	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+8873	scoppiarono	0	scoppiare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+7250	scoprì	0	scoprire	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+3320	scrive	0	scrivere	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+3727	scriveremo	0	scrivere	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+2587	sedetti	0	sedere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+5377	sentiamo	0	sentire	verb	imperative.present.1p	claude-opus-5.5@2026-11-12		"let's hear"
+1797	sentii	0	sentire	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+829	sento	0	sentire	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+6325	sentono	0	sentire	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+8929	serviva	0	servire	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+6981	servono	0	servire	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+2147	siamo	0	essere	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		passive auxiliary
+2137	siano	0	essere	verb	subjunctive.present.3p	claude-opus-5.5@2026-11-12		
+41	siete	0	essere	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+24	smetti	0	smettere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+72	smetti	0	smettere	verb	imperative.present.2s	claude-opus-5.5@2026-11-12		
+2578	soffia	0	soffiare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+8008	soffiò	0	soffiare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+5993	soffiò	0	soffiare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+503	soffocato	0	soffocato	adj		claude-opus-5.5@2026-11-12		modifier of noun; participle use per README convention (relabelled 2026-11-13)
+3072	sognato	0	sognare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, avere; participle use per README convention (relabelled 2026-11-13)
+1152	sparito	0	sparire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+1977	sparito	0	sparire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+8839	spense	0	spegnere	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2886	sperava	0	sperare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+6534	spiegava	0	spiegare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+3409	stancherà	0	stancare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+1343	staremo	0	stare	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+1233	starà	0	stare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+5879	starà	0	stare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+8996	stimo	0	stimare	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+1207	studia	0	studiare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		impersonal si
+962	studiano	0	studiare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+2982	studiano	0	studiare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+1343	studieremo	0	studiare	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+7526	suggerito	0	suggerire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		passive: era stato + pp; participle use per README convention (relabelled 2026-11-13)
+2025	svegliava	0	svegliare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+2227	svegliò	0	svegliare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+4865	temuto	0	temuto	adj		claude-opus-5.5@2026-11-12		modifier of noun; participle use per README convention (relabelled 2026-11-13)
+2879	teneva	0	tenere	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+309	tenga	0	tenere	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		idiom "non c'è grazia che tenga"
+5859	tentato	0	tentare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, si + essere; participle use per README convention (relabelled 2026-11-13)
+1240	tenti	0	tentare	verb	subjunctive.present.2s	claude-opus-5.5@2026-11-12		inutile che tu mi tenti
+1000	tieni	0	tenere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+2307	tira	0	tirare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		
+3265	tireranno	0	tirare	verb	indicative.future.3p	claude-opus-5.5@2026-11-12		
+5489	toccava	0	toccare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+5482	toccherà	0	toccare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+5927	toccherà	0	toccare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+2681	torna	0	tornare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		narrative 3s about a child
+4711	torna	0	tornare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		narrative present series (va, guarda, porge)
+1784	tornai	0	tornare	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+6513	tornasse	0	tornare	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+8817	tornassi	0	tornare	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		
+334	tremava	0	tremare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+822	trovava	0	trovare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+7512	troverai	0	trovare	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+4776	troverà	0	trovare	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+659	troverò	0	trovare	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+2147	urlava	0	urlare	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+72	urlò	0	urlare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+2694	usciamo	0	uscire	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		
+3228	uscirà	0	uscire	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+2891	uscisse	0	uscire	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+5703	uscito	0	uscire	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, essere; participle use per README convention (relabelled 2026-11-13)
+222	va	0	andare	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		impersonal si
+3664	valente	0	valente	adj		claude-opus-5.5@2026-11-12		adjective "skilful", meaning drifted from valere
+886	vanno	0	andare	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+2420	vedevo	0	vedere	verb	indicative.imperfect.1s	claude-opus-5.5@2026-11-12		
+2298	vedi	0	vedere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+8051	vedi	0	vedere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
+3392	vedrai	0	vedere	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+3400	vedrai	0	vedere	verb	indicative.future.2s	claude-opus-5.5@2026-11-12		
+1189	vedremo	0	vedere	verb	indicative.future.1p	claude-opus-5.5@2026-11-12		
+8948	vedrete	0	vedere	verb	indicative.future.2p	claude-opus-5.5@2026-11-12		
+1135	vedrà	0	vedere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+4383	vedrò	0	vedere	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+466	venga	0	venire	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		
+8488	venga	0	venire	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		
+1531	venga	0	venire	verb	subjunctive.present.3s	claude-opus-5.5@2026-11-12		
+382	vengo	0	venire	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+6195	venisse	0	venire	verb	subjunctive.imperfect.3s	claude-opus-5.5@2026-11-12		
+4068	venite	0	venire	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+8346	venite	0	venire	verb	imperative.present.2p	claude-opus-5.5@2026-11-12		
+397	veniva	0	venire	verb	indicative.imperfect.3s	claude-opus-5.5@2026-11-12		
+1961	venne	0	venire	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+959	vergogni	0	vergognare	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		pronominal vergognarsi
+8199	verrà	0	venire	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+4324	verrò	0	venire	verb	indicative.future.1s	claude-opus-5.5@2026-11-12		
+1866	vidi	0	vedere	verb	indicative.past_historic.1s	claude-opus-5.5@2026-11-12		
+362	viene	0	venire	verb	indicative.present.3s	claude-opus-5.5@2026-11-12		colloquial singular with plural subject (i bordoni)
+873	vivono	0	vivere	verb	indicative.present.3p	claude-opus-5.5@2026-11-12		
+8434	vogliamo	0	volere	verb	indicative.present.1p	claude-opus-5.5@2026-11-12		
+6	voglio	0	volere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+8001	voglio	0	volere	verb	indicative.present.1s	claude-opus-5.5@2026-11-12		
+6501	volessi	0	volere	verb	subjunctive.imperfect.1s	claude-opus-5.5@2026-11-12		speaker about himself
+158	volete	0	volere	verb	indicative.present.2p	claude-opus-5.5@2026-11-12		
+1196	volevi	0	volere	verb	indicative.imperfect.2s	claude-opus-5.5@2026-11-12		
+2973	voltarono	0	voltare	verb	indicative.past_historic.3p	claude-opus-5.5@2026-11-12		
+8329	voltato	0	voltare	verb	non_finite.past_participle	claude-opus-5.5@2026-11-12		compound tense, reflexive; participle use per README convention (relabelled 2026-11-13)
+2806	voltò	0	voltare	verb	indicative.past_historic.3s	claude-opus-5.5@2026-11-12		
+46	vorrei	0	volere	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+2475	vorrei	0	volere	verb	conditional.present.1s	claude-opus-5.5@2026-11-12		
+1136	vorrà	0	volere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+4001	vorrà	0	volere	verb	indicative.future.3s	claude-opus-5.5@2026-11-12		
+8036	vuoi	0	volere	verb	indicative.present.2s	claude-opus-5.5@2026-11-12		
