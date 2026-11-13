@@ -1739,6 +1739,29 @@
         "partOfSpeech": "noun"
       }
     ],
+    "persona": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "persona",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "persona",
+        "partOfSpeech": "verb"
+      }
+    ],
     "por": [
       {
         "lemma": "por",
@@ -1747,6 +1770,44 @@
       {
         "lemma": "por",
         "partOfSpeech": "intj"
+      }
+    ],
+    "puede": [
+      {
+        "lemma": "puede",
+        "partOfSpeech": "intj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "poder",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "poder",
+        "partOfSpeech": "verb"
       }
     ],
     "puerta": [
@@ -2099,6 +2160,44 @@
         "partOfSpeech": "pron"
       }
     ],
+    "ser": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "ser",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "serme": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "infinitive",
+            "object-first-person",
+            "object-singular"
+          ]
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
     "siendo": [
       {
         "grammar": {
@@ -2122,6 +2221,25 @@
           ]
         },
         "lemma": "sentir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "soy": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ser",
         "partOfSpeech": "verb"
       }
     ],
@@ -2212,6 +2330,7 @@
         "partOfSpeech": "intj"
       }
     ],
+    "sér": [],
     "tiene": [
       {
         "grammar": {
@@ -2345,6 +2464,24 @@
         "partOfSpeech": "conj"
       }
     ],
+    "yo": [
+      {
+        "lemma": "yo",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "yo",
+        "partOfSpeech": "noun"
+      }
+    ],
     "él": [
       {
         "grammar": {
@@ -2358,6 +2495,34 @@
         },
         "lemma": "él",
         "partOfSpeech": "pron"
+      }
+    ],
+    "útil": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "útil",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "útil",
+        "partOfSpeech": "adj"
       }
     ]
   }

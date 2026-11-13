@@ -247,3 +247,18 @@ async fn démoselo_is_demos_se_lo() {
     assert!(!a.parses.is_empty());
     assert!(agreed(&a, "Démoselo")[0].starts_with("dar Verb"));
 }
+
+#[tokio::test]
+async fn an_attached_dative_keeps_ser_a_copula() {
+    let a = run("Puede serme útil.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "serme")[0].starts_with("ser Verb"));
+}
+
+#[tokio::test]
+async fn a_relative_pronoun_as_ser_predicate() {
+    assert!(!run("Yo soy la persona que soy.").await.parses.is_empty());
+    let a = run("Yo soy la persona que fue.").await;
+    let c = a.chosen.iter().find(|c| c.token == "fue").unwrap();
+    assert!(c.readings.iter().any(|r| r[0].lemma == "ser"), "{:?}", c.readings);
+}

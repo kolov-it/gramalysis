@@ -357,6 +357,9 @@ rule serv.progressive: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] 
 rule vp.ser-lo: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Pron[attached=no, clitic=yes, case=acc, lemma=lo, gender=m, number=sg] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "lo stands for a predicate already said (Ella lo es, lo fue)."
 
+rule serv.enclitic: SerV[finite=no, form=?fm] -> Verb[class=ser, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, reflexive=no, case=dat]
+  "A dative clitic attached to ser (puede serme útil, siéndole fiel)."
+
 rule serv.negation: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Adv[neg=yes] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "no es, nunca fue."
 
@@ -492,6 +495,12 @@ rule rel.preposition: Rel -> Prep RelPron[lemma=que|quien|cual|donde] S
 
 rule rel.preposition-article: Rel -> Prep Det[definite=yes] RelPron[lemma=que|cual] S
   "preposition + article + que / cual (el tema del que hablamos, la razón por la cual)."
+
+rule rel.copular: Rel -> RelPron[lemma=que] SerV
+  "que + ser: the noun is ser's predicate (la persona que soy, lo que fue)."
+
+rule rel.copular-subject: Rel -> RelPron[lemma=que] SerV NP[case=nom]
+  "que + ser + subject (lo que es la vida)."
 
 rule rel.where: Rel -> RelPron[lemma=donde] S
   "donde + clause (la ciudad donde vivo)."
