@@ -804,6 +804,23 @@
         "partOfSpeech": "verb"
       }
     ],
+    "continuado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "continuar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "cuant": [],
     "cuánt": [],
     "cuántas": [
@@ -1897,6 +1914,23 @@
         "partOfSpeech": "noun"
       }
     ],
+    "haberlo": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "accusative",
+            "infinitive",
+            "object-masculine",
+            "object-singular",
+            "object-third-person"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
     "haberme": [
       {
         "grammar": {
@@ -2294,6 +2328,23 @@
         "partOfSpeech": "verb"
       }
     ],
+    "leerlo": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "accusative",
+            "infinitive",
+            "object-masculine",
+            "object-singular",
+            "object-third-person"
+          ]
+        },
+        "lemma": "leer",
+        "partOfSpeech": "verb"
+      }
+    ],
     "leyendo": [
       {
         "grammar": {
@@ -2325,6 +2376,7 @@
         "partOfSpeech": "verb"
       }
     ],
+    "leér": [],
     "libro": [
       {
         "grammar": {
@@ -2688,6 +2740,23 @@
         },
         "lemma": "mi",
         "partOfSpeech": "noun"
+      }
+    ],
+    "mostrado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "mostrar",
+        "partOfSpeech": "verb"
       }
     ],
     "mucha": [

@@ -477,3 +477,20 @@ async fn a_qué_hora_with_ser() {
     let c = a.chosen.iter().find(|c| c.token == "fue").unwrap();
     assert!(c.readings.iter().any(|r| r[0].lemma == "ser"), "{:?}", c.readings);
 }
+
+#[tokio::test]
+async fn a_climbed_object_is_not_attached_again() {
+    assert!(run("Lo puedo leerlo.").await.parses.is_empty());
+    assert!(run("Lo tengo que leerlo.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn attributive_lo_on_haber() {
+    assert!(!run("Puedo haberlo sido.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn every_linking_verb_in_a_compound_tense() {
+    assert!(!run("Ha continuado feliz.").await.parses.is_empty());
+    assert!(!run("Se ha mostrado feliz.").await.parses.is_empty());
+}
