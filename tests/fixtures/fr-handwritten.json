@@ -1174,6 +1174,20 @@
           "clitic": false
         }
       }
+    ],
+    "parle": [
+      {
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
     ]
   }
 }

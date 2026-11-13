@@ -81,6 +81,9 @@ async fn participle_after_avoir_agrees_only_with_an_object_before_it() {
     // que before avoir is the participle's object: it must agree
     assert!(!parses(&run("Les pommes que j'ai mangé sont bonnes.").await));
     assert!(!parses(&run("Les lettres que je n'ai pas lu sont là.").await));
+    // coordination keeps the check
+    assert!(!parses(&run("Les lettres que j'ai lu et ai écrit sont là.").await));
+    assert!(parses(&run("Les lettres que j'ai lues et ai écrites sont là.").await));
     assert!(parses(&run("Les lettres que je n'ai pas lues sont là.").await));
     let a = run("Les pommes que j'ai mangées sont bonnes.").await;
     assert!(parses(&a));
@@ -300,4 +303,11 @@ async fn que_before_avoir_and_a_noun_subject_after_it_agrees() {
 #[tokio::test]
 async fn les_before_en() {
     assert!(parses(&run("Il les en empêche.").await));
+}
+
+#[tokio::test]
+async fn complex_inversion_checks_the_pronoun_against_the_noun() {
+    assert!(parses(&run("La femme est-elle heureuse ?").await));
+    assert!(!parses(&run("La femme est-il heureuse ?").await));
+    assert!(!parses(&run("La femme parle-t-il ?").await));
 }

@@ -159228,6 +159228,35 @@
         "surface": "lucratives"
       }
     ],
+    "lues": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle plural",
+          "tags": [
+            "feminine",
+            "participle",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "plural"
+          ],
+          "tense": "past"
+        },
+        "lemma": "lire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "lues"
+      }
+    ],
     "luge": [
       {
         "confidence": "high",
