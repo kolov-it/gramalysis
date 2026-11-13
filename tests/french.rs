@@ -136,3 +136,18 @@ async fn rendez_vous_is_one_noun() {
     assert!(parses(&a));
     assert!(agreed(&a, "rendez-vous")[0].starts_with("rendez-vous Noun"));
 }
+
+#[tokio::test]
+async fn inverted_future_copula_takes_an_adjective() {
+    let a = run("Sera-t-elle belle ?").await;
+    assert!(parses(&a));
+    // The bare noun stays possible after être (il est médecin); the point is
+    // that the adjective is not lost.
+    let c = a.chosen.iter().find(|c| c.token == "belle").unwrap();
+    assert!(c.readings.iter().any(|r| r[0].lemma == "beau" && r[0].cat == "Adj"), "{:?}", c.readings);
+}
+
+#[tokio::test]
+async fn digits_are_a_number_whatever_else_the_lexicon_says() {
+    assert!(parses(&run("J'ai 20 ans.").await));
+}

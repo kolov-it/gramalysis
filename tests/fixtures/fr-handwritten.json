@@ -591,6 +591,59 @@
           "clitic": false
         }
       }
+    ],
+    "belle": [
+      {
+        "lemma": "beau",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "belle",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "ans": [
+      {
+        "lemma": "an",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "plural"
+          ],
+          "gender": "masculine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "20": [
+      {
+        "lemma": "20",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [],
+          "number": "singular",
+          "clitic": false
+        }
+      }
     ]
   }
 }

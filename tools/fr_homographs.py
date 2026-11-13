@@ -205,11 +205,13 @@ def load_homographs():
                 if m and m.group(1) != "verb" and not any(x["pos"] == m.group(1) for x in readings):
                     readings.append({"lemma": parts[0], "pos": m.group(1)})
         else:
-            # Kinds A and B: `lemma/pos(+pos)(count); …`.
+            # Kinds A and B: `lemma/pos[+pos…](count); …`.
+            # A combined entry (vide/noun+adj(660)) is one reading per category.
             for r in parts[3].split("; "):
-                m = re.match(r"(.+?)/(\w+)", r.strip())
+                m = re.match(r"(.+?)/([\w+]+)", r.strip())
                 if m:
-                    readings.append({"lemma": m.group(1), "pos": m.group(2)})
+                    for pos in m.group(2).split("+"):
+                        readings.append({"lemma": m.group(1), "pos": pos})
         out[parts[0]] = readings
     return out
 

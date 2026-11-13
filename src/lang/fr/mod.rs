@@ -178,8 +178,9 @@ impl French {
                     first.feats.insert("onset".to_owned(), first_sound.to_owned());
                 }
             }
-            // A number written in digits (3, 1966, 9,4 %).
-            if readings.is_empty() && token.chars().any(|c| c.is_ascii_digit()) {
+            // A number written in digits (3, 1966, 9,4 %), whatever else the
+            // lexicon reads it as (20 as a noun, 2 as de).
+            if token.chars().any(|c| c.is_ascii_digit()) {
                 readings.push(vec![Morpheme { surface: token.clone(), lemma: lower.clone(), cat: "Num".to_owned(), feats: FeatMap::new() }]);
             }
             // A capitalised word is a name anywhere but at the start, where

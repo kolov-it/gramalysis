@@ -408,3 +408,19 @@ bonjour = bonjour:Intj
 bonjour = bonjour:Noun{gender=m,number=sg}
 salut = salut:Intj
 salut = salut:Noun{gender=m,number=sg}
+
+# --- content-word readings of listed words. A listed word loses every
+# lexicon reading of the lemmas it lists, so its nouns and adjectives are
+# listed here (l'avant du bus, le car, un vers, le ton, sain et sauf).
+avant = avant:Noun{gender=m}
+devant = devant:Noun{gender=m}
+derrière = derrière:Noun{gender=m}
+car = car:Noun{gender=m}
+contre = contre:Noun{gender=m}
+envers = envers:Noun{gender=m}
+pendant = pendant:Noun{gender=m}
+pendant = pendant:Adj{gender=m,number=sg}
+vers = vers:Noun{gender=m}
+ton = ton:Noun{gender=m,number=sg}
+bon = bon:Noun{gender=m,number=sg}
+sauf = sauf:Adj{gender=m,number=sg}

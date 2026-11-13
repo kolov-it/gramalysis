@@ -580,6 +580,9 @@ rule cop.event: Cop[mood=?m, person=?p, number=?n, subj=no, marked=yes, neg=no] 
 rule cop.inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=no, neg=no] -> Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, tense=pres|impf, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n]
   "A linking verb with its subject after it (Es-tu prêt ? Est-ce vrai ?)."
 
+rule cop.event-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=yes, neg=no] -> Verb[lemma=être, finite=yes, tense=pret|fut, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n]
+  "être in the passé simple or the future with its subject after it (Sera-t-elle belle ?); a participle after it is a passive."
+
 rule cop.perfect: Cop[mood=?m, person=?p, number=?n, subj=no, marked=yes, neg=no] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=être, form=pastpart]
   "être in a compound tense (il a été malade); a participle after it is a passive (il a été tué)."
 

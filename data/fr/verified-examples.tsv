@@ -165,6 +165,7 @@ arrêter	arrêta	13985	indicative.past_historic.3s	gramalysis+label 2026-11-12
 arrêter	arrêta	133511	indicative.past_historic.3s	gramalysis+label 2026-11-12
 arrêter	arrêtions	1892114	subjunctive.present.1p	gramalysis+label 2026-11-12
 arrêter	arrêtions	1892124	subjunctive.present.1p	gramalysis+label 2026-11-12
+asseoir	assis	6956	indicative.past_historic.1s	gramalysis+label 2026-11-12
 assurer	assurez	9369	imperative.present.2p	gramalysis+label 2026-11-12
 assurer	assurez	12110	imperative.present.2p	gramalysis+label 2026-11-12
 attacher	attache	13801	imperative.present.2s	gramalysis+label 2026-11-12
@@ -183,6 +184,7 @@ augmenter	augmenta	601649	indicative.past_historic.3s	gramalysis+label 2026-11-1
 augmenter	augmenta	1085851	indicative.past_historic.3s	gramalysis+label 2026-11-12
 augmenter	augmenta	1085854	indicative.past_historic.3s	gramalysis+label 2026-11-12
 autoriser	autoriseriez	8640692	conditional.present.2p	gramalysis+label 2026-11-12
+avancer	avance	9941	indicative.present.3s	gramalysis+label 2026-11-12
 avancer	avancé	6550	non_finite.past_participle	gramalysis+label 2026-11-12
 avancer	avancé	8120	non_finite.past_participle	gramalysis+label 2026-11-12
 avancer	avançons	958569	indicative.present.1p	gramalysis+label 2026-11-12
@@ -458,6 +460,7 @@ coudre	coudre	331024	non_finite.infinitive	gramalysis+label 2026-11-12
 couler	coule	13130	indicative.present.3s	gramalysis+label 2026-11-12
 couler	coule	14242	indicative.present.3s	gramalysis+label 2026-11-12
 couper	coupe	8122	imperative.present.2s	gramalysis+label 2026-11-12
+couper	coupe	12061	imperative.present.2s	gramalysis+label 2026-11-12
 couper	coupe	181584	indicative.present.1s	gramalysis+label 2026-11-12
 couper	coupes	1197007	subjunctive.present.2s	gramalysis+label 2026-11-12
 couper	coupes	1398821	subjunctive.present.2s	gramalysis+label 2026-11-12
@@ -520,6 +523,7 @@ cueillir	cueillons	15783	imperative.present.1p	gramalysis+label 2026-11-12
 cueillir	cueillîmes	1460773	indicative.past_historic.1p	gramalysis+label 2026-11-12
 cueillir	cueillîmes	6685252	indicative.past_historic.1p	gramalysis+label 2026-11-12
 cuire	cuire	3507	non_finite.infinitive	gramalysis+label 2026-11-12
+cuire	cuire	4015	non_finite.infinitive	gramalysis+label 2026-11-12
 cuire	cuire	8944	non_finite.infinitive	gramalysis+label 2026-11-12
 cuire	cuisis	2269977	indicative.past_historic.1s	gramalysis+label 2026-11-12
 cuire	cuisis	2269978	indicative.past_historic.1s	gramalysis+label 2026-11-12
@@ -801,6 +805,7 @@ faire	faire	3112	non_finite.infinitive	gramalysis+label 2026-11-12
 faire	faisiez	662275	indicative.imperfect.2p	gramalysis+label 2026-11-12
 faire	fait	3223	non_finite.past_participle	gramalysis+label 2026-11-12
 faire	faites	3427	imperative.present.2p	gramalysis+label 2026-11-12
+faire	faites	4015	imperative.present.2p	gramalysis+label 2026-11-12
 faire	faites	10305	imperative.present.2p	gramalysis+label 2026-11-12
 faire	fassions	474060	subjunctive.present.1p	gramalysis+label 2026-11-12
 faire	fassions	2016444	subjunctive.present.1p	gramalysis+label 2026-11-12
@@ -985,6 +990,7 @@ joindre	joignions	4835757	subjunctive.present.1p	gramalysis+label 2026-11-12
 joindre	joindras	506006	indicative.future.2s	gramalysis+label 2026-11-12
 joindre	joindras	1011380	indicative.future.2s	gramalysis+label 2026-11-12
 joindre	joindras	3606592	indicative.future.2s	gramalysis+label 2026-11-12
+joindre	joint	135000	non_finite.past_participle	gramalysis+label 2026-11-12
 jouer	joua	494074	indicative.past_historic.3s	gramalysis+label 2026-11-12
 jouer	joua	583266	indicative.past_historic.3s	gramalysis+label 2026-11-12
 jouer	joua	814015	indicative.past_historic.3s	gramalysis+label 2026-11-12
@@ -1021,6 +1027,7 @@ laver	laves	11156122	indicative.present.2s	gramalysis+label 2026-11-12
 lever	levant	131414	non_finite.gerund	gramalysis+label 2026-11-12
 lever	levant	1959190	non_finite.gerund	gramalysis+label 2026-11-12
 lever	lever	6235	non_finite.infinitive	gramalysis+label 2026-11-12
+lever	lever	10105	non_finite.infinitive	gramalysis+label 2026-11-12
 lever	lever	10777	non_finite.infinitive	gramalysis+label 2026-11-12
 lever	lève	7380	indicative.present.1s	gramalysis+label 2026-11-12
 lever	lève	7618	indicative.present.3s	gramalysis+label 2026-11-12
@@ -1098,6 +1105,7 @@ marquer	marquant	10760386	non_finite.gerund	gramalysis+label 2026-11-12
 marquer	marque	333723	imperative.present.2s	gramalysis+label 2026-11-12
 marquer	marque	444806	indicative.present.3s	gramalysis+label 2026-11-12
 maîtriser	maîtrise	4466467	indicative.present.3s	gramalysis+label 2026-11-12
+maîtriser	maîtriser	3413	non_finite.infinitive	gramalysis+label 2026-11-12
 maîtriser	maîtriser	8024	non_finite.infinitive	gramalysis+label 2026-11-12
 maîtriser	maîtriser	1035770	non_finite.infinitive	gramalysis+label 2026-11-12
 menacer	menace	837850	indicative.present.3s	gramalysis+label 2026-11-12
@@ -1314,6 +1322,7 @@ penser	pensions	563866	indicative.imperfect.1p	gramalysis+label 2026-11-12
 perdre	perdit	130387	indicative.past_historic.3s	gramalysis+label 2026-11-12
 perdre	perdit	130833	indicative.past_historic.3s	gramalysis+label 2026-11-12
 permettre	permettant	430848	non_finite.gerund	gramalysis+label 2026-11-12
+permettre	permettant	1186808	non_finite.gerund	gramalysis+label 2026-11-12
 piquer	pique	12011345	indicative.present.3s	gramalysis+label 2026-11-12
 piquer	piques	4084915	indicative.present.2s	gramalysis+label 2026-11-12
 piquer	piques	9739161	indicative.present.2s	gramalysis+label 2026-11-12
@@ -1753,6 +1762,7 @@ sortir	sortiriez	2264126	conditional.present.2p	gramalysis+label 2026-11-12
 sortir	sortiriez	3996499	conditional.present.2p	gramalysis+label 2026-11-12
 sortir	sortit	8210	indicative.past_historic.3s	gramalysis+label 2026-11-12
 sortir	sortit	8864	indicative.past_historic.3s	gramalysis+label 2026-11-12
+sortir	sortit	2091649	indicative.past_historic.3s	gramalysis+label 2026-11-12
 soucier	soucier	7063	non_finite.infinitive	gramalysis+label 2026-11-12
 soucier	soucier	1534488	non_finite.infinitive	gramalysis+label 2026-11-12
 soucier	soucierais	2594106	conditional.present.1s	gramalysis+label 2026-11-12
