@@ -170,3 +170,74 @@ async fn absolute_participle_agrees_with_its_noun_phrase() {
     let a = run("Finito la sera, siamo usciti.").await;
     assert!(!participle_as_verb(&a, "Finito", "finire"));
 }
+
+/// Whether some parse reads `token` like an adjective: as the adjective
+/// `lemma`, or as `lemma`'s present participle used like one.
+fn present_participle_as_adjective(a: &SentenceAnalysis, token: &str, lemma: &str) -> bool {
+    let c = a.chosen.iter().find(|c| c.token == token).unwrap();
+    c.readings.iter().zip(&c.uses).any(|(reading, uses)| {
+        let m = &reading[0];
+        m.lemma == lemma
+            && (m.cat == "Adj"
+                || (m.cat == "Verb"
+                    && m.feats.get("form").map(String::as_str) == Some("prespart")
+                    && uses.iter().any(|u| u == "ap.present-participle")))
+    })
+}
+
+/// A present participle after a noun (#18): like an adjective, a state
+/// (il treno fuggente), also without an adjective entry in the lexicon.
+#[tokio::test]
+async fn present_participle_after_a_noun() {
+    for (sentence, token, lemma) in [
+        ("Guardava il treno fuggente.", "fuggente", "fuggire"),
+        (
+            "Guardavo le foglie tremanti nel vento.",
+            "tremanti",
+            "tremante",
+        ),
+        (
+            "Salutava la folla sorridente dal balcone.",
+            "sorridente",
+            "sorridente",
+        ),
+        (
+            "Salutava la folla sorridente dal balcone.",
+            "sorridente",
+            "sorridere",
+        ),
+        (
+            "Ciao! — al treno fuggente sul ponte lontano, dove si vedevano ancora ondeggiare fuor dei vagoni i pennacchi dei bersaglieri.",
+            "fuggente",
+            "fuggire",
+        ),
+        ("Vedo un bambino piangente.", "piangente", "piangente"),
+        ("Vedo un bambino piangente.", "piangente", "piangere"),
+    ] {
+        let a = run(sentence).await;
+        assert!(a.unknown.is_empty(), "{sentence}: unknown {:?}", a.unknown);
+        assert!(
+            present_participle_as_adjective(&a, token, lemma),
+            "{sentence}: {lemma}: {:?}",
+            a.chosen.iter().find(|c| c.token == token)
+        );
+    }
+}
+
+/// With its own complement the present participle is also a verb use, a
+/// participle phrase (sorridente dal balcone).
+#[tokio::test]
+async fn present_participle_with_a_complement() {
+    let a = run("Salutava la folla sorridente dal balcone.").await;
+    let c = a.chosen.iter().find(|c| c.token == "sorridente").unwrap();
+    assert!(c.readings.iter().zip(&c.uses).any(|(reading, uses)| {
+        reading[0].lemma == "sorridere" && uses.iter().any(|u| u == "partp.present")
+    }));
+}
+
+/// The present participle agrees with the noun in number: -nte is singular.
+#[tokio::test]
+async fn present_participle_agrees_in_number() {
+    assert!(!run("Guardava il treno fuggente.").await.parses.is_empty());
+    assert!(run("Guardava le foglie fuggente.").await.parses.is_empty());
+}

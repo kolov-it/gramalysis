@@ -16,8 +16,10 @@ use syntango::lang::Language;
 use syntango::morph::{Lang, Lexicon};
 use syntango::{analyze, Error};
 
-/// The grammar rule for a past participle used like an adjective.
-const ADJECTIVE_USE: &str = "ap.participle";
+/// The grammar rules for a participle used like an adjective: a past
+/// participle (le luci accese) and an Italian present participle (il treno
+/// fuggente).
+const ADJECTIVE_USES: [&str; 2] = ["ap.participle", "ap.present-participle"];
 
 #[derive(Deserialize)]
 pub struct Item {
@@ -187,9 +189,13 @@ async fn evaluate<'a>(
                     // A participle the grammar only used like an adjective (le
                     // luci sono accese) is not the verb, for a verb page; used
                     // both ways in this reading, the sentence is ambiguous.
-                    let participle = m.cat == "Verb" && m.feats.get("form").map(String::as_str) == Some("pastpart");
-                    let adjectival = uses.iter().any(|u| u == ADJECTIVE_USE);
-                    let verbal = uses.iter().any(|u| u != ADJECTIVE_USE);
+                    let participle = m.cat == "Verb"
+                        && matches!(
+                            m.feats.get("form").map(String::as_str),
+                            Some("pastpart" | "prespart")
+                        );
+                    let adjectival = uses.iter().any(|u| ADJECTIVE_USES.contains(&u.as_str()));
+                    let verbal = uses.iter().any(|u| !ADJECTIVE_USES.contains(&u.as_str()));
                     let mut out = Vec::new();
                     if !participle || verbal {
                         out.push(Reading { verb: m.cat == "Verb", lemma: m.lemma.to_lowercase() });

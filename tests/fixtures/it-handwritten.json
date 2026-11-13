@@ -1597,6 +1597,1373 @@
         "source": "kaikki",
         "surface": "lasciata"
       }
+    ],
+    "guardava": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperfect indicative singular third-person",
+          "tags": [
+            "imperfect",
+            "indicative",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperfect",
+            "indicative",
+            "singular",
+            "third-person"
+          ],
+          "tense": "imperfect"
+        },
+        "lemma": "guardare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "guardava"
+      }
+    ],
+    "il": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "il",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "il"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "il",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "il"
+      }
+    ],
+    "treno": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "treno",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "treno"
+      }
+    ],
+    "fuggente": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "by-personal-gender feminine masculine participle present",
+          "tags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere",
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "present-participle",
+          "gender": "feminine",
+          "rawTags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "fuggire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "fuggente"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "by-personal-gender feminine masculine participle present",
+          "tags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "essere",
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "present-participle",
+          "gender": "masculine",
+          "rawTags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "fuggire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "fuggente"
+      }
+    ],
+    "guardavo": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person imperfect indicative singular",
+          "tags": [
+            "first-person",
+            "imperfect",
+            "indicative",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperfect",
+            "indicative",
+            "singular"
+          ],
+          "tense": "imperfect"
+        },
+        "lemma": "guardare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "guardavo"
+      }
+    ],
+    "le": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "le"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "le"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "le"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "Le",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "le"
+      }
+    ],
+    "foglie": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "foglia",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "foglie"
+      }
+    ],
+    "tremanti": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "tremante",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "tremanti"
+      }
+    ],
+    "nel": [
+      {
+        "confidence": "high",
+        "lemma": "nel",
+        "partOfSpeech": "contraction",
+        "source": "kaikki",
+        "surface": "nel"
+      }
+    ],
+    "vento": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "vento",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "vento"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Vento",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "vento"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Vento",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "vento"
+      }
+    ],
+    "salutava": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperfect indicative singular third-person",
+          "tags": [
+            "imperfect",
+            "indicative",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperfect",
+            "indicative",
+            "singular",
+            "third-person"
+          ],
+          "tense": "imperfect"
+        },
+        "lemma": "salutare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "salutava"
+      }
+    ],
+    "la": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "la"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "la"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "la"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "la"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "La",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "la"
+      }
+    ],
+    "folla": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "folla",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "folla"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "follare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "folla"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "follare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "folla"
+      }
+    ],
+    "sorridente": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "sorridente",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "sorridente"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "sorridente",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "sorridente"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "by-personal-gender feminine masculine participle present",
+          "tags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "present-participle",
+          "gender": "feminine",
+          "rawTags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "sorridere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "sorridente"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "by-personal-gender feminine masculine participle present",
+          "tags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "present-participle",
+          "gender": "masculine",
+          "rawTags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "sorridere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "sorridente"
+      }
+    ],
+    "dal": [
+      {
+        "confidence": "high",
+        "lemma": "dal",
+        "partOfSpeech": "contraction",
+        "source": "kaikki",
+        "surface": "dal"
+      }
+    ],
+    "balcone": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "balcone",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "balcone"
+      }
+    ],
+    "vedo": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "vedere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "vedo"
+      }
+    ],
+    "un": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "un"
+      },
+      {
+        "confidence": "high",
+        "lemma": "un",
+        "partOfSpeech": "num",
+        "source": "kaikki",
+        "surface": "un"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "un"
+      }
+    ],
+    "bambino": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "bambino",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "bambino"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "Bambino",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "bambino"
+      }
+    ],
+    "piangente": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "piangente",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "piangente"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "piangente",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "piangente"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "by-personal-gender feminine masculine participle present",
+          "tags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "present-participle",
+          "gender": "feminine",
+          "rawTags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "piangere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "piangente"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "by-personal-gender feminine masculine participle present",
+          "tags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "present-participle",
+          "gender": "masculine",
+          "rawTags": [
+            "by-personal-gender",
+            "feminine",
+            "masculine",
+            "participle",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "piangere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "piangente"
+      }
+    ],
+    "ciao": [
+      {
+        "confidence": "high",
+        "lemma": "ciao",
+        "partOfSpeech": "intj",
+        "source": "kaikki",
+        "surface": "ciao"
+      }
+    ],
+    "al": [
+      {
+        "confidence": "high",
+        "lemma": "al",
+        "partOfSpeech": "contraction",
+        "source": "kaikki",
+        "surface": "al"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "al",
+        "partOfSpeech": "prep",
+        "source": "kaikki",
+        "surface": "al"
+      }
+    ],
+    "sul": [
+      {
+        "confidence": "high",
+        "lemma": "sul",
+        "partOfSpeech": "contraction",
+        "source": "kaikki",
+        "surface": "sul"
+      }
+    ],
+    "ponte": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "ponte",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "ponte"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "invariable"
+          ]
+        },
+        "lemma": "ponte",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "ponte"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Ponte",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "ponte"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Ponte",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "ponte"
+      }
+    ],
+    "lontano": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "lontano",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "lontano"
+      },
+      {
+        "confidence": "high",
+        "lemma": "lontano",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "lontano"
+      }
+    ],
+    "dove": [
+      {
+        "confidence": "high",
+        "lemma": "dove",
+        "partOfSpeech": "conj",
+        "source": "kaikki",
+        "surface": "dove"
+      },
+      {
+        "confidence": "high",
+        "lemma": "dove",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "dove"
+      }
+    ],
+    "si": [
+      {
+        "confidence": "high",
+        "lemma": "si",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "si"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "si",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "si"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "si",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "si"
+      }
+    ],
+    "vedevano": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperfect indicative plural third-person",
+          "tags": [
+            "imperfect",
+            "indicative",
+            "plural",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "imperfect",
+            "indicative",
+            "plural",
+            "third-person"
+          ],
+          "tense": "imperfect"
+        },
+        "lemma": "vedere",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "vedevano"
+      }
+    ],
+    "ancora": [
+      {
+        "confidence": "high",
+        "lemma": "ancora",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "ancora"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "ancora",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "ancora"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ancorare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ancora"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "ancorare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ancora"
+      }
+    ],
+    "ondeggiare": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "auxiliaries": [
+            "avere"
+          ],
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "ondeggiare",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ondeggiare"
+      }
+    ],
+    "fuor": [
+      {
+        "confidence": "high",
+        "lemma": "fuor",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "fuor"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "fuor",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "fuor"
+      }
+    ],
+    "dei": [
+      {
+        "confidence": "high",
+        "lemma": "dei",
+        "partOfSpeech": "contraction",
+        "source": "kaikki",
+        "surface": "dei"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "dio",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "dei"
+      }
+    ],
+    "vagoni": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "vagone",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "vagoni"
+      }
+    ],
+    "i": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "I",
+        "partOfSpeech": "character",
+        "source": "kaikki",
+        "surface": "i"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "I",
+        "partOfSpeech": "character",
+        "source": "kaikki",
+        "surface": "i"
+      }
+    ],
+    "pennacchi": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "pennacchio",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "pennacchi"
+      }
+    ],
+    "bersaglieri": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "plural",
+          "tags": [
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "plural"
+          ]
+        },
+        "lemma": "bersagliere",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "bersaglieri"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "bersaglieri",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "bersaglieri"
+      }
     ]
   }
 }

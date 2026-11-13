@@ -183,6 +183,9 @@ rule ap.adjective: AP[participle=?x, number=?n, gender=?g] -> Adj[participle=?x,
 rule ap.participle: AP[participle=?l, participle_essere=?e, number=?n, gender=?g] -> Verb[lemma=?l, form=pastpart, drifted=no, takes_essere=?e, number=?n, gender=?g]
   "A past participle used like an adjective; it is still the verb's participle (le luci accese: accendere, participio passato). Not for adjectives whose meaning drifted (esatto)."
 
+rule ap.present-participle: AP[participle=?l, number=?n, gender=?g] -> Verb[lemma=?l, form=prespart, number=?n, gender=?g]
+  "A present participle used like an adjective, a state (il treno fuggente: fuggire, participio presente); with the verb's complements it is a participle phrase instead (tremanti nel vento)."
+
 rule ap.adverb: AP[number=?n, gender=?g] -> Adv[neg=no] AP[number=?n, gender=?g]
   "An adverb before an adjective (molto bello, più alto, troppo caro)."
 
@@ -353,8 +356,8 @@ rule nom.participle-phrase: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n
 rule partp.past: PartP[number=?n, gender=?g] -> Verb[form=pastpart, drifted=no, number=?n, gender=?g] Compl
   "Participio passato with the verb's complements: passive or completed meaning, agreeing with the noun (scritto in inglese, scritto da Tom)."
 
-rule partp.present: PartP[number=?n] -> Verb[form=prespart, number=?n] Compl
-  "Participio presente with the verb's complements: active meaning, at the same time (passante per Parigi)."
+rule partp.present: PartP[number=?n, gender=?g] -> Verb[form=prespart, number=?n, gender=?g] Compl
+  "Participio presente with the verb's complements: active meaning, at the same time, agreeing with the noun (passante per Parigi, tremanti nel vento)."
 
 rule compl.phrase: Compl -> PP
   "A complement of the participle."
