@@ -773,3 +773,9 @@ async fn quelque_chose_de_takes_a_masculine_singular_adjective() {
     assert!(parses(&run("Je vois quelque chose d'heureux.").await));
     assert!(!parses(&run("Je vois quelque chose d'heureuses.").await));
 }
+
+#[tokio::test]
+async fn the_antecedent_agent_of_a_perception_infinitive_agrees() {
+    assert!(parses(&run("Les filles que j'ai vues partir sont là.").await));
+    assert!(!parses(&run("Les filles que j'ai vus partir sont là.").await));
+}

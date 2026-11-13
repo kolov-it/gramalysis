@@ -454,6 +454,9 @@ rule rel.object-agreement: Rel[number=?n, gender=?g] -> RelPron[role=object] NP[
 rule rel.object-agreement-more: Rel[number=?n, gender=?g] -> RelPron[role=object] NP[case=nom, person=?p, number=?sn] VAgr[person=?p, number=?sn, onum=?n, ogen=?g] Tail
   "que + avoir + an agreeing participle, then more (les lettres qu'il a écrites hier)."
 
+rule rel.object-agreement-infinitive: Rel[number=?n, gender=?g] -> RelPron[role=object] NP[case=nom, person=?p, number=?sn] Verb[lemma=avoir, finite=yes, person=?p, number=?sn] Verb[form=pastpart, takes_avoir=yes, lemma=voir|entendre|regarder|écouter|sentir|apercevoir, number=?n, gender=?g] VP[form=inf]
+  "The antecedent as the agent of a perception verb's infinitive: the participle agrees with it (les filles que j'ai vues partir). Not after faire, whose participle stays invariable, nor laisser (invariable since the 1990 spelling reform). When the antecedent is the infinitive's object the participle stays invariable (la chanson que j'ai entendu chanter), so that reading remains through rel.object."
+
 rule vagr.perfect: VAgr[person=?p, number=?n, onum=?on, ogen=?og] -> Verb[lemma=avoir, finite=yes, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "avoir + a participle agreeing with the object before it."
 
