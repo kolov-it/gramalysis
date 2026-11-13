@@ -941,3 +941,17 @@ async fn an_adverb_does_not_give_a_passive_an_object() {
     assert!(parses(&run("Elle a vu hier la porte.").await));
     assert!(!parses(&run("Elle a été vue hier la porte.").await));
 }
+
+#[tokio::test]
+async fn a_fronted_adverb_keeps_a_question_a_question() {
+    assert!(parses(&run("Hier est-il heureux ?").await));
+    assert!(!parses(&run("Hier est-il heureux.").await));
+    assert!(!parses(&run("Est-ce que hier est-il heureux ?").await));
+}
+
+#[tokio::test]
+async fn adverbial_toute_agrees() {
+    assert!(parses(&run("Elle est toute petite.").await));
+    assert!(!parses(&run("Il est toute heureux.").await));
+    assert!(!parses(&run("Elle est toutes venue.").await));
+}

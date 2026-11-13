@@ -89,52 +89,61 @@ rule clause.comma-cnd-ind: S[imp=no, smood=ind] -> S[imp=no, smood=cnd] Punct S[
 rule clause.after-question: S[smood=?sm] -> S[smood=ind|cnd] Question S[smood=?sm]
   "A question, then another sentence."
 
-rule clause.subordinate: S[smood=?sm] -> S[smood=?sm, cesubj=no] Sub S[imp=no]
+rule clause.subordinate: S[inv=?iv, smood=?sm] -> S[inv=?iv, smood=?sm, cesubj=no] Sub S[imp=no]
   "A clause joined by quand, si, parce que, bien que… A bare est-ce is never the main clause here: est-ce que is the question marker (question.est-ce-que), so its clause keeps its own mood check."
 
-rule clause.subordinate-first: S[imp=?i, smood=?sm] -> Sub S[imp=no] Punct S[imp=?i, smood=?sm]
+rule clause.subordinate-first: S[imp=?i, inv=?iv, smood=?sm] -> Sub S[imp=no] Punct S[imp=?i, inv=?iv, smood=?sm]
   "A clause with quand, si, comme… first, then a comma (S'il pleut, je reste)."
 
-rule clause.concessive-first: S[imp=?i, smood=?sm] -> QPron[lemma=quoi|qui] Conj[lemma=que] S[smood=sub, imp=no] Punct S[imp=?i, smood=?sm]
+rule clause.concessive-first: S[imp=?i, inv=?iv, smood=?sm] -> QPron[lemma=quoi|qui] Conj[lemma=que] S[smood=sub, imp=no] Punct S[imp=?i, inv=?iv, smood=?sm]
   "où que, quoi que, qui que + a subjunctive clause, then the main clause: wherever, whatever, whoever (Où que tu ailles, je te suivrai. Quoi qu'il en soit, j'ai fini)."
 
-rule clause.concessive-where-first: S[imp=?i, smood=?sm] -> QAdv[lemma=où] Conj[lemma=que] S[smood=sub, imp=no] Punct S[imp=?i, smood=?sm]
+rule clause.concessive-where-first: S[imp=?i, inv=?iv, smood=?sm] -> QAdv[lemma=où] Conj[lemma=que] S[smood=sub, imp=no] Punct S[imp=?i, inv=?iv, smood=?sm]
   "où que + a subjunctive clause, then the main clause (Où que tu ailles, je te suivrai)."
 
-rule clause.inverted-hypothesis: S[imp=?i, smood=?sm] -> S[inv=yes, smood=sub, gap=no] Punct S[imp=?i, smood=?sm]
+rule clause.inverted-hypothesis: S[imp=?i, inv=?iv, smood=?sm] -> S[inv=yes, smood=sub, gap=no] Punct S[imp=?i, inv=?iv, smood=?sm]
   "An inverted subjunctive, then a comma and the main clause, as a literary condition: eût-il su, il serait venu = had he known; fût-il riche, … = even if he were rich."
 
-rule clause.subordinate-first-no-comma: S[imp=?i, smood=?sm] -> Sub S[imp=no] S[imp=?i, smood=?sm]
+rule clause.subordinate-first-no-comma: S[imp=?i, inv=?iv, smood=?sm] -> Sub S[imp=no] S[imp=?i, inv=?iv, smood=?sm]
   "A clause with quand or si first, without a comma."
 
-rule clause.adverb-first: S[imp=?i, smood=?sm] -> Adv S[imp=?i, smood=?sm]
+rule clause.adverb-first: S[imp=?i, inv=?iv, smood=?sm] -> Adv S[imp=?i, inv=?iv, smood=?sm]
   "An adverb at the start of the clause (Hier, Peut-être, Maintenant)."
 
-rule clause.adverb-first-comma: S[imp=?i, smood=?sm] -> Adv Punct S[imp=?i, smood=?sm]
+rule clause.adverb-inversion: S[inv=no, smood=?sm] -> Adv[lemma=peut-être|ainsi|aussi|encore] S[inv=yes, imp=no, smood=?sm]
+  "After peut-être, ainsi, aussi or encore at the start, a statement may invert its subject (Peut-être nous verrons-nous ce soir). Other adverbs keep a question a question (Hier est-il heureux ?)."
+
+rule clause.a-peine: S[inv=no, smood=?sm] -> Prep[lemma=à] Noun[lemma=peine] S[inv=yes, imp=no, smood=?sm]
+  "à peine at the start inverts a statement (À peine l'eut-il dit qu'il le regretta)."
+
+rule clause.peut-etre-que: S[inv=no, smood=?sm] -> Adv[lemma=peut-être] Conj[lemma=que] S[inv=no, imp=no, smood=?sm]
+  "peut-être que + a clause = perhaps (Peut-être que ce sera la même chose)."
+
+rule clause.adverb-first-comma: S[imp=?i, inv=?iv, smood=?sm] -> Adv Punct S[imp=?i, inv=?iv, smood=?sm]
   "An adverb at the start, then a comma."
 
-rule clause.phrase-first: S[imp=?i, smood=?sm] -> PP[irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg] S[imp=?i, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg]
+rule clause.phrase-first: S[imp=?i, inv=?iv, smood=?sm] -> PP[irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg] S[imp=?i, inv=?iv, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg]
   "A phrase with a preposition at the start of the clause (Après le dîner, nous sortons)."
 
-rule clause.phrase-first-comma: S[imp=?i, smood=?sm] -> PP[irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg] Punct S[imp=?i, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg]
+rule clause.phrase-first-comma: S[imp=?i, inv=?iv, smood=?sm] -> PP[irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg] Punct S[imp=?i, inv=?iv, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg]
   "A phrase with a preposition at the start, then a comma."
 
-rule clause.time-first: S[imp=?i, smood=?sm] -> TimeNP S[imp=?i, smood=?sm]
+rule clause.time-first: S[imp=?i, inv=?iv, smood=?sm] -> TimeNP S[imp=?i, inv=?iv, smood=?sm]
   "A time expression at the start (Ce matin, il pleut)."
 
-rule clause.time-first-comma: S[imp=?i, smood=?sm] -> TimeNP Punct S[imp=?i, smood=?sm]
+rule clause.time-first-comma: S[imp=?i, inv=?iv, smood=?sm] -> TimeNP Punct S[imp=?i, inv=?iv, smood=?sm]
   "A time expression at the start, then a comma."
 
-rule clause.vocative-first: S[imp=?i, smood=?sm] -> ProperNoun Punct S[imp=?i, smood=?sm]
+rule clause.vocative-first: S[imp=?i, inv=?iv, smood=?sm] -> ProperNoun Punct S[imp=?i, inv=?iv, smood=?sm]
   "Addressing someone first (Tom, viens ici)."
 
-rule clause.vocative-last: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm] Punct ProperNoun
+rule clause.vocative-last: S[imp=?i, inv=?iv, smood=?sm] -> S[imp=?i, inv=?iv, smood=?sm] Punct ProperNoun
   "Addressing someone at the end (Viens ici, Tom)."
 
-rule clause.interjection: S[imp=?i, smood=?sm] -> Intj Punct S[imp=?i, smood=?sm]
+rule clause.interjection: S[imp=?i, inv=?iv, smood=?sm] -> Intj Punct S[imp=?i, inv=?iv, smood=?sm]
   "oui, non, merci, eh bien, then a comma (Oui, je sais)."
 
-rule clause.interjection-bare: S[imp=?i, smood=?sm] -> Intj S[imp=?i, smood=?sm]
+rule clause.interjection-bare: S[imp=?i, inv=?iv, smood=?sm] -> Intj S[imp=?i, inv=?iv, smood=?sm]
   "An interjection before the clause (Oh, Voici…)."
 
 rule clause.incise: S[smood=?sm] -> S[smood=?sm] Punct VP[subj=yes]
@@ -1145,6 +1154,9 @@ rule ap.participle: AP[pp=yes, participle=?l, participle_etre=?e, number=?n, gen
 rule ap.adverb: AP[pp=?x, participle_etre=?e, number=?n, gender=?g, cinf=?ci, irefl=?ir, irnum=?irn] -> Adv AP[cinf=?ci, irefl=?ir, irnum=?irn, pp=?x, participle_etre=?e, number=?n, gender=?g]
   "An adverb before an adjective (très beau, plus grand, trop cher, si gentil)."
 
+rule ap.toute: AP[pp=?x, participle_etre=?e, number=?n, gender=f, cinf=?ci, irefl=?ir, irnum=?irn] -> Predet[lemma=tout, gender=f, number=?n] AP[cinf=?ci, irefl=?ir, irnum=?irn, pp=?x, participle_etre=?e, number=?n, gender=f]
+  "Adverbial tout agrees before a feminine adjective (toute petite, toutes seules); before anything else it is invariable tout (Adv)."
+
 rule ap.complement: AP[pp=no, number=?n, gender=?g, cinf=?ci, irefl=?ir, irnum=?irn] -> AP[pp=no, participle=no, number=?n, gender=?g] PP[pinf=?ci, irefl=?ir, irnum=?irn, pnum=?n, gender=?g]
   "A phrase after an adjective (fier de toi, plein de gens, prêt pour le départ). After a participle the phrase makes it a participle phrase instead."
 
@@ -1238,16 +1250,16 @@ rule clause.infinitive-subject: S[smood=?m] -> VP[form=inf] VP[finite=yes, form=
 rule clause.instruction: S[imp=yes] -> VP[form=inf]
   "An infinitive as an instruction, in recipes and notices (Plier la feuille en deux)."
 
-rule clause.adjective-first-comma: S[imp=?i, smood=?sm] -> AP[pp=no, number=?spn, gender=?sg] Punct S[imp=?i, smood=?sm, spnum=?spn, sgender=?sg]
+rule clause.adjective-first-comma: S[imp=?i, inv=?iv, smood=?sm] -> AP[pp=no, number=?spn, gender=?sg] Punct S[imp=?i, inv=?iv, smood=?sm, spnum=?spn, sgender=?sg]
   "An adjective set before the clause describes its subject and agrees with it (Prêts, partez ! Fatiguée, elle s'est assise)."
 
-rule clause.bien-sur-first: S[imp=?i, smood=?sm] -> Adv[lemma=bien] Adj[lemma=sûr, number=sg, gender=m] Punct S[imp=?i, smood=?sm]
+rule clause.bien-sur-first: S[imp=?i, inv=?iv, smood=?sm] -> Adv[lemma=bien] Adj[lemma=sûr, number=sg, gender=m] Punct S[imp=?i, inv=?iv, smood=?sm]
   "bien sûr = of course, set before the clause (Bien sûr, je plaisante !)."
 
-rule clause.dislocated-first: S[imp=?i, smood=?sm] -> NP[case=obl, adj_twin=no] Punct S[imp=?i, smood=?sm]
+rule clause.dislocated-first: S[imp=?i, inv=?iv, smood=?sm] -> NP[case=obl, adj_twin=no] Punct S[imp=?i, inv=?iv, smood=?sm]
   "A stressed pronoun or a noun phrase first, picked up again in the clause (Toi, pourquoi as-tu attendu ? Moi, je reste)."
 
-rule clause.dislocated-last: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm] Punct NP
+rule clause.dislocated-last: S[imp=?i, inv=?iv, smood=?sm] -> S[imp=?i, inv=?iv, smood=?sm] Punct NP
   "A noun phrase after a comma at the end, picked up again in the clause (Il est beau, ce chat)."
 
 rule np.two-names: NP[person=3, number=sg, pnum=sg] -> ProperNoun ProperNoun
@@ -1301,10 +1313,10 @@ rule vp.copula-nonfinite-adverb: VP[finite=no, form=?fm, subj=no, pnum=?pn, gend
 rule vp.copula-nonfinite-adverb-noun: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|rester, form=inf|prespart|ger, form=?fm] Adv NP[case=obl, adj_twin=no]
   "… with an adverb before the noun phrase (étant seulement étudiant)."
 
-rule clause.participle-clause-first: S[imp=?i, smood=?sm] -> VP[bare=no, form=prespart|ger, irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg] Punct S[imp=?i, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg]
+rule clause.participle-clause-first: S[imp=?i, inv=?iv, smood=?sm] -> VP[bare=no, form=prespart|ger, irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg] Punct S[imp=?i, inv=?iv, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg]
   "An -ant clause with complements first, then a comma (Étant étudiant, je… ; Ne sachant que faire, je…). Alone, the -ant form is an adjective."
 
-rule clause.participle-clause-last: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg] Punct VP[bare=no, form=prespart|ger, irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg]
+rule clause.participle-clause-last: S[imp=?i, inv=?iv, smood=?sm] -> S[imp=?i, inv=?iv, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg] Punct VP[bare=no, form=prespart|ger, irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg]
   "An -ant clause after a comma, at the end (…, formant ainsi des nuages)."
 
 rule np.article-name: NP[person=3, number=?n, gender=?g, pnum=?n] -> Det[definite=yes, number=?n, gender=?g] ProperNoun[gender=?g]
@@ -1319,7 +1331,7 @@ rule np.one-of: NP[person=3, number=sg, gender=?g, pnum=sg] -> One[gender=?g] PP
 rule np.the-one-of: NP[person=3, number=sg, gender=?g, pnum=sg] -> Det[lemma=le, number=sg] One[gender=?g] PP
   "l'un, l'une + de + a plural (l'une d'elles)."
 
-rule clause.absolute: S[imp=?i, smood=?sm] -> NP VP[form=prespart|ger] Punct S[imp=?i, smood=?sm]
+rule clause.absolute: S[imp=?i, inv=?iv, smood=?sm] -> NP VP[form=prespart|ger] Punct S[imp=?i, inv=?iv, smood=?sm]
   "An absolute participle clause with its own subject, first (Les années passant, elle devenait plus belle)."
 
 rule np.de-plural-adjective: NP[person=3, number=pl, gender=?g, pnum=pl] -> Prep[lemma=de] Adj[number=pl, gender=?g] Nom[number=pl, gender=?g]
@@ -1382,7 +1394,7 @@ rule clause.incise-noun: S[smood=?sm] -> S[smood=?sm] Punct VP[finite=yes, form=
 rule clause.interjection-alone: S -> Intj
   "An interjection on its own (Bonjour ! Merci.)."
 
-rule clause.adverb-pair-first: S[imp=?i, smood=?sm] -> Adv Conj[type=coord] Adv S[imp=?i, smood=?sm]
+rule clause.adverb-pair-first: S[imp=?i, inv=?iv, smood=?sm] -> Adv Conj[type=coord] Adv S[imp=?i, inv=?iv, smood=?sm]
   "Two adverbs joined first (Tôt ou tard, nous saurons)."
 
 rule ap.more-and-more: AP[pp=?x, number=?n, gender=?g, cinf=?ci, irefl=?ir, irnum=?irn] -> Prep[lemma=de] Adv[lemma=plus|moins] Prep[lemma=en] Adv[lemma=plus|moins] AP[cinf=?ci, irefl=?ir, irnum=?irn, pp=?x, number=?n, gender=?g]
@@ -1391,13 +1403,13 @@ rule ap.more-and-more: AP[pp=?x, number=?n, gender=?g, cinf=?ci, irefl=?ir, irnu
 rule pp.coordination: PP[agent=no, irefl=?ir, irnum=?irn, pnum=?pn, gender=?g] -> PP[irefl=?ir, irnum=?irn, pnum=?pn, gender=?g] Conj[type=coord] PP[irefl=?ir, irnum=?irn, pnum=?pn, gender=?g]
   "Two phrases with a preposition joined by et, ou (à votre tante et à votre oncle)."
 
-rule clause.phrase-last-comma: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg] Punct PP[irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg]
+rule clause.phrase-last-comma: S[imp=?i, inv=?iv, smood=?sm] -> S[imp=?i, inv=?iv, smood=?sm, sperson=?sp, snum=?sn, spnum=?spn, sgender=?sg] Punct PP[irefl=?sp, irnum=?sn, pnum=?spn, gender=?sg]
   "A phrase with a preposition after a comma, at the end (Elle est partie, après le dîner)."
 
-rule clause.adverb-phrase-last-comma: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm] Punct Adv PP
+rule clause.adverb-phrase-last-comma: S[imp=?i, inv=?iv, smood=?sm] -> S[imp=?i, inv=?iv, smood=?sm] Punct Adv PP
   "An adverb and a phrase after a comma, at the end (…, même après sa mort)."
 
-rule clause.subordinate-comma: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm, cesubj=no] Punct Sub S[imp=no]
+rule clause.subordinate-comma: S[imp=?i, inv=?iv, smood=?sm] -> S[imp=?i, inv=?iv, smood=?sm, cesubj=no] Punct Sub S[imp=no]
   "A comma, then a clause with si, quand, parce que… (Ferme la porte, s'il te plaît)."
 
 rule ap.superlative: AP[pp=?x, number=?n, gender=?g, cinf=?ci, irefl=?ir, irnum=?irn] -> Det[definite=yes, lemma=le, number=?n, gender=?g] Adv[lemma=plus|moins] AP[cinf=?ci, irefl=?ir, irnum=?irn, pp=?x, number=?n, gender=?g]
@@ -1412,7 +1424,7 @@ rule time.date-year: TimeNP -> Det[lemma=le] Num Noun[lemma=janvier|février|mar
 rule pp.number: PP[agent=no] -> Prep Num
   "A preposition before a number, usually a year (en 1860, depuis 2010)."
 
-rule clause.adverb-pair-first-comma: S[imp=?i, smood=?sm] -> Adv Conj[type=coord] Adv Punct S[imp=?i, smood=?sm]
+rule clause.adverb-pair-first-comma: S[imp=?i, inv=?iv, smood=?sm] -> Adv Conj[type=coord] Adv Punct S[imp=?i, inv=?iv, smood=?sm]
   "Two adverbs joined first, then a comma (Tôt ou tard, nous le ferons)."
 
 rule vp.phrase-object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no, etre=no] ShortPP NP[case=obl, bare=no]

@@ -331,8 +331,6 @@ tous = tout:Pron{case=obl,person=3,number=pl,gender=m,clitic=no}
 toutes = tout:Pron{case=nom,person=3,number=pl,gender=f,clitic=no}
 toutes = tout:Pron{case=obl,person=3,number=pl,gender=f,clitic=no}
 tout = tout:Adv
-toute = tout:Adv
-toutes = tout:Adv
 tout = tout:Noun{gender=m,number=sg}
 chacun = chacun:Pron{case=nom,person=3,number=sg,gender=m,clitic=no}
 chacun = chacun:Pron{case=obl,person=3,number=sg,gender=m,clitic=no}
