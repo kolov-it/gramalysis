@@ -423,6 +423,9 @@ rule cop.perfect-proclitic: Cop[lemma=?l, finite=yes, form=fin, mood=?m, person=
 rule cop.modal: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> V[lemma=poder|deber|soler|parecer|querer|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|temer|odiar|merecer, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Cop[lemma=?l, form=inf]
   "A modal before a linking verb (puede estar, debe estar)."
 
+rule cop.progressive: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=estar|lex, lemma=estar|seguir|andar|ir|venir, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Cop[lemma=?l, form=ger]
+  "A linking verb in progress keeps its complement (me estoy sintiendo cansado, se está poniendo nervioso)."
+
 rule cop.negation: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Adv[neg=yes] Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "no está, nunca estuvo."
 
@@ -519,16 +522,16 @@ rule question.ser: S -> Wh SerV
 rule question.ser-subject: S -> Wh SerV NP
   "A question word + ser + what is asked about (¿Qué es eso? ¿Cuál es tu nombre?)."
 
-rule question.adverb-ser: S -> QAdv SerV NP
+rule question.adverb-ser: S -> QAdv[lemma=cómo|dónde|cuándo] SerV NP
   "cómo / dónde + ser + subject (¿Cómo es tu casa? ¿Dónde es la fiesta?)."
 
-rule question.adverb-ser-bare: S -> QAdv SerV
+rule question.adverb-ser-bare: S -> QAdv[lemma=cómo|dónde|cuándo] SerV
   "cómo / dónde + ser on its own (¿Cómo es? ¿Dónde fue?)."
 
-rule question.preposition-ser: S -> Prep QAdv SerV
+rule question.preposition-ser: S -> Prep[lemma=de|desde|hasta|para] QAdv[lemma=dónde|cuándo] SerV
   "¿De dónde eres?"
 
-rule question.preposition-ser-subject: S -> Prep QAdv SerV NP
+rule question.preposition-ser-subject: S -> Prep[lemma=de|desde|hasta|para] QAdv[lemma=dónde|cuándo] SerV NP
   "¿De dónde es tu amigo?"
 
 rule wh.pronoun: Wh -> QPron

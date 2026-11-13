@@ -74,6 +74,12 @@
         "partOfSpeech": "verb"
       }
     ],
+    "adónde": [
+      {
+        "lemma": "adónde",
+        "partOfSpeech": "adv"
+      }
+    ],
     "agua": [
       {
         "grammar": {
@@ -252,6 +258,33 @@
         },
         "lemma": "Bueno",
         "partOfSpeech": "name"
+      }
+    ],
+    "cansado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "cansado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "cansar",
+        "partOfSpeech": "verb"
       }
     ],
     "cargado": [
@@ -800,6 +833,38 @@
       {
         "lemma": "ella",
         "partOfSpeech": "pron"
+      }
+    ],
+    "eres": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "ere",
+        "partOfSpeech": "noun"
       }
     ],
     "es": [
@@ -1421,6 +1486,24 @@
         "partOfSpeech": "verb"
       }
     ],
+    "me": [
+      {
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "accusative",
+            "objective",
+            "personal"
+          ]
+        },
+        "lemma": "yo",
+        "partOfSpeech": "pron"
+      },
+      {
+        "lemma": "me",
+        "partOfSpeech": "pron"
+      }
+    ],
     "mi": [
       {
         "grammar": {
@@ -1954,6 +2037,19 @@
           ]
         },
         "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "sintiendo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "gerund"
+          ]
+        },
+        "lemma": "sentir",
         "partOfSpeech": "verb"
       }
     ],

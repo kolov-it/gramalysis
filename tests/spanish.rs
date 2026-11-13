@@ -214,3 +214,20 @@ async fn a_participle_says_how_the_subject_arrived() {
     let a = run("Él llegó cargado con flores y regalos.").await;
     assert!(!a.parses.is_empty());
 }
+
+#[tokio::test]
+async fn a_progressive_linking_verb_keeps_its_complement() {
+    let a = run("Me estoy sintiendo cansado.").await;
+    assert!(!a.parses.is_empty());
+}
+
+#[tokio::test]
+async fn adónde_asks_for_a_destination_so_fue_is_ir() {
+    for q in ["¿Adónde fue?", "¿A dónde fue?"] {
+        let a = run(q).await;
+        assert!(!a.parses.is_empty(), "{q}");
+        assert!(agreed(&a, "fue")[0].starts_with("ir Verb"), "{q}");
+    }
+    let a = run("¿De dónde eres?").await;
+    assert!(agreed(&a, "eres")[0].starts_with("ser Verb"));
+}
