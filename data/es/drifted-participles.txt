@@ -1,0 +1,35 @@
+# Spanish past participles whose adjective meaning drifted from the verb.
+# Used like an adjective (with ser too), they are the adjective, not the
+# verb's participle; after haber they are still the verb (ha divertido).
+# Masculine singular, one per line.
+agradecido
+aburrido
+atrevido
+avanzado
+cansado
+complicado
+conocido
+decidido
+descarado
+desconocido
+desgraciado
+despistado
+determinado
+distinguido
+divertido
+dotado
+educado
+exagerado
+honrado
+interesado
+parecido
+pesado
+preferido
+presumido
+querido
+reservado
+callado
+adecuado
+apropiado
+suelto
+considerado

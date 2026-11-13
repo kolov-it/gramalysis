@@ -30,14 +30,15 @@ parses agree, and for a participle how it is used (`[used as: adjective]` in
 *le luci sono accese*) (in *Disse che non riusciva a trovare un lavoro*, `lavoro` could be
 the noun *work* or the verb *I work*; only the noun fits).
 
-Italian first; the design is multilingual from the start.
+Italian first, then [Spanish](#spanish) and [French](#french); the design is multilingual from the start.
 
-**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 114 rules)
+**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 118 rules)
 covers agreement and the dropped subject; articles (with the *il / lo / l'*
 choice by the next word's first sound), demonstratives, quantifiers and
 possessives; clitic pronouns before and after the verb; compound tenses, the
-passive and *stare* + gerund; participles used like adjectives and participle
-phrases; infinitive complements, *che* and *cui* clauses, indirect questions,
+passive and *stare* + gerund; participles used like adjectives, participle
+phrases and participle clauses (*Arrivato a casa, …*; *dopo mangiato*);
+infinitive complements, *che* and *cui* clauses, indirect questions,
 questions, subordinate clauses, commas, coordination and time expressions.
 
 On the [Tatoeba homograph set](#measuring-it-the-tatoeba-homograph-set)
@@ -165,6 +166,141 @@ the one a verb page needs: *which verb, or not a verb at all*.
 - A **present participle** is an adjective (*pesante*, *corrente*) unless it
   carries the verb's complements (*il fiume passante per Parigi*).
 
+## Spanish
+
+`src/lang/es/` and `data/es/` follow the Italian structure: tokenizer (the
+opening `¿ ¡` are dropped, accents are never stripped, so *tú/tu*, *él/el*,
+*sí/si*, *sé/se*, *qué/que* stay different words), function words in
+`data/es/closed.txt` (*al* = *a* + *el*, *del* = *de* + *el*), grammar in
+`data/es/grammar.gram`, lexicon patches in
+`data/es/lexicon-patches/wordholder.txt`.
+
+```sh
+cargo run -- --fixture tests/fixtures/es-recorded.json --file examples/es.txt es
+cargo run -- --fixture tests/fixtures/es-set.json --readings es "¡Dámelo!"
+cargo run --release -- eval es data/es/homograph-set.jsonl \
+  --labels data/es/homograph-labels.tsv --fixture tests/fixtures/es-set.json --out /tmp/eval.jsonl
+```
+
+- **Attached clitics**: the lexicon does not analyse every verb + clitics
+  compound, so the host is looked up on its own: *dámelo* = *da* + *me* +
+  *lo* (the accent the clitics added comes off), *vámonos* = *vamos* + *nos*,
+  *sentaos* = *sentad* + *os*, *mantente* = *mantén* + *te*.
+- **ser, estar and haber** have rules of their own (every verb carries
+  `class=ser|estar|haber|lex`): ser says what the subject is (an adjective, a
+  noun, a phrase with *de*, *para*, *en*…) or forms the passive, so *fue a
+  Madrid* is *ir* and *fue difícil* is *ser*; *ha* only forms compound tenses
+  (there is = *hay*).
+- **Bare infinitives** only after the verbs that take them (*poder, deber,
+  querer, saber, soler, ver, oír, hacer, dejar*, *gustar*…).
+
+On the Tatoeba set (5,000 sentences, 2,034 ambiguous forms of 832 page verbs,
+at most 3 sentences a form, alternating spaCy's verb and non-verb readings)
+it decides the ambiguous word in **79.9%** of the sentences, and **99.5%** of
+those decisions agree with the labels (3,975 of 3,995); 11.1% do not parse and
+0.8% have a word the lexicon does not know. `data/es/verified-examples.tsv`
+holds the 1,955 decided sentences of 5–20 words where the decision is the page
+verb and the label agrees (1,207 forms of 569 verbs), in the format of wordy's
+`verified-<lang>.tsv`.
+
+**Labelling conventions** (the header of `data/es/homograph-labels.tsv` has
+them in full):
+
+- **Past participles**: *haber* + participle (which never agrees) is a
+  compound tense, the verb; *ser* + agreeing participle is the passive, the
+  verb (*fue construida*); *estar*, *quedar*, *parecer*, *resultar*,
+  *seguir*… + participle is a state, an adjective use (*la puerta está
+  cerrada*); after a noun, the verb only with the verb's own complements
+  (*un libro escrito en inglés*); *lo* + participle is an adjective use.
+  Adjectives whose meaning drifted (*divertido*, *complicado*, *conocido*) are
+  in `data/es/drifted-participles.txt`: after *ser* they are the adjective
+  (*es complicado*), a passive only with an agent (*fue exagerado por los
+  medios*); after *haber* they are the verb.
+- **Commands**: *usted* is `subjunctive.present.3s`, *ustedes* `…3p`, a
+  negative command the subjunctive; *tú*/*vosotros* the imperative.
+- **ser / ir** (*fui, fue, fueron, fuera*…): *ir* for motion or a destination,
+  *ser* for what something is.
+- **Accents**: a word is read as written; a missing accent that is a typo for
+  another word is labelled with the intended word and noted `accent typo`
+  (never an example).
+
+## French
+
+`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (452 rules) and
+the function words in `data/fr/closed.txt`. What is French-specific:
+
+- **Tokens:** elision is split off (*l'*, *d'*, *j'*, *qu'*, *jusqu'*,
+  *lorsqu'*, *puisqu'*), *aujourd'hui* and *quelqu'un* stay whole; a pronoun
+  joined to the verb by a hyphen keeps the hyphen and is attached to it
+  (*parlez* *-vous*, *donne* *-le* *-moi*, *a* *-il*: the euphonic *-t-* is
+  dropped), as are *-ci* and *-là* (*ce jour* *-là*). A final question mark
+  stays, so inversion is a question (*Parlez-vous français ?*) and the same
+  words without it an order (*Asseyez-vous.*).
+- **Function words:** *du*, *des*, *au*, *aux* are both the contraction
+  (*de* + *le*) and the article; *ne* … *pas / plus / jamais / rien / que*
+  around the verb or the auxiliary; clitic order *me te se nous vous* > *le
+  la les* > *lui leur* > *y* > *en* before the verb, *le* > *moi lui* > *y* >
+  *en* after an imperative.
+- **Sound:** *le / l'*, *ce / cet*, *mon amie* follow the next word's first
+  sound; an aspirated h or a consonantal y (*le héros*, *la hache*, *le yoga*) counts as a consonant
+  (`data/fr/aspirated-h.txt`).
+- **Subject:** French says it; a clause without one is an order, or has its
+  subject after the verb (inversion, *dit Tom*, *où coule le lait*).
+- **Participles** follow the Italian design, with French auxiliaries:
+  *avoir* + participle (which agrees only with a direct object before it:
+  *je les ai vues*, *les pommes que j'ai mangées*), *être* + participle of an
+  *être* verb, every pronominal verb with *être* (*elle s'est levée*), and
+  a reflexive participle agreeing with the subject (*elle s'est levée*), or
+  staying masculine singular when a complement follows (*elle s'est lavé les
+  mains*; without transitivity data a bare *ils se sont parlé* is not
+  accepted), and
+  *être* + participle of an *avoir* verb a passive when marked (*par* + agent,
+  *a été*, *fut*, *sera*) and otherwise a state, an adjective use (*la porte
+  est fermée*). Polite *vous* takes a plural verb and a singular predicate
+  (*vous êtes fatigué*): the predicate's number is kept apart from the verb's.
+
+**The auxiliaries are not in the lexicon yet**: the Word Holder API gives
+`grammar.auxiliaries` for Italian only. Until it does, every rule that selects
+on the auxiliary accepts both, so *être* + participle reads both as a compound
+tense and as a state, and such sentences stay ambiguous (most of the 7%
+below).
+
+On the French Tatoeba homograph set (4,384 sentences, 1,750 ambiguous forms of
+699 verbs that have a page on wordholder.com and no example sentence for that
+form) it decides the word in **80.9%** of the sentences, and **99.9%** of the
+decisions agree with the labels (3,544 of 3,546); 11.9% do not parse, 6.8% stay
+ambiguous.
+
+```sh
+cargo run --release -- eval fr data/fr/homograph-set.jsonl \
+  --labels data/fr/homograph-labels.tsv --fixture tests/fixtures/fr-set.json --out /tmp/eval-fr.jsonl
+cargo run -- --fixture tests/fixtures/fr-recorded.json --file examples/fr.txt fr
+```
+
+The files in `data/fr/` mirror `data/it/` (`tools/fr_homographs.py import`,
+`select`), plus `verified-examples.tsv`: the 2,195 sentences (1,195 forms of
+532 verbs) where gramalysis decides the word is the page verb and the label
+agrees, 5–20 words long, in the format wordy's verb-form-examples builder
+reads (`tools/fr_homographs.py verified`). Inflected participles (*vues*,
+*avertis*) are left out of it: a verb table's participle cell holds only the
+masculine singular.
+
+**French labelling conventions** (the header of `homograph-labels.tsv`):
+the Italian participle rules with the French auxiliaries above, plus a naming
+passive (*il était appelé le grain de la pauvreté*) as the verb; an *-ant*
+form is the verb (`non_finite.gerund`) with *en* or with the verb's
+complements, otherwise an adjective; an imperative has no subject (*Suis-moi*),
+a form with a subject or inversion is indicative or subjunctive; a pronominal
+verb's lemma is the verb without *se* (*elle s'est levée*: *lever*).
+
+The API's French answers have known defects, corrected as patches
+(`data/fr/lexicon-patches/wordholder.txt`) or, where they are systematic, in
+`lang/fr`: plural nouns that are also verb forms come back without the noun
+(*programmes*, *critiques*); a dictionary form gets a defaulted masculine
+singular (*facile*, *heureux*), which `lang/fr` leaves unknown; forms come
+back as an infinitive of themselves (*grandisses*); obsolete or non-French
+verbs beside the common one (*jetter*, *batter*).
+
 ## Using it as a library
 
 ```
@@ -174,7 +310,7 @@ src/
   syntax/           grammar files, morpheme lattice, Earley parser (shared
                     parse forest: all parses, polynomial work)
   lang/             the Language trait; it/ = Italian (tokenizer, function
-                    words, clitics, first sounds, participles)
+                    words, clitics, first sounds, participles); es/ = Spanish
   analysis.rs       the pipeline: analyze(lexicon, language, sentence)
   wordholder/       the Word Holder API as a lexicon   [feature wordholder]
     client.rs         HTTP client (RapidAPI or the API's origin)
@@ -183,7 +319,10 @@ src/
   bin/gramalysis/   the command line: parse, record, eval  [feature cli]
 data/it/            grammar.gram, closed.txt (function words),
                     drifted-participles.txt, lexicon-patches/, the Tatoeba set
-tools/              it_homographs.py: builds the Tatoeba set
+data/es/            the same for Spanish
+tools/              it_homographs.py: builds the Tatoeba set (--lang es for
+                    Spanish); verified_examples.py: decided sentences that
+                    agree with their labels, for wordy
 ```
 
 | Feature | Contents |
@@ -243,6 +382,6 @@ include the [NOTICE](NOTICE) file's attribution, where third-party notices
 normally appear.
 
 The data files under `data/` keep their sources' licences, listed in
-[data/it/NOTICE.md](data/it/NOTICE.md): Tatoeba sentences under CC BY 2.0 FR,
+[data/it/NOTICE.md](data/it/NOTICE.md) and [data/es/NOTICE.md](data/es/NOTICE.md): Tatoeba sentences under CC BY 2.0 FR,
 Wiktionary-derived tables under CC BY-SA 4.0. The recorded API answers in
 `tests/fixtures/` hold grammatical tags only.

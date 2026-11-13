@@ -101,3 +101,72 @@ async fn uses_are_per_reading() {
         }
     }
 }
+
+/// Whether some parse reads `token` as `lemma`'s past participle in a verb use
+/// (a participle clause), not only like an adjective.
+fn participle_as_verb(a: &SentenceAnalysis, token: &str, lemma: &str) -> bool {
+    let c = a.chosen.iter().find(|c| c.token == token).unwrap();
+    c.readings.iter().zip(&c.uses).any(|(reading, uses)| {
+        let m = &reading[0];
+        m.lemma == lemma
+            && m.cat == "Verb"
+            && m.feats.get("form").map(String::as_str) == Some("pastpart")
+            && uses.iter().any(|u| u != "ap.participle")
+    })
+}
+
+/// Participle clauses (#16): the participle's verb reading is among the parses,
+/// next to any other reading of the form (giunto: also giuntare).
+#[tokio::test]
+async fn participle_clauses() {
+    for (sentence, token, lemma) in [
+        (
+            "Giunto dinanzi a casa, trovò l'uscio di strada socchiuso.",
+            "Giunto",
+            "giungere",
+        ),
+        ("Noi amiamo e dopo amato usciamo.", "amato", "amare"),
+        ("Giunta la sera, tornammo a casa.", "Giunta", "giungere"),
+        ("Arrivato a casa, ho mangiato.", "Arrivato", "arrivare"),
+        ("Finito il lavoro, siamo usciti.", "Finito", "finire"),
+        ("Dopo mangiato, dormo.", "mangiato", "mangiare"),
+    ] {
+        let a = run(sentence).await;
+        assert!(a.unknown.is_empty(), "{sentence}: unknown {:?}", a.unknown);
+        assert!(
+            participle_as_verb(&a, token, lemma),
+            "{sentence}: {:?}",
+            a.chosen.iter().find(|c| c.token == token)
+        );
+    }
+}
+
+/// An adverb with its own phrase completes a participle (#18): messa fuori di
+/// casa is a participle phrase, a verb use.
+#[tokio::test]
+async fn participle_with_an_adverb_phrase() {
+    for (sentence, token, lemma) in [
+        ("Era una sedia messa fuori di casa.", "messa", "mettere"),
+        (
+            "Ho trovato una bici lasciata fuori di casa.",
+            "lasciata",
+            "lasciare",
+        ),
+    ] {
+        let a = run(sentence).await;
+        assert!(
+            participle_as_verb(&a, token, lemma),
+            "{sentence}: {:?}",
+            a.chosen.iter().find(|c| c.token == token)
+        );
+    }
+}
+
+/// The participle must agree with the noun phrase of its absolute clause.
+#[tokio::test]
+async fn absolute_participle_agrees_with_its_noun_phrase() {
+    let a = run("Finito il lavoro, siamo usciti.").await;
+    assert!(participle_as_verb(&a, "Finito", "finire"));
+    let a = run("Finito la sera, siamo usciti.").await;
+    assert!(!participle_as_verb(&a, "Finito", "finire"));
+}

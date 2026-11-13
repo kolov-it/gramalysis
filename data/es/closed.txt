@@ -1,0 +1,396 @@
+# Spanish function words: articles, prepositions (with their contracted
+# forms), pronouns, conjunctions, determiners, question words. These are
+# answered from this list, not by the lexicon service. One reading per line;
+# a form with several readings has several lines. A reading of several
+# morphemes joins them with `+`.
+#
+# form = lemma:Category{feature=value,...} [+ lemma:Category{...}]
+#
+# A listed word replaces every lexicon reading of the same lemma, so a word
+# with several categories (bajo: preposition, adjective, adverb) lists every
+# one of them.
+#
+# Features: gender m/f, number sg/pl, person 1/2/3, definite yes/no,
+# case nom (subject) / obl (stressed, after a preposition) / acc (direct
+# clitic) / dat (indirect clitic) / refl / sedat (se standing for le/les
+# before lo, la, los, las: se lo doy), clitic yes/no.
+#
+# Accents keep words apart and are never stripped: tú/tu, él/el, sí/si,
+# mí/mi, más/mas, qué/que, cómo/como, dónde/donde, cuándo/cuando,
+# quién/quien, cuál/cual. sé and dé are verbs and come from the lexicon.
+
+# --- definite article
+# `next` = a: a feminine noun starting with stressed a/ha takes el and un
+# (el agua, un águila); every other feminine noun takes la and una.
+el = el:Det{definite=yes,gender=m,number=sg}
+el = el:Det{definite=yes,gender=f,number=sg,next=a}
+la = el:Det{definite=yes,gender=f,number=sg,next=c}
+los = el:Det{definite=yes,gender=m,number=pl}
+las = el:Det{definite=yes,gender=f,number=pl}
+# the neuter article: lo bueno, lo que dices
+lo = lo:Neut
+
+# --- indefinite article
+un = un:Det{definite=no,gender=m,number=sg}
+un = un:Det{definite=no,gender=f,number=sg,next=a}
+una = un:Det{definite=no,gender=f,number=sg}
+unos = un:Det{definite=no,gender=m,number=pl}
+unas = un:Det{definite=no,gender=f,number=pl}
+uno = uno:Pron{case=nom,person=3,number=sg,clitic=no}
+uno = uno:Pron{case=obl,person=3,number=sg,clitic=no}
+una = uno:Pron{case=nom,person=3,number=sg,gender=f,clitic=no}
+una = uno:Pron{case=obl,person=3,number=sg,gender=f,clitic=no}
+uno = uno:Num{number=sg}
+unos = uno:Pron{case=obl,person=3,number=pl,clitic=no}
+
+# --- prepositions
+a = a:Prep
+ante = ante:Prep
+bajo = bajo:Prep
+con = con:Prep
+contra = contra:Prep
+de = de:Prep
+desde = desde:Prep
+durante = durante:Prep
+en = en:Prep
+entre = entre:Prep
+hacia = hacia:Prep
+hasta = hasta:Prep
+mediante = mediante:Prep
+para = para:Prep
+por = por:Prep
+según = según:Prep
+sin = sin:Prep
+sobre = sobre:Prep
+tras = tras:Prep
+excepto = excepto:Prep
+salvo = salvo:Prep
+# bajo, sobre, salvo and contra are other words too: un hombre bajo, habla
+# bajo, toca el bajo, el sobre, a salvo, en mi contra, mientras tanto
+bajo = bajo:Adj{gender=m,number=sg}
+bajo = bajo:Adv
+bajo = bajo:Noun{gender=m,number=sg}
+sobre = sobre:Noun{gender=m,number=sg}
+salvo = salvo:Adj{gender=m,number=sg}
+contra = contra:Noun{gender=f,number=sg}
+mientras = mientras:Adv
+
+# --- prepositions contracted with the article
+al = a:Prep + el:Det{definite=yes,gender=m,number=sg}
+al = a:Prep + el:Det{definite=yes,gender=f,number=sg,next=a}
+del = de:Prep + el:Det{definite=yes,gender=m,number=sg}
+del = de:Prep + el:Det{definite=yes,gender=f,number=sg,next=a}
+# con + mí / ti / sí
+conmigo = con:Prep + mí:Pron{case=obl,person=1,number=sg,clitic=no}
+contigo = con:Prep + ti:Pron{case=obl,person=2,number=sg,clitic=no}
+consigo = con:Prep + sí:Pron{case=obl,person=3,clitic=no}
+
+# --- subject pronouns (usted, ustedes take the verb's third person)
+yo = yo:Pron{case=nom,person=1,number=sg,clitic=no}
+tú = tú:Pron{case=nom,person=2,number=sg,clitic=no}
+él = él:Pron{case=nom,person=3,number=sg,gender=m,clitic=no}
+ella = ella:Pron{case=nom,person=3,number=sg,gender=f,clitic=no}
+ello = ello:Pron{case=nom,person=3,number=sg,clitic=no}
+usted = usted:Pron{case=nom,person=3,number=sg,clitic=no}
+nosotros = nosotros:Pron{case=nom,person=1,number=pl,gender=m,clitic=no}
+nosotras = nosotros:Pron{case=nom,person=1,number=pl,gender=f,clitic=no}
+vosotros = vosotros:Pron{case=nom,person=2,number=pl,gender=m,clitic=no}
+vosotras = vosotros:Pron{case=nom,person=2,number=pl,gender=f,clitic=no}
+ellos = ellos:Pron{case=nom,person=3,number=pl,gender=m,clitic=no}
+ellas = ellos:Pron{case=nom,person=3,number=pl,gender=f,clitic=no}
+ustedes = usted:Pron{case=nom,person=3,number=pl,clitic=no}
+
+# --- stressed pronouns (after a preposition)
+mí = mí:Pron{case=obl,person=1,number=sg,clitic=no}
+ti = ti:Pron{case=obl,person=2,number=sg,clitic=no}
+sí = sí:Pron{case=obl,person=3,clitic=no}
+él = él:Pron{case=obl,person=3,number=sg,gender=m,clitic=no}
+ella = ella:Pron{case=obl,person=3,number=sg,gender=f,clitic=no}
+ello = ello:Pron{case=obl,person=3,number=sg,clitic=no}
+usted = usted:Pron{case=obl,person=3,number=sg,clitic=no}
+nosotros = nosotros:Pron{case=obl,person=1,number=pl,gender=m,clitic=no}
+nosotras = nosotros:Pron{case=obl,person=1,number=pl,gender=f,clitic=no}
+vosotros = vosotros:Pron{case=obl,person=2,number=pl,gender=m,clitic=no}
+vosotras = vosotros:Pron{case=obl,person=2,number=pl,gender=f,clitic=no}
+ellos = ellos:Pron{case=obl,person=3,number=pl,gender=m,clitic=no}
+ellas = ellos:Pron{case=obl,person=3,number=pl,gender=f,clitic=no}
+ustedes = usted:Pron{case=obl,person=3,number=pl,clitic=no}
+
+# --- clitic pronouns
+me = me:Pron{case=acc,person=1,number=sg,clitic=yes}
+me = me:Pron{case=dat,person=1,number=sg,clitic=yes}
+me = me:Pron{case=refl,person=1,number=sg,clitic=yes}
+te = te:Pron{case=acc,person=2,number=sg,clitic=yes}
+te = te:Pron{case=dat,person=2,number=sg,clitic=yes}
+te = te:Pron{case=refl,person=2,number=sg,clitic=yes}
+nos = nos:Pron{case=acc,person=1,number=pl,clitic=yes}
+nos = nos:Pron{case=dat,person=1,number=pl,clitic=yes}
+nos = nos:Pron{case=refl,person=1,number=pl,clitic=yes}
+os = os:Pron{case=acc,person=2,number=pl,clitic=yes}
+os = os:Pron{case=dat,person=2,number=pl,clitic=yes}
+os = os:Pron{case=refl,person=2,number=pl,clitic=yes}
+se = se:Pron{case=refl,person=3,clitic=yes}
+se = se:Pron{case=sedat,person=3,clitic=yes}
+lo = lo:Pron{case=acc,person=3,number=sg,gender=m,clitic=yes}
+la = lo:Pron{case=acc,person=3,number=sg,gender=f,clitic=yes}
+los = lo:Pron{case=acc,person=3,number=pl,gender=m,clitic=yes}
+las = lo:Pron{case=acc,person=3,number=pl,gender=f,clitic=yes}
+le = le:Pron{case=dat,person=3,number=sg,clitic=yes}
+les = le:Pron{case=dat,person=3,number=pl,clitic=yes}
+
+# --- possessives before the noun (mi casa) and after it or alone (un
+# amigo mío, es mío, el mío); they agree with the noun, not the owner
+mi = mi:Poss{number=sg,owner=1s}
+mis = mi:Poss{number=pl,owner=1s}
+tu = tu:Poss{number=sg,owner=2s}
+tus = tu:Poss{number=pl,owner=2s}
+su = su:Poss{number=sg,owner=3}
+sus = su:Poss{number=pl,owner=3}
+nuestro = nuestro:Poss{gender=m,number=sg,owner=1p}
+nuestra = nuestro:Poss{gender=f,number=sg,owner=1p}
+nuestros = nuestro:Poss{gender=m,number=pl,owner=1p}
+nuestras = nuestro:Poss{gender=f,number=pl,owner=1p}
+vuestro = vuestro:Poss{gender=m,number=sg,owner=2p}
+vuestra = vuestro:Poss{gender=f,number=sg,owner=2p}
+vuestros = vuestro:Poss{gender=m,number=pl,owner=2p}
+vuestras = vuestro:Poss{gender=f,number=pl,owner=2p}
+mío = mío:PossAfter{gender=m,number=sg,owner=1s}
+mía = mío:PossAfter{gender=f,number=sg,owner=1s}
+míos = mío:PossAfter{gender=m,number=pl,owner=1s}
+mías = mío:PossAfter{gender=f,number=pl,owner=1s}
+tuyo = tuyo:PossAfter{gender=m,number=sg,owner=2s}
+tuya = tuyo:PossAfter{gender=f,number=sg,owner=2s}
+tuyos = tuyo:PossAfter{gender=m,number=pl,owner=2s}
+tuyas = tuyo:PossAfter{gender=f,number=pl,owner=2s}
+suyo = suyo:PossAfter{gender=m,number=sg,owner=3}
+suya = suyo:PossAfter{gender=f,number=sg,owner=3}
+suyos = suyo:PossAfter{gender=m,number=pl,owner=3}
+suyas = suyo:PossAfter{gender=f,number=pl,owner=3}
+nuestro = nuestro:PossAfter{gender=m,number=sg,owner=1p}
+nuestra = nuestro:PossAfter{gender=f,number=sg,owner=1p}
+nuestros = nuestro:PossAfter{gender=m,number=pl,owner=1p}
+nuestras = nuestro:PossAfter{gender=f,number=pl,owner=1p}
+vuestro = vuestro:PossAfter{gender=m,number=sg,owner=2p}
+vuestra = vuestro:PossAfter{gender=f,number=sg,owner=2p}
+vuestros = vuestro:PossAfter{gender=m,number=pl,owner=2p}
+vuestras = vuestro:PossAfter{gender=f,number=pl,owner=2p}
+
+# --- demonstratives: before a noun, and alone (with or without the old
+# written accent: éste)
+este = este:Det{definite=yes,gender=m,number=sg}
+esta = este:Det{definite=yes,gender=f,number=sg}
+estos = este:Det{definite=yes,gender=m,number=pl}
+estas = este:Det{definite=yes,gender=f,number=pl}
+ese = ese:Det{definite=yes,gender=m,number=sg}
+esa = ese:Det{definite=yes,gender=f,number=sg}
+esos = ese:Det{definite=yes,gender=m,number=pl}
+esas = ese:Det{definite=yes,gender=f,number=pl}
+aquel = aquel:Det{definite=yes,gender=m,number=sg}
+aquella = aquel:Det{definite=yes,gender=f,number=sg}
+aquellos = aquel:Det{definite=yes,gender=m,number=pl}
+aquellas = aquel:Det{definite=yes,gender=f,number=pl}
+este = este:Pron{person=3,number=sg,gender=m,clitic=no}
+esta = este:Pron{person=3,number=sg,gender=f,clitic=no}
+estos = este:Pron{person=3,number=pl,gender=m,clitic=no}
+estas = este:Pron{person=3,number=pl,gender=f,clitic=no}
+ese = ese:Pron{person=3,number=sg,gender=m,clitic=no}
+esa = ese:Pron{person=3,number=sg,gender=f,clitic=no}
+esos = ese:Pron{person=3,number=pl,gender=m,clitic=no}
+esas = ese:Pron{person=3,number=pl,gender=f,clitic=no}
+aquel = aquel:Pron{person=3,number=sg,gender=m,clitic=no}
+aquella = aquel:Pron{person=3,number=sg,gender=f,clitic=no}
+aquellos = aquel:Pron{person=3,number=pl,gender=m,clitic=no}
+aquellas = aquel:Pron{person=3,number=pl,gender=f,clitic=no}
+éste = este:Pron{person=3,number=sg,gender=m,clitic=no}
+ésta = este:Pron{person=3,number=sg,gender=f,clitic=no}
+éstos = este:Pron{person=3,number=pl,gender=m,clitic=no}
+éstas = este:Pron{person=3,number=pl,gender=f,clitic=no}
+ése = ese:Pron{person=3,number=sg,gender=m,clitic=no}
+ésa = ese:Pron{person=3,number=sg,gender=f,clitic=no}
+ésos = ese:Pron{person=3,number=pl,gender=m,clitic=no}
+ésas = ese:Pron{person=3,number=pl,gender=f,clitic=no}
+esto = esto:Pron{person=3,number=sg,clitic=no}
+eso = eso:Pron{person=3,number=sg,clitic=no}
+aquello = aquello:Pron{person=3,number=sg,clitic=no}
+# este is also the east
+este = este:Noun{gender=m,number=sg}
+
+# --- quantifiers. `todo` goes before an article: todos los días.
+cada = cada:Det{definite=no}
+algún = alguno:Det{definite=no,gender=m,number=sg}
+alguna = alguno:Det{definite=no,gender=f,number=sg}
+algunos = alguno:Det{definite=no,gender=m,number=pl}
+algunas = alguno:Det{definite=no,gender=f,number=pl}
+alguno = alguno:Pron{person=3,number=sg,gender=m,clitic=no}
+alguna = alguno:Pron{person=3,number=sg,gender=f,clitic=no}
+algunos = alguno:Pron{person=3,number=pl,gender=m,clitic=no}
+algunas = alguno:Pron{person=3,number=pl,gender=f,clitic=no}
+ningún = ninguno:Det{definite=no,gender=m,number=sg}
+ninguna = ninguno:Det{definite=no,gender=f,number=sg}
+ninguno = ninguno:Pron{person=3,number=sg,gender=m,clitic=no}
+ninguna = ninguno:Pron{person=3,number=sg,gender=f,clitic=no}
+mucho = mucho:Det{definite=no,gender=m,number=sg}
+mucha = mucho:Det{definite=no,gender=f,number=sg}
+muchos = mucho:Det{definite=no,gender=m,number=pl}
+muchas = mucho:Det{definite=no,gender=f,number=pl}
+mucho = mucho:Pron{person=3,number=sg,clitic=no}
+muchos = mucho:Pron{person=3,number=pl,gender=m,clitic=no}
+muchas = mucho:Pron{person=3,number=pl,gender=f,clitic=no}
+mucho = mucho:Adv
+poco = poco:Det{definite=no,gender=m,number=sg}
+poca = poco:Det{definite=no,gender=f,number=sg}
+pocos = poco:Det{definite=no,gender=m,number=pl}
+pocas = poco:Det{definite=no,gender=f,number=pl}
+poco = poco:Pron{person=3,number=sg,clitic=no}
+pocos = poco:Pron{person=3,number=pl,gender=m,clitic=no}
+poco = poco:Adv
+otro = otro:Det{definite=no,gender=m,number=sg}
+otra = otro:Det{definite=no,gender=f,number=sg}
+otros = otro:Det{definite=no,gender=m,number=pl}
+otras = otro:Det{definite=no,gender=f,number=pl}
+otro = otro:Pron{person=3,number=sg,gender=m,clitic=no}
+otra = otro:Pron{person=3,number=sg,gender=f,clitic=no}
+otros = otro:Pron{person=3,number=pl,gender=m,clitic=no}
+otras = otro:Pron{person=3,number=pl,gender=f,clitic=no}
+varios = varios:Det{definite=no,gender=m,number=pl}
+varias = varios:Det{definite=no,gender=f,number=pl}
+ambos = ambos:Det{definite=no,gender=m,number=pl}
+ambas = ambos:Det{definite=no,gender=f,number=pl}
+tanto = tanto:Det{definite=no,gender=m,number=sg}
+tanta = tanto:Det{definite=no,gender=f,number=sg}
+tantos = tanto:Det{definite=no,gender=m,number=pl}
+tantas = tanto:Det{definite=no,gender=f,number=pl}
+tanto = tanto:Adv
+demasiado = demasiado:Det{definite=no,gender=m,number=sg}
+demasiada = demasiado:Det{definite=no,gender=f,number=sg}
+demasiados = demasiado:Det{definite=no,gender=m,number=pl}
+demasiadas = demasiado:Det{definite=no,gender=f,number=pl}
+demasiado = demasiado:Adv
+bastante = bastante:Det{definite=no,number=sg}
+bastantes = bastante:Det{definite=no,number=pl}
+bastante = bastante:Adv
+todo = todo:Predet{gender=m,number=sg}
+toda = todo:Predet{gender=f,number=sg}
+todos = todo:Predet{gender=m,number=pl}
+todas = todo:Predet{gender=f,number=pl}
+todo = todo:Pron{person=3,number=sg,clitic=no}
+toda = todo:Pron{person=3,number=sg,gender=f,clitic=no}
+todos = todo:Pron{person=3,number=pl,gender=m,clitic=no}
+todas = todo:Pron{person=3,number=pl,gender=f,clitic=no}
+algo = algo:Pron{person=3,number=sg,clitic=no}
+algo = algo:Adv
+nada = nada:Pron{person=3,number=sg,clitic=no}
+nada = nada:Adv
+alguien = alguien:Pron{person=3,number=sg,clitic=no}
+nadie = nadie:Pron{person=3,number=sg,clitic=no}
+
+# --- conjunctions
+y = y:Conj{type=coord}
+e = y:Conj{type=coord}
+o = o:Conj{type=coord}
+u = o:Conj{type=coord}
+pero = pero:Conj{type=coord}
+sino = sino:Conj{type=coord}
+ni = ni:Conj{type=coord}
+mas = mas:Conj{type=coord}
+que = que:Conj{type=sub}
+si = si:Conj{type=sub}
+porque = porque:Conj{type=sub}
+cuando = cuando:Conj{type=sub}
+mientras = mientras:Conj{type=sub}
+aunque = aunque:Conj{type=sub}
+como = como:Conj{type=sub}
+donde = donde:Conj{type=sub}
+pues = pues:Conj{type=sub}
+
+# --- negation
+no = no:Adv{neg=yes}
+nunca = nunca:Adv{neg=yes}
+jamás = jamás:Adv{neg=yes}
+tampoco = tampoco:Adv{neg=yes}
+
+# --- question words (with their accent; without it they are other words)
+qué = qué:QPron{person=3,number=sg}
+qué = qué:QDet
+quién = quién:QPron{person=3,number=sg}
+quiénes = quién:QPron{person=3,number=pl}
+cuál = cuál:QPron{person=3,number=sg}
+cuáles = cuál:QPron{person=3,number=pl}
+cuánto = cuánto:QDet{gender=m,number=sg}
+cuánta = cuánto:QDet{gender=f,number=sg}
+cuántos = cuánto:QDet{gender=m,number=pl}
+cuántas = cuánto:QDet{gender=f,number=pl}
+cuánto = cuánto:QPron{person=3,number=sg}
+cuánta = cuánto:QPron{person=3,number=sg,gender=f}
+cuántos = cuánto:QPron{person=3,number=pl,gender=m}
+cuántas = cuánto:QPron{person=3,number=pl,gender=f}
+cuánto = cuánto:QAdv
+dónde = dónde:QAdv
+adónde = adónde:QAdv
+cuándo = cuándo:QAdv
+cómo = cómo:QAdv
+
+# --- relative pronouns
+que = que:RelPron
+quien = quien:RelPron{number=sg}
+quienes = quien:RelPron{number=pl}
+cual = cual:RelPron{number=sg}
+cuales = cual:RelPron{number=pl}
+donde = donde:RelPron
+
+# --- answers and interjections
+sí = sí:Intj
+sí = sí:Adv
+no = no:Intj
+# `como` outside questions: blanco como la nieve, como siempre
+como = como:Prep
+como = como:Adv
+cuando = cuando:Prep
+
+# --- focus words: before a noun phrase, a phrase or the verb (sólo tú,
+# ni idea, también quiero); also adverbs, and solo an adjective
+sólo = sólo:Focus
+sólo = sólo:Adv
+solo = solo:Focus
+solo = solo:Adv
+solo = solo:Adj{gender=m,number=sg}
+solamente = solamente:Focus
+solamente = solamente:Adv
+incluso = incluso:Focus
+incluso = incluso:Adv
+también = también:Focus
+también = también:Adv
+ni = ni:Focus
+
+# --- más / menos: adverb (más alto), determiner (más agua), pronoun (quiero más)
+más = más:Adv
+más = más:Det{definite=no}
+más = más:Pron{person=3,clitic=no}
+menos = menos:Adv
+menos = menos:Det{definite=no}
+menos = menos:Pron{person=3,clitic=no}
+menos = menos:Prep
+# un poco: a little (un poco cansado, espera un poco, un poco de agua)
+poco = poco:Noun{gender=m,number=sg}
+cualquier = cualquiera:Det{definite=no,number=sg}
+cualquiera = cualquiera:Det{definite=no,number=sg}
+cualquiera = cualquiera:Pron{person=3,number=sg,clitic=no}
+
+# --- quantifiers standing for an understood noun (tengo mucha, quiero tantas)
+mucha = mucho:Pron{person=3,number=sg,gender=f,clitic=no}
+poca = poco:Pron{person=3,number=sg,gender=f,clitic=no}
+pocas = poco:Pron{person=3,number=pl,gender=f,clitic=no}
+varios = varios:Pron{person=3,number=pl,gender=m,clitic=no}
+varias = varios:Pron{person=3,number=pl,gender=f,clitic=no}
+ambos = ambos:Pron{person=3,number=pl,gender=m,clitic=no}
+ambas = ambos:Pron{person=3,number=pl,gender=f,clitic=no}
+tanto = tanto:Pron{person=3,number=sg,gender=m,clitic=no}
+tanta = tanto:Pron{person=3,number=sg,gender=f,clitic=no}
+tantos = tanto:Pron{person=3,number=pl,gender=m,clitic=no}
+tantas = tanto:Pron{person=3,number=pl,gender=f,clitic=no}
+demasiado = demasiado:Pron{person=3,number=sg,gender=m,clitic=no}
+demasiada = demasiado:Pron{person=3,number=sg,gender=f,clitic=no}
+demasiados = demasiado:Pron{person=3,number=pl,gender=m,clitic=no}
+demasiadas = demasiado:Pron{person=3,number=pl,gender=f,clitic=no}
+bastante = bastante:Pron{person=3,number=sg,clitic=no}
+bastantes = bastante:Pron{person=3,number=pl,clitic=no}

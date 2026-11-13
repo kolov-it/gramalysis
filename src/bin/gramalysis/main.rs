@@ -70,7 +70,7 @@ enum Command {
 
 #[derive(Args)]
 struct ParseArgs {
-    /// Language code: it (es, fr, de, nl, en are planned).
+    /// Language code: it, es or fr (de, nl, en are planned).
     lang: Option<Lang>,
     /// The sentence. Quote it.
     sentence: Option<String>,

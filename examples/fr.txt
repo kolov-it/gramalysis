@@ -1,0 +1,22 @@
+# French examples. Run offline with:
+#   cargo run -- --fixture tests/fixtures/fr-recorded.json --file examples/fr.txt fr
+Le chat dort sur le canapé.
+Je suis fatigué.
+Suis-moi !
+Je suis le chemin le plus court.
+Parlez-vous français ?
+Asseyez-vous.
+A-t-il fini son travail ?
+Donne-le-moi.
+L'homme qu'il a vu est parti.
+Je les ai vues hier.
+Les pommes que j'ai mangées étaient bonnes.
+Elle s'est levée tôt.
+La porte est fermée.
+La porte a été fermée par le gardien.
+Le héros est arrivé.
+Je ne sais pas où il est.
+Est-ce que tu viens avec nous ?
+Il y a du pain sur la table.
+Ferme la porte, s'il te plaît.
+Nous avions peur des avions.

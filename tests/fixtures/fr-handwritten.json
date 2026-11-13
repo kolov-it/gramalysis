@@ -1,0 +1,5088 @@
+{
+  "fr": {
+    "suis": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "suivre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "suivre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "suivre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      }
+    ],
+    "frère": [
+      {
+        "lemma": "frère",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "homme": [
+      {
+        "lemma": "homme",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "a": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "a",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "vu": [
+      {
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      },
+      {
+        "lemma": "vu",
+        "partOfSpeech": "prep",
+        "grammar": null
+      }
+    ],
+    "vues": [
+      {
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      },
+      {
+        "lemma": "vue",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "plural"
+          ],
+          "gender": "feminine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "mangées": [
+      {
+        "lemma": "manger",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "ai": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      }
+    ],
+    "est": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "est",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "sont": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "plural"
+        }
+      }
+    ],
+    "pommes": [
+      {
+        "lemma": "pomme",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "plural"
+          ],
+          "gender": "feminine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "bonnes": [
+      {
+        "lemma": "bon",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural"
+        }
+      }
+    ],
+    "parlez": [
+      {
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      },
+      {
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      }
+    ],
+    "asseyez": [
+      {
+        "lemma": "asseoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      },
+      {
+        "lemma": "asseoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      }
+    ],
+    "français": [
+      {
+        "lemma": "français",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "français",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "gender": "masculine"
+        }
+      }
+    ],
+    "fini": [
+      {
+        "lemma": "finir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "héros": [
+      {
+        "lemma": "héros",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "singular"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "là": [
+      {
+        "lemma": "là",
+        "partOfSpeech": "adv",
+        "grammar": null
+      }
+    ],
+    "porte": [
+      {
+        "lemma": "porte",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      }
+    ],
+    "ferme": [
+      {
+        "lemma": "ferme",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "ferme",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      }
+    ],
+    "fermée": [
+      {
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      },
+      {
+        "lemma": "fermé",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular"
+        }
+      }
+    ],
+    "levée": [
+      {
+        "lemma": "lever",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      },
+      {
+        "lemma": "levée",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "heureux": [
+      {
+        "lemma": "heureux",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "heureux",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "clitic": false
+        }
+      }
+    ],
+    "êtes": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      }
+    ],
+    "sera": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "future",
+          "person": "third",
+          "number": "singular"
+        }
+      }
+    ],
+    "fatigué": [
+      {
+        "lemma": "fatiguer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "fatigués": [
+      {
+        "lemma": "fatiguer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "rendez-vous": [
+      {
+        "lemma": "rendez-vous",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "belle": [
+      {
+        "lemma": "beau",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "belle",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "ans": [
+      {
+        "lemma": "an",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "plural"
+          ],
+          "gender": "masculine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "20": [
+      {
+        "lemma": "20",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [],
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "gardien": [
+      {
+        "lemma": "gardien",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "as": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "as",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "heureuse": [
+      {
+        "lemma": "heureux",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "deviendra": [
+      {
+        "lemma": "devenir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "future",
+          "person": "third",
+          "number": "singular"
+        }
+      }
+    ],
+    "mangé": [
+      {
+        "lemma": "manger",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "lettres": [
+      {
+        "lemma": "lettre",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "plural"
+          ],
+          "gender": "feminine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "lu": [
+      {
+        "lemma": "lire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "lues": [
+      {
+        "lemma": "lire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "plural",
+          "gender": "feminine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "donne": [
+      {
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "déjà": [
+      {
+        "lemma": "déjà",
+        "partOfSpeech": "adv",
+        "grammar": null
+      }
+    ],
+    "venu": [
+      {
+        "lemma": "venir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "été": [
+      {
+        "lemma": "été",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "fermé": [
+      {
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "devenu": [
+      {
+        "lemma": "devenir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "écrit": [
+      {
+        "lemma": "écrire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "écrit",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "écrite": [
+      {
+        "lemma": "écrire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "feminine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "femme": [
+      {
+        "lemma": "femme",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "fatiguée": [
+      {
+        "lemma": "fatiguer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "feminine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "semble": [
+      {
+        "lemma": "sembler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "avoir": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "infinitive",
+          "clitic": false
+        }
+      }
+    ],
+    "levé": [
+      {
+        "lemma": "lever",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "parlé": [
+      {
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "grammar": null
+      }
+    ],
+    "ici": [
+      {
+        "lemma": "ici",
+        "partOfSpeech": "adv",
+        "grammar": null
+      }
+    ],
+    "allons": [
+      {
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "imperative",
+          "tense": "present",
+          "person": "first",
+          "number": "plural",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "faites": [
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      },
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      },
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "donnes": [
+      {
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      }
+    ],
+    "écrites": [
+      {
+        "lemma": "écrire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "très": [
+      {
+        "lemma": "très",
+        "partOfSpeech": "adv",
+        "grammar": null
+      }
+    ],
+    "grand": [
+      {
+        "lemma": "grand",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "hommes": [
+      {
+        "lemma": "homme",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "plural"
+          ],
+          "gender": "masculine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "vas": [
+      {
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "yacht": [
+      {
+        "lemma": "yacht",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "empêche": [
+      {
+        "lemma": "empêcher",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "parle": [
+      {
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "part": [
+      {
+        "lemma": "partir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "partent": [
+      {
+        "lemma": "partir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "train": [
+      {
+        "lemma": "train",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "être": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "infinitive",
+          "clitic": false
+        }
+      }
+    ],
+    "bu": [
+      {
+        "lemma": "boire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "chat": [
+      {
+        "lemma": "chat",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "chien": [
+      {
+        "lemma": "chien",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "vois": [
+      {
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      }
+    ],
+    "sais": [
+      {
+        "lemma": "savoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      }
+    ],
+    "veut": [
+      {
+        "lemma": "vouloir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "travaille": [
+      {
+        "lemma": "travailler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "vivre": [
+      {
+        "lemma": "vivre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "infinitive",
+          "clitic": false
+        }
+      }
+    ],
+    "laves": [
+      {
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "lavez": [
+      {
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "vus": [
+      {
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "plural",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "penses": [
+      {
+        "lemma": "penser",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "ayant": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "present-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "rendre": [
+      {
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "infinitive",
+          "clitic": false
+        }
+      }
+    ],
+    "rend": [
+      {
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "fait": [
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      },
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      }
+    ],
+    "cru": [
+      {
+        "lemma": "cru",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "croire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "poisson": [
+      {
+        "lemma": "poisson",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "mange": [
+      {
+        "lemma": "manger",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "veux": [
+      {
+        "lemma": "vouloir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "fille": [
+      {
+        "lemma": "fille",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "heureuses": [
+      {
+        "lemma": "heureux",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "plural"
+          ],
+          "gender": "feminine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "froid": [
+      {
+        "lemma": "froid",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "froid",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "avez": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "laisse": [
+      {
+        "lemma": "laisser",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      }
+    ],
+    "laver": [
+      {
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "formKind": "infinitive"
+        }
+      }
+    ],
+    "lettre": [
+      {
+        "lemma": "lettre",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "demain": [
+      {
+        "lemma": "demain",
+        "partOfSpeech": "adv",
+        "grammar": null
+      }
+    ],
+    "soit": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "subjunctive",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      }
+    ],
+    "pouvoir": [
+      {
+        "lemma": "pouvoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "infinitive",
+          "clitic": false
+        }
+      }
+    ],
+    "rends": [
+      {
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "abord": [
+      {
+        "lemma": "abord",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "matin": [
+      {
+        "lemma": "matin",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "faits": [
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "partir": [
+      {
+        "lemma": "partir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "formKind": "infinitive"
+        }
+      }
+    ],
+    "censé": [
+      {
+        "lemma": "censer",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "serait": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "conditional singular third-person",
+          "tags": [
+            "conditional",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "conditional",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "conditional",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "serait"
+      }
+    ],
+    "rendu": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "rendu",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "rendu"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "rendu"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Rendu",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "rendu"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Rendu",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "rendu"
+      }
+    ],
+    "rendue": [
+      {
+        "lemma": "rendre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "laissé": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "laisser",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "laissé"
+      }
+    ],
+    "essayer": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "essayer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "essayer"
+      }
+    ],
+    "crois": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "croire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "crois"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "croire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "crois"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "croire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "crois"
+      }
+    ],
+    "reste": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "reste",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "reste"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "rester",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "reste"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "rester",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "reste"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "rester",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "reste"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "rester",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "reste"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "rester",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "reste"
+      }
+    ],
+    "heure": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "heure",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "heure"
+      }
+    ],
+    "minute": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "minute",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "minute"
+      },
+      {
+        "confidence": "high",
+        "lemma": "minute",
+        "partOfSpeech": "intj",
+        "source": "kaikki",
+        "surface": "minute"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "minuter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "minute"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "minuter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "minute"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "minuter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "minute"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "minuter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "minute"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "minuter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "minute"
+      }
+    ],
+    "minutes": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "minute",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "minutes"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present second-person singular subjunctive",
+          "tags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "minuter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "minutes"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present second-person singular subjunctive",
+          "tags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "minuter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "minutes"
+      }
+    ],
+    "ailles": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "present second-person singular subjunctive",
+          "tags": [
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ailles"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present second-person singular subjunctive",
+          "tags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ailler",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ailles"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present second-person singular subjunctive",
+          "tags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ailler",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ailles"
+      }
+    ],
+    "suivrai": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person future singular",
+          "tags": [
+            "first-person",
+            "future",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "future",
+            "singular"
+          ],
+          "tense": "future"
+        },
+        "lemma": "suivre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "suivrai"
+      }
+    ],
+    "lavant": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle present",
+          "tags": [
+            "participle",
+            "present"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "present-participle",
+          "rawTags": [
+            "participle",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "lavant"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "gerund",
+          "tags": [
+            "gerund"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "conjugation-table",
+            "non_finite.gerund"
+          ]
+        },
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "lavant"
+      }
+    ],
+    "croit": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "croire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "croit"
+      }
+    ],
+    "gare": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "gare",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "lemma": "gare",
+        "partOfSpeech": "intj",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "garer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "garer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "garer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "garer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "garer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "gare"
+      }
+    ],
+    "où": [
+      {
+        "confidence": "high",
+        "lemma": "où",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "où"
+      }
+    ],
+    "une": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "une"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "num",
+        "source": "kaikki",
+        "surface": "une"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "une",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "une"
+      }
+    ],
+    "tenez": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative plural present second-person",
+          "tags": [
+            "indicative",
+            "plural",
+            "present",
+            "second-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "present",
+            "second-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tenir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "tenez"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative plural second-person",
+          "tags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "tenir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "tenez"
+      }
+    ],
+    "prêts": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "prêt",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "prêts"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "prêt",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "prêts"
+      }
+    ],
+    "es": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present second-person singular",
+          "tags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "es"
+      }
+    ],
+    "étant": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "étant",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "étant"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle present",
+          "tags": [
+            "participle",
+            "present"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "present-participle",
+          "rawTags": [
+            "participle",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "étant"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "gerund",
+          "tags": [
+            "gerund"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "conjugation-table",
+            "non_finite.gerund"
+          ]
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "étant"
+      }
+    ],
+    "difficile": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "difficile",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "difficile"
+      }
+    ],
+    "venue": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "venue",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "venue"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle singular",
+          "tags": [
+            "feminine",
+            "participle",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "venir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "venue"
+      }
+    ],
+    "qui": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "qui",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "qui"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "qui",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "qui"
+      },
+      {
+        "confidence": "high",
+        "lemma": "qui",
+        "partOfSpeech": "conj",
+        "source": "kaikki",
+        "surface": "qui"
+      },
+      {
+        "confidence": "high",
+        "lemma": "qui",
+        "partOfSpeech": "intj",
+        "source": "kaikki",
+        "surface": "qui"
+      }
+    ],
+    "dit": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "dit",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "dit"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "dit",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "dit"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "dire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "dit"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "dit"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "historic past singular third-person",
+          "tags": [
+            "historic",
+            "past",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "historic",
+            "past",
+            "singular",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "dire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "dit"
+      }
+    ],
+    "attends": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "attendre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "attends"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "attendre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "attends"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "attendre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "attends"
+      }
+    ],
+    "ont": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative plural present third-person",
+          "tags": [
+            "indicative",
+            "plural",
+            "present",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "present",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ont"
+      }
+    ],
+    "chose": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "chose",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "chose"
+      }
+    ],
+    "quelque": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "quelque",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "quelque"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "quelque",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "quelque"
+      }
+    ],
+    "tous": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "tous",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "tous"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "tous"
+      }
+    ],
+    "ils": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "ils",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "ils"
+      }
+    ],
+    "filles": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "fille",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "filles"
+      }
+    ],
+    "venus": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine participle plural",
+          "tags": [
+            "masculine",
+            "participle",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "participle",
+            "plural"
+          ],
+          "tense": "past"
+        },
+        "lemma": "venir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "venus"
+      }
+    ],
+    "chante": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "chanter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "chante"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "chanter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "chante"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "chanter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "chante"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "chanter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "chante"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "chanter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "chante"
+      }
+    ],
+    "tom": [],
+    "toujours": [
+      {
+        "confidence": "high",
+        "lemma": "toujours",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "toujours"
+      }
+    ],
+    "partie": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "partie",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "partie"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle singular",
+          "tags": [
+            "feminine",
+            "participle",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "partir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "partie"
+      }
+    ],
+    "famille": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "famille",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "famille"
+      }
+    ],
+    "ait": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "present singular subjunctive third-person",
+          "tags": [
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ait"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "AIT",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "ait"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "AIT",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "ait"
+      }
+    ],
+    "aurait": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "conditional singular third-person",
+          "tags": [
+            "conditional",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "conditional",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "conditional",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "aurait"
+      }
+    ],
+    "va": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "VA",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "va"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "active indicative present singular third-person",
+          "tags": [
+            "active",
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "active",
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "va"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "va"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "active indicative present singular third-person",
+          "tags": [
+            "active",
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "active",
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "vader",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "va"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "vader",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "va"
+      }
+    ],
+    "bien": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "invariable"
+          ]
+        },
+        "lemma": "bien",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "bien"
+      },
+      {
+        "confidence": "high",
+        "lemma": "bien",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "bien"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "bien",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "bien"
+      }
+    ],
+    "tout": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "tout"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "tout"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "tout"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "neuter",
+          "rawTags": [
+            "neuter"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "tout"
+      }
+    ],
+    "force": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "force",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "force"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "invariable"
+          ]
+        },
+        "lemma": "force",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "force"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "forcer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "force"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "forcer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "force"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "forcer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "force"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "forcer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "force"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "forcer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "force"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "Force",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "force"
+      }
+    ],
+    "vue": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle singular",
+          "tags": [
+            "feminine",
+            "participle",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "vue"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "vue",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "vue"
+      }
+    ],
+    "par": [
+      {
+        "confidence": "high",
+        "lemma": "par",
+        "partOfSpeech": "prep",
+        "source": "kaikki",
+        "surface": "par"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "par",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "par"
+      }
+    ],
+    "les": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "plural",
+          "tags": [
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "number": "plural",
+          "rawTags": [
+            "plural"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "les"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "les"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "les"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "les"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "les"
+      }
+    ],
+    "langage": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "langage",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "langage"
+      }
+    ],
+    "tel": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "tel",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "tel"
+      },
+      {
+        "confidence": "high",
+        "lemma": "tel",
+        "partOfSpeech": "conj",
+        "source": "kaikki",
+        "surface": "tel"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "tel",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "tel"
+      }
+    ],
+    "connaissons": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative plural present",
+          "tags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "connaître",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "connaissons"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person imperative plural",
+          "tags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "lemma": "connaître",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "connaissons"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present first-person plural",
+          "tags": [
+            "indicative",
+            "present",
+            "first-person",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "conjugation-table",
+            "indicative.present.1p"
+          ],
+          "tense": "present"
+        },
+        "lemma": "connaitre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "connaissons"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative first-person plural",
+          "tags": [
+            "imperative",
+            "first-person",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "conjugation-table",
+            "imperative.present.1p"
+          ]
+        },
+        "lemma": "connaitre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "connaissons"
+      }
+    ],
+    "invention": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "invention",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "invention"
+      }
+    ],
+    "humaine": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "humain",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "humaine"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "humaine",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "humaine"
+      }
+    ],
+    "nous": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "plural",
+          "rawTags": [
+            "plural"
+          ]
+        },
+        "lemma": "nous",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "nous"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "nous",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "nous"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "nous",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "nous"
+      }
+    ],
+    "le": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "le"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "le"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Le",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "le"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Le",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "le"
+      }
+    ],
+    "hier": [
+      {
+        "confidence": "high",
+        "lemma": "hier",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "hier"
+      }
+    ],
+    "petite": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "petit",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "petite"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "petite",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "petite"
+      }
+    ],
+    "toute": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "toute"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "toute"
+      }
+    ],
+    "toutes": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "toutes"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "tout",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "toutes"
+      }
+    ]
+  }
+}
