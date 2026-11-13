@@ -206,12 +206,14 @@ bien = bien:Adv
 bien = bien:Adj
 bien = bien:Noun{gender=m}
 
+# The nouns pas and point need a determiner (needs_det=yes): a bare pas
+# after a verb is the negation, never "a step".
 # --- negation. ne/n' before the verb (and its clitics); pas, plus, jamais,
 # rien, personne, guère, point, que after the conjugated verb.
 ne = ne:Neg
 n' = ne:Neg
 pas = pas:NegAdv{only=no}
-pas = pas:Noun{gender=m}
+pas = pas:Noun{gender=m,needs_det=yes}
 plus = plus:NegAdv{only=no}
 plus = plus:Adv
 jamais = jamais:NegAdv{only=no}
@@ -224,7 +226,7 @@ personne = personne:Pron{case=obl,person=3,number=sg,clitic=no,neg=yes}
 personne = personne:Noun{gender=f,number=sg}
 guère = guère:NegAdv{only=no}
 point = point:NegAdv{only=no}
-point = point:Noun{gender=m}
+point = point:Noun{gender=m,needs_det=yes}
 nullement = nullement:NegAdv{only=no}
 aucun = aucun:Det{definite=no,gender=m,number=sg,neg=yes}
 aucune = aucun:Det{definite=no,gender=f,number=sg,neg=yes}

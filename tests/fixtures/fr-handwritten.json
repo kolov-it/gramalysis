@@ -713,6 +713,63 @@
           "number": "singular"
         }
       }
+    ],
+    "mangé": [
+      {
+        "lemma": "manger",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "lettres": [
+      {
+        "lemma": "lettre",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "plural"
+          ],
+          "gender": "feminine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "lu": [
+      {
+        "lemma": "lire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "lues": [
+      {
+        "lemma": "lire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "plural",
+          "gender": "feminine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
     ]
   }
 }

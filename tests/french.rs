@@ -77,6 +77,11 @@ async fn hyphenated_pronoun_after_an_imperative() {
 async fn participle_after_avoir_agrees_only_with_an_object_before_it() {
     assert!(parses(&run("Je les ai vues.").await));
     assert!(!parses(&run("Il a mangées.").await));
+    assert!(parses(&run("J'ai mangé.").await));
+    // que before avoir is the participle's object: it must agree
+    assert!(!parses(&run("Les pommes que j'ai mangé sont bonnes.").await));
+    assert!(!parses(&run("Les lettres que je n'ai pas lu sont là.").await));
+    assert!(parses(&run("Les lettres que je n'ai pas lues sont là.").await));
     let a = run("Les pommes que j'ai mangées sont bonnes.").await;
     assert!(parses(&a));
     assert!(agreed(&a, "mangées")[0].starts_with("manger Verb"));
