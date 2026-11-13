@@ -536,3 +536,26 @@ async fn ne_pas_keeps_predicate_agreement_in_an_infinitive() {
     assert!(parses(&run("Elle veut ne pas avoir été fermée.").await));
     assert!(!parses(&run("Elle veut ne pas avoir été fermé.").await));
 }
+
+#[tokio::test]
+async fn an_explicit_object_controls_the_infinitive() {
+    assert!(parses(&run("Elle laisse la femme être heureuse.").await));
+    assert!(!parses(&run("Elle laisse la femme être heureux.").await));
+}
+
+#[tokio::test]
+async fn pour_and_an_infinitive_take_the_clause_subject() {
+    assert!(parses(&run("Je suis venu pour me laver.").await));
+    assert!(!parses(&run("Je suis venu pour se laver.").await));
+}
+
+#[tokio::test]
+async fn coordinated_verb_phrases_keep_the_mood_check() {
+    assert!(!parses(&run("Il est heureux et soit heureux.").await));
+}
+
+#[tokio::test]
+async fn time_expressions_agree() {
+    assert!(parses(&run("Elle est heureuse ce matin.").await));
+    assert!(!parses(&run("Elle est heureuse cette matin.").await));
+}

@@ -1751,6 +1751,20 @@
           "clitic": false
         }
       }
+    ],
+    "matin": [
+      {
+        "lemma": "matin",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
     ]
   }
 }

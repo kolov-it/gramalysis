@@ -471,31 +471,31 @@ rule rel.contracted: Rel[number=?n, gender=?g] -> RelPron[role=prep, number=?n, 
 rule pp.basic: PP[agent=?a] -> Prep[agent=?a] NP[case=obl]
   "A preposition takes a noun phrase (de + le = du, à + les = aux)."
 
-rule pp.bare: PP -> Prep Nom
+rule pp.bare: PP[agent=no] -> Prep Nom
   "A preposition before a noun without a determiner (en France, à pied, avec plaisir)."
 
-rule pp.infinitive: PP -> Prep[lemma=pour|sans|de|à|par|avant|après] VP[form=inf]
+rule pp.infinitive: PP[pnum=?pn, gender=?g, irefl=?ir, irnum=?irn, agent=no] -> Prep[lemma=pour|sans|de|à|par|avant|après] VP[form=inf, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn]
   "A preposition before an infinitive (pour faire, sans dire)."
 
-rule pp.compound-infinitive: PP -> Prep[lemma=avant|afin|loin|près] Prep[lemma=de] VP[form=inf]
+rule pp.compound-infinitive: PP[pnum=?pn, gender=?g, irefl=?ir, irnum=?irn, agent=no] -> Prep[lemma=avant|afin|loin|près] Prep[lemma=de] VP[form=inf, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn]
   "avant de, afin de + infinitive."
 
-rule pp.gerund: PP[gerund=yes] -> Prep[lemma=en] V[form=ger|prespart]
+rule pp.gerund: PP[gerund=yes, agent=no] -> Prep[lemma=en] V[form=ger|prespart]
   "en + -ant: the gérondif, at the same time or by doing (en mangeant, en le voyant)."
 
-rule pp.gerund-object: PP[gerund=yes] -> Prep[lemma=en] VP[form=ger|prespart]
+rule pp.gerund-object: PP[gerund=yes, agent=no] -> Prep[lemma=en] VP[form=ger|prespart]
   "en + -ant with its complements (en lisant le journal)."
 
-rule pp.adverb-de: PP -> Adv Prep[lemma=de|à] NP
+rule pp.adverb-de: PP[agent=no] -> Adv Prep[lemma=de|à] NP
   "près de, loin de, grâce à + noun phrase."
 
-rule pp.jusque: PP -> Prep[lemma=jusque] PP
+rule pp.jusque: PP[agent=no] -> Prep[lemma=jusque] PP
   "jusqu'à, jusque dans."
 
-rule pp.de-pp: PP -> Prep[lemma=de] PP
+rule pp.de-pp: PP[agent=no] -> Prep[lemma=de] PP
   "de chez moi, d'avant."
 
-rule pp.adverb: PP -> Prep Adv
+rule pp.adverb: PP[agent=no] -> Prep Adv
   "A preposition before an adverb (depuis longtemps, pour toujours, d'ici)."
 
 # ---------------------------------------------- the verb and its clitics
@@ -924,11 +924,14 @@ rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gende
 rule vp.infinitive-object-control: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=voir|entendre|faire|laisser|regarder|écouter|sentir|envoyer|empêcher, acc=yes, anum=?an, agen=?ag] VP[form=inf, pnum=?an, gender=?ag]
   "With le, la, les before a perception or causative verb, the infinitive describes that object: its predicate agrees with the object (elle le laisse être heureux, je les vois partir)."
 
-rule vp.object-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=voir|entendre|faire|laisser|regarder|écouter|sentir|envoyer, acc=no] NP[case=obl] VP[form=inf]
+rule vp.object-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=voir|entendre|faire|laisser|regarder|écouter|sentir|envoyer, acc=no] NP[case=obl, number=?on, gender=?og] VP[form=inf, pnum=?on, gender=?og]
   "Perception and causative verbs: the object, then what it does (j'ai vu Tom partir)."
 
-rule vp.preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Prep[lemma=à|de|pour|par|sans] VP[form=inf]
-  "A verb followed by à or de and an infinitive (il commence à pleuvoir, j'ai décidé de partir)."
+rule vp.preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Prep[lemma=à|de|pour|par|sans] VP[form=inf, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
+  "A verb followed by à or de and an infinitive that its subject controls (il commence à pleuvoir, j'ai décidé de partir, je suis venu pour me laver)."
+
+rule vp.preposition-infinitive-object-control: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=demander|dire|permettre|conseiller|ordonner|interdire|proposer|défendre|prier|empêcher|forcer|obliger|aider|inviter|encourager|apprendre|enseigner|persuader|convaincre|pousser|autoriser|charger|supplier|recommander|reprocher|remercier|féliciter|accuser|pardonner] Prep[lemma=à|de] VP[form=inf]
+  "Verbs whose object controls the infinitive after à or de (il m'a demandé de me laver, je t'aide à porter): the infinitive is not checked against the subject."
 
 rule vp.object-preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no] NP[case=obl] Prep[lemma=à|de] VP[form=inf]
   "A verb, its object, then à or de and an infinitive (j'ai demandé à Tom de partir, il a aidé sa mère à cuisiner)."
@@ -987,8 +990,8 @@ rule vp.passive-agent: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, g
 rule vp.passive-agent-negated: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no] -> Neg Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?pn, gender=?g] Prep[lemma=par] NP
   "A negated passive with par + agent (il n'est pas aimé par ses voisins)."
 
-rule vp.prepositional-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] PP[agent=no]
-  "A phrase with a preposition adds where, when, for whom or how."
+rule vp.prepositional-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] PP[agent=no, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
+  "A phrase with a preposition adds where, when, for whom or how. An infinitive in it (pour, sans, avant de…) has the clause's subject as its subject (je suis venu pour me laver)."
 
 rule vp.agent-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, state=no] PP[agent=yes]
   "par + a noun phrase after the verb. Not after être + participle read as a state: par + agent makes it a passive (la porte est fermée par le gardien)."
@@ -1086,28 +1089,34 @@ rule clause.gerund-first: S -> PP[gerund=yes] Punct S
 
 # ------------------------------------------------- time expressions
 
-rule time.det-noun: TimeNP -> Det Noun[lemma=jour|nuit|matin|soir|semaine|mois|an|année|heure|minute|seconde|fois|été|hiver|printemps|automne|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|week-end|après-midi|soirée|matinée|journée|instant|moment|siècle]
+rule time.det-noun: TimeNP[number=?n, gender=?g] -> Det[number=?n, gender=?g, next=?o] Noun[number=?n, gender=?g, onset=?o, lemma=jour|nuit|matin|soir|semaine|mois|an|année|heure|minute|seconde|fois|été|hiver|printemps|automne|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|week-end|après-midi|soirée|matinée|journée|instant|moment|siècle]
   "A time expression (ce matin, chaque jour, la semaine dernière, une fois)."
 
-rule time.all: TimeNP -> Predet TimeNP
+rule time.all: TimeNP[number=?n, gender=?g] -> Predet[number=?n, gender=?g] TimeNP[number=?n, gender=?g]
   "tous les jours, toute la nuit."
 
-rule time.adjective: TimeNP -> TimeNP AP
+rule time.adjective: TimeNP[number=?n, gender=?g] -> TimeNP[number=?n, gender=?g] AP[number=?n, gender=?g]
   "A time expression with an adjective (la semaine dernière, l'an prochain)."
 
 rule time.adverb-noun: TimeNP -> Adv[lemma=hier|demain|aujourd'hui] Noun[lemma=matin|soir|après-midi]
   "hier soir, demain matin."
 
-rule time.numeral: TimeNP -> Num Noun[lemma=fois|heure|jour|an|minute|semaine|mois]
+rule time.numeral: TimeNP[number=?n] -> Num[number=?n] Noun[number=?n, lemma=fois|heure|jour|an|minute|semaine|mois]
   "deux fois, trois heures."
 
 # ------------------------------------------------- more shapes (from the Tatoeba no-parses)
 
-rule vp.coordination: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn]
+rule vp.coordination: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=?m]
   "Two verb phrases with one subject, joined by et, mais, ou, puis; a participle that agrees with nothing in either (gap) stays marked, so an object relative still checks it (il perdit patience et frappa le garçon); both agree with it, predicates too (elle est heureuse et fatiguée)."
 
-rule vp.coordination-negated: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] Neg VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn]
+rule vp.coordination-mixed-mood: VP[finite=?f, form=?fm, mood=ind, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=ind|cnd, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=ind|cnd]
+  "… or an indicative and a conditional (il viendra et il serait content: vient et serait)."
+
+rule vp.coordination-negated: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] Neg VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=?m]
   "… mais ne + verb phrase (elle écrivit une lettre mais ne la posta pas)."
+
+rule vp.coordination-negated-mixed-mood: VP[finite=?f, form=?fm, mood=ind, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn] -> VP[gap=?gp, irefl=?ir, irnum=?irn, finite=?f, form=?fm, mood=ind|cnd, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[type=coord] Neg VP[finite=?f, form=?fm, person=?p, number=?n, pnum=?pn, gender=?g, subj=no, gap=?gp, irefl=?ir, irnum=?irn, mood=ind|cnd]
+  "… or an indicative and a conditional (il viendra et il serait content: vient et serait)."
 
 rule clause.coordination-comma: S[imp=?i, smood=?sm] -> S[smood=?sm] Punct Conj[type=coord] S[imp=?i, smood=?sm]
   "A comma, then et, mais, car, donc and a clause."
@@ -1136,7 +1145,7 @@ rule np.quelque-chose-de: NP[person=3, number=sg, pnum=sg] -> Det[lemma=quelque]
 rule nom.place-adverb: Nom[needs_det=?d, adj_twin=?at, number=?n, gender=?g, onset=?o] -> Nom[needs_det=?d, adj_twin=?at, number=?n, gender=?g, onset=?o] Adv[lemma=là-bas|ici|là|là-haut|dehors]
   "A place adverb after the noun (ce chien là-bas)."
 
-rule pp.en-tant-que: PP -> Prep[lemma=en] Quant[lemma=tant] Conj[lemma=que] NP
+rule pp.en-tant-que: PP[agent=no] -> Prep[lemma=en] Quant[lemma=tant] Conj[lemma=que] NP
   "en tant que = as (en tant qu'officier public)."
 
 rule clause.merci: S -> Intj[lemma=merci] Prep[lemma=de|pour] NP
@@ -1244,7 +1253,7 @@ rule clause.adverb-pair-first: S[imp=?i, smood=?sm] -> Adv Conj[type=coord] Adv 
 rule ap.more-and-more: AP[pp=?x, number=?n, gender=?g] -> Prep[lemma=de] Adv[lemma=plus|moins] Prep[lemma=en] Adv[lemma=plus|moins] AP[pp=?x, number=?n, gender=?g]
   "de plus en plus, de moins en moins + adjective."
 
-rule pp.coordination: PP -> PP Conj[type=coord] PP
+rule pp.coordination: PP[agent=no] -> PP Conj[type=coord] PP
   "Two phrases with a preposition joined by et, ou (à votre tante et à votre oncle)."
 
 rule clause.phrase-last-comma: S[imp=?i, smood=?sm] -> S[imp=?i, smood=?sm] Punct PP
@@ -1265,7 +1274,7 @@ rule time.date: TimeNP -> Det[lemma=le] Num Noun[lemma=janvier|février|mars|avr
 rule time.date-year: TimeNP -> Det[lemma=le] Num Noun[lemma=janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre] Num
   "A date with the year: le 28 juillet 1888."
 
-rule pp.number: PP -> Prep Num
+rule pp.number: PP[agent=no] -> Prep Num
   "A preposition before a number, usually a year (en 1860, depuis 2010)."
 
 rule clause.adverb-pair-first-comma: S[imp=?i, smood=?sm] -> Adv Conj[type=coord] Adv Punct S[imp=?i, smood=?sm]
