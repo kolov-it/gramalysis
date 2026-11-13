@@ -262,3 +262,18 @@ async fn a_relative_pronoun_as_ser_predicate() {
     let c = a.chosen.iter().find(|c| c.token == "fue").unwrap();
     assert!(c.readings.iter().any(|r| r[0].lemma == "ser"), "{:?}", c.readings);
 }
+
+#[tokio::test]
+async fn a_preposition_and_question_pronoun_as_ser_predicate() {
+    assert!(!run("¿De quién es?").await.parses.is_empty());
+    assert!(!run("No sé de quién es.").await.parses.is_empty());
+    let a = run("¿De quién fue?").await;
+    let c = a.chosen.iter().find(|c| c.token == "fue").unwrap();
+    assert!(c.readings.iter().any(|r| r[0].lemma == "ser"), "{:?}", c.readings);
+}
+
+#[tokio::test]
+async fn an_adverb_keeps_the_clitic_object() {
+    assert!(!run("Lo compré ayer.").await.parses.is_empty());
+    assert!(run("Lo compré ayer un libro.").await.parses.is_empty());
+}

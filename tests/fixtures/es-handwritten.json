@@ -483,6 +483,25 @@
         "partOfSpeech": "verb"
       }
     ],
+    "compré": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "preterite",
+            "singular"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "comprar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "con": [
       {
         "lemma": "con",
@@ -2437,6 +2456,30 @@
       {
         "lemma": "tú",
         "partOfSpeech": "intj"
+      }
+    ],
+    "un": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "article"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "num"
       }
     ],
     "vienes": [

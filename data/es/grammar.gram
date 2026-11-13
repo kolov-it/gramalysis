@@ -190,7 +190,7 @@ rule pp.question: PP[prep=?l] -> Prep[lemma=?l] Wh S
 rule v.plain: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> Verb[class=lex, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
   "A verb (ser, estar and haber have rules of their own)."
 
-rule v.adverb-after: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Adv[neg=no]
+rule v.adverb-after: V[lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Adv[neg=no]
   "An adverb right after the verb (habla bien, llegó tarde)."
 
 rule v.proclitic: V[lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] V[lemma=?l, form=fin, mood=ind|sub|cnd, person=?p, number=?n, gender=?g, person=?r, person!=?o]
@@ -622,6 +622,12 @@ rule pp.focus: PP[prep=?l] -> Focus PP[prep=?l]
 
 rule vp.focus: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> Focus VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
   "sólo, también or incluso before the verb (también quiero ir)."
+
+rule qs.preposition-wh: QS -> Prep[lemma=de|para|con|desde|sobre|por|contra] Wh SerV
+  "A preposition + question pronoun as ser's predicate (¿De quién es? ¿Para quién fue?)."
+
+rule qs.preposition-wh-subject: QS -> Prep[lemma=de|para|con|desde|sobre|por|contra] Wh SerV NP
+  "¿De quién es este libro?"
 
 rule qs.estar: QS -> QAdv Cop[lemma=estar]
   "¿Cómo estás? ¿Dónde está?"
