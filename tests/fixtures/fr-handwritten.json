@@ -515,7 +515,9 @@
         "lemma": "heureux",
         "partOfSpeech": "adj",
         "grammar": {
-          "rawTags": [],
+          "rawTags": [
+            "masculine"
+          ],
           "gender": "masculine",
           "clitic": false
         }
@@ -1543,6 +1545,35 @@
           "tense": "present",
           "person": "first",
           "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "fille": [
+      {
+        "lemma": "fille",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "heureuses": [
+      {
+        "lemma": "heureux",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "plural"
+          ],
+          "gender": "feminine",
+          "number": "plural",
           "clitic": false
         }
       }

@@ -423,3 +423,16 @@ async fn a_question_pronoun_object_makes_the_participle_agree() {
     assert!(parses(&a));
     assert!(agreed(&a, "fait")[0].starts_with("faire Verb"));
 }
+
+#[tokio::test]
+async fn coordinated_feminine_subjects_take_a_feminine_predicate() {
+    assert!(parses(&run("La femme et la fille sont heureuses.").await));
+    assert!(!parses(&run("La femme et la fille sont heureux.").await));
+    assert!(parses(&run("Le chat et la fille sont heureux.").await));
+}
+
+#[tokio::test]
+async fn object_agreement_through_ne_pas_before_an_infinitive() {
+    assert!(parses(&run("Je veux ne pas la rendre heureuse.").await));
+    assert!(!parses(&run("Je veux ne pas la rendre heureux.").await));
+}

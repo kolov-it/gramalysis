@@ -137588,6 +137588,31 @@
         "surface": "heureuse"
       }
     ],
+    "heureuses": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "heureux",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "heureuses"
+      }
+    ],
     "heureux": [
       {
         "confidence": "high",
