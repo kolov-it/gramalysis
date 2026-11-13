@@ -345,3 +345,14 @@ async fn the_compound_keeps_its_own_readings() {
     assert!(!a.parses.is_empty());
     assert!(agreed(&a, "Iros")[0].contains("mood=imp"));
 }
+
+#[tokio::test]
+async fn haber_que_in_a_compound_tense() {
+    assert!(!run("Ha habido que esperar.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn copular_perfects_take_the_invariable_participle() {
+    assert!(!run("He estado cansado.").await.parses.is_empty());
+    assert!(run("He estados cansado.").await.parses.is_empty());
+}

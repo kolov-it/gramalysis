@@ -1097,6 +1097,105 @@
         "partOfSpeech": "verb"
       }
     ],
+    "esperar": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "esperar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "estad": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "estado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "estado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "Estado",
+        "partOfSpeech": "name"
+      }
+    ],
+    "estados": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "estado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "participle",
+            "plural"
+          ],
+          "tense": "past"
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "estar": [
       {
         "grammar": {
@@ -1177,6 +1276,7 @@
         "partOfSpeech": "verb"
       }
     ],
+    "estád": [],
     "estár": [],
     "flores": [
       {
@@ -1365,6 +1465,25 @@
         "partOfSpeech": "verb"
       }
     ],
+    "ha": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
     "haber": [
       {
         "grammar": {
@@ -1412,6 +1531,23 @@
             "infinitive",
             "reflexive"
           ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "habido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
         },
         "lemma": "haber",
         "partOfSpeech": "verb"
