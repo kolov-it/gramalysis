@@ -815,6 +815,20 @@
         "partOfSpeech": "adv",
         "grammar": null
       }
+    ],
+    "venu": [
+      {
+        "lemma": "venir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
     ]
   }
 }

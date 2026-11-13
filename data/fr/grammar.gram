@@ -314,6 +314,12 @@ rule vagr.negated: VAgr[person=?p, number=?n, onum=?on, ogen=?og] -> Neg Verb[le
 rule vagr.clitic: VAgr[person=?p, number=?n, onum=?on, ogen=?og] -> Clitics[attached=no, acc=no, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, person=?p, number=?n, person=?r, person!=?o] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "An indirect clitic + avoir + agreeing participle (la lettre qu'il m'a écrite)."
 
+rule vagr.clitic-adverb: VAgr[person=?p, number=?n, onum=?on, ogen=?og] -> Clitics[attached=no, acc=no, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, person=?p, number=?n, person=?r, person!=?o] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+  "An indirect clitic, avoir, an adverb or pas, and an agreeing participle (la lettre que je lui ai déjà écrite)."
+
+rule vagr.clitic-negated: VAgr[person=?p, number=?n, onum=?on, ogen=?og] -> Neg Clitics[attached=no, acc=no, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, person=?p, number=?n, person=?r, person!=?o] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+  "ne, an indirect clitic, avoir, pas and an agreeing participle (la lettre que je ne lui ai pas écrite)."
+
 rule tail.phrase: Tail -> PP
   "A phrase after the verb."
 
@@ -472,6 +478,9 @@ rule v.proclitic-inverted-perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin
 
 rule v.inverted-perfect-etre: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=no] -> Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A compound tense with être, inverted (Est-il parti ?)."
+
+rule v.inverted-perfect-etre-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=?ng] -> Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+  "A compound tense with être, inverted, with an adverb or pas (Est-il déjà venu ? N'est-il pas venu ?)."
 
 rule v.perfect-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=no, neg=no] -> Verb[lemma=avoir|être, form=inf] Verb[lemma=?l, form=pastpart]
   "The past infinitive: avoir or être + participle (après avoir mangé, sans être vu)."

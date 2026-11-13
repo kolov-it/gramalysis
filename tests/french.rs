@@ -187,3 +187,11 @@ async fn object_and_reflexive_pronouns_after_an_order() {
     assert!(parses(&run("Donne-le-moi !").await));
     assert!(parses(&run("Donne-le-toi !").await));
 }
+
+#[tokio::test]
+async fn inverted_etre_compound_tense_with_an_adverb_keeps_the_verb() {
+    let a = run("Est-il déjà venu ?").await;
+    assert!(parses(&a));
+    let c = a.chosen.iter().find(|c| c.token == "venu").unwrap();
+    assert!(c.uses.iter().flatten().any(|u| u == "v.inverted-perfect-etre-adverb"), "{:?}", c.uses);
+}
