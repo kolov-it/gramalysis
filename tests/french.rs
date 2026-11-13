@@ -353,3 +353,21 @@ async fn reflexive_object_before_a_predicative_adjective() {
     assert!(parses(&a));
     assert!(agreed(&a, "fatigué")[0].starts_with("fatiguer Verb"));
 }
+
+#[tokio::test]
+async fn a_predicative_adjective_agrees_with_the_object_pronoun() {
+    assert!(parses(&run("Je la vois heureuse.").await));
+    assert!(!parses(&run("Je la vois heureux.").await));
+}
+
+#[tokio::test]
+async fn a_question_phrase_object_makes_the_participle_agree() {
+    let a = run("Quelles lettres as-tu écrites ?").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "écrites")[0].starts_with("écrire Verb"));
+}
+
+#[tokio::test]
+async fn afin_de_and_an_infinitive() {
+    assert!(parses(&run("Je travaille afin de vivre.").await));
+}

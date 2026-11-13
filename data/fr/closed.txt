@@ -185,6 +185,7 @@ alors = alors:SubLead
 alors = alors:Adv
 tandis = tandis:SubLead
 afin = afin:SubLead
+afin = afin:Prep
 bien = bien:SubLead
 pendant = pendant:SubLead
 avant = avant:SubLead

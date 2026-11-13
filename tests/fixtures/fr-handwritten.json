@@ -1337,6 +1337,31 @@
           "clitic": false
         }
       }
+    ],
+    "travaille": [
+      {
+        "lemma": "travailler",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "vivre": [
+      {
+        "lemma": "vivre",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "infinitive",
+          "clitic": false
+        }
+      }
     ]
   }
 }
