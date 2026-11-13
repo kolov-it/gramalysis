@@ -342,6 +342,9 @@ rule serv.modal-preposition: SerV[finite=?f, form=?fm, mood=?m, person=?p, numbe
 rule serv.tener-que: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> V[lemma=tener, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Conj[lemma=que] SerV[form=inf]
   "tener que ser."
 
+rule vp.ser-possessive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] PossAfter[number=?n, gender=?g]
+  "ser + a stressed possessive says whose it is; it agrees with the subject (el libro es mío, las llaves son tuyas)."
+
 rule vp.ser-lo: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Pron[attached=no, clitic=yes, case=acc, lemma=lo, gender=m, number=sg] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "lo stands for a predicate already said (Ella lo es, lo fue)."
 
@@ -640,8 +643,8 @@ rule vp.clitic-todo: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gend
 rule vp.comparative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Adv[lemma=más|menos] Conj[lemma=que] NP
   "verb + más / menos que + someone (no valgo más que tú)."
 
-rule pp.coordination: PP -> PP Conj[type=coord] PP
-  "Two phrases joined by y or o (en billetes o en monedas)."
+rule pp.coordination: PP[prep=?l] -> PP[prep=?l] Conj[type=coord] PP[prep=?l]
+  "Two phrases with the same preposition joined by y or o (en billetes o en monedas, a Madrid y a Roma)."
 
 rule vp.coordination: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[type=coord] VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "Two verb phrases with one subject (canta y baila, ni sabe ni puede)."

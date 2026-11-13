@@ -148,3 +148,16 @@ async fn lo_stands_for_the_predicate_of_ser() {
     let c = a.chosen.iter().find(|c| c.token == "fue").unwrap();
     assert!(c.readings.iter().any(|r| r[0].lemma == "ser"));
 }
+
+#[tokio::test]
+async fn a_stressed_possessive_is_a_predicate_of_ser() {
+    assert!(!run("El libro es mío.").await.parses.is_empty());
+    assert!(run("El libro es mía.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn coordinated_destinations_keep_fue_as_ir() {
+    let a = run("Fue a Madrid y a Roma.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "Fue")[0].starts_with("ir Verb"));
+}

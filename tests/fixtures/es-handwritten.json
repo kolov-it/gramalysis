@@ -994,6 +994,97 @@
         "partOfSpeech": "noun"
       }
     ],
+    "mía": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "mía",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "mía"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "mío",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "mía"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "mío",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "mía"
+      }
+    ],
+    "mío": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "mío",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "mío",
+        "partOfSpeech": "det"
+      }
+    ],
     "no": [
       {
         "lemma": "no",
@@ -1108,6 +1199,32 @@
       {
         "lemma": "que",
         "partOfSpeech": "pron"
+      }
+    ],
+    "roma": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "Roma",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "romo",
+        "partOfSpeech": "adj"
       }
     ],
     "romanos": [
