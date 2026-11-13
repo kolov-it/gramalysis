@@ -665,3 +665,27 @@ async fn quantities_below_two_take_a_singular_noun() {
 async fn where_and_whatever_clauses_take_the_subjunctive() {
     assert!(parses(&run("Où que tu ailles, je te suivrai.").await));
 }
+
+#[tokio::test]
+async fn a_reflexive_gerund_is_controlled_by_the_subject() {
+    assert!(parses(&run("Je suis venu en me lavant.").await));
+    assert!(!parses(&run("Je suis venu en se lavant.").await));
+}
+
+#[tokio::test]
+async fn an_inverted_subjunctive_is_not_a_question() {
+    assert!(parses(&run("Est-il heureux ?").await));
+    assert!(!parses(&run("Soit-il heureux ?").await));
+}
+
+#[tokio::test]
+async fn an_indirect_reflexive_past_infinitive_keeps_the_participle_invariable() {
+    assert!(parses(&run("Elle croit s'être écrit une lettre.").await));
+}
+
+#[tokio::test]
+async fn indirect_questions_do_not_invert_a_subject_pronoun() {
+    assert!(parses(&run("Je sais où il est.").await));
+    assert!(parses(&run("Je sais où est la gare.").await));
+    assert!(!parses(&run("Je sais où est-il.").await));
+}

@@ -56,10 +56,10 @@ rule sentence.question: Sentence -> S[imp=no, smood=ind|cnd] Question
 rule clause.subject: S[gap=?gp, smood=?m] -> NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g] VP[finite=yes, form=fin, mood=ind|sub|cnd, mood=?m, subj=no, person=?p, number=?n, pnum=?pn, gender=?g, gap=?gp]
   "The verb agrees with its subject in person and number, and an adjective or participle after être agrees with it too (pnum). French always says the subject, except in an order. Polite vous has no number: the verb is plural, the adjective singular (vous êtes fatigué)."
 
-rule clause.inverted: S[inv=yes, gap=?gp, cesubj=?cs] -> VP[finite=yes, form=fin, subj=yes, gap=?gp, cesubj=?cs]
+rule clause.inverted: S[inv=yes, gap=?gp, cesubj=?cs, smood=?m] -> VP[finite=yes, form=fin, subj=yes, gap=?gp, cesubj=?cs, mood=?m]
   "Inversion: the subject pronoun follows the verb, joined by a hyphen (Parlez-vous français ? A-t-il fini ?)."
 
-rule clause.complex-inversion: S[inv=yes, gap=?gp] -> NP[person=3, number=?n, gender=?g] VP[finite=yes, form=fin, subj=yes, person=3, number=?n, gender=?g, gap=?gp]
+rule clause.complex-inversion: S[inv=yes, gap=?gp, smood=?m] -> NP[person=3, number=?n, gender=?g] VP[finite=yes, form=fin, subj=yes, person=3, number=?n, gender=?g, gap=?gp, mood=?m]
   "A noun subject, then the verb with il/elle after it, which agrees with it in number and gender (Pierre est-il là ? La femme est-elle heureuse ?)."
 
 rule clause.imperative: S[imp=yes] -> VP[finite=yes, mood=imp, subj=no]
@@ -97,6 +97,9 @@ rule clause.concessive-first: S[imp=?i, smood=?sm] -> QPron[lemma=quoi|qui] Conj
 
 rule clause.concessive-where-first: S[imp=?i, smood=?sm] -> QAdv[lemma=où] Conj[lemma=que] S[smood=sub, imp=no] Punct S[imp=?i, smood=?sm]
   "où que + a subjunctive clause, then the main clause (Où que tu ailles, je te suivrai)."
+
+rule clause.inverted-hypothesis: S[imp=?i, smood=?sm] -> S[inv=yes, smood=sub, gap=no] Punct S[imp=?i, smood=?sm]
+  "An inverted subjunctive, then a comma and the main clause, as a literary condition: eût-il su, il serait venu = had he known; fût-il riche, … = even if he were rich."
 
 rule clause.subordinate-first-no-comma: S[imp=?i, smood=?sm] -> Sub S[imp=no] S[imp=?i, smood=?sm]
   "A clause with quand or si first, without a comma."
@@ -287,7 +290,10 @@ rule np.pronoun: NP[case=obl, person=?p, number=?n, gender=?g, pnum=?n] -> Pron[
 rule np.article: NP[person=3, number=?n, gender=?g, pnum=?n] -> Det[number=?n, gender=?g, next=?o] Nom[number=?n, gender=?g, onset=?o]
   "The determiner agrees with its noun in gender and number, and its form follows the next word's first sound: le/la before a consonant or an aspirated h (le héros), l' before a vowel or a mute h (l'homme); ce/cet, mon amie."
 
-rule np.partitive: NP[person=3, number=?n, gender=?g, pnum=?n] -> Prep[lemma=de] Det[definite=yes, lemma=le, number=?n, gender=?g, next=?o] Nom[number=?n, gender=?g, onset=?o]
+rule np.quoi-que-ce-soit: NP[person=3, number=sg, gender=m, pnum=sg] -> QPron[lemma=quoi] Conj[lemma=que] Pron[lemma=ce] Verb[lemma=être, mood=sub, person=3, number=sg]
+  "quoi que ce soit = anything at all, a fixed pronoun phrase (il ne dit quoi que ce soit)."
+
+rule np.partitive: NP[person=3, number=?n, gender=?g, pnum=?n, partitive=yes] -> Prep[lemma=de] Det[definite=yes, lemma=le, number=?n, gender=?g, next=?o] Nom[number=?n, gender=?g, onset=?o]
   "de la, de l' before a noun: the partitive article, 'some' (de la confiture, de l'eau)."
 
 rule np.de-bare: NP[case=obl, person=3, number=?n, gender=?g, pnum=?n] -> Prep[lemma=de] Nom[number=?n, gender=?g]
@@ -510,10 +516,10 @@ rule pp.infinitive: PP[pnum=?pn, gender=?g, irefl=?ir, irnum=?irn, agent=no] -> 
 rule pp.compound-infinitive: PP[pnum=?pn, gender=?g, irefl=?ir, irnum=?irn, agent=no] -> Prep[lemma=avant|afin|loin|près] Prep[lemma=de] VP[form=inf, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn]
   "avant de, afin de + infinitive."
 
-rule pp.gerund: PP[gerund=yes, agent=no] -> Prep[lemma=en] V[form=ger|prespart]
+rule pp.gerund: PP[gerund=yes, agent=no, irefl=?ir, irnum=?irn] -> Prep[lemma=en] V[form=ger|prespart, irefl=?ir, irnum=?irn]
   "en + -ant: the gérondif, at the same time or by doing (en mangeant, en le voyant)."
 
-rule pp.gerund-object: PP[gerund=yes, agent=no] -> Prep[lemma=en] VP[form=ger|prespart]
+rule pp.gerund-object: PP[gerund=yes, agent=no, irefl=?ir, irnum=?irn] -> Prep[lemma=en] VP[form=ger|prespart, irefl=?ir, irnum=?irn]
   "en + -ant with its complements (en lisant le journal)."
 
 rule pp.adverb-de: PP[agent=no] -> Adv Prep[lemma=de|à] NP
@@ -713,6 +719,9 @@ rule v.proclitic-perfect-infinitive-etre: V[dperson=?dp, dnum=?dn, lemma=?l, fin
 
 rule v.reflexive-perfect-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=?a, neg=no, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn] -> Clitics[attached=no, reflexive=yes, acc=?a, refl=?ir, rnum=?irn] Verb[lemma=être, form=inf] Verb[lemma=?l, form=pastpart, number=?pn, gender=?g]
   "A pronominal verb's past infinitive takes être (après s'être levé)."
+
+rule v.reflexive-perfect-infinitive-indirect: V[lemma=?l, finite=no, form=inf, subj=no, acc=no, neg=no, needs_obj=yes, irefl=?ir, irnum=?irn] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?ir, rnum=?irn] Verb[lemma=être, form=inf] Verb[lemma=?l, form=pastpart, number=sg, gender=m]
+  "The same with an indirect reflexive and a direct object after it: the participle stays masculine singular and does not agree with the subject (elle croit s'être écrit une lettre), as in v.reflexive-perfect-indirect."
 
 rule v.perfect-gerund: V[lemma=?l, finite=no, form=prespart, subj=no, acc=no, neg=no] -> Verb[lemma=avoir, form=prespart|ger] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
   "ayant + participle, which does not agree (ayant fini)."
@@ -996,13 +1005,16 @@ rule vp.que-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gende
 rule vp.object-que-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[cesubj=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] NP[case=obl] Conj[lemma=que] S[imp=no]
   "A verb, an object and a que clause (dis à Tom que je viens)."
 
-rule vp.indirect-question: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[cesubj=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Wh S[imp=no]
+rule vp.indirect-question: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[cesubj=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Wh S[imp=no, inv=no]
   "A question inside the sentence (dis-moi ce que tu veux, je ne sais pas quoi faire)."
 
-rule vp.indirect-question-adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[cesubj=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] QAdv S[imp=no]
+rule vp.indirect-question-adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[cesubj=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] QAdv S[imp=no, inv=no]
   "A question with où, quand, comment, pourquoi inside the sentence (je ne sais pas où il est)."
 
-rule vp.indirect-question-si: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[cesubj=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[lemma=si] S[imp=no]
+rule vp.indirect-question-stylistic: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[cesubj=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] QAdv VP[finite=yes, form=fin, subj=no, person=?sp, number=?sn, pnum=?spn, gender=?sg] NP[case=nom, partitive=no, person=?sp, number=?sn, pnum=?spn, gender=?sg]
+  "An indirect question may put a noun subject after the verb, never a subject pronoun (je sais où est la gare, but not *où est-il). Not a partitive: comment cuire de la viande has an infinitive and an object, not a verb and its subject."
+
+rule vp.indirect-question-si: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[cesubj=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[lemma=si] S[imp=no, inv=no]
   "si = whether (je me demande s'il viendra)."
 
 rule vp.indirect-question-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[cesubj=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] QAdv VP[form=inf]

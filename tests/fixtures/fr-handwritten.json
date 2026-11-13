@@ -2644,6 +2644,337 @@
         "source": "kaikki",
         "surface": "suivrai"
       }
+    ],
+    "lavant": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle present",
+          "tags": [
+            "participle",
+            "present"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "present-participle",
+          "rawTags": [
+            "participle",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "lavant"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "gerund",
+          "tags": [
+            "gerund"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "conjugation-table",
+            "non_finite.gerund"
+          ]
+        },
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "lavant"
+      }
+    ],
+    "croit": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "croire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "croit"
+      }
+    ],
+    "gare": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "gare",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "lemma": "gare",
+        "partOfSpeech": "intj",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "garer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "garer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "garer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "garer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "gare"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "garer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "gare"
+      }
+    ],
+    "où": [
+      {
+        "confidence": "high",
+        "lemma": "où",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "où"
+      }
+    ],
+    "une": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "une"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "num",
+        "source": "kaikki",
+        "surface": "une"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "une",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "une"
+      }
     ]
   }
 }
