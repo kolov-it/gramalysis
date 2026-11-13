@@ -765,7 +765,7 @@ rule v.passive-perfect: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, nu
 rule v.passive-perfect-inverted: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=no] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=être, form=pastpart] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
   "The passive in a compound tense, inverted: the participle agrees with the subject pronoun (A-t-elle été fermée ?)."
 
-rule v.passive-perfect-inverted-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=être, form=pastpart] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
+rule v.passive-perfect-inverted-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng, qnum=?pn, qgen=?g] Verb[lemma=être, form=pastpart] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
   "The inverted passive in a compound tense with an adverb or pas (A-t-elle déjà été vendue ? N'a-t-il pas été invité ?)."
 
 rule v.passive-perfect-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=être, form=pastpart] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
@@ -931,7 +931,7 @@ rule cop.perfect: Cop[mood=?m, person=?p, number=?n, subj=no, marked=yes, neg=no
 rule cop.perfect-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=yes, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=être, form=pastpart]
   "être in a compound tense, inverted (A-t-elle été malade ?)."
 
-rule cop.perfect-inverted-adverb: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=yes, neg=?ng, pnum=?pn, gender=?g] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=être, form=pastpart]
+rule cop.perfect-inverted-adverb: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=yes, neg=?ng, pnum=?pn, gender=?g] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng, qnum=?pn, qgen=?g] Verb[lemma=être, form=pastpart]
   "être in a compound tense, inverted, with an adverb or pas (A-t-elle déjà été heureuse ?)."
 
 rule cop.perfect-other: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=no] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_avoir=yes, number=sg, gender=m]
@@ -940,10 +940,10 @@ rule cop.perfect-other: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, n
 rule cop.perfect-other-etre: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A linking verb that takes être in a compound tense; its participle agrees with the subject (elle est devenue heureuse)."
 
-rule cop.perfect-other-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_avoir=yes, number=sg, gender=m]
+rule cop.perfect-other-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=?ng, pnum=?pn, gender=?g] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng, qnum=?pn, qgen=?g] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_avoir=yes, number=sg, gender=m]
   "A linking verb that takes avoir in a compound tense with an adverb or pas (elle n'a pas semblé heureuse)."
 
-rule cop.perfect-other-etre-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=?ng, pnum=?pn, gender=?g] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+rule cop.perfect-other-etre-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=?ng, pnum=?pn, gender=?g] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng, qnum=?pn, qgen=?g] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A linking verb that takes être in a compound tense with an adverb or pas; the participle agrees (il est déjà devenu, elle n'est pas restée)."
 
 rule cop.perfect-other-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=no, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_avoir=yes, number=sg, gender=m]
@@ -952,7 +952,7 @@ rule cop.perfect-other-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, ma
 rule cop.perfect-other-etre-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=no, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A linking verb that takes être in a compound tense, inverted; the participle agrees (Est-elle devenue riche ?)."
 
-rule cop.perfect-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=yes, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=être, form=pastpart]
+rule cop.perfect-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=yes, neg=?ng, pnum=?pn, gender=?g] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng, qnum=?pn, qgen=?g] Verb[lemma=être, form=pastpart]
   "être in a compound tense with an adverb (il a toujours été, je n'ai jamais été)."
 
 rule cop.proclitic: Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng, pnum=?pn, gender=?g] -> Clitics[attached=no, reflexive=no, acc=no] Cop[mood=?m, person=?p, number=?n, subj=?s, marked=?k, neg=?ng, pnum=?pn, gender=?g]
@@ -1023,7 +1023,7 @@ rule vp.preposition-infinitive-promise: VP[finite=?f, form=?fm, mood=?m, person=
 rule vp.preposition-infinitive-object-control: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, dperson=?dp, dnum=?dn, aperson=?ap, anum=?an, lemma=demander|dire|permettre|conseiller|ordonner|interdire|arriver|plaire|rester|convenir|appartenir|incomber|coûter|avertir|prévenir|contraindre|signifier|proposer|défendre|prier|empêcher|forcer|obliger|aider|inviter|encourager|apprendre|enseigner|persuader|convaincre|pousser|autoriser|charger|supplier|recommander|reprocher|remercier|féliciter|accuser|pardonner] Prep[lemma=à|de] VP[form=inf, irefl=?dp, irefl=?ap, irnum=?dn, irnum=?an, pnum=?dn, pnum=?an]
   "Verbs whose object controls the infinitive after à or de (il m'a demandé de me laver, je t'aide à porter), including impersonal verbs with an indirect object (il m'arrive de me tromper): the infinitive is checked against that object, not the subject."
 
-rule vp.object-preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[etre=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no] NP[case=obl] Prep[lemma=à|de] VP[form=inf]
+rule vp.object-preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[etre=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no] NP[case=obl, inf_twin=no] Prep[lemma=à|de] VP[form=inf]
   "A verb, its object, then à or de and an infinitive (j'ai demandé à Tom de partir, il a aidé sa mère à cuisiner)."
 
 rule vp.que-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[cesubj=no, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Conj[lemma=que] S[imp=no]
@@ -1139,10 +1139,10 @@ rule ap.participle: AP[pp=yes, participle=?l, participle_etre=?e, number=?n, gen
 rule ap.adverb: AP[pp=?x, participle_etre=?e, number=?n, gender=?g] -> Adv AP[pp=?x, participle_etre=?e, number=?n, gender=?g]
   "An adverb before an adjective (très beau, plus grand, trop cher, si gentil)."
 
-rule ap.complement: AP[pp=no, number=?n, gender=?g, cinf=?ci] -> AP[pp=no, participle=no, number=?n, gender=?g] PP[pinf=?ci]
+rule ap.complement: AP[pp=no, number=?n, gender=?g, cinf=?ci, irefl=?ir, irnum=?irn] -> AP[pp=no, participle=no, number=?n, gender=?g] PP[pinf=?ci, irefl=?ir, irnum=?irn, pnum=?n, gender=?g]
   "A phrase after an adjective (fier de toi, plein de gens, prêt pour le départ). After a participle the phrase makes it a participle phrase instead."
 
-rule ap.infinitive: AP[pp=no, number=?n, gender=?g, cinf=yes] -> AP[pp=no, number=?n, gender=?g] Prep[lemma=de|à] VP[form=inf]
+rule ap.infinitive: AP[pp=no, number=?n, gender=?g, cinf=yes, irefl=?ir, irnum=?irn] -> AP[pp=no, number=?n, gender=?g] Prep[lemma=de|à] VP[form=inf, irefl=?ir, irnum=?irn, pnum=?n, gender=?g]
   "An adjective + de or à + infinitive (content de te voir, prêt à partir)."
 
 rule ap.coordination: AP[pp=?x, number=?n, gender=?g] -> AP[pp=?x, number=?n, gender=?g] Conj[type=coord] AP[number=?n, gender=?g]
@@ -1265,19 +1265,19 @@ rule clause.merci-infinitive: S -> Intj[lemma=merci] Prep[lemma=de|pour] VP[form
 rule vp.object-adverb-first: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, acc=no] Adv NP[case=obl]
   "An adverb between the verb and its object (j'aime beaucoup les opéras)."
 
-rule vp.copula-nonfinite: VP[finite=no, form=?fm, subj=no, pnum=?pn, gender=?g] -> Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] AP[participle_etre=no, number=?pn, gender=?g]
+rule vp.copula-nonfinite: VP[finite=no, form=?fm, subj=no, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn] -> Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] AP[irefl=?ir, irnum=?irn, participle_etre=no, number=?pn, gender=?g]
   "An infinitive or -ant linking verb + adjective (peut paraître étrange, étant malade)."
 
-rule vp.copula-nonfinite-negated: VP[finite=no, form=inf, subj=no, pnum=?pn, gender=?g] -> Neg NegAdv[only=no] Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf] AP[participle_etre=no, number=?pn, gender=?g]
+rule vp.copula-nonfinite-negated: VP[finite=no, form=inf, subj=no, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn] -> Neg NegAdv[only=no] Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf] AP[irefl=?ir, irnum=?irn, participle_etre=no, number=?pn, gender=?g]
   "ne pas before an infinitive linking verb + adjective (elle semble ne pas être heureuse)."
 
 rule vp.copula-nonfinite-negated-noun: VP[finite=no, form=inf, subj=no] -> Neg NegAdv[only=no] Verb[lemma=être|devenir|rester, form=inf] NP[case=obl, adj_twin=no]
   "ne pas before an infinitive linking verb + noun phrase (pour ne pas être un fardeau)."
 
-rule vp.copula-nonfinite-clitic: VP[finite=no, form=?fm, subj=no, pnum=?pn, gender=?g] -> Clitics[attached=no, reflexive=no, acc=no] Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] AP[participle_etre=no, number=?pn, gender=?g]
+rule vp.copula-nonfinite-clitic: VP[finite=no, form=?fm, subj=no, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn] -> Clitics[attached=no, reflexive=no, acc=no] Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] AP[irefl=?ir, irnum=?irn, participle_etre=no, number=?pn, gender=?g]
   "An indirect pronoun before an infinitive linking verb + adjective (elle semble en être heureuse)."
 
-rule vp.copula-past-infinitive: VP[finite=no, form=inf, subj=no, pnum=?pn, gender=?g] -> Verb[lemma=avoir, form=inf] Verb[lemma=être, form=pastpart] AP[pp=no, number=?pn, gender=?g]
+rule vp.copula-past-infinitive: VP[finite=no, form=inf, subj=no, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn] -> Verb[lemma=avoir, form=inf] Verb[lemma=être, form=pastpart] AP[irefl=?ir, irnum=?irn, pp=no, number=?pn, gender=?g]
   "The past infinitive of être + adjective (elle semble avoir été heureuse). A participle there is a passive (v.passive-past-infinitive)."
 
 rule vp.copula-past-infinitive-noun: VP[finite=no, form=inf, subj=no] -> Verb[lemma=avoir, form=inf] Verb[lemma=être, form=pastpart] NP[case=obl, adj_twin=no]
@@ -1286,7 +1286,7 @@ rule vp.copula-past-infinitive-noun: VP[finite=no, form=inf, subj=no] -> Verb[le
 rule vp.copula-nonfinite-noun: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|rester, form=inf|prespart|ger, form=?fm] NP[case=obl, adj_twin=no]
   "An infinitive or -ant linking verb + noun phrase (devenir médecin, étant étudiant)."
 
-rule vp.copula-nonfinite-adverb: VP[finite=no, form=?fm, subj=no, pnum=?pn, gender=?g] -> Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] Adv AP[participle_etre=no, number=?pn, gender=?g]
+rule vp.copula-nonfinite-adverb: VP[finite=no, form=?fm, subj=no, pnum=?pn, gender=?g, irefl=?ir, irnum=?irn] -> Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] Adv AP[irefl=?ir, irnum=?irn, participle_etre=no, number=?pn, gender=?g]
   "… with an adverb after the linking verb (étant vraiment malade)."
 
 rule vp.copula-nonfinite-adverb-noun: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|rester, form=inf|prespart|ger, form=?fm] Adv NP[case=obl, adj_twin=no]

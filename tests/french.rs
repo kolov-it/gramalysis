@@ -866,3 +866,15 @@ async fn the_question_marker_is_present_est() {
 async fn jusque_la() {
     assert!(parses(&run("Jusque-là, tout va bien.").await));
 }
+
+#[tokio::test]
+async fn an_adjective_infinitive_under_a_nonfinite_copula_keeps_its_controller() {
+    assert!(parses(&run("Je veux être heureux de me laver.").await));
+    assert!(!parses(&run("Je veux être heureux de se laver.").await));
+}
+
+#[tokio::test]
+async fn tous_in_a_compound_copula_agrees() {
+    assert!(parses(&run("Ils ont tous été heureux.").await));
+    assert!(!parses(&run("Il a tous été heureux.").await));
+}
