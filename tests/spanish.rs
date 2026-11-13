@@ -277,3 +277,21 @@ async fn an_adverb_keeps_the_clitic_object() {
     assert!(!run("Lo compré ayer.").await.parses.is_empty());
     assert!(run("Lo compré ayer un libro.").await.parses.is_empty());
 }
+
+#[tokio::test]
+async fn a_clitic_on_the_gerund_is_the_object() {
+    assert!(!run("Estoy leyéndolo.").await.parses.is_empty());
+    assert!(run("Estoy leyéndolo un libro.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn an_attached_dative_on_a_linking_verb() {
+    assert!(!run("Puede estarle agradecido.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn singular_subjects_joined_by_o() {
+    let a = run("Tom o Mary fue a Madrid.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "fue")[0].starts_with("ir Verb"));
+}

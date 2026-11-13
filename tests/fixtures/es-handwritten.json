@@ -80,6 +80,33 @@
         "partOfSpeech": "adv"
       }
     ],
+    "agradecido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "agradecido",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "agradecer",
+        "partOfSpeech": "verb"
+      }
+    ],
     "agua": [
       {
         "grammar": {
@@ -1011,6 +1038,33 @@
         "partOfSpeech": "verb"
       }
     ],
+    "estar": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "estarle": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "dative",
+            "infinitive",
+            "object-singular",
+            "object-third-person"
+          ]
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "estoy": [
       {
         "grammar": {
@@ -1064,6 +1118,7 @@
         "partOfSpeech": "verb"
       }
     ],
+    "estár": [],
     "flores": [
       {
         "grammar": {
@@ -1402,6 +1457,37 @@
         "partOfSpeech": "noun"
       }
     ],
+    "leyendo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "gerund"
+          ]
+        },
+        "lemma": "leer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "leyéndo": [],
+    "leyéndolo": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "gerund",
+          "rawTags": [
+            "accusative",
+            "gerund",
+            "object-masculine",
+            "object-singular",
+            "object-third-person"
+          ]
+        },
+        "lemma": "leer",
+        "partOfSpeech": "verb"
+      }
+    ],
     "libro": [
       {
         "grammar": {
@@ -1571,6 +1657,7 @@
         "partOfSpeech": "verb"
       }
     ],
+    "mary": [],
     "me": [
       {
         "grammar": {
@@ -2435,6 +2522,7 @@
         "partOfSpeech": "det"
       }
     ],
+    "tom": [],
     "tu": [
       {
         "grammar": {
