@@ -1,11 +1,11 @@
 # Data in `data/it/` and its licences
 
-The code of gramalysis is Apache-2.0 (see ../../NOTICE). The data files below are not code
+The code of syntango is Apache-2.0 (see ../../NOTICE). The data files below are not code
 and keep their sources' licences.
 
 | File | Source | Licence |
 |---|---|---|
-| `closed.txt`, `grammar.gram` | written for gramalysis | Apache-2.0 |
+| `closed.txt`, `grammar.gram` | written for syntango | Apache-2.0 |
 | `tatoeba-pool.jsonl.gz`, `homograph-set.jsonl` (the `text` field of each sentence) | [Tatoeba](https://tatoeba.org), Italian sentences, export of 2026-10-09. Each sentence keeps its Tatoeba id (`id` / `tatoeba_id`, page `https://tatoeba.org/sentences/show/<id>`) and its author (`author`). | [CC BY 2.0 FR](https://creativecommons.org/licenses/by/2.0/fr/) |
 | the `spacy` / `tokens` fields of those files | tokens, part-of-speech tags and lemmas from spaCy `it_core_news_md` 3.8.0 run over the Tatoeba sentences | as the sentences |
 | `verbs.json` | Italian conjugation tables from [Wiktionary](https://en.wiktionary.org/) via [Kaikki.org](https://kaikki.org/), as published in the Word Holder dictionary, version v19 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |

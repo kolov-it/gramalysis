@@ -7,12 +7,12 @@
            DIR holds <id>.txt as downloaded from gutenberg.org (ids in WORKS).
 
   select   splits the books into sentences and writes the candidate set,
-           in the format `gramalysis eval` reads, from data/it/ alone:
+           in the format `syntango eval` reads, from data/it/ alone:
              python3 tools/it_literature.py select [--per-form 4]
 
   examples writes verb-examples.tsv: every candidate whose label
            (literature-labels.tsv) makes it a form of a verb with a page,
-           with the parser's verdict from a `gramalysis eval --out` file:
+           with the parser's verdict from a `syntango eval --out` file:
              python3 tools/it_literature.py examples --eval EVAL.jsonl
 
 A candidate is a sentence holding a one-word form of a verb that has a page
@@ -192,7 +192,7 @@ def cmd_examples(a):
         f.write("# Verb-form example sentences from the works in sources.tsv (public domain).\n"
                 "# Built by tools/it_literature.py examples; the reading of the form is the\n"
                 "# label in literature-labels.tsv. missing_on_page: the verb page shows no\n"
-                "# example for this form today. parser: gramalysis on the sentence (agrees,\n"
+                "# example for this form today. parser: syntango on the sentence (agrees,\n"
                 "# disagrees, ambiguous).\n"
                 "# verb\tform\tcell\tmissing_on_page\tparser\tsentence\tsentence_id\tauthor\ttitle\tyear\n")
         for r in rows:
@@ -210,7 +210,7 @@ def main():
     s = sub.add_parser("select")
     s.add_argument("--per-form", type=int, default=4)
     e = sub.add_parser("examples")
-    e.add_argument("--eval", required=True, help="a `gramalysis eval --out` file of literature-set.jsonl")
+    e.add_argument("--eval", required=True, help="a `syntango eval --out` file of literature-set.jsonl")
     a = p.parse_args()
     {"import": cmd_import, "select": cmd_select, "examples": cmd_examples}[a.cmd](a)
 

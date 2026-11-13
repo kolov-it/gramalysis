@@ -7,8 +7,8 @@ stopgap in `src/lang/it/mod.rs` (`complete_features`) to delete once the API ans
 
 ## Decided (owner, 2026-11-12)
 
-- A `clitic: true` flag is enough; gramalysis splits the clitics itself.
-- Articles, pronouns, prepositions and conjunctions are gramalysis's own data
+- A `clitic: true` flag is enough; syntango splits the clitics itself.
+- Articles, pronouns, prepositions and conjunctions are syntango's own data
   (`data/it/closed.txt`), not the lexicon's.
 - Ten readings per form are enough.
 
@@ -24,11 +24,11 @@ stopgap in `src/lang/it/mod.rs` (`complete_features`) to delete once the API ans
 | 6 | **Participles tagged inconsistently.** | `arrivata`: `formKind: participle`; `arrivato`, `fatto`: `past-participle` with no gender/number. | — | Worked around (Italian participle ⇒ past; citation participle ⇒ masc. sg.) |
 
 Not needed after all: segments for clitic chains (decided above), pronoun case
-and article features (gramalysis's own list).
+and article features (syntango's own list).
 
 ## Clitics: who does what
 
-The lexicon says a form has clitics; gramalysis splits them (`split_enclitics`)
+The lexicon says a form has clitics; syntango splits them (`split_enclitics`)
 and gives each piece its readings from `closed.txt`. The grammar decides where
 clitics may stand and in which order, and checks person: a reflexive clitic has
 the verb's person, a 1st/2nd person clitic that is not reflexive has a
@@ -40,7 +40,7 @@ so they are never split.
 Gaps 1–6 above are fixed in the API: one entry per reading, grammar on
 dictionary forms (noun gender, infinitive, masculine singular), the host verb's
 grammar on clitic forms, the passato remoto as indicative (`tense: preterite`),
-consistent past participles. The stopgaps gramalysis had for them are removed.
+consistent past participles. The stopgaps syntango had for them are removed.
 
 Still open, in progress in wordy:
 

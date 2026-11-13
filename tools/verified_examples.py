@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Writes data/<lang>/verified-examples.tsv: the homograph-set sentences where
-gramalysis decides the word is its page verb AND the label agrees, in the
+syntango decides the word is its page verb AND the label agrees, in the
 format wordy's verb-form-examples builder reads
 (verb<TAB>form<TAB>tatoeba_id<TAB>cell<TAB>source).
 
@@ -9,7 +9,7 @@ format wordy's verb-form-examples builder reads
     python3 tools/verified_examples.py --lang es /tmp/eval.jsonl [--date 2026-11-12]
 
 Kept: sentences of 5-20 words (the builder's bounds), labelled as a verb with
-the same lemma gramalysis chose, not noted as an accent typo, whose label cell
+the same lemma syntango chose, not noted as an accent typo, whose label cell
 holds the form in the verb's table. A label with several cells (1s|3s) gives
 the first one that holds the form. Only the standard library.
 """
@@ -41,7 +41,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--lang", required=True)
     p.add_argument("--date", default=datetime.date.today().isoformat())
-    p.add_argument("eval_out", help="the JSON lines `gramalysis eval --out` wrote")
+    p.add_argument("eval_out", help="the JSON lines `syntango eval --out` wrote")
     a = p.parse_args()
     data = os.path.join(ROOT, "data", a.lang)
 
@@ -79,10 +79,10 @@ def main():
 
     out = os.path.join(data, "verified-examples.tsv")
     with open(out, "w") as f:
-        f.write("# verb\tform\ttatoeba_id\tcell\tsource — Tatoeba sentences gramalysis decided as this\n")
+        f.write("# verb\tform\ttatoeba_id\tcell\tsource — Tatoeba sentences syntango decided as this\n")
         f.write("# form of this verb, agreeing with an independent label (tools/verified_examples.py)\n")
         for lemma, form, tid, cell in sorted(rows):
-            f.write(f"{lemma}\t{form}\t{tid}\t{cell}\tgramalysis+label {a.date}\n")
+            f.write(f"{lemma}\t{form}\t{tid}\t{cell}\tsyntango+label {a.date}\n")
     print(f"{len(rows)} rows, {len({r[1] for r in rows})} forms, {len({r[0] for r in rows})} verbs -> {out}")
 
 

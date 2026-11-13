@@ -5,10 +5,10 @@
 
 use std::path::Path;
 
-use gramalysis::lang::es::Spanish;
-use gramalysis::patch::PatchedLexicon;
-use gramalysis::wordholder::{self, FixtureLexicon};
-use gramalysis::{analyze, SentenceAnalysis};
+use syntango::lang::es::Spanish;
+use syntango::patch::PatchedLexicon;
+use syntango::wordholder::{self, FixtureLexicon};
+use syntango::{analyze, SentenceAnalysis};
 
 async fn run(text: &str) -> SentenceAnalysis {
     let fixture = FixtureLexicon::load(Path::new("tests/fixtures/es-handwritten.json")).unwrap();
@@ -22,7 +22,7 @@ fn agreed(a: &SentenceAnalysis, token: &str) -> Vec<String> {
     assert!(c.agreed, "{token} read differently across parses: {:?}", c.readings);
     c.readings[0]
         .iter()
-        .map(|m| format!("{} {} {}", m.lemma, m.cat, gramalysis::syntax::feats::display(&m.feats)))
+        .map(|m| format!("{} {} {}", m.lemma, m.cat, syntango::syntax::feats::display(&m.feats)))
         .collect()
 }
 

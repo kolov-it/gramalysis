@@ -1,7 +1,7 @@
 # Verb-form example sentences from the works in sources.tsv (public domain).
 # Built by tools/it_literature.py examples; the reading of the form is the
 # label in literature-labels.tsv. missing_on_page: the verb page shows no
-# example for this form today. parser: gramalysis on the sentence (agrees,
+# example for this form today. parser: syntango on the sentence (agrees,
 # disagrees, ambiguous).
 # verb	form	cell	missing_on_page	parser	sentence	sentence_id	author	title	year
 abitare	abitavano	indicative.imperfect.3p	no	agrees	Certo, come dai bolli postali su le lettere si ricavava, abitavano nel loro paese in due città diverse.	8180	Luigi Pirandello	Un cavallo nella luna	1918

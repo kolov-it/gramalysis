@@ -4,9 +4,9 @@
 
 use std::path::Path;
 
-use gramalysis::lang::fr::French;
-use gramalysis::wordholder::FixtureLexicon;
-use gramalysis::{analyze, SentenceAnalysis};
+use syntango::lang::fr::French;
+use syntango::wordholder::FixtureLexicon;
+use syntango::{analyze, SentenceAnalysis};
 
 async fn run(text: &str) -> SentenceAnalysis {
     let lexicon = FixtureLexicon::load(Path::new("tests/fixtures/fr-handwritten.json")).unwrap();
@@ -19,7 +19,7 @@ fn agreed(a: &SentenceAnalysis, token: &str) -> Vec<String> {
     assert!(c.agreed, "{token} read differently across parses: {:?}", c.readings);
     c.readings[0]
         .iter()
-        .map(|m| format!("{} {} {}", m.lemma, m.cat, gramalysis::syntax::feats::display(&m.feats)))
+        .map(|m| format!("{} {} {}", m.lemma, m.cat, syntango::syntax::feats::display(&m.feats)))
         .collect()
 }
 

@@ -1,5 +1,5 @@
 # Corrections to the Word Holder API's Italian answers (dictionary v19,
-# lemmatize as of wordy 6142d263). Applied by gramalysis on top of the API;
+# lemmatize as of wordy 6142d263). Applied by syntango on top of the API;
 # `--no-patches` shows the API unpatched. Each line says why; delete a line
 # once the API answers it correctly.
 #

@@ -1,4 +1,6 @@
-# gramalysis
+# syntango
+
+(Formerly *gramalysis*.)
 
 Morphological and syntactic analysis of sentences, with explanations.
 
@@ -7,7 +9,7 @@ comes from and what form it is, and for the sentence, which structures it can
 have. Every result carries the rule that produced it, so a learner can ask *why*:
 
 ```text
-$ gramalysis it "La ragazza ama il cane."
+$ syntango it "La ragazza ama il cane."
 La ragazza ama il cane.
 S[]  ← clause.subject
   NP[gender=f,number=sg,person=3]  ← np.article
@@ -126,7 +128,7 @@ line once the lexicon answers correctly.
 
 ## Measuring it: the Tatoeba homograph set
 
-The first job gramalysis was built for: find example sentences for verb forms
+The first job syntango was built for: find example sentences for verb forms
 that are spelled like another word (*stessi*: *stare* or *stesso*; *porta*:
 *portare* or the noun), which plain text matching cannot tell apart.
 
@@ -279,7 +281,7 @@ cargo run -- --fixture tests/fixtures/fr-recorded.json --file examples/fr.txt fr
 
 The files in `data/fr/` mirror `data/it/` (`tools/fr_homographs.py import`,
 `select`), plus `verified-examples.tsv`: the 2,195 sentences (1,195 forms of
-532 verbs) where gramalysis decides the word is the page verb and the label
+532 verbs) where syntango decides the word is the page verb and the label
 agrees, 5–20 words long, in the format wordy's verb-form-examples builder
 reads (`tools/fr_homographs.py verified`). Inflected participles (*vues*,
 *avertis*) are left out of it: a verb table's participle cell holds only the
@@ -316,7 +318,7 @@ src/
     client.rs         HTTP client (RapidAPI or the API's origin)
     dto.rs            the API's wire format → readings
     fixture.rs        recorded answers, for tests and offline runs
-  bin/gramalysis/   the command line: parse, record, eval  [feature cli]
+  bin/syntango/     the command line: parse, record, eval  [feature cli]
 data/it/            grammar.gram, closed.txt (function words),
                     drifted-participles.txt, lexicon-patches/, the Tatoeba set
 data/es/            the same for Spanish
@@ -329,13 +331,13 @@ tools/              it_homographs.py: builds the Tatoeba set (--lang es for
 |---|---|
 | none | everything except `wordholder/` and the binary. No network code. |
 | `wordholder` | the API client and the recorded-answers lexicon. |
-| `cli` (default) | the `gramalysis` binary; implies `wordholder`. |
+| `cli` (default) | the `syntango` binary; implies `wordholder`. |
 
 To bring your own lexicon, depend on the generic part only and implement
 `morph::Lexicon`:
 
 ```toml
-gramalysis = { git = "https://github.com/kolov-it/gramalysis", default-features = false }
+syntango = { git = "https://github.com/kolov-it/syntango", default-features = false }
 ```
 
 ## How it works
@@ -367,17 +369,17 @@ lexicon and the gaps found in the live API:
 ## How it differs from existing tools
 
 - **Statistical parsers** (spaCy, Stanza, UDPipe) return one best guess and cannot
-  say why. gramalysis returns every valid reading and the rule behind it.
+  say why. syntango returns every valid reading and the rule behind it.
 - **Rule-based grammars** (Grammatical Framework, DELPH-IN) are the closest
-  relatives, but are research systems that are heavy to adopt. gramalysis is a plain
+  relatives, but are research systems that are heavy to adopt. syntango is a plain
   Rust library aimed at language learners and the tools built for them.
-- **Grammar checkers** (LanguageTool) look for errors. gramalysis builds the
+- **Grammar checkers** (LanguageTool) look for errors. syntango builds the
   structure.
 
 ## Licence
 
 [Apache License 2.0](LICENSE). Use it freely, commercially too, with
-attribution: anything that distributes gramalysis or a work derived from it must
+attribution: anything that distributes syntango or a work derived from it must
 include the [NOTICE](NOTICE) file's attribution, where third-party notices
 normally appear.
 
