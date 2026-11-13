@@ -1146,6 +1146,34 @@
           "clitic": false
         }
       }
+    ],
+    "yacht": [
+      {
+        "lemma": "yacht",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "empêche": [
+      {
+        "lemma": "empêcher",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
     ]
   }
 }

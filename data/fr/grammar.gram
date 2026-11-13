@@ -626,6 +626,9 @@ rule clitics.acc-dat: Clitics[reflexive=no, attached=?t, acc=yes, anum=?n, agen=
 rule clitics.acc-other: Clitics[reflexive=no, attached=?t, acc=yes, anum=?n, agen=?g] -> Pron[attached=?t, clitic=yes, case=acc, person=3, number=?n, gender=?g] Pron[clitic=yes, case=loc]
   "le, la, les before y (je l'y ai mis)."
 
+rule clitics.acc-en: Clitics[reflexive=no, attached=?t, acc=yes, anum=?n, agen=?g] -> Pron[attached=?t, clitic=yes, case=acc, person=3, number=?n, gender=?g] Pron[clitic=yes, case=gen]
+  "le, la, les before en (il les en empêche)."
+
 rule clitics.dat-en: Clitics[reflexive=no, attached=?t, acc=no] -> Pron[attached=?t, clitic=yes, case=dat|loc, person=3] Pron[clitic=yes, case=gen]
   "lui, leur or y before en (je lui en parle, il y en a)."
 
@@ -1017,8 +1020,11 @@ rule vp.indirect-question-pronoun-infinitive: VP[finite=?f, form=?fm, mood=?m, p
 rule rel.ou-inverted: Rel -> RelPron[role=place] VP[finite=yes, form=fin, subj=no, person=?p, number=?n, pnum=?pn, gender=?g] NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g]
   "où + verb + noun subject (le pays où coule le lait)."
 
-rule rel.object-inverted: Rel -> RelPron[role=object] VP[finite=yes, form=fin, subj=no, person=?p, number=?n, pnum=?pn, gender=?g] NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g]
+rule rel.object-inverted: Rel -> RelPron[role=object] VP[gap=no, finite=yes, form=fin, subj=no, person=?p, number=?n, pnum=?pn, gender=?g] NP[case=nom, person=?p, number=?n, pnum=?pn, gender=?g]
   "que + verb + noun subject (le livre que lit mon père)."
+
+rule rel.object-agreement-inverted: Rel[number=?n, gender=?g] -> RelPron[role=object] Verb[lemma=avoir, finite=yes, person=3, number=?sn] Verb[form=pastpart, takes_avoir=yes, number=?n, gender=?g] NP[case=nom, person=3, number=?sn]
+  "que + avoir + a participle + the noun subject after it: the participle agrees with que, the antecedent (les pommes qu'a mangées Pierre)."
 
 rule clause.incise-noun: S -> S Punct VP[finite=yes, form=fin, subj=no, person=3, number=?n, pnum=?pn, gender=?g] NP[case=nom, person=3, number=?n, pnum=?pn, gender=?g]
   "A reporting verb after the quotation, with a noun subject after it (…, dit Tom)."

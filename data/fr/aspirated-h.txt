@@ -1,6 +1,7 @@
-# Words that start with an aspirated h (h aspiré): no elision and no liaison
-# before them (le héros, la haine, les | haricots, ce hibou), unlike a mute h
-# (l'homme, l'heure, cet hôtel). One word per line, as it is written in the
+# Words that start with an aspirated h (h aspiré) or a consonantal y: no
+# elision and no liaison before them (le héros, la haine, les | haricots, ce
+# hibou, le yoga, le yacht), unlike a mute h or a vowel y (l'homme, l'heure,
+# cet hôtel, les yeux). One word per line, as it is written in the
 # dictionary; an inflected form matches when it is the word plus -s, -x, -e
 # or -es (héros, haricots, hautes). Written for gramalysis; extend it when a
 # sentence needs a word that is missing.
@@ -78,3 +79,20 @@ hurlement
 hussard
 hutte
 hyène
+# consonantal y
+yacht
+yack
+yak
+yankee
+yaourt
+yen
+yéti
+yeti
+yoga
+yogourt
+yoghourt
+yourte
+youpi
+yo-yo
+yucca
+yuppie

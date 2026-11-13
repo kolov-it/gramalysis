@@ -167,7 +167,7 @@ the one a verb page needs: *which verb, or not a verb at all*.
 
 ## French
 
-`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (330 rules) and
+`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (332 rules) and
 the function words in `data/fr/closed.txt`. What is French-specific:
 
 - **Tokens:** elision is split off (*l'*, *d'*, *j'*, *qu'*, *jusqu'*,
@@ -183,7 +183,7 @@ the function words in `data/fr/closed.txt`. What is French-specific:
   la les* > *lui leur* > *y* > *en* before the verb, *le* > *moi lui* > *y* >
   *en* after an imperative.
 - **Sound:** *le / l'*, *ce / cet*, *mon amie* follow the next word's first
-  sound; an aspirated h (*le héros*, *la hache*) counts as a consonant
+  sound; an aspirated h or a consonantal y (*le héros*, *la hache*, *le yoga*) counts as a consonant
   (`data/fr/aspirated-h.txt`).
 - **Subject:** French says it; a clause without one is an order, or has its
   subject after the verb (inversion, *dit Tom*, *où coule le lait*).
@@ -208,8 +208,8 @@ below).
 
 On the French Tatoeba homograph set (4,384 sentences, 1,750 ambiguous forms of
 699 verbs that have a page on wordholder.com and no example sentence for that
-form) it decides the word in **78.7%** of the sentences, and **99.9%** of the
-decisions agree with the labels (3,449 of 3,452); 11.2% do not parse, 9.6% stay
+form) it decides the word in **78.8%** of the sentences, and **99.9%** of the
+decisions agree with the labels (3,450 of 3,453); 11.1% do not parse, 9.6% stay
 ambiguous.
 
 ```sh

@@ -306013,6 +306013,23 @@
         "surface": "y"
       }
     ],
+    "yacht": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "yacht",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "yacht"
+      }
+    ],
     "yank": [],
     "yank(ee)]": [],
     "yanni": [],
@@ -306081,6 +306098,23 @@
         "partOfSpeech": "noun",
         "source": "kaikki",
         "surface": "yeux"
+      }
+    ],
+    "yoga": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "yoga",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "yoga"
       }
     ],
     "york": [

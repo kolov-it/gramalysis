@@ -93,6 +93,9 @@ async fn aspirated_h_takes_le_not_l() {
     assert!(!parses(&run("L'héros est là.").await));
     assert!(parses(&run("L'homme est là.").await));
     assert!(!parses(&run("Le homme est là.").await));
+    // a consonantal y counts as a consonant
+    assert!(parses(&run("Le yacht est là.").await));
+    assert!(!parses(&run("L'yacht est là.").await));
 }
 
 #[tokio::test]
@@ -286,4 +289,15 @@ async fn an_adverb_before_a_prenominal_adjective() {
 #[tokio::test]
 async fn qui_with_etre_and_a_plural_noun_phrase() {
     assert!(parses(&run("Qui sont ces hommes ?").await));
+}
+
+#[tokio::test]
+async fn que_before_avoir_and_a_noun_subject_after_it_agrees() {
+    assert!(parses(&run("Les pommes qu'a mangées Pierre sont bonnes.").await));
+    assert!(!parses(&run("Les pommes qu'a mangé Pierre sont bonnes.").await));
+}
+
+#[tokio::test]
+async fn les_before_en() {
+    assert!(parses(&run("Il les en empêche.").await));
 }
