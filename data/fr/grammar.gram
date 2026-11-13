@@ -854,7 +854,7 @@ rule ap.comparison-never: AP[pp=?x, number=?n, gender=?g] -> AP[pp=?x, number=?n
 
 # ------------------------------------------------- participle phrases
 
-rule partp.past: PartP[number=?n, gender=?g] -> Verb[form=pastpart, drifted=no, number=?n, gender=?g] Compl
+rule partp.past: PartP[number=?n, gender=?g] -> Verb[form=pastpart, number=?n, gender=?g] Compl
   "A past participle with the verb's complements: passive or completed meaning, agreeing with the noun (écrite en anglais, construite par les Romains)."
 
 rule partp.present: PartP -> Verb[form=prespart|ger] Compl

@@ -1004,6 +1004,32 @@
         "partOfSpeech": "adv",
         "grammar": null
       }
+    ],
+    "va": [
+      {
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      },
+      {
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
+          "clitic": false
+        }
+      }
     ]
   }
 }

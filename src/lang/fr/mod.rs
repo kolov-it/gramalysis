@@ -59,7 +59,23 @@ impl Language for French {
     }
 
     fn lexicon_forms(&self, tokens: &[String]) -> Vec<String> {
-        tokens.iter().filter(|t| !is_punct(t)).map(|t| t.trim_start_matches('-').to_lowercase()).collect()
+        tokens
+            .iter()
+            .enumerate()
+            .filter(|(_, t)| !is_punct(t))
+            .map(|(i, t)| {
+                let lower = t.trim_start_matches('-').to_lowercase();
+                // Before an attached y or en, a 2nd singular imperative takes
+                // a liaison s (vas-y, donnes-en, penses-y): the lexicon knows
+                // the imperative without it. Only an imperative is followed by
+                // a hyphenated y or en, so the s-less form is the one to ask.
+                let before_y_en = tokens.get(i + 1).is_some_and(|n| matches!(n.to_lowercase().as_str(), "-y" | "-en"));
+                match lower.strip_suffix('s') {
+                    Some(stem) if before_y_en && !t.starts_with('-') && stem.len() > 1 => stem.to_owned(),
+                    _ => lower,
+                }
+            })
+            .collect()
     }
 
     fn lattice(&self, tokens: &[String], analyses: &[Analysis]) -> Lattice {

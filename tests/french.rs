@@ -253,3 +253,10 @@ async fn coordinated_verb_phrases_both_agree_with_the_subject() {
     assert!(parses(&run("Elle est heureuse et est fatiguée.").await));
     assert!(!parses(&run("Elle est heureuse et est fatigué.").await));
 }
+
+#[tokio::test]
+async fn liaison_s_before_an_attached_y_is_the_imperative() {
+    let a = run("Vas-y !").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "Vas")[0].contains("mood=imp"));
+}
