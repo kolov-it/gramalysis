@@ -1,0 +1,960 @@
+# Verb-form example sentences from the works in sources.tsv (public domain).
+# Built by tools/it_literature.py examples; the reading of the form is the
+# label in literature-labels.tsv. missing_on_page: the verb page shows no
+# example for this form today. parser: gramalysis on the sentence (agrees,
+# disagrees, ambiguous).
+# verb	form	cell	missing_on_page	parser	sentence	sentence_id	author	title	year
+abitare	abitavano	indicative.imperfect.3p	no	agrees	Certo, come dai bolli postali su le lettere si ricavava, abitavano nel loro paese in due città diverse.	8180	Luigi Pirandello	Un cavallo nella luna	1918
+accadere	accadde	indicative.past_historic.3s	no	agrees	Quando Pinocchio entrò nel teatrino delle marionette, accadde un fatto che destò una mezza rivoluzione.	266	Carlo Collodi	Le avventure di Pinocchio	1883
+accadere	accadde	indicative.past_historic.3s	no	agrees	Nel viaggio, non accadde nulla di particolare.	5874	Alessandro Manzoni	I promessi sposi	1840
+accadere	accadere	non_finite.infinitive	yes	agrees	Ebbene, cosa mi può accadere?	7464	Alessandro Manzoni	I promessi sposi	1840
+accadere	accadere	non_finite.infinitive	yes	agrees	Può accadere a tutti un caso simile....	8682	Luigi Pirandello	Un cavallo nella luna	1918
+accadere	accaduto	non_finite.past_participle	yes	ambiguous	Che cos'è accaduto? — domandò Pinocchio a una vecchina.	783	Carlo Collodi	Le avventure di Pinocchio	1883
+accendere	accendere	non_finite.infinitive	yes	agrees	Sono buone per accendere il fuoco.	256	Carlo Collodi	Le avventure di Pinocchio	1883
+accettare	accettasse	subjunctive.imperfect.3s	no	agrees	Perchè questo era il dubbio smanioso: che egli accettasse l'eredità.	9022	Luigi Pirandello	Un cavallo nella luna	1918
+accogliere	accolsero	indicative.past_historic.3p	yes	agrees	Difatti quelli accolsero freddamente la spiegazione.	8575	Luigi Pirandello	Un cavallo nella luna	1918
+accompagnare	accompagna	indicative.present.3s	no	agrees	Senti il respiro del tuo figliuolo che ti accompagna!	3360	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+addormentare	addormentò	indicative.past_historic.3s	no	agrees	Poi andò a letto e si addormentò.	1729	Carlo Collodi	Le avventure di Pinocchio	1883
+affidare	affidiamo	indicative.present.1p	no	agrees	Vi affidiamo questo ragazzetto ferito nel capo.	1022	Carlo Collodi	Le avventure di Pinocchio	1883
+affrontare	affronterai	indicative.future.2s	no	agrees	Ebbene; prometti che non affronterai, che non provocherai nessuno, che ti lascerai guidar da me.	4221	Alessandro Manzoni	I promessi sposi	1840
+aiutare	aiuta	indicative.present.3s	no	agrees	Anche questo aiuta a far pane.	5829	Alessandro Manzoni	I promessi sposi	1840
+alloggiare	alloggiare	non_finite.infinitive	yes	agrees	Non c'è osterie da alloggiare?	5748	Alessandro Manzoni	I promessi sposi	1840
+alzare	alzare	non_finite.infinitive	yes	agrees	Subito si sentì come scattar dentro una molla d'acciaio che lo rizzò sul busto e gli fece alzare la fronte in atto di risoluzione virile.	3211	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+alzare	alzarono	indicative.past_historic.3p	yes	agrees	Tutti alzarono il capo e stettero attenti per indovinare il giudizio dal suo viso.	3003	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+amare	ama	indicative.present.3s	no	agrees	In ogni caso, ella t'ama in me e con me: ti ama dunque assai.	3721	Alessandro Manzoni	I promessi sposi	1840
+amare	amato	non_finite.past_participle	yes	disagrees	Noi amiamo e dopo amato usciamo.	2694	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+amare	amavano	indicative.imperfect.3p	no	agrees	Tutti lo amavano e lo riverivano.	2064	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+amare	amiamo	indicative.present.1p	no	agrees	Noi amiamo e dopo amato usciamo.	2694	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ammazzare	ammazza	indicative.present.3s	yes	agrees	Se egli ammazza il cane, il villano ammazzerà lui.	8495	Luigi Pirandello	Un cavallo nella luna	1918
+ammazzare	ammazzato	non_finite.past_participle	no	agrees	Mi rispose una donna: — Gli hanno ammazzato il figliuolo a Milass.	2139	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ammazzare	ammazzerà	indicative.future.3s	yes	agrees	Se egli ammazza il cane, il villano ammazzerà lui.	8495	Luigi Pirandello	Un cavallo nella luna	1918
+andare	andiamo	imperative.present.1p	no	agrees	Andiamo subito, io vengo con voi.	382	Carlo Collodi	Le avventure di Pinocchio	1883
+andare	andiamo	indicative.present.1p	no	agrees	Loro cantano e noi andiamo a dare la pelle.	2045	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+andare	andrà	indicative.future.3s	no	agrees	Vedrai che tutto andrà bene.	3400	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+andare	va	indicative.present.3s	no	ambiguous	È facilissimo: si va da un libraio e si compra.	222	Carlo Collodi	Le avventure di Pinocchio	1883
+andare	vai	indicative.present.2s	yes	ambiguous	Perchè non vai a seminarle nel Campo dei miracoli?	610	Carlo Collodi	Le avventure di Pinocchio	1883
+andare	vanno	indicative.present.3p	no	ambiguous	I ragazzi perbene vanno volentieri alla scuola...	886	Carlo Collodi	Le avventure di Pinocchio	1883
+andarsene	andandosene	non_finite.gerund	yes	disagrees	Ho inteso," disse il garzone, andandosene.	5409	Alessandro Manzoni	I promessi sposi	1840
+apparire	apparire	non_finite.infinitive	yes	agrees	Invece di un ciuchino morto, vide apparire a fior d'acqua un burattino vivo che scodinzolava come un'anguilla.	1471	Carlo Collodi	Le avventure di Pinocchio	1883
+aprire	apre	indicative.present.3s	no	agrees	Bartolo apre, guarda dentro, poi guarda me: — “Ebbene? — mi fa.	8858	Luigi Pirandello	Un cavallo nella luna	1918
+aprire	apri	imperative.present.2s	no	agrees	Apri," risponde sommessamente la nota voce.	6434	Alessandro Manzoni	I promessi sposi	1840
+aprire	aprite	imperative.present.2p	no	agrees	Aprite almeno; datemi la mia chiave.	3945	Alessandro Manzoni	I promessi sposi	1840
+arrivare	arriva	indicative.present.3s	no	agrees	Pinocchio arriva all'isola delle "Api industriose" e ritrova la Fata.	795	Carlo Collodi	Le avventure di Pinocchio	1883
+arrivare	arrivai	indicative.past_historic.1s	yes	agrees	L'altro era spirato, quand'io arrivai.	4153	Alessandro Manzoni	I promessi sposi	1840
+arrivare	arrivare	non_finite.infinitive	yes	agrees	Se io avessi tanto fiato da arrivare fino a quella casa, forse sarei salvo! — disse dentro di sè.	457	Carlo Collodi	Le avventure di Pinocchio	1883
+arrivare	arrivare	non_finite.infinitive	yes	agrees	Aspetto il mio babbo, che deve arrivare qui di momento in momento.	605	Carlo Collodi	Le avventure di Pinocchio	1883
+arrivare	arrivarono	indicative.past_historic.3p	no	agrees	Arrivarono alla casetta di Lucia, ch'era già notte.	4636	Alessandro Manzoni	I promessi sposi	1840
+arrivare	arrivate	non_finite.past_participle	yes	agrees	Arrivate, smontarono alla casa parrocchiale, dove si trovava il cardinale.	6655	Alessandro Manzoni	I promessi sposi	1840
+arrivare	arrivato	non_finite.past_participle	no	agrees	Ero arrivato poco prima dell'ora della colazione.	2426	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+arrivare	arrivavo	indicative.imperfect.1s	yes	agrees	Se arrivavo un minuto più tardi!...	1106	Carlo Collodi	Le avventure di Pinocchio	1883
+arrivare	arriveremo	indicative.future.1p	no	agrees	Fra pochi minuti arriveremo a terra e saremo salvi.	1604	Carlo Collodi	Le avventure di Pinocchio	1883
+ascoltare	ascolto	indicative.present.1s	yes	agrees	Con che profonda attenzione lo ascolto allora, quante cose rivedo e risento al suono della sua voce!	3082	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+aspettare	aspetta	imperative.present.2s	no	agrees	Aspetta un po', che penseremo noi a farteli sputare!	444	Carlo Collodi	Le avventure di Pinocchio	1883
+aspettare	aspettano	indicative.present.3p	no	agrees	Tutte le compagne la aspettano lì a quella prova, perchè lì ella è adesso nel campo della sua lunga esperienza.	8408	Luigi Pirandello	Un cavallo nella luna	1918
+aspettare	aspettare	non_finite.infinitive	yes	agrees	Peccato! se alla partenza mancasse un'ora sola, sarei quasi capace di aspettare.	1250	Carlo Collodi	Le avventure di Pinocchio	1883
+aspettare	aspettate	imperative.present.2p	yes	agrees	Aspettate, aspettate: vo e torno.	4646	Alessandro Manzoni	I promessi sposi	1840
+aspettare	aspettate	imperative.present.2p	yes	agrees	Aspettate, aspettate: vo e torno.	4646	Alessandro Manzoni	I promessi sposi	1840
+aspettare	aspettate	imperative.present.2p	yes	agrees	No, no, aspettate un momento: torno con la risposta.	4649	Alessandro Manzoni	I promessi sposi	1840
+aspettare	aspettato	non_finite.past_participle	no	agrees	Fatelo entrar subito: ha già aspettato troppo.	6294	Alessandro Manzoni	I promessi sposi	1840
+aspettare	aspettava	indicative.imperfect.3s	no	agrees	Ottima scelta," disse il principe, che desiderava e aspettava appunto quella.	4967	Alessandro Manzoni	I promessi sposi	1840
+aspettare	aspetto	indicative.present.1s	yes	agrees	Aspetto la bara che venga a portarmi via.	466	Carlo Collodi	Le avventure di Pinocchio	1883
+aspettare	aspetto	indicative.present.1s	yes	agrees	Aspetto il mio babbo, che deve arrivare qui di momento in momento.	605	Carlo Collodi	Le avventure di Pinocchio	1883
+assistere	assistere	non_finite.infinitive	yes	agrees	È qui! per assistere i poveri appestati, sicuro.	7581	Alessandro Manzoni	I promessi sposi	1840
+assistere	assisto	indicative.present.1s	no	agrees	Assisto questo mio compagno di scuola.	1010	Carlo Collodi	Le avventure di Pinocchio	1883
+attaccare	attaccare	non_finite.infinitive	yes	agrees	Fa' subito attaccare la più bella carrozza della mia scuderia e prendi la via del bosco.	489	Carlo Collodi	Le avventure di Pinocchio	1883
+attaccare	attaccare	non_finite.infinitive	yes	agrees	Anche a te si doveva attaccare questa infezione! — gridò, — non ci mancava altro!	2835	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+attendere	attendere	non_finite.infinitive	yes	agrees	Cosa ho da informare? io non so nulla; appena ho la testa da attendere ai fatti miei.	5523	Alessandro Manzoni	I promessi sposi	1840
+attendere	attendevano	indicative.imperfect.3p	no	agrees	Altre donne più attempate attendevano ad altri servizi.	7426	Alessandro Manzoni	I promessi sposi	1840
+augurare	augurate	imperative.present.2p	yes	agrees	No, no, mamma; no!" interruppe Lucia: "non gli augurate di patire, non l'augurate a nessuno!	6561	Alessandro Manzoni	I promessi sposi	1840
+avere	abbia	subjunctive.present.1s	no	agrees	Non ricordo in quanto tempo io abbia imparato a leggere.	1770	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avere	abbiamo	indicative.present.1p	no	agrees	Per questa volta abbiamo fatto il viaggio a ufo.	546	Carlo Collodi	Le avventure di Pinocchio	1883
+avere	abbiamo	indicative.present.1p	no	agrees	Ah, le dico che ci abbiamo certi artisti!	2575	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avere	abbiano	subjunctive.present.3p	yes	agrees	Non sai, figliuolo, che è proibito d'entrarci agli uomini che non ci abbiano qualche incombenza?	7463	Alessandro Manzoni	I promessi sposi	1840
+avere	abbiano	subjunctive.present.3p	yes	agrees	Pare che abbiano da dirle qualche cosa e non ne trovino il coraggio.	8325	Luigi Pirandello	Un cavallo nella luna	1918
+avere	abbiate	imperative.present.2p	yes	agrees	Venite con me e non abbiate paura.	1595	Carlo Collodi	Le avventure di Pinocchio	1883
+avere	avere	non_finite.infinitive	yes	ambiguous	Non si potrebbe avere un bicchier d'acqua?	8692	Luigi Pirandello	Un cavallo nella luna	1918
+avere	avessi	subjunctive.imperfect.1s	no	agrees	Se io avessi tanto fiato da arrivare fino a quella casa, forse sarei salvo! — disse dentro di sè.	457	Carlo Collodi	Le avventure di Pinocchio	1883
+avere	avessi	subjunctive.imperfect.1s	no	agrees	Senti dunque se per caso avessi la febbre.	1331	Carlo Collodi	Le avventure di Pinocchio	1883
+avere	avessi	subjunctive.imperfect.1s	no	agrees	Se non avessi portato la canna non avrei perduto l'illusione....	2487	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avere	aveste	subjunctive.imperfect.2p	yes	agrees	Che aveste pazienza per qualche giorno.	3891	Alessandro Manzoni	I promessi sposi	1840
+avere	avete	indicative.present.2p	no	agrees	Avete fatta una bella prodezza!	3938	Alessandro Manzoni	I promessi sposi	1840
+avere	aveva	indicative.imperfect.3s	no	agrees	No, no, non era morto: aveva gli occhi aperti....	8023	Luigi Pirandello	Un cavallo nella luna	1918
+avere	avevano	indicative.imperfect.3p	no	agrees	Io ho conosciuto due vecchi nonni che avevano un cardellino.	8239	Luigi Pirandello	Un cavallo nella luna	1918
+avere	avevi	indicative.imperfect.2s	no	agrees	Avevi un favore da domandarmi, m'hai detto?	2783	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avere	avevo	indicative.imperfect.1s	no	agrees	Non avevo ancora otto anni quando fui messo al latino, nelle scuole pubbliche, in Prima Grammatica, come si chiamava allora il primo corso di Ginnasio.	1810	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avere	avrai	indicative.future.2s	no	agrees	Non avrai più da correre.	3397	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avere	avranno	indicative.future.3p	yes	agrees	Avranno almeno un caro ricordo dei loro primi anni.	1809	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avere	avrebbero	conditional.present.3p	yes	agrees	Rimasero d'accordo coi padroni di casa, che avrebbero sloggiato alla nascita del primo figliuolo.	8550	Luigi Pirandello	Un cavallo nella luna	1918
+avere	avreste	conditional.present.2p	yes	agrees	Cosa avreste fatto voi altri?	5678	Alessandro Manzoni	I promessi sposi	1840
+avere	avresti	conditional.present.2s	no	agrees	Io sentii che ronzavi attorno all'uscio; sapevo bene che avresti finito con entrare.	2926	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avere	avresti	conditional.present.2s	no	agrees	Avresti fatto meglio a parlare un poco prima.	5926	Alessandro Manzoni	I promessi sposi	1840
+avere	avrete	indicative.future.2p	yes	agrees	Chi sa cosa avrete pensato di me!	3994	Alessandro Manzoni	I promessi sposi	1840
+avere	avrò	indicative.future.1s	yes	agrees	Avrò pazienza per una quindicina di giorni.	8935	Luigi Pirandello	Un cavallo nella luna	1918
+avere	ebbe	indicative.past_historic.3s	yes	agrees	Quando Geppetto ebbe finito di fargli i piedi, sentì arrivarsi un calcio sulla punta del naso.	84	Carlo Collodi	Le avventure di Pinocchio	1883
+avere	hanno	indicative.present.3p	yes	agrees	Perchè mi hanno mangiato i piedi.	172	Carlo Collodi	Le avventure di Pinocchio	1883
+avere	hanno	indicative.present.3p	yes	agrees	Mi rispose una donna: — Gli hanno ammazzato il figliuolo a Milass.	2139	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avvenire	avvenuto	non_finite.past_participle	yes	ambiguous	Qualche gran caso è avvenuto.	3810	Alessandro Manzoni	I promessi sposi	1840
+avvenire	avviene	indicative.present.3s	no	agrees	Fu per un caso, come quasi sempre avviene, che mi s'accese quella nuova girandola, a fuoco perpetuo.	2239	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avvertire	avvertito	non_finite.past_participle	no	agrees	Non v'ha avvertito che vi mandava come un agnello tra i lupi?	6676	Alessandro Manzoni	I promessi sposi	1840
+avvertire	avverto	indicative.present.1s	no	agrees	Vi avverto che i brillanti sono molto cresciuti di prezzo.	8949	Luigi Pirandello	Un cavallo nella luna	1918
+avvicinare	avvicina	indicative.present.3s	no	agrees	Corri, Pinocchio, perchè il mostro si avvicina!...	1521	Carlo Collodi	Le avventure di Pinocchio	1883
+avvicinare	avvicinare	non_finite.infinitive	yes	agrees	Fu come avvicinare una fiammella ad un razzo.	1950	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+avvicinare	avvicinavano	indicative.imperfect.3p	no	agrees	A questo punto il dialogo fu interrotto da un piccolissimo rumore di passi, che si avvicinavano.	683	Carlo Collodi	Le avventure di Pinocchio	1883
+baciare	baciare	non_finite.infinitive	yes	agrees	Questa chiamò la gatta avversaria e le ordinò di baciare la compagna.	2460	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+baciare	bacio	indicative.present.1s	yes	agrees	Bacio le mani a vossignoria.	5526	Alessandro Manzoni	I promessi sposi	1840
+baciare	baciò	indicative.past_historic.3s	no	agrees	Allora Alba saltò giù dal palco e baciò la compagna sul capo.	2916	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+badare	badare	non_finite.infinitive	yes	agrees	Come si può badare a tutto?	6498	Alessandro Manzoni	I promessi sposi	1840
+badare	badava	indicative.imperfect.3s	no	agrees	Nessuno parlava più, nè badava ai suoi vicini.	3152	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ballare	ballare	non_finite.infinitive	yes	agrees	Siamo in ballo; bisogna ballare.	5564	Alessandro Manzoni	I promessi sposi	1840
+ballare	ballavano	indicative.imperfect.3p	no	agrees	Era l'alba e ballavano sempre.	323	Carlo Collodi	Le avventure di Pinocchio	1883
+bastare	basta	indicative.present.3s	yes	agrees	Basta così! stasera faremo i nostri conti.	281	Carlo Collodi	Le avventure di Pinocchio	1883
+bastare	bastare	non_finite.infinitive	yes	agrees	No, che non può bastare.	8389	Luigi Pirandello	Un cavallo nella luna	1918
+bastare	bastassero	subjunctive.imperfect.3p	no	agrees	Quando la carrozza girò a destra sul Corso Umberto, egli principiò a temere che non gli bastassero le forze per proseguire lungamente.	3354	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+bastare	basti	subjunctive.present.3s	no	agrees	I servitori ne hanno appena tanto che basti per chiuder la porta.	5229	Alessandro Manzoni	I promessi sposi	1840
+battere	batteranno	indicative.future.3p	yes	agrees	Al più presto si batteranno oggi.	3196	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+battere	battere	non_finite.infinitive	yes	agrees	Sarebbe forse riuscita a impedire che suo padre s'andasse a battere?	3221	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+battere	batteva	indicative.imperfect.3s	no	agrees	Ci doveva essere tra quelli il mio caporale; a ogni passo che facevano avanti, mi batteva il cuore più forte.	1896	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+battere	batteva	indicative.imperfect.3s	no	agrees	Il sole batteva il primo raggio sulla facciata rosea della palazzina.	3445	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+battere	batteva	indicative.imperfect.3s	no	agrees	Perchè batteva i denti così?	8056	Luigi Pirandello	Un cavallo nella luna	1918
+battere	batto	indicative.present.1s	no	agrees	Io mi batto dunque per dimostrare che non son uomo da lasciarmi dire delle impertinenze.	3415	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+battere	battono	indicative.present.3p	no	agrees	Si battono là dietro! — disse Arturo.	3439	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+benedire	benedica	subjunctive.present.3s	no	agrees	Dio benedica tutta la famiglia!	2657	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+benedire	benedica	subjunctive.present.3s	no	agrees	Dio la benedica," disse il frate, accostandosi al lettuccio.	7698	Alessandro Manzoni	I promessi sposi	1840
+bere	bere	non_finite.infinitive	yes	agrees	Per bere il latte che è squisito!	2708	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+bere	beve	indicative.present.3s	no	agrees	Tutta gente che beve acqua," disse un vicino di Renzo.	5426	Alessandro Manzoni	I promessi sposi	1840
+bere	bevuto	non_finite.past_participle	no	agrees	Aveva bevuto, senza volerlo, tant'acqua salata, che era gonfiato come un pallone.	1045	Carlo Collodi	Le avventure di Pinocchio	1883
+bruciare	brucerebbe	conditional.present.3s	yes	agrees	Non è ignea; perchè brucerebbe.	7787	Alessandro Manzoni	I promessi sposi	1840
+bussare	bussato	non_finite.past_participle	no	ambiguous	In quel punto fu bussato alla porta.	28	Carlo Collodi	Le avventure di Pinocchio	1883
+buttare	butta	indicative.present.3s	no	agrees	Molte mani l'afferrano a un tempo: è in terra; si butta per aria il canovaccio che la copre: una tepida fragranza si diffonde all'intorno.	5154	Alessandro Manzoni	I promessi sposi	1840
+buttare	buttavo	indicative.imperfect.1s	no	agrees	Ne buttavo giù fin quattro in un giorno.	1911	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+buttare	butterei	conditional.present.1s	yes	agrees	Oggi mi butterei nel fuoco per te.	4433	Alessandro Manzoni	I promessi sposi	1840
+cacciare	cacciato	non_finite.past_participle	yes	ambiguous	Ora, da qualche tempo," continuò Attilio, "s'è cacciato in testa questo frate, che Rodrigo avesse non so che disegni sopra questa....	5915	Alessandro Manzoni	I promessi sposi	1840
+cadere	cadde	indicative.past_historic.3s	no	agrees	Questa volta il povero maestro Ciliegia cadde giù come fulminato.	25	Carlo Collodi	Le avventure di Pinocchio	1883
+cadere	cadde	indicative.past_historic.3s	no	agrees	Son proprio celie." E cadde bocconi sul letto.	5457	Alessandro Manzoni	I promessi sposi	1840
+cadere	cade	indicative.present.3s	no	agrees	Getto un grido, lascio il coperchio; la candela mi cade di mano.	8855	Luigi Pirandello	Un cavallo nella luna	1918
+cadere	cadere	non_finite.infinitive	yes	agrees	Il ragazzo lasciò cadere il cucchiaino e restò senza fiato.	3204	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+cadere	cadeva	indicative.imperfect.3s	no	agrees	Una buona parte di quest'odio pubblico cadeva ancora sui suoi amici e cortigiani.	6625	Alessandro Manzoni	I promessi sposi	1840
+camminare	camminato	non_finite.past_participle	no	agrees	Dopo aver camminato un pezzo, si può dire, alla ventura, vide che da sè non ne poteva uscire.	5611	Alessandro Manzoni	I promessi sposi	1840
+cantare	cantano	indicative.present.3p	no	agrees	Loro cantano e noi andiamo a dare la pelle.	2045	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+capire	capisce	indicative.present.3s	no	agrees	Descrissi Una lotta fra il leone e la tigre: argomento in armonia con la mia natura, si capisce.	1943	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+capire	capiva	indicative.imperfect.3s	yes	agrees	Si capiva, davanti a quel quadro, come la mente umana non abbia potuto raffigurarsi il paradiso senza bimbi.	2424	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+capitare	capita	indicative.present.3s	yes	agrees	Se capita l'occasione ci riparleremo....	1050	Carlo Collodi	Le avventure di Pinocchio	1883
+capitare	capitare	non_finite.infinitive	yes	agrees	Nel quartiere degli uomini, c'erano alcune camere destinate agli ecclesiastici, che potessero capitare.	7030	Alessandro Manzoni	I promessi sposi	1840
+capitare	capitato	non_finite.past_participle	yes	ambiguous	Questo legno è capitato a tempo; voglio servirmene per fare una gamba di tavolino.	6	Carlo Collodi	Le avventure di Pinocchio	1883
+capitare	capitò	indicative.past_historic.3s	no	agrees	Un giovedì finalmente, capitò al monastero un uomo a cercar d'Agnese.	5869	Alessandro Manzoni	I promessi sposi	1840
+cascare	cascare	non_finite.infinitive	yes	agrees	Mi doveva cascare addosso anche questa!	6935	Alessandro Manzoni	I promessi sposi	1840
+cascare	cascate	non_finite.past_participle	yes	ambiguous	Alla fine siete cascate nelle mie mani!	725	Carlo Collodi	Le avventure di Pinocchio	1883
+cascare	caschiamo	indicative.present.1p	no	agrees	Noi caschiamo dal sonno: abbiamo vegliato tutta la notte....	8920	Luigi Pirandello	Un cavallo nella luna	1918
+cavare	cavereste	conditional.present.2p	yes	agrees	Potreste darmi la corda, che non mi cavereste nulla di bocca.	3916	Alessandro Manzoni	I promessi sposi	1840
+cedere	cedette	indicative.past_historic.3s	no	agrees	Cedette poi al comando espresso del papa.	6272	Alessandro Manzoni	I promessi sposi	1840
+celebrare	celebrato	non_finite.past_participle	no	agrees	Faceva lezione come avrebbe celebrato la messa, con una dignità sacerdotale che c'imponeva rispetto e c'ingrandiva mirabilmente il concetto dell'importanza della storia.	2204	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+cercare	cercano	indicative.present.3p	no	agrees	Istintivamente con gli occhi le cercano le mani.	8292	Luigi Pirandello	Un cavallo nella luna	1918
+cercare	cercare	non_finite.infinitive	yes	agrees	Bisognava mandar qualcuno a cercare questi abiti.	8807	Luigi Pirandello	Un cavallo nella luna	1918
+cercare	cercherò	indicative.future.1s	no	agrees	Io cercherò di tornare più presto che posso.	5475	Alessandro Manzoni	I promessi sposi	1840
+cercare	cerco	indicative.present.1s	yes	agrees	Per questo non la cerco più da qualche tempo.	2273	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+cercare	cercò	indicative.past_historic.3s	yes	agrees	Lo aperse, cercò l'elenco degli avvocati, vide dove stava di casa l'avvocato Bussi, ringraziò e tirò via.	3236	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+cessare	cessa	indicative.present.3s	yes	agrees	Finalmente Pinocchio cessa d'essere un burattino e diventa un ragazzo.	1600	Carlo Collodi	Le avventure di Pinocchio	1883
+cessare	cessare	non_finite.infinitive	yes	agrees	Arrivò a Sesto, sulla sera; nè pareva che l'acqua volesse cessare.	7721	Alessandro Manzoni	I promessi sposi	1840
+chiamare	chiamai	indicative.past_historic.1s	yes	agrees	Lo chiamai: non si mosse.	1792	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+chiamare	chiamano	indicative.present.3p	no	agrees	Tutti sanno come si chiamano!	8236	Luigi Pirandello	Un cavallo nella luna	1918
+chiamare	chiamare	non_finite.infinitive	yes	agrees	Si mandò a chiamare il medico, che accorse subito.	2229	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+chiamare	chiamassimo	subjunctive.imperfect.1p	yes	agrees	Il vescovo domandò a ciascuno di noi come ci chiamassimo.	1972	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+chiamare	chiamava	indicative.imperfect.3s	no	agrees	Non avevo ancora otto anni quando fui messo al latino, nelle scuole pubbliche, in Prima Grammatica, come si chiamava allora il primo corso di Ginnasio.	1810	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+chiamare	chiami	indicative.present.2s	no	agrees	Ora mi chiami il "Tuo caro Grillino" non è vero?	1651	Carlo Collodi	Le avventure di Pinocchio	1883
+chiamare	chiami	subjunctive.present.2s	no	agrees	Cosa m'importa a me che tu ti chiami Taddeo o Bartolommeo?	5484	Alessandro Manzoni	I promessi sposi	1840
+chiamare	chiamo	indicative.present.1s	no	agrees	Non mi chiamo più Renzo, io?	7552	Alessandro Manzoni	I promessi sposi	1840
+chiamare	chiamò	indicative.past_historic.3s	yes	agrees	Questa chiamò la gatta avversaria e le ordinò di baciare la compagna.	2460	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+chiedere	chiede	indicative.present.3s	no	agrees	Me la chiede oggi, tornerebbe a combattermi domani.	2772	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+chiedere	chiedessimo	subjunctive.imperfect.1p	yes	agrees	Noi saremmo indegni della vostra misericordia, se non ve la chiedessimo di cuore per lui: ne ha tanto bisogno!	4781	Alessandro Manzoni	I promessi sposi	1840
+chiedere	chiedeva	indicative.imperfect.3s	no	agrees	Il più ricco di loro chiedeva l'elemosina.	64	Carlo Collodi	Le avventure di Pinocchio	1883
+chiedere	chiese	indicative.past_historic.3s	yes	agrees	Chiese uno spicchio di noce e un cantuccio di pane e lasciò nel piatto ogni cosa.	389	Carlo Collodi	Le avventure di Pinocchio	1883
+chiudere	chiudi	imperative.present.2s	no	agrees	Chiudi gli occhi e dormi!	214	Carlo Collodi	Le avventure di Pinocchio	1883
+circondare	circondavano	indicative.imperfect.3p	no	agrees	Penò alquanto a distinguere gli spaventosi oggetti che la circondavano, a raccogliere i suoi pensieri: alfine comprese di nuovo la sua terribile situazione.	6068	Alessandro Manzoni	I promessi sposi	1840
+cogliere	cogliere	non_finite.infinitive	yes	agrees	Aveva l'abitudine di cogliere ogni mattina un fiore dai vasi del terrazzino e d'infilarglielo in un occhiello del soprabito perchè uscisse con un suo ricordo.	2891	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+cogliere	colgono	indicative.present.3p	no	agrees	In una battaglia non mi ci colgono: oh! in una battaglia non mi ci colgono.	6993	Alessandro Manzoni	I promessi sposi	1840
+cogliere	colgono	indicative.present.3p	no	agrees	In una battaglia non mi ci colgono: oh! in una battaglia non mi ci colgono.	6993	Alessandro Manzoni	I promessi sposi	1840
+cogliere	colto	non_finite.past_participle	yes	ambiguous	È un malvivente," bisbigliava il notaio a quelli che gli erano a ridosso: "è un ladro colto sul fatto.	5590	Alessandro Manzoni	I promessi sposi	1840
+combattere	combatte	indicative.present.3s	no	agrees	È una guerra a oltranza che si combatte fra loro e noi.	2769	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+cominciare	cominciaste	indicative.past_historic.2p	yes	agrees	Quando cominciaste a sentir difficoltà di respiro?	3155	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+cominciare	cominciava	indicative.imperfect.3s	no	agrees	Vuoi che te lo dica? — replicò Pinocchio, che cominciava a perdere la pazienza.	118	Carlo Collodi	Le avventure di Pinocchio	1883
+cominciare	cominciava	indicative.imperfect.3s	no	agrees	Cominciava a essere inquieta, entro di sè.	8013	Luigi Pirandello	Un cavallo nella luna	1918
+compiere	compiere	non_finite.infinitive	yes	agrees	A compiere quel viaggio ora fu sollecitato dalla madre desolata.	3680	Alessandro Manzoni	I promessi sposi	1840
+comporre	componga	subjunctive.present.3s	yes	agrees	Domanderete di che si componga il suo repertorio.	2355	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+comprare	compra	indicative.present.3s	yes	agrees	È facilissimo: si va da un libraio e si compra.	222	Carlo Collodi	Le avventure di Pinocchio	1883
+comprare	comprai	indicative.past_historic.1s	no	agrees	Che cosa dovrei far io che lo comprai a quattrini contanti?	1695	Carlo Collodi	Le avventure di Pinocchio	1883
+comprare	comprare	non_finite.infinitive	yes	agrees	Vuoi comprare le mie scarpe?	255	Carlo Collodi	Le avventure di Pinocchio	1883
+comprare	comprato	non_finite.past_participle	no	agrees	Io ti ho comprato perchè tu lavori e perchè tu mi faccia guadagnare molti quattrini.	1422	Carlo Collodi	Le avventure di Pinocchio	1883
+comprendere	comprese	indicative.past_historic.3s	yes	agrees	Penò alquanto a distinguere gli spaventosi oggetti che la circondavano, a raccogliere i suoi pensieri: alfine comprese di nuovo la sua terribile situazione.	6068	Alessandro Manzoni	I promessi sposi	1840
+concludere	concluda	subjunctive.present.3s	no	agrees	Nessuno concluda da ciò che il notaio fosse un furbo inesperto e novizio; perchè s'ingannerebbe.	5585	Alessandro Manzoni	I promessi sposi	1840
+concordare	concorda	indicative.present.3s	no	agrees	Coi nomi terribili e romanzeschi non concorda l'indole, che è generalmente placida e prudente.	2579	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+condurre	conduceva	indicative.imperfect.3s	no	ambiguous	Era una preda che conduceva?	6416	Alessandro Manzoni	I promessi sposi	1840
+condurre	condurre	non_finite.infinitive	yes	agrees	Mi faccia condurre in una chiesa.	6155	Alessandro Manzoni	I promessi sposi	1840
+condurre	condurremo	indicative.future.1p	yes	ambiguous	Lo condurremo qui a stare allegro con noi.	4454	Alessandro Manzoni	I promessi sposi	1840
+condurre	condurrò	indicative.future.1s	yes	ambiguous	In quattro minuti vi condurrò alla riva.	1621	Carlo Collodi	Le avventure di Pinocchio	1883
+confessare	confessato	non_finite.past_participle	no	agrees	Avranno almen confessato che il povero vecchio aveva ragione?	7082	Alessandro Manzoni	I promessi sposi	1840
+confessare	confesso	indicative.present.1s	yes	agrees	Ho un rimpianto nel cuore e lo confesso con un sentimento di vergogna, come una colpa: non vidi mai Garibaldi!	2061	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+confondere	confondevano	indicative.imperfect.3p	yes	agrees	Tante accoglienze confondevano e sbalordivano Lucia: Agnese non s'imbrogliava così per poco.	6660	Alessandro Manzoni	I promessi sposi	1840
+confondere	confuso	non_finite.past_participle	no	ambiguous	Mi fece l'effetto d'un nano burlone confuso per sbaglio con dei bambini.	2503	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+confortare	conforta	indicative.present.3s	no	agrees	A poco a poco, non disperate! — la conforta il professore alla fine della lezione.	8402	Luigi Pirandello	Un cavallo nella luna	1918
+conoscere	conosce	indicative.present.3s	no	agrees	Si vede che lei non conosce il mondo.	4278	Alessandro Manzoni	I promessi sposi	1840
+conoscere	conoscerai	indicative.future.2s	yes	agrees	Conoscerai dunque anche Geppetto? — domandò al burattino.	762	Carlo Collodi	Le avventure di Pinocchio	1883
+conoscere	conosceva	indicative.imperfect.3s	no	agrees	Il cameriere gli portò un grosso libro, che egli conosceva, perchè l'aveva nello studio suo padre.	3235	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+conoscere	conosci	indicative.present.2s	no	agrees	Fa bisogno di queste cose? tu mi conosci.	4446	Alessandro Manzoni	I promessi sposi	1840
+conoscere	conosco	indicative.present.1s	no	agrees	Conosco bene il tuo babbo.	332	Carlo Collodi	Le avventure di Pinocchio	1883
+consegnare	consegnare	non_finite.infinitive	yes	agrees	No, no," disse Renzo: "gliela devo consegnare in proprie mani.	5133	Alessandro Manzoni	I promessi sposi	1840
+consigliare	consigli	subjunctive.present.3s	yes	agrees	Ebbene, la consigli di venire a mettersi sotto la mia protezione.	4340	Alessandro Manzoni	I promessi sposi	1840
+consigliare	consigliò	indicative.past_historic.3s	no	agrees	Il medico consigliò un cordiale.	3474	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+contare	contare	non_finite.infinitive	yes	agrees	Divertiti a contare le formicole che passano per la strada.	1164	Carlo Collodi	Le avventure di Pinocchio	1883
+contenere	conteneva	indicative.imperfect.3s	no	agrees	La prima lettera scritta in nome di Renzo conteneva molte materie.	6794	Alessandro Manzoni	I promessi sposi	1840
+continuare	continuò	indicative.past_historic.3s	no	agrees	Per grazia del cielo," continuò Lucia, "quel giorno era l'ultimo della filanda.	3986	Alessandro Manzoni	I promessi sposi	1840
+convenire	convieni	indicative.present.2s	yes	agrees	Se oggi ti sei liberato dalla noia dei libri e delle scuole, lo devi a me, ai miei consigli, alle mie premure, ne convieni?	1314	Carlo Collodi	Le avventure di Pinocchio	1883
+coprire	copre	indicative.present.3s	no	agrees	Molte mani l'afferrano a un tempo: è in terra; si butta per aria il canovaccio che la copre: una tepida fragranza si diffonde all'intorno.	5154	Alessandro Manzoni	I promessi sposi	1840
+correggere	corresse	indicative.past_historic.3s	yes	ambiguous	No, che parente! — corresse un terzo, come se volesse mangiarselo.	8634	Luigi Pirandello	Un cavallo nella luna	1918
+correre	corremmo	indicative.past_historic.1p	yes	agrees	Io gli detti dietro; corremmo un pezzo in mezzo alla gente che s'arrestava a guardarci, in atto di dire: — Santi scapaccioni!	1875	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+correre	correre	non_finite.infinitive	yes	agrees	Detto fatto, infilò giù per la strada traversa e cominciò a correre a gambe.	241	Carlo Collodi	Le avventure di Pinocchio	1883
+correre	corri	indicative.present.2s	no	agrees	Dove corri con tanta furia?	1221	Carlo Collodi	Le avventure di Pinocchio	1883
+correre	corri	imperative.present.2s	no	agrees	Corri, Pinocchio, perchè il mostro si avvicina!...	1521	Carlo Collodi	Le avventure di Pinocchio	1883
+correre	corse	indicative.past_historic.3s	yes	agrees	Corse un brivido per tutti i banchi; pareva che nessuno respirasse; durò per un minuto un silenzio di morte.	1933	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+correre	corsero	indicative.past_historic.3p	yes	agrees	I primi arrivati corsero alla porta della chiesa: era serrata.	4743	Alessandro Manzoni	I promessi sposi	1840
+correre	corsi	indicative.past_historic.1s	yes	ambiguous	La sera del giorno dopo corsi alla stazione: non c'era nessuno.	1842	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+costare	costa	indicative.present.3s	yes	agrees	Un bicchiere di latte costa un soldo.	1669	Carlo Collodi	Le avventure di Pinocchio	1883
+costare	costa	indicative.present.3s	yes	agrees	Ti commuovi tanto per un asino che non ti costa nulla? — disse l'ortolano.	1694	Carlo Collodi	Le avventure di Pinocchio	1883
+costare	costa	indicative.present.3s	yes	agrees	Cosa le costa dire una parola?	6157	Alessandro Manzoni	I promessi sposi	1840
+costringere	costringi	indicative.present.2s	yes	agrees	A noi ce ne importa moltissimo, perchè ci costringi a fare una brutta figura col maestro....	961	Carlo Collodi	Le avventure di Pinocchio	1883
+credere	credemmo	indicative.past_historic.1p	yes	agrees	Credemmo tutti che ne seguisse un duello.	2181	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+credere	credere	non_finite.infinitive	yes	agrees	Io non lo posso credere.	17	Carlo Collodi	Le avventure di Pinocchio	1883
+credere	credere	non_finite.infinitive	yes	agrees	Quando intese che la dedica era pure in nome del poeta, non lo voleva credere assolutamente.	3711	Alessandro Manzoni	I promessi sposi	1840
+credere	credeva	indicative.imperfect.3s	no	agrees	Lei credeva forse che fosse il lusso delle mamme quello che sveglia l'ambizione nelle figliuole....	2283	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+credere	credeva	indicative.imperfect.3s	no	agrees	Egli credeva d'aver che fare con un pane asciutto, che avrebbe fatto poco danno.	2562	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+credere	credevo	indicative.imperfect.1s	no	agrees	Sei miglia! non credevo tanto," disse Renzo.	5648	Alessandro Manzoni	I promessi sposi	1840
+crescere	crescere	non_finite.infinitive	yes	agrees	A questa seconda bugia, il naso seguitò a crescere.	565	Carlo Collodi	Le avventure di Pinocchio	1883
+crescere	cresciuto	non_finite.past_participle	yes	agrees	Il suo naso era cresciuto tanto, che non passava più dalla porta.	572	Carlo Collodi	Le avventure di Pinocchio	1883
+crescere	crescono	indicative.present.3p	no	agrees	Perchè i burattini non crescono mai.	872	Carlo Collodi	Le avventure di Pinocchio	1883
+curare	curando	non_finite.gerund	no	agrees	Avete ubbidito all'iniquità, non curando ciò che il dovere vi prescriveva.	6700	Alessandro Manzoni	I promessi sposi	1840
+dare	danno	indicative.present.3p	yes	agrees	Quando l'istante solenne è vicino, i direttori danno gli ultimi consigli, lanciano gli ordini supremi.	2366	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dare	darei	conditional.present.1s	no	agrees	Per una vergogna come la tua non darei più di tremila lire.	8997	Luigi Pirandello	Un cavallo nella luna	1918
+dare	darete	indicative.future.2p	yes	agrees	Cosa mi darete da mangiare?" disse poi all'oste.	5345	Alessandro Manzoni	I promessi sposi	1840
+dare	darà	indicative.future.3s	no	agrees	Ora che ho perduto te e il mio babbo, chi mi darà da mangiare?	750	Carlo Collodi	Le avventure di Pinocchio	1883
+dare	darà	indicative.future.3s	no	agrees	Chi le darà un parere?...	3815	Alessandro Manzoni	I promessi sposi	1840
+dare	date	indicative.present.2p	yes	agrees	Vorrei un po' di legno per fabbricare il mio burattino; me lo date?	46	Carlo Collodi	Le avventure di Pinocchio	1883
+dare	dava	indicative.imperfect.3s	no	agrees	A parlare di sè gli dava pretesto qualunque argomento.	2145	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dare	davano	indicative.imperfect.3p	no	agrees	Tra il diletto che mi davano i bambini e l'ammirazione che mi destava la direttrice non saprei dire quale fosse il sentimento più vivo.	2470	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dare	davo	indicative.imperfect.1s	no	agrees	Io so quella che davo ad essi per conto mio.	8134	Luigi Pirandello	Un cavallo nella luna	1918
+dare	dia	subjunctive.present.1s	yes	agrees	Permetti almeno che ti dia un bacio, in segno di riconoscenza eterna!...	1625	Carlo Collodi	Le avventure di Pinocchio	1883
+dare	dia	subjunctive.present.3s	yes	agrees	Non si dia pensiero di ciò.	5992	Alessandro Manzoni	I promessi sposi	1840
+dare	diede	indicative.past_historic.3s	no	agrees	Questa storia mi diede una vera malattia di paura.	1752	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dare	do	indicative.present.1s	yes	agrees	In somma do la cosa per fatta.	4839	Alessandro Manzoni	I promessi sposi	1840
+dare	do	indicative.present.1s	yes	agrees	Se le vuoi, te le do.	9001	Luigi Pirandello	Un cavallo nella luna	1918
+dare	dà	indicative.present.3s	no	agrees	Perchè mi dà noia quel guanciale che ho laggiù sui piedi.	527	Carlo Collodi	Le avventure di Pinocchio	1883
+darsi	dandosi	non_finite.gerund	yes	disagrees	Oh! sono stufo di far sempre il burattino! — gridò Pinocchio, dandosi uno scappellotto.	874	Carlo Collodi	Le avventure di Pinocchio	1883
+darsi	darsi	non_finite.infinitive	yes	agrees	Non potrebbe darsi il caso che fosse qualche vecchio pesce capace d'insegnarmi la strada per fuggire?	1549	Carlo Collodi	Le avventure di Pinocchio	1883
+descrivere	descrissi	indicative.past_historic.1s	yes	agrees	Descrissi Una lotta fra il leone e la tigre: argomento in armonia con la mia natura, si capisce.	1943	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+descrivere	descrivere	non_finite.infinitive	yes	agrees	Chi potrà ora descrivere il terrore, l'angoscia di costei, esprimere ciò che passava nel suo animo?	6053	Alessandro Manzoni	I promessi sposi	1840
+desiderare	desiderare	non_finite.infinitive	yes	agrees	Fu anche questo un furore da far desiderare che fossi nato afono.	2098	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+desiderare	desiderava	indicative.imperfect.3s	no	agrees	Ottima scelta," disse il principe, che desiderava e aspettava appunto quella.	4967	Alessandro Manzoni	I promessi sposi	1840
+desiderare	desideravo	indicative.imperfect.1s	no	agrees	Era tanto tempo che desideravo di rivederla!...	2527	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+desiderare	desideri	indicative.present.2s	yes	agrees	Desideri esser fritto in padella, oppure preferisci di esser cotto nel tegame colla salsa di pomidoro?	1080	Carlo Collodi	Le avventure di Pinocchio	1883
+desiderare	desidero	indicative.present.1s	yes	agrees	Desidero d'andar io a trovarli," aveva replicato Federigo.	6567	Alessandro Manzoni	I promessi sposi	1840
+destare	destare	non_finite.infinitive	yes	agrees	Aveva dovuto andar fuori per trattare coi padrini, che non voleva ricevere in casa sua, per non destare sospetti.	3218	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+destare	destava	indicative.imperfect.3s	yes	agrees	Tra il diletto che mi davano i bambini e l'ammirazione che mi destava la direttrice non saprei dire quale fosse il sentimento più vivo.	2470	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+destare	destò	indicative.past_historic.3s	no	agrees	Quando Pinocchio entrò nel teatrino delle marionette, accadde un fatto che destò una mezza rivoluzione.	266	Carlo Collodi	Le avventure di Pinocchio	1883
+destinare	destinate	non_finite.past_participle	yes	ambiguous	Nel quartiere degli uomini, c'erano alcune camere destinate agli ecclesiastici, che potessero capitare.	7030	Alessandro Manzoni	I promessi sposi	1840
+difendere	difendeva	indicative.imperfect.3s	no	agrees	Pinocchio, sebbene fosse solo, si difendeva come un eroe.	981	Carlo Collodi	Le avventure di Pinocchio	1883
+diffondere	diffonde	indicative.present.3s	no	agrees	Molte mani l'afferrano a un tempo: è in terra; si butta per aria il canovaccio che la copre: una tepida fragranza si diffonde all'intorno.	5154	Alessandro Manzoni	I promessi sposi	1840
+diffondere	diffonde	indicative.present.3s	no	agrees	Forse Dio, che ha operato in voi il prodigio della misericordia, diffonde in esse una gioia di cui non sentono ancora la cagione.	6325	Alessandro Manzoni	I promessi sposi	1840
+dimostrare	dimostrare	non_finite.infinitive	yes	agrees	Io mi batto dunque per dimostrare che non son uomo da lasciarmi dire delle impertinenze.	3415	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dipendere	dipende	indicative.present.3s	no	agrees	Da che dipende la vita d'un uomo!	8681	Luigi Pirandello	Un cavallo nella luna	1918
+dire	dica	subjunctive.present.1s	no	agrees	Vuoi che te lo dica? — replicò Pinocchio, che cominciava a perdere la pazienza.	118	Carlo Collodi	Le avventure di Pinocchio	1883
+dire	dicevo	indicative.imperfect.1s	no	agrees	Lo dicevo io," riprese Renzo: "già le storie si raccontano anche da noi.	5312	Alessandro Manzoni	I promessi sposi	1840
+dire	dici	indicative.present.2s	no	agrees	Vedremo se dici il vero.	1189	Carlo Collodi	Le avventure di Pinocchio	1883
+dire	dico	indicative.present.1s	no	agrees	Io dico che siete stato voi.	41	Carlo Collodi	Le avventure di Pinocchio	1883
+dire	diranno	indicative.future.3p	yes	agrees	Lo diranno, m'immagino, a chi se lo vorrà lasciar dire.	5841	Alessandro Manzoni	I promessi sposi	1840
+dire	direte	indicative.future.2p	yes	agrees	Voi direte bene, — soggiunse Pinocchio — ma io non mangerò mai una frutta, che non sia sbucciata.	186	Carlo Collodi	Le avventure di Pinocchio	1883
+dire	dirà	indicative.future.3s	yes	agrees	Che dirà quando mi vedrà?...	1135	Carlo Collodi	Le avventure di Pinocchio	1883
+dire	dirà	indicative.future.3s	yes	agrees	Chi dice le bugie al dottore, vedete figliuolo, è uno sciocco che dirà la verità al giudice.	4053	Alessandro Manzoni	I promessi sposi	1840
+dire	dirò	indicative.future.1s	no	agrees	Tu mi ubbidirai e farai sempre quello che ti dirò io.	901	Carlo Collodi	Le avventure di Pinocchio	1883
+dire	dirò	indicative.future.1s	no	agrees	Ora vi dirò tutto," rispose Lucia, asciugandosi gli occhi col grembiule.	3984	Alessandro Manzoni	I promessi sposi	1840
+dire	dissi	indicative.past_historic.1s	yes	agrees	Ho lavorato anch'io per i bambini, — dissi tra me; — non sdegnerà di ricevermi come un collega.	2277	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dire	dite	imperative.present.2p	no	agrees	Dite pure a tutti, che ho sbagliato io, per troppa furia, per troppo buon cuore: gettate tutta la colpa addosso a me.	3899	Alessandro Manzoni	I promessi sposi	1840
+discorrere	discorrere	non_finite.infinitive	yes	agrees	Eh! n'abbiamo delle cose da discorrere.	5820	Alessandro Manzoni	I promessi sposi	1840
+dispiacere	dispiace	indicative.present.3s	no	agrees	Me ne dispiace per te, che hai preso la cosa a cuore.	2775	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+distinguere	distinguere	non_finite.infinitive	yes	agrees	Penò alquanto a distinguere gli spaventosi oggetti che la circondavano, a raccogliere i suoi pensieri: alfine comprese di nuovo la sua terribile situazione.	6068	Alessandro Manzoni	I promessi sposi	1840
+diventare	diventa	indicative.present.3s	no	agrees	Finalmente Pinocchio cessa d'essere un burattino e diventa un ragazzo.	1600	Carlo Collodi	Le avventure di Pinocchio	1883
+diventare	diventassi	subjunctive.imperfect.1s	no	agrees	Sarebbe ora che diventassi anch'io un uomo....	875	Carlo Collodi	Le avventure di Pinocchio	1883
+diventare	diventato	non_finite.past_participle	no	agrees	Poi s'è cangiato subito in volto; è diventato terreo....	8917	Luigi Pirandello	Un cavallo nella luna	1918
+diventare	diventi	indicative.present.2s	no	agrees	Ah, vedi che diventi rossa!	2298	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+divertire	divertiremo	indicative.future.1p	no	agrees	Vieni piuttosto con me, nel Paese dei balocchi: lì non studieremo più; lì ci divertiremo dalla mattina alla sera e staremo sempre allegri.	1343	Carlo Collodi	Le avventure di Pinocchio	1883
+divertire	divertito	non_finite.past_participle	yes	ambiguous	Ti sei divertito? — mi domandarono i miei due giovani compagni.	3174	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+domandare	domandarono	indicative.past_historic.3p	yes	agrees	Ti sei divertito? — mi domandarono i miei due giovani compagni.	3174	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+domandare	domandate	imperative.present.2p	yes	agrees	Non me lo domandate, che non mi piace metter male.	4663	Alessandro Manzoni	I promessi sposi	1840
+domandare	domandate	imperative.present.2p	yes	agrees	Se i fornai strillassero, non lo domandate.	5145	Alessandro Manzoni	I promessi sposi	1840
+domandare	domandava	indicative.imperfect.3s	no	agrees	Cosa c'è d'altro?" domandava Renzo.	4736	Alessandro Manzoni	I promessi sposi	1840
+domandare	domandavo	indicative.imperfect.1s	no	agrees	Lo sapevo; me l'hanno fatto scrivere: domandavo se per caso fosse tornato da queste parti.	7270	Alessandro Manzoni	I promessi sposi	1840
+domandare	domanderete	indicative.future.2p	yes	agrees	Domanderete di che si componga il suo repertorio.	2355	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+domandare	domanderà	indicative.future.3s	no	agrees	La badessa vi domanderà cosa volete: è una formalità.	4944	Alessandro Manzoni	I promessi sposi	1840
+domandare	domando	indicative.present.1s	yes	agrees	Vi domando grazia per il povero Arlecchino!...	308	Carlo Collodi	Le avventure di Pinocchio	1883
+domandare	domandò	indicative.past_historic.3s	no	agrees	Il vescovo domandò a ciascuno di noi come ci chiamassimo.	1972	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dormire	dormi	imperative.present.2s	no	agrees	Chiudi gli occhi e dormi!	214	Carlo Collodi	Le avventure di Pinocchio	1883
+dormire	dormiva	indicative.imperfect.3s	no	agrees	Sentì il suo respiro regolare: dormiva.	2872	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dormire	dormiva	indicative.imperfect.3s	no	agrees	La vecchia aveva parlato mentre spogliava Gertrude, quando Gertrude era a letto; parlava ancora, che Gertrude dormiva.	4928	Alessandro Manzoni	I promessi sposi	1840
+dormire	dormivi	indicative.imperfect.2s	yes	agrees	All'arrivo delle faine sull'aia, eri sveglio o dormivi? — continuò a chiedergli il contadino.	733	Carlo Collodi	Le avventure di Pinocchio	1883
+dovere	deve	indicative.present.3s	no	agrees	Aspetto il mio babbo, che deve arrivare qui di momento in momento.	605	Carlo Collodi	Le avventure di Pinocchio	1883
+dovere	devi	indicative.present.2s	yes	agrees	Per prudenza, essa le aveva risposto: — M'ha detto che si vede dai tuoi occhi che devi esser buona.	2541	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dovere	dovete	indicative.present.2p	no	agrees	Gaeta non fu mai presa, dovete sapere.	2163	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dovere	dovete	indicative.present.2p	no	agrees	Dovete aver bisogno di mangiare.	6172	Alessandro Manzoni	I promessi sposi	1840
+dovere	doveva	indicative.imperfect.3s	no	agrees	Ci doveva essere tra quelli il mio caporale; a ogni passo che facevano avanti, mi batteva il cuore più forte.	1896	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dovere	dovevano	indicative.imperfect.3p	yes	agrees	La precedeva un grosso stuolo di trombettieri, che mi dovevano passare proprio sui piedi.	1895	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dovere	dovrebbe	conditional.present.3s	no	agrees	A quest'ora dovrebbe esser fuor della cuccia.	4939	Alessandro Manzoni	I promessi sposi	1840
+dovere	dovrebbe	conditional.present.3s	no	agrees	Se ha coraggio, contro il padrone dovrebbe tirare!	8471	Luigi Pirandello	Un cavallo nella luna	1918
+dovere	dovrei	conditional.present.1s	no	agrees	Dovrei incontrare anche gli assassini!	425	Carlo Collodi	Le avventure di Pinocchio	1883
+dovere	dovremmo	conditional.present.1p	no	agrees	Non dovremmo esser già marito e moglie?	4426	Alessandro Manzoni	I promessi sposi	1840
+dovere	dovresti	conditional.present.2s	no	agrees	Invece di tornartene a casa tua, dovresti venir con noi.	356	Carlo Collodi	Le avventure di Pinocchio	1883
+dovere	dovrà	indicative.future.3s	yes	agrees	Eh, dovrà stentare la morte ad abbatterlo....	8666	Luigi Pirandello	Un cavallo nella luna	1918
+dovere	dovuto	non_finite.past_participle	yes	agrees	Aveva dovuto andar fuori per trattare coi padrini, che non voleva ricevere in casa sua, per non destare sospetti.	3218	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+dubitare	dubiti	subjunctive.present.3s	no	agrees	Non dubiti; che già non fo conto di fermarmi qui.	7305	Alessandro Manzoni	I promessi sposi	1840
+durare	durarono	indicative.past_historic.3p	no	agrees	Le ricerche durarono più d'un mese.	8089	Luigi Pirandello	Un cavallo nella luna	1918
+durare	duri	subjunctive.present.3s	yes	ambiguous	La vigna è bella; pur che la duri.	5693	Alessandro Manzoni	I promessi sposi	1840
+durare	durò	indicative.past_historic.3s	no	agrees	Corse un brivido per tutti i banchi; pareva che nessuno respirasse; durò per un minuto un silenzio di morte.	1933	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+entrare	entrarono	indicative.past_historic.3p	yes	agrees	Entrarono in una colombaia deserta, dove c'era soltanto una catinella piena d'acqua e un cestino ricolmo di vecce.	776	Carlo Collodi	Le avventure di Pinocchio	1883
+entrare	entrava	indicative.imperfect.3s	no	agrees	Entrava una luce viva per tre grandi porte vetrate.	2423	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+esporre	espose	indicative.past_historic.3s	no	agrees	Arturo gli espose il suo disegno.	3248	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+esprimere	esprimere	non_finite.infinitive	yes	agrees	Chi potrà ora descrivere il terrore, l'angoscia di costei, esprimere ciò che passava nel suo animo?	6053	Alessandro Manzoni	I promessi sposi	1840
+essere	era	indicative.imperfect.3s	yes	agrees	Era il libro Della tirannide di Vittorio Alfieri.	1774	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+essere	eri	indicative.imperfect.2s	no	agrees	All'arrivo delle faine sull'aia, eri sveglio o dormivi? — continuò a chiedergli il contadino.	733	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	ero	indicative.imperfect.1s	yes	agrees	Come mai ti sei accorto che ero io?	863	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	essere	non_finite.infinitive	yes	agrees	Cominciava a essere inquieta, entro di sè.	8013	Luigi Pirandello	Un cavallo nella luna	1918
+essere	essere	non_finite.infinitive	yes	ambiguous	Ci doveva essere tra quelli il mio caporale; a ogni passo che facevano avanti, mi batteva il cuore più forte.	1896	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+essere	fosse	subjunctive.imperfect.3s	yes	agrees	Se il mio babbo fosse qui ora non mi troverei a morire di sbadigli!	132	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	fossi	subjunctive.imperfect.1s	yes	agrees	Se non fossi scappato di casa e se il mio babbo fosse qui, ora non mi troverei a morire di fame.	149	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	fossi	subjunctive.imperfect.1s	yes	ambiguous	Fu anche questo un furore da far desiderare che fossi nato afono.	2098	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+essere	fossimo	subjunctive.imperfect.1p	yes	agrees	Non ci accorgevamo di discendere più che non ci fossimo accorti di salire.	3164	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+essere	fu	indicative.past_historic.3s	yes	agrees	In quel punto fu bussato alla porta.	28	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	fui	indicative.past_historic.1s	yes	agrees	Non avevo ancora otto anni quando fui messo al latino, nelle scuole pubbliche, in Prima Grammatica, come si chiamava allora il primo corso di Ginnasio.	1810	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+essere	furono	indicative.past_historic.3p	yes	agrees	In poco più d'un'ora tutti i suoi amici furono invitati.	1190	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	saranno	indicative.future.3p	no	agrees	Chi sa che abiti saranno!	8943	Luigi Pirandello	Un cavallo nella luna	1918
+essere	sarebbero	conditional.present.3p	yes	agrees	Prima di sera sarebbero stati di ritorno.	8017	Luigi Pirandello	Un cavallo nella luna	1918
+essere	sarei	conditional.present.1s	no	agrees	Se io avessi tanto fiato da arrivare fino a quella casa, forse sarei salvo! — disse dentro di sè.	457	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	sarei	conditional.present.1s	no	agrees	Peccato! se alla partenza mancasse un'ora sola, sarei quasi capace di aspettare.	1250	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	saremmo	conditional.present.1p	yes	agrees	Noi saremmo indegni della vostra misericordia, se non ve la chiedessimo di cuore per lui: ne ha tanto bisogno!	4781	Alessandro Manzoni	I promessi sposi	1840
+essere	saremo	indicative.future.1p	no	agrees	Saremo più di cento ragazzi.	1226	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	saremo	indicative.future.1p	no	agrees	Voglio sperare," disse don Abbondio, "che saremo ben accolti.	6938	Alessandro Manzoni	I promessi sposi	1840
+essere	sareste	conditional.present.2p	yes	agrees	Sareste un pazzo a non farlo!	8993	Luigi Pirandello	Un cavallo nella luna	1918
+essere	sarete	indicative.future.2p	yes	agrees	Sì, sì, figliuolo, sarete condotto da Ferrer," rispose il notaio.	5552	Alessandro Manzoni	I promessi sposi	1840
+essere	sarò	indicative.future.1s	no	agrees	Sta' un po' a vedere che sarò stato io!	40	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	sia	subjunctive.present.3s	yes	agrees	A me pare che la mia esistenza sia incominciata in quel momento.	1750	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+essere	siamo	indicative.present.1p	no	agrees	Siamo pagati come dei portinai! — urlava.	2147	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+essere	siano	subjunctive.present.3p	no	agrees	Come siano andati gli studi negli ultimi mesi di quell'anno scolastico si può immaginare: come gli affari del re di Napoli, presso a poco.	2137	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+essere	siate	imperative.present.2p	yes	agrees	Siate brutali con voi stessi.	3014	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+essere	siete	indicative.present.2p	no	agrees	Io dico che siete stato voi.	41	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	sono	indicative.present.1s	yes	ambiguous	Vi giuro che non sono stato io!	49	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	stato	non_finite.past_participle	yes	ambiguous	Sta' un po' a vedere che sarò stato io!	40	Carlo Collodi	Le avventure di Pinocchio	1883
+essere	è	indicative.present.3s	yes	agrees	Questo legno è capitato a tempo; voglio servirmene per fare una gamba di tavolino.	6	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	facciamo	indicative.present.1p	no	agrees	Noi facciamo egualmente il nostro dovere...	2149	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+fare	faccio	indicative.present.1s	no	agrees	Faccio il cane di guardia.	709	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	facesse	subjunctive.imperfect.3s	yes	agrees	Allora Pinocchio ricominciò a correre per arrivare a casa della Fata avanti che si facesse buio.	672	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	facessi	subjunctive.imperfect.1s	yes	agrees	Chi lo sa che dispiacere sarebbe per il tuo vecchio padre, se ora ti facessi gettare fra quei carboni ardenti.	294	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	faceste	subjunctive.imperfect.2p	yes	agrees	Vorrei vedere che mi faceste...!	3941	Alessandro Manzoni	I promessi sposi	1840
+fare	fai	indicative.present.2s	yes	agrees	Smetti! tu mi fai il pizzicorino sul corpo!	24	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	fai	indicative.present.2s	yes	agrees	Ebbene, fai male a far così....	2817	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+fare	farai	indicative.future.2s	no	agrees	Tu mi farai da cane di guardia.	694	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	farai	indicative.future.2s	no	agrees	Tu mi ubbidirai e farai sempre quello che ti dirò io.	901	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	fare	non_finite.infinitive	yes	agrees	Questo legno è capitato a tempo; voglio servirmene per fare una gamba di tavolino.	6	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	farebbe	conditional.present.3s	no	agrees	Mi farebbe il piacere di dirmi se in quest'isola vi sono dei paesi dove si possa mangiare, senza pericolo d'esser mangiati?	808	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	farei	conditional.present.1s	no	agrees	Io, per me, non lo farei....	8889	Luigi Pirandello	Un cavallo nella luna	1918
+fare	faremo	indicative.future.1p	no	agrees	Basta così! stasera faremo i nostri conti.	281	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	fareste	conditional.present.2p	yes	agrees	Che mi fareste il piacere di darmi un po' di pane?	159	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	fareste	conditional.present.2p	yes	agrees	Mi fareste la carità di darmi un soldo perchè mi sento morir dalla fame?	829	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	faresti	conditional.present.2s	no	agrees	Faresti meglio a succiare due pasticche di lichene per guarire da codesta infreddatura di gola.	988	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	farete	indicative.future.2p	yes	agrees	Ora farete vedere a questi signori con quanta grazia sapete saltare i cerchi.	1452	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	farò	indicative.future.1s	no	agrees	Vivi dunque sicuro che in nessuna occasione non ne farò mai parola in stampa....	3719	Alessandro Manzoni	I promessi sposi	1840
+fare	fate	indicative.present.2p	yes	agrees	Che sacrifici fate voi da mettere in confronto con le loro fatiche?	2983	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+fare	fate	indicative.present.2p	yes	ambiguous	Che cosa fate costì per terra?	32	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	fece	indicative.past_historic.3s	no	agrees	Dopo il naso gli fece la bocca.	69	Carlo Collodi	Le avventure di Pinocchio	1883
+fare	fecero	indicative.past_historic.3p	yes	agrees	Poi fecero dare una spruzzata d'aceto alla camera.	8651	Luigi Pirandello	Un cavallo nella luna	1918
+farsi	fatevi	imperative.present.2p	yes	disagrees	Fatevi coraggio, che ormai c'è poco.	6480	Alessandro Manzoni	I promessi sposi	1840
+faticare	faticato	non_finite.past_participle	no	agrees	Che credi che non abbia faticato anch'io?	3393	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ferire	ferito	non_finite.past_participle	yes	ambiguous	Questo ragazzo è stato ferito in una tempia: chi è che l'ha ferito?	1013	Carlo Collodi	Le avventure di Pinocchio	1883
+fermare	ferma	indicative.present.3s	yes	agrees	Ecco: s'è avvisto di qualche cosa; si ferma a guardarci.	4632	Alessandro Manzoni	I promessi sposi	1840
+fermare	fermato	non_finite.past_participle	no	agrees	Egli m'ha fermato il sangue....	3467	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+fermare	fermò	indicative.past_historic.3s	no	agrees	Si fermò e stette in ascolto.	234	Carlo Collodi	Le avventure di Pinocchio	1883
+fermare	fermò	indicative.past_historic.3s	no	agrees	Crispucci si fermò un momento a guatarlo di traverso.	8978	Luigi Pirandello	Un cavallo nella luna	1918
+fidare	fidare	non_finite.infinitive	yes	agrees	Di te mi posso fidare...!	7181	Alessandro Manzoni	I promessi sposi	1840
+fidare	fidate	indicative.present.2p	yes	agrees	Non vi fidate di me?	4690	Alessandro Manzoni	I promessi sposi	1840
+figurare	figurare	non_finite.infinitive	yes	agrees	La gioia del burattino è impossibile descriverla: bisogna sapersela figurare.	136	Carlo Collodi	Le avventure di Pinocchio	1883
+figurare	figuri	subjunctive.present.3s	yes	agrees	Si figuri," rispose l'aiutante, con un mezzo sogghigno: "è la mula del segretario, che è un letterato.	6373	Alessandro Manzoni	I promessi sposi	1840
+finire	finisse	subjunctive.imperfect.3s	no	agrees	Prima che finisse l'inverno mi fu fatta la grazia e uscii dai lavori forzati.	1944	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+finire	finite	non_finite.past_participle	yes	agrees	Appena finite le mani, Geppetto sentì portarsi via la parrucca dal capo.	76	Carlo Collodi	Le avventure di Pinocchio	1883
+finire	finiva	indicative.imperfect.3s	no	agrees	Fu una risata, che non finiva più.	920	Carlo Collodi	Le avventure di Pinocchio	1883
+finire	finì	indicative.past_historic.3s	no	agrees	Finalmente, verso il mezzogiorno, quella fastidiosa processione finì.	4559	Alessandro Manzoni	I promessi sposi	1840
+fissare	fissato	non_finite.past_participle	yes	agrees	Il curato non ci aveva fissato lui il giorno e l'ora?	4427	Alessandro Manzoni	I promessi sposi	1840
+fregare	fregava	indicative.imperfect.3s	no	agrees	Ti dirò poi." E si fregava le mani.	7739	Alessandro Manzoni	I promessi sposi	1840
+fuggire	fuggisse	subjunctive.imperfect.3s	yes	agrees	Gli parve che la voce fuggisse davanti a lui.	3329	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+fuggire	fuggito	non_finite.past_participle	no	agrees	Il figlio della vicina era fuggito per le campagne.	8272	Luigi Pirandello	Un cavallo nella luna	1918
+gettare	gettare	non_finite.infinitive	yes	agrees	Chi lo sa che dispiacere sarebbe per il tuo vecchio padre, se ora ti facessi gettare fra quei carboni ardenti.	294	Carlo Collodi	Le avventure di Pinocchio	1883
+gettare	gettate	imperative.present.2p	yes	agrees	Dite pure a tutti, che ho sbagliato io, per troppa furia, per troppo buon cuore: gettate tutta la colpa addosso a me.	3899	Alessandro Manzoni	I promessi sposi	1840
+gettare	gettato	non_finite.past_participle	no	agrees	Si è staccato coi denti uno zampetto delle sue gambe davanti e l'ha gettato a quella povera bestia, perchè potesse sdigiunarsi.	600	Carlo Collodi	Le avventure di Pinocchio	1883
+gettare	getto	indicative.present.1s	yes	agrees	Getto un grido, lascio il coperchio; la candela mi cade di mano.	8855	Luigi Pirandello	Un cavallo nella luna	1918
+giocare	giocheresti	conditional.present.2s	yes	agrees	No, no, tu le giocheresti.	4552	Alessandro Manzoni	I promessi sposi	1840
+girare	girare	non_finite.infinitive	yes	agrees	Con questo burattino voglio girare il mondo, per buscarmi un tozzo di pane e un bicchier di vino: che ve ne pare?	37	Carlo Collodi	Le avventure di Pinocchio	1883
+girare	girare	non_finite.infinitive	yes	agrees	Vuoi adattarti a girare il bindolo?	1677	Carlo Collodi	Le avventure di Pinocchio	1883
+giungere	giunsero	indicative.past_historic.3p	no	agrees	Giunsero alla porta; Gertrude si trovò a viso a viso con la madre badessa.	4956	Alessandro Manzoni	I promessi sposi	1840
+giungere	giunto	non_finite.past_participle	yes	disagrees	Giunto dinanzi a casa, trovò l'uscio di strada socchiuso.	103	Carlo Collodi	Le avventure di Pinocchio	1883
+giurare	giuro	indicative.present.1s	yes	agrees	Vi giuro che non sono stato io!	49	Carlo Collodi	Le avventure di Pinocchio	1883
+giurare	giuro	indicative.present.1s	yes	agrees	Ti giuro che questa volta lo scovo....	8568	Luigi Pirandello	Un cavallo nella luna	1918
+godersi	godersi	non_finite.infinitive	yes	agrees	Essa la chiamava ogni momento in aiuto, per godersi più tranquillamente l'immagini d'un avvenire gradito.	4852	Alessandro Manzoni	I promessi sposi	1840
+gonfiare	gonfiato	non_finite.past_participle	no	agrees	Aveva bevuto, senza volerlo, tant'acqua salata, che era gonfiato come un pallone.	1045	Carlo Collodi	Le avventure di Pinocchio	1883
+gridare	grida	indicative.present.3s	yes	agrees	È Pinocchio davvero! — grida Pulcinella.	270	Carlo Collodi	Le avventure di Pinocchio	1883
+gridare	gridare	non_finite.infinitive	yes	agrees	Il fatto è questo," cominciava a gridare il conte Attilio.	4246	Alessandro Manzoni	I promessi sposi	1840
+gridare	gridarono	indicative.past_historic.3p	yes	agrees	Meno ciarle e fuori i denari — gridarono minacciosamente i due briganti.	437	Carlo Collodi	Le avventure di Pinocchio	1883
+gridare	gridato	non_finite.past_participle	no	agrees	Quando avrà gridato ben bene, si cheterà — disse quella birba di Lucignolo.	1224	Carlo Collodi	Le avventure di Pinocchio	1883
+gridare	gridato	non_finite.past_participle	no	agrees	Quando avrà gridato ben bene si cheterà.	1253	Carlo Collodi	Le avventure di Pinocchio	1883
+gridare	gridava	indicative.imperfect.3s	no	agrees	Aprimi! — intanto gridava Geppetto dalla strada.	170	Carlo Collodi	Le avventure di Pinocchio	1883
+guadagnare	guadagnare	non_finite.infinitive	yes	agrees	Io ti ho comprato perchè tu lavori e perchè tu mi faccia guadagnare molti quattrini.	1422	Carlo Collodi	Le avventure di Pinocchio	1883
+guardare	guarda	imperative.present.2s	yes	agrees	Guarda me! — disse la Volpe.	342	Carlo Collodi	Le avventure di Pinocchio	1883
+guardare	guarda	imperative.present.2s	yes	agrees	Guarda me! — disse il Gatto.	344	Carlo Collodi	Le avventure di Pinocchio	1883
+guardare	guardano	indicative.present.3p	no	agrees	È tanto compresa della mostruosità di quello scandalo, che non s'accorge dell'impaccio afflitto con cui la guardano le signore.	8324	Luigi Pirandello	Un cavallo nella luna	1918
+guardare	guardi	subjunctive.present.3s	yes	agrees	Guardi come lei mi tratta!	1072	Carlo Collodi	Le avventure di Pinocchio	1883
+guardare	guardo	indicative.present.1s	yes	agrees	Affretto il passo, guardo curiosamente quel viso....	3085	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+guarire	guarire	non_finite.infinitive	yes	agrees	Faresti meglio a succiare due pasticche di lichene per guarire da codesta infreddatura di gola.	988	Carlo Collodi	Le avventure di Pinocchio	1883
+guarire	guarisco	indicative.present.1s	no	agrees	Se guarisco, ti farò del bene ancor più di quello che te n'ho fatto per il passato.	7182	Alessandro Manzoni	I promessi sposi	1840
+guidare	guiderà	indicative.future.3s	no	agrees	Egli ti farà da padre, ti guiderà, ti troverà del lavoro, per fin che tu non possa tornare a viver qui tranquillamente.	4776	Alessandro Manzoni	I promessi sposi	1840
+immaginare	immaginate	imperative.present.2p	yes	agrees	Immaginate quale fu alla prova il mio stupore e la mia vergogna.	1960	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+imparare	imparate	imperative.present.2p	yes	agrees	Imparate a parlare: non si viene a sorprender così un galantuomo.	4073	Alessandro Manzoni	I promessi sposi	1840
+imparare	imparato	non_finite.past_participle	yes	ambiguous	Non ricordo in quanto tempo io abbia imparato a leggere.	1770	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+impedire	impedire	non_finite.infinitive	yes	agrees	Sarebbe forse riuscita a impedire che suo padre s'andasse a battere?	3221	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+importare	importa	indicative.present.3s	no	agrees	A noi ce ne importa moltissimo, perchè ci costringi a fare una brutta figura col maestro....	961	Carlo Collodi	Le avventure di Pinocchio	1883
+incontrare	incontrai	indicative.past_historic.1s	no	agrees	Vicino al recinto incontrai un mio buon amico di Torino e lo invitai a fare l'ascensione con noi.	3094	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+incontrare	incontrare	non_finite.infinitive	yes	agrees	Dovrei incontrare anche gli assassini!	425	Carlo Collodi	Le avventure di Pinocchio	1883
+incontrare	incontrato	non_finite.past_participle	no	agrees	Ho incontrato i ladri e mi hanno spogliato.	1129	Carlo Collodi	Le avventure di Pinocchio	1883
+incrociare	incrociarono	indicative.past_historic.3p	yes	agrees	Si misero in guardia e incrociarono le lame....	3448	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+indicare	indicate	non_finite.past_participle	yes	disagrees	Ci erano state indicate prima le file dei banchi dove doveva passare ciascuno.	1966	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+indicare	indicavano	indicative.imperfect.3p	no	agrees	Il tono della voce e i movimenti del volto indicavano manifestamente che proferiva il nome d'un grand'amico.	4804	Alessandro Manzoni	I promessi sposi	1840
+indovinare	indovinare	non_finite.infinitive	yes	agrees	Tutti alzarono il capo e stettero attenti per indovinare il giudizio dal suo viso.	3003	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+indovinare	indovinato	non_finite.past_participle	no	agrees	Dimmi un po': ho indovinato?...	2827	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+infilare	infilò	indicative.past_historic.3s	no	agrees	Detto fatto, infilò giù per la strada traversa e cominciò a correre a gambe.	241	Carlo Collodi	Le avventure di Pinocchio	1883
+informare	informare	non_finite.infinitive	yes	agrees	Cosa ho da informare? io non so nulla; appena ho la testa da attendere ai fatti miei.	5523	Alessandro Manzoni	I promessi sposi	1840
+informare	informare	non_finite.infinitive	yes	agrees	Perchè non avete pensato a informare il vostro vescovo dell'impedimento che un'infame violenza metteva all'esercizio del vostro ministero?	6709	Alessandro Manzoni	I promessi sposi	1840
+insegnare	insegnato	non_finite.past_participle	no	agrees	Chi t'ha insegnato a metter fuori di queste ragioni?	2823	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+insistere	insista	subjunctive.present.2s	yes	agrees	È inutile che tu insista.	2773	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+intendere	intendeva	indicative.imperfect.3s	no	agrees	Allora mangia il fieno! — replicò il padrone, che intendeva benissimo il dialetto asinino.	1410	Carlo Collodi	Le avventure di Pinocchio	1883
+intendere	intendiamo	indicative.present.1p	no	agrees	Noi non intendiamo di dar giudizi: ci basta d'aver dei fatti da raccontare.	4373	Alessandro Manzoni	I promessi sposi	1840
+intendere	intese	indicative.past_historic.3s	yes	agrees	Quando intese che la dedica era pure in nome del poeta, non lo voleva credere assolutamente.	3711	Alessandro Manzoni	I promessi sposi	1840
+intendere	intesi	indicative.past_historic.1s	yes	agrees	Dalla camera vicina intesi la sentenza terribile.	2230	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+interrompere	interrotto	non_finite.past_participle	no	ambiguous	A questo punto il dialogo fu interrotto da un piccolissimo rumore di passi, che si avvicinavano.	683	Carlo Collodi	Le avventure di Pinocchio	1883
+interrompere	interruppe	indicative.past_historic.3s	no	agrees	Orsù," interruppe il bravo, "se la cosa avesse a decidersi a ciarle, lei ci metterebbe in sacco.	3776	Alessandro Manzoni	I promessi sposi	1840
+invitare	invitai	indicative.past_historic.1s	yes	agrees	Vicino al recinto incontrai un mio buon amico di Torino e lo invitai a fare l'ascensione con noi.	3094	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+invitare	invitato	non_finite.past_participle	yes	ambiguous	Basta; Bortolo mi voleva bene, è un buon figliuolo, ha fatto danari, m'ha invitato tante volte; non m'abbandonerà.	5783	Alessandro Manzoni	I promessi sposi	1840
+invitare	invitò	indicative.past_historic.3s	no	agrees	Invitò poi più volte Lucia che venisse a goder di quella buona roba.	6195	Alessandro Manzoni	I promessi sposi	1840
+lanciare	lanciano	indicative.present.3p	yes	agrees	Quando l'istante solenne è vicino, i direttori danno gli ultimi consigli, lanciano gli ordini supremi.	2366	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+lasciare	lascerai	indicative.future.2s	no	agrees	Ebbene; prometti che non affronterai, che non provocherai nessuno, che ti lascerai guidar da me.	4221	Alessandro Manzoni	I promessi sposi	1840
+lasciare	lascerebbe	conditional.present.3s	yes	agrees	Se lo dico," rispondeva Perpetua, "che lei si lascerebbe cavar gli occhi di testa.	7052	Alessandro Manzoni	I promessi sposi	1840
+lasciare	lascerò	indicative.future.1s	no	agrees	Ehi, mi lascerò poi veder presto, per la cerca dell'olio.	5902	Alessandro Manzoni	I promessi sposi	1840
+lasciare	lasci	subjunctive.present.3s	no	agrees	Mi lasci entrare, che l'aspetterò.	5134	Alessandro Manzoni	I promessi sposi	1840
+lasciare	lascia	imperative.present.2s	no	agrees	Lascia fare: che questa volta te la faremo aprir noi!...	473	Carlo Collodi	Le avventure di Pinocchio	1883
+lasciare	lascia	imperative.present.2s	no	agrees	Sta come torre e lascia dir le genti.	1997	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+lasciare	lasciamo	imperative.present.1p	no	agrees	Lasciamo fare a Quello lassù.	4475	Alessandro Manzoni	I promessi sposi	1840
+lasciare	lasciamo	indicative.present.1p	no	agrees	Noi lasciamo, come lui, la cosa in dubbio.	4540	Alessandro Manzoni	I promessi sposi	1840
+lasciare	lasciano	indicative.present.3p	no	agrees	Se gli lasciano quel povero burattino fra le mani, è capacissimo di farlo a pezzi!	97	Carlo Collodi	Le avventure di Pinocchio	1883
+lasciare	lasciate	imperative.present.2p	yes	agrees	Lasciate prima rassettare il cadavere....	8884	Luigi Pirandello	Un cavallo nella luna	1918
+lasciare	lascino	subjunctive.present.3p	yes	agrees	Ditemi dove sono; lasciatemi andare; dite a costoro che mi lascino andare, che mi portino in qualche chiesa.	6120	Alessandro Manzoni	I promessi sposi	1840
+lasciare	lascio	indicative.present.1s	no	agrees	Se fu un colpo per il nostro frate, lo lascio pensare a voi.	6018	Alessandro Manzoni	I promessi sposi	1840
+lasciare	lascio	indicative.present.1s	no	agrees	Getto un grido, lascio il coperchio; la candela mi cade di mano.	8855	Luigi Pirandello	Un cavallo nella luna	1918
+lasciare	lasciò	indicative.past_historic.3s	no	agrees	Chiese uno spicchio di noce e un cantuccio di pane e lasciò nel piatto ogni cosa.	389	Carlo Collodi	Le avventure di Pinocchio	1883
+lasciare	lasciò	indicative.past_historic.3s	no	agrees	Il giorno che tornai a scuola mi lasciò nell'animo un ricordo incancellabile.	1784	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+lavorare	lavora	indicative.present.3s	no	agrees	La vostra poltroneria è un insulto alla fanciullezza povera che stenta e lavora.	2985	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+lavorare	lavorano	indicative.present.3p	no	agrees	Voi dite: Gli uni lavorano, gli altri studiano.	2982	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+lavorare	lavorato	non_finite.past_participle	yes	agrees	Ho lavorato anch'io per i bambini, — dissi tra me; — non sdegnerà di ricevermi come un collega.	2277	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+lavorare	lavorava	indicative.imperfect.3s	no	agrees	Agnese andava un po' fuori, un po' lavorava in compagnia della figlia.	6633	Alessandro Manzoni	I promessi sposi	1840
+lavorare	lavoravano	indicative.imperfect.3p	no	agrees	Ah! era per questo dunque, che lavoravano a sbrattare la strada.	7467	Alessandro Manzoni	I promessi sposi	1840
+lavorare	lavori	subjunctive.present.2s	yes	agrees	Io ti ho comprato perchè tu lavori e perchè tu mi faccia guadagnare molti quattrini.	1422	Carlo Collodi	Le avventure di Pinocchio	1883
+legare	legate	non_finite.past_participle	yes	ambiguous	Sono come legate da tutte quelle nuove nozioni scientifiche....	8414	Luigi Pirandello	Un cavallo nella luna	1918
+leggere	leggere	non_finite.infinitive	yes	agrees	Non ricordo in quanto tempo io abbia imparato a leggere.	1770	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+leggere	leggerò	indicative.future.1s	no	agrees	Allora te lo leggerò io.	245	Carlo Collodi	Le avventure di Pinocchio	1883
+leggere	leggesse	subjunctive.imperfect.3s	no	agrees	Non potei reggere allo sguardo di mio padre, che pareva mi leggesse nel cuore.	1798	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+leggere	leggete	imperative.present.2p	no	agrees	Leggete questo capitolo e lo saprete.	1554	Carlo Collodi	Le avventure di Pinocchio	1883
+leggere	leggevamo	indicative.imperfect.1p	yes	agrees	Leggevamo i suoi discorsi nei giornali con un sorriso di sarcasmo feroce.	2133	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+leggere	lesse	indicative.past_historic.3s	yes	agrees	Il professore ci lesse la lettera adagio adagio, piantandoci ogni parola nel cuore.	1992	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+leggere	lessi	indicative.past_historic.1s	yes	ambiguous	Se tu sapessi che dolore e che serratura alla gola che provai, quando lessi qui giace...	896	Carlo Collodi	Le avventure di Pinocchio	1883
+levare	leverebbe	conditional.present.3s	yes	agrees	Quando mi fosse toccata una schioppettata nella schiena, Dio liberi! l'arcivescovo me la leverebbe?	3827	Alessandro Manzoni	I promessi sposi	1840
+levare	levò	indicative.past_historic.3s	yes	agrees	La Fata gli levò il guanciale.	528	Carlo Collodi	Le avventure di Pinocchio	1883
+liberare	liberato	non_finite.past_participle	no	ambiguous	Se oggi ti sei liberato dalla noia dei libri e delle scuole, lo devi a me, ai miei consigli, alle mie premure, ne convieni?	1314	Carlo Collodi	Le avventure di Pinocchio	1883
+liberare	liberi	subjunctive.present.3s	yes	agrees	Quando mi fosse toccata una schioppettata nella schiena, Dio liberi! l'arcivescovo me la leverebbe?	3827	Alessandro Manzoni	I promessi sposi	1840
+liberare	liberi	subjunctive.present.3s	yes	agrees	Compisca l'opera di misericordia: mi liberi, mi liberi.	6169	Alessandro Manzoni	I promessi sposi	1840
+mancare	mancasse	subjunctive.imperfect.3s	no	agrees	Peccato! se alla partenza mancasse un'ora sola, sarei quasi capace di aspettare.	1250	Carlo Collodi	Le avventure di Pinocchio	1883
+mancare	mancava	indicative.imperfect.3s	no	agrees	Ci mancava il cavallo, ci mancava....	8050	Luigi Pirandello	Un cavallo nella luna	1918
+mandare	manda	indicative.present.3s	no	agrees	Dimmi un poco; chi è che ti manda avanti la bottega?	5423	Alessandro Manzoni	I promessi sposi	1840
+mandare	mandava	indicative.imperfect.3s	no	agrees	Non v'ha avvertito che vi mandava come un agnello tra i lupi?	6676	Alessandro Manzoni	I promessi sposi	1840
+mandare	manderò	indicative.future.1s	no	agrees	Ebbene, cosa credi?" rispose Agnese: "glieli manderò davvero.	6769	Alessandro Manzoni	I promessi sposi	1840
+mandare	mandiate	subjunctive.present.2p	yes	agrees	Sarà meglio che mandiate voi qualcheduno.	4544	Alessandro Manzoni	I promessi sposi	1840
+mandare	mandò	indicative.past_historic.3s	no	agrees	Si mandò a chiamare il medico, che accorse subito.	2229	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+mangiare	mangerò	indicative.future.1s	no	agrees	Voi direte bene, — soggiunse Pinocchio — ma io non mangerò mai una frutta, che non sia sbucciata.	186	Carlo Collodi	Le avventure di Pinocchio	1883
+mangiare	mangerò	indicative.future.1s	no	agrees	Pazienza! — disse Pinocchio — se non c'è altro, mangerò una buccia.	196	Carlo Collodi	Le avventure di Pinocchio	1883
+mangiare	mangi	subjunctive.present.1s	no	agrees	Se volete che le mangi, fatemi il piacere di sbucciarle.	183	Carlo Collodi	Le avventure di Pinocchio	1883
+mangiare	mangiando	non_finite.gerund	no	agrees	Una bambina stava mangiando un pezzetto di carne in umido: una monaca le domandò: — Con che cosa è fatta codesta carne?	2431	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+mangiare	mangiano	indicative.present.3p	no	agrees	Rispondi: se lo mangiano vivo?	8035	Luigi Pirandello	Un cavallo nella luna	1918
+mangiare	mangiano	indicative.present.3p	no	agrees	Che vuoi che sappia io, come se lo mangiano?	8036	Luigi Pirandello	Un cavallo nella luna	1918
+mangiare	mangiato	non_finite.past_participle	no	agrees	Perchè mi hanno mangiato i piedi.	172	Carlo Collodi	Le avventure di Pinocchio	1883
+mangiare	mangino	subjunctive.present.3p	yes	agrees	Che ha paura forse che ti mangino i pipistrelli?	1234	Carlo Collodi	Le avventure di Pinocchio	1883
+mangiare	mangio	indicative.present.1s	no	agrees	Ebbene, — disse la ragazza, — se non mangia lei, non mangio io.	2802	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+mangiare	mangiò	indicative.past_historic.3s	yes	agrees	Quello che mangiò meno di tutti fu Pinocchio.	388	Carlo Collodi	Le avventure di Pinocchio	1883
+mangiare	mangiò	indicative.past_historic.3s	yes	agrees	La figliuola quasi non mangiò.	2839	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+menare	menate	indicative.present.2p	yes	agrees	Mi menate a vederlo? — disse Pinocchio.	1684	Carlo Collodi	Le avventure di Pinocchio	1883
+menare	menato	non_finite.past_participle	no	agrees	V'ho detto mai che v'avrei menato qui una principessa?	7952	Alessandro Manzoni	I promessi sposi	1840
+mentire	mentite	indicative.present.2p	yes	agrees	Voi mentite ch'io sia vile.	4143	Alessandro Manzoni	I promessi sposi	1840
+meravigliare	meraviglio	indicative.present.1s	no	agrees	Mi meraviglio! — rispose il burattino quasi offeso; — per vostra regola io non ho fatto mai il somaro; io non ho mai tirato il carretto!	830	Carlo Collodi	Le avventure di Pinocchio	1883
+meritare	meritate	indicative.present.2p	yes	agrees	Se siete poveri ve lo meritate.	1637	Carlo Collodi	Le avventure di Pinocchio	1883
+meritare	meritavano	indicative.imperfect.3p	no	agrees	Nè era da dire che le sue cadute improvvise meritavano scarsa commiserazione per la modestia delle sue aspirazioni.	8532	Luigi Pirandello	Un cavallo nella luna	1918
+meritare	meriti	indicative.present.2s	yes	agrees	Di che cosa?" disse il monatto: "tu lo meriti: si vede che sei un bravo giovine.	7405	Alessandro Manzoni	I promessi sposi	1840
+mettere	messo	non_finite.past_participle	yes	ambiguous	Non avevo ancora otto anni quando fui messo al latino, nelle scuole pubbliche, in Prima Grammatica, come si chiamava allora il primo corso di Ginnasio.	1810	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+mettere	messo	non_finite.past_participle	yes	ambiguous	Per carità, — s'era messo a gridare, — ti prego, lasciami fare! lasciami fare!	8565	Luigi Pirandello	Un cavallo nella luna	1918
+mettere	metterebbe	conditional.present.3s	yes	agrees	Orsù," interruppe il bravo, "se la cosa avesse a decidersi a ciarle, lei ci metterebbe in sacco.	3776	Alessandro Manzoni	I promessi sposi	1840
+mettere	metterò	indicative.future.1s	no	agrees	Che nome gli metterò? — disse fra sè e sè.	61	Carlo Collodi	Le avventure di Pinocchio	1883
+mettere	mettessimo	subjunctive.imperfect.1p	yes	agrees	Perchè non vorrei alle volte che mettessimo un impiastro dove non c'è ferita.	6002	Alessandro Manzoni	I promessi sposi	1840
+mettere	metteva	indicative.imperfect.3s	no	agrees	Ah, ci metteva poco lui a perder la vista degli occhi....	8264	Luigi Pirandello	Un cavallo nella luna	1918
+mettere	metti	imperative.present.2s	no	agrees	Metti fuori i denari o sei morto; — disse l'assassino più alto di statura.	439	Carlo Collodi	Le avventure di Pinocchio	1883
+mettere	misero	indicative.past_historic.3p	yes	agrees	Si misero in guardia e incrociarono le lame....	3448	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+mettersi	mettersi	non_finite.infinitive	yes	agrees	Ebbene, la consigli di venire a mettersi sotto la mia protezione.	4340	Alessandro Manzoni	I promessi sposi	1840
+montare	montava	indicative.imperfect.3s	no	agrees	Non montava mai in collera, era pacatamente spietato.	1918	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+morire	morire	non_finite.infinitive	yes	ambiguous	Se il mio babbo fosse qui ora non mi troverei a morire di sbadigli!	132	Carlo Collodi	Le avventure di Pinocchio	1883
+morire	morto	non_finite.past_participle	yes	ambiguous	Metti fuori i denari o sei morto; — disse l'assassino più alto di statura.	439	Carlo Collodi	Le avventure di Pinocchio	1883
+morire	muoia	subjunctive.present.3s	no	agrees	Ho da andarle a dire che tu vuoi che muoia di fame?	2799	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+morire	muoio	indicative.present.1s	no	agrees	Spicciatevi, per carità, perchè io muoio dal freddo.	1144	Carlo Collodi	Le avventure di Pinocchio	1883
+morire	muoiono	indicative.present.3p	no	agrees	Nascono burattini, vivono burattini e muoiono burattini.	873	Carlo Collodi	Le avventure di Pinocchio	1883
+morire	muore	indicative.present.3s	no	agrees	Ricordatevi del proverbio che dice: "Chi ruba il mantello al suo prossimo, per il solito muore senza camicia.	1640	Carlo Collodi	Le avventure di Pinocchio	1883
+mostrare	mostrò	indicative.past_historic.3s	no	agrees	Con quella collaboratrice valente che glielo aveva procurato, egli si mostrò sempre largo e generoso.	3664	Alessandro Manzoni	I promessi sposi	1840
+muovere	mosse	indicative.past_historic.3s	yes	agrees	Lo chiamai: non si mosse.	1792	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+nascere	nacque	indicative.past_historic.3s	no	agrees	Il mio amore per la lingua nacque da quella lettura.	2184	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+nascere	nascono	indicative.present.3p	no	agrees	Nascono burattini, vivono burattini e muoiono burattini.	873	Carlo Collodi	Le avventure di Pinocchio	1883
+nascere	nato	non_finite.past_participle	yes	ambiguous	Fu anche questo un furore da far desiderare che fossi nato afono.	2098	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+nascondere	nascose	indicative.past_historic.3s	no	agrees	Pinocchio si nascose la faccia sotto i lenzuoli.	501	Carlo Collodi	Le avventure di Pinocchio	1883
+nascondere	nascosto	non_finite.past_participle	yes	ambiguous	Tenne lungo tempo nascosto alle compagne quel passo, ora per timore d'esporre alle contraddizioni una buona risoluzione, ora per vergogna di palesare uno sproposito.	4858	Alessandro Manzoni	I promessi sposi	1840
+negare	nega	indicative.present.3s	no	agrees	Chi nega che ci possa essere di queste cose, anzi che ce ne sia?	7794	Alessandro Manzoni	I promessi sposi	1840
+nominare	nominò	indicative.past_historic.3s	no	agrees	Il signore nominò il paese di Lucia.	6332	Alessandro Manzoni	I promessi sposi	1840
+nominare	nominò	indicative.past_historic.3s	no	agrees	Le nominò il paese dove andavano.	6459	Alessandro Manzoni	I promessi sposi	1840
+nuotare	nuotare	non_finite.infinitive	yes	agrees	Pinocchio seguitò a nuotare, tenendosi sempre vicino alla terra.	1051	Carlo Collodi	Le avventure di Pinocchio	1883
+obbligare	obbliga	indicative.present.3s	no	agrees	Il professore la obbliga a rimanere.	8400	Luigi Pirandello	Un cavallo nella luna	1918
+occorrere	occorre	indicative.present.3s	no	agrees	Basta così: non occorre altro.	1019	Carlo Collodi	Le avventure di Pinocchio	1883
+occorrere	occorre	indicative.present.3s	no	agrees	Poichè le ho detto che non occorre altro, vada una buona volta....	2077	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+offrire	offrire	non_finite.infinitive	yes	agrees	Vanno a offrire i loro servizi ai miei clienti, brigano al Municipio, fanno parlare i giornali....	2809	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+operare	operato	non_finite.past_participle	yes	ambiguous	Forse Dio, che ha operato in voi il prodigio della misericordia, diffonde in esse una gioia di cui non sentono ancora la cagione.	6325	Alessandro Manzoni	I promessi sposi	1840
+ordinare	ordinò	indicative.past_historic.3s	no	agrees	Questa chiamò la gatta avversaria e le ordinò di baciare la compagna.	2460	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+osare	osato	non_finite.past_participle	no	ambiguous	Non hai visto che non ha osato d'affacciarsi alla finestra?	8494	Luigi Pirandello	Un cavallo nella luna	1918
+ottenere	ottenuto	non_finite.past_participle	no	ambiguous	S'era voluto, s'era tentato; cosa s'era ottenuto?	5859	Alessandro Manzoni	I promessi sposi	1840
+pagare	pagare	non_finite.infinitive	yes	agrees	Avrà probabilmente," disse il cardinale, "crediti con gente che non può pagare.	6590	Alessandro Manzoni	I promessi sposi	1840
+pagare	pagherai	indicative.future.2s	no	agrees	Tu gli pagherai da bere?	4452	Alessandro Manzoni	I promessi sposi	1840
+pagare	pagherei	conditional.present.1s	no	agrees	Che cosa pagherei che il carro passasse ora!...	1229	Carlo Collodi	Le avventure di Pinocchio	1883
+pagare	pagherà	indicative.future.3s	no	agrees	Quel frate me la pagherà.	5084	Alessandro Manzoni	I promessi sposi	1840
+parere	paiono	indicative.present.3p	no	agrees	Paiono quello che sono in realtà: trastulli di popoli.	3141	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+parere	pare	indicative.present.3s	yes	agrees	Con questo burattino voglio girare il mondo, per buscarmi un tozzo di pane e un bicchier di vino: che ve ne pare?	37	Carlo Collodi	Le avventure di Pinocchio	1883
+parere	pare	indicative.present.3s	yes	agrees	A me pare che la mia esistenza sia incominciata in quel momento.	1750	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+parere	parere	non_finite.infinitive	yes	ambiguous	Che ne doveva parere al disgraziato amico?	3715	Alessandro Manzoni	I promessi sposi	1840
+parere	pareva	indicative.imperfect.3s	no	agrees	Non potei reggere allo sguardo di mio padre, che pareva mi leggesse nel cuore.	1798	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+parere	parrebbe	conditional.present.3s	no	agrees	Parrebbe che volessi tenere dalla parte dell'iniquità.	6501	Alessandro Manzoni	I promessi sposi	1840
+parlare	parla	indicative.present.3s	no	agrees	Chi è che parla così? — domandò Pinocchio, sentendosi gelare dallo spavento.	1533	Carlo Collodi	Le avventure di Pinocchio	1883
+parlare	parlare	non_finite.infinitive	yes	agrees	A parlare di sè gli dava pretesto qualunque argomento.	2145	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+parlare	parlassi	subjunctive.imperfect.1s	yes	agrees	Credette che parlassi di montagne.	3095	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+parlare	parlato	non_finite.past_participle	yes	ambiguous	Ti ha forse parlato di me?	764	Carlo Collodi	Le avventure di Pinocchio	1883
+parlare	parlato	non_finite.past_participle	yes	ambiguous	Non vorrei che qualcuno avesse parlato....	2475	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+parlare	parlerà	indicative.future.3s	no	agrees	Lei mi parlerà della mia coscienza, quando verrò a confessarmi da lei.	4324	Alessandro Manzoni	I promessi sposi	1840
+parlare	parli	subjunctive.present.3s	no	agrees	Del comune dispiacere non se ne parli più.	3716	Alessandro Manzoni	I promessi sposi	1840
+parlare	parli	subjunctive.present.3s	no	agrees	Non se ne parli più....	4169	Alessandro Manzoni	I promessi sposi	1840
+parlare	parliamo	imperative.present.1p	no	agrees	No, no; non ne parliamo.	5806	Alessandro Manzoni	I promessi sposi	1840
+parlare	parlo	indicative.present.1s	no	agrees	È impossibile! questa è la prima parola di tutti quelli a cui ne parlo.	3712	Alessandro Manzoni	I promessi sposi	1840
+partire	partito	non_finite.past_participle	yes	ambiguous	Il battaglione era partito la mattina.	1843	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+partire	parto	indicative.present.1s	yes	agrees	Sai, Mondino, parto domani sera col battaglione.	1832	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+passare	passa	indicative.present.3s	yes	agrees	Il tempo non passa ugualmente per tutti.	8071	Luigi Pirandello	Un cavallo nella luna	1918
+passare	passano	indicative.present.3p	no	agrees	Divertiti a contare le formicole che passano per la strada.	1164	Carlo Collodi	Le avventure di Pinocchio	1883
+passare	passare	non_finite.infinitive	yes	ambiguous	La precedeva un grosso stuolo di trombettieri, che mi dovevano passare proprio sui piedi.	1895	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+passare	passasse	subjunctive.imperfect.3s	no	agrees	Che cosa pagherei che il carro passasse ora!...	1229	Carlo Collodi	Le avventure di Pinocchio	1883
+passare	passate	imperative.present.2p	yes	agrees	Passate pure, — disse il falegname, senza aver la forza di rizzarsi in piedi.	29	Carlo Collodi	Le avventure di Pinocchio	1883
+passare	passava	indicative.imperfect.3s	no	agrees	Il suo naso era cresciuto tanto, che non passava più dalla porta.	572	Carlo Collodi	Le avventure di Pinocchio	1883
+passare	passeremo	indicative.future.1p	no	agrees	Passeremo dalla piazza del duomo?" domandò poi al notaio.	5563	Alessandro Manzoni	I promessi sposi	1840
+passare	passò	indicative.past_historic.3s	no	agrees	Proprio in quel punto passò di corsa un giovane impiegato della prefettura, che ci gridò senza arrestarsi, col viso radiante: — Gaeta è presa!	2170	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+pensare	pensa	imperative.present.2s	no	agrees	Pensa che andiamo in un paese dove saremo padroni di fare il chiasso dalla mattina alla sera!	1280	Carlo Collodi	Le avventure di Pinocchio	1883
+pensare	penseremo	indicative.future.1p	yes	agrees	Aspetta un po', che penseremo noi a farteli sputare!	444	Carlo Collodi	Le avventure di Pinocchio	1883
+pensare	penso	indicative.present.1s	no	agrees	Io penso che ha cinquant'anni!	2655	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+perdere	perdere	non_finite.infinitive	yes	agrees	Vuoi che te lo dica? — replicò Pinocchio, che cominciava a perdere la pazienza.	118	Carlo Collodi	Le avventure di Pinocchio	1883
+perdere	persero	indicative.past_historic.3p	yes	agrees	Alla fine lo persero d'occhio, non lo videro più.	793	Carlo Collodi	Le avventure di Pinocchio	1883
+perdonare	perdonato	non_finite.past_participle	no	agrees	Non mi ha ancor perdonato!	2308	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+permettere	permetti	imperative.present.2s	no	agrees	Permetti almeno che ti dia un bacio, in segno di riconoscenza eterna!...	1625	Carlo Collodi	Le avventure di Pinocchio	1883
+piacere	piace	indicative.present.3s	no	agrees	A me l'amaro non mi piace.	514	Carlo Collodi	Le avventure di Pinocchio	1883
+piangere	piangere	non_finite.infinitive	yes	agrees	Non mi fate ora parlare, non mi fate piangere.	3975	Alessandro Manzoni	I promessi sposi	1840
+piangere	piangeva	indicative.imperfect.3s	no	agrees	Ora la chiamava, ora la piangeva....	8253	Luigi Pirandello	Un cavallo nella luna	1918
+piangere	piangeva	indicative.imperfect.3s	no	agrees	Dreetta piangeva? i parenti lo ingiuriavano?	8545	Luigi Pirandello	Un cavallo nella luna	1918
+picchiare	picchiassero	subjunctive.imperfect.3p	yes	agrees	Domandai a una monaca se si picchiassero spesso.	2456	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+picchiare	picchiate	imperative.present.2p	yes	ambiguous	Vediamo d'entrare in bottega: picchiate; fateli stare indietro.	5169	Alessandro Manzoni	I promessi sposi	1840
+picchiare	picchierebbe	conditional.present.3s	yes	agrees	Chi lo sa come lo picchierebbe quell'omaccio di Geppetto!...	94	Carlo Collodi	Le avventure di Pinocchio	1883
+porgere	porge	indicative.present.3s	no	agrees	Torna indietro, va all'uscio di scala, guarda, porge l'orecchio: solitudine e silenzio.	4711	Alessandro Manzoni	I promessi sposi	1840
+portare	portate	indicative.present.2p	yes	agrees	Che nuove ci portate di Milano?	5661	Alessandro Manzoni	I promessi sposi	1840
+portare	portate	indicative.present.2p	yes	agrees	Voi ci portate la benedizione.	7014	Alessandro Manzoni	I promessi sposi	1840
+portare	portato	non_finite.past_participle	yes	agrees	In verità, da povero figliuolo," rispose Renzo, "io non ho mai portato ciuffo in vita mia.	4050	Alessandro Manzoni	I promessi sposi	1840
+portare	portava	indicative.imperfect.3s	no	agrees	Dopo pochi minuti passò per la via un muratore, che portava sulle spalle un corbello di calcina.	833	Carlo Collodi	Le avventure di Pinocchio	1883
+portare	portava	indicative.imperfect.3s	no	agrees	Finalmente passò una buona donnina, che portava due brocche d'acqua.	840	Carlo Collodi	Le avventure di Pinocchio	1883
+portare	porterà	indicative.future.3s	no	agrees	Questo nome gli porterà fortuna.	62	Carlo Collodi	Le avventure di Pinocchio	1883
+portare	portino	subjunctive.present.3p	yes	agrees	Ditemi dove sono; lasciatemi andare; dite a costoro che mi lascino andare, che mi portino in qualche chiesa.	6120	Alessandro Manzoni	I promessi sposi	1840
+portare	portò	indicative.past_historic.3s	no	agrees	Sono l'omino, sono il conduttore del carro che vi portò in questo paese.	1394	Carlo Collodi	Le avventure di Pinocchio	1883
+portare	portò	indicative.past_historic.3s	no	agrees	Il cameriere gli portò un grosso libro, che egli conosceva, perchè l'aveva nello studio suo padre.	3235	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+posare	posò	indicative.past_historic.3s	no	agrees	Gli posò lievemente le mani su le tempie e gli soffiò sugli occhi.	8008	Luigi Pirandello	Un cavallo nella luna	1918
+potere	possiamo	indicative.present.1p	yes	agrees	Fra te e me ci possiamo accomodare.	1676	Carlo Collodi	Le avventure di Pinocchio	1883
+potere	posso	indicative.present.1s	no	agrees	Io non lo posso credere.	17	Carlo Collodi	Le avventure di Pinocchio	1883
+potere	posso	indicative.present.1s	no	agrees	Me lo posso trascinare appresso? caricarmelo su le spalle?	8049	Luigi Pirandello	Un cavallo nella luna	1918
+potere	potei	indicative.past_historic.1s	yes	agrees	Non potei reggere allo sguardo di mio padre, che pareva mi leggesse nel cuore.	1798	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+potere	potei	indicative.past_historic.1s	yes	agrees	Non potei trattener le lacrime.	1839	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+potere	potesse	subjunctive.imperfect.3s	no	agrees	Si è staccato coi denti uno zampetto delle sue gambe davanti e l'ha gettato a quella povera bestia, perchè potesse sdigiunarsi.	600	Carlo Collodi	Le avventure di Pinocchio	1883
+potere	potessero	subjunctive.imperfect.3p	yes	agrees	Il caso aggravante era che avevo la faccia di firmarli, perchè non mi potessero rubare la gloria degli artisti senza coscienza.	1914	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+potere	potessero	subjunctive.imperfect.3p	yes	agrees	Se si potessero fabbricare degli uomini simili invece di rimpastar programmi e regolamenti!	2065	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+potere	potessero	subjunctive.imperfect.3p	yes	agrees	Una meta onesta, che tutti ci potessero campare.	5389	Alessandro Manzoni	I promessi sposi	1840
+potere	potessero	subjunctive.imperfect.3p	yes	agrees	Nel quartiere degli uomini, c'erano alcune camere destinate agli ecclesiastici, che potessero capitare.	7030	Alessandro Manzoni	I promessi sposi	1840
+potere	potrebbe	conditional.present.3s	no	agrees	Non potrebbe darsi il caso che fosse qualche vecchio pesce capace d'insegnarmi la strada per fuggire?	1549	Carlo Collodi	Le avventure di Pinocchio	1883
+potere	potreste	conditional.present.2p	yes	agrees	Potreste darmi la corda, che non mi cavereste nulla di bocca.	3916	Alessandro Manzoni	I promessi sposi	1840
+potere	potrete	indicative.future.2p	yes	agrees	Fate a mio modo," rispose il frate: "andate a aspettare in chiesa, che intanto potrete fare un po' di bene.	5135	Alessandro Manzoni	I promessi sposi	1840
+potere	potrà	indicative.future.3s	yes	agrees	Chi non ha veduto la gioia di Pinocchio, a questa notizia tanto sospirata, non potrà mai figurarsela.	1176	Carlo Collodi	Le avventure di Pinocchio	1883
+potere	potrò	indicative.future.1s	yes	agrees	Con che coraggio potrò presentarmi alla mia buona mamma?	1002	Carlo Collodi	Le avventure di Pinocchio	1883
+potere	potrò	indicative.future.1s	yes	agrees	Anch'oggi potrò fare una bella scorpacciata di pesce!	1057	Carlo Collodi	Le avventure di Pinocchio	1883
+potere	puoi	indicative.present.2s	no	agrees	È un conto facilissimo; — rispose la Volpe — un conto che puoi farlo sulla punta delle dita.	375	Carlo Collodi	Le avventure di Pinocchio	1883
+precedere	precedeva	indicative.imperfect.3s	no	agrees	La precedeva un grosso stuolo di trombettieri, che mi dovevano passare proprio sui piedi.	1895	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+preferire	preferisci	indicative.present.2s	no	agrees	Desideri esser fritto in padella, oppure preferisci di esser cotto nel tegame colla salsa di pomidoro?	1080	Carlo Collodi	Le avventure di Pinocchio	1883
+preferire	preferisco	indicative.present.1s	no	agrees	Preferisco piuttosto di salire in groppa a qualcuno di questi ciuchini! — gridò Pinocchio.	1286	Carlo Collodi	Le avventure di Pinocchio	1883
+preferire	preferito	non_finite.past_participle	yes	ambiguous	Avrebbe preferito piuttosto di morire.	1029	Carlo Collodi	Le avventure di Pinocchio	1883
+pregare	pregai	indicative.past_historic.1s	no	agrees	Lo pregai di farmelo vedere.	2556	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+pregare	pregate	imperative.present.2p	yes	agrees	Pregate la Fata da parte mia!...	1161	Carlo Collodi	Le avventure di Pinocchio	1883
+pregare	pregato	non_finite.past_participle	no	agrees	No, no, voi: v'ho già pregato d'altro," rispose il cardinale.	6351	Alessandro Manzoni	I promessi sposi	1840
+pregare	preghiamo	imperative.present.1p	no	agrees	Preghiamo; preghiamo." Poi riprese: "ora, conducimi tu.	7658	Alessandro Manzoni	I promessi sposi	1840
+pregare	preghiamo	imperative.present.1p	no	agrees	Preghiamo; preghiamo." Poi riprese: "ora, conducimi tu.	7658	Alessandro Manzoni	I promessi sposi	1840
+premere	premano	subjunctive.present.3p	yes	agrees	Quello che non posso capire è perchè le premano tanto le spalle d'un mascalzone.	4254	Alessandro Manzoni	I promessi sposi	1840
+premere	premere	non_finite.infinitive	yes	agrees	Non m'ha da premere la mia vita?	3930	Alessandro Manzoni	I promessi sposi	1840
+prendere	prenda	subjunctive.present.3s	no	agrees	Di questo non si prenda pensiero.	7308	Alessandro Manzoni	I promessi sposi	1840
+prendere	prenderà	indicative.future.3s	no	agrees	Chi si prenderà cura della sua salute?	3814	Alessandro Manzoni	I promessi sposi	1840
+prendere	prenderà	indicative.future.3s	no	agrees	Gertrude prenderà volentieri un po' d'aria.	4903	Alessandro Manzoni	I promessi sposi	1840
+prendere	prendi	imperative.present.2s	no	agrees	Fa' subito attaccare la più bella carrozza della mia scuderia e prendi la via del bosco.	489	Carlo Collodi	Le avventure di Pinocchio	1883
+prendere	prendi	imperative.present.2s	no	agrees	Ora poi — disse la Volpe — va' alla gora qui vicina, prendi una secchia d'acqua e annaffia il terreno dove hai seminato.	620	Carlo Collodi	Le avventure di Pinocchio	1883
+prendere	prendo	indicative.present.1s	no	agrees	Non mi prendo nessuna libertà, io.	8673	Luigi Pirandello	Un cavallo nella luna	1918
+preparare	preparate	imperative.present.2p	yes	agrees	Preparate un buon letto a questo bravo giovine," disse la guida: "perchè ha intenzione di dormir qui.	5357	Alessandro Manzoni	I promessi sposi	1840
+preparare	preparavano	indicative.imperfect.3p	no	agrees	Dovevano essere le belle ragazze svizzere che si preparavano per le danze nazionali.	3145	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+prestare	prestare	non_finite.infinitive	yes	agrees	A prestare un po' d'attenzione ci s'accorge che fa tre movimenti soli, costantemente gli stessi....	8786	Luigi Pirandello	Un cavallo nella luna	1918
+pretendere	pretende	indicative.present.3s	no	agrees	Chi pretende da voi che vinciate la forza con la forza?	6688	Alessandro Manzoni	I promessi sposi	1840
+pretendere	pretenderesti	conditional.present.2s	yes	agrees	Pretenderesti forse di burlarti di me?	1476	Carlo Collodi	Le avventure di Pinocchio	1883
+pretendere	pretendete	indicative.present.2p	no	agrees	Cosa pretendete con codesta vostra parola.	6144	Alessandro Manzoni	I promessi sposi	1840
+procedere	procedette	indicative.past_historic.3s	yes	agrees	Si procedette con tutte le regole della diplomazia.	1870	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+procurare	procurato	non_finite.past_participle	no	agrees	Con quella collaboratrice valente che glielo aveva procurato, egli si mostrò sempre largo e generoso.	3664	Alessandro Manzoni	I promessi sposi	1840
+produrre	produsse	indicative.past_historic.3s	no	agrees	La loro presenza mi produsse un vivo eccitamento.	1955	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+promettere	promesso	non_finite.past_participle	yes	agrees	Me l'hai promesso, non è vero?	915	Carlo Collodi	Le avventure di Pinocchio	1883
+promettere	promesso	non_finite.past_participle	yes	ambiguous	Trattalo bene come hai promesso sul quaderno; pensa che hai sul cuore il fiore della sua figliuola.	2937	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+promettere	promettere	non_finite.infinitive	yes	agrees	Sapete cosa dovete promettere alla Madonna?	7571	Alessandro Manzoni	I promessi sposi	1840
+promettere	prometti	imperative.present.2s	no	agrees	Ebbene; prometti che non affronterai, che non provocherai nessuno, che ti lascerai guidar da me.	4221	Alessandro Manzoni	I promessi sposi	1840
+proseguire	proseguire	non_finite.infinitive	yes	agrees	Quando la carrozza girò a destra sul Corso Umberto, egli principiò a temere che non gli bastassero le forze per proseguire lungamente.	3354	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+proseguire	proseguiva	indicative.imperfect.3s	no	agrees	Dirò il vero anche in questo," proseguiva Attilio.	5925	Alessandro Manzoni	I promessi sposi	1840
+provare	provai	indicative.past_historic.1s	no	agrees	Se tu sapessi che dolore e che serratura alla gola che provai, quando lessi qui giace...	896	Carlo Collodi	Le avventure di Pinocchio	1883
+provare	provare	non_finite.infinitive	yes	agrees	Come potete provare che quel pane fosse di buon acquisto?	5500	Alessandro Manzoni	I promessi sposi	1840
+provare	provasse	subjunctive.imperfect.3s	no	agrees	Non ci sarebbe mai stato autore che provasse così ad evidenza d'aver fatto bene.	3756	Alessandro Manzoni	I promessi sposi	1840
+provare	provaste	indicative.past_historic.2p	yes	agrees	Che cosa provaste quando non vedeste più la faccia della terra?	3154	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+provare	provava	indicative.imperfect.3s	no	agrees	A immaginarla tra le braccia di quel pezzo d'omone impetuoso, si provava quasi sgomento.	8183	Luigi Pirandello	Un cavallo nella luna	1918
+provare	provi	subjunctive.present.3s	no	agrees	Provi lei a farle prendere questo po' di brodo.	8768	Luigi Pirandello	Un cavallo nella luna	1918
+provare	provò	indicative.past_historic.3s	yes	agrees	Poi si provò a scappare.	434	Carlo Collodi	Le avventure di Pinocchio	1883
+provocare	provocherai	indicative.future.2s	yes	agrees	Ebbene; prometti che non affronterai, che non provocherai nessuno, che ti lascerai guidar da me.	4221	Alessandro Manzoni	I promessi sposi	1840
+raccogliere	raccogliere	non_finite.infinitive	yes	agrees	Penò alquanto a distinguere gli spaventosi oggetti che la circondavano, a raccogliere i suoi pensieri: alfine comprese di nuovo la sua terribile situazione.	6068	Alessandro Manzoni	I promessi sposi	1840
+raccomandare	raccomando	indicative.present.1s	no	agrees	Io mi raccomando a te.	2785	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+raccontare	raccontano	indicative.present.3p	no	agrees	Lo dicevo io," riprese Renzo: "già le storie si raccontano anche da noi.	5312	Alessandro Manzoni	I promessi sposi	1840
+raccontare	raccontare	non_finite.infinitive	yes	agrees	Noi non intendiamo di dar giudizi: ci basta d'aver dei fatti da raccontare.	4373	Alessandro Manzoni	I promessi sposi	1840
+raccontare	racconteremo	indicative.future.1p	no	agrees	Intanto che s'incammina, noi racconteremo, più brevemente che sia possibile, le cagioni e il principio di quello sconvolgimento.	5140	Alessandro Manzoni	I promessi sposi	1840
+raccontare	racconterò	indicative.future.1s	no	agrees	State a sentire, che vi racconterò come un morto mi spense la candela.	8839	Luigi Pirandello	Un cavallo nella luna	1918
+raggiungere	raggiunto	non_finite.past_participle	no	agrees	Il mostro lo aveva raggiunto.	1526	Carlo Collodi	Le avventure di Pinocchio	1883
+rappresentare	rappresentava	indicative.imperfect.3s	no	agrees	Si rappresentava L'ultima notte dell'anno.	2417	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+reggere	reggere	non_finite.infinitive	yes	agrees	Non potei reggere allo sguardo di mio padre, che pareva mi leggesse nel cuore.	1798	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+reggere	reggeva	indicative.imperfect.3s	no	agrees	Il povero cane non si reggeva più in piedi.	1044	Carlo Collodi	Le avventure di Pinocchio	1883
+regolare	regolato	non_finite.past_participle	no	agrees	Non possono aver regolato tutto nella notte.	3194	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+rendere	renda	subjunctive.present.3s	yes	agrees	Dio le renda merito della sua misericordia!	6449	Alessandro Manzoni	I promessi sposi	1840
+rendere	renda	subjunctive.present.3s	yes	agrees	Sì, sì; che Dio ve ne renda merito....	6463	Alessandro Manzoni	I promessi sposi	1840
+rendere	rendere	non_finite.infinitive	yes	agrees	Hanno da rendere un bel conto!	6909	Alessandro Manzoni	I promessi sposi	1840
+rendere	renderà	indicative.future.3s	no	agrees	Il signor curato mi renderà conto di questo fatto," disse il cardinale.	6578	Alessandro Manzoni	I promessi sposi	1840
+rendere	reso	non_finite.past_participle	yes	agrees	M'avete reso un bel servizio!	3936	Alessandro Manzoni	I promessi sposi	1840
+respirare	respira	indicative.present.3s	no	agrees	Ah, come si respira bene di mattina!	8924	Luigi Pirandello	Un cavallo nella luna	1918
+respirare	respirasse	subjunctive.imperfect.3s	yes	agrees	Corse un brivido per tutti i banchi; pareva che nessuno respirasse; durò per un minuto un silenzio di morte.	1933	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+restare	resta	indicative.present.3s	yes	agrees	Il peggio resta da farsi.	3118	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+restare	restava	indicative.imperfect.3s	no	agrees	Restava da pensare alla custodia delle case.	4779	Alessandro Manzoni	I promessi sposi	1840
+restare	restavano	indicative.imperfect.3p	yes	agrees	Restavano sempre da fare le gambe e i piedi.	83	Carlo Collodi	Le avventure di Pinocchio	1883
+restituire	restituì	indicative.past_historic.3s	no	agrees	Era invece un buon diavolo, che ci restituì alla vita umana.	1923	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ricercare	ricerca	imperative.present.2s	yes	agrees	Finalmente, cerca e ricerca, trovò chi scrivesse per lui.	6789	Alessandro Manzoni	I promessi sposi	1840
+ricevere	ricevere	non_finite.infinitive	yes	agrees	Aveva dovuto andar fuori per trattare coi padrini, che non voleva ricevere in casa sua, per non destare sospetti.	3218	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ricevere	ricevuto	non_finite.past_participle	no	agrees	Ho ricevuto un telegramma in tribunale.	3309	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ricevere	ricevuto	non_finite.past_participle	no	agrees	Avevano ricevuto a Roma il giorno avanti un telegramma che annunziava questa partenza a tradimento.	8573	Luigi Pirandello	Un cavallo nella luna	1918
+ricevere	ricevuto	non_finite.past_participle	no	disagrees	Venga, venga quel tanghero, che sarà ben ricevuto.	5033	Alessandro Manzoni	I promessi sposi	1840
+richiamare	richiamò	indicative.past_historic.3s	no	agrees	Una sola frase richiamò la mia attenzione.	1805	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ricominciare	ricominciò	indicative.past_historic.3s	no	agrees	Allora Pinocchio ricominciò a correre per arrivare a casa della Fata avanti che si facesse buio.	672	Carlo Collodi	Le avventure di Pinocchio	1883
+riconoscere	riconobbe	indicative.past_historic.3s	no	agrees	Guardò meglio e riconobbe il garofano di Maria Cinzano.	2878	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+riconoscere	riconoscevo	indicative.imperfect.1s	yes	agrees	Non riconoscevo più i miei bersaglieri.	1893	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+riconoscere	riconosci	indicative.present.2s	no	agrees	Non mi riconosci? — disse la Lumaca.	1709	Carlo Collodi	Le avventure di Pinocchio	1883
+ricordare	ricordate	indicative.present.2p	yes	agrees	Non vi ricordate quante braccia ha al suo comando colui?	4507	Alessandro Manzoni	I promessi sposi	1840
+ricordare	ricordò	indicative.past_historic.3s	yes	agrees	Si ricordò che molti duelli si facevano nei boschi di Stupinigi.	3373	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ridere	ride	indicative.present.3s	no	agrees	Perchè la gente del popolo ride del duello.	3422	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ridere	riderà	indicative.future.3s	no	agrees	Lascialo piangere: riderà quando sarà sposo!	1299	Carlo Collodi	Le avventure di Pinocchio	1883
+ridere	ridi	indicative.present.2s	no	agrees	Perchè ridi? — gli domandò Pinocchio con voce di bizza.	631	Carlo Collodi	Le avventure di Pinocchio	1883
+ridere	rido	indicative.present.1s	no	agrees	Rido della bugia che hai detto.	569	Carlo Collodi	Le avventure di Pinocchio	1883
+rientrare	rientrai	indicative.past_historic.1s	yes	agrees	Rientrai allora nella mia fucina letteraria e non ne uscii più per il rimanente di quell'anno.	2258	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+riflettere	riflettete	imperative.present.2p	no	agrees	Perchè — riflettete bene: che cosa può esser morto di loro?	8112	Luigi Pirandello	Un cavallo nella luna	1918
+rilevare	rileva	indicative.present.3s	no	agrees	Dal progresso della storia si rileva poi la cagione di queste reticenze.	4794	Alessandro Manzoni	I promessi sposi	1840
+rimanere	rimanere	non_finite.infinitive	yes	agrees	Il professore la obbliga a rimanere.	8400	Luigi Pirandello	Un cavallo nella luna	1918
+rimanere	rimanevano	indicative.imperfect.3p	yes	agrees	Dal primo a cui si rivolse, seppe che gli rimanevano ancor nove miglia da fare.	5779	Alessandro Manzoni	I promessi sposi	1840
+rimanere	rimani	indicative.present.2s	no	agrees	Vieni con noi o rimani?...	1273	Carlo Collodi	Le avventure di Pinocchio	1883
+rimanere	rimase	indicative.past_historic.3s	no	agrees	Figuratevi come rimase quel buon vecchio di maestro Ciliegia!	8	Carlo Collodi	Le avventure di Pinocchio	1883
+rimettere	rimesso	non_finite.past_participle	no	agrees	Mi ha rimesso al mondo!	550	Carlo Collodi	Le avventure di Pinocchio	1883
+rimettere	rimette	indicative.present.3s	no	agrees	Lei sa che questo le rimette sempre lo stomaco.	3834	Alessandro Manzoni	I promessi sposi	1840
+ringraziare	ringrazio	indicative.present.1s	no	agrees	Non c'è più nessuno: vi ringrazio: tornate pure a casa.	4750	Alessandro Manzoni	I promessi sposi	1840
+ringraziare	ringraziò	indicative.past_historic.3s	no	agrees	Lo aperse, cercò l'elenco degli avvocati, vide dove stava di casa l'avvocato Bussi, ringraziò e tirò via.	3236	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ripetere	ripetere	non_finite.infinitive	yes	agrees	Senza farselo ripetere, il burattino cominciò a camminare per quella viottola, che conduceva al paese.	1026	Carlo Collodi	Le avventure di Pinocchio	1883
+ripetere	ripeteva	indicative.imperfect.3s	no	agrees	No, no, per amor del cielo!" ripeteva Agnese.	3999	Alessandro Manzoni	I promessi sposi	1840
+ripetere	ripeto	indicative.present.1s	no	agrees	Smetti di ridere, ti ripeto! — urlò con voce minacciosa.	72	Carlo Collodi	Le avventure di Pinocchio	1883
+riprendere	ripreso	non_finite.past_participle	no	agrees	La sua fronte s'era rialzata; lo sguardo aveva ripreso la solita espressione d'impero.	6457	Alessandro Manzoni	I promessi sposi	1840
+risparmiare	risparmiato	non_finite.past_participle	no	agrees	Se ho risparmiato te, bisogna che faccia mettere sul fuoco lui, perchè io voglio che il mio montone sia arrostito bene.	310	Carlo Collodi	Le avventure di Pinocchio	1883
+rispondere	risponda	subjunctive.present.3s	no	agrees	Risponda un poco a questo sillogismo.	4260	Alessandro Manzoni	I promessi sposi	1840
+rispondere	rispondete	indicative.present.2p	no	agrees	Voi non rispondete?" riprese il cardinale.	6698	Alessandro Manzoni	I promessi sposi	1840
+rispondere	rispondi	imperative.present.2s	no	agrees	Rispondi: se lo mangiano vivo?	8035	Luigi Pirandello	Un cavallo nella luna	1918
+rispondere	rispondo	indicative.present.1s	no	agrees	Più del necessario per divertirmi, — rispondo.	3115	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+rispondere	risposero	indicative.past_historic.3p	yes	agrees	Il drappello s'arrestò, disordinandosi; i dimostranti risposero; s'attaccarono vari battibecchi vivaci.	2047	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+rispondere	risposto	non_finite.past_participle	no	agrees	Per prudenza, essa le aveva risposto: — M'ha detto che si vede dai tuoi occhi che devi esser buona.	2541	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+ritornare	ritornare	non_finite.infinitive	yes	agrees	No, no: voglio ritornare a casa.	1232	Carlo Collodi	Le avventure di Pinocchio	1883
+ritornare	ritornerai	indicative.future.2s	no	agrees	Ritornerai a casa col naso rotto!...	977	Carlo Collodi	Le avventure di Pinocchio	1883
+ritornare	ritorni	subjunctive.present.1s	no	agrees	La mia buona Fata vuole che ritorni prima di notte.	1222	Carlo Collodi	Le avventure di Pinocchio	1883
+ritrovare	ritrova	indicative.present.3s	no	agrees	Pinocchio arriva all'isola delle "Api industriose" e ritrova la Fata.	795	Carlo Collodi	Le avventure di Pinocchio	1883
+riuscire	riesce	indicative.present.3s	no	agrees	A nulla si riesce senza soffrire.	3017	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+rivedere	rivedere	non_finite.infinitive	yes	agrees	Prima d'andarsene, volle rivedere il moribondo.	8815	Luigi Pirandello	Un cavallo nella luna	1918
+rivedere	rivedo	indicative.present.1s	no	agrees	Con che profonda attenzione lo ascolto allora, quante cose rivedo e risento al suono della sua voce!	3082	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+rivedere	rivedremo	indicative.future.1p	no	agrees	Domattina ci rivedremo, vi dico.	6171	Alessandro Manzoni	I promessi sposi	1840
+rivolgere	rivolge	indicative.present.3s	no	agrees	Dagli sguardi inquieti che rivolge a tutti i suoi compagni di viaggio capisco il suo pensiero.	3104	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+rivolgere	rivolse	indicative.past_historic.3s	yes	agrees	Dal primo a cui si rivolse, seppe che gli rimanevano ancor nove miglia da fare.	5779	Alessandro Manzoni	I promessi sposi	1840
+rodere	rode	indicative.present.3s	no	agrees	Oh, certo! ho qui qualche cosa che m'opprime, che mi rode!	6309	Alessandro Manzoni	I promessi sposi	1840
+rodere	rodere	non_finite.infinitive	yes	agrees	Con sua signoria illustrissima non la può prendere, che è un pezzo molto più grosso di lui; lì bisognerà rodere il freno.	6491	Alessandro Manzoni	I promessi sposi	1840
+rompere	rompere	non_finite.infinitive	yes	agrees	Che mi venite a rompere il capo con queste fandonie?	4068	Alessandro Manzoni	I promessi sposi	1840
+rubare	ruba	indicative.present.3s	yes	agrees	Ricordatevi del proverbio che dice: "Chi ruba il mantello al suo prossimo, per il solito muore senza camicia.	1640	Carlo Collodi	Le avventure di Pinocchio	1883
+rubare	rubare	non_finite.infinitive	yes	agrees	Mi volevano rubare le monete d'oro.	588	Carlo Collodi	Le avventure di Pinocchio	1883
+rubare	rubare	non_finite.infinitive	yes	agrees	Il caso aggravante era che avevo la faccia di firmarli, perchè non mi potessero rubare la gloria degli artisti senza coscienza.	1914	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+salire	salire	non_finite.infinitive	yes	agrees	Preferisco piuttosto di salire in groppa a qualcuno di questi ciuchini! — gridò Pinocchio.	1286	Carlo Collodi	Le avventure di Pinocchio	1883
+salire	salì	indicative.past_historic.3s	no	agrees	Alba discese dal banco e salì sul piccolo palco, dove la maestra troneggiava.	2907	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+saltare	saltare	non_finite.infinitive	yes	agrees	Ora farete vedere a questi signori con quanta grazia sapete saltare i cerchi.	1452	Carlo Collodi	Le avventure di Pinocchio	1883
+saltare	saltato	non_finite.past_participle	yes	agrees	V'è saltato il grillo di maritarvi....	3874	Alessandro Manzoni	I promessi sposi	1840
+salutare	salutate	imperative.present.2p	yes	agrees	Avanti di dar principio ai vostri esercizi, salutate questo rispettabile pubblico, cavalieri, dame e ragazzi!	1438	Carlo Collodi	Le avventure di Pinocchio	1883
+salvare	salvare	non_finite.infinitive	yes	agrees	Voglio salvare il mio babbo!	790	Carlo Collodi	Le avventure di Pinocchio	1883
+sapere	sa	indicative.present.3s	no	agrees	Chi lo sa come lo picchierebbe quell'omaccio di Geppetto!...	94	Carlo Collodi	Le avventure di Pinocchio	1883
+sapere	sai	indicative.present.2s	yes	agrees	Sai, Mondino, parto domani sera col battaglione.	1832	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+sapere	sapere	non_finite.infinitive	yes	ambiguous	Gaeta non fu mai presa, dovete sapere.	2163	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+sapere	sapere	non_finite.infinitive	yes	ambiguous	Voglio sapere ciò che ho ragion di sapere.	3928	Alessandro Manzoni	I promessi sposi	1840
+sapere	sapessi	subjunctive.imperfect.2s	no	agrees	Se tu sapessi che dolore e che serratura alla gola che provai, quando lessi qui giace...	896	Carlo Collodi	Le avventure di Pinocchio	1883
+sapere	sapeste	subjunctive.imperfect.2p	yes	agrees	Se sapeste cosa sia patire!	6562	Alessandro Manzoni	I promessi sposi	1840
+sapere	sapete	indicative.present.2p	yes	agrees	Come mai sapete che ho detto una bugia?	570	Carlo Collodi	Le avventure di Pinocchio	1883
+sapere	sapevo	indicative.imperfect.1s	no	agrees	Io sentii che ronzavi attorno all'uscio; sapevo bene che avresti finito con entrare.	2926	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+sapere	sapevo	indicative.imperfect.1s	no	agrees	Lo sapevo; me l'hanno fatto scrivere: domandavo se per caso fosse tornato da queste parti.	7270	Alessandro Manzoni	I promessi sposi	1840
+sapere	sappia	subjunctive.present.1s	no	agrees	Che vuol ch'io sappia d'impedimenti?	3865	Alessandro Manzoni	I promessi sposi	1840
+sapere	sappia	subjunctive.present.1s	no	agrees	Che vuoi che sappia io, come se lo mangiano?	8036	Luigi Pirandello	Un cavallo nella luna	1918
+sapere	saprebbe	conditional.present.3s	yes	agrees	Voi avete creduto che Dio non saprebbe difenderla!	4350	Alessandro Manzoni	I promessi sposi	1840
+sapere	saprei	conditional.present.1s	no	agrees	Tra il diletto che mi davano i bambini e l'ammirazione che mi destava la direttrice non saprei dire quale fosse il sentimento più vivo.	2470	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+sapere	saprete	indicative.future.2p	yes	agrees	Leggete questo capitolo e lo saprete.	1554	Carlo Collodi	Le avventure di Pinocchio	1883
+sapere	saprete	indicative.future.2p	yes	agrees	Io non so; venite e saprete.	8346	Luigi Pirandello	Un cavallo nella luna	1918
+sapere	saprà	indicative.future.3s	yes	agrees	Vi so dire che tutto il monastero saprà valutar l'onore che Gertrude gli fa.	4901	Alessandro Manzoni	I promessi sposi	1840
+sapere	seppe	indicative.past_historic.3s	yes	ambiguous	Dal primo a cui si rivolse, seppe che gli rimanevano ancor nove miglia da fare.	5779	Alessandro Manzoni	I promessi sposi	1840
+sapere	so	indicative.present.1s	yes	agrees	Io so quella che davo ad essi per conto mio.	8134	Luigi Pirandello	Un cavallo nella luna	1918
+sbagliare	sbagliato	non_finite.past_participle	yes	agrees	Dite pure a tutti, che ho sbagliato io, per troppa furia, per troppo buon cuore: gettate tutta la colpa addosso a me.	3899	Alessandro Manzoni	I promessi sposi	1840
+scappare	scappare	non_finite.infinitive	yes	agrees	Poi si provò a scappare.	434	Carlo Collodi	Le avventure di Pinocchio	1883
+scappare	scappato	non_finite.past_participle	no	agrees	Se non fossi scappato di casa e se il mio babbo fosse qui, ora non mi troverei a morire di fame.	149	Carlo Collodi	Le avventure di Pinocchio	1883
+scappare	scappato	non_finite.past_participle	no	ambiguous	Non aveva ancor detto la via che il ragazzo era già scappato.	3240	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+scappare	scappi	indicative.present.2s	no	agrees	Ora non ci scappi più!	471	Carlo Collodi	Le avventure di Pinocchio	1883
+scappare	scappo	indicative.present.1s	no	agrees	Anzi, siccome vedo che il sole va sotto, così ti lascio subito e scappo via.	1219	Carlo Collodi	Le avventure di Pinocchio	1883
+scegliere	sceglie	indicative.present.3s	no	agrees	Chi arriva prima, si sceglie il meglio.	8852	Luigi Pirandello	Un cavallo nella luna	1918
+scendere	scendere	non_finite.infinitive	yes	agrees	Quella brava bestiuola della Lumaca, a scendere dal quarto piano fino all'uscio di strada, ci aveva messo solamente nove ore.	1156	Carlo Collodi	Le avventure di Pinocchio	1883
+scendere	scesero	indicative.past_historic.3p	yes	agrees	Scesero la scala, arrivarono all'uscio che metteva nel cortile.	6453	Alessandro Manzoni	I promessi sposi	1840
+scherzare	scherza	indicative.present.3s	no	agrees	Si rammentino che con me non si scherza!	430	Carlo Collodi	Le avventure di Pinocchio	1883
+scommettere	scommetterei	conditional.present.1s	no	agrees	Scommetterei che ha dovuto dar più d'una volta da pensare a vostra paternità.	5944	Alessandro Manzoni	I promessi sposi	1840
+scomparire	scomparire	non_finite.infinitive	yes	agrees	Perchè gli scolari che studiano, fanno sempre scomparire quelli, come noi, che non hanno voglia di studiare.	962	Carlo Collodi	Le avventure di Pinocchio	1883
+scoppiare	scoppiarono	indicative.past_historic.3p	no	agrees	Nel silenzio della casa scoppiarono pianti.	8873	Luigi Pirandello	Un cavallo nella luna	1918
+scoprire	scoprì	indicative.past_historic.3s	no	agrees	Verso sera, scoprì il suo paese.	7250	Alessandro Manzoni	I promessi sposi	1840
+scrivere	scrive	indicative.present.3s	no	agrees	Un'idea terribile gli passò pel capo: — Scrive il suo testamento!	3320	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+scrivere	scriveremo	indicative.future.1p	no	agrees	Addio, ottimo giovane e buon amico: vi scriveremo dalla Svizzera.	3727	Alessandro Manzoni	I promessi sposi	1840
+scrivere	scrivesse	subjunctive.imperfect.3s	yes	agrees	Finalmente, cerca e ricerca, trovò chi scrivesse per lui.	6789	Alessandro Manzoni	I promessi sposi	1840
+scuotere	scuotere	non_finite.infinitive	yes	agrees	Pinocchio, che fin allora era stato immobile come un vero pezzo di legno, ebbe una specie di fremito convulso, che fece scuotere tutto il letto.	497	Carlo Collodi	Le avventure di Pinocchio	1883
+sedere	sedere	non_finite.infinitive	yes	ambiguous	Da sedere al padre," disse don Rodrigo.	4235	Alessandro Manzoni	I promessi sposi	1840
+sedere	sedetti	indicative.past_historic.1s	no	agrees	Sedetti in un angolo, vicino a un maestro dai capelli bianchi, che dava l'esame di lingua.	2587	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+seguire	seguisse	subjunctive.imperfect.3s	yes	agrees	Credemmo tutti che ne seguisse un duello.	2181	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+sentire	sentiamo	imperative.present.1p	no	agrees	Sentiamo un poco," rispose Renzo.	5377	Alessandro Manzoni	I promessi sposi	1840
+sentire	sentii	indicative.past_historic.1s	no	agrees	Mi sentii la coscienza d'un assassino.	1797	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+sentire	sentire	non_finite.infinitive	yes	agrees	State a sentire, che vi racconterò come un morto mi spense la candela.	8839	Luigi Pirandello	Un cavallo nella luna	1918
+sentire	sentito	non_finite.past_participle	yes	ambiguous	Si sarebbe sentito volare una mosca.	277	Carlo Collodi	Le avventure di Pinocchio	1883
+sentire	sento	indicative.present.1s	no	agrees	Mi fareste la carità di darmi un soldo perchè mi sento morir dalla fame?	829	Carlo Collodi	Le avventure di Pinocchio	1883
+sentire	sentono	indicative.present.3p	no	agrees	Forse Dio, che ha operato in voi il prodigio della misericordia, diffonde in esse una gioia di cui non sentono ancora la cagione.	6325	Alessandro Manzoni	I promessi sposi	1840
+sentire	sentì	indicative.past_historic.3s	yes	agrees	Appena finite le mani, Geppetto sentì portarsi via la parrucca dal capo.	76	Carlo Collodi	Le avventure di Pinocchio	1883
+sentire	sentì	indicative.past_historic.3s	yes	agrees	Sentì il suo respiro regolare: dormiva.	2872	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+servire	serve	indicative.present.3s	yes	agrees	Gli è quell'ordigno di legno che serve a tirar su l'acqua dalla cisterna per annaffiare gli ortaggi.	1678	Carlo Collodi	Le avventure di Pinocchio	1883
+servire	serve	indicative.present.3s	yes	agrees	Perchè è vecchio? perchè non serve più?	8038	Luigi Pirandello	Un cavallo nella luna	1918
+servire	servire	non_finite.infinitive	yes	agrees	Che almeno la mia disgrazia possa servire di lezione a tutti i ragazzi disobbedienti e che non hanno voglia di studiare.	1419	Carlo Collodi	Le avventure di Pinocchio	1883
+servire	servite	imperative.present.2p	yes	agrees	Servite il padre," disse don Rodrigo.	4306	Alessandro Manzoni	I promessi sposi	1840
+servire	serviva	indicative.imperfect.3s	no	agrees	Così com'era, gli serviva a meraviglia.	8929	Luigi Pirandello	Un cavallo nella luna	1918
+servire	servono	indicative.present.3p	no	agrees	Chetatevi un po'," disse don Abbondio: "che già le chiacchiere non servono a nulla.	6981	Alessandro Manzoni	I promessi sposi	1840
+smettere	smetti	imperative.present.2s	no	agrees	Smetti! tu mi fai il pizzicorino sul corpo!	24	Carlo Collodi	Le avventure di Pinocchio	1883
+smettere	smetti	imperative.present.2s	no	agrees	Smetti di ridere, ti ripeto! — urlò con voce minacciosa.	72	Carlo Collodi	Le avventure di Pinocchio	1883
+soffiare	soffia	indicative.present.3s	no	agrees	si soffia il nasino con la camicia.	2578	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+soffiare	soffiò	indicative.past_historic.3s	no	agrees	Devo essere avvezzo a non parlare." E soffiò.	5993	Alessandro Manzoni	I promessi sposi	1840
+soffiare	soffiò	indicative.past_historic.3s	no	agrees	Gli posò lievemente le mani su le tempie e gli soffiò sugli occhi.	8008	Luigi Pirandello	Un cavallo nella luna	1918
+soffrire	soffrire	non_finite.infinitive	yes	agrees	A nulla si riesce senza soffrire.	3017	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+sognare	sognato	non_finite.past_participle	no	agrees	Non c'è alcuno di noi che non abbia sognato allora di far l'artista drammatico.	3072	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+sognare	sognino	subjunctive.present.3p	yes	agrees	Io credo che molti ragazzi la sognino.	2648	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+sostenere	sostenere	non_finite.infinitive	yes	agrees	Che il contagio sia sostanza spirituale, è uno sproposito che nessuno vorrebbe sostenere; sicchè è inutile parlarne.	7782	Alessandro Manzoni	I promessi sposi	1840
+sparire	sparito	non_finite.past_participle	no	agrees	Se il battente è sparito, io seguiterò a bussare a furia di calci.	1152	Carlo Collodi	Le avventure di Pinocchio	1883
+sparire	sparito	non_finite.past_participle	no	agrees	Pare che quel piccolo mondo ecclesiastico sia sparito dalla mia vita come una meteora.	1977	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+spegnere	spense	indicative.past_historic.3s	no	agrees	State a sentire, che vi racconterò come un morto mi spense la candela.	8839	Luigi Pirandello	Un cavallo nella luna	1918
+spegnere	spento	non_finite.past_participle	yes	agrees	M'ha spento la candela! — “Che ha fatto?	8861	Luigi Pirandello	Un cavallo nella luna	1918
+spegnere	spento	non_finite.past_participle	yes	agrees	Le ha spento la candela?	8862	Luigi Pirandello	Un cavallo nella luna	1918
+sperare	sperare	non_finite.infinitive	yes	agrees	Voglio sperare," disse don Abbondio, "che saremo ben accolti.	6938	Alessandro Manzoni	I promessi sposi	1840
+sperare	sperava	indicative.imperfect.3s	no	agrees	Alba ne fu afflitta, perchè sperava che col bacio mattutino egli le avrebbe portato il consenso desiderato.	2886	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+sperare	speriamo	imperative.present.1p	yes	agrees	Speriamo che non vengano," disse don Abbondio.	7023	Alessandro Manzoni	I promessi sposi	1840
+sperare	speriamo	imperative.present.1p	yes	agrees	Speriamo," concluse, "che il Signore gli avrà usato misericordia.	7824	Alessandro Manzoni	I promessi sposi	1840
+spiegare	spiegava	indicative.imperfect.3s	no	agrees	Ho inteso che spiegava il Vangelo in vece del signor curato.	6534	Alessandro Manzoni	I promessi sposi	1840
+sputare	sputare	non_finite.infinitive	yes	agrees	Aspetta un po', che penseremo noi a farteli sputare!	444	Carlo Collodi	Le avventure di Pinocchio	1883
+staccare	staccato	non_finite.past_participle	yes	ambiguous	Si è staccato coi denti uno zampetto delle sue gambe davanti e l'ha gettato a quella povera bestia, perchè potesse sdigiunarsi.	600	Carlo Collodi	Le avventure di Pinocchio	1883
+stancare	stancherà	indicative.future.3s	no	agrees	L'avversario è fuor d'esercizio, si stancherà dopo la prima furia.	3409	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+stare	sta	imperative.present.2s	yes	agrees	Sta come torre e lascia dir le genti.	1997	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+stare	sta	imperative.present.2s	yes	ambiguous	Sta' un po' a vedere che sarò stato io!	40	Carlo Collodi	Le avventure di Pinocchio	1883
+stare	sta	indicative.present.3s	yes	ambiguous	Ditemi il fatto come sta," interruppe il dottore.	4020	Alessandro Manzoni	I promessi sposi	1840
+stare	stai	indicative.present.2s	yes	agrees	Ci stai bene? — domandò Carlo.	3403	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+stare	stai	indicative.present.2s	yes	agrees	A proposito, come stai d'appetito?	5809	Alessandro Manzoni	I promessi sposi	1840
+stare	staremo	indicative.future.1p	no	agrees	Vieni piuttosto con me, nel Paese dei balocchi: lì non studieremo più; lì ci divertiremo dalla mattina alla sera e staremo sempre allegri.	1343	Carlo Collodi	Le avventure di Pinocchio	1883
+stare	starà	indicative.future.3s	no	agrees	La Fata starà in pensiero per me.	1233	Carlo Collodi	Le avventure di Pinocchio	1883
+stare	starà	indicative.future.3s	no	agrees	Oh! starà molto a tornare?	5879	Alessandro Manzoni	I promessi sposi	1840
+stare	stesse	subjunctive.imperfect.3s	yes	agrees	Domandai a una bambina piccolissima dove stesse di casa.	2468	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+stare	stette	indicative.past_historic.3s	yes	agrees	Si fermò e stette in ascolto.	234	Carlo Collodi	Le avventure di Pinocchio	1883
+stare	stettero	indicative.past_historic.3p	yes	agrees	Tutti alzarono il capo e stettero attenti per indovinare il giudizio dal suo viso.	3003	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+stare	stia	subjunctive.present.3s	yes	agrees	Arrivedella, stia bene e tanti saluti a casa!	144	Carlo Collodi	Le avventure di Pinocchio	1883
+stare	sto	indicative.present.1s	yes	agrees	Ora sì, che sto bene!	197	Carlo Collodi	Le avventure di Pinocchio	1883
+stare	sto	indicative.present.1s	yes	agrees	Sto zitto, perchè sono in cervello anche troppo.	5431	Alessandro Manzoni	I promessi sposi	1840
+stimare	stimi	indicative.present.2s	yes	agrees	Tu stimi me, io stimo te.	8996	Luigi Pirandello	Un cavallo nella luna	1918
+stimare	stimo	indicative.present.1s	no	agrees	Tu stimi me, io stimo te.	8996	Luigi Pirandello	Un cavallo nella luna	1918
+stringere	stringemmo	indicative.past_historic.1p	yes	agrees	Stringemmo relazione in piazza d'armi.	1823	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+stringere	stringere	non_finite.infinitive	yes	agrees	Non sapete tutto ciò che ha fatto questa che volete stringere.	6319	Alessandro Manzoni	I promessi sposi	1840
+studiare	studia	indicative.present.3s	no	agrees	In quel paese benedetto non si studia mai.	1207	Carlo Collodi	Le avventure di Pinocchio	1883
+studiare	studiano	indicative.present.3p	no	agrees	Perchè gli scolari che studiano, fanno sempre scomparire quelli, come noi, che non hanno voglia di studiare.	962	Carlo Collodi	Le avventure di Pinocchio	1883
+studiare	studiano	indicative.present.3p	no	agrees	Voi dite: Gli uni lavorano, gli altri studiano.	2982	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+studiare	studiare	non_finite.infinitive	yes	agrees	Per la passione sciocca di studiare ho perduto una gamba.	343	Carlo Collodi	Le avventure di Pinocchio	1883
+studiare	studieremo	indicative.future.1p	no	agrees	Vieni piuttosto con me, nel Paese dei balocchi: lì non studieremo più; lì ci divertiremo dalla mattina alla sera e staremo sempre allegri.	1343	Carlo Collodi	Le avventure di Pinocchio	1883
+stupire	stupire	non_finite.infinitive	yes	agrees	A questi lumi di luna, non ci sarebbe da stupire....	2826	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+suggerire	suggerito	non_finite.past_participle	no	disagrees	Girò per quelle viottole, per arrivare alla coda dell'uditorio, come gli era stato suggerito.	7526	Alessandro Manzoni	I promessi sposi	1840
+svegliare	sveglia	indicative.present.3s	yes	ambiguous	Lei credeva forse che fosse il lusso delle mamme quello che sveglia l'ambizione nelle figliuole....	2283	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+svegliare	svegliare	non_finite.infinitive	yes	agrees	Non t'avrai nemmeno da svegliare.	3315	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+svegliare	svegliava	indicative.imperfect.3s	no	agrees	C'era per altro chi ci svegliava.	2025	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+svegliare	svegliò	indicative.past_historic.3s	no	agrees	Mi svegliò da quel sogno un colpo di fulmine.	2227	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+temere	temere	non_finite.infinitive	yes	agrees	Quando la carrozza girò a destra sul Corso Umberto, egli principiò a temere che non gli bastassero le forze per proseguire lungamente.	3354	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+tenere	tenere	non_finite.infinitive	yes	agrees	Parrebbe che volessi tenere dalla parte dell'iniquità.	6501	Alessandro Manzoni	I promessi sposi	1840
+tenere	teneva	indicative.imperfect.3s	no	agrees	Si teneva il fiore dell'amica sul cuore.	2879	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+tenere	tenevano	indicative.imperfect.3p	yes	agrees	Tranne il prete, tutti tenevano gli occhi fissi al moribondo.	8870	Luigi Pirandello	Un cavallo nella luna	1918
+tenere	tenga	subjunctive.present.3s	no	agrees	Qui non c'è grazia che tenga.	309	Carlo Collodi	Le avventure di Pinocchio	1883
+tenere	tenne	indicative.past_historic.3s	yes	agrees	Tenne lungo tempo nascosto alle compagne quel passo, ora per timore d'esporre alle contraddizioni una buona risoluzione, ora per vergogna di palesare uno sproposito.	4858	Alessandro Manzoni	I promessi sposi	1840
+tenere	tieni	indicative.present.2s	no	agrees	Se tieni gli occhi chiusi, mi farai morire anche me....	1000	Carlo Collodi	Le avventure di Pinocchio	1883
+tenersi	tenendosi	non_finite.gerund	yes	disagrees	Pinocchio seguitò a nuotare, tenendosi sempre vicino alla terra.	1051	Carlo Collodi	Le avventure di Pinocchio	1883
+tentare	tentato	non_finite.past_participle	no	ambiguous	S'era voluto, s'era tentato; cosa s'era ottenuto?	5859	Alessandro Manzoni	I promessi sposi	1840
+tentare	tenti	subjunctive.present.2s	no	agrees	È inutile che tu mi tenti!	1240	Carlo Collodi	Le avventure di Pinocchio	1883
+tirare	tira	indicative.present.3s	no	agrees	Lo capisco dalle occhiate che mi tira....	2307	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+tirare	tirare	non_finite.infinitive	yes	agrees	Se ha coraggio, contro il padrone dovrebbe tirare!	8471	Luigi Pirandello	Un cavallo nella luna	1918
+tirare	tirassi	subjunctive.imperfect.1s	yes	agrees	Che volevate ch'io mi tirassi addosso tutti i cappuccini d'Italia?	5056	Alessandro Manzoni	I promessi sposi	1840
+tirare	tireranno	indicative.future.3p	no	agrees	Non tireranno mica a finirsi.	3265	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+toccare	tocca	indicative.present.3s	yes	agrees	All'avvocato bisogna raccontar le cose chiare: a noi tocca poi a imbrogliarle.	4054	Alessandro Manzoni	I promessi sposi	1840
+toccare	toccava	indicative.imperfect.3s	no	agrees	A queste parole, l'oste toccava la soglia del palazzo di giustizia.	5489	Alessandro Manzoni	I promessi sposi	1840
+toccare	toccherà	indicative.future.3s	no	agrees	Ora toccherà a te a levarti d'impiccio: per me ci penso io.	5482	Alessandro Manzoni	I promessi sposi	1840
+toccare	toccherà	indicative.future.3s	no	agrees	Ora toccherà a me a raccomodarla.	5927	Alessandro Manzoni	I promessi sposi	1840
+tornare	torna	indicative.present.3s	no	agrees	Torna a casa con un castigo da fare per la maestra.	2681	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+tornare	torna	indicative.present.3s	no	agrees	Torna indietro, va all'uscio di scala, guarda, porge l'orecchio: solitudine e silenzio.	4711	Alessandro Manzoni	I promessi sposi	1840
+tornare	tornai	indicative.past_historic.1s	no	agrees	Il giorno che tornai a scuola mi lasciò nell'animo un ricordo incancellabile.	1784	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+tornare	tornasse	subjunctive.imperfect.3s	no	agrees	L'innominato stette a aspettare che il cardinale tornasse di chiesa.	6513	Alessandro Manzoni	I promessi sposi	1840
+tornare	tornassi	subjunctive.imperfect.1s	no	agrees	Se domani tornassi, lo troverei?	8817	Luigi Pirandello	Un cavallo nella luna	1918
+tornare	tornate	imperative.present.2p	yes	agrees	Non c'è più nessuno: vi ringrazio: tornate pure a casa.	4750	Alessandro Manzoni	I promessi sposi	1840
+tornare	tornerebbe	conditional.present.3s	yes	agrees	Me la chiede oggi, tornerebbe a combattermi domani.	2772	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+tornare	tornerei	conditional.present.1s	yes	agrees	Tornerei se fosse in capo al mondo, tornerei." E disparve.	7634	Alessandro Manzoni	I promessi sposi	1840
+tornare	tornerei	conditional.present.1s	yes	agrees	Tornerei se fosse in capo al mondo, tornerei." E disparve.	7634	Alessandro Manzoni	I promessi sposi	1840
+tornare	torniamo	imperative.present.1p	no	ambiguous	Torniamo indietro, per non dar sospetto.	4634	Alessandro Manzoni	I promessi sposi	1840
+tornare	torno	indicative.present.1s	yes	agrees	Aspettate, aspettate: vo e torno.	4646	Alessandro Manzoni	I promessi sposi	1840
+tornare	torno	indicative.present.1s	yes	agrees	No, no, aspettate un momento: torno con la risposta.	4649	Alessandro Manzoni	I promessi sposi	1840
+torturare	torturare	non_finite.infinitive	yes	agrees	Non hai nulla da dire a un'impertinente che digiuna apposta per torturare suo padre?	2850	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+tradire	tradire	non_finite.infinitive	yes	agrees	È sacerdote; sono una sua pecora: non mi vorrà tradire.	7312	Alessandro Manzoni	I promessi sposi	1840
+trascinare	trascinare	non_finite.infinitive	yes	agrees	Me lo posso trascinare appresso? caricarmelo su le spalle?	8049	Luigi Pirandello	Un cavallo nella luna	1918
+trattare	tratta	indicative.present.3s	yes	agrees	Guardi come lei mi tratta!	1072	Carlo Collodi	Le avventure di Pinocchio	1883
+trattare	tratta	indicative.present.3s	yes	agrees	Non si tratta di torto o di ragione; si tratta di forza.	3942	Alessandro Manzoni	I promessi sposi	1840
+trattare	trattare	non_finite.infinitive	yes	agrees	Aveva dovuto andar fuori per trattare coi padrini, che non voleva ricevere in casa sua, per non destare sospetti.	3218	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+tremare	tremava	indicative.imperfect.3s	no	agrees	Era in maniche di camicia e tremava dal freddo.	334	Carlo Collodi	Le avventure di Pinocchio	1883
+trovare	trovato	non_finite.past_participle	yes	agrees	Oh, finalmente, avevo trovato la mia strada!	2221	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+trovare	trovato	non_finite.past_participle	yes	ambiguous	Che ci avete trovato invece?	8128	Luigi Pirandello	Un cavallo nella luna	1918
+trovare	trovava	indicative.imperfect.3s	no	agrees	Non si trovava un ozioso o un vagabondo nemmeno a cercarlo col lumicino.	822	Carlo Collodi	Le avventure di Pinocchio	1883
+trovare	troverai	indicative.future.2s	no	agrees	Hai detto: lo troverò; lo troverai.	7512	Alessandro Manzoni	I promessi sposi	1840
+trovare	troverebbe	conditional.present.3s	yes	agrees	Se tanto c'è da spigolare in trentacinque componimenti, che non si troverebbe in una grande raccolta?	2698	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+trovare	troverei	conditional.present.1s	yes	agrees	Se il mio babbo fosse qui ora non mi troverei a morire di sbadigli!	132	Carlo Collodi	Le avventure di Pinocchio	1883
+trovare	troverei	conditional.present.1s	yes	agrees	Se non fossi scappato di casa e se il mio babbo fosse qui, ora non mi troverei a morire di fame.	149	Carlo Collodi	Le avventure di Pinocchio	1883
+trovare	troverei	conditional.present.1s	yes	agrees	Se domani tornassi, lo troverei?	8817	Luigi Pirandello	Un cavallo nella luna	1918
+trovare	troverà	indicative.future.3s	no	agrees	Egli ti farà da padre, ti guiderà, ti troverà del lavoro, per fin che tu non possa tornare a viver qui tranquillamente.	4776	Alessandro Manzoni	I promessi sposi	1840
+trovare	troverò	indicative.future.1s	no	agrees	Ce lo troverò a casa della Fata?	659	Carlo Collodi	Le avventure di Pinocchio	1883
+trovare	trovino	subjunctive.present.3p	yes	agrees	Pare che abbiano da dirle qualche cosa e non ne trovino il coraggio.	8325	Luigi Pirandello	Un cavallo nella luna	1918
+urlare	urlava	indicative.imperfect.3s	no	agrees	Siamo pagati come dei portinai! — urlava.	2147	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+urlare	urlò	indicative.past_historic.3s	no	agrees	Smetti di ridere, ti ripeto! — urlò con voce minacciosa.	72	Carlo Collodi	Le avventure di Pinocchio	1883
+usare	usato	non_finite.past_participle	yes	agrees	Speriamo," concluse, "che il Signore gli avrà usato misericordia.	7824	Alessandro Manzoni	I promessi sposi	1840
+usare	usato	non_finite.past_participle	yes	ambiguous	Tutti gli alunni si voltarono con curiosità verso il banco delle ragazze per vedere se il professore avrebbe usato delle preferenze.	2973	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+uscire	usciamo	indicative.present.1p	no	agrees	Noi amiamo e dopo amato usciamo.	2694	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+uscire	uscii	indicative.past_historic.1s	yes	agrees	Prima che finisse l'inverno mi fu fatta la grazia e uscii dai lavori forzati.	1944	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+uscire	uscii	indicative.past_historic.1s	yes	agrees	Rientrai allora nella mia fucina letteraria e non ne uscii più per il rimanente di quell'anno.	2258	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+uscire	uscirà	indicative.future.3s	no	agrees	Per andarsi a battere, — pensò, — mio padre uscirà la mattina molto presto.	3228	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+uscire	uscisse	subjunctive.imperfect.3s	no	agrees	Aveva l'abitudine di cogliere ogni mattina un fiore dai vasi del terrazzino e d'infilarglielo in un occhiello del soprabito perchè uscisse con un suo ricordo.	2891	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+uscire	uscito	non_finite.past_participle	no	agrees	Milano, quand'io ne sono uscito, pareva un convento di frati.	5703	Alessandro Manzoni	I promessi sposi	1840
+vedere	vedeste	indicative.past_historic.2p	yes	agrees	Che cosa provaste quando non vedeste più la faccia della terra?	3154	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+vedere	vedevano	indicative.imperfect.3p	yes	agrees	Ciao! — al treno fuggente sul ponte lontano, dove si vedevano ancora ondeggiare fuor dei vagoni i pennacchi dei bersaglieri.	1845	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+vedere	vedevo	indicative.imperfect.1s	no	agrees	Erano dieci anni che non vedevo più un asilo infantile.	2420	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+vedere	vedi	indicative.present.2s	no	agrees	Ah, vedi che diventi rossa!	2298	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+vedere	vedi	indicative.present.2s	no	agrees	Non vedi che è mezzo morto?	8051	Luigi Pirandello	Un cavallo nella luna	1918
+vedere	vedrai	indicative.future.2s	no	agrees	Vedrai come mi buscherò la piattonata del genitore!	3392	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+vedere	vedrai	indicative.future.2s	no	agrees	Vedrai che tutto andrà bene.	3400	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+vedere	vedranno	indicative.future.3p	yes	agrees	Si vedranno ancora le carrozze!	8010	Luigi Pirandello	Un cavallo nella luna	1918
+vedere	vedremo	indicative.future.1p	no	agrees	Vedremo se dici il vero.	1189	Carlo Collodi	Le avventure di Pinocchio	1883
+vedere	vedrete	indicative.future.2p	no	agrees	Forse lo vedrete dagli astucci.	8948	Luigi Pirandello	Un cavallo nella luna	1918
+vedere	vedrà	indicative.future.3s	no	agrees	Che dirà quando mi vedrà?...	1135	Carlo Collodi	Le avventure di Pinocchio	1883
+vedere	vedrò	indicative.future.1s	no	agrees	Ascoltatemi bene, che vedrò di farvela intendere.	4383	Alessandro Manzoni	I promessi sposi	1840
+vedere	videro	indicative.past_historic.3p	yes	agrees	Alla fine lo persero d'occhio, non lo videro più.	793	Carlo Collodi	Le avventure di Pinocchio	1883
+vedere	vidi	indicative.past_historic.1s	no	agrees	Non vidi più quel ragazzo dopo quel giorno.	1866	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+vedere	visto	non_finite.past_participle	yes	ambiguous	Non hai visto che non ha osato d'affacciarsi alla finestra?	8494	Luigi Pirandello	Un cavallo nella luna	1918
+vendere	vende	indicative.present.3s	yes	agrees	Pinocchio vende l'Abbecedario per andare a vedere il teatro dei burattini.	228	Carlo Collodi	Le avventure di Pinocchio	1883
+venire	venga	subjunctive.present.3s	no	agrees	Aspetto la bara che venga a portarmi via.	466	Carlo Collodi	Le avventure di Pinocchio	1883
+venire	venga	subjunctive.present.3s	no	agrees	Non c'è nessuno che venga a salvarmi!	1531	Carlo Collodi	Le avventure di Pinocchio	1883
+venire	venga	subjunctive.present.3s	no	agrees	Digli che venga fuori lui: tu sei piccola!	8488	Luigi Pirandello	Un cavallo nella luna	1918
+venire	vengano	subjunctive.present.3p	yes	agrees	C'è il caso che i topi me lo vengano a mangiare in capo!	259	Carlo Collodi	Le avventure di Pinocchio	1883
+venire	vengano	subjunctive.present.3p	yes	agrees	Vengano con noi a battersi invece di far del baccano.	2046	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+venire	vengano	subjunctive.present.3p	yes	agrees	Speriamo che non vengano," disse don Abbondio.	7023	Alessandro Manzoni	I promessi sposi	1840
+venire	vengo	indicative.present.1s	no	agrees	Andiamo subito, io vengo con voi.	382	Carlo Collodi	Le avventure di Pinocchio	1883
+venire	venire	non_finite.infinitive	yes	agrees	Ebbene, la consigli di venire a mettersi sotto la mia protezione.	4340	Alessandro Manzoni	I promessi sposi	1840
+venire	venisse	subjunctive.imperfect.3s	no	agrees	Invitò poi più volte Lucia che venisse a goder di quella buona roba.	6195	Alessandro Manzoni	I promessi sposi	1840
+venire	venissero	subjunctive.imperfect.3p	yes	agrees	Volete che i monsignori del duomo venissero in cappa magna a dir delle fandonie?	5689	Alessandro Manzoni	I promessi sposi	1840
+venire	venite	indicative.present.2p	no	agrees	Che mi venite a rompere il capo con queste fandonie?	4068	Alessandro Manzoni	I promessi sposi	1840
+venire	venite	imperative.present.2p	no	agrees	Io non so; venite e saprete.	8346	Luigi Pirandello	Un cavallo nella luna	1918
+venire	veniva	indicative.imperfect.3s	no	agrees	Era l'oste che veniva a dirgli che la mezzanotte era sonata.	397	Carlo Collodi	Le avventure di Pinocchio	1883
+venire	venne	indicative.past_historic.3s	no	agrees	Venne il giorno della funzione solenne.	1961	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+venire	venuto	non_finite.past_participle	yes	ambiguous	Era la figlia unica del colonnello del reggimento venuto da un anno in Sicilia.	7984	Luigi Pirandello	Un cavallo nella luna	1918
+venire	verrebbe	conditional.present.3s	yes	agrees	Il commissario se n'era andato, protestandogli che si verrebbe alla forza.	6856	Alessandro Manzoni	I promessi sposi	1840
+venire	verrebbe	conditional.present.3s	yes	agrees	Con tutti codesti suoi casi, mi scusi, non si verrebbe mai a una conclusione.	6896	Alessandro Manzoni	I promessi sposi	1840
+venire	verrà	indicative.future.3s	no	agrees	Non è ancora venuto? verrà più tardi?	8199	Luigi Pirandello	Un cavallo nella luna	1918
+venire	verrò	indicative.future.1s	no	agrees	Lei mi parlerà della mia coscienza, quando verrò a confessarmi da lei.	4324	Alessandro Manzoni	I promessi sposi	1840
+venire	viene	indicative.present.3s	no	agrees	Brrr! mi viene i bordoni soltanto a pensarci!	362	Carlo Collodi	Le avventure di Pinocchio	1883
+vergognare	vergogni	indicative.present.2s	no	agrees	Non ti vergogni a studiar tanto, come fai?	959	Carlo Collodi	Le avventure di Pinocchio	1883
+versare	versare	non_finite.infinitive	yes	agrees	Quanto sangue umano si sta per versare!	2205	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+vincere	vinciate	subjunctive.present.2p	yes	agrees	Chi pretende da voi che vinciate la forza con la forza?	6688	Alessandro Manzoni	I promessi sposi	1840
+vivere	vivere	non_finite.infinitive	yes	ambiguous	In che mondo siamo condannati a vivere!	592	Carlo Collodi	Le avventure di Pinocchio	1883
+vivere	vivi	imperative.present.2s	yes	agrees	Vivi dunque sicuro che in nessuna occasione non ne farò mai parola in stampa....	3719	Alessandro Manzoni	I promessi sposi	1840
+vivere	vivono	indicative.present.3p	no	agrees	Nascono burattini, vivono burattini e muoiono burattini.	873	Carlo Collodi	Le avventure di Pinocchio	1883
+volare	volare	non_finite.infinitive	yes	agrees	Si sarebbe sentito volare una mosca.	277	Carlo Collodi	Le avventure di Pinocchio	1883
+volere	vogliamo	indicative.present.1p	no	agrees	No: brutta donna Mimma! non la vogliamo più!	8434	Luigi Pirandello	Un cavallo nella luna	1918
+volere	voglio	indicative.present.1s	no	agrees	Questo legno è capitato a tempo; voglio servirmene per fare una gamba di tavolino.	6	Carlo Collodi	Le avventure di Pinocchio	1883
+volere	voglio	indicative.present.1s	no	agrees	Voglio asciugarti gli occhi io....	8001	Luigi Pirandello	Un cavallo nella luna	1918
+volere	volessi	subjunctive.imperfect.1s	no	agrees	Parrebbe che volessi tenere dalla parte dell'iniquità.	6501	Alessandro Manzoni	I promessi sposi	1840
+volere	volete	indicative.present.2p	no	agrees	Che cosa volete a quest'ora?	158	Carlo Collodi	Le avventure di Pinocchio	1883
+volere	volevano	indicative.imperfect.3p	yes	agrees	Mi volevano rubare le monete d'oro.	588	Carlo Collodi	Le avventure di Pinocchio	1883
+volere	volevate	indicative.imperfect.2p	yes	agrees	Che volevate ch'io mi tirassi addosso tutti i cappuccini d'Italia?	5056	Alessandro Manzoni	I promessi sposi	1840
+volere	volevi	indicative.imperfect.2s	no	agrees	Che cosa volevi da me?	1196	Carlo Collodi	Le avventure di Pinocchio	1883
+volere	volle	indicative.past_historic.3s	yes	agrees	Prima d'andarsene, volle rivedere il moribondo.	8815	Luigi Pirandello	Un cavallo nella luna	1918
+volere	vorranno	indicative.future.3p	yes	agrees	Non ci vorranno mica ammazzar tutti.	1837	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+volere	vorrei	conditional.present.1s	no	agrees	Vorrei un po' di legno per fabbricare il mio burattino; me lo date?	46	Carlo Collodi	Le avventure di Pinocchio	1883
+volere	vorrei	conditional.present.1s	no	agrees	Non vorrei che qualcuno avesse parlato....	2475	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+volere	vorrà	indicative.future.3s	no	agrees	Vorrà perdonarmi questa seconda birichinata?...	1136	Carlo Collodi	Le avventure di Pinocchio	1883
+volere	vorrà	indicative.future.3s	no	agrees	Il curato vorrà farci la fede di stato libero?	4001	Alessandro Manzoni	I promessi sposi	1840
+volere	vuoi	indicative.present.2s	no	agrees	Che vuoi che sappia io, come se lo mangiano?	8036	Luigi Pirandello	Un cavallo nella luna	1918
+volgere	volse	indicative.past_historic.3s	yes	agrees	Il prete volse gli occhi al cielo e sospirò; mentre la vedova, a quelle parole, si mise a pianger forte insieme coi figliuoli.	8902	Luigi Pirandello	Un cavallo nella luna	1918
+voltare	voltarono	indicative.past_historic.3p	no	agrees	Tutti gli alunni si voltarono con curiosità verso il banco delle ragazze per vedere se il professore avrebbe usato delle preferenze.	2973	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
+voltare	voltato	non_finite.past_participle	no	ambiguous	L'ha vista e s'è voltato....	8329	Luigi Pirandello	Un cavallo nella luna	1918
+voltare	voltò	indicative.past_historic.3s	no	agrees	Poi si voltò da capo alla moglie: — Figurati!	2806	Edmondo De Amicis	Ricordi d'infanzia e di scuola	1901
