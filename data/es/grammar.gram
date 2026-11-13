@@ -249,8 +249,11 @@ rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g
 rule vp.object-personal: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=dat|refl|sedat, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Prep[lemma=a] NP[case=obl, person=?op, person!=?p]
   "A person as the direct object takes a (veo a María, busco a mi hermano)."
 
-rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=poder|deber|querer|saber|soler|ver|oír|hacer|dejar|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|decidir|prometer|odiar|amar|temer|evitar|parecer|gustar|encantar|importar|interesar|apetecer|sentir|escuchar|mirar|permitir|prohibir|mandar|merecer|procurar|pretender|planear|olvidar|recordar|lamentar|admitir|negar|asegurar|confesar|creer|declarar|afirmar|imaginar|resultar|convenir|bastar|costar|faltar|urgir|acordar|ansiar|anhelar|elegir|fingir|osar|rehusar|proponer|ordenar|impedir|aconsejar|sugerir|agradecer|confiar|ofrecer|jurar|aceptar|adorar|reconocer|detestar|soportar|aguantar|tolerar|suponer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] VP[form=inf]
+rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=dat|refl|sedat, lemma=poder|deber|querer|saber|soler|ver|oír|hacer|dejar|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|decidir|prometer|odiar|amar|temer|evitar|parecer|gustar|encantar|importar|interesar|apetecer|sentir|escuchar|mirar|permitir|prohibir|mandar|merecer|procurar|pretender|planear|olvidar|recordar|lamentar|admitir|negar|asegurar|confesar|creer|declarar|afirmar|imaginar|resultar|convenir|bastar|costar|faltar|urgir|acordar|ansiar|anhelar|elegir|fingir|osar|rehusar|proponer|ordenar|impedir|aconsejar|sugerir|agradecer|confiar|ofrecer|jurar|aceptar|adorar|reconocer|detestar|soportar|aguantar|tolerar|suponer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] VP[form=inf]
   "A verb followed by an infinitive without a preposition: modal, perception and causative verbs and those that take an infinitive as their object (quiero salir, lo vi llegar, me gusta leer)."
+
+rule vp.infinitive-climbed: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=acc, lemma=poder|deber|querer|saber|soler|ver|oír|hacer|dejar|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|decidir|prometer|odiar|amar|temer|evitar|parecer|gustar|encantar|importar|interesar|apetecer|sentir|escuchar|mirar|permitir|prohibir|mandar|merecer|procurar|pretender|planear|olvidar|recordar|lamentar|admitir|negar|asegurar|confesar|creer|declarar|afirmar|imaginar|resultar|convenir|bastar|costar|faltar|urgir|acordar|ansiar|anhelar|elegir|fingir|osar|rehusar|proponer|ordenar|impedir|aconsejar|sugerir|agradecer|confiar|ofrecer|jurar|aceptar|adorar|reconocer|detestar|soportar|aguantar|tolerar|suponer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] V[form=inf]
+  "A direct-object clitic before the verb belongs to the infinitive (lo puedo leer = puedo leerlo), which then takes no other object; phrases and adverbs still attach to the whole."
 
 rule vp.tener-que: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=tener, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[lemma=que] VP[form=inf]
   "tener que + infinitive: having to (tengo que irme)."
@@ -313,6 +316,9 @@ rule vp.existential-bare: VP[finite=yes, form=fin, mood=?m, person=3, number=sg]
 
 rule vp.existential-clitic: VP[finite=yes, form=fin, mood=?m, person=3, number=sg] -> Clitics[attached=no, case=acc] Verb[class=haber, exist=yes, finite=yes, mood=?m, person=3, number=sg]
   "lo hay, las hay."
+
+rule vp.existential-progressive: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=estar|lex, lemma=estar|seguir|ir|venir, finite=?f, form=?fm, mood=?m, person=3, number=sg] Verb[class=haber, form=ger] NP[case=obl]
+  "estar / seguir + habiendo + a noun phrase: there is, in progress (está habiendo problemas)."
 
 rule vp.haber-que: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=haber, exist=yes, finite=?f, form=?fm, mood=?m, person=3, number=sg] Conj[lemma=que] VP[form=inf]
   "hay que + infinitive: one has to (hay que estudiar)."

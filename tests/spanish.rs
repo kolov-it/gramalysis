@@ -310,3 +310,15 @@ async fn adverbs_between_ser_and_the_participle() {
     let c = a.chosen.iter().find(|c| c.token == "recibido").unwrap();
     assert!(c.uses.iter().flatten().any(|u| u == "vp.passive-adverb"), "{:?}", c.uses);
 }
+
+#[tokio::test]
+async fn existential_haber_in_progress() {
+    assert!(!run("Está habiendo problemas.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn a_climbed_object_clitic_is_the_infinitive_object() {
+    assert!(!run("Lo puedo leer mañana.").await.parses.is_empty());
+    assert!(!run("Puedo leer un libro.").await.parses.is_empty());
+    assert!(run("Lo puedo leer un libro.").await.parses.is_empty());
+}

@@ -1354,6 +1354,19 @@
         "partOfSpeech": "verb"
       }
     ],
+    "habiendo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "gerund"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
     "hagas": [
       {
         "grammar": {
@@ -1583,6 +1596,17 @@
         "partOfSpeech": "noun"
       }
     ],
+    "leer": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "leer",
+        "partOfSpeech": "verb"
+      }
+    ],
     "leyendo": [
       {
         "grammar": {
@@ -1784,6 +1808,36 @@
       }
     ],
     "mary": [],
+    "mañana": [
+      {
+        "lemma": "mañana",
+        "partOfSpeech": "adv"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "mañana",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "mañana",
+        "partOfSpeech": "noun"
+      }
+    ],
     "me": [
       {
         "grammar": {
@@ -2010,6 +2064,21 @@
         "partOfSpeech": "intj"
       }
     ],
+    "problemas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "problema",
+        "partOfSpeech": "noun"
+      }
+    ],
     "puede": [
       {
         "lemma": "puede",
@@ -2043,6 +2112,25 @@
             "second-person",
             "singular"
           ]
+        },
+        "lemma": "poder",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "puedo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
         },
         "lemma": "poder",
         "partOfSpeech": "verb"
