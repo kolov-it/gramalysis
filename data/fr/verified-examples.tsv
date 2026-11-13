@@ -547,6 +547,7 @@ cuisiner	cuisiner	9753	non_finite.infinitive	gramalysis+label 2026-11-12
 cuisiner	cuisiner	10392	non_finite.infinitive	gramalysis+label 2026-11-12
 cuisiner	cuisines	536447	indicative.present.2s	gramalysis+label 2026-11-12
 céder	cédâmes	882312	indicative.past_historic.1p	gramalysis+label 2026-11-12
+danser	danse	4057	indicative.present.3s	gramalysis+label 2026-11-12
 danser	danse	1153491	indicative.present.1s	gramalysis+label 2026-11-12
 danser	danser	3473	non_finite.infinitive	gramalysis+label 2026-11-12
 danser	danser	3811	non_finite.infinitive	gramalysis+label 2026-11-12
@@ -792,6 +793,7 @@ envoyer	envoyez	11533	imperative.present.2p	gramalysis+label 2026-11-12
 envoyer	envoyez	12777	imperative.present.2p	gramalysis+label 2026-11-12
 espionner	espionna	1686383	indicative.past_historic.3s	gramalysis+label 2026-11-12
 espionner	espionne	4305679	indicative.present.3s	gramalysis+label 2026-11-12
+espionner	espionne	4737982	indicative.present.3s	gramalysis+label 2026-11-12
 espionner	espionnes	7701888	indicative.present.2s	gramalysis+label 2026-11-12
 essayer	essayer	3935	non_finite.infinitive	gramalysis+label 2026-11-12
 essayer	essayer	5092949	non_finite.infinitive	gramalysis+label 2026-11-12
@@ -922,6 +924,7 @@ garder	gardes	601672	indicative.present.2s	gramalysis+label 2026-11-12
 geler	gela	568593	indicative.past_historic.3s	gramalysis+label 2026-11-12
 geler	gela	5489802	indicative.past_historic.3s	gramalysis+label 2026-11-12
 geler	gèle	3214	subjunctive.present.3s	gramalysis+label 2026-11-12
+geler	gèle	4361	indicative.present.3s	gramalysis+label 2026-11-12
 geler	gèle	1118968	indicative.present.3s	gramalysis+label 2026-11-12
 glisser	glisse	4435397	indicative.present.3s	gramalysis+label 2026-11-12
 glisser	glisse	11045565	imperative.present.2s	gramalysis+label 2026-11-12
@@ -1287,7 +1290,6 @@ paraître	paraissez	2142747	imperative.present.2p	gramalysis+label 2026-11-12
 paraître	paraître	136281	non_finite.infinitive	gramalysis+label 2026-11-12
 paraître	paraître	355726	non_finite.infinitive	gramalysis+label 2026-11-12
 paraître	paru	3438396	non_finite.past_participle	gramalysis+label 2026-11-12
-paraître	paru	3596947	non_finite.past_participle	gramalysis+label 2026-11-12
 paraître	parut	236649	indicative.past_historic.3s	gramalysis+label 2026-11-12
 paraître	parut	1928299	indicative.past_historic.3s	gramalysis+label 2026-11-12
 parcourir	parcourut	132654	indicative.past_historic.3s	gramalysis+label 2026-11-12
@@ -1381,6 +1383,7 @@ plaisanter	plaisantes	537702	indicative.present.2s	gramalysis+label 2026-11-12
 plaisanter	plaisantes	2041035	indicative.present.2s	gramalysis+label 2026-11-12
 plaisanter	plaisantons	8382542	indicative.present.1p	gramalysis+label 2026-11-12
 planifier	planifies	811422	indicative.present.2s	gramalysis+label 2026-11-12
+planter	plante	548976	indicative.present.3s	gramalysis+label 2026-11-12
 planter	plante	1181474	indicative.present.3s	gramalysis+label 2026-11-12
 planter	planterais	10777101	conditional.present.1s	gramalysis+label 2026-11-12
 planter	plantiez	7101623	subjunctive.present.2p	gramalysis+label 2026-11-12
@@ -1809,6 +1812,7 @@ sortir	sort	4346	indicative.present.3s	gramalysis+label 2026-11-12
 sortir	sortant	3721	non_finite.gerund	gramalysis+label 2026-11-12
 sortir	sortant	136272	non_finite.gerund	gramalysis+label 2026-11-12
 sortir	sortant	584520	non_finite.gerund	gramalysis+label 2026-11-12
+sortir	sorte	4059	subjunctive.present.3s	gramalysis+label 2026-11-12
 sortir	sorte	334660	subjunctive.present.1s	gramalysis+label 2026-11-12
 sortir	sortes	11802955	subjunctive.present.2s	gramalysis+label 2026-11-12
 sortir	sortions	8020	indicative.imperfect.1p	gramalysis+label 2026-11-12

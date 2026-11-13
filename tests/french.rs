@@ -452,3 +452,26 @@ async fn bare_nouns_after_avoir_stay_but_participle_nouns_need_a_determiner() {
     assert!(parses(&run("Quelles lettres lui as-tu écrites ?").await));
     assert!(!parses(&run("Quelles lettres lui as-tu écrit ?").await));
 }
+
+#[tokio::test]
+async fn object_control_after_laisser() {
+    assert!(parses(&run("Elle le laisse être heureux.").await));
+    assert!(!parses(&run("Elle le laisse être heureuse.").await));
+}
+
+#[tokio::test]
+async fn a_reflexive_infinitive_takes_the_subjects_person() {
+    assert!(parses(&run("Je veux me laver.").await));
+    assert!(!parses(&run("Je veux se laver.").await));
+}
+
+#[tokio::test]
+async fn the_digit_one_takes_a_singular_noun() {
+    assert!(parses(&run("J'ai 1 lettre.").await));
+}
+
+#[tokio::test]
+async fn a_subjunctive_clause_cannot_stand_alone_even_after_an_adverb() {
+    assert!(!parses(&run("Il soit heureux.").await));
+    assert!(!parses(&run("Demain il soit heureux.").await));
+}

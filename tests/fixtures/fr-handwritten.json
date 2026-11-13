@@ -1640,6 +1640,66 @@
           "clitic": false
         }
       }
+    ],
+    "laisse": [
+      {
+        "lemma": "laisser",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      }
+    ],
+    "laver": [
+      {
+        "lemma": "laver",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "formKind": "infinitive"
+        }
+      }
+    ],
+    "lettre": [
+      {
+        "lemma": "lettre",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "feminine"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "demain": [
+      {
+        "lemma": "demain",
+        "partOfSpeech": "adv",
+        "grammar": null
+      }
+    ],
+    "soit": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "subjunctive",
+          "tense": "present",
+          "person": "third",
+          "number": "singular"
+        }
+      }
     ]
   }
 }

@@ -192,7 +192,10 @@ impl French {
             // A number written in digits (3, 1966, 9,4 %), whatever else the
             // lexicon reads it as (20 as a noun, 2 as de).
             if token.chars().any(|c| c.is_ascii_digit()) {
-                readings.push(vec![Morpheme { surface: token.clone(), lemma: lower.clone(), cat: "Num".to_owned(), feats: FeatMap::new() }]);
+                // 1 takes a singular noun (1 lettre), every other number a plural.
+                let number = if lower == "1" { "sg" } else { "pl" };
+                let feats = FeatMap::from([("number".to_owned(), number.to_owned())]);
+                readings.push(vec![Morpheme { surface: token.clone(), lemma: lower.clone(), cat: "Num".to_owned(), feats }]);
             }
             // A capitalised word is a name anywhere but at the start, where
             // it is one only if the lexicon knows it capitalised (Sami).
