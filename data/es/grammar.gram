@@ -94,8 +94,8 @@ rule np.possessive-alone: NP[person=3, number=?n, gender=?g] -> Det[definite=yes
 rule nom.possessive-after: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] PossAfter[number=?n, gender=?g]
   "A stressed possessive after the noun (un amigo mío)."
 
-rule np.predeterminer: NP[person=3, number=?n, gender=?g] -> Predet[number=?n, gender=?g] NP[number=?n, gender=?g]
-  "todo before the article agrees with the noun (todos los días, toda la noche)."
+rule np.predeterminer: NP[person=?p, number=?n, gender=?g] -> Predet[number=?n, gender=?g] NP[person=?p, number=?n, gender=?g]
+  "todo before the article or a pronoun agrees with it (todos los días, toda la noche, todos nosotros)."
 
 rule np.bare: NP[case=obl, person=3, number=?n, gender=?g] -> Nom[number=?n, gender=?g]
   "A noun without an article, as an object or after a preposition (tengo hambre, como manzanas); not as a subject."
@@ -252,7 +252,7 @@ rule vp.object-personal: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, 
 rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=dat|refl|sedat, lemma=poder|deber|querer|saber|soler|ver|oír|hacer|dejar|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|decidir|prometer|odiar|amar|temer|evitar|parecer|gustar|encantar|importar|interesar|apetecer|sentir|escuchar|mirar|permitir|prohibir|mandar|merecer|procurar|pretender|planear|olvidar|recordar|lamentar|admitir|negar|asegurar|confesar|creer|declarar|afirmar|imaginar|resultar|convenir|bastar|costar|faltar|urgir|acordar|ansiar|anhelar|elegir|fingir|osar|rehusar|proponer|ordenar|impedir|aconsejar|sugerir|agradecer|confiar|ofrecer|jurar|aceptar|adorar|reconocer|detestar|soportar|aguantar|tolerar|suponer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] VP[form=inf]
   "A verb followed by an infinitive without a preposition: modal, perception and causative verbs and those that take an infinitive as their object (quiero salir, lo vi llegar, me gusta leer)."
 
-rule vp.infinitive-climbed: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=acc, lemma=poder|deber|querer|saber|soler|ver|oír|hacer|dejar|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|decidir|prometer|odiar|amar|temer|evitar|parecer|gustar|encantar|importar|interesar|apetecer|sentir|escuchar|mirar|permitir|prohibir|mandar|merecer|procurar|pretender|planear|olvidar|recordar|lamentar|admitir|negar|asegurar|confesar|creer|declarar|afirmar|imaginar|resultar|convenir|bastar|costar|faltar|urgir|acordar|ansiar|anhelar|elegir|fingir|osar|rehusar|proponer|ordenar|impedir|aconsejar|sugerir|agradecer|confiar|ofrecer|jurar|aceptar|adorar|reconocer|detestar|soportar|aguantar|tolerar|suponer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] V[form=inf]
+rule vp.infinitive-climbed: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=acc, lemma=poder|deber|querer|saber|soler|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|decidir|prometer|odiar|amar|temer|evitar|parecer|gustar|encantar|importar|interesar|apetecer|merecer|procurar|pretender|planear|olvidar|recordar|lamentar|admitir|negar|asegurar|confesar|creer|declarar|afirmar|imaginar|resultar|convenir|bastar|costar|faltar|urgir|acordar|ansiar|anhelar|elegir|fingir|osar|rehusar|proponer|sugerir|agradecer|confiar|ofrecer|jurar|aceptar|adorar|reconocer|detestar|soportar|aguantar|tolerar|suponer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] V[form=inf]
   "A direct-object clitic before the verb belongs to the infinitive (lo puedo leer = puedo leerlo), which then takes no other object; phrases and adverbs still attach to the whole."
 
 rule vp.tener-que: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=tener, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[lemma=que] VP[form=inf]
@@ -317,6 +317,9 @@ rule vp.existential-bare: VP[finite=yes, form=fin, mood=?m, person=3, number=sg]
 rule vp.existential-clitic: VP[finite=yes, form=fin, mood=?m, person=3, number=sg] -> Clitics[attached=no, case=acc] Verb[class=haber, exist=yes, finite=yes, mood=?m, person=3, number=sg]
   "lo hay, las hay."
 
+rule vp.infinitive-perception: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=acc, lemma=ver|oír|hacer|dejar|escuchar|mirar|sentir|mandar|permitir|prohibir|impedir|ordenar|aconsejar, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] VP[form=inf]
+  "With a perception or causative verb the clitic is that verb's object, and the infinitive keeps its own (lo vi comprar un libro, la hice venir)."
+
 rule vp.existential-progressive: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=estar|lex, lemma=estar|seguir|ir|venir, finite=?f, form=?fm, mood=?m, person=3, number=sg] Verb[class=haber, form=ger] NP[case=obl]
   "estar / seguir + habiendo + a noun phrase: there is, in progress (está habiendo problemas)."
 
@@ -368,6 +371,9 @@ rule vp.ser-lo: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Pron[a
 
 rule serv.enclitic: SerV[finite=no, form=?fm] -> Verb[class=ser, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, reflexive=no, case=dat]
   "A dative clitic attached to ser (puede serme útil, siéndole fiel)."
+
+rule serv.perfect-enclitic: SerV[finite=no, form=?fm] -> Verb[class=haber, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, reflexive=no, case=dat] Verb[class=ser, form=pastpart]
+  "A dative clitic on haber before sido (puede haberme sido útil)."
 
 rule serv.negation: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Adv[neg=yes] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "no es, nunca fue."
@@ -443,6 +449,9 @@ rule cop.modal: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n
 
 rule cop.progressive: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=estar|lex, lemma=estar|seguir|andar|ir|venir, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Cop[lemma=?l, form=ger]
   "A linking verb in progress keeps its complement (me estoy sintiendo cansado, se está poniendo nervioso)."
+
+rule cop.perfect-enclitic: Cop[lemma=?l, finite=no, form=?fm] -> Verb[class=haber, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, case=refl|dat] Verb[class=estar|lex, lemma=estar|quedar|sentir|ver|encontrar|volver|poner|hacer|parecer|resultar, lemma=?l, form=pastpart]
+  "A clitic on haber before a linking verb's participle (puede haberse quedado cansado)."
 
 rule cop.negation: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Adv[neg=yes] Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "no está, nunca estuvo."

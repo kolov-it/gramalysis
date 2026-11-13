@@ -211,18 +211,22 @@ impl Spanish {
                 found.push((split, hosts));
             }
         }
-        // No host spelling is known on its own: the token's own clitic
-        // readings give the host, split at the longest clitic chain.
-        if found.is_empty()
-            && let Some(split) = splits.first()
-        {
-            let mut hosts: Vec<Morpheme> = Vec::new();
-            for r in lexicon {
-                if r.pos == PartOfSpeech::Verb && r.clitic && takes_enclitics(r) {
+        // The token's own fully tagged clitic readings (iros: infinitive and
+        // vosotros imperative, where the host ir has only the infinitive) join
+        // the first split whose host is known, or the longest split when no
+        // host spelling is known on its own.
+        let own: Vec<&Reading> =
+            lexicon.iter().filter(|r| r.pos == PartOfSpeech::Verb && r.clitic && takes_enclitics(r)).collect();
+        if !own.is_empty() {
+            if let Some((_, hosts)) = found.first_mut() {
+                for r in &own {
+                    push_host(hosts, r);
+                }
+            } else if let Some(split) = splits.first() {
+                let mut hosts: Vec<Morpheme> = Vec::new();
+                for r in &own {
                     push_host(&mut hosts, r);
                 }
-            }
-            if !hosts.is_empty() {
                 found.push((split, hosts));
             }
         }

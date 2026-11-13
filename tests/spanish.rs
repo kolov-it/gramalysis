@@ -322,3 +322,26 @@ async fn a_climbed_object_clitic_is_the_infinitive_object() {
     assert!(!run("Puedo leer un libro.").await.parses.is_empty());
     assert!(run("Lo puedo leer un libro.").await.parses.is_empty());
 }
+
+#[tokio::test]
+async fn a_perception_verb_object_leaves_the_infinitive_its_own() {
+    assert!(!run("Lo vi comprar un libro.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn clitics_on_haber_keep_the_copula() {
+    assert!(!run("Puede haberme sido útil.").await.parses.is_empty());
+    assert!(!run("Puede haberse quedado cansado.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn todos_keeps_the_pronoun_person() {
+    assert!(!run("Todos nosotros podemos leer.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn the_compound_keeps_its_own_readings() {
+    let a = run("¡Iros!").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "Iros")[0].contains("mood=imp"));
+}

@@ -558,6 +558,17 @@
         "partOfSpeech": "verb"
       }
     ],
+    "comprar": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "comprar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "compré": [
       {
         "grammar": {
@@ -1354,6 +1365,58 @@
         "partOfSpeech": "verb"
       }
     ],
+    "haber": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "haberme": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "infinitive",
+            "object-first-person",
+            "object-singular"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "haberse": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "infinitive",
+            "reflexive"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
     "habiendo": [
       {
         "grammar": {
@@ -1367,6 +1430,7 @@
         "partOfSpeech": "verb"
       }
     ],
+    "habér": [],
     "hagas": [
       {
         "grammar": {
@@ -1483,6 +1547,62 @@
           ]
         },
         "lemma": "hermanar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "ir": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "ir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "iros": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "iro",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "infinitive",
+            "object-plural",
+            "object-second-person"
+          ]
+        },
+        "lemma": "ir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "object-plural",
+            "object-second-person",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "ir",
         "partOfSpeech": "verb"
       }
     ],
@@ -1995,6 +2115,23 @@
         "partOfSpeech": "noun"
       }
     ],
+    "nosotr": [],
+    "nosotros": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "nosotros",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "nosótr": [],
     "o": [
       {
         "grammar": {
@@ -2052,6 +2189,68 @@
         },
         "lemma": "persona",
         "partOfSpeech": "verb"
+      }
+    ],
+    "podemos": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "plural",
+            "present",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "podar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "lemma": "podar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "poder",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "Podemos",
+        "partOfSpeech": "name"
       }
     ],
     "por": [
@@ -2182,6 +2381,23 @@
       {
         "lemma": "que",
         "partOfSpeech": "pron"
+      }
+    ],
+    "quedado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "quedar",
+        "partOfSpeech": "verb"
       }
     ],
     "quién": [
@@ -2541,6 +2757,23 @@
         "partOfSpeech": "verb"
       }
     ],
+    "sido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
     "sien": [
       {
         "grammar": {
@@ -2873,6 +3106,7 @@
         "partOfSpeech": "det"
       }
     ],
+    "tód": [],
     "tú": [
       {
         "lemma": "tú",
@@ -2905,6 +3139,25 @@
         },
         "lemma": "un",
         "partOfSpeech": "num"
+      }
+    ],
+    "vi": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "preterite",
+            "singular"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "ver",
+        "partOfSpeech": "verb"
       }
     ],
     "vienes": [
@@ -2965,6 +3218,7 @@
         "partOfSpeech": "pron"
       }
     ],
+    "ír": [],
     "útil": [
       {
         "grammar": {
