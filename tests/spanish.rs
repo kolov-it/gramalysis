@@ -231,3 +231,19 @@ async fn adónde_asks_for_a_destination_so_fue_is_ir() {
     let a = run("¿De dónde eres?").await;
     assert!(agreed(&a, "eres")[0].starts_with("ser Verb"));
 }
+
+#[tokio::test]
+async fn copular_questions_inside_the_sentence() {
+    assert!(!run("No sé quién eres.").await.parses.is_empty());
+    assert!(!run("No sé dónde está.").await.parses.is_empty());
+    let a = run("No sé quién fue.").await;
+    let c = a.chosen.iter().find(|c| c.token == "fue").unwrap();
+    assert!(c.readings.iter().any(|r| r[0].lemma == "ser"), "{:?}", c.readings);
+}
+
+#[tokio::test]
+async fn démoselo_is_demos_se_lo() {
+    let a = run("Démoselo.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "Démoselo")[0].starts_with("dar Verb"));
+}

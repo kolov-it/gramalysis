@@ -516,22 +516,32 @@ rule question.preposition: S -> Prep Wh S
 rule question.preposition-adverb: S -> Prep QAdv S
   "A preposition + dónde (¿De dónde eres? ¿Hasta cuándo?)."
 
-rule question.ser: S -> Wh SerV
+# A question clause whose question word stands for ser's or estar's
+# predicate: it is used as a direct question and inside the sentence
+# (no sé quién eres, no sé dónde está).
+
+rule question.copular: S -> QS
+  "A question about who, what, how or where something is (¿Quién eres? ¿Dónde está?)."
+
+rule vp.indirect-question-copular: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] QS
+  "A question about who, what or where something is, inside the sentence (no sé quién eres, no sé dónde está)."
+
+rule qs.ser: QS -> Wh SerV
   "A question word + ser (¿Qué es? ¿Quién es? ¿Qué hora es?)."
 
-rule question.ser-subject: S -> Wh SerV NP
+rule qs.ser-subject: QS -> Wh SerV NP
   "A question word + ser + what is asked about (¿Qué es eso? ¿Cuál es tu nombre?)."
 
-rule question.adverb-ser: S -> QAdv[lemma=cómo|dónde|cuándo] SerV NP
+rule qs.adverb-ser: QS -> QAdv[lemma=cómo|dónde|cuándo] SerV NP
   "cómo / dónde + ser + subject (¿Cómo es tu casa? ¿Dónde es la fiesta?)."
 
-rule question.adverb-ser-bare: S -> QAdv[lemma=cómo|dónde|cuándo] SerV
+rule qs.adverb-ser-bare: QS -> QAdv[lemma=cómo|dónde|cuándo] SerV
   "cómo / dónde + ser on its own (¿Cómo es? ¿Dónde fue?)."
 
-rule question.preposition-ser: S -> Prep[lemma=de|desde|hasta|para] QAdv[lemma=dónde|cuándo] SerV
+rule qs.preposition-ser: QS -> Prep[lemma=de|desde|hasta|para] QAdv[lemma=dónde|cuándo] SerV
   "¿De dónde eres?"
 
-rule question.preposition-ser-subject: S -> Prep[lemma=de|desde|hasta|para] QAdv[lemma=dónde|cuándo] SerV NP
+rule qs.preposition-ser-subject: QS -> Prep[lemma=de|desde|hasta|para] QAdv[lemma=dónde|cuándo] SerV NP
   "¿De dónde es tu amigo?"
 
 rule wh.pronoun: Wh -> QPron
@@ -604,10 +614,10 @@ rule pp.focus: PP[prep=?l] -> Focus PP[prep=?l]
 rule vp.focus: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> Focus VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
   "sólo, también or incluso before the verb (también quiero ir)."
 
-rule question.estar: S -> QAdv Cop[lemma=estar]
+rule qs.estar: QS -> QAdv Cop[lemma=estar]
   "¿Cómo estás? ¿Dónde está?"
 
-rule question.estar-subject: S -> QAdv Cop[lemma=estar] NP[case=nom]
+rule qs.estar-subject: QS -> QAdv Cop[lemma=estar] NP[case=nom]
   "¿Dónde está el agua? ¿Cómo está tu madre?"
 
 rule partp.recent: PartP[number=?n, gender=?g] -> Adv[lemma=recién] Verb[form=pastpart, drifted=no, number=?n, gender=?g]

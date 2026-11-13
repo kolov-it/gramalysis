@@ -49,9 +49,13 @@ pub fn split_enclitics(form: &str) -> Vec<Split> {
         if host.chars().count() < 2 {
             continue;
         }
-        // vámonos, sentémonos: the -s of -mos falls before nos.
+        // vámonos, sentémonos, démoselo: the -s of -mos falls before nos
+        // and before se (the se of se lo is offered both ways).
+        let mut restored_s = None;
         if chain[0] == "nos" && strip_accent(&host).ends_with("mo") {
             host.push('s');
+        } else if chain[0] == "se" && strip_accent(&host).ends_with("mo") {
+            restored_s = Some(format!("{host}s"));
         }
         // sentaos, decíos: the -d of the vosotros imperative falls before os.
         if chain[0] == "os" && host.ends_with(['a', 'e', 'i', 'í']) {
@@ -83,6 +87,10 @@ pub fn split_enclitics(form: &str) -> Vec<Split> {
         }
         if !accented && let Some(stressed) = accent_last_vowel(&plain) {
             hosts.push(stressed);
+        }
+        if let Some(with_s) = restored_s {
+            hosts.push(strip_accent(&with_s));
+            hosts.push(with_s);
         }
         out.push(Split { hosts, clitics: chain.into_iter().map(str::to_owned).collect() });
     }
@@ -139,6 +147,8 @@ mod tests {
         assert!(has("deme", "dé", &["me"]));
         assert!(has("denme", "den", &["me"]));
         assert!(has("mantente", "mantén", &["te"]));
+        assert!(has("démoselo", "demos", &["se", "lo"]));
+        assert!(has("digámoselo", "digamos", &["se", "lo"]));
         assert!(has("estate", "está", &["te"]));
     }
 

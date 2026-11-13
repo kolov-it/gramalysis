@@ -610,6 +610,68 @@
         "partOfSpeech": "verb"
       }
     ],
+    "demo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "demo",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "demos": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "demo",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "plural",
+            "present",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "demose": [],
     "den": [
       {
         "grammar": {
@@ -790,6 +852,10 @@
         "partOfSpeech": "verb"
       }
     ],
+    "démo": [],
+    "démos": [],
+    "démose": [],
+    "démoselo": [],
     "días": [
       {
         "grammar": {
@@ -1728,6 +1794,12 @@
       },
       {
         "lemma": "que",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "quién": [
+      {
+        "lemma": "quién",
         "partOfSpeech": "pron"
       }
     ],
