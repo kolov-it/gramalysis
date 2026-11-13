@@ -167,7 +167,7 @@ the one a verb page needs: *which verb, or not a verb at all*.
 
 ## French
 
-`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (429 rules) and
+`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (431 rules) and
 the function words in `data/fr/closed.txt`. What is French-specific:
 
 - **Tokens:** elision is split off (*l'*, *d'*, *j'*, *qu'*, *jusqu'*,
@@ -203,13 +203,13 @@ the function words in `data/fr/closed.txt`. What is French-specific:
 **The auxiliaries are not in the lexicon yet**: the Word Holder API gives
 `grammar.auxiliaries` for Italian only. Until it does, every rule that selects
 on the auxiliary accepts both, so *être* + participle reads both as a compound
-tense and as a state, and such sentences stay ambiguous (most of the 8%
+tense and as a state, and such sentences stay ambiguous (most of the 7%
 below).
 
 On the French Tatoeba homograph set (4,384 sentences, 1,750 ambiguous forms of
 699 verbs that have a page on wordholder.com and no example sentence for that
-form) it decides the word in **80.1%** of the sentences, and **99.9%** of the
-decisions agree with the labels (3,509 of 3,511); 11.9% do not parse, 7.6% stay
+form) it decides the word in **80.6%** of the sentences, and **99.9%** of the
+decisions agree with the labels (3,530 of 3,532); 11.9% do not parse, 7.1% stay
 ambiguous.
 
 ```sh
@@ -219,7 +219,7 @@ cargo run -- --fixture tests/fixtures/fr-recorded.json --file examples/fr.txt fr
 ```
 
 The files in `data/fr/` mirror `data/it/` (`tools/fr_homographs.py import`,
-`select`), plus `verified-examples.tsv`: the 2,162 sentences (1,182 forms of
+`select`), plus `verified-examples.tsv`: the 2,184 sentences (1,192 forms of
 531 verbs) where gramalysis decides the word is the page verb and the label
 agrees, 5–20 words long, in the format wordy's verb-form-examples builder
 reads (`tools/fr_homographs.py verified`). Inflected participles (*vues*,

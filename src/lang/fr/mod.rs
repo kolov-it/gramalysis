@@ -173,6 +173,11 @@ impl French {
             }
             mark_substantivised_adjectives(&mut readings);
             merge_participle_adjectives(&mut readings, &self.drifted);
+            // After en, a present participle is the gerund (en étant heureux),
+            // never the noun spelled like it (l'étant).
+            if i > 0 && tokens[i - 1].to_lowercase() == "en" {
+                drop_nouns_after_en(&mut readings);
+            }
             readings.iter_mut().flatten().for_each(set_predicate_number);
             // Only par introduces an agent (closed.txt); every other
             // preposition says it does not, for `vp.agent-phrase`.
@@ -373,7 +378,10 @@ fn prefer_traditional_spelling(readings: Vec<Reading>) -> Vec<Reading> {
 /// participle (as-tu écrit ?): `needs_det=yes`. A noun that is also an
 /// adjective of the same lemma (un heureux, le froid) gets `adj_twin=yes`:
 /// bare after être it is the adjective (elle est heureuse), though bare after
-/// avoir or faire it stays a noun (avoir froid, il fait chaud).
+/// avoir or faire it stays a noun (avoir froid, il fait chaud). A noun that
+/// is also an infinitive (un être, le devoir) gets `inf_twin=yes`: bare after
+/// de or à the word is the infinitive (heureuse d'être libre), though after
+/// en, which never takes an infinitive, it is the noun (en souvenir de).
 fn mark_substantivised_adjectives(readings: &mut [Vec<Morpheme>]) {
     let single = |r: &Vec<Morpheme>, cat: &str| match r.as_slice() {
         [m] if m.cat == cat => Some(m.clone()),
@@ -384,16 +392,30 @@ fn mark_substantivised_adjectives(readings: &mut [Vec<Morpheme>]) {
         .iter()
         .filter_map(|r| single(r, "Verb"))
         .any(|m| m.feats.get("form").map(String::as_str) == Some("pastpart"));
+    let infinitive = readings
+        .iter()
+        .filter_map(|r| single(r, "Verb"))
+        .any(|m| m.feats.get("form").map(String::as_str) == Some("inf"));
     for r in readings.iter_mut() {
         if let [m] = r.as_mut_slice()
             && m.cat == "Noun"
         {
+            m.feats.insert("inf_twin".to_owned(), if infinitive { "yes" } else { "no" }.to_owned());
             if participle {
                 m.feats.insert("needs_det".to_owned(), "yes".to_owned());
             } else if adjectives.contains(&m.lemma) {
                 m.feats.insert("adj_twin".to_owned(), "yes".to_owned());
             }
         }
+    }
+}
+
+fn drop_nouns_after_en(readings: &mut Vec<Vec<Morpheme>>) {
+    let prespart = readings
+        .iter()
+        .any(|r| matches!(r.as_slice(), [m] if m.cat == "Verb" && m.feats.get("form").map(String::as_str) == Some("prespart")));
+    if prespart {
+        readings.retain(|r| !matches!(r.as_slice(), [m] if m.cat == "Noun"));
     }
 }
 

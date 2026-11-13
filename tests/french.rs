@@ -715,3 +715,35 @@ async fn avoir_and_etre_have_no_liaison_imperative() {
     assert!(!parses(&run("As-en.").await));
     assert!(!parses(&run("Es-y.").await));
 }
+
+#[tokio::test]
+async fn an_object_pronoun_controls_a_reflexive_after_faire() {
+    assert!(parses(&run("Elle me fait me laver.").await));
+    assert!(!parses(&run("Elle me fait se laver.").await));
+    assert!(!parses(&run("Elle m'a fait se laver.").await));
+}
+
+#[tokio::test]
+async fn an_adjective_infinitive_is_controlled_by_the_subject() {
+    assert!(parses(&run("Elle est heureuse d'être heureuse.").await));
+    assert!(!parses(&run("Elle est heureuse d'être heureux.").await));
+    assert!(parses(&run("Il est difficile de se laver.").await));
+}
+
+#[tokio::test]
+async fn a_gerund_predicate_agrees_with_the_subject() {
+    assert!(parses(&run("Elle est venue en étant heureuse.").await));
+    assert!(!parses(&run("Elle est venue en étant heureux.").await));
+}
+
+#[tokio::test]
+async fn qui_as_subject_takes_a_singular_predicate() {
+    assert!(parses(&run("Qui est heureuse ?").await));
+    assert!(!parses(&run("Qui est heureuses ?").await));
+}
+
+#[tokio::test]
+async fn a_final_question_word_keeps_the_clause_mood() {
+    assert!(parses(&run("Il est où ?").await));
+    assert!(!parses(&run("Il soit où ?").await));
+}

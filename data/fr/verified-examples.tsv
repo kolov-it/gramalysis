@@ -247,6 +247,7 @@ barrer	barré	749771	non_finite.past_participle	gramalysis+label 2026-11-12
 baser	base	947513	indicative.present.3s	gramalysis+label 2026-11-12
 battre	bats	128996	imperative.present.2s	gramalysis+label 2026-11-12
 battre	bats	180588	indicative.present.1s	gramalysis+label 2026-11-12
+battre	battant	6909158	non_finite.gerund	gramalysis+label 2026-11-12
 battre	battions	5452523	indicative.imperfect.1p	gramalysis+label 2026-11-12
 blesser	blessant	9830809	non_finite.gerund	gramalysis+label 2026-11-12
 blesser	blesser	8918	non_finite.infinitive	gramalysis+label 2026-11-12
@@ -478,6 +479,7 @@ couper	coupons	6798861	indicative.present.1p	gramalysis+label 2026-11-12
 couper	coupons	12634615	indicative.present.1p	gramalysis+label 2026-11-12
 couper	coupé	8978	non_finite.past_participle	gramalysis+label 2026-11-12
 couper	coupé	10491	non_finite.past_participle	gramalysis+label 2026-11-12
+courir	courant	3472245	non_finite.gerund	gramalysis+label 2026-11-12
 courir	coures	1182853	subjunctive.present.2s	gramalysis+label 2026-11-12
 courir	coures	2026204	subjunctive.present.2s	gramalysis+label 2026-11-12
 courir	coures	2026205	subjunctive.present.2s	gramalysis+label 2026-11-12
@@ -716,6 +718,8 @@ détendre	détendiez	2015764	subjunctive.present.2p	gramalysis+label 2026-11-12
 détruire	détruises	2490483	subjunctive.present.2s	gramalysis+label 2026-11-12
 dîner	dîna	1924432	indicative.past_historic.3s	gramalysis+label 2026-11-12
 dîner	dîna	6733313	indicative.past_historic.3s	gramalysis+label 2026-11-12
+dîner	dîner	135503	non_finite.infinitive	gramalysis+label 2026-11-12
+dîner	dîner	6716659	non_finite.infinitive	gramalysis+label 2026-11-12
 effondrer	effondra	131518	indicative.past_historic.3s	gramalysis+label 2026-11-12
 effondrer	effondra	835962	indicative.past_historic.3s	gramalysis+label 2026-11-12
 effondrer	effondra	1038219	indicative.past_historic.3s	gramalysis+label 2026-11-12
@@ -1188,6 +1192,7 @@ mourir	mourais	499057	indicative.imperfect.2s	gramalysis+label 2026-11-12
 mourir	mourais	11240295	indicative.imperfect.1s	gramalysis+label 2026-11-12
 mourir	mourais	12252577	indicative.imperfect.1s	gramalysis+label 2026-11-12
 mourir	mourir	3445	non_finite.infinitive	gramalysis+label 2026-11-12
+mourir	mourir	1453746	non_finite.infinitive	gramalysis+label 2026-11-12
 mourir	mourûmes	1910384	indicative.past_historic.1p	gramalysis+label 2026-11-12
 mélanger	mélange	4193902	indicative.present.3s	gramalysis+label 2026-11-12
 mélanger	mélanger	464792	non_finite.infinitive	gramalysis+label 2026-11-12
@@ -1220,6 +1225,8 @@ naître	naissent	933270	indicative.present.3p	gramalysis+label 2026-11-12
 naître	naquis	1890381	indicative.past_historic.1s	gramalysis+label 2026-11-12
 naître	naquit	928366	indicative.past_historic.3s	gramalysis+label 2026-11-12
 nettoyer	nettoya	590023	indicative.past_historic.3s	gramalysis+label 2026-11-12
+nettoyer	nettoyant	2329793	non_finite.gerund	gramalysis+label 2026-11-12
+nettoyer	nettoyant	2329795	non_finite.gerund	gramalysis+label 2026-11-12
 nettoyer	nettoyiez	10333272	subjunctive.present.2p	gramalysis+label 2026-11-12
 nettoyer	nettoyiez	12258467	subjunctive.present.2p	gramalysis+label 2026-11-12
 nettoyer	nettoyions	4140587	indicative.imperfect.1p	gramalysis+label 2026-11-12
@@ -1307,6 +1314,7 @@ parler	parleras	5799916	indicative.future.2s	gramalysis+label 2026-11-12
 partager	partage	9049	indicative.present.1s	gramalysis+label 2026-11-12
 partager	partage	127923	indicative.present.1s	gramalysis+label 2026-11-12
 partager	partage	331022	imperative.present.2s	gramalysis+label 2026-11-12
+participer	participant	2734616	non_finite.gerund	gramalysis+label 2026-11-12
 participer	participe	460233	subjunctive.present.3s	gramalysis+label 2026-11-12
 participer	participe	1084939	indicative.present.1s	gramalysis+label 2026-11-12
 participer	participeras	1672652	indicative.future.2s	gramalysis+label 2026-11-12
@@ -1315,6 +1323,8 @@ participer	participerez	6571475	indicative.future.2p	gramalysis+label 2026-11-12
 partir	pars	3212	indicative.present.1s	gramalysis+label 2026-11-12
 partir	pars	7471	indicative.present.1s	gramalysis+label 2026-11-12
 partir	pars	12678	indicative.present.2s	gramalysis+label 2026-11-12
+partir	partant	128384	non_finite.gerund	gramalysis+label 2026-11-12
+partir	partant	569097	non_finite.gerund	gramalysis+label 2026-11-12
 partir	parti	9055	non_finite.past_participle	gramalysis+label 2026-11-12
 partir	partions	1108732	subjunctive.present.1p	gramalysis+label 2026-11-12
 partir	partions	1186307	subjunctive.present.1p	gramalysis+label 2026-11-12
@@ -1323,6 +1333,7 @@ partir	partir	3368	non_finite.infinitive	gramalysis+label 2026-11-12
 partir	partir	3941	non_finite.infinitive	gramalysis+label 2026-11-12
 parvenir	parviendrai	1269477	indicative.future.1s	gramalysis+label 2026-11-12
 parvenir	parviendrai	13483230	indicative.future.1s	gramalysis+label 2026-11-12
+passer	passant	14675	non_finite.gerund	gramalysis+label 2026-11-12
 passer	passe	3323	indicative.present.3s	gramalysis+label 2026-11-12
 passer	passes	1066007	indicative.present.2s	gramalysis+label 2026-11-12
 passer	passes	1664031	indicative.present.2s	gramalysis+label 2026-11-12
@@ -1404,6 +1415,7 @@ pointer	pointer	1803331	non_finite.infinitive	gramalysis+label 2026-11-12
 pointer	pointer	1954289	non_finite.infinitive	gramalysis+label 2026-11-12
 porter	porte	4131	indicative.present.3s	gramalysis+label 2026-11-12
 porter	porte	7364	indicative.present.1s	gramalysis+label 2026-11-12
+porter	porter	7294	non_finite.infinitive	gramalysis+label 2026-11-12
 porter	porter	9880	non_finite.infinitive	gramalysis+label 2026-11-12
 porter	portes	2576504	subjunctive.present.2s	gramalysis+label 2026-11-12
 porter	portes	2602419	subjunctive.present.2s	gramalysis+label 2026-11-12
@@ -1839,6 +1851,8 @@ souhaiter	souhaitions	4868350	indicative.imperfect.1p	gramalysis+label 2026-11-1
 souhaiter	souhaitions	4868352	indicative.imperfect.1p	gramalysis+label 2026-11-12
 sourire	souriant	3626	non_finite.gerund	gramalysis+label 2026-11-12
 sourire	souriant	7228	non_finite.gerund	gramalysis+label 2026-11-12
+sourire	sourire	9012	non_finite.infinitive	gramalysis+label 2026-11-12
+sourire	sourire	133918	non_finite.infinitive	gramalysis+label 2026-11-12
 soustraire	soustrayez	119818	imperative.present.2p	gramalysis+label 2026-11-12
 subir	subis	955678	indicative.present.2s	gramalysis+label 2026-11-12
 subir	subit	723317	indicative.present.3s	gramalysis+label 2026-11-12
@@ -1915,6 +1929,8 @@ toucher	touches	999419	indicative.present.2s	gramalysis+label 2026-11-12
 toucher	touches	3793407	indicative.present.2s	gramalysis+label 2026-11-12
 toucher	touché	130368	non_finite.past_participle	gramalysis+label 2026-11-12
 toucher	touché	135135	non_finite.past_participle	gramalysis+label 2026-11-12
+tourner	tournant	180923	non_finite.gerund	gramalysis+label 2026-11-12
+tourner	tournant	1269327	non_finite.gerund	gramalysis+label 2026-11-12
 tourner	tournant	2296208	non_finite.gerund	gramalysis+label 2026-11-12
 tourner	tourne	3910	indicative.present.3s	gramalysis+label 2026-11-12
 tourner	tourne	3951	indicative.present.3s	gramalysis+label 2026-11-12
@@ -1953,8 +1969,12 @@ traquer	traque	10709291	indicative.present.3s	gramalysis+label 2026-11-12
 travailler	travailla	10792	indicative.past_historic.3s	gramalysis+label 2026-11-12
 travailler	travailla	133310	indicative.past_historic.3s	gramalysis+label 2026-11-12
 travailler	travailla	133438	indicative.past_historic.3s	gramalysis+label 2026-11-12
+travailler	travaillant	8203	non_finite.gerund	gramalysis+label 2026-11-12
+travailler	travaillant	131889	non_finite.gerund	gramalysis+label 2026-11-12
 travailler	travailler	938101	non_finite.infinitive	gramalysis+label 2026-11-12
 travailler	travailleriez	10781287	conditional.present.2p	gramalysis+label 2026-11-12
+traverser	traversant	129434	non_finite.gerund	gramalysis+label 2026-11-12
+traverser	traversant	428670	non_finite.gerund	gramalysis+label 2026-11-12
 traverser	traversant	642045	non_finite.gerund	gramalysis+label 2026-11-12
 traverser	traverse	135677	indicative.present.3s	gramalysis+label 2026-11-12
 traverser	traverse	181194	imperative.present.2s	gramalysis+label 2026-11-12
@@ -2090,6 +2110,7 @@ vouloir	veuilles	506585	subjunctive.present.2s	gramalysis+label 2026-11-12
 vouloir	voudriez	10919	conditional.present.2p	gramalysis+label 2026-11-12
 vouloir	voudriez	126661	conditional.present.2p	gramalysis+label 2026-11-12
 vouloir	voudriez	427086	conditional.present.2p	gramalysis+label 2026-11-12
+vouloir	vouloir	9961	non_finite.infinitive	gramalysis+label 2026-11-12
 vouloir	vouloir	13105	non_finite.infinitive	gramalysis+label 2026-11-12
 voyager	voyageâmes	4262120	indicative.past_historic.1p	gramalysis+label 2026-11-12
 voyager	voyagions	1012915	indicative.imperfect.1p	gramalysis+label 2026-11-12
@@ -2128,6 +2149,7 @@ vêtir	vêt	567501	indicative.present.3s	gramalysis+label 2026-11-12
 éteindre	éteint	7824	non_finite.past_participle	gramalysis+label 2026-11-12
 éteindre	éteint	8801	non_finite.past_participle	gramalysis+label 2026-11-12
 étendre	étendu	134850	non_finite.past_participle	gramalysis+label 2026-11-12
+étudier	étudiant	128403	non_finite.gerund	gramalysis+label 2026-11-12
 étudier	étudierais	391129	conditional.present.1s	gramalysis+label 2026-11-12
 étudier	étudierais	1044781	conditional.present.1s	gramalysis+label 2026-11-12
 étudier	étudiiez	1638612	subjunctive.present.2p	gramalysis+label 2026-11-12

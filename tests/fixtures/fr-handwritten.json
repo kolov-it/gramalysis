@@ -3111,6 +3111,172 @@
         "source": "kaikki",
         "surface": "es"
       }
+    ],
+    "étant": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "étant",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "étant"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle present",
+          "tags": [
+            "participle",
+            "present"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "present-participle",
+          "rawTags": [
+            "participle",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "étant"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "gerund",
+          "tags": [
+            "gerund"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "conjugation-table",
+            "non_finite.gerund"
+          ]
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "étant"
+      }
+    ],
+    "difficile": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "difficile",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "difficile"
+      }
+    ],
+    "venue": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "venue",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "venue"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle singular",
+          "tags": [
+            "feminine",
+            "participle",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "venir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "venue"
+      }
+    ],
+    "qui": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "qui",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "qui"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "qui",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "qui"
+      },
+      {
+        "confidence": "high",
+        "lemma": "qui",
+        "partOfSpeech": "conj",
+        "source": "kaikki",
+        "surface": "qui"
+      },
+      {
+        "confidence": "high",
+        "lemma": "qui",
+        "partOfSpeech": "intj",
+        "source": "kaikki",
+        "surface": "qui"
+      }
     ]
   }
 }
