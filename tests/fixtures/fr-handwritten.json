@@ -1005,32 +1005,6 @@
         "grammar": null
       }
     ],
-    "va": [
-      {
-        "lemma": "aller",
-        "partOfSpeech": "verb",
-        "grammar": {
-          "rawTags": [],
-          "mood": "indicative",
-          "tense": "present",
-          "person": "third",
-          "number": "singular",
-          "clitic": false
-        }
-      },
-      {
-        "lemma": "aller",
-        "partOfSpeech": "verb",
-        "grammar": {
-          "rawTags": [],
-          "mood": "imperative",
-          "tense": "present",
-          "person": "second",
-          "number": "singular",
-          "clitic": false
-        }
-      }
-    ],
     "allons": [
       {
         "lemma": "aller",
@@ -1053,6 +1027,122 @@
           "tense": "present",
           "person": "first",
           "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "faites": [
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      },
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "imperative",
+          "tense": "present",
+          "person": "second",
+          "number": "plural"
+        }
+      },
+      {
+        "lemma": "faire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "donnes": [
+      {
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      }
+    ],
+    "écrites": [
+      {
+        "lemma": "écrire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "plural",
+          "gender": "feminine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "très": [
+      {
+        "lemma": "très",
+        "partOfSpeech": "adv",
+        "grammar": null
+      }
+    ],
+    "grand": [
+      {
+        "lemma": "grand",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "hommes": [
+      {
+        "lemma": "homme",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine",
+            "plural"
+          ],
+          "gender": "masculine",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "vas": [
+      {
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular",
           "clitic": false
         }
       }

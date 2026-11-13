@@ -11,7 +11,7 @@ pub use tokenize::tokenize;
 use std::collections::HashSet;
 
 use crate::lang::Language;
-use crate::morph::{Analysis, Lang, PartOfSpeech, Reading};
+use crate::morph::{Analysis, Lang, Mood, Number, PartOfSpeech, Person, Reading, Tense};
 use crate::syntax::feats::{self, FeatMap};
 use crate::syntax::grammar::{Grammar, GrammarError};
 use crate::syntax::lattice::{Lattice, Morpheme};
@@ -59,25 +59,7 @@ impl Language for French {
     }
 
     fn lexicon_forms(&self, tokens: &[String]) -> Vec<String> {
-        tokens
-            .iter()
-            .enumerate()
-            .filter(|(_, t)| !is_punct(t))
-            .map(|(i, t)| {
-                let lower = t.trim_start_matches('-').to_lowercase();
-                // Before an attached y or en, an imperative ending in -e or -a
-                // takes a liaison s (vas-y, donnes-en, penses-y): the lexicon
-                // knows it without the s. Only imperatives in -e / -a take it,
-                // so allons-y and prends-en keep their own s.
-                let before_y_en = tokens.get(i + 1).is_some_and(|n| matches!(n.to_lowercase().as_str(), "-y" | "-en"));
-                match lower.strip_suffix('s') {
-                    Some(stem) if before_y_en && !t.starts_with('-') && stem.len() > 1 && stem.ends_with(['e', 'a']) => {
-                        stem.to_owned()
-                    }
-                    _ => lower,
-                }
-            })
-            .collect()
+        tokens.iter().filter(|t| !is_punct(t)).map(|t| t.trim_start_matches('-').to_lowercase()).collect()
     }
 
     fn lattice(&self, tokens: &[String], analyses: &[Analysis]) -> Lattice {
@@ -163,6 +145,8 @@ impl French {
                 .filter(|r| capitalised || r.pos != PartOfSpeech::ProperNoun)
                 .collect();
             let lexicon = without_untagged_duplicates(lexicon, &lower);
+            let before_y_en = tokens.get(i + 1).is_some_and(|n| matches!(n.to_lowercase().as_str(), "-y" | "-en"));
+            let lexicon = if before_y_en { with_liaison_imperative(lexicon, &lower) } else { lexicon };
             let lexicon = prefer_traditional_spelling(
                 lexicon
                     .into_iter()
@@ -281,6 +265,36 @@ fn without_untagged_duplicates(readings: Vec<Reading>, form: &str) -> Vec<Readin
     let tagged: HashSet<String> =
         readings.iter().filter(|r| r.pos == PartOfSpeech::Verb && !untagged(r)).map(|r| r.lemma.clone()).collect();
     readings.into_iter().filter(|r| !(untagged(r) && tagged.contains(&r.lemma))).collect()
+}
+
+/// Before an attached y or en, a 2nd singular imperative ending in -e or -a
+/// takes a liaison s (donnes-en, penses-y, vas-y), and is then spelled like
+/// the 2nd singular present indicative, which is all the lexicon gives for
+/// it. Only an imperative is followed by a hyphenated y or en (inversion
+/// takes a subject pronoun: où vas-tu), so that indicative reading gets an
+/// imperative twin. A form with its own s (allons, prends, faites) is left
+/// as it is.
+fn with_liaison_imperative(mut readings: Vec<Reading>, form: &str) -> Vec<Reading> {
+    if !form.strip_suffix('s').is_some_and(|stem| stem.ends_with(['e', 'a'])) {
+        return readings;
+    }
+    let twins: Vec<Reading> = readings
+        .iter()
+        .filter(|r| {
+            r.pos == PartOfSpeech::Verb
+                && r.features.mood == Some(Mood::Indicative)
+                && r.features.tense == Some(Tense::Present)
+                && r.features.person == Some(Person::Second)
+                && r.features.number == Some(Number::Singular)
+        })
+        .map(|r| {
+            let mut twin = r.clone();
+            twin.features.mood = Some(Mood::Imperative);
+            twin
+        })
+        .collect();
+    readings.extend(twins);
+    readings
 }
 
 /// A lemma of two or more letters, all capitals (AIT, CE, USA).

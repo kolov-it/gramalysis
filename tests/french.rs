@@ -260,6 +260,30 @@ async fn liaison_s_before_an_attached_y_is_the_imperative() {
     let a = run("Vas-y !").await;
     assert!(parses(&a));
     assert!(agreed(&a, "Vas")[0].contains("mood=imp"));
-    // allons keeps its own s
+    // allons and faites keep their own s; donnes-en is donne + liaison s
     assert!(agreed(&run("Allons-y !").await, "Allons")[0].contains("mood=imp"));
+    assert!(agreed(&run("Faites-en !").await, "Faites")[0].contains("mood=imp"));
+    assert!(agreed(&run("Donnes-en !").await, "Donnes")[0].contains("mood=imp"));
+}
+
+#[tokio::test]
+async fn an_imperative_before_attached_pronouns_is_finite() {
+    // faites is also faire's feminine plural participle
+    assert!(agreed(&run("Faites-le !").await, "Faites")[0].contains("mood=imp"));
+}
+
+#[tokio::test]
+async fn reflexive_with_les_agrees_with_les() {
+    assert!(parses(&run("Elle se les est écrites.").await));
+    assert!(!parses(&run("Elle se les est écrit.").await));
+}
+
+#[tokio::test]
+async fn an_adverb_before_a_prenominal_adjective() {
+    assert!(parses(&run("C'est un très grand homme.").await));
+}
+
+#[tokio::test]
+async fn qui_with_etre_and_a_plural_noun_phrase() {
+    assert!(parses(&run("Qui sont ces hommes ?").await));
 }

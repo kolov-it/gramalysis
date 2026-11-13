@@ -155,6 +155,9 @@ rule question.wh-stylistic: S[inv=yes] -> QAdv VP[finite=yes, form=fin, subj=no,
 rule question.wh-subject: S[inv=yes] -> QPron[lemma=qui] VP[finite=yes, form=fin, mood=ind|cnd, subj=no, person=3, number=sg]
   "qui as the subject (Qui est là ?)."
 
+rule question.qui-predicate: S[inv=yes] -> QPron[lemma=qui] Cop[subj=no, person=3, number=?n] NP[case=nom, person=3, number=?n]
+  "qui + être + the noun phrase it asks about; être agrees with that noun phrase (Qui sont ces hommes ?)."
+
 rule question.wh-object: S[inv=yes] -> QPron S[imp=no]
   "que, qui or quoi opens the question as its object (Que fais-tu ? Qui as-tu vu ?)."
 
@@ -243,6 +246,9 @@ rule nom.adjective-after: Nom[needs_det=?d, after_participle=?x, number=?n, gend
 
 rule nom.adjective-before: Nom[number=?n, gender=?g, onset=?o] -> Adj[number=?n, gender=?g, onset=?o] Nom[number=?n, gender=?g]
   "An adjective before its noun agrees with it (un grand arbre, une belle maison)."
+
+rule nom.adverb-adjective-before: Nom[number=?n, gender=?g, onset=?o] -> Adv[onset=?o] Adj[number=?n, gender=?g] Nom[number=?n, gender=?g]
+  "An adverb and an adjective before the noun (un très grand homme); the determiner follows the adverb's first sound."
 
 rule nom.prepositional-phrase: Nom[needs_det=?d, number=?n, gender=?g, onset=?o] -> Nom[needs_det=?d, after_participle=no, number=?n, gender=?g, onset=?o] PP
   "A phrase with a preposition describes the noun (la maison de Tom, le livre sur la table)."
@@ -416,10 +422,10 @@ rule v.proclitic-inverted: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p,
 rule v.inverted: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=no, etre=?e] -> Verb[lemma=?l, etre=?e, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n]
   "Inversion: the subject pronoun after the verb (parlez-vous, a-t-il, puis-je)."
 
-rule v.imperative-enclitic: V[lemma=?l, finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no, acc=?a, neg=no] -> Verb[lemma=?l, mood=imp, person=?p, number=?n] EnCl[acc=?a, refl=?p, obj!=?p]
+rule v.imperative-enclitic: V[lemma=?l, finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no, acc=?a, neg=no] -> Verb[lemma=?l, form=fin, mood=imp, person=?p, number=?n] EnCl[acc=?a, refl=?p, obj!=?p]
   "In an order, the object pronouns follow the verb, with hyphens (donne-le-moi, lève-toi, allez-y)."
 
-rule v.imperative-negated: V[lemma=?l, finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no, acc=?a, neg=yes] -> Neg Clitics[attached=no, acc=?a, refl=?r, obj=?o] Verb[lemma=?l, mood=imp, person=?p, number=?n, person=?r, person!=?o]
+rule v.imperative-negated: V[lemma=?l, finite=yes, form=fin, mood=imp, person=?p, number=?n, subj=no, acc=?a, neg=yes] -> Neg Clitics[attached=no, acc=?a, refl=?r, obj=?o] Verb[lemma=?l, form=fin, mood=imp, person=?p, number=?n, person=?r, person!=?o]
   "In a negative order the pronouns stay before the verb, after ne (ne me regarde pas, ne t'en fais pas)."
 
 # compound tenses
@@ -460,8 +466,8 @@ rule v.reflexive-perfect: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, 
 rule v.reflexive-perfect-indirect: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=no, needs_obj=yes] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, number=sg, gender=m]
   "The reflexive pronoun is an indirect object: the participle stays masculine singular, and a complement follows (elle s'est lavé les mains, ils se sont dit que…)."
 
-rule v.reflexive-perfect-object-pronoun: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=yes, neg=no] -> Clitics[attached=no, reflexive=yes, acc=yes, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart]
-  "A reflexive pronoun with le, la or les (il se l'est dit)."
+rule v.reflexive-perfect-object-pronoun: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=yes, neg=no] -> Clitics[attached=no, reflexive=yes, acc=yes, refl=?p, anum=?on, agen=?og] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, number=?on, gender=?og]
+  "A reflexive pronoun with le, la or les: the participle agrees with that direct object (elle se les est écrites)."
 
 rule v.reflexive-perfect-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=?ng, pnum=?pn, gender=?g] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, number=?pn, gender=?g]
   "A pronominal verb in a compound tense with an adverb or pas (je ne me suis jamais ennuyé)."
@@ -470,8 +476,8 @@ rule v.reflexive-perfect-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, pers
 rule v.reflexive-perfect-adverb-indirect: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=?ng, needs_obj=yes] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, number=sg, gender=m]
   "The reflexive pronoun is an indirect object: the participle stays masculine singular, and a complement follows (elle s'est lavé les mains, ils se sont dit que…)."
 
-rule v.reflexive-perfect-adverb-object-pronoun: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=yes, neg=?ng] -> Clitics[attached=no, reflexive=yes, acc=yes, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart]
-  "A reflexive pronoun with le, la or les (il se l'est dit)."
+rule v.reflexive-perfect-adverb-object-pronoun: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=yes, neg=?ng] -> Clitics[attached=no, reflexive=yes, acc=yes, refl=?p, anum=?on, agen=?og] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, number=?on, gender=?og]
+  "A reflexive pronoun with le, la or les: the participle agrees with that direct object (elle se les est écrites)."
 
 rule v.reflexive-perfect-inverted: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=no, pnum=?pn, gender=?g] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=?l, form=pastpart, number=?pn, gender=?g]
   "A pronominal verb in a compound tense, inverted (T'es-tu levé ?)."
@@ -480,8 +486,8 @@ rule v.reflexive-perfect-inverted: V[lemma=?l, finite=yes, form=fin, mood=?m, pe
 rule v.reflexive-perfect-inverted-indirect: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=no, needs_obj=yes] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[lemma=?l, form=pastpart, number=sg, gender=m]
   "The reflexive pronoun is an indirect object: the participle stays masculine singular, and a complement follows (elle s'est lavé les mains, ils se sont dit que…)."
 
-rule v.reflexive-perfect-inverted-object-pronoun: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=yes, neg=no] -> Clitics[attached=no, reflexive=yes, acc=yes, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[lemma=?l, form=pastpart]
-  "A reflexive pronoun with le, la or les (il se l'est dit)."
+rule v.reflexive-perfect-inverted-object-pronoun: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=yes, neg=no] -> Clitics[attached=no, reflexive=yes, acc=yes, refl=?p, anum=?on, agen=?og] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[lemma=?l, form=pastpart, number=?on, gender=?og]
+  "A reflexive pronoun with le, la or les: the participle agrees with that direct object (elle se les est écrites)."
 
 rule v.reflexive-perfect-inverted-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=?ng, pnum=?pn, gender=?g] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, number=?pn, gender=?g]
   "A pronominal verb in a compound tense, inverted, with an adverb (T'en es-tu déjà tiré ?)."
@@ -490,8 +496,8 @@ rule v.reflexive-perfect-inverted-adverb: V[lemma=?l, finite=yes, form=fin, mood
 rule v.reflexive-perfect-inverted-adverb-indirect: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=?ng, needs_obj=yes] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, number=sg, gender=m]
   "The reflexive pronoun is an indirect object: the participle stays masculine singular, and a complement follows (elle s'est lavé les mains, ils se sont dit que…)."
 
-rule v.reflexive-perfect-inverted-adverb-object-pronoun: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=yes, neg=?ng] -> Clitics[attached=no, reflexive=yes, acc=yes, refl=?p] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart]
-  "A reflexive pronoun with le, la or les (il se l'est dit)."
+rule v.reflexive-perfect-inverted-adverb-object-pronoun: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=yes, neg=?ng] -> Clitics[attached=no, reflexive=yes, acc=yes, refl=?p, anum=?on, agen=?og] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, number=?on, gender=?og]
+  "A reflexive pronoun with le, la or les: the participle agrees with that direct object (elle se les est écrites)."
 
 rule v.inverted-perfect-avoir: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=no] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
   "A compound tense with avoir, inverted (As-tu fini ? A-t-il compris ?)."
@@ -516,6 +522,12 @@ rule v.inverted-perfect-etre: V[lemma=?l, finite=yes, form=fin, mood=?m, person=
 
 rule v.inverted-perfect-etre-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=?ng] -> Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A compound tense with être, inverted, with an adverb or pas (Est-il déjà venu ? N'est-il pas venu ?)."
+
+rule v.proclitic-inverted-perfect-etre: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=no] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o] Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+  "y or en, then an inverted compound tense with être (Y est-il allé ? En est-elle sortie ?)."
+
+rule v.proclitic-inverted-perfect-etre-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=?ng] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o] Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+  "The same with an adverb or pas (N'y est-il pas allé ?)."
 
 rule v.perfect-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=no, neg=no] -> Verb[lemma=avoir|être, form=inf] Verb[lemma=?l, form=pastpart]
   "The past infinitive: avoir or être + participle (après avoir mangé, sans être vu)."
