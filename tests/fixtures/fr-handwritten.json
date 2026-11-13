@@ -3833,6 +3833,76 @@
         "surface": "chante"
       }
     ],
-    "tom": []
+    "tom": [],
+    "toujours": [
+      {
+        "confidence": "high",
+        "lemma": "toujours",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "toujours"
+      }
+    ],
+    "partie": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "partie",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "partie"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle singular",
+          "tags": [
+            "feminine",
+            "participle",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "partir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "partie"
+      }
+    ],
+    "famille": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "famille",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "famille"
+      }
+    ]
   }
 }

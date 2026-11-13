@@ -815,3 +815,20 @@ async fn only_an_impersonal_subject_skips_the_infinitive_checks() {
 async fn si_the_musical_note() {
     assert!(parses(&run("Je chante le si.").await));
 }
+
+#[tokio::test]
+async fn an_adverb_does_not_hide_the_object_controller() {
+    assert!(parses(&run("Elle me dit toujours de me laver.").await));
+    assert!(!parses(&run("Elle me dit toujours de se laver.").await));
+}
+
+#[tokio::test]
+async fn lui_and_leur_control_an_infinitive() {
+    assert!(parses(&run("Elle leur dit d'être heureuses.").await));
+    assert!(!parses(&run("Elle leur dit d'être heureuse.").await));
+}
+
+#[tokio::test]
+async fn faire_partie() {
+    assert!(parses(&run("Il fait partie de la famille.").await));
+}
