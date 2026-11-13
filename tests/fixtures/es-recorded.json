@@ -1040,6 +1040,7 @@
         "surface": "hacerlo"
       }
     ],
+    "hacér": [],
     "hagas": [
       {
         "confidence": "high",
@@ -1802,6 +1803,46 @@
         "surface": "quiero"
       }
     ],
+    "roma": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "Roma",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "roma"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "romo",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "roma"
+      }
+    ],
+    "roman": [],
     "romanos": [
       {
         "confidence": "high",
@@ -1862,6 +1903,23 @@
         "partOfSpeech": "name",
         "source": "kaikki",
         "surface": "romanos"
+      }
+    ],
+    "romá": [],
+    "román": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "Román",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "román"
       }
     ],
     "se": [
@@ -2230,6 +2288,7 @@
         "surface": "tu"
       }
     ],
+    "tód": [],
     "tú": [
       {
         "confidence": "high",

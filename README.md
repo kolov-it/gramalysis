@@ -184,7 +184,7 @@ cargo run --release -- eval es data/es/homograph-set.jsonl \
 - **Attached clitics**: the lexicon does not analyse every verb + clitics
   compound, so the host is looked up on its own: *dámelo* = *da* + *me* +
   *lo* (the accent the clitics added comes off), *vámonos* = *vamos* + *nos*,
-  *sentaos* = *sentad* + *os*.
+  *sentaos* = *sentad* + *os*, *mantente* = *mantén* + *te*.
 - **ser, estar and haber** have rules of their own (every verb carries
   `class=ser|estar|haber|lex`): ser says what the subject is (an adjective, a
   noun, a phrase with *de*, *para*, *en*…) or forms the passive, so *fue a
@@ -195,11 +195,11 @@ cargo run --release -- eval es data/es/homograph-set.jsonl \
 
 On the Tatoeba set (5,000 sentences, 2,034 ambiguous forms of 832 page verbs,
 at most 3 sentences a form, alternating spaCy's verb and non-verb readings)
-it decides the ambiguous word in **78.9%** of the sentences, and **99.4%** of
-those decisions agree with the labels (3,923 of 3,946); 11.1% do not parse and
+it decides the ambiguous word in **79.0%** of the sentences, and **99.5%** of
+those decisions agree with the labels (3,930 of 3,950); 10.9% do not parse and
 2.0% have a word the lexicon does not know. `data/es/verified-examples.tsv`
-holds the 1,922 decided sentences of 5–20 words where the decision is the page
-verb and the label agrees (1,197 forms of 568 verbs), in the format of wordy's
+holds the 1,924 decided sentences of 5–20 words where the decision is the page
+verb and the label agrees (1,198 forms of 568 verbs), in the format of wordy's
 `verified-<lang>.tsv`.
 
 **Labelling conventions** (the header of `data/es/homograph-labels.tsv` has

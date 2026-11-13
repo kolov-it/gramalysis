@@ -59,28 +59,48 @@ pub fn split_enclitics(form: &str) -> Vec<Split> {
         }
         let plain = strip_accent(&host);
         // Hosts that can carry clitics: an infinitive, a gerund, a vosotros
-        // imperative, a short imperative (da, haz, pon, di), or any form the
-        // clitics forced an accent on (llámalo, hágalo, sentémonos).
+        // imperative, a short imperative (da, haz, pon, di), any form the
+        // clitics forced an accent on (llámalo, hágalo, sentémonos), or an
+        // imperative ending in a vowel, n or s whose own final accent the
+        // clitics took away (mantén + te = mantente, está + te = estate).
         let plausible = plain.ends_with('r')
             || plain.ends_with("ndo")
             || plain.ends_with('d')
             || SHORT_IMPERATIVES.contains(&host.as_str())
-            || accented;
+            || accented
+            || plain.ends_with(['a', 'e', 'i', 'o', 'u', 'n', 's']);
         if !plausible {
             continue;
         }
         let mut hosts = vec![host.clone()];
         if plain != host {
-            hosts.push(plain);
+            hosts.push(plain.clone());
         }
         // dé keeps its accent on its own but loses it under clitics (deme,
         // dele): restore it, or the host reads as the preposition de.
         if host == "de" {
             hosts.push("dé".to_owned());
         }
+        if !accented && let Some(stressed) = accent_last_vowel(&plain) {
+            hosts.push(stressed);
+        }
         out.push(Split { hosts, clitics: chain.into_iter().map(str::to_owned).collect() });
     }
     out
+}
+
+/// The form with a written accent on its last vowel (manten → mantén), for a
+/// host whose final stress the clitics made unwritten.
+fn accent_last_vowel(s: &str) -> Option<String> {
+    let (i, c) = s.char_indices().rev().find(|(_, c)| "aeiou".contains(*c))?;
+    let accented = match c {
+        'a' => 'á',
+        'e' => 'é',
+        'i' => 'í',
+        'o' => 'ó',
+        _ => 'ú',
+    };
+    Some(format!("{}{}{}", &s[..i], accented, &s[i + c.len_utf8()..]))
 }
 
 /// The form without its written accents (ñ and ü stay).
@@ -118,6 +138,8 @@ mod tests {
         assert!(has("dígaselo", "diga", &["se", "lo"]));
         assert!(has("deme", "dé", &["me"]));
         assert!(has("denme", "den", &["me"]));
+        assert!(has("mantente", "mantén", &["te"]));
+        assert!(has("estate", "está", &["te"]));
     }
 
     #[test]

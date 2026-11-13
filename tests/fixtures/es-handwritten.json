@@ -120,6 +120,33 @@
         "partOfSpeech": "verb"
       }
     ],
+    "alejado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "alejado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "alejar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "ayer": [
       {
         "lemma": "ayer",
@@ -225,6 +252,33 @@
         },
         "lemma": "Bueno",
         "partOfSpeech": "name"
+      }
+    ],
+    "cargado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "cargado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "cargar",
+        "partOfSpeech": "verb"
       }
     ],
     "casa": [
@@ -394,6 +448,12 @@
         },
         "lemma": "comer",
         "partOfSpeech": "verb"
+      }
+    ],
+    "con": [
+      {
+        "lemma": "con",
+        "partOfSpeech": "prep"
       }
     ],
     "construida": [
@@ -854,6 +914,79 @@
         "partOfSpeech": "verb"
       }
     ],
+    "flores": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "flor",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "flores",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "florar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Flores",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Flores",
+        "partOfSpeech": "name"
+      },
+      {
+        "lemma": "Flores",
+        "partOfSpeech": "name"
+      }
+    ],
     "fue": [
       {
         "grammar": {
@@ -1150,6 +1283,25 @@
         "partOfSpeech": "verb"
       }
     ],
+    "llegó": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "preterite",
+            "singular",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "llegar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "lo": [
       {
         "lemma": "lo",
@@ -1232,6 +1384,43 @@
         "partOfSpeech": "name"
       }
     ],
+    "manten": [],
+    "mantente": [
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "object-second-person",
+            "object-singular",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "mantener",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "mantén": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "mantener",
+        "partOfSpeech": "verb"
+      }
+    ],
     "mi": [
       {
         "grammar": {
@@ -1267,6 +1456,12 @@
         },
         "lemma": "mi",
         "partOfSpeech": "noun"
+      }
+    ],
+    "mí": [
+      {
+        "lemma": "mí",
+        "partOfSpeech": "pron"
       }
     ],
     "mía": [
@@ -1451,6 +1646,60 @@
       {
         "lemma": "que",
         "partOfSpeech": "pron"
+      }
+    ],
+    "rega": [],
+    "regalos": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "regalo",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "accusative",
+            "imperative",
+            "object-masculine",
+            "object-plural",
+            "object-third-person",
+            "second-person",
+            "singular",
+            "with-voseo"
+          ]
+        },
+        "lemma": "regar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "regá": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular",
+            "with-voseo"
+          ]
+        },
+        "lemma": "regar",
+        "partOfSpeech": "verb"
       }
     ],
     "resultado": [

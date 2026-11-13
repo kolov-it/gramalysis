@@ -200,3 +200,17 @@ async fn a_participle_before_its_noun_is_an_adjective_use() {
     assert!(!a.parses.is_empty());
     assert_eq!(uses(&a, "esperado"), ["ap.participle"]);
 }
+
+#[tokio::test]
+async fn mantente_is_mantén_te() {
+    let a = run("Mantente alejado de mí.").await;
+    assert!(!a.parses.is_empty());
+    assert!(agreed(&a, "Mantente")[0].starts_with("mantener Verb"));
+}
+
+#[tokio::test]
+async fn a_participle_says_how_the_subject_arrived() {
+    assert!(!run("Él llegó cargado.").await.parses.is_empty());
+    let a = run("Él llegó cargado con flores y regalos.").await;
+    assert!(!a.parses.is_empty());
+}
