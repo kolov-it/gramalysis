@@ -1700,6 +1700,17 @@
           "number": "singular"
         }
       }
+    ],
+    "pouvoir": [
+      {
+        "lemma": "pouvoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "infinitive",
+          "clitic": false
+        }
+      }
     ]
   }
 }

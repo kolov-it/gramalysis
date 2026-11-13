@@ -505,3 +505,15 @@ async fn an_etre_based_infinitive_agrees_with_its_controller() {
     assert!(parses(&run("Elle veut avoir été fermée.").await));
     assert!(!parses(&run("Elle veut avoir été fermé.").await));
 }
+
+#[tokio::test]
+async fn a_predicative_adjective_agrees_with_an_object_pronoun_in_a_compound_tense() {
+    assert!(parses(&run("Je les ai vus fatigués.").await));
+    assert!(!parses(&run("Je les ai vus fatigué.").await));
+}
+
+#[tokio::test]
+async fn nested_infinitives_keep_the_reflexive_controller_check() {
+    assert!(parses(&run("Je veux pouvoir me laver.").await));
+    assert!(!parses(&run("Je veux pouvoir se laver.").await));
+}
