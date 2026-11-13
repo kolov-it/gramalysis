@@ -207,6 +207,18 @@ rule question.wh-pronoun-object-agreement-negated: S[inv=yes] -> QPron[number=?o
 rule question.wh-object-agreement-more: S[inv=yes] -> WhP[number=?on, gender=?og] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og] Tail
   "The same, then more (Quelles lettres as-tu écrites hier ?)."
 
+rule question.wh-object-agreement-est-ce-que: S[inv=yes] -> WhP[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+  "A question phrase as the object, then est-ce que and the ordinary subject-first compound tense: the participle agrees with the question phrase (Quelles lettres est-ce que tu as écrites ?)."
+
+rule question.wh-object-agreement-est-ce-que-adverb: S[inv=yes] -> WhP[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Neg Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+  "The same with ne … pas (Quelles lettres est-ce que tu n'as pas écrites ?)."
+
+rule question.wh-object-agreement-est-ce-que-mod: S[inv=yes] -> WhP[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+  "The same with an adverb (Quels livres est-ce que tu as déjà lus ?)."
+
+rule question.wh-pronoun-object-agreement-est-ce-que: S[inv=yes] -> QPron[number=?on, gender=?og] QMark NP[case=nom, person=?p, number=?n] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=?p, number=?n] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+  "A question pronoun as the object, then est-ce que and a subject-first compound tense (Lesquelles est-ce que tu as écrites ?)."
+
 rule question.wh-object-agreement-complex: S[inv=yes] -> WhP[number=?on, gender=?og] NP[person=3, number=?n, gender=?g] Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, person=3, number=?n] Pron[attached=yes, case=nom, person=3, number=?n, gender=?g] Verb[form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A question phrase as the object, a noun subject and inverted avoir: the participle agrees with the question phrase, the pronoun with the noun (Quelles lettres la femme a-t-elle écrites ?)."
 
@@ -575,16 +587,16 @@ rule v.perfect-etre-shared: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p
 rule v.perfect-etre-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=?ng] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "An adverb or pas between être and the participle (elle est déjà partie, il n'est pas venu)."
 
-rule v.proclitic-perfect-avoir: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=no, gap=yes] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
+rule v.proclitic-perfect-avoir: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=no, gap=yes] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
   "An indirect object pronoun before avoir (il m'a parlé, j'y ai pensé)."
 
-rule v.proclitic-perfect-avoir-agree: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=yes, neg=no, anum=?on, agen=?og, agreed=yes] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule v.proclitic-perfect-avoir-agree: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=yes, neg=no, anum=?on, agen=?og, aperson=?ap, agreed=yes] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, aperson=?ap, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A direct object pronoun before avoir: the participle agrees with it (je les ai vues, il l'a prise)."
 
-rule v.proclitic-perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=?ng, gap=yes] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
+rule v.proclitic-perfect-avoir-adverb: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=?ng, gap=yes] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
   "An indirect pronoun before avoir, an adverb before the participle (il m'a déjà parlé)."
 
-rule v.proclitic-perfect-avoir-agree-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=yes, neg=?ng, anum=?on, agen=?og, agreed=yes] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule v.proclitic-perfect-avoir-agree-adverb: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=yes, neg=?ng, anum=?on, agen=?og, aperson=?ap, agreed=yes] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, aperson=?ap, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A direct object pronoun before avoir, an adverb before the agreeing participle (je ne l'ai pas vue)."
 
 rule v.causative-perfect: V[lemma=faire, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=yes, neg=no, anum=?an, agen=?ag, aperson=?ap, dperson=?dp, dnum=?dn, causative=yes] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?an, agen=?ag, aperson=?ap, dperson=?dp, dnum=?dn, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=faire, form=pastpart, number=sg, gender=m]
@@ -599,10 +611,10 @@ rule v.causative-perfect-inverted: V[lemma=faire, finite=yes, form=fin, mood=?m,
 rule v.causative-perfect-inverted-adverb: V[lemma=faire, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, subj=yes, acc=yes, neg=?ng, anum=?an, agen=?ag, aperson=?ap, dperson=?dp, dnum=?dn, causative=yes] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?an, agen=?ag, aperson=?ap, dperson=?dp, dnum=?dn, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, gender=?g] Mod[neg=?ng] Verb[lemma=faire, form=pastpart, number=sg, gender=m]
   "The same, inverted, with an adverb or pas (Ne les a-t-elle pas fait partir ?)."
 
-rule v.proclitic-perfect-etre: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=?ng] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+rule v.proclitic-perfect-etre: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=?ng] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A pronoun before être in a compound tense of an être verb, with an adverb (il en est déjà sorti)."
 
-rule v.proclitic-perfect-etre-plain: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=no] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+rule v.proclitic-perfect-etre-plain: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no, acc=no, neg=no] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A pronoun before être in a compound tense of an être verb (j'y suis allé, il en est sorti)."
 
 rule v.reflexive-perfect: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=no, acc=no, neg=no, pnum=?pn, gender=?g] -> Clitics[attached=no, reflexive=yes, acc=no, refl=?p, rnum=?n] Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, number=?pn, gender=?g]
@@ -651,10 +663,10 @@ rule v.inverted-perfect-avoir: V[lemma=?l, finite=yes, form=fin, mood=?m, person
 rule v.inverted-perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=?ng, gender=?g, gap=yes] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, gender=?g] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
   "Inverted avoir, an adverb, the participle (As-tu déjà mangé ?)."
 
-rule v.proclitic-inverted-perfect-avoir: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=yes, neg=no, gender=?g, anum=?on, agen=?og, agreed=yes] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, gender=?g] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule v.proclitic-inverted-perfect-avoir: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=yes, neg=no, gender=?g, anum=?on, agen=?og, aperson=?ap, agreed=yes] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, aperson=?ap, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, gender=?g] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A pronoun, then inverted avoir and the participle (L'as-tu vue ? M'avez-vous appelé ?)."
 
-rule v.proclitic-inverted-perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=yes, neg=?ng, gender=?g, anum=?on, agen=?og, agreed=yes] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, gender=?g] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule v.proclitic-inverted-perfect-avoir-adverb: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=yes, neg=?ng, gender=?g, anum=?on, agen=?og, aperson=?ap, agreed=yes] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, aperson=?ap, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, gender=?g] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A pronoun, inverted avoir, an adverb or pas, then the participle, which agrees with a direct object pronoun (L'as-tu déjà vue ? Ne l'as-tu pas vu ?)."
 
 rule v.indirect-inverted-perfect-avoir: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=no, gender=?g, gap=yes] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, gender=?g] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
@@ -669,10 +681,10 @@ rule v.inverted-perfect-etre: V[lemma=?l, finite=yes, form=fin, mood=?m, person=
 rule v.inverted-perfect-etre-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=?ng] -> Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A compound tense with être, inverted, with an adverb or pas (Est-il déjà venu ? N'est-il pas venu ?)."
 
-rule v.proclitic-inverted-perfect-etre: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=no] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+rule v.proclitic-inverted-perfect-etre: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=no] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "y or en, then an inverted compound tense with être (Y est-il allé ? En est-elle sortie ?)."
 
-rule v.proclitic-inverted-perfect-etre-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=?ng] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+rule v.proclitic-inverted-perfect-etre-adverb: V[dperson=?dp, dnum=?dn, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=?ng] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=no, refl=?r, obj=?o, rnum=?n] Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "The same with an adverb or pas (N'y est-il pas allé ?)."
 
 rule v.perfect-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=no, neg=no] -> Verb[lemma=avoir, form=inf] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
@@ -684,13 +696,13 @@ rule v.perfect-infinitive-etre: V[lemma=?l, finite=no, form=inf, subj=no, acc=no
 rule v.passive-past-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=no, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=avoir, form=inf] Verb[lemma=être, form=pastpart] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?pn, gender=?g]
   "The passive in the past infinitive: avoir été + participle (après avoir été blessé)."
 
-rule v.proclitic-perfect-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=yes, neg=no, anum=?on, agen=?og] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?on, agen=?og] Verb[lemma=avoir, form=inf] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule v.proclitic-perfect-infinitive: V[dperson=?dp, dnum=?dn, lemma=?l, finite=no, form=inf, subj=no, acc=yes, neg=no, anum=?on, agen=?og, aperson=?ap] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, aperson=?ap] Verb[lemma=avoir, form=inf] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "le, la, les before the past infinitive with avoir: the participle agrees with it (pour les avoir vues)."
 
 rule v.indirect-perfect-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=no, neg=no] -> Clitics[attached=no, reflexive=no, acc=no] Verb[lemma=avoir, form=inf] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
   "An indirect pronoun before the past infinitive with avoir (pour lui avoir parlé)."
 
-rule v.proclitic-perfect-infinitive-etre: V[lemma=?l, finite=no, form=inf, subj=no, acc=no, neg=no, pnum=?pn, gender=?g] -> Clitics[attached=no, reflexive=no, acc=no] Verb[lemma=être, form=inf] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+rule v.proclitic-perfect-infinitive-etre: V[dperson=?dp, dnum=?dn, lemma=?l, finite=no, form=inf, subj=no, acc=no, neg=no, pnum=?pn, gender=?g] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=no] Verb[lemma=être, form=inf] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "y or en before the past infinitive with être (après y être allé)."
 
 rule v.reflexive-perfect-infinitive: V[lemma=?l, finite=no, form=inf, subj=no, acc=?a, neg=no, pnum=?pn, gender=?g] -> Clitics[attached=no, reflexive=yes, acc=?a] Verb[lemma=être, form=inf] Verb[lemma=?l, form=pastpart, number=?pn, gender=?g]
@@ -702,7 +714,7 @@ rule v.perfect-gerund: V[lemma=?l, finite=no, form=prespart, subj=no, acc=no, ne
 rule v.perfect-gerund-etre: V[lemma=?l, finite=no, form=prespart, subj=no, acc=no, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=être, form=prespart|ger] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "étant + participle of an être verb (étant arrivé)."
 
-rule v.proclitic-perfect-gerund: V[lemma=?l, finite=no, form=prespart, subj=no, acc=yes, neg=no, anum=?on, agen=?og] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?on, agen=?og] Verb[lemma=avoir, form=prespart|ger] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule v.proclitic-perfect-gerund: V[dperson=?dp, dnum=?dn, lemma=?l, finite=no, form=prespart, subj=no, acc=yes, neg=no, anum=?on, agen=?og, aperson=?ap] -> Clitics[dperson=?dp, dnum=?dn, attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, aperson=?ap] Verb[lemma=avoir, form=prespart|ger] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "le, la, les before ayant + participle, which agrees with it (en les ayant vus)."
 
 rule v.indirect-perfect-gerund: V[lemma=?l, finite=no, form=prespart, subj=no, acc=no, neg=no] -> Clitics[attached=no, reflexive=no, acc=no] Verb[lemma=avoir, form=prespart|ger] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
@@ -963,7 +975,7 @@ rule vp.causative-object-control: VP[finite=?f, form=?fm, mood=?m, person=?p, nu
 rule vp.object-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=voir|entendre|faire|laisser|regarder|écouter|sentir|envoyer, acc=no] NP[case=obl, number=?on, gender=?og] VP[form=inf, pnum=?on, gender=?og]
   "Perception and causative verbs: the object, then what it does (j'ai vu Tom partir)."
 
-rule vp.preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Prep[lemma=à|de|pour|par|sans] VP[form=inf, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
+rule vp.preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, irefl=?p, irnum=?n] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Prep[lemma=à|de|pour|par|sans] VP[form=inf, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
   "A verb followed by à or de and an infinitive that its subject controls (il commence à pleuvoir, j'ai décidé de partir, je suis venu pour me laver)."
 
 rule vp.preposition-infinitive-object-control: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, lemma=demander|dire|permettre|conseiller|ordonner|interdire|proposer|défendre|prier|empêcher|forcer|obliger|aider|inviter|encourager|apprendre|enseigner|persuader|convaincre|pousser|autoriser|charger|supplier|recommander|reprocher|remercier|féliciter|accuser|pardonner] Prep[lemma=à|de] VP[form=inf]
@@ -1026,7 +1038,7 @@ rule vp.passive-agent: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, g
 rule vp.passive-agent-negated: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no] -> Neg Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?pn, gender=?g] Prep[lemma=par] NP
   "A negated passive with par + agent (il n'est pas aimé par ses voisins)."
 
-rule vp.prepositional-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] PP[agent=no, pnum=?pn, gender=?g, irefl=?p, irnum=?n]
+rule vp.prepositional-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] PP[agent=no, pnum=?pn, gender=?g, irefl=?p, irefl=?ir, irnum=?n, irnum=?irn]
   "A phrase with a preposition adds where, when, for whom or how. An infinitive in it (pour, sans, avant de…) has the clause's subject as its subject (je suis venu pour me laver)."
 
 rule vp.agent-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, gap=?gp, irefl=?ir, irnum=?irn, state=?st] -> VP[gap=?gp, irefl=?ir, irnum=?irn, state=?st, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, state=no] PP[agent=yes]

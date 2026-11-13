@@ -1930,6 +1930,47 @@
           "formKind": "past-participle"
         }
       }
+    ],
+    "laissé": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "laisser",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "laissé"
+      }
+    ],
+    "essayer": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "essayer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "essayer"
+      }
     ]
   }
 }

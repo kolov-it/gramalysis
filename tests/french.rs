@@ -622,3 +622,20 @@ async fn a_reflexive_predicative_in_a_compound_tense() {
     assert!(parses(&run("Elle s'est rendue heureuse.").await));
     assert!(!parses(&run("Elle s'est rendue heureux.").await));
 }
+
+#[tokio::test]
+async fn an_object_question_with_est_ce_que_agrees() {
+    assert!(parses(&run("Quelles lettres est-ce que tu as écrites ?").await));
+}
+
+#[tokio::test]
+async fn an_object_pronoun_controls_a_reflexive_infinitive_in_a_compound_tense() {
+    assert!(parses(&run("Elle m'a laissé me laver.").await));
+    assert!(!parses(&run("Elle m'a laissé se laver.").await));
+}
+
+#[tokio::test]
+async fn subject_control_reaches_through_a_prepositional_infinitive() {
+    assert!(parses(&run("Je veux essayer de me laver.").await));
+    assert!(!parses(&run("Je veux essayer de se laver.").await));
+}
