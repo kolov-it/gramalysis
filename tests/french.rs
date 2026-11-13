@@ -955,3 +955,21 @@ async fn adverbial_toute_agrees() {
     assert!(!parses(&run("Il est toute heureux.").await));
     assert!(!parses(&run("Elle est toutes venue.").await));
 }
+
+#[tokio::test]
+async fn que_in_a_pronominal_relative_agrees_with_the_participle() {
+    assert!(parses(&run("Les lettres que je me suis écrites sont là.").await));
+    assert!(!parses(&run("Les lettres que je me suis écrit sont là.").await));
+}
+
+#[tokio::test]
+async fn an_infinitive_subject_takes_a_masculine_singular_predicate() {
+    assert!(parses(&run("Partir est difficile.").await));
+    assert!(!parses(&run("Partir est heureuses.").await));
+}
+
+#[tokio::test]
+async fn the_euphonic_t_only_before_il_elle_on() {
+    assert!(parses(&run("A-t-il fini ?").await));
+    assert!(!parses(&run("Parlez-t-vous français ?").await));
+}

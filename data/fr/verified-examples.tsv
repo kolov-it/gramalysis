@@ -100,6 +100,8 @@ allonger	allongea	131585	indicative.past_historic.3s	gramalysis+label 2026-11-12
 allonger	allongea	133530	indicative.past_historic.3s	gramalysis+label 2026-11-12
 allonger	allongea	136375	indicative.past_historic.3s	gramalysis+label 2026-11-12
 allonger	allongiez	2015764	subjunctive.present.2p	gramalysis+label 2026-11-12
+allonger	allongé	6388	non_finite.past_participle	gramalysis+label 2026-11-12
+allonger	allongé	6667	non_finite.past_participle	gramalysis+label 2026-11-12
 allumer	allumerais	751291	conditional.present.1s	gramalysis+label 2026-11-12
 allumer	allumions	2126275	indicative.imperfect.1p	gramalysis+label 2026-11-12
 amener	amène	10985	indicative.present.3s	gramalysis+label 2026-11-12
@@ -171,7 +173,9 @@ arrêter	arrêtions	1892114	subjunctive.present.1p	gramalysis+label 2026-11-12
 arrêter	arrêtions	1892124	subjunctive.present.1p	gramalysis+label 2026-11-12
 arrêter	arrêté	6495	non_finite.past_participle	gramalysis+label 2026-11-12
 arrêter	arrêté	6772	non_finite.past_participle	gramalysis+label 2026-11-12
+asseoir	assis	6598	non_finite.past_participle	gramalysis+label 2026-11-12
 asseoir	assis	6956	indicative.past_historic.1s	gramalysis+label 2026-11-12
+associer	associé	14742	non_finite.past_participle	gramalysis+label 2026-11-12
 assurer	assurez	9369	imperative.present.2p	gramalysis+label 2026-11-12
 assurer	assurez	12110	imperative.present.2p	gramalysis+label 2026-11-12
 attacher	attache	13801	imperative.present.2s	gramalysis+label 2026-11-12
@@ -254,6 +258,7 @@ blesser	blesser	8918	non_finite.infinitive	gramalysis+label 2026-11-12
 blesser	blesser	9013	non_finite.infinitive	gramalysis+label 2026-11-12
 blesser	blesser	4561834	non_finite.infinitive	gramalysis+label 2026-11-12
 blesser	blessiez	2019499	subjunctive.present.2p	gramalysis+label 2026-11-12
+blesser	blessé	6816	non_finite.past_participle	gramalysis+label 2026-11-12
 blâmer	blâme	8609	indicative.present.3s	gramalysis+label 2026-11-12
 blâmer	blâme	136362	indicative.present.1s	gramalysis+label 2026-11-12
 blâmer	blâme	1194662	indicative.present.1s	gramalysis+label 2026-11-12
@@ -684,6 +689,7 @@ découvrir	découvrît	12144593	subjunctive.imperfect.3s	gramalysis+label 2026-1
 décrire	décrirais	11078984	conditional.present.2s	gramalysis+label 2026-11-12
 défaillir	défaille	10792	subjunctive.present.3s	gramalysis+label 2026-11-12
 défendre	défendant	1240701	non_finite.gerund	gramalysis+label 2026-11-12
+défiler	défilé	1070332	non_finite.past_participle	gramalysis+label 2026-11-12
 défiler	défilé	2059293	non_finite.past_participle	gramalysis+label 2026-11-12
 déjeuner	déjeunâmes	333522	indicative.past_historic.1p	gramalysis+label 2026-11-12
 démarrer	démarrâmes	809012	indicative.past_historic.1p	gramalysis+label 2026-11-12
@@ -758,6 +764,7 @@ enduire	enduis	1861266	indicative.present.1s	gramalysis+label 2026-11-12
 enduire	enduis	2709660	imperative.present.2s	gramalysis+label 2026-11-12
 enfoncer	enfoncerons	7811494	indicative.future.1p	gramalysis+label 2026-11-12
 enfreindre	enfreindrai	9704539	indicative.future.1s	gramalysis+label 2026-11-12
+enfuir	enfui	6545	non_finite.past_participle	gramalysis+label 2026-11-12
 enfuir	enfui	128490	non_finite.past_participle	gramalysis+label 2026-11-12
 enfuir	enfui	131922	non_finite.past_participle	gramalysis+label 2026-11-12
 enquêter	enquête	800835	indicative.present.3s	gramalysis+label 2026-11-12
@@ -1067,6 +1074,8 @@ lever	levant	1959190	non_finite.gerund	gramalysis+label 2026-11-12
 lever	lever	6235	non_finite.infinitive	gramalysis+label 2026-11-12
 lever	lever	10105	non_finite.infinitive	gramalysis+label 2026-11-12
 lever	lever	10777	non_finite.infinitive	gramalysis+label 2026-11-12
+lever	levé	6236	non_finite.past_participle	gramalysis+label 2026-11-12
+lever	levé	6528	non_finite.past_participle	gramalysis+label 2026-11-12
 lever	lève	7380	indicative.present.1s	gramalysis+label 2026-11-12
 lever	lève	7618	indicative.present.3s	gramalysis+label 2026-11-12
 lever	lève	9308	imperative.present.2s	gramalysis+label 2026-11-12
@@ -1165,6 +1174,7 @@ mettre	mets	3294	indicative.present.2s	gramalysis+label 2026-11-12
 mettre	mets	7312	indicative.present.1s	gramalysis+label 2026-11-12
 mettre	mets	10537	imperative.present.2s	gramalysis+label 2026-11-12
 mettre	mis	4096	non_finite.past_participle	gramalysis+label 2026-11-12
+mettre	mis	6456	non_finite.past_participle	gramalysis+label 2026-11-12
 mettre	mit	11723	indicative.past_historic.3s	gramalysis+label 2026-11-12
 mettre	mit	11772	indicative.past_historic.3s	gramalysis+label 2026-11-12
 mettre	mit	1337084	indicative.past_historic.3s	gramalysis+label 2026-11-12
@@ -1913,6 +1923,7 @@ tester	tester	800466	non_finite.infinitive	gramalysis+label 2026-11-12
 tester	tester	1724187	non_finite.infinitive	gramalysis+label 2026-11-12
 tester	tester	1724188	non_finite.infinitive	gramalysis+label 2026-11-12
 tirer	tire	3542	indicative.present.3s	gramalysis+label 2026-11-12
+tirer	tiré	9114	non_finite.past_participle	gramalysis+label 2026-11-12
 tirer	tiré	130620	non_finite.past_participle	gramalysis+label 2026-11-12
 tomber	tombe	7682	indicative.present.3s	gramalysis+label 2026-11-12
 tomber	tombe	8409	indicative.present.3s	gramalysis+label 2026-11-12

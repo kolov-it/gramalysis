@@ -71,14 +71,17 @@ fn hyphen_parts(word: &str) -> Vec<&str> {
     if !parts[1..].iter().all(|p| pronoun(p)) {
         return vec![word];
     }
-    // The euphonic t is only a sound between a vowel and il/elle/on.
-    let last = parts.len() - 1;
+    // The euphonic t is only a sound between a verb ending in a vowel and
+    // il/elle/on (a-t-il, parle-t-elle); anywhere else it stays, and the
+    // parser finds no word for it.
+    let euphonic = parts.len() == 3
+        && parts[1].eq_ignore_ascii_case("t")
+        && parts[0].to_lowercase().ends_with(['a', 'e'])
+        && matches!(parts[2].to_lowercase().as_str(), "il" | "elle" | "on");
+    if euphonic {
+        return vec![parts[0], parts[2]];
+    }
     parts
-        .iter()
-        .enumerate()
-        .filter(|(i, p)| !(*i > 0 && *i < last && p.eq_ignore_ascii_case("t")))
-        .map(|(_, p)| *p)
-        .collect()
 }
 
 /// `l'homme` → [l', homme]; `jusqu'à` → [jusqu', à]; `aujourd'hui` stays.
@@ -117,6 +120,7 @@ mod tests {
     fn hyphenated_pronouns() {
         assert_eq!(tokenize("Parlez-vous français ?"), ["Parlez", "-vous", "français", "?"]);
         assert_eq!(tokenize("A-t-il fini ?"), ["A", "-il", "fini", "?"]);
+        assert_eq!(tokenize("Parlez-t-vous ?"), ["Parlez", "-t", "-vous", "?"]);
         assert_eq!(tokenize("Donne-le-moi !"), ["Donne", "-le", "-moi"]);
         assert_eq!(tokenize("Va-t'en !"), ["Va", "-t'", "-en"]);
         assert_eq!(tokenize("Qu'est-ce que c'est ?"), ["Qu'", "est", "-ce", "que", "c'", "est", "?"]);
