@@ -204,8 +204,8 @@ below).
 
 On the French Tatoeba homograph set (4,384 sentences, 1,750 ambiguous forms of
 699 verbs that have a page on wordholder.com and no example sentence for that
-form) it decides the word in **78.4%** of the sentences, and **99.9%** of the
-decisions agree with the labels (3,436 of 3,439); 11.2% do not parse, 9.9% stay
+form) it decides the word in **78.5%** of the sentences, and **99.9%** of the
+decisions agree with the labels (3,437 of 3,440); 11.2% do not parse, 9.9% stay
 ambiguous.
 
 ```sh
