@@ -571,6 +571,9 @@ async fn causative_fait_stays_invariable_before_an_infinitive() {
     assert!(parses(&run("Elle les a fait partir.").await));
     assert!(!parses(&run("Elle les a faits partir.").await));
     assert!(parses(&run("Elle les fait partir.").await));
+    assert!(parses(&run("Elle ne les a pas fait partir.").await));
+    assert!(parses(&run("Les a-t-elle fait partir ?").await));
+    assert!(!parses(&run("Elle les a fait.").await));
 }
 
 #[tokio::test]
