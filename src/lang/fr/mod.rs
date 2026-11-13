@@ -168,6 +168,11 @@ impl French {
                 }
             }
             merge_participle_adjectives(&mut readings, &self.drifted);
+            // Only par introduces an agent (closed.txt); every other
+            // preposition says it does not, for `vp.agent-phrase`.
+            for m in readings.iter_mut().flatten().filter(|m| m.cat == "Prep") {
+                m.feats.entry("agent".to_owned()).or_insert_with(|| "no".to_owned());
+            }
             // Words from the lexicon carry the sound they start with, for the
             // determiner before them to check (le chat, l'ami, le héros).
             let first_sound = onset(&lower, &self.aspirated);

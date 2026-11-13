@@ -10,6 +10,11 @@
 # no object pronoun outside a compound tense, so `vp.object` and
 # `v.proclitic` ask for `etre=no`; c'est un chat is `vp.copula-noun`.
 #
+# `state=yes` marks être + a participle read as a state (vp.copula); a PP
+# with `agent=yes` (par + a noun phrase, `pp.basic`) cannot follow it, since
+# par + agent makes the participle a passive. The lattice gives every other
+# preposition `agent=no`.
+#
 # `pnum` is the number of a participle or adjective agreeing with the subject
 # (elle est partie, ils sont fatigués). It is kept apart from the verb's own
 # number because polite vous takes a plural verb and a singular predicate
@@ -326,7 +331,7 @@ rule rel.contracted: Rel -> RelPron[role=prep] S[imp=no]
 
 # ---------------------------------------------------- prepositions
 
-rule pp.basic: PP -> Prep NP[case=obl]
+rule pp.basic: PP[agent=?a] -> Prep[agent=?a] NP[case=obl]
   "A preposition takes a noun phrase (de + le = du, à + les = aux)."
 
 rule pp.bare: PP -> Prep Nom
@@ -586,6 +591,9 @@ rule cop.event-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=yes
 rule cop.perfect: Cop[mood=?m, person=?p, number=?n, subj=no, marked=yes, neg=no] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=être, form=pastpart]
   "être in a compound tense (il a été malade); a participle after it is a passive (il a été tué)."
 
+rule cop.perfect-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=yes, neg=no] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[lemma=être, form=pastpart]
+  "être in a compound tense, inverted (A-t-elle été malade ?)."
+
 rule cop.perfect-other: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=no] -> Verb[lemma=avoir|être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart]
   "Another linking verb in a compound tense (il est devenu, elle a semblé)."
 
@@ -651,7 +659,7 @@ rule vp.indirect-question-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p
 rule vp.indirect-question-subject: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] QPron[lemma=qui] VP[finite=yes, form=fin, subj=no, person=3, number=sg]
   "qui as the subject of an indirect question (je sais qui vient)."
 
-rule vp.copula: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> Cop[mood=?m, person=?p, number=?n, subj=?s, marked=no] AP[participle_etre=no, number=?pn, gender=?g]
+rule vp.copula: VP[state=?x, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> Cop[mood=?m, person=?p, number=?n, subj=?s, marked=no] AP[pp=?x, participle_etre=no, number=?pn, gender=?g]
   "With être, devenir, sembler, rester, the adjective agrees with the subject (la maison est belle). A participle here is a state (la porte est fermée) only for verbs that take avoir; for an être verb it is a compound tense (elle est partie)."
 
 rule vp.copula-marked: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> Cop[mood=?m, person=?p, number=?n, subj=?s, marked=yes] AP[pp=no, number=?pn, gender=?g]
@@ -681,8 +689,11 @@ rule vp.passive-agent: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, g
 rule vp.passive-agent-negated: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=no] -> Neg Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod Verb[form=pastpart, takes_avoir=yes, number=?pn, gender=?g] Prep[lemma=par] NP
   "A negated passive with par + agent (il n'est pas aimé par ses voisins)."
 
-rule vp.prepositional-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] PP
+rule vp.prepositional-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] PP[agent=no]
   "A phrase with a preposition adds where, when, for whom or how."
+
+rule vp.agent-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s, state=no] PP[agent=yes]
+  "par + a noun phrase after the verb. Not after être + participle read as a state: par + agent makes it a passive (la porte est fermée par le gardien)."
 
 rule vp.adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=?s] Adv
   "An adverb after the verb phrase."

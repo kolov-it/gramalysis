@@ -644,6 +644,20 @@
           "clitic": false
         }
       }
+    ],
+    "gardien": [
+      {
+        "lemma": "gardien",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
     ]
   }
 }

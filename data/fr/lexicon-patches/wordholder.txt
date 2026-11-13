@@ -146,3 +146,6 @@ partis   +  parti   noun  gender=masculine,number=plural  # plural noun missing 
 poussière    +  poussière    noun  gender=feminine,number=singular  # only the plural-only sense is returned
 information  +  information  noun  gender=feminine,number=singular  # only the plural-only sense is returned
 actualité    +  actualité    noun  gender=feminine,number=singular  # only the plural-only sense is returned
+
+# Regional readings outside standard French
+été  -  aller  verb  # Louisiana French "il a été" = he went; in standard French été is être's participle or the noun
