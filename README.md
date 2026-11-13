@@ -30,7 +30,7 @@ parses agree, and for a participle how it is used (`[used as: adjective]` in
 *le luci sono accese*) (in *Disse che non riusciva a trovare un lavoro*, `lavoro` could be
 the noun *work* or the verb *I work*; only the noun fits).
 
-Italian first; the design is multilingual from the start.
+Italian first, Spanish second ([below](#spanish)); the design is multilingual from the start.
 
 **Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 118 rules)
 covers agreement and the dropped subject; articles (with the *il / lo / l'*
@@ -166,6 +166,64 @@ the one a verb page needs: *which verb, or not a verb at all*.
 - A **present participle** is an adjective (*pesante*, *corrente*) unless it
   carries the verb's complements (*il fiume passante per Parigi*).
 
+## Spanish
+
+`src/lang/es/` and `data/es/` follow the Italian structure: tokenizer (the
+opening `¿ ¡` are dropped, accents are never stripped, so *tú/tu*, *él/el*,
+*sí/si*, *sé/se*, *qué/que* stay different words), function words in
+`data/es/closed.txt` (*al* = *a* + *el*, *del* = *de* + *el*), grammar in
+`data/es/grammar.gram`, lexicon patches in
+`data/es/lexicon-patches/wordholder.txt`.
+
+```sh
+cargo run -- --fixture tests/fixtures/es-recorded.json --file examples/es.txt es
+cargo run -- --fixture tests/fixtures/es-set.json --readings es "¡Dámelo!"
+cargo run --release -- eval es data/es/homograph-set.jsonl \
+  --labels data/es/homograph-labels.tsv --fixture tests/fixtures/es-set.json --out /tmp/eval.jsonl
+```
+
+- **Attached clitics**: the lexicon does not analyse every verb + clitics
+  compound, so the host is looked up on its own: *dámelo* = *da* + *me* +
+  *lo* (the accent the clitics added comes off), *vámonos* = *vamos* + *nos*,
+  *sentaos* = *sentad* + *os*, *mantente* = *mantén* + *te*.
+- **ser, estar and haber** have rules of their own (every verb carries
+  `class=ser|estar|haber|lex`): ser says what the subject is (an adjective, a
+  noun, a phrase with *de*, *para*, *en*…) or forms the passive, so *fue a
+  Madrid* is *ir* and *fue difícil* is *ser*; *ha* only forms compound tenses
+  (there is = *hay*).
+- **Bare infinitives** only after the verbs that take them (*poder, deber,
+  querer, saber, soler, ver, oír, hacer, dejar*, *gustar*…).
+
+On the Tatoeba set (5,000 sentences, 2,034 ambiguous forms of 832 page verbs,
+at most 3 sentences a form, alternating spaCy's verb and non-verb readings)
+it decides the ambiguous word in **79.9%** of the sentences, and **99.5%** of
+those decisions agree with the labels (3,975 of 3,995); 11.1% do not parse and
+0.8% have a word the lexicon does not know. `data/es/verified-examples.tsv`
+holds the 1,955 decided sentences of 5–20 words where the decision is the page
+verb and the label agrees (1,207 forms of 569 verbs), in the format of wordy's
+`verified-<lang>.tsv`.
+
+**Labelling conventions** (the header of `data/es/homograph-labels.tsv` has
+them in full):
+
+- **Past participles**: *haber* + participle (which never agrees) is a
+  compound tense, the verb; *ser* + agreeing participle is the passive, the
+  verb (*fue construida*); *estar*, *quedar*, *parecer*, *resultar*,
+  *seguir*… + participle is a state, an adjective use (*la puerta está
+  cerrada*); after a noun, the verb only with the verb's own complements
+  (*un libro escrito en inglés*); *lo* + participle is an adjective use.
+  Adjectives whose meaning drifted (*divertido*, *complicado*, *conocido*) are
+  in `data/es/drifted-participles.txt`: after *ser* they are the adjective
+  (*es complicado*), a passive only with an agent (*fue exagerado por los
+  medios*); after *haber* they are the verb.
+- **Commands**: *usted* is `subjunctive.present.3s`, *ustedes* `…3p`, a
+  negative command the subjunctive; *tú*/*vosotros* the imperative.
+- **ser / ir** (*fui, fue, fueron, fuera*…): *ir* for motion or a destination,
+  *ser* for what something is.
+- **Accents**: a word is read as written; a missing accent that is a typo for
+  another word is labelled with the intended word and noted `accent typo`
+  (never an example).
+
 ## Using it as a library
 
 ```
@@ -175,7 +233,7 @@ src/
   syntax/           grammar files, morpheme lattice, Earley parser (shared
                     parse forest: all parses, polynomial work)
   lang/             the Language trait; it/ = Italian (tokenizer, function
-                    words, clitics, first sounds, participles)
+                    words, clitics, first sounds, participles); es/ = Spanish
   analysis.rs       the pipeline: analyze(lexicon, language, sentence)
   wordholder/       the Word Holder API as a lexicon   [feature wordholder]
     client.rs         HTTP client (RapidAPI or the API's origin)
@@ -184,7 +242,10 @@ src/
   bin/gramalysis/   the command line: parse, record, eval  [feature cli]
 data/it/            grammar.gram, closed.txt (function words),
                     drifted-participles.txt, lexicon-patches/, the Tatoeba set
-tools/              it_homographs.py: builds the Tatoeba set
+data/es/            the same for Spanish
+tools/              it_homographs.py: builds the Tatoeba set (--lang es for
+                    Spanish); verified_examples.py: decided sentences that
+                    agree with their labels, for wordy
 ```
 
 | Feature | Contents |
@@ -244,6 +305,6 @@ include the [NOTICE](NOTICE) file's attribution, where third-party notices
 normally appear.
 
 The data files under `data/` keep their sources' licences, listed in
-[data/it/NOTICE.md](data/it/NOTICE.md): Tatoeba sentences under CC BY 2.0 FR,
+[data/it/NOTICE.md](data/it/NOTICE.md) and [data/es/NOTICE.md](data/es/NOTICE.md): Tatoeba sentences under CC BY 2.0 FR,
 Wiktionary-derived tables under CC BY-SA 4.0. The recorded API answers in
 `tests/fixtures/` hold grammatical tags only.

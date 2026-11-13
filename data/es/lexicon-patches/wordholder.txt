@@ -1,0 +1,191 @@
+# Corrections to the Word Holder API's Spanish answers (dictionary v19,
+# lemmatize as of wordy master 2026-11-12). Applied by gramalysis on top of
+# the API; `--no-patches` shows the API unpatched. Each line says why; delete
+# a line once the API answers it correctly.
+#
+# form  op  lemma  pos  features            (+ add, = replace all, - remove)
+
+# Readings of function words that only pose as a second answer (the
+# function word itself is in data/es/closed.txt)
+a         -  A         noun   # the letter, read as a noun "A" before every noun phrase
+e         -  e         noun   # the letter e; e is "and" before i-
+u         -  u         noun   # the letter u; u is "or" before o-
+la        -  la        noun   # the musical note, read as a noun after every preposition
+las       -  la        noun   # plural of the musical note
+mas       -  ma        noun   # "ma" (mum) plural; mas is "but"
+nos       -  no        noun   # plural of the noun "no"; nos is the clitic
+ambos     -  ambo      noun   # rare noun; ambos is "both"
+aquella   -  aquellar  verb   # obscure verb; aquella is the demonstrative
+aquellas  -  aquellar  verb   # obscure verb; aquellas is the demonstrative
+pero      -  perar     verb   # obscure verb; pero is "but"
+poca      -  poca      noun   # rare noun; poca is the quantifier
+pocas     -  poca      noun   # rare noun; pocas is the quantifier
+mía       -  mía       noun   # the possessive used as a noun; listed as PossAfter
+tuya      -  tuya      noun   # the possessive used as a noun; listed as PossAfter
+sus       -  sus       intj   # "shoo"; sus is the possessive
+sus       -  sus       adj    # slang; sus is the possessive
+su        -  Su        name   # a name; su is the possessive
+como      -  Como      name   # the Italian lake, read as a name at the start of a sentence
+varios    -  vario     adj    # "varied"; varios is the quantifier "several"
+varias    -  vario     adj    # "varied"; varias is the quantifier "several"
+unas      -  uno       num    # the numeral is singular; unas is the article
+conmigo   -  conmigo   adv    # listed as con + mí
+contigo   -  contigo   adv    # listed as con + ti
+consigo   -  consigo   adv    # listed as con + sí; conseguir's 1s stays
+
+# Other readings that only pose as a second answer
+protesto  -  protesto  intj   # ¡Protesto! is protestar's 1s present
+protesto  -  protesto  noun   # rare noun; ¡Protesto! is protestar's 1s present
+
+# Inflected forms returned as an infinitive of themselves (a verb headword
+# that is not a dictionary form gets the dictionary form's grammar)
+persona        -  persona        verb   # would hide the noun persona behind a fake infinitive
+digna          -  digna          verb   # dignarse's form, not an infinitive
+había          -  había          verb   # haber's imperfect stays
+arrepiente     -  arrepiente     verb   # arrepentirse's present
+arrepintiendo  -  arrepintiendo  verb   # arrepentirse's gerund
+pasarlo        -  pasarlo        verb   # pasar + lo, split by gramalysis
+sacrificado    -  sacrificado    verb   # sacrificar's participle stays
+
+# Rare verbs that only pose as a second answer: the form also belongs to a
+# common verb (a verb page, or one spaCy tagged >= 5 times in Tatoeba), and
+# the rare verb is neither (spaCy count after the #). Generated for the forms
+# of the homograph set.
+amara          -  amarar         verb   # rare (0); amara is amar
+amaran         -  amarar         verb   # rare (0); amaran is amar
+amaré          -  amarar         verb   # rare (0); amaré is amar
+ases           -  asir           verb   # rare (2); ases is asar
+asiste         -  asir           verb   # rare (2); asiste is asistir
+barro          -  barrar         verb   # rare (0); barro is barrer
+basta          -  bastir         verb   # rare (0); basta is bastar
+bastan         -  bastir         verb   # rare (0); bastan is bastar
+baste          -  bastir         verb   # rare (0); baste is bastar
+basto          -  bastir         verb   # rare (0); basto is bastar
+ciernes        -  cernir         verb   # rare (0); ciernes is cerner
+combate        -  combar         verb   # rare (0); combate is combatir
+competí        -  competer       verb   # rare (0); competí is competir
+date           -  datar          verb   # rare (4); date is dar
+derrota        -  derromper      verb   # rare (0); derrota is derrotar
+derrotas       -  derromper      verb   # rare (0); derrotas is derrotar
+duela          -  dolar          verb   # rare (0); duela is doler
+duele          -  dolar          verb   # rare (0); duele is doler
+duelen         -  dolar          verb   # rare (0); duelen is doler
+duelo          -  dolar          verb   # rare (0); duelo is doler
+elige          -  eligir         verb   # rare (0); elige is elegir
+eligen         -  eligir         verb   # rare (0); eligen is elegir
+eliges         -  eligir         verb   # rare (0); eliges is elegir
+eligiendo      -  eligir         verb   # rare (0); eligiendo is elegir
+eligiera       -  eligir         verb   # rare (0); eligiera is elegir
+eligieran      -  eligir         verb   # rare (0); eligieran is elegir
+eligieron      -  eligir         verb   # rare (0); eligieron is elegir
+eligió         -  eligir         verb   # rare (0); eligió is elegir
+elija          -  eligir         verb   # rare (0); elija is elegir, elijar
+elijamos       -  eligir         verb   # rare (0); elijamos is elegir, elijar
+elijan         -  eligir         verb   # rare (0); elijan is elegir, elijar
+elijas         -  eligir         verb   # rare (0); elijas is elegir, elijar
+elijo          -  eligir         verb   # rare (0); elijo is elegir, elijar
+elijáis        -  eligir         verb   # rare (0); elijáis is elegir, elijar
+entraba        -  entrabar       verb   # rare (0); entraba is entrar
+entrevista     -  entrever       verb   # rare (1); entrevista is entrevistar
+entrevistas    -  entrever       verb   # rare (1); entrevistas is entrevistar
+existe         -  exir           verb   # rare (0); existe is existir
+falla          -  fallir         verb   # rare (0); falla is fallar
+fallan         -  fallir         verb   # rare (0); fallan is fallar
+fallas         -  fallir         verb   # rare (0); fallas is fallar
+fallo          -  fallir         verb   # rare (0); fallo is fallar
+falló          -  fallir         verb   # rare (0); falló is fallar
+fecha          -  fechar         verb   # rare (0); fecha is facer
+fui            -  fuir           verb   # rare (2); fui is ir, ser
+fuimos         -  fuir           verb   # rare (2); fuimos is ir, ser
+fuiste         -  fuir           verb   # rare (2); fuiste is ir, ser
+fuisteis       -  fuir           verb   # rare (2); fuisteis is ir, ser
+había          -  había          verb   # rare (0); había is haber
+haciendo       -  hacendar       verb   # rare (0); haciendo is hacer
+imprime        -  imprimar       verb   # rare (0); imprime is imprimir
+inventaría     -  inventariar    verb   # rare (0); inventaría is inventar
+muramos        -  murar          verb   # rare (0); muramos is morir
+piensan        -  piensar        verb   # rare (0); piensan is pensar
+piensas        -  piensar        verb   # rare (0); piensas is pensar
+pienso         -  piensar        verb   # rare (0); pienso is pensar
+precio         -  preciar        verb   # rare (1); precio is apreciar
+prenda         -  prendar        verb   # rare (0); prenda is prender
+prendan        -  prendar        verb   # rare (0); prendan is prender
+prendas        -  prendar        verb   # rare (0); prendas is prender
+prende         -  prendar        verb   # rare (0); prende is prender
+prendes        -  prendar        verb   # rare (0); prendes is prender
+prendo         -  prendar        verb   # rare (0); prendo is prender
+presupuesto    -  presupuestar   verb   # rare (0); presupuesto is presuponer
+pude           -  pudir          verb   # rare (0); pude is poder
+pudiera        -  pudir          verb   # rare (0); pudiera is poder
+pudierais      -  pudir          verb   # rare (0); pudierais is poder
+pudieran       -  pudir          verb   # rare (0); pudieran is poder
+pudieras       -  pudir          verb   # rare (0); pudieras is poder
+pudieron       -  pudir          verb   # rare (0); pudieron is poder
+pudiese        -  pudir          verb   # rare (0); pudiese is poder
+pudimos        -  pudir          verb   # rare (0); pudimos is poder
+pudiste        -  pudir          verb   # rare (0); pudiste is poder
+pudisteis      -  pudir          verb   # rare (0); pudisteis is poder
+pudiéramos     -  pudir          verb   # rare (0); pudiéramos is poder
+pudiésemos     -  pudir          verb   # rare (0); pudiésemos is poder
+pudo           -  pudir          verb   # rare (0); pudo is poder
+quejas         -  quejarse       verb   # rare (0); quejas is quejar
+rayo           -  rayar          verb   # rare (4); rayo is raer
+reciba         -  recebir        verb   # rare (0); reciba is recibir
+reciban        -  recebir        verb   # rare (0); reciban is recibir
+recibas        -  recebir        verb   # rare (0); recibas is recibir
+recibe         -  recebir        verb   # rare (0); recibe is recibir
+reciben        -  recebir        verb   # rare (0); reciben is recibir
+recibes        -  recebir        verb   # rare (0); recibes is recibir
+recibiendo     -  recebir        verb   # rare (0); recibiendo is recibir
+recibieras     -  recebir        verb   # rare (0); recibieras is recibir
+recibieron     -  recebir        verb   # rare (0); recibieron is recibir
+recibió        -  recebir        verb   # rare (0); recibió is recibir
+recibo         -  recebir        verb   # rare (0); recibo is recibir
+rendido        -  render         verb   # rare (0); rendido is rendir
+rendimos       -  render         verb   # rare (0); rendimos is rendir
+rendiste       -  render         verb   # rare (0); rendiste is rendir
+rendí          -  render         verb   # rare (0); rendí is rendir
+revista        -  revistar       verb   # rare (0); revista is rever, revestir
+revistas       -  revistar       verb   # rare (0); revistas is rever, revestir
+sacrificado    -  sacrificado    verb   # rare (0); sacrificado is sacrificar
+sale           -  salar          verb   # rare (4); sale is salir
+salen          -  salar          verb   # rare (4); salen is salir
+sales          -  salar          verb   # rare (4); sales is salir
+sea            -  seer           verb   # rare (1); sea is ser
+seamos         -  seer           verb   # rare (1); seamos is ser
+sean           -  seer           verb   # rare (1); sean is ser
+seas           -  seer           verb   # rare (1); seas is ser
+seáis          -  seer           verb   # rare (1); seáis is ser
+señales        -  señar          verb   # rare (0); señales is señalar
+solido         -  solidar        verb   # rare (0); solido is soler
+suma           -  sumir          verb   # rare (1); suma is sumar
+sumamos        -  sumir          verb   # rare (1); sumamos is sumar
+suman          -  sumir          verb   # rare (1); suman is sumar
+sumas          -  sumir          verb   # rare (1); sumas is sumar
+sume           -  sumir          verb   # rare (1); sume is sumar
+sumo           -  sumir          verb   # rare (1); sumo is sumar
+teja           -  tejar          verb   # rare (1); teja is tejer
+tejas          -  tejar          verb   # rare (1); tejas is tejer
+teje           -  tejar          verb   # rare (1); teje is tejer
+tejen          -  tejar          verb   # rare (1); tejen is tejer
+tema           -  temar          verb   # rare (3); tema is temer
+teman          -  temar          verb   # rare (3); teman is temer
+temas          -  temar          verb   # rare (3); temas is temer
+teme           -  temar          verb   # rare (3); teme is temer
+tememos        -  temar          verb   # rare (3); tememos is temer
+temen          -  temar          verb   # rare (3); temen is temer
+temes          -  temar          verb   # rare (3); temes is temer
+temo           -  temar          verb   # rare (3); temo is temer
+valido         -  validar        verb   # rare (1); valido is valer
+vea            -  veer           verb   # rare (0); vea is ver
+veamos         -  veer           verb   # rare (0); veamos is ver
+vean           -  veer           verb   # rare (0); vean is ver
+veas           -  veer           verb   # rare (0); veas is ver
+veo            -  veer           verb   # rare (0); veo is ver
+verse          -  versar         verb   # rare (2); verse is ver
+vete           -  vetar          verb   # rare (2); vete is ir, ver
+veáis          -  veer           verb   # rare (0); veáis is ver
+veía           -  veer           verb   # rare (0); veía is ver
+veíamos        -  veer           verb   # rare (0); veíamos is ver
+veían          -  veer           verb   # rare (0); veían is ver
+veías          -  veer           verb   # rare (0); veías is ver
