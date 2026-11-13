@@ -898,3 +898,34 @@ async fn a_negative_order_puts_the_pronoun_first() {
     assert!(parses(&run("Ne le donne pas.").await));
     assert!(!parses(&run("Ne donne-le pas.").await));
 }
+
+#[tokio::test]
+async fn a_noun_object_controls_the_infinitive_predicate() {
+    assert!(parses(&run("Elle force Tom à être heureux.").await));
+    assert!(!parses(&run("Elle force Tom à être heureuses.").await));
+}
+
+#[tokio::test]
+async fn an_adverb_on_the_adjective_keeps_the_infinitive_controller() {
+    assert!(parses(&run("Je veux être très heureuse de me laver.").await));
+    assert!(!parses(&run("Je veux être très heureuse de se laver.").await));
+}
+
+#[tokio::test]
+async fn a_postposed_subject_question_keeps_the_mood() {
+    assert!(parses(&run("Où est Tom ?").await));
+    assert!(!parses(&run("Où soit Tom ?").await));
+}
+
+#[tokio::test]
+async fn a_passive_takes_no_direct_object() {
+    assert!(parses(&run("Elle a été vue par Tom.").await));
+    assert!(!parses(&run("Elle a été vue la porte.").await));
+}
+
+#[tokio::test]
+async fn relative_que_needs_a_free_object_position() {
+    assert!(parses(&run("Les lettres que j'ai lues sont là.").await));
+    assert!(!parses(&run("Les lettres que je les ai lues sont là.").await));
+    assert!(parses(&run("Le langage tel que nous le connaissons est une invention humaine.").await));
+}
