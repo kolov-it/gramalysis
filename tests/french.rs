@@ -172,6 +172,14 @@ async fn digits_are_a_number_whatever_else_the_lexicon_says() {
 }
 
 #[tokio::test]
+async fn par_and_an_agent_make_etre_and_a_participle_a_passive_even_after_an_adverb() {
+    let a = run("La porte est fermée ici par le gardien.").await;
+    assert!(parses(&a));
+    let c = a.chosen.iter().find(|c| c.token == "fermée").unwrap();
+    assert!(!c.uses.iter().flatten().any(|u| u == "ap.participle"), "{:?}", c.uses);
+}
+
+#[tokio::test]
 async fn par_and_an_agent_make_etre_and_a_participle_a_passive() {
     let a = run("La porte est fermée par le gardien.").await;
     assert!(parses(&a));

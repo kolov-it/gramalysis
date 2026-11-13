@@ -997,6 +997,13 @@
         "partOfSpeech": "verb",
         "grammar": null
       }
+    ],
+    "ici": [
+      {
+        "lemma": "ici",
+        "partOfSpeech": "adv",
+        "grammar": null
+      }
     ]
   }
 }
