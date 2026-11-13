@@ -9,6 +9,10 @@
 #
 # form = lemma:Category{feature=value,...} [+ lemma:Category{...}]
 #
+# A subject pronoun's adjective agrees with its number (pnum, set by the
+# lattice), except vous (polite: vous êtes fatigué) and on (on est partis),
+# marked free_pnum=yes.
+#
 # Features: gender m/f, number sg/pl, person 1/2/3, definite yes/no,
 # case nom (subject) / obl (stressed, after a verb or preposition) /
 # acc (direct clitic) / dat (indirect clitic) / refl / gen (en) / loc (y),
@@ -85,9 +89,9 @@ j' = je:Pron{case=nom,person=1,number=sg,clitic=yes}
 tu = tu:Pron{case=nom,person=2,number=sg,clitic=yes}
 il = il:Pron{case=nom,person=3,number=sg,gender=m,clitic=yes}
 elle = il:Pron{case=nom,person=3,number=sg,gender=f,clitic=yes}
-on = on:Pron{case=nom,person=3,number=sg,clitic=yes}
+on = on:Pron{case=nom,person=3,number=sg,clitic=yes,free_pnum=yes}
 nous = nous:Pron{case=nom,person=1,number=pl,clitic=yes}
-vous = vous:Pron{case=nom,person=2,clitic=yes}
+vous = vous:Pron{case=nom,person=2,number=pl,clitic=yes,free_pnum=yes}
 ils = il:Pron{case=nom,person=3,number=pl,gender=m,clitic=yes}
 elles = il:Pron{case=nom,person=3,number=pl,gender=f,clitic=yes}
 ce = ce:Pron{case=nom,person=3,clitic=yes,demonstrative=yes}

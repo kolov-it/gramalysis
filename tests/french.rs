@@ -120,6 +120,15 @@ async fn polite_vous_takes_a_plural_verb_and_a_singular_predicate() {
     assert!(parses(&run("Vous êtes fatigué.").await));
     assert!(parses(&run("Vous êtes fatigués.").await));
     assert!(!parses(&run("Ils sont fatigué.").await));
+    // the verb after vous stays plural
+    assert!(!parses(&run("Vous as un rendez-vous.").await));
+}
+
+#[tokio::test]
+async fn an_inverted_subject_agrees_with_the_adjective() {
+    assert!(parses(&run("Est-elle heureuse ?").await));
+    assert!(!parses(&run("Est-il heureuse ?").await));
+    assert!(parses(&run("Deviendra-t-elle heureuse ?").await));
 }
 
 #[tokio::test]

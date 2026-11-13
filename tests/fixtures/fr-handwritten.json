@@ -658,6 +658,61 @@
           "clitic": false
         }
       }
+    ],
+    "as": [
+      {
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "as",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "heureuse": [
+      {
+        "lemma": "heureux",
+        "partOfSpeech": "adj",
+        "grammar": {
+          "rawTags": [
+            "feminine",
+            "singular"
+          ],
+          "gender": "feminine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "deviendra": [
+      {
+        "lemma": "devenir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "future",
+          "person": "third",
+          "number": "singular"
+        }
+      }
     ]
   }
 }

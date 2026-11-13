@@ -107,6 +107,7 @@ impl French {
                     .map(|r| {
                         let mut m = with_surface(r, token);
                         m[0].feats.insert("attached".to_owned(), "yes".to_owned());
+                        set_predicate_number(&mut m[0]);
                         m
                     })
                     .collect();
@@ -168,6 +169,7 @@ impl French {
                 }
             }
             merge_participle_adjectives(&mut readings, &self.drifted);
+            readings.iter_mut().flatten().for_each(set_predicate_number);
             // Only par introduces an agent (closed.txt); every other
             // preposition says it does not, for `vp.agent-phrase`.
             for m in readings.iter_mut().flatten().filter(|m| m.cat == "Prep") {
@@ -216,6 +218,19 @@ impl French {
             }
         }
         Morpheme { surface: surface.to_owned(), lemma: reading.lemma.clone(), cat: feats::category(&reading.pos), feats }
+    }
+}
+
+/// A subject pronoun's adjective or participle agrees with its number
+/// (`pnum`): elle est partie, ils sont fatigués. The list leaves it free for
+/// vous (polite: vous êtes fatigué) and on (on est partis).
+fn set_predicate_number(m: &mut Morpheme) {
+    if m.cat == "Pron"
+        && m.feats.get("case").map(String::as_str) == Some("nom")
+        && !m.feats.contains_key("free_pnum")
+        && let Some(n) = m.feats.get("number").cloned()
+    {
+        m.feats.insert("pnum".to_owned(), n);
     }
 }
 
