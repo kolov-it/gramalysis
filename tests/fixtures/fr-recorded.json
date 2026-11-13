@@ -1,0 +1,3724 @@
+{
+  "fr": {
+    "a": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "a",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "a"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "a"
+      }
+    ],
+    "ai": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ai"
+      }
+    ],
+    "arrivé": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "arrivé",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "arrivé"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "arrivé",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "arrivé"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "arriver",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "arrivé"
+      }
+    ],
+    "asseyez": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative plural present second-person",
+          "tags": [
+            "indicative",
+            "plural",
+            "present",
+            "second-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "present",
+            "second-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "asseoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "asseyez"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative plural second-person",
+          "tags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "asseoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "asseyez"
+      }
+    ],
+    "avec": [
+      {
+        "confidence": "high",
+        "lemma": "avec",
+        "partOfSpeech": "prep",
+        "source": "kaikki",
+        "surface": "avec"
+      },
+      {
+        "confidence": "high",
+        "lemma": "avec",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "avec"
+      }
+    ],
+    "avions": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "avion",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "avions"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person imperfect indicative plural",
+          "tags": [
+            "first-person",
+            "imperfect",
+            "indicative",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperfect",
+            "indicative",
+            "plural"
+          ],
+          "tense": "imperfect"
+        },
+        "lemma": "avoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "avions"
+      }
+    ],
+    "bonnes": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "bon",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "bonnes"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "bonne",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "bonnes"
+      }
+    ],
+    "canapé": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "canapé",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "canapé"
+      }
+    ],
+    "ce": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "CE",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "ce"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "CE",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "ce"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "CE",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "ce"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "ce",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "ce"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "ce",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "ce"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "ce",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "ce"
+      }
+    ],
+    "chat": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "chat",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "chat"
+      }
+    ],
+    "chemin": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "chemin",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "chemin"
+      }
+    ],
+    "court": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "court",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "court"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "court",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "court"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "courir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "court"
+      }
+    ],
+    "des": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "des"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "des"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "du",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "des"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "du",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "des"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "de la",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "des"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "de la",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "des"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "de l'",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "des"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "de l'",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "des"
+      },
+      {
+        "confidence": "high",
+        "lemma": "des",
+        "partOfSpeech": "contraction",
+        "source": "kaikki",
+        "surface": "des"
+      }
+    ],
+    "donne": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "donne"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "donne"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "donne"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "donne"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "donner",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "donne"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "donne",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "donne"
+      }
+    ],
+    "dort": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dormir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "dort"
+      }
+    ],
+    "du": [
+      {
+        "confidence": "high",
+        "lemma": "du",
+        "partOfSpeech": "contraction",
+        "source": "kaikki",
+        "surface": "du"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "du",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "du"
+      }
+    ],
+    "elle": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "elle",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "elle"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "elle",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "elle"
+      }
+    ],
+    "est": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "invariable"
+          ]
+        },
+        "lemma": "est",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "est"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "est",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "est"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "est"
+      }
+    ],
+    "fatigué": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "fatiguer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "fatigué"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "fatigué",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "fatigué"
+      }
+    ],
+    "ferme": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "ferme",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "ferme"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "ferme",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "ferme"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ferme"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ferme"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ferme"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ferme"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "ferme"
+      }
+    ],
+    "fermée": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle singular",
+          "tags": [
+            "feminine",
+            "participle",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "fermer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "fermée"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "fermé",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "fermée"
+      }
+    ],
+    "fini": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "fini",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "fini"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "fini",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "fini"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "finir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "fini"
+      }
+    ],
+    "français": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "français",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "français"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "français",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "français"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "Français",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "français"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "Français",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "français"
+      }
+    ],
+    "gardien": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "gardien",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "gardien"
+      }
+    ],
+    "hier": [
+      {
+        "confidence": "high",
+        "lemma": "hier",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "hier"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "hier",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "hier"
+      }
+    ],
+    "homme": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "homme",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "homme"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "Homme",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "homme"
+      }
+    ],
+    "héros": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "héros",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "héros"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "héros",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "héros"
+      }
+    ],
+    "il": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "il",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "il"
+      }
+    ],
+    "j'": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "clitic",
+          "tags": [
+            "clitic"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "clitic"
+          ]
+        },
+        "lemma": "je",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "j'"
+      }
+    ],
+    "je": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": [
+            "singular"
+          ]
+        },
+        "lemma": "je",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "je"
+      }
+    ],
+    "l'": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "l'",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "l'"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "l'",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "l'"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "l'",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "l'"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "l'",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "l'"
+      }
+    ],
+    "la": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine singular",
+          "tags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "la"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "la"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "la"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "la"
+      }
+    ],
+    "le": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "le"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "le"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Le",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "le"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Le",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "le"
+      }
+    ],
+    "les": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "plural",
+          "tags": [
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "number": "plural",
+          "rawTags": [
+            "plural"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "article",
+        "source": "kaikki",
+        "surface": "les"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "les"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "le",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "les"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "les"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine masculine plural",
+          "tags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "les"
+      }
+    ],
+    "levée": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "levée",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "levée"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle singular",
+          "tags": [
+            "feminine",
+            "participle",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "lever",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "levée"
+      }
+    ],
+    "mangées": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle plural",
+          "tags": [
+            "feminine",
+            "participle",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "plural"
+          ],
+          "tense": "past"
+        },
+        "lemma": "manger",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "mangées"
+      }
+    ],
+    "moi": [
+      {
+        "confidence": "high",
+        "lemma": "moi",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "moi"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "moi",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "moi"
+      }
+    ],
+    "ne": [
+      {
+        "confidence": "high",
+        "lemma": "NE",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "ne"
+      },
+      {
+        "confidence": "high",
+        "lemma": "ne",
+        "partOfSpeech": "particle",
+        "source": "kaikki",
+        "surface": "ne"
+      }
+    ],
+    "nous": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "plural",
+          "rawTags": [
+            "plural"
+          ]
+        },
+        "lemma": "nous",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "nous"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "nous",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "nous"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "nous",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "nous"
+      }
+    ],
+    "où": [
+      {
+        "confidence": "high",
+        "lemma": "où",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "où"
+      }
+    ],
+    "pain": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "pain",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "pain"
+      }
+    ],
+    "par": [
+      {
+        "confidence": "high",
+        "lemma": "par",
+        "partOfSpeech": "prep",
+        "source": "kaikki",
+        "surface": "par"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "par",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "par"
+      }
+    ],
+    "parlez": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "parlez",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "parlez"
+      },
+      {
+        "confidence": "high",
+        "lemma": "parlez",
+        "partOfSpeech": "intj",
+        "source": "kaikki",
+        "surface": "parlez"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present second-person plural",
+          "tags": [
+            "indicative",
+            "present",
+            "second-person",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "conjugation-table",
+            "indicative.present.2p"
+          ],
+          "tense": "present"
+        },
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "parlez"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person plural",
+          "tags": [
+            "imperative",
+            "second-person",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "conjugation-table",
+            "imperative.present.2p"
+          ]
+        },
+        "lemma": "parler",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "parlez"
+      }
+    ],
+    "parti": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "parti",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "parti"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "parti",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "parti"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "partir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "parti"
+      }
+    ],
+    "pas": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "pas",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "pas"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "pas",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "pas"
+      },
+      {
+        "confidence": "high",
+        "lemma": "pas",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "pas"
+      }
+    ],
+    "peur": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "peur",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "peur"
+      }
+    ],
+    "plaît": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present singular third-person",
+          "tags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "plaire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "plaît"
+      }
+    ],
+    "plus": [
+      {
+        "confidence": "high",
+        "lemma": "plus",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "plus"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "plus",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "plus"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "plus",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "plus"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person historic past second-person singular",
+          "tags": [
+            "first-person",
+            "historic",
+            "past",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "historic",
+            "past",
+            "second-person",
+            "singular"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "plaire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "plus"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person historic past second-person singular",
+          "tags": [
+            "first-person",
+            "historic",
+            "past",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "first-person",
+            "historic",
+            "past",
+            "second-person",
+            "singular"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "plaire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "plus"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine nonstandard participle plural",
+          "tags": [
+            "masculine",
+            "nonstandard",
+            "participle",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "nonstandard",
+            "participle",
+            "plural"
+          ],
+          "tense": "past"
+        },
+        "lemma": "pleuvoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "plus"
+      }
+    ],
+    "pommes": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "pomme",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "pommes"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "indicative present second-person singular",
+          "tags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "conjugation-table",
+            "indicative.present.2s"
+          ],
+          "tense": "present"
+        },
+        "lemma": "pommer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "pommes"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "subjunctive present second-person singular",
+          "tags": [
+            "subjunctive",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "conjugation-table",
+            "subjunctive.present.2s"
+          ],
+          "tense": "present"
+        },
+        "lemma": "pommer",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "pommes"
+      }
+    ],
+    "porte": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "porte",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "porte"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "porte"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "porte"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "porte"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "porte"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "porter",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "porte"
+      }
+    ],
+    "qu'": [
+      {
+        "confidence": "high",
+        "lemma": "qu'",
+        "partOfSpeech": "conj",
+        "source": "kaikki",
+        "surface": "qu'"
+      },
+      {
+        "confidence": "high",
+        "lemma": "qu'",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "qu'"
+      }
+    ],
+    "que": [
+      {
+        "confidence": "high",
+        "lemma": "que",
+        "partOfSpeech": "conj",
+        "source": "kaikki",
+        "surface": "que"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "que",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "que"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "que",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "que"
+      }
+    ],
+    "s'": [
+      {
+        "confidence": "high",
+        "lemma": "s'",
+        "partOfSpeech": "conj",
+        "source": "kaikki",
+        "surface": "s'"
+      },
+      {
+        "confidence": "high",
+        "lemma": "s'",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "s'"
+      }
+    ],
+    "sais": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "savoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "sais"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "savoir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "sais"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural",
+            "singular"
+          ]
+        },
+        "lemma": "sais",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "sais"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "plural",
+            "singular"
+          ]
+        },
+        "lemma": "sais",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "sais"
+      }
+    ],
+    "son": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "son",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "son"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "son",
+        "partOfSpeech": "det",
+        "source": "kaikki",
+        "surface": "son"
+      }
+    ],
+    "suis": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "suis"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "suivre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "suis"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "suivre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "suis"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative present second-person singular",
+          "tags": [
+            "imperative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "suivre",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "suis"
+      }
+    ],
+    "sur": [
+      {
+        "confidence": "high",
+        "lemma": "sur",
+        "partOfSpeech": "prep",
+        "source": "kaikki",
+        "surface": "sur"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "sur",
+        "partOfSpeech": "adj",
+        "source": "kaikki",
+        "surface": "sur"
+      }
+    ],
+    "table": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "table",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "table"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tabler",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "table"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tabler",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "table"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tabler",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "table"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present singular subjunctive third-person",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tabler",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "table"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "tabler",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "table"
+      },
+      {
+        "confidence": "high",
+        "lemma": "Table",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "table"
+      }
+    ],
+    "te": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "te",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "te"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "te",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "te"
+      }
+    ],
+    "travail": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "travail",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "travail"
+      }
+    ],
+    "tu": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": [
+            "singular"
+          ]
+        },
+        "lemma": "tu",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "tu"
+      },
+      {
+        "confidence": "high",
+        "lemma": "tu",
+        "partOfSpeech": "particle",
+        "source": "kaikki",
+        "surface": "tu"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "taire",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "tu"
+      }
+    ],
+    "tôt": [
+      {
+        "confidence": "high",
+        "lemma": "tôt",
+        "partOfSpeech": "adv",
+        "source": "kaikki",
+        "surface": "tôt"
+      }
+    ],
+    "viens": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "venir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "viens"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "first-person indicative present second-person singular",
+          "tags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "venir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "viens"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperative second-person singular",
+          "tags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "venir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "viens"
+      }
+    ],
+    "vous": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "plural",
+          "rawTags": [
+            "plural",
+            "singular"
+          ]
+        },
+        "lemma": "vous",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "vous"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": [
+            "plural",
+            "singular"
+          ]
+        },
+        "lemma": "vous",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "vous"
+      }
+    ],
+    "vu": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "participle past",
+          "tags": [
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "vu"
+      },
+      {
+        "confidence": "high",
+        "lemma": "vu",
+        "partOfSpeech": "prep",
+        "source": "kaikki",
+        "surface": "vu"
+      },
+      {
+        "confidence": "high",
+        "lemma": "Vu",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "vu"
+      }
+    ],
+    "vues": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine plural",
+          "tags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "vue",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "vues"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "vues",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "vues"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "feminine participle plural",
+          "tags": [
+            "feminine",
+            "participle",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "plural"
+          ],
+          "tense": "past"
+        },
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "vues"
+      }
+    ],
+    "y": [
+      {
+        "confidence": "high",
+        "lemma": "y",
+        "partOfSpeech": "pron",
+        "source": "kaikki",
+        "surface": "y"
+      },
+      {
+        "confidence": "high",
+        "lemma": "Y",
+        "partOfSpeech": "name",
+        "source": "kaikki",
+        "surface": "y"
+      }
+    ],
+    "étaient": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "imperfect indicative plural third-person",
+          "tags": [
+            "imperfect",
+            "indicative",
+            "plural",
+            "third-person"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "imperfect",
+            "indicative",
+            "plural",
+            "third-person"
+          ],
+          "tense": "imperfect"
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "étaient"
+      }
+    ],
+    "été": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "été",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "été"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "intransitive participle past",
+          "tags": [
+            "intransitive",
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "intransitive",
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "été"
+      },
+      {
+        "confidence": "high",
+        "form": {
+          "label": "Louisiana intransitive participle past",
+          "tags": [
+            "Louisiana",
+            "intransitive",
+            "participle",
+            "past"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "Louisiana",
+            "intransitive",
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "aller",
+        "partOfSpeech": "verb",
+        "source": "kaikki",
+        "surface": "été"
+      }
+    ]
+  }
+}

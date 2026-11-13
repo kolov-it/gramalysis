@@ -1,0 +1,1713 @@
+# Popular homograph forms — fr
+# Generated 2026-10-09 (Claude session "eval es"). 1659 forms: 906 kind A, 18 kind B, 735 kind C.
+#
+# WHAT THIS IS
+#   Surface forms (as they appear in text) that belong to two or more different dictionary words, where at
+#   least one of those words is common. Example: Italian "riso" = noun riso (rice) AND past participle of
+#   ridere (laughed). Spanish "llama" = noun llama (flame/animal) AND a form of llamar (to call).
+#   Intended use: when picking example sentences (Tatoeba, Leipzig corpus) for a word, a sentence whose
+#   matching token is one of these forms needs stricter checks than an unambiguous form.
+#
+# HOW IT WAS BUILT
+#   1. Form table. Source: Kaikki English-Wiktionary extract, shard v15
+#      (wordy/.local/kaikki/v15/fr/kaikki-fr.jsonl.gz). For every entry: a "form-of" sense maps its headword
+#      to the lemma it points to (e.g. llama -> llamar, verb); an entry with its own glosses is a lemma and
+#      maps itself plus every single-word inflection in its forms[] table to (lemma, part of speech).
+#      Skipped: names, symbols, affixes, abbreviations, phrases, multi-word headwords, table-label forms.
+#   2. Corpus frequency. Source: Leipzig Corpora word list (wordy/.local/leipzig/fr-words.txt, ~1M
+#      sentences), case-folded. A lemma's frequency = sum over all its forms.
+#   3. Candidate forms. Keep a form if it maps to >= 2 different lemmas, at least one of which is among the
+#      10,000 most frequent noun/verb/adj lemmas, and the form itself occurs >= 100 times in the corpus.
+#   4. Reality check (removes junk competitors such as archaic or obscure Wiktionary entries, e.g. Spanish
+#      "perar" for "pero"). spaCy {'es':'es','it':'it','fr':'fr','de':'de','nl':'nl'}[L]_core_news_md tagged every
+#      Tatoeba sentence in the language (export downloaded 2026-10-09). A candidate (lemma, POS) is kept only
+#      if spaCy assigned that lemma with a matching part of speech >= 5 times. Forms left with < 2 lemmas are
+#      dropped. Non-alphabetic forms are dropped.
+#   6. Kind C (added in a second pass): one dictionary form, several separate Kaikki entries — different
+#      word origins (etymology_number) or different parts of speech among noun/verb/adj — e.g. German Strauß
+#      bouquet vs ostrich, French vol flight vs theft, Dutch arm (arm) vs arm (poor). Kept if the form occurs
+#      >= 100 times in Leipzig and spaCy saw the word as noun/verb/adj >= 5 times in Tatoeba. Steps 1-5 cannot
+#      see these, because both meanings share the lemma. Rows: corpus_freq, kind C, candidates = entries
+#      (pos#etymology: first glosses). Kind C needs meaning-level checks (e.g. the English translation), not
+#      lemma checks.
+#   5. Kind. A = at least two different lemmas that are noun/verb/adjective (riso rice vs ridere; Schloss
+#      castle vs schließen). B = only one content lemma; the others are function words
+#      (pronoun, article, preposition, conjunction, adverb), e.g. Dutch "haar" hair vs her, Spanish "como"
+#      comer vs like/as.
+#
+# COLUMNS
+#   form         surface form, lower-cased
+#   corpus_freq  occurrences in the Leipzig corpus (how often a reader meets this form)
+#   kind         A content-content / B content-vs-function
+#   candidates   lemma/POS(n): each real dictionary word this form can belong to, most frequent first;
+#                n = times spaCy assigned that lemma+POS anywhere in Tatoeba (a usage indicator, not a count
+#                of this form)
+#
+# CAVEATS
+#   - spaCy md models make lemma/POS mistakes, especially on rare verb forms; step 4 can drop a real
+#     competitor that spaCy never recognises, or keep one it mislabels.
+#   - Kaikki's forms[] tables are incomplete for some words, so some homographs are missing.
+#   - Same word, different part of speech (perro noun vs adjective) is NOT listed; only different lemmas.
+#   - The usage counts come from Tatoeba (short everyday sentences), so literary or technical words rate low.
+#
+# Scripts: wordy scripts/homographs/ (homographs.py, usage.py, filter.py, kind_c.py; see README.md there).
+form	corpus_freq	kind	candidates
+le	507106	B content-vs-function	le/article+pron+noun(309658); il/pron(125056)
+a	230610	A content-content	avoir/verb(205582); a/noun(69)
+une	179507	B content-vs-function	un/article+pron(152627); une/noun(46)
+dans	178879	B content-vs-function	dan/noun(814); dans/prep(32332)
+est	127395	A content-content	être/verb(259512); est/noun(6639)
+plus	100408	B content-vs-function	plaire/verb(3710); plus/adv(23526)
+son	82617	B content-vs-function	il/pron(125056); son/det+noun(43801)
+été	73571	A content-content	être/verb(259512); aller/verb(30394); été/noun(475)
+mais	61345	B content-vs-function	mai/noun(123); mais/conj(10012)
+fait	40781	A content-content	faire/verb(46907); fait/adj+noun(2095)
+lui	23600	B content-vs-function	il/pron(125056); luire/verb(86); lui/pron(55176)
+contre	21229	B content-vs-function	contrer/verb(12); contre/prep(2168)
+avoir	18410	A content-content	avoir/verb+noun(206183); partir/verb(4347); passer/verb(7693); sortir/verb(3453); monter/verb(849); tomber/verb(2723); disparaître/verb(557); rentrer/verb(1795); remonter/verb(283); apparaître/verb(405); paraître/verb(722); retourner/verb(1720); ressortir/verb(58); repartir/verb(108); descendre/verb(645); repasser/verb(160); redescendre/verb(16); ressusciter/verb(17)
+fois	16009	A content-content	foi/noun(245); fois/noun(4771)
+première	15735	A content-content	premier/adj(3222); première/noun(11)
+place	15212	A content-content	placer/verb(287); place/noun(1722)
+président	15033	A content-content	président/noun(659); présider/verb(7)
+va	13442	A content-content	aller/verb(30394); va/noun(5)
+dit	11484	A content-content	dire/verb(21738); dit/noun(9)
+nouvelle	11412	A content-content	nouveau/adj+noun(5711); nouvelle/noun(308)
+faut	11132	A content-content	falloir/verb(6304); faillir/verb(261)
+vers	11069	A content-content	ver/noun(52); vers/noun+prep(3450)
+groupe	10594	A content-content	grouper/verb(6); groupe/noun(705)
+cours	9341	A content-content	courir/verb(1405); cour/noun(282); cours/noun(1343)
+pendant	9165	A content-content	pendre/verb(119); pendant/adj+noun+prep(2503)
+suis	8864	A content-content	être/verb(259512); suivre/verb(1859)
+devant	8762	A content-content	devoir/verb(18872); devant/noun+prep(1409)
+reste	8737	A content-content	rester/verb(4563); reste/noun(524)
+compte	8257	A content-content	compter/verb(889); compte/noun(1403)
+part	7986	A content-content	partir/verb(4347); part/noun(2148)
+pris	7895	A content-content	prendre/verb(11257); pris/adj(11)
+centre	7571	A content-content	centrer/verb(6); centre/noun(448)
+mis	7570	A content-content	mettre/verb(5641); mi/noun(5)
+étaient	7434	A content-content	être/verb(259512); étayer/verb(10)
+point	6824	A content-content	point/noun(2024); poindre/verb(152)
+pu	6731	A content-content	pouvoir/verb(30326); paître/verb(18)
+soir	6728	A content-content	seoir/verb(43); soir/noun(2717)
+mise	6165	A content-content	miser/verb(14); mise/noun(148)
+parti	6103	A content-content	partir/verb(4347); parti/noun(466)
+demande	5908	A content-content	demander/verb(4145); demande/noun(583)
+mieux	5698	B content-vs-function	bien/adv(11162); mieux/noun+adv(3259)
+passé	5665	A content-content	passer/verb(7693); passé/noun(368)
+bonne	5609	A content-content	bon/adj(9039); bonne/noun(17)
+sommes	5584	A content-content	être/verb(259512); sommer/verb(5); somme/noun(213)
+marché	5518	A content-content	marcher/verb(1333); marché/noun(839)
+communiqué	5360	A content-content	communiquer/verb(155); communiqué/noun(10)
+but	5237	A content-content	boire/verb(2914); but/noun(605)
+aura	5217	A content-content	avoir/verb(205582); aura/noun(10)
+moi	5121	B content-vs-function	je/pron(124315); moi/noun+pron(10491)
+presse	4918	A content-content	presser/verb(611); presse/noun(143)
+mort	4905	A content-content	mort/adj+noun(2671); mourir/verb(2155)
+cause	4849	A content-content	causer/verb(396); cause/noun(1242)
+nouvelles	4798	A content-content	nouveau/adj(5704); nouvelle/noun(308)
+rue	4686	A content-content	ruer/verb(171); rue/noun(1244)
+permis	4580	A content-content	permettre/verb(1382); permis/noun(6)
+rencontre	4573	A content-content	rencontrer/verb(2364); rencontre/noun(359)
+important	4543	A content-content	important/adj(1579); importer/verb(1213)
+forces	4521	A content-content	forcer/verb(359); force/noun(925)
+équipe	4470	A content-content	équiper/verb(68); équipe/noun(821)
+nuit	4463	A content-content	nuire/verb(86); nuit/noun(3105)
+programme	4280	A content-content	programmer/verb(27); programme/noun(327)
+mesure	4109	A content-content	mesurer/verb(147); mesure/noun(653)
+maintenant	4074	B content-vs-function	maintenir/verb(198); maintenant/adv(4067)
+connu	3892	A content-content	connaître/verb(4826); connaitre/verb(29); connu/adj(35)
+commune	3889	A content-content	commun/adj(313); commune/noun(273)
+risque	3884	A content-content	risquer/verb(122); risque/noun(583)
+passe	3765	A content-content	passer/verb(7693); passe/noun(8)
+ayant	3756	A content-content	avoir/verb(205582); être/verb(259512); plaire/verb(3710); faire/verb(46907); pouvoir/verb(30326); devoir/verb(18872); partir/verb(4347); passer/verb(7693); sortir/verb(3453); monter/verb(849); tomber/verb(2723); disparaître/verb(557); rentrer/verb(1795); remonter/verb(283); apparaître/verb(405); paraître/verb(722); retourner/verb(1720); ressortir/verb(58); repartir/verb(108); descendre/verb(645); repasser/verb(160); redescendre/verb(16); ressusciter/verb(17); demander/verb(4145); trouver/verb(8017); rendre/verb(5067); annoncer/verb(334); porter/verb(1918); agir/verb(1446); connaître/verb(4826); tenir/verb(2303); ensuivre/verb(22); laisser/verb(4166); rappeler/verb(1127); appeler/verb(4040); ouvrir/verb(2414); élever/verb(557); chercher/verb(2444); entendre/verb(4389); baisser/verb(348); servir/verb(1168); taire/verb(4479); arrêter/verb(4126); diriger/verb(572); liguer/verb(7); valoir/verb(1281); occuper/verb(2469); blesser/verb(981); disputer/verb(309); souvenir/verb(1278); dévoiler/verb(88); cacher/verb(1196); intéresser/verb(1018); marier/verb(918); concentrer/verb(274); adresser/verb(218); ressembler/verb(781); inquiéter/verb(646); acquérir/verb(222); résoudre/verb(825); nourrir/verb(440); contenter/verb(135); comporter/verb(257); fier/verb(371); abriter/verb(104); défiler/verb(20); éclater/verb(300); dresser/verb(135); briser/verb(386); alimenter/verb(51); suicider/verb(168); emporter/verb(551); refaire/verb(264); asseoir/verb(1715); ficher/verb(65); tromper/verb(746); rebeller/verb(12); réveiller/verb(1109); amuser/verb(706); fatiguer/verb(940); foutre/verb(273); équivaloir/verb(26); laver/verb(1058); piquer/verb(267); habituer/verb(536); débarrasser/verb(268); désoler/verb(341); renseigner/verb(52); ranger/verb(260); moquer/verb(369); doucher/verb(32); décourager/verb(155); emparer/verb(63); vieillir/verb(83); dépêcher/verb(332); méfier/verb(87); guérir/verb(226); redresser/verb(26); débrouiller/verb(246); envoler/verb(291); soucier/verb(304); vêtir/verb(59); noyer/verb(214); quereller/verb(50); absenter/verb(64); habiller/verb(444); dévaster/verb(36); relaxer/verb(15); enfuir/verb(539); abaisser/verb(125); fâcher/verb(330); déceler/verb(13); targuer/verb(8); acharner/verb(60); efforcer/verb(131); soustraire/verb(13); abonner/verb(61); abstenir/verb(60); ennuyer/verb(405); bourrer/verb(29); dégoûter/verb(79); ressaisir/verb(15); épater/verb(15); épanouir/verb(52); lamenter/verb(25); chicaner/verb(7); évader/verb(42); adonner/verb(56); repentir/verb(43); délecter/verb(14); droguer/verb(38); grouiller/verb(53); prostituer/verb(8); embourber/verb(13); évanouir/verb(142); chamailler/verb(33); entraider/verb(43); raviser/verb(7); obstiner/verb(32); enquérir/verb(43); déprécier/verb(11); enivrer/verb(31); saouler/verb(29); accroupir/verb(44); réincarner/verb(9); assagir/verb(13); recroqueviller/verb(5); démoder/verb(21); extasier/verb(11); bichonner/verb(7); esclaffer/verb(8); entretuer/verb(8); goinfrer/verb(6); prosterner/verb(7); écrier/verb(46); dévêtir/verb(6); amouracher/verb(6); acoquiner/verb(5); égosiller/verb(5); éperdre/verb(8); recoucher/verb(6); amuïr/verb(6)
+hausse	3654	A content-content	hausser/verb(26); hausse/noun(52)
+base	3644	A content-content	baser/verb(99); base/noun(348)
+sens	3614	A content-content	sentir/verb(3292); sens/noun(1135)
+finale	3580	A content-content	final/adj(113); finale/noun(34)
+affaires	3571	A content-content	affairer/verb(20); affaire/noun(1740)
+charge	3560	A content-content	charger/verb(514); charge/noun(232)
+peine	3555	A content-content	peiner/verb(23); peine/noun(1156)
+réforme	3526	A content-content	réformer/verb(8); réforme/noun(55)
+reçu	3477	A content-content	recevoir/verb(1531); reçu/noun(30)
+meilleur	3461	A content-content	bon/adj(9039); meilleur/noun(74)
+mesures	3365	A content-content	mesurer/verb(147); mesure/noun(653)
+date	3332	A content-content	dater/verb(27); date/noun(295)
+recherche	3311	A content-content	rechercher/verb(187); recherche/noun(578)
+force	3303	A content-content	forcer/verb(359); force/noun(925)
+forme	3278	A content-content	former/verb(293); forme/noun(687)
+porte	3271	A content-content	porter/verb(1918); porte/noun(2867)
+prise	3250	A content-content	pris/adj(11); priser/verb(19); prise/noun(255)
+manque	3247	A content-content	manquer/verb(1014); manque/noun(260)
+droite	3236	A content-content	droit/adj(304); droite/noun(470)
+tu	3143	B content-vs-function	vous/pron(57455); tu/pron(23322); taire/verb(4479)
+visite	3129	A content-content	visiter/verb(1018); visite/noun(995)
+coupe	3089	A content-content	couper/verb(845); coupe/noun(299)
+précise	3073	A content-content	préciser/verb(87); précis/adj(145)
+produit	3066	A content-content	produit/noun(603); produire/verb(942)
+équipes	3054	A content-content	équiper/verb(68); équipe/noun(821)
+capitale	3041	A content-content	capital/adj(27); capitale/noun(361)
+marque	3038	A content-content	marquer/verb(168); marque/noun(107)
+contrôle	2915	A content-content	contrôler/verb(192); contrôle/noun(345)
+doute	2901	A content-content	douter/verb(149); doute/noun(687)
+donne	2874	A content-content	donner/verb(5213); donne/noun(137)
+outre	2867	B content-vs-function	outrer/verb(10); outre/prep(34)
+maire	2842	A content-content	maire/noun(150); maigre/adj+noun(109)
+fonds	2791	A content-content	fondre/verb(251); fond/noun(492); fonds/noun(80)
+poste	2778	A content-content	poster/verb(83); poste/noun(675)
+premières	2736	A content-content	premier/adj(3222); première/noun(11)
+liste	2703	A content-content	lister/verb(8); liste/noun(466)
+enquête	2694	A content-content	enquêter/verb(62); enquête/noun(147)
+garde	2682	A content-content	garder/verb(1082); garde/noun(515)
+lutte	2668	A content-content	lutter/verb(121); lutte/noun(98)
+fils	2638	A content-content	fil/noun(302); fils/noun(1901)
+offre	2628	A content-content	offrir/verb(1023); offre/noun(142)
+ouvert	2597	A content-content	ouvrir/verb(2414); ouvert/adj(439)
+bande	2591	A content-content	bander/verb(27); bande/noun(238)
+livre	2584	A content-content	livrer/verb(140); livre/noun(5572)
+compris	2573	A content-content	comprendre/verb(3903); compris/adj(701)
+véhicules	2529	A content-content	véhiculer/verb(18); véhicule/noun(195)
+américaine	2516	A content-content	américain/adj+noun(638); américaine/noun(15)
+véhicule	2489	A content-content	véhiculer/verb(18); véhicule/noun(195)
+ligue	2484	A content-content	liguer/verb(7); ligue/noun(18)
+écrit	2464	A content-content	écrire/verb(4299); écrit/noun(98)
+relations	2446	A content-content	relation/noun(496); relater/verb(9)
+présente	2424	A content-content	présenter/verb(699); présent/adj(397); présente/noun(9)
+moyenne	2410	A content-content	moyen/adj(140); moyenner/verb(6); moyenne/noun(82)
+vente	2405	A content-content	venter/verb(5); vente/noun(228)
+voie	2353	A content-content	voir/verb(15372); voie/noun(445)
+seconde	2351	A content-content	second/adj(465); seconde/noun(106)
+parcours	2346	A content-content	parcourir/verb(146); parcours/noun(49)
+continue	2344	A content-content	continuer/verb(1300); continu/adj(67)
+élèves	2322	A content-content	élever/verb(557); élève/noun(799)
+baisse	2317	A content-content	baisser/verb(348); baisse/noun(56)
+combat	2314	A content-content	combattre/verb(124); combat/noun(253)
+peuple	2290	A content-content	peupler/verb(34); peuple/noun(700)
+suivi	2285	A content-content	suivre/verb(1859); suivi/noun(16)
+bout	2264	A content-content	bout/noun(630); bouillir/verb(31)
+juge	2226	A content-content	juger/verb(281); juge/noun(201)
+groupes	2187	A content-content	grouper/verb(6); groupe/noun(705)
+annonce	2184	A content-content	annoncer/verb(334); annonce/noun(107)
+œuvre	2183	A content-content	œuvrer/verb(18); œuvre/noun(424)
+fond	2163	A content-content	fondre/verb(251); fond/noun(492)
+parties	2129	A content-content	partie/noun(1362); party/noun(233)
+montre	2111	A content-content	montrer/verb(1416); montre/noun(404)
+fut	2075	A content-content	être/verb(259512); fût/noun(8)
+chiffres	2067	A content-content	chiffrer/verb(9); chiffre/noun(150)
+roi	2052	A content-content	roi/noun(768); reine/noun(210)
+yeux	2044	A content-content	œil/noun(832); oeil/noun(2122)
+arrêté	2024	A content-content	arrêter/verb(4126); arrêté/noun(7)
+centrale	2021	A content-content	central/adj(106); centrale/noun(16)
+modèle	1992	A content-content	modeler/verb(8); modèle/noun(222)
+fête	1973	A content-content	fêter/verb(96); fête/noun(1580)
+haute	1963	A content-content	haut/adj(1054); haute/noun(11)
+montant	1953	A content-content	monter/verb(849); montant/adj+noun(72)
+affaire	1945	A content-content	affairer/verb(20); affaire/noun(1740)
+discours	1913	A content-content	discourir/verb(9); discours/noun(560)
+note	1911	A content-content	noter/verb(158); note/noun(425)
+aide	1832	A content-content	aider/verb(4096); aide/noun(2058)
+sorte	1828	A content-content	sortir/verb(3453); sorte/noun(755)
+débat	1826	A content-content	débattre/verb(118); débat/noun(166)
+sort	1823	A content-content	sortir/verb(3453); sort/noun(231)
+surprise	1811	A content-content	surpris/adj(26); surprise/noun(430)
+sol	1811	A content-content	sou/noun(69); sol/noun(505)
+voyage	1801	A content-content	voyager/verb(804); voyage/noun(1345)
+condamné	1785	A content-content	condamner/verb(207); condamné/noun(16)
+double	1776	A content-content	doubler/verb(54); double/noun+adj(181)
+faudra	1775	A content-content	falloir/verb(6304); faillir/verb(261)
+vote	1770	A content-content	voter/verb(303); vote/noun(101)
+communes	1770	A content-content	commun/adj(313); commune/noun(273)
+prises	1724	A content-content	pris/adj(11); priser/verb(19); prise/noun(255)
+joue	1699	A content-content	jouer/verb(3035); joue/noun(167)
+partis	1677	A content-content	partir/verb(4347); parti/noun(466)
+célèbre	1675	A content-content	célébrer/verb(148); célèbre/adj(494)
+pratique	1673	A content-content	pratiquer/verb(167); pratique/noun+adj(392)
+marche	1668	A content-content	marcher/verb(1333); marche/noun(434)
+retraite	1666	A content-content	retraiter/verb(6); retraite/noun(290)
+retraites	1660	A content-content	retraiter/verb(6); retraite/noun(290)
+armes	1652	A content-content	armer/verb(76); arme/noun(603)
+présidentielle	1651	A content-content	présidentiel/adj(48); présidentielle/noun(5)
+classe	1639	A content-content	classer/verb(65); classe/noun(898)
+cité	1631	A content-content	citer/verb(105); cité/noun(75)
+risques	1621	A content-content	risquer/verb(122); risque/noun(583)
+chiffre	1619	A content-content	chiffrer/verb(9); chiffre/noun(150)
+bonnes	1614	A content-content	bon/adj(9039); bonne/noun(17)
+secours	1610	A content-content	secourir/verb(33); secours/noun(176)
+court	1610	A content-content	courir/verb(1405); court/adj+noun(951)
+menace	1607	A content-content	menacer/verb(241); menace/noun(170)
+avions	1594	A content-content	avoir/verb(205582); avion/noun(1095)
+attaque	1592	A content-content	attaquer/verb(323); attaque/noun(174)
+blessé	1584	A content-content	blesser/verb(981); blessé/adj+noun(102)
+laisse	1543	A content-content	laisser/verb(4166); laisse/noun(6)
+revenu	1534	A content-content	revenir/verb(2250); revenu/noun(168)
+ferme	1532	A content-content	fermer/verb(1501); ferme/noun+adj(447)
+places	1524	A content-content	placer/verb(287); place/noun(1722)
+privé	1521	A content-content	privé/adj(27); priver/verb(70)
+portes	1519	A content-content	porter/verb(1918); porte/noun(2867)
+envie	1517	A content-content	envier/verb(85); envie/noun(1295)
+bois	1515	A content-content	boire/verb(2914); bois/noun(1077)
+accusé	1506	A content-content	accuser/verb(438); accusé/noun(55)
+attaques	1489	A content-content	attaquer/verb(323); attaque/noun(174)
+élus	1488	A content-content	élire/verb(184); élu/noun(31)
+rues	1473	A content-content	ruer/verb(171); rue/noun(1244)
+rencontres	1464	A content-content	rencontrer/verb(2364); rencontre/noun(359)
+courant	1443	A content-content	courir/verb(1405); courant/adj+noun(739)
+prévenu	1439	A content-content	prévenir/verb(386); prévenu/noun(14)
+lance	1434	A content-content	lancer/verb(368); lance/noun(53)
+figure	1434	A content-content	figurer/verb(99); figure/noun(140)
+siège	1425	A content-content	siéger/verb(5); siège/noun(222)
+recours	1425	A content-content	recourir/verb(24); recours/noun(56)
+finances	1420	A content-content	financer/verb(28); finance/noun(56)
+veille	1411	A content-content	veiller/verb(192); veille/noun(163)
+règles	1407	A content-content	régler/verb(353); règle/noun(867)
+secondes	1399	A content-content	second/adj(465); seconde/noun(106)
+fini	1390	A content-content	finir/verb(2262); fini/adj(64)
+directrice	1385	A content-content	directeur/noun(284); directrice/noun(31)
+somme	1383	A content-content	sommer/verb(5); somme/noun(213)
+critique	1371	A content-content	critiquer/verb(149); critique/adj+noun(304)
+quelle	1367	B content-vs-function	quel/det+pron(4083); quelle/adj(235)
+comptes	1361	A content-content	compter/verb(889); compte/noun(1403)
+téléphone	1349	A content-content	téléphoner/verb(74); téléphone/noun(1490)
+appelle	1349	A content-content	appeler/verb(4040); appeller/verb(11)
+tonnes	1348	A content-content	tonner/verb(6); tonne/noun(64)
+critiques	1337	A content-content	critiquer/verb(149); critique/adj+noun(304)
+combats	1336	A content-content	combattre/verb(124); combat/noun(253)
+pire	1334	A content-content	mauvais/adj(2352); pire/adj+noun(522)
+élevé	1330	A content-content	élever/verb(557); élevé/adj(448)
+défis	1322	A content-content	défi/noun(228); défaire/verb(98)
+pointe	1307	A content-content	pointer/verb(98); pointe/noun(120)
+signe	1305	A content-content	signer/verb(284); signe/noun(530)
+rythme	1289	A content-content	rythmer/verb(6); rythme/noun(131)
+nécessité	1283	A content-content	nécessiter/verb(173); nécessité/noun(98)
+gare	1274	A content-content	garer/verb(271); gare/noun(791)
+code	1273	A content-content	coder/verb(6); code/noun(137)
+chute	1271	A content-content	chuter/verb(63); chute/noun(176)
+taille	1266	A content-content	tailler/verb(91); taille/noun(475)
+demandes	1262	A content-content	demander/verb(4145); demande/noun(583)
+passant	1250	A content-content	passer/verb(7693); passant/noun(78)
+contenu	1247	A content-content	contenir/verb(466); contenu/noun(116)
+cible	1246	A content-content	cibler/verb(13); cible/noun(100)
+partage	1244	A content-content	partager/verb(559); partage/noun(57)
+pose	1243	A content-content	poser/verb(1289); pose/noun(116)
+grave	1243	A content-content	graver/verb(33); grave/adj(350)
+vécu	1230	A content-content	vivre/verb(3523); vécu/noun(7)
+vit	1228	A content-content	voir/verb(15372); vivre/verb(3523)
+demeure	1221	A content-content	demeurer/verb(98); demeure/noun(86)
+concours	1221	A content-content	concourir/verb(21); concours/noun(114)
+ton	1209	B content-vs-function	tu/pron(23322); ton/det+noun(16365)
+chargé	1206	A content-content	charger/verb(514); chargé/noun(11)
+représentant	1203	A content-content	représenter/verb(266); représentant/noun(58)
+dépenses	1203	A content-content	dépenser/verb(273); dépense/noun(185)
+mises	1196	A content-content	miser/verb(14); mise/noun(148)
+ami	1193	A content-content	ami/noun(4591); amie/noun(1338)
+blanche	1184	A content-content	blanc/noun+adj(1268); blanche/noun(39)
+touche	1172	A content-content	toucher/verb(722); touche/noun(151)
+frappe	1170	A content-content	frapper/verb(701); frappe/noun(97)
+recherches	1165	A content-content	rechercher/verb(187); recherche/noun(578)
+bus	1155	A content-content	boire/verb(2914); bus/noun(1183)
+rêve	1139	A content-content	rêver/verb(424); rêve/noun(965)
+livres	1134	A content-content	livrer/verb(140); livre/noun(5572)
+piste	1131	A content-content	pister/verb(16); piste/noun(94)
+pratiques	1130	A content-content	pratiquer/verb(167); pratique/noun+adj(392)
+né	1119	A content-content	naître/verb(1324); naitre/verb(5)
+avance	1099	A content-content	avancer/verb(441); avance/noun(361)
+centres	1093	A content-content	centrer/verb(6); centre/noun(448)
+dialogue	1090	A content-content	dialoguer/verb(7); dialogue/noun(72)
+restaurant	1085	A content-content	restaurant/noun(743); restaurer/verb(103)
+anglais	1081	A content-content	anglais/adj+noun(2370); angler/verb(12)
+faites	1080	A content-content	faire/verb(46907); fait/adj(16)
+relève	1079	A content-content	relever/verb(177); relève/noun(19)
+distance	1071	A content-content	distancer/verb(6); distance/noun(275)
+prince	1066	A content-content	princesse/noun(165); prince/noun(145)
+invité	1062	A content-content	inviter/verb(846); invité/noun(424)
+concurrence	1051	A content-content	concurrencer/verb(10); concurrence/noun(52)
+modèles	1045	A content-content	modeler/verb(8); modèle/noun(222)
+échanges	1043	A content-content	échanger/verb(317); échange/noun(119)
+tente	1041	A content-content	tenter/verb(504); tente/noun(73)
+clé	1037	A content-content	clé/noun(1080); clef/noun(108)
+postes	1026	A content-content	poster/verb(83); poste/noun(675)
+neige	1024	A content-content	neiger/verb(99); neige/noun(941)
+armées	1022	A content-content	armé/adj(49); armée/noun(370)
+change	1019	A content-content	changer/verb(2462); change/noun(66)
+structure	1008	A content-content	structurer/verb(11); structure/noun(179)
+programmes	1000	A content-content	programmer/verb(27); programme/noun(327)
+limite	997	A content-content	limiter/verb(68); limite/noun(321)
+analyse	985	A content-content	analyser/verb(114); analyse/noun(335)
+barre	984	A content-content	barrer/verb(72); barre/noun(81)
+incendie	979	A content-content	incendier/verb(20); incendie/noun(268)
+cuisine	977	A content-content	cuisiner/verb(422); cuisine/noun(964)
+émissions	976	A content-content	émettre/verb(57); émission/noun(157)
+menaces	969	A content-content	menacer/verb(241); menace/noun(170)
+faux	962	A content-content	faillir/verb(261); faux/adj+noun(590)
+débats	959	A content-content	débattre/verb(118); débat/noun(166)
+élu	947	A content-content	élire/verb(184); élu/noun(31)
+pilote	937	A content-content	piloter/verb(24); pilote/noun(107)
+foule	937	A content-content	fouler/verb(50); foule/noun(302)
+réserve	928	A content-content	réserver/verb(267); réserve/noun(102)
+approche	925	A content-content	approcher/verb(321); approche/noun(219)
+œuvres	923	A content-content	œuvrer/verb(18); œuvre/noun(424)
+graves	923	A content-content	graver/verb(33); grave/adj(350)
+conduit	915	A content-content	conduire/verb(2050); conduit/noun(11)
+complète	910	A content-content	complet/adj(247); compléter/verb(63)
+réduit	896	A content-content	réduire/verb(322); réduit/noun(5)
+calme	893	A content-content	calmer/verb(160); calme/noun+adj(577)
+fêtes	891	A content-content	fêter/verb(96); fête/noun(1580)
+arme	890	A content-content	armer/verb(76); arme/noun(603)
+compliqué	881	A content-content	compliqué/adj(153); compliquer/verb(97)
+chasse	872	A content-content	chasser/verb(233); chasse/noun(166)
+noire	866	A content-content	noir/adj+noun(1290); noire/noun(37)
+média	861	A content-content	média/noun(95); médium/noun(5)
+dieu	855	A content-content	dieu/noun(2070); déesse/noun(61)
+reine	852	A content-content	roi/noun(768); reine/noun(210)
+dirigeant	847	A content-content	diriger/verb(572); dirigeant/noun(87)
+suivant	842	A content-content	suivre/verb(1859); suivant/adj+noun(255)
+fermé	839	A content-content	fermer/verb(1501); fermé/adj(118)
+aventure	837	A content-content	aventurer/verb(18); aventure/noun(164)
+vivant	827	A content-content	vivre/verb(3523); vivant/adj+noun(434)
+maître	827	A content-content	maître/noun(399); maîtresse/noun(103)
+surpris	820	A content-content	surpris/adj(26); surprendre/verb(782)
+cesse	817	A content-content	cesser/verb(737); cesse/noun(266)
+épouse	814	A content-content	épouse/noun(365); époux/noun(136); épouser/verb(463)
+marine	811	A content-content	marin/adj(65); marine/noun(42)
+formule	806	A content-content	formuler/verb(41); formule/noun(72)
+disparu	804	A content-content	disparaître/verb(557); disparu/adj+noun(22); disparaitre/verb(9)
+marques	788	A content-content	marquer/verb(168); marque/noun(107)
+pêche	785	A content-content	pêcher/verb(234); pêche/noun(263)
+frappes	775	A content-content	frapper/verb(701); frappe/noun(97)
+procédé	773	A content-content	procéder/verb(124); procédé/noun(19)
+mérite	756	A content-content	mériter/verb(243); mérite/noun(154)
+composé	751	A content-content	composer/verb(342); composé/noun(9)
+glace	744	A content-content	glacer/verb(51); glace/noun(450)
+voies	743	A content-content	voir/verb(15372); voie/noun(445)
+acquis	741	A content-content	acquérir/verb(222); acquis/noun(16)
+borne	737	A content-content	borner/verb(15); borne/noun(71)
+intéressant	736	A content-content	intéresser/verb(1018); intéressant/adj(1003)
+échange	734	A content-content	échanger/verb(317); échange/noun(119)
+affiche	734	A content-content	afficher/verb(43); affiche/noun(41)
+tombe	728	A content-content	tomber/verb(2723); tombe/noun(70)
+danse	723	A content-content	danser/verb(578); danse/noun(209)
+prête	719	A content-content	prêt/adj(1516); prêter/verb(862)
+vendu	714	A content-content	vendre/verb(1534); vendu/noun(10)
+attentes	712	A content-content	attenter/verb(5); attente/noun(198)
+incendies	711	A content-content	incendier/verb(20); incendie/noun(268)
+faudrait	711	A content-content	falloir/verb(6304); faillir/verb(261)
+ménages	704	A content-content	ménager/verb(48); ménage/noun(129)
+masse	698	A content-content	masser/verb(38); masse/noun(145)
+américaines	698	A content-content	américain/adj(418); américaine/noun(15)
+limites	697	A content-content	limiter/verb(68); limite/noun(321)
+pistes	695	A content-content	pister/verb(16); piste/noun(94)
+causes	693	A content-content	causer/verb(396); cause/noun(1242)
+dure	691	A content-content	durer/verb(323); dur/adj+noun(1178)
+missions	686	A content-content	mettre/verb(5641); mission/noun(160)
+juges	684	A content-content	juger/verb(281); juge/noun(201)
+relevé	683	A content-content	relever/verb(177); relevé/noun(9)
+prenant	675	A content-content	prendre/verb(11257); prenant/adj(5)
+vide	671	A content-content	vider/verb(116); vide/noun+adj(660)
+perspective	670	A content-content	perspectif/adj(5); perspective/noun(68)
+murs	670	A content-content	mur/noun(809); mûr/adj(71)
+aides	666	A content-content	aider/verb(4096); aide/noun(2058)
+classes	662	A content-content	classer/verb(65); classe/noun(898)
+alerte	659	A content-content	alerter/verb(33); alerte/noun(60)
+armée	652	A content-content	armé/adj(49); armée/noun(370)
+tâche	641	A content-content	tâcher/verb(29); tâche/noun(399)
+guide	635	A content-content	guider/verb(97); guide/noun(134)
+règle	632	A content-content	régler/verb(353); règle/noun(867)
+troubles	622	A content-content	troubler/verb(44); trouble/noun+adj(135)
+orange	619	A content-content	oranger/verb(8); orange/adj+noun(422)
+connaissent	617	A content-content	connaître/verb(4826); connaitre/verb(29)
+convient	611	A content-content	convenir/verb(221); convier/verb(277)
+souffle	608	A content-content	souffler/verb(211); souffle/noun(179)
+spécialisé	607	A content-content	spécialisé/adj(16); spécialiser/verb(62)
+unis	601	A content-content	uni/adj+noun(92); unir/verb(134)
+commandes	601	A content-content	commander/verb(322); commande/noun(153)
+adjoint	599	A content-content	adjoint/noun(15); adjoindre/verb(28)
+traité	598	A content-content	traiter/verb(447); traité/noun(61)
+éditions	594	A content-content	édition/noun(70); éditer/verb(23)
+passes	593	A content-content	passer/verb(7693); passe/noun(8)
+lit	593	A content-content	lire/verb(4024); lit/noun(1515)
+lions	592	A content-content	lier/verb(282); lion/noun(295)
+active	591	A content-content	actif/adj(137); activer/verb(48)
+allemande	589	A content-content	allemand/adj+noun(1028); allemande/noun(6)
+formes	587	A content-content	former/verb(293); forme/noun(687)
+taxe	584	A content-content	taxer/verb(15); taxe/noun(72)
+charges	578	A content-content	charger/verb(514); charge/noun(232)
+connus	572	A content-content	connaître/verb(4826); connaitre/verb(29); connu/adj(35)
+présentes	570	A content-content	présenter/verb(699); présent/adj(397); présente/noun(9)
+voyages	569	A content-content	voyager/verb(804); voyage/noun(1345)
+perspectives	569	A content-content	perspectif/adj(5); perspective/noun(68)
+volant	563	A content-content	voler/verb(1270); volant/adj+noun(162)
+structures	560	A content-content	structurer/verb(11); structure/noun(179)
+options	559	A content-content	option/noun(159); opter/verb(30)
+normale	558	A content-content	normal/adj(290); normale/noun(13)
+fumée	557	A content-content	fumé/adj(26); fumée/noun(179)
+facture	557	A content-content	facturer/verb(11); facture/noun(182)
+collecte	555	A content-content	collecter/verb(56); collecte/noun(17)
+luxe	551	A content-content	luxer/verb(9); luxe/noun(96)
+pilotes	546	A content-content	piloter/verb(24); pilote/noun(107)
+chat	546	A content-content	chat/noun(2257); chatte/noun(155)
+rabat	543	A content-content	rabattre/verb(8); rabat/noun(13)
+content	540	A content-content	content/adj+verb(401); conter/verb(684)
+fixe	538	A content-content	fixer/verb(203); fixe/noun+adj(60)
+sièges	537	A content-content	siéger/verb(5); siège/noun(222)
+offres	537	A content-content	offrir/verb(1023); offre/noun(142)
+réserves	536	A content-content	réserver/verb(267); réserve/noun(102)
+étudiant	530	A content-content	étudiant/adj+noun(1366); étudier/verb(2158)
+clôture	529	A content-content	clôturer/verb(18); clôture/noun(102)
+ronde	528	A content-content	rond/adj(73); ronde/noun(18)
+réformes	521	A content-content	réformer/verb(8); réforme/noun(55)
+avancé	521	A content-content	avancer/verb(441); avancé/adj(64)
+limité	515	A content-content	limiter/verb(68); limité/adj(60)
+monte	514	A content-content	monter/verb(849); monte/noun(66)
+amende	512	A content-content	amender/verb(9); amende/noun(85)
+bases	511	A content-content	baser/verb(99); base/noun(348)
+peuples	510	A content-content	peupler/verb(34); peuple/noun(700)
+pousse	508	A content-content	pousser/verb(647); pousse/noun(17)
+savons	507	A content-content	savoir/verb(16957); savon/noun(123)
+peines	505	A content-content	peiner/verb(23); peine/noun(1156)
+violent	501	A content-content	violent/adj(142); violer/verb(60)
+enquêtes	500	A content-content	enquêter/verb(62); enquête/noun(147)
+détenu	499	A content-content	détenu/noun(24); détenir/verb(104)
+compromis	495	A content-content	compromettre/verb(23); compromis/noun(72)
+traces	494	A content-content	tracer/verb(66); trace/noun(223)
+cru	494	A content-content	croire/verb(5452); cru/adj+noun(78)
+couvert	492	A content-content	couvrir/verb(495); couvert/adj+noun(114)
+as	491	A content-content	avoir/verb(205582); a/noun(69); as/noun(4326)
+plantes	489	A content-content	planter/verb(596); plante/noun(438)
+commandant	489	A content-content	commander/verb(322); commandant/noun(20)
+maîtrise	479	A content-content	maîtriser/verb(165); maîtrise/noun(74)
+tâches	478	A content-content	tâcher/verb(29); tâche/noun(399)
+amie	476	A content-content	ami/noun(4591); amie/noun(1338)
+alternative	475	A content-content	alternatif/adj(14); alternative/noun(78)
+délégué	474	A content-content	délégué/noun(14); déléguer/verb(7)
+tournant	473	A content-content	tourner/verb(596); tournant/adj+noun(21)
+saint	466	A content-content	saint/noun+adj(218); sainte/noun(12)
+visites	465	A content-content	visiter/verb(1018); visite/noun(995)
+participe	464	A content-content	participer/verb(291); participe/noun(12)
+gagnant	464	A content-content	gagner/verb(1906); gagnant/noun(35)
+bronze	463	A content-content	bronzer/verb(10); bronze/noun(32)
+avancées	462	A content-content	avancé/adj(64); avancée/noun(40)
+signes	461	A content-content	signer/verb(284); signe/noun(530)
+ressort	460	A content-content	ressortir/verb(58); ressort/noun(20)
+suicide	459	A content-content	suicider/verb(168); suicide/noun(73)
+habitant	459	A content-content	habitant/noun(206); habiter/verb(1612)
+marquant	458	A content-content	marquer/verb(168); marquant/adj(5)
+file	458	A content-content	filer/verb(134); file/noun(88)
+centrales	457	A content-content	central/adj(106); centrale/noun(16)
+mines	451	A content-content	miner/verb(7); mine/noun(164)
+notes	438	A content-content	noter/verb(158); note/noun(425)
+mélange	438	A content-content	mélanger/verb(74); mélange/noun(99)
+cibles	436	A content-content	cibler/verb(13); cible/noun(100)
+serre	435	A content-content	serrer/verb(216); serre/noun(40)
+roy	435	A content-content	roi/noun(768); roy/noun(7)
+boucle	435	A content-content	boucler/verb(53); boucle/noun(101)
+sombre	432	A content-content	sombrer/verb(38); sombre/adj(325)
+remarque	431	A content-content	remarquer/verb(529); remarque/noun(147)
+agences	431	A content-content	agencer/verb(6); agence/noun(76)
+fausses	428	A content-content	faux/adj(537); fausser/verb(5)
+associé	427	A content-content	associé/noun(8); associer/verb(86)
+employé	426	A content-content	employé/noun(320); employer/verb(376)
+branche	426	A content-content	brancher/verb(31); branche/noun(286)
+hâte	421	A content-content	hâter/verb(279); hâte/noun(64)
+mine	420	A content-content	miner/verb(7); mine/noun(164)
+contrôles	419	A content-content	contrôler/verb(192); contrôle/noun(345)
+règne	418	A content-content	régner/verb(150); règne/noun(44)
+influence	418	A content-content	influencer/verb(51); influence/noun(229)
+défilé	418	A content-content	défiler/verb(20); défilé/noun(23)
+résumé	417	A content-content	résumer/verb(55); résumé/noun(43)
+raté	417	A content-content	rater/verb(414); raté/noun(17)
+félicité	417	A content-content	féliciter/verb(150); félicité/noun(16)
+suffisant	416	A content-content	suffire/verb(472); suffisant/adj(147)
+assis	416	A content-content	asseoir/verb(1715); assis/adj(8)
+récompense	411	A content-content	récompenser/verb(58); récompense/noun(79)
+récolte	410	A content-content	récolter/verb(81); récolte/noun(129)
+aperçu	410	A content-content	apercevoir/verb(336); aperçu/noun(28)
+annonces	409	A content-content	annoncer/verb(334); annonce/noun(107)
+impressionnant	408	A content-content	impressionnant/adj(98); impressionner/verb(294)
+dates	407	A content-content	dater/verb(27); date/noun(295)
+trace	405	A content-content	tracer/verb(66); trace/noun(223)
+tapis	405	A content-content	tapir/verb(10); tapis/noun(209)
+issue	405	A content-content	issu/verb+adj(60); issue/noun(115)
+relance	404	A content-content	relancer/verb(12); relance/noun(7)
+élève	402	A content-content	élever/verb(557); élève/noun(799)
+opposé	402	A content-content	opposer/verb(223); opposé/noun(15)
+attente	402	A content-content	attenter/verb(5); attente/noun(198)
+avancée	400	A content-content	avancé/adj(64); avancée/noun(40)
+aventures	399	A content-content	aventurer/verb(18); aventure/noun(164)
+console	397	A content-content	consoler/verb(56); console/noun(24)
+bouche	394	A content-content	boucher/verb(69); bouche/noun(542)
+satisfait	393	A content-content	satisfaire/verb(305); satisfait/adj(229)
+abandonné	390	A content-content	abandonner/verb(914); abandonné/adj(29)
+vives	388	A content-content	vivre/verb(3523); vif/adj(284)
+versions	385	A content-content	version/noun(158); verser/verb(247)
+tenant	385	A content-content	tenir/verb(2303); tenant/noun(10)
+connais	385	A content-content	connaître/verb(4826); connaitre/verb(29)
+vive	383	A content-content	vivre/verb(3523); vif/adj(284)
+taxes	383	A content-content	taxer/verb(15); taxe/noun(72)
+flotte	383	A content-content	flotter/verb(86); flotte/noun(60)
+armé	381	A content-content	armer/verb(76); armé/adj(49)
+fiche	380	A content-content	ficher/verb(65); fiche/noun(131)
+axes	378	A content-content	axer/verb(10); axe/noun(20)
+militant	375	A content-content	militant/adj+noun(84); militer/verb(16)
+listes	371	A content-content	lister/verb(8); liste/noun(466)
+analyses	368	A content-content	analyser/verb(114); analyse/noun(335)
+terrasse	365	A content-content	terrasser/verb(10); terrasse/noun(59)
+excuses	365	A content-content	excuser/verb(329); excuse/noun(473)
+commande	365	A content-content	commander/verb(322); commande/noun(153)
+attaquant	365	A content-content	attaquer/verb(323); attaquant/noun(15)
+voile	364	A content-content	voiler/verb(32); voile/noun(133)
+disparus	362	A content-content	disparaître/verb(557); disparu/adj+noun(22); disparaitre/verb(9)
+agence	360	A content-content	agencer/verb(6); agence/noun(76)
+équilibre	359	A content-content	équilibrer/verb(19); équilibre/noun(112)
+plante	359	A content-content	planter/verb(596); plante/noun(438)
+constante	359	A content-content	constant/adj(95); constante/noun(7)
+hausses	352	A content-content	hausser/verb(26); hausse/noun(52)
+appellent	352	A content-content	appeler/verb(4040); appeller/verb(11)
+visa	351	A content-content	viser/verb(169); visa/noun(67)
+allié	351	A content-content	allié/noun(56); allier/verb(237)
+panique	349	A content-content	paniquer/verb(88); panique/noun+adj(39)
+contenant	346	A content-content	contenir/verb(466); contenant/noun(7)
+surprises	345	A content-content	surpris/adj(26); surprise/noun(430)
+pensions	344	A content-content	penser/verb(10483); pension/noun(42)
+clos	342	A content-content	clore/verb(67); clos/adj(7)
+moyennes	339	A content-content	moyen/adj(140); moyenner/verb(6); moyenne/noun(82)
+finance	339	A content-content	financer/verb(28); finance/noun(56)
+diplôme	339	A content-content	diplômer/verb(59); diplôme/noun(105)
+chère	339	A content-content	cher/adj(1160); chère/noun(31)
+tranche	337	A content-content	trancher/verb(60); tranche/noun(87)
+sucre	337	A content-content	sucrer/verb(10); sucre/noun(426)
+archives	337	A content-content	archiver/verb(12); archive/noun(46)
+traite	336	A content-content	traiter/verb(447); traite/noun(50)
+étonnant	332	A content-content	étonner/verb(273); étonnant/adj(99)
+vins	332	A content-content	venir/verb(9850); vin/noun(1055)
+couche	331	A content-content	coucher/verb(974); couche/noun(170)
+restant	330	A content-content	rester/verb(4563); restant/adj+noun(16)
+alternatives	330	A content-content	alternatif/adj(14); alternative/noun(78)
+défaites	329	A content-content	défaire/verb(98); défaite/noun(105)
+coupé	328	A content-content	couper/verb(845); coupé/adj(5)
+carré	328	A content-content	carré/adj+noun(101); carrer/verb(17)
+soldes	327	A content-content	solder/verb(19); solde/noun(38)
+pressions	327	A content-content	presser/verb(611); pression/noun(186)
+gérant	327	A content-content	gérer/verb(360); gérant/noun(41)
+animé	327	A content-content	animé/adj+noun(23); animer/verb(67)
+battant	325	A content-content	battre/verb(1112); battant/adj+noun(23)
+surprenant	323	A content-content	surprendre/verb(782); surprenant/adj(82)
+opposant	323	A content-content	opposer/verb(223); opposant/noun(30)
+doutes	323	A content-content	douter/verb(149); doute/noun(687)
+trouble	322	A content-content	troubler/verb(44); trouble/noun+adj(135)
+temple	322	A content-content	temple/noun(159); tempe/noun(20)
+couronne	321	A content-content	couronner/verb(49); couronne/noun(58)
+plaque	320	A content-content	plaquer/verb(29); plaque/noun(71)
+recharge	319	A content-content	recharger/verb(20); recharge/noun(11)
+téléphones	318	A content-content	téléphoner/verb(74); téléphone/noun(1490)
+ressenti	318	A content-content	ressentir/verb(473); ressenti/noun(7)
+déçu	318	A content-content	décevoir/verb(460); déçu/adj(36)
+exposé	317	A content-content	exposer/verb(137); exposé/noun(42)
+inquiète	316	A content-content	inquiéter/verb(646); inquiet/adj(195)
+fausse	316	A content-content	faux/adj(537); fausser/verb(5)
+adresse	316	A content-content	adresser/verb(218); adresse/noun(505)
+codes	312	A content-content	coder/verb(6); code/noun(137)
+liquide	311	A content-content	liquider/verb(18); liquide/adj+noun(163)
+censure	311	A content-content	censurer/verb(19); censure/noun(29)
+trait	310	A content-content	trait/noun(123); traire/verb(211)
+paie	310	A content-content	payer/verb(1910); paie/noun(34)
+facilité	310	A content-content	faciliter/verb(109); facilité/noun(32)
+censé	308	A content-content	censé/adj(248); censer/verb(61)
+massacre	307	A content-content	massacrer/verb(35); massacre/noun(40)
+figures	307	A content-content	figurer/verb(99); figure/noun(140)
+détaillé	307	A content-content	détailler/verb(47); détaillé/adj(6)
+foire	306	A content-content	foirer/verb(49); foire/noun(37)
+pompe	305	A content-content	pomper/verb(21); pompe/noun(67)
+initiale	304	A content-content	initial/adj(33); initiale/noun(10)
+enseignant	304	A content-content	enseignant/adj+noun(674); enseigner/verb(430)
+illustre	303	A content-content	illustrer/verb(18); illustre/adj(10)
+malaise	302	A content-content	malais/noun(5); malaise/noun(15)
+rebelles	301	A content-content	rebeller/verb(12); rebelle/noun+adj(59)
+morale	301	A content-content	moral/adj(143); morale/noun(77)
+résident	299	A content-content	résident/adj+noun(42); résider/verb(160)
+candidate	299	A content-content	candidat/noun(169); candidater/verb(6)
+bornes	299	A content-content	borner/verb(15); borne/noun(71)
+contrainte	298	A content-content	contraindre/verb(127); contrainte/noun(54)
+contente	298	A content-content	contenter/verb(135); content/adj(328)
+conserve	298	A content-content	conserver/verb(159); conserve/noun(10)
+rêves	297	A content-content	rêver/verb(424); rêve/noun(965)
+enveloppe	297	A content-content	envelopper/verb(40); enveloppe/noun(99)
+enceinte	296	A content-content	enceint/adj(181); enceinte/noun(30)
+intéressé	295	A content-content	intéresser/verb(1018); intéressé/noun(7)
+croissant	295	A content-content	croissant/adj+noun(124); croître/verb(96)
+chutes	293	A content-content	chuter/verb(63); chute/noun(176)
+masque	292	A content-content	masquer/verb(22); masque/noun(145)
+conteste	292	A content-content	contester/verb(17); conteste/noun(5)
+réplique	290	A content-content	répliquer/verb(22); réplique/noun(12)
+voyant	289	A content-content	voir/verb(15372); voyant/adj+noun(27)
+issues	289	A content-content	issu/verb+adj(60); issue/noun(115)
+votes	288	A content-content	voter/verb(303); vote/noun(101)
+copie	288	A content-content	copier/verb(182); copie/noun(180)
+participant	286	A content-content	participer/verb(291); participant/noun(47)
+charme	284	A content-content	charmer/verb(15); charme/noun(136)
+bandes	284	A content-content	bander/verb(27); bande/noun(238)
+piège	282	A content-content	piéger/verb(50); piège/noun(216)
+photographie	280	A content-content	photographier/verb(29); photographie/noun(71)
+parent	280	A content-content	parent/adj+noun(2361); parer/verb(84)
+tiens	279	A content-content	tenir/verb(2303); tien/adj(15)
+soutiens	279	A content-content	soutenir/verb(409); soutien/noun(190)
+rayons	279	A content-content	rayon/noun(167); rayer/verb(55)
+bienvenue	279	A content-content	bienvenu/adj+noun(80); bienvenue/noun(105)
+sortes	277	A content-content	sortir/verb(3453); sorte/noun(755)
+roues	276	A content-content	rouer/verb(11); roue/noun(158)
+joint	276	A content-content	joindre/verb(323); joint/noun(25)
+célèbres	275	A content-content	célébrer/verb(148); célèbre/adj(494)
+manifeste	274	A content-content	manifester/verb(64); manifeste/noun+adj(16)
+agressions	274	A content-content	agression/noun(21); agresser/verb(45)
+reproche	272	A content-content	reprocher/verb(137); reproche/noun(94)
+glisse	272	A content-content	glisser/verb(262); glisse/noun(5)
+ménage	269	A content-content	ménager/verb(48); ménage/noun(129)
+factures	269	A content-content	facturer/verb(11); facture/noun(182)
+dispute	267	A content-content	disputer/verb(309); dispute/noun(129)
+correspondant	267	A content-content	correspondre/verb(175); correspondant/adj+noun(35)
+subit	265	A content-content	subir/verb(275); subit/adj(5)
+assises	264	A content-content	assis/adj(8); assise/noun(15)
+inclus	263	A content-content	inclure/verb(130); inclus/adj(25)
+touchant	261	A content-content	toucher/verb(722); touchant/adj(15)
+faille	261	A content-content	falloir/verb(6304); faillir/verb(261); faille/noun(20)
+consoles	258	A content-content	consoler/verb(56); console/noun(24)
+isolé	257	A content-content	isolé/adj(89); isoler/verb(32)
+habitué	256	A content-content	habituer/verb(536); habitué/noun(5)
+bagarre	256	A content-content	bagarrer/verb(28); bagarre/noun(43)
+reçus	254	A content-content	recevoir/verb(1531); reçu/noun(30)
+fabrique	252	A content-content	fabriquer/verb(204); fabrique/noun(14)
+connaissait	252	A content-content	connaître/verb(4826); connaitre/verb(29)
+évènement	251	A content-content	événement/noun(278); évènement/noun(51)
+prisons	250	A content-content	priser/verb(19); prison/noun(579)
+maternelle	250	A content-content	maternel/adj(242); maternelle/noun(23)
+axe	250	A content-content	axer/verb(10); axe/noun(20)
+vis	245	A content-content	voir/verb(15372); vivre/verb(3523); vis/noun(139)
+lâche	245	A content-content	lâcher/verb(209); lâche/adj+noun(151)
+finales	244	A content-content	final/adj(113); finale/noun(34)
+casse	244	A content-content	casser/verb(841); casse/noun(31)
+balance	244	A content-content	balancer/verb(87); balance/noun(80)
+épaules	239	A content-content	épauler/verb(5); épaule/noun(277)
+triple	239	A content-content	tripler/verb(5); triple/noun(16)
+fouilles	239	A content-content	fouiller/verb(105); fouille/noun(28)
+récompenses	237	A content-content	récompenser/verb(58); récompense/noun(79)
+roue	237	A content-content	rouer/verb(11); roue/noun(158)
+mets	237	A content-content	mettre/verb(5641); mets/noun(324)
+brisé	237	A content-content	briser/verb(386); brisé/adj(45)
+fermes	236	A content-content	fermer/verb(1501); ferme/noun+adj(447)
+visas	235	A content-content	viser/verb(169); visa/noun(67)
+souffrant	235	A content-content	souffrir/verb(749); souffrant/adj(17)
+roulant	235	A content-content	rouler/verb(304); roulant/adj(31)
+coupes	235	A content-content	couper/verb(845); coupe/noun(299)
+entraînant	233	A content-content	entraîner/verb(288); entraînant/adj(12)
+distances	233	A content-content	distancer/verb(6); distance/noun(275)
+blanches	233	A content-content	blanc/noun+adj(1268); blanche/noun(39)
+conte	232	A content-content	conter/verb(684); conte/noun(174)
+restes	231	A content-content	rester/verb(4563); reste/noun(524)
+conforme	230	A content-content	conformer/verb(40); conforme/adj(24)
+reconnaissant	228	A content-content	reconnaître/verb(1004); reconnaissant/adj(82)
+grille	227	A content-content	griller/verb(60); grille/noun(41)
+riposte	226	A content-content	riposter/verb(12); riposte/noun(5)
+précises	226	A content-content	préciser/verb(87); précis/adj(145)
+meubles	226	A content-content	meubler/verb(5); meuble/noun(194)
+fatigue	226	A content-content	fatiguer/verb(940); fatigue/noun(122)
+fracture	225	A content-content	fracturer/verb(26); fracture/noun(45)
+exigeant	225	A content-content	exiger/verb(271); exigeant/adj(32)
+souris	223	A content-content	sourire/verb(474); souris/noun(400)
+extrait	221	A content-content	extrait/noun(25); extraire/verb(56)
+enseignes	219	A content-content	enseigner/verb(430); enseigne/noun(59)
+cote	219	A content-content	coter/verb(6); cote/noun(10)
+confiant	219	A content-content	confier/verb(169); confiant/adj(52)
+promo	218	A content-content	promotion/noun(101); promo/noun(7)
+inquiétant	217	A content-content	inquiéter/verb(646); inquiétant/adj(32)
+équivalent	216	A content-content	équivaloir/verb(26); équivalent/adj+noun(44)
+vides	216	A content-content	vider/verb(116); vide/noun+adj(660)
+escalade	215	A content-content	escalader/verb(42); escalade/noun(29)
+controversé	215	A content-content	controversé/adj(7); controverser/verb(17)
+consultant	215	A content-content	consulter/verb(189); consultant/noun(8)
+plaques	213	A content-content	plaquer/verb(29); plaque/noun(71)
+dépense	212	A content-content	dépenser/verb(273); dépense/noun(185)
+commissions	212	A content-content	commission/noun(74); commettre/verb(536)
+capture	212	A content-content	capturer/verb(141); capture/noun(28)
+alertes	212	A content-content	alerter/verb(33); alerte/noun(60)
+noires	211	A content-content	noir/adj+noun(1290); noire/noun(37)
+branches	211	A content-content	brancher/verb(31); branche/noun(286)
+paire	209	A content-content	pair/adj(15); paire/noun(220)
+éteint	208	A content-content	éteindre/verb(638); éteint/adj(38)
+entretiens	207	A content-content	entretien/noun(120); entretenir/verb(338)
+opinions	206	A content-content	opinion/noun(671); opiner/verb(8)
+lie	206	A content-content	lier/verb(282); lie/noun(9)
+combattant	205	A content-content	combattre/verb(124); combattant/noun(31)
+balade	205	A content-content	balader/verb(90); balade/noun(54)
+ralenti	203	A content-content	ralentir/verb(78); ralenti/noun(19)
+affiches	202	A content-content	afficher/verb(43); affiche/noun(41)
+plaine	201	A content-content	plain/adj(6); plaine/noun(40)
+enthousiasme	201	A content-content	enthousiasmer/verb(6); enthousiasme/noun(80)
+tentant	200	A content-content	tenter/verb(504); tentant/adj(6)
+attaché	200	A content-content	attaché/noun(5); attacher/verb(264)
+suivis	198	A content-content	suivre/verb(1859); suivi/noun(16)
+relâche	198	A content-content	relâcher/verb(133); relâche/noun(30)
+gardes	198	A content-content	garder/verb(1082); garde/noun(515)
+cassé	198	A content-content	casser/verb(841); cassé/adj(353)
+case	198	A content-content	caser/verb(6); case/noun(103)
+remplaçant	197	A content-content	remplacer/verb(194); remplaçant/noun(5)
+baie	197	A content-content	bayer/verb(6); baie/noun(49)
+explosions	196	A content-content	exploser/verb(138); explosion/noun(112)
+époux	195	A content-content	épouse/noun(365); époux/noun(136)
+sauvegarde	195	A content-content	sauvegarder/verb(23); sauvegarde/noun(25)
+gueule	195	A content-content	gueuler/verb(7); gueule/noun(273)
+divorce	195	A content-content	divorcer/verb(116); divorce/noun(97)
+précisions	193	A content-content	préciser/verb(87); précision/noun(84)
+mérité	192	A content-content	mériter/verb(243); mérité/adj(36)
+fous	191	A content-content	foutre/verb(273); fou/adj+noun(1158)
+blague	191	A content-content	blaguer/verb(5); blague/noun(426)
+mépris	190	A content-content	méprendre/verb(27); mépris/noun(54)
+mentions	189	A content-content	mention/noun(38); mentir/verb(1016)
+enseigne	189	A content-content	enseigner/verb(430); enseigne/noun(59)
+divisions	189	A content-content	division/noun(36); diviser/verb(177)
+triomphe	188	A content-content	triompher/verb(30); triomphe/noun(36)
+payant	188	A content-content	payer/verb(1910); payant/adj(16)
+comble	188	A content-content	combler/verb(44); comble/adj+noun(76)
+brillant	188	A content-content	briller/verb(200); brillant/adj(199)
+torture	187	A content-content	torturer/verb(104); torture/noun(49)
+retraité	187	A content-content	retraiter/verb(6); retraité/noun(18)
+dialogues	187	A content-content	dialoguer/verb(7); dialogue/noun(72)
+menaçant	186	A content-content	menacer/verb(241); menaçant/adj(23)
+sombres	185	A content-content	sombrer/verb(38); sombre/adj(325)
+cloche	185	A content-content	clocher/verb(17); cloche/noun+adj(130)
+sale	184	A content-content	saler/verb(49); sale/adj(440)
+baisses	184	A content-content	baisser/verb(348); baisse/noun(56)
+amendes	184	A content-content	amender/verb(9); amende/noun(85)
+solde	183	A content-content	solder/verb(19); solde/noun(38)
+rassurant	183	A content-content	rassurer/verb(73); rassurant/adj(18)
+enceintes	183	A content-content	enceint/adj(181); enceinte/noun(30)
+tonne	182	A content-content	tonner/verb(6); tonne/noun(64)
+marches	182	A content-content	marcher/verb(1333); marche/noun(434)
+f	182	B content-vs-function	y/pron(19828); f/noun(16)
+dérives	182	A content-content	dériver/verb(32); dérive/noun(22)
+interprète	180	A content-content	interpréter/verb(115); interprète/noun(45)
+assistant	179	A content-content	assister/verb(360); assistant/noun(99)
+hôte	178	A content-content	hôte/noun(43); hôtesse/noun(21)
+contraste	178	A content-content	contraster/verb(7); contraste/noun(11)
+étendu	177	A content-content	étendu/adj(15); étendre/verb(330)
+ruines	176	A content-content	ruiner/verb(94); ruine/noun(87)
+éoliennes	175	A content-content	éolien/adj(5); éolienne/noun(8)
+marié	175	A content-content	marier/verb(918); marié/noun(191)
+collections	175	A content-content	collecter/verb(56); collection/noun(130)
+couches	174	A content-content	coucher/verb(974); couche/noun(170)
+connaissons	174	A content-content	connaître/verb(4826); connaitre/verb(29)
+plu	170	A content-content	plaire/verb(3710); pleuvoir/verb(1413)
+controverse	170	A content-content	controverser/verb(17); controverse/noun(23)
+coffre	169	A content-content	coffrer/verb(5); coffre/noun(166)
+chères	168	A content-content	cher/adj(1160); chère/noun(31)
+uni	167	A content-content	uni/adj+noun(92); unir/verb(134)
+tentes	167	A content-content	tenter/verb(504); tente/noun(73)
+plume	167	A content-content	plumer/verb(7); plume/noun(131)
+existant	167	A content-content	exister/verb(1005); existant/adj(23)
+écoute	166	A content-content	écouter/verb(1432); écoute/noun(352)
+polonaise	166	A content-content	polonais/noun+adj(123); polonaise/noun(7)
+déçus	166	A content-content	décevoir/verb(460); déçu/adj(36)
+foules	165	A content-content	fouler/verb(50); foule/noun(302)
+sèche	164	A content-content	sec/adj(356); sécher/verb(144); sèche/noun(15)
+domestique	164	A content-content	domestiquer/verb(12); domestique/adj+noun(92)
+prêtre	163	A content-content	prêtre/noun(117); prêtresse/noun(8)
+présidentielles	163	A content-content	présidentiel/adj(48); présidentielle/noun(5)
+soupe	162	A content-content	souper/verb(48); soupe/noun(493)
+mouche	162	A content-content	moucher/verb(17); mouche/noun(244)
+remarques	161	A content-content	remarquer/verb(529); remarque/noun(147)
+massacres	161	A content-content	massacrer/verb(35); massacre/noun(40)
+inverse	161	A content-content	inverser/verb(20); inverse/noun+adj(60)
+gorge	161	A content-content	gorger/verb(6); gorge/noun(186)
+doubles	161	A content-content	doubler/verb(54); double/noun+adj(181)
+consignes	161	A content-content	consigner/verb(11); consigne/noun(44)
+bouge	161	A content-content	bouger/verb(401); bouge/noun(27)
+failles	160	A content-content	faillir/verb(261); faille/noun(20)
+cases	160	A content-content	caser/verb(6); case/noun(103)
+actives	160	A content-content	actif/adj(137); activer/verb(48)
+révolte	159	A content-content	révolter/verb(16); révolte/noun(22)
+amusant	159	A content-content	amuser/verb(706); amusant/adj(348)
+prêtes	158	A content-content	prêt/adj(1516); prêter/verb(862)
+pis	158	B content-vs-function	mal/adv(2196); pis/noun(49)
+déterminant	158	A content-content	déterminer/verb(188); déterminant/adj(5)
+dérive	158	A content-content	dériver/verb(32); dérive/noun(22)
+arbitres	157	A content-content	arbitrer/verb(6); arbitre/noun(60)
+luttes	156	A content-content	lutter/verb(121); lutte/noun(98)
+pile	155	A content-content	piler/verb(6); pile/noun(107)
+douche	155	A content-content	doucher/verb(32); douche/noun(294)
+dessert	155	A content-content	desservir/verb(24); dessert/noun(155)
+étendue	153	A content-content	étendu/adj(15); étendue/noun(32)
+gêne	153	A content-content	gêner/verb(146); gêne/noun(19)
+bascule	153	A content-content	basculer/verb(19); bascule/noun(5)
+nage	152	A content-content	nager/verb(1163); nage/noun(92)
+guides	151	A content-content	guider/verb(97); guide/noun(134)
+passions	150	A content-content	passer/verb(7693); passion/noun(202)
+montres	150	A content-content	montrer/verb(1416); montre/noun(404)
+filtre	150	A content-content	filtrer/verb(13); filtre/noun(11)
+insultes	149	A content-content	insulter/verb(138); insulte/noun(91)
+défini	149	A content-content	définir/verb(120); défini/adj(5)
+normales	147	A content-content	normal/adj(290); normale/noun(13)
+pompes	145	A content-content	pomper/verb(21); pompe/noun(67)
+foncé	145	A content-content	foncer/verb(220); foncé/adj(38)
+connaissez	145	A content-content	connaître/verb(4826); connaitre/verb(29)
+colle	145	A content-content	coller/verb(138); colle/noun(51)
+accueillant	145	A content-content	accueillir/verb(304); accueillant/adj(15)
+éloigné	144	A content-content	éloigné/adj(121); éloigner/verb(238)
+emprunté	144	A content-content	emprunter/verb(533); emprunté/adj(6)
+exceptions	143	A content-content	exception/noun(147); excepter/verb(5)
+rondes	142	A content-content	rond/adj(73); ronde/noun(18)
+juré	142	A content-content	jurer/verb(301); juré/noun(13)
+fixes	142	A content-content	fixer/verb(203); fixe/noun+adj(60)
+sainte	141	A content-content	saint/noun+adj(218); sainte/noun(12)
+réfugié	141	A content-content	réfugié/noun(67); réfugier/verb(24)
+morales	141	A content-content	moral/adj(143); morale/noun(77)
+imposant	141	A content-content	imposer/verb(261); imposant/adj(16)
+encourageant	141	A content-content	encourager/verb(170); encourageant/adj(17)
+empire	141	A content-content	empirer/verb(57); empire/noun(126)
+adresses	141	A content-content	adresser/verb(218); adresse/noun(505)
+creuse	140	A content-content	creuser/verb(145); creux/adj(77)
+tranches	139	A content-content	trancher/verb(60); tranche/noun(87)
+jeûne	139	A content-content	jeûner/verb(22); jeûne/noun(12)
+beurre	139	A content-content	beurrer/verb(21); beurre/noun(293)
+décevant	138	A content-content	décevoir/verb(460); décevant/adj(34)
+crue	138	A content-content	cru/adj(70); crue/noun(40)
+traîne	137	A content-content	traîner/verb(194); traîne/noun(17)
+semblant	137	A content-content	sembler/verb(2929); semblant/noun(6)
+connaissais	137	A content-content	connaître/verb(4826); connaitre/verb(29)
+combiné	137	A content-content	combiner/verb(27); combiné/noun(6)
+désolé	136	A content-content	désoler/verb(341); désolé/adj(736)
+suspecte	135	A content-content	suspect/adj+noun(216); suspecter/verb(38)
+paye	135	A content-content	payer/verb(1910); paie/noun(34)
+diplômes	135	A content-content	diplômer/verb(59); diplôme/noun(105)
+dominant	134	A content-content	dominer/verb(86); dominant/adj(23)
+assise	134	A content-content	assis/adj(8); assise/noun(15)
+philippines	133	A content-content	philippin/adj(6); philippine/noun(10)
+étonné	132	A content-content	étonner/verb(273); étonné/adj(16)
+gares	132	A content-content	garer/verb(271); gare/noun(791)
+capitales	132	A content-content	capital/adj(27); capitale/noun(361)
+salons	131	A content-content	salon/noun(224); saler/verb(49)
+passionnant	131	A content-content	passionner/verb(33); passionnant/adj(104)
+photographies	130	A content-content	photographier/verb(29); photographie/noun(71)
+perdant	130	A content-content	perdre/verb(3871); perdant/noun(21)
+patronne	130	A content-content	patron/noun(476); patronne/noun(56)
+claque	130	A content-content	claquer/verb(109); claque/noun(26)
+fatigué	129	A content-content	fatiguer/verb(940); fatigué/adj(491)
+décharge	129	A content-content	décharger/verb(36); décharge/noun(29)
+télévisions	128	A content-content	télévision/noun(714); téléviser/verb(27)
+rampe	128	A content-content	ramper/verb(40); rampe/noun(32)
+formules	128	A content-content	formuler/verb(41); formule/noun(72)
+conformes	128	A content-content	conformer/verb(40); conforme/adj(24)
+fréquentes	127	A content-content	fréquenter/verb(124); fréquent/adj(80)
+domestiques	127	A content-content	domestiquer/verb(12); domestique/adj+noun(92)
+unes	126	B content-vs-function	un/pron(5034); une/noun(46)
+valide	125	A content-content	valider/verb(22); valide/adj(27)
+ligues	125	A content-content	liguer/verb(7); ligue/noun(18)
+crie	125	A content-content	crier/verb(625); cri/noun(194)
+chaine	125	A content-content	chaîne/noun(197); chaine/noun(6)
+plane	123	A content-content	plan/adj(12); planer/verb(13)
+fouille	123	A content-content	fouiller/verb(105); fouille/noun(28)
+contes	123	A content-content	conter/verb(684); conte/noun(174)
+approprié	123	A content-content	approprié/adj(87); approprier/verb(36)
+infections	122	A content-content	infection/noun(50); infecter/verb(32)
+licencié	121	A content-content	licencié/noun(12); licencier/verb(95)
+approches	121	A content-content	approcher/verb(321); approche/noun(219)
+angle	121	A content-content	angler/verb(12); angle/noun(99)
+repères	120	A content-content	repérer/verb(58); repère/noun(14)
+marines	119	A content-content	marin/adj(65); marine/noun(42)
+files	119	A content-content	filer/verb(134); file/noun(88)
+bottes	119	A content-content	botter/verb(11); botte/noun(105)
+égale	118	A content-content	égal/adj(324); égaler/verb(26)
+envies	118	A content-content	envier/verb(85); envie/noun(1295)
+récoltes	117	A content-content	récolter/verb(81); récolte/noun(129)
+sauve	116	A content-content	sauf/adj(42); sauver/verb(704)
+visions	115	A content-content	viser/verb(169); vision/noun(139)
+souriant	115	A content-content	sourire/verb(474); souriant/adj(20)
+manifestant	115	A content-content	manifestant/noun(45); manifester/verb(64)
+ensoleillé	115	A content-content	ensoleillé/adj(38); ensoleiller/verb(14)
+trame	114	A content-content	tramer/verb(6); trame/noun(15)
+tienne	114	A content-content	tenir/verb(2303); tien/adj(15)
+résistant	114	A content-content	résister/verb(186); résistant/adj+noun(37)
+veuve	113	A content-content	veuf/adj+noun(13); veuve/noun(60)
+touches	113	A content-content	toucher/verb(722); touche/noun(151)
+pavé	113	A content-content	pavé/noun(20); paver/verb(9)
+lésions	113	A content-content	lésion/noun(14); léser/verb(24)
+intégrant	113	A content-content	intégrer/verb(113); intégrant/adj(12)
+dépouille	113	A content-content	dépouiller/verb(43); dépouille/noun(5)
+duc	113	A content-content	duchesse/noun(7); duc/noun(10)
+sois	112	A content-content	être/verb(259512); soi/noun(549)
+neveu	112	A content-content	neveu/noun(76); nièce/noun(44)
+grise	112	A content-content	gris/adj(130); griser/verb(9)
+grandissant	112	A content-content	grandir/verb(354); grandissant/adj(25)
+absente	112	A content-content	absenter/verb(64); absent/adj(293)
+doré	111	A content-content	doré/adj(60); dorer/verb(16)
+vigilant	110	A content-content	vigilant/adj(45); vigiler/verb(5)
+sonde	110	A content-content	sonder/verb(16); sonde/noun(34)
+peuplé	110	A content-content	peupler/verb(34); peuplé/adj(5)
+complètes	110	A content-content	complet/adj(247); compléter/verb(63)
+intrigue	109	A content-content	intriguer/verb(37); intrigue/noun(30)
+frappant	109	A content-content	frapper/verb(701); frappant/adj(11)
+expérimenté	109	A content-content	expérimenté/adj(52); expérimenter/verb(14)
+blagues	109	A content-content	blaguer/verb(5); blague/noun(426)
+allemandes	109	A content-content	allemand/adj(383); allemande/noun(6)
+trompe	108	A content-content	tromper/verb(746); trompe/noun(46)
+répliques	108	A content-content	répliquer/verb(22); réplique/noun(12)
+fissures	108	A content-content	fissurer/verb(14); fissure/noun(22)
+diffuse	108	A content-content	diffuser/verb(47); diffus/adj(8)
+maîtresse	107	A content-content	maître/noun(399); maîtresse/noun(103)
+fréquente	107	A content-content	fréquenter/verb(124); fréquent/adj(80)
+dépendant	107	A content-content	dépendre/verb(317); dépendant/adj(55)
+diplômé	107	A content-content	diplômer/verb(59); diplômé/adj+noun(35)
+candidates	107	A content-content	candidat/noun(169); candidater/verb(6)
+serveur	106	A content-content	serveur/noun(134); serveuse/noun(39)
+niche	106	A content-content	nicher/verb(10); niche/noun(48)
+douloureuse	106	A content-content	douloureux/adj(111); douloureuse/noun(12)
+pesant	105	A content-content	peser/verb(269); pesant/adj(33)
+gage	105	A content-content	gager/verb(7); gage/noun(24)
+consigne	105	A content-content	consigner/verb(11); consigne/noun(44)
+prévoyant	104	A content-content	prévoir/verb(709); prévoyant/adj(5)
+frustrant	104	A content-content	frustrer/verb(30); frustrant/adj(15)
+connaitre	104	A content-content	connaître/verb(4826); connaitre/verb(29)
+bouchons	104	A content-content	boucher/verb(69); bouchon/noun(64)
+rebelle	103	A content-content	rebeller/verb(12); rebelle/noun+adj(59)
+pièges	103	A content-content	piéger/verb(50); piège/noun(216)
+fiches	103	A content-content	ficher/verb(65); fiche/noun(131)
+plaines	102	A content-content	plain/adj(6); plaine/noun(40)
+marre	102	A content-content	marrer/verb(26); marre/noun(6)
+close	102	A content-content	clore/verb(67); clos/adj(7)
+masques	101	A content-content	masquer/verb(22); masque/noun(145)
+copies	101	A content-content	copier/verb(182); copie/noun(180)
+tombes	100	A content-content	tomber/verb(2723); tombe/noun(70)
+préoccupant	100	A content-content	préoccuper/verb(150); préoccupant/adj(13)
+notions	100	A content-content	noter/verb(158); notion/noun(75)
+courbe	100	A content-content	courber/verb(27); courbe/noun(32)
+est	127395	C same-form homonym	adj#1: east || noun#1: east
+son	82617	C same-form homonym	noun#1: sound; A piece (of music); a (musical) work; an opus. || noun#3: bran
+fait	40781	C same-form homonym	noun#1: fact || adj#1: done; cut out
+bien	26709	C same-form homonym	adj#1: good, all right, great; good looking, nice || noun#1: good as opposed to evil; a commodity, a good
+être	26213	C same-form homonym	verb#1: to be; to be located; to be situated || noun#1: being, thing, creature; being, the state or fact of existence
+avoir	18410	C same-form homonym	verb#1: to have; to own; to possess; to get; to have (to experience or suffer  || noun#1: asset, possession
+premier	17049	C same-form homonym	adj#1: first; prime (number etc) || noun#1: first; premier
+monde	16770	C same-form homonym	noun#1: world; people || adj#2: pure; clean
+fin	13945	C same-form homonym	noun#1: end, close, finish; end, end goal, objective, purpose || adj#2: thin, fine; kind, nice
+dit	11484	C same-form homonym	noun#1: a sentence, saying or maxim; a story from the mediæval period; a tale || verb#1: Indicating a surname used as a family name.
+vie	11458	C same-form homonym	noun#1: life, the state of organisms (organic beings) prior to death; life, pe || noun#2: way, path (road, railway, etc)
+nouveau	11391	C same-form homonym	adj#1: new, novel || noun#1: new person, new thing
+grand	10216	C same-form homonym	adj#1: big; tall || noun#1: grown-up
+pendant	9165	C same-form homonym	adj#1: hanging || noun#1: stone that dangles on earrings; match, counterpart
+police	8810	C same-form homonym	noun#1: police; cop (police officer) || noun#2: policy; font
+lieu	8593	C same-form homonym	noun#1: place; locus (set of all points whose location satisfies or is determi || noun#2: any of several fish from the Pollachius family
+politique	8522	C same-form homonym	adj#1: political || noun#1: politics; policy || noun#1: politician || noun#1: the political world, the political sphere; politicians taken collectiv
+français	8229	C same-form homonym	adj#1: French; Franco-American or Francophone || noun#1: French (language) || noun#1: Frenchman; anybody with French ancestry or who is Francophone
+part	7986	C same-form homonym	noun#1: share; portion, part, slice || noun#3: newborn
+pouvoir	7759	C same-form homonym	verb#1: can, to be able to; may (of a choice) || noun#1: power; authority
+public	7315	C same-form homonym	adj#1: of the people as a whole; seen or known by everyone || noun#1: public (people in general); audience
+jeune	7255	C same-form homonym	adj#1: young; who has recently acquired a new status, who has newly become so || noun#1: youth, a young person
+soir	6728	C same-form homonym	noun#1: evening || verb#2: post-1990 spelling of seoir
+dire	6500	C same-form homonym	verb#1: to say, to tell (to express through speech); to tell (to order, to adv || noun#1: saying (that which is said); belief, opinion
+tour	6235	C same-form homonym	noun#1: tower; rook || noun#2: turn, circumference; go, turn || noun#3: lathe; potter’s wheel
+bon	6195	C same-form homonym	adj#1: good; right, correct, appropriate || noun#1: voucher, ticket, coupon
+général	6149	C same-form homonym	noun#1: general || adj#1: general, usual
+parti	6103	C same-form homonym	adj#1: divided into two equal parts vertically, per pale; said of an escutche || noun#1: party; parti
+maison	5699	C same-form homonym	noun#1: house || adj#1: homemade; in-house
+droit	5679	C same-form homonym	noun#1: right (entitlement); law (study of law) || adj#1: right (on the right-hand side); straight (not bent or crooked)
+passé	5665	C same-form homonym	noun#1: past tense; past (opposite of future) || adj#1: past; last
+russe	5487	C same-form homonym	adj#1: Russian || noun#1: Russian language || noun#1: Russian (person)
+savoir	5464	C same-form homonym	verb#1: to know (something); to know how (to do something) || noun#1: knowledge
+possible	5239	C same-form homonym	adj#1: possible || noun#1: the possible, feasible, what can be done, achieved etc.
+petit	5170	C same-form homonym	adj#1: small; little || noun#1: small one (anything that is small); little one (anything that is littl
+troisième	4946	C same-form homonym	adj#1: third || noun#1: ellipsis of troisième classe (“third class”)
+mort	4905	C same-form homonym	adj#1: dead || noun#1: dead person || noun#2: death
+plan	4893	C same-form homonym	noun#1: map (schematic maps of streets, subways, etc.); plane (flat surface) || adj#2: planar
+directeur	4808	C same-form homonym	noun#1: director; school principal || adj#1: leading, guiding
+mal	4706	C same-form homonym	noun#1: trouble, difficulty; pain || adj#2: bad
+rue	4686	C same-form homonym	noun#1: street, road || noun#2: rue (the plant)
+long	4485	C same-form homonym	adj#1: long || noun#1: length
+juste	4255	C same-form homonym	adj#1: fair, just; reasonable, appropriate, grounded || noun#1: a righteous person
+suisse	4197	C same-form homonym	adj#1: Swiss (of, from or relating to Switzerland) || noun#1: chipmunk; guard || noun#1: Swiss person; alternative letter-case form of suisse (“guard”).
+prochain	4127	C same-form homonym	adj#1: upcoming; nearby || noun#1: fellow man, fellow human being, neighbour
+connu	3892	C same-form homonym	adj#1: known; famous || noun#1: a well-known person
+commune	3889	C same-form homonym	noun#1: commune (administrative subdivision); commune (community living togeth || noun#1: Either of the French revolutionary governments (of 1792 or of 1871)
+vidéo	3836	C same-form homonym	adj#1: video || noun#1: video (television show, movie)
+feu	3789	C same-form homonym	noun#1: fire; lighter, something to light a cigarette with || adj#2: deceased, the late
+sujet	3707	C same-form homonym	adj#1: subject || noun#2: subject (in a monarchy); subject
+américain	3669	C same-form homonym	adj#1: of or pertaining to America; American; English (of or pertaining to th || noun#1: sandwich, generally with ham or pork, and French fries; English (the l || noun#1: American (someone born in, or a citizen or inhabitant of, the United S
+belge	3611	C same-form homonym	adj#1: Belgian; from Belgium || noun#1: Belgian person, resident or native of Belgium; used of both genders
+total	3584	C same-form homonym	adj#1: total; perfect || noun#1: total
+finale	3580	C same-form homonym	noun#1: final, finals (game between the last two competitors remaining in the  || noun#2: finale (ensemble piece that ends an act of an opera, symphony, sonata)
+haut	3487	C same-form homonym	adj#1: high; tall || noun#1: top
+reçu	3477	C same-form homonym	adj#1: accomplished || noun#1: receipt
+carrière	3475	C same-form homonym	noun#1: racecourse; career || noun#2: quarry
+joueur	3408	C same-form homonym	noun#1: player || adj#1: playful
+dossier	3355	C same-form homonym	noun#1: back of furniture, to rest the sitter's back on; dossier || adj#1: embarrassing
+date	3332	C same-form homonym	noun#1: date (point in time) || noun#2: date (romantic meeting) || noun#2: date (person you go on a romantic meeting with)
+militaire	3314	C same-form homonym	adj#1: military, militaristic || noun#1: military; a soldier
+fort	3313	C same-form homonym	adj#1: strong; powerful; (informal) skilled, proficient, successful, sometime || noun#1: a fort
+force	3303	C same-form homonym	noun#1: force; strength || adj#1: many; a lot of; a great quantity of || noun#1: force (always proceeded with la), the invisible omnipresent energy tha
+gauche	3290	C same-form homonym	adj#1: left; awkward, gawky, clumsy || noun#1: the left, the left-hand side; the left (the left-wing political partie || noun#1: ellipsis of poing gauche (“left fist”)
+aller	3288	C same-form homonym	verb#1: to go; to attend (school, church regularly) || noun#1: outward trip; journey out; trip away
+manque	3247	C same-form homonym	noun#1: lack, absence; stress due to drug withdrawal || noun#2: only used in à la manque
+responsable	3129	C same-form homonym	adj#1: responsible || noun#1: person in charge, manager
+coupe	3089	C same-form homonym	noun#1: goblet, cup; cup (award; prize) || noun#2: cut; haircut
+campagne	3066	C same-form homonym	noun#1: country (the country, rural area, as opposed to the town or city), cou || noun#2: campaign
+gros	3023	C same-form homonym	adj#1: big, thick, fat; coarse, rough || noun#1: an overweight person; the bulk, the majority
+plein	3004	C same-form homonym	adj#1: full, full up; plenty || noun#1: full tank (of gas); downstroke (of a letter)
+présent	2968	C same-form homonym	adj#1: present; current, present || noun#1: the now, the present moment; present tense
+parler	2957	C same-form homonym	verb#1: to speak, talk; to be able to communicate in a language; to speak || noun#1: parlance; vernacular, dialect
+personnel	2848	C same-form homonym	adj#1: personal || noun#1: staff, members of staff, personnel
+maire	2842	C same-form homonym	noun#1: mayor || adj#2: alternative form of maigre
+poste	2778	C same-form homonym	noun#1: post office; mail, postal service/system || noun#2: job, post; position (in a sport, or an observation post)
+simple	2728	C same-form homonym	adj#1: single; simple, straightforward, easy || noun#1: single
+garde	2682	C same-form homonym	noun#1: a watch, guard; a battalion responsible for guarding, defending a sove || noun#2: a handle (of a weapon); a protection (act of protecting)
+bande	2591	C same-form homonym	noun#1: band, strip; stripe || noun#2: band, group, gang, troupe (of people, etc); pack (of wolves)
+livre	2584	C same-form homonym	noun#1: book || noun#2: metrical pound, half a kilogramme, 500 g; imperial pound ≈ 454 g
+sortir	2498	C same-form homonym	verb#1: to exit, go out, come out; to take out, bring out || verb#1: to have or take; to organise; put by sort || noun#1: end, closing
+écrit	2464	C same-form homonym	adj#1: written || noun#2: writing
+social	2380	C same-form homonym	adj#1: social, related to society, community; social, living in society || noun#1: action intended to make society work better
+rouge	2370	C same-form homonym	adj#1: red (of a red color); red (left-wing, socialist) || noun#1: red || noun#2: rouge, blush (makeup applied to the cheeks)
+devenir	2346	C same-form homonym	noun#1: future || verb#1: to become; to come from
+particulier	2314	C same-form homonym	adj#1: particular; peculiar || noun#1: an individual; a specified person
+vrai	2268	C same-form homonym	adj#1: true; real, proper || noun#1: truth
+nature	2265	C same-form homonym	noun#1: nature; lexical category || adj#1: plain, unseasoned; condomless, bareback, raw dog, natural (see Thesaur
+type	2216	C same-form homonym	noun#1: type; sort, kind; guy, bloke, man || adj#1: typical, normal, classic; standard
+ancien	2167	C same-form homonym	adj#1: old, former, ex- (no longer current); ancient (very old) || noun#1: an old person
+version	2155	C same-form homonym	noun#1: version; model (a specific state, variant, or form of something); tran || noun#2: an obstetric maneuver to change the fetus' position inside the uterus 
+grève	2141	C same-form homonym	noun#1: bank (of a river); shore, strand || noun#2: strike (cessation of work) || noun#3: greave
+nécessaire	2134	C same-form homonym	adj#1: necessary || noun#1: kit
+objectif	2131	C same-form homonym	adj#1: of a material object; objective; objective; impartial || noun#1: objective, goal, aim; lens; camera lens
+principal	2078	C same-form homonym	adj#1: main, key, principal || noun#1: someone or something which is important, key, paramount; that which ma
+quotidien	2066	C same-form homonym	adj#1: daily; everyday, quotidian, commonplace, mundane || noun#1: a daily, a daily paper: a newspaper that is published daily; everyday 
+moyen	2063	C same-form homonym	noun#1: method, way of doing; tool, device || adj#1: middle; average
+proche	2058	C same-form homonym	adj#1: close, near, closeby, nearby (to a place); close, near (a time) || noun#1: loved one, close relative
+arrêté	2024	C same-form homonym	noun#1: agreement, resolution, a thing agreed on, resolved upon; order (ruling || adj#1: fixed, immovable, settled (ideas, opinion)
+record	2008	C same-form homonym	noun#1: record (most extreme known value of some achievement) || adj#1: record, record-breaking, record-setting; extreme
+large	2008	C same-form homonym	adj#1: wide, broad; large || noun#1: open sea; width
+bas	1975	C same-form homonym	adj#1: low; bass || noun#1: socks; stockings; feet; lower end; bottom (of a thing) || noun#2: stocking
+montant	1953	C same-form homonym	adj#1: upwards, climbing; uphill || noun#1: a (monetary) amount; a structural montant
+européen	1888	C same-form homonym	adj#1: European || noun#1: European; resident or native of Europe
+lancer	1848	C same-form homonym	verb#1: to throw; to start, to launch || noun#1: a throw; a pitch
+beau	1829	C same-form homonym	adj#1: handsome, fine, attractive; nice || noun#1: boyfriend
+second	1827	C same-form homonym	adj#1: second || noun#1: assistant, first mate
+sol	1811	C same-form homonym	noun#1: soil, earth; ground || noun#2: sol (the fifth step (G) in the solfège scale of C, preceded by fa and  || noun#3: a Spanish-American gold or silver coin, now the main currency unit of  || noun#4: sou (the feudal era coin)
+quatrième	1811	C same-form homonym	adj#1: fourth || noun#1: fourth
+frais	1800	C same-form homonym	adj#1: fresh (recently produced, unspoiled); fresh (well-rested) || noun#2: cost, charge
+technique	1791	C same-form homonym	adj#1: technical || noun#1: technique, technology
+condamné	1785	C same-form homonym	adj#1: convicted; doomed || noun#1: condemned person
+double	1776	C same-form homonym	adj#1: double (all senses), two; sixteenth note || noun#1: double (twice the number, amount, etc.); duplicate (an identical copy)
+final	1752	C same-form homonym	adj#1: final (last); expressing purpose || noun#2: finale
+britannique	1745	C same-form homonym	adj#1: British || noun#1: Briton (resident or native of Britain); Brit (colloquially)
+historique	1730	C same-form homonym	adj#1: historical (pertaining to history); historic (important or likely to b || noun#1: history; chronological narration of past events, history
+camp	1704	C same-form homonym	noun#1: camp (outdoor area for tents, etc.); camp (area for politically motiva || adj#2: camp (Intentionally tasteless or vulgar, self-parodying, affected, exa || noun#2: campness; An affected, exaggerated or intentionally tasteless style
+pratique	1673	C same-form homonym	adj#1: practical, applied (concerning action or intervention of human will on || noun#1: practice; execution or implementation (of something)
+devoir	1670	C same-form homonym	noun#1: duty; exercise, assignment (set for homework) || verb#1: must, to have to, should (as a requirement); must
+prêt	1662	C same-form homonym	adj#1: ready || noun#2: loan; lending, loaning
+journal	1618	C same-form homonym	adj#1: That is relative to each day; journal || noun#1: diary, journal; newspaper
+chinois	1615	C same-form homonym	noun#1: Chinese (language); Greek (something difficult to understand) || adj#1: of China; Chinese || noun#1: Chinese (resident or native of China)
+court	1610	C same-form homonym	adj#1: short || noun#2: court
+populaire	1608	C same-form homonym	adj#1: people's; of the people; working-class || noun#1: populace, the people
+blessé	1584	C same-form homonym	adj#1: injured, wounded || noun#1: injured (person), wounded (person)
+rapide	1572	C same-form homonym	adj#1: fast, rapid || noun#1: rapid (stretch of river); express (fast train)
+porter	1555	C same-form homonym	verb#1: to carry; to support, to bear || noun#2: porter (beer)
+ferme	1532	C same-form homonym	adj#1: firm || noun#1: roof truss || noun#2: farm
+israélien	1530	C same-form homonym	noun#1: Israeli (resident or native of Israel) || adj#1: of Israel; Israeli
+accusé	1506	C same-form homonym	noun#1: accused || verb#1: marked, conspicuous
+propriétaire	1491	C same-form homonym	noun#1: owner (one who owns something); property owner, landlord || adj#1: proprietary
+noir	1489	C same-form homonym	adj#1: black in colour; dark || noun#1: a black person; a person whose hair is dark || noun#1: black (person)
+palais	1469	C same-form homonym	noun#1: palace; courthouse (palais de justice) || noun#2: palate; upper surface inside the mouth
+futur	1457	C same-form homonym	adj#1: future || noun#1: future (what will happen); future, future tense
+courant	1443	C same-form homonym	adj#1: current, present; fluent (able to speak a language accurately and conf || noun#1: current (of water, electricity, thought, etc.)
+prévenu	1439	C same-form homonym	adj#1: prejudiced (that has favorable or unfavorable feelings beforehand) || noun#1: accused, defendant, prisoner, suspect (the one who appears before a cr
+impossible	1438	C same-form homonym	adj#1: impossible; unbearable || noun#1: the impossible
+port	1420	C same-form homonym	noun#1: port, harbour; port, harbour city || noun#2: wearing (act of wearing something); carrying (of an object)
+canadien	1412	C same-form homonym	adj#1: Canadian || noun#1: Canadian (male or of unspecified sex) (boy or man).
+fini	1390	C same-form homonym	noun#1: aspect or texture of what has been completed || adj#1: completed, done; finished, over (which has come to an end)
+somme	1383	C same-form homonym	noun#1: sum; total || noun#2: nap; doze; quick sleep || noun#3: packsaddle
+physique	1373	C same-form homonym	adj#1: physical, sportive || noun#1: physique || noun#1: physics
+critique	1371	C same-form homonym	adj#1: critical (urgent); critical (of great importance) || noun#1: criticism; review, usually written || noun#1: critic (profession)
+lire	1358	C same-form homonym	verb#1: to read; to play || noun#2: lira (unit of currency)
+pire	1334	C same-form homonym	adj#1: bad; harmful, serious || noun#1: the worst
+cher	1328	C same-form homonym	noun#1: dear, honey, hon || adj#1: dear, beloved; expensive, costly
+super	1319	C same-form homonym	adj#1: superb, great || verb#2: to suck, to sip
+collectif	1319	C same-form homonym	noun#1: collective || adj#1: collective
+contraire	1309	C same-form homonym	adj#1: opposite; contradictory || noun#1: opposite
+clair	1308	C same-form homonym	adj#1: clear (see-through); clear (understandable) || noun#1: light
+blanc	1295	C same-form homonym	adj#1: white color; blank, unused || noun#1: white (color); silence while in a dialog || noun#1: white person
+faible	1284	C same-form homonym	adj#1: weak; low, small (amount, degree, percentage) || noun#1: weakness, soft spot (for someone/something); weakling, weak person
+vouloir	1272	C same-form homonym	verb#1: to want, wish, desire; to expect; to think; forms rhetorical questions || noun#1: will
+palestinien	1265	C same-form homonym	adj#1: Palestinian || noun#1: Palestinian
+terroriste	1261	C same-form homonym	noun#1: terrorist || adj#1: terroristic
+top	1253	C same-form homonym	noun#1: top; shirt or garment covering the upper body; a signalling sound; bee || adj#1: top; best; highest in rank; maximum; excellent; brilliant
+complexe	1253	C same-form homonym	adj#1: complex, not simple; complex || noun#1: complex; complex (complex number)
+passant	1250	C same-form homonym	noun#1: passer-by; loop (in belt etc.) || adj#1: busy (as in a busy street); passant
+vert	1245	C same-form homonym	noun#1: green || adj#1: green; green, environmentally friendly
+ukrainien	1245	C same-form homonym	adj#1: Ukrainian || noun#1: Ukrainian (language) || noun#1: Ukrainian (resident or native of Ukraine)
+quart	1238	C same-form homonym	adj#1: fourth || noun#1: quarter, fourth (fraction); shift (period of work)
+pro	1238	C same-form homonym	adj#1: professional || noun#1: professional; a whiz, someone who is very good at something || adj#2: next
+financier	1236	C same-form homonym	adj#1: financial || noun#1: financier (person); financier (cake)
+heureux	1233	C same-form homonym	adj#1: happy; glad || noun#1: happy person
+tiers	1232	C same-form homonym	adj#1: third; third-party || noun#1: a third (one of three equal parts); a third-party (an outsider of a gr
+vécu	1230	C same-form homonym	adj#1: that which is part of a lived experience, real, true || noun#1: experience (what one experiences); inner life
+matériel	1225	C same-form homonym	noun#1: equipment, supplies; hardware || adj#1: material
+énergétique	1214	C same-form homonym	adj#1: energy || noun#1: energetics (science of energy)
+chargé	1206	C same-form homonym	adj#1: busy || noun#1: boss; chief (normally only used in expressions)
+précédent	1205	C same-form homonym	adj#1: previous; preceding; earlier || noun#1: precedent
+page	1204	C same-form homonym	noun#1: page (of a book, etc.); page, web page || noun#2: page, page boy
+professionnel	1195	C same-form homonym	adj#1: professional || noun#1: professional
+conseiller	1180	C same-form homonym	noun#1: counsellor, advisor || verb#2: to advise; to counsel
+x	1173	C same-form homonym	noun#1: X-frame stool || adj#1: X-rated
+local	1152	C same-form homonym	adj#1: local || noun#1: room
+géant	1150	C same-form homonym	noun#1: giant; giant slalom || adj#1: giant, huge, enormous
+majeur	1142	C same-form homonym	adj#1: greater, larger, more important; of great importance, main, major, pri || noun#1: an adult (as defined by the age of majority); middle finger
+potentiel	1141	C same-form homonym	adj#1: potential || noun#1: potential
+balle	1136	C same-form homonym	noun#1: ball; bullet || noun#2: bundle of goods; packet tied and held together with string || noun#3: chaff (inedible casing of a grain seed)
+entier	1130	C same-form homonym	adj#1: whole; whole (of a number), integer || noun#1: integer, whole number
+direct	1110	C same-form homonym	adj#1: direct || noun#1: live broadcast, live reporting
+cinquième	1096	C same-form homonym	adj#1: fifth || noun#1: fifth
+suspect	1083	C same-form homonym	adj#1: suspicious; suspect || noun#1: a suspect
+anglais	1081	C same-form homonym	adj#1: English; Anglo-American or Anglophone || noun#1: English (language) || noun#1: English person; Englishman; an Anglo-American or English speaker, as o
+dur	1075	C same-form homonym	adj#1: hard, tough (difficult to penetrate); hard (not soft) || noun#1: firmness, solidity || noun#1: hard case (tough person)
+sportif	1072	C same-form homonym	adj#1: athletic; enjoying and frequently participating in sports, sporty; spo || noun#1: sportsman
+classique	1070	C same-form homonym	adj#1: classic; classical || noun#1: classic (a classic work of art, literature, etc.); classical music
+style	1069	C same-form homonym	noun#1: style (manner of doing something); style (of a flower) || noun#2: pillar, column
+invité	1062	C same-form homonym	noun#1: guest (person who is invited) || adj#1: invited
+humanitaire	1054	C same-form homonym	adj#1: humanitarian || noun#1: humanitarian
+manche	1047	C same-form homonym	noun#1: sleeve (clothing); set || noun#2: handle; unhandy person || noun#3: only used in faire la manche
+vieux	1038	C same-form homonym	adj#1: old || noun#1: old person; dad
+supérieur	1036	C same-form homonym	adj#1: superior; upper, senior || noun#1: senior (boss)
+vague	1018	C same-form homonym	noun#1: wave || adj#2: vague || noun#2: vagueness
+limite	997	C same-form homonym	noun#1: limit || adj#1: edgy, borderline, almost objectionable
+policier	992	C same-form homonym	adj#1: police || noun#1: policeman, police officer; police movie
+positif	985	C same-form homonym	adj#1: positive (characteristic); positive or zero. nonnegative || noun#1: positive, something positive; positive (electrical polarity)
+marc	984	C same-form homonym	noun#1: pomace, marc; grounds (e.g. from coffee) || noun#2: a weight, especially of gold and silver, equivalent to ca. 245 grams
+choc	978	C same-form homonym	noun#1: hit, strike; shock (surprise, startling) || noun#2: alternative form of tchoque (“blackbird”)
+roman	968	C same-form homonym	adj#1: Romance; romanesque || noun#2: a novel (work of fiction); a very long text. (see pavé)
+allemand	968	C same-form homonym	noun#1: German (The German language) || adj#1: German (related to or originating from Germany); of the German languag || noun#1: German person
+faux	962	C same-form homonym	adj#1: false; untrue; false; not real || noun#1: fabrication, forgery || noun#2: scythe
+prime	945	C same-form homonym	adj#1: first || noun#1: reward; prize; bonus; premium (insurance policy)
+dynamique	942	C same-form homonym	adj#1: in motion, dynamic; dynamic, energetic || noun#1: dynamics
+scientifique	938	C same-form homonym	adj#1: scientific || noun#1: scientist (studier of science)
+foule	937	C same-form homonym	noun#1: crowd; the thronging of a crowd || noun#2: the act or process of treading or milling; oppression, vexation
+riche	936	C same-form homonym	adj#1: rich (possessing wealth); rich (abundant) || noun#1: rich person
+réel	930	C same-form homonym	adj#1: real (true, factual, not fictional); real (of a number) || noun#1: real (reality)
+standard	918	C same-form homonym	noun#1: standard; switchboard || adj#1: standard
+avocat	916	C same-form homonym	noun#1: lawyer, attorney || noun#2: avocado
+époque	910	C same-form homonym	adj#1: vintage || noun#1: epoch; time (time period)
+calme	893	C same-form homonym	adj#1: calm; quiet, peaceful || noun#1: calmness, stillness; coolness (of a person)
+café	892	C same-form homonym	noun#1: coffee (drink); coffee colour || adj#1: of the colour of coffee
+mari	887	C same-form homonym	noun#1: husband || noun#2: cannabis, marijuana
+filet	870	C same-form homonym	noun#1: trickle, drizzle (of liquid etc.), wisp (of smoke); fillet, filet (of  || noun#2: net; net
+logique	862	C same-form homonym	noun#1: logic || adj#2: logical
+parlementaire	857	C same-form homonym	adj#1: parliamentary || noun#1: parliamentarian
+algérien	857	C same-form homonym	adj#1: Algerian (of, from or relating to the Regency of Algiers); Algerian (o || noun#1: Algerian Arabic || noun#1: Algerian (native or inhabitant of the Regency of Algiers); Algerian (n
+naturel	852	C same-form homonym	adj#1: natural; natural (born out of wedlock; biological) || noun#1: naturalness
+dirigeant	847	C same-form homonym	adj#1: managing || noun#1: ruler, leader
+complet	847	C same-form homonym	adj#1: full, without room for more; complete, entire || noun#1: a suit
+geste	846	C same-form homonym	noun#1: gesture; move, motion || noun#2: saga, especially a cycle of poems in the epic, literary style of the M
+suivant	842	C same-form homonym	adj#1: next, following || noun#1: follower, attendant
+mobile	834	C same-form homonym	adj#1: mobile; moving || noun#1: moving body; mobile (decoration)
+vivant	827	C same-form homonym	adj#1: alive; living || noun#1: living person; lifetime
+humain	824	C same-form homonym	noun#1: human || adj#1: human; humane
+chanteur	822	C same-form homonym	adj#1: that sings || noun#1: (male) singer
+marocain	821	C same-form homonym	adj#1: of Morocco; Moroccan || noun#1: Moroccan
+sourire	814	C same-form homonym	verb#1: to smile || noun#1: smile
+benjamin	813	C same-form homonym	noun#1: youngest child (in a family); child loved disproportionally more by th || noun#2: a three-letter addition to the beginning of a word that creates anothe
+essentiel	810	C same-form homonym	adj#1: essential || noun#1: essential; essence, essential part
+disparu	804	C same-form homonym	noun#1: missing in action person; dead || adj#1: disappeared; extinct
+jaune	798	C same-form homonym	adj#1: yellow || noun#1: yellow; yolk (of egg)
+froid	798	C same-form homonym	adj#1: cold (temperature); distant, unfriendly || noun#1: cold, chill; distance, strain
+test	797	C same-form homonym	noun#1: test, a cupel or cupelling hearth in which precious metals are melted  || noun#2: a test, a tryout, a review
+chaud	796	C same-form homonym	adj#1: warm, hot; on heat || noun#1: heat, warmth
+arabe	791	C same-form homonym	adj#1: Arabic || noun#1: Arabic (language) || noun#1: Arab (person); Arabian (horse breed)
+demi	787	C same-form homonym	adj#1: half || noun#1: half (fraction); half (half-hour)
+moteur	786	C same-form homonym	noun#1: motor, engine; engine || adj#1: motive, driving
+pêche	785	C same-form homonym	noun#1: peach; form, energy || noun#2: fishing, angling
+néerlandais	785	C same-form homonym	adj#1: Dutch, Netherlandish || noun#1: Dutch, the Dutch language || noun#1: Dutchman
+bleu	780	C same-form homonym	adj#1: blue; very rare, underdone || noun#1: the color blue; blue cheese
+voisin	776	C same-form homonym	adj#1: neighbouring, neighboring; similar || noun#1: neighbour, neighbor
+socialiste	776	C same-form homonym	adj#1: socialist || noun#1: socialist
+capital	773	C same-form homonym	noun#1: capital (money and wealth) || adj#1: capital (important)
+incroyable	772	C same-form homonym	adj#1: incredible || noun#1: During the revolutionary period in France, a young man who wore extrav
+parfait	754	C same-form homonym	adj#1: perfect (exactly right) || noun#1: perfect tense
+sixième	751	C same-form homonym	adj#1: sixth || noun#1: sixth
+féminin	748	C same-form homonym	noun#1: feminine || adj#1: female; feminine
+commercial	748	C same-form homonym	adj#1: commercial || noun#1: a salesman, sales representative
+acquis	741	C same-form homonym	noun#1: asset; knowledge, (can be built on) level of attainment || adj#1: acquired, learned; acknowledged, recognized
+solide	738	C same-form homonym	adj#1: secure, solid, firm, substantial; stout || noun#1: solid
+africain	737	C same-form homonym	adj#1: of Africa; African || noun#1: an African person
+coupable	727	C same-form homonym	adj#1: guilty; culpable, responsible || noun#1: culprit
+chien	726	C same-form homonym	noun#1: dog; cock, hammer (of a firearm) || adj#1: greedy, stingy
+secret	722	C same-form homonym	adj#1: secret || noun#2: secret; secrecy
+francophone	722	C same-form homonym	adj#1: Francophone || noun#1: a Francophone
+parallèle	718	C same-form homonym	adj#1: parallel || noun#1: parallel line || noun#1: parallel; comparison; latitude
+pascal	717	C same-form homonym	adj#1: paschal || noun#2: pascal
+vendu	714	C same-form homonym	adj#1: corrupt || noun#1: a sellout (sense 2)
+nul	709	C same-form homonym	adj#1: of poor quality, lousy, rubbish; lame || noun#1: a completely unskilled person; a draw
+masse	698	C same-form homonym	noun#1: a paste, a dough; large amount or quantity of something; mass || noun#3: mace (weapon); a sledgehammer
+duel	698	C same-form homonym	adj#1: dual (having two components) || noun#1: duel (battle); dual
+interne	694	C same-form homonym	adj#1: internal || noun#1: intern (as in a medical student); boarder (pupil living at school)
+relevé	683	C same-form homonym	adj#1: turned up (of collar); rolled up (of sleeves); held up, high; elevated || noun#1: statement, summary; bill
+souvenir	676	C same-form homonym	verb#1: to remember || noun#1: memory (mental picture); souvenir
+vide	671	C same-form homonym	adj#1: empty; devoid || noun#1: space; vacuum, void
+polémique	671	C same-form homonym	noun#1: polemic, controversy || adj#1: polemic; controversial
+précis	664	C same-form homonym	adj#1: which does not leave doubt; specific, explicit; done in a precise and  || noun#1: a concise summary (e.g., of events, a book, a story); précis
+manger	663	C same-form homonym	verb#1: to eat; to eat || noun#1: food, foodstuff
+bateau	661	C same-form homonym	noun#1: a vessel of any size, a ship or boat || adj#1: banal, unoriginal, hackneyed
+automobile	660	C same-form homonym	adj#1: automotive || noun#1: automobile
+alerte	659	C same-form homonym	adj#1: alert; agile || noun#1: alert
+rose	657	C same-form homonym	noun#1: rose (flower); rose window || noun#1: pink || adj#1: pink; pink, left-wing
+homologue	654	C same-form homonym	adj#1: homologous (all meanings) || noun#1: counterpart
+japonais	648	C same-form homonym	noun#1: the Japanese language || adj#1: Japanese || noun#1: resident or native of Japan; Japanese person (male or of unspecified g
+espagnol	645	C same-form homonym	adj#1: Spanish, from or otherwise related to Spain, its people etc. || noun#1: Spanish language || noun#1: Spaniard (male)
+citoyen	633	C same-form homonym	noun#1: citizen || adj#1: citizen; civic
+toucher	631	C same-form homonym	noun#1: the act of touching (see below); a way of touching || verb#1: to touch (physically); to affect
+lycée	626	C same-form homonym	noun#1: a public secondary school || adj#2: Lyceus, Lycean (epithet of Apollo)
+religieux	624	C same-form homonym	adj#1: religious || noun#1: a religious person (man); a religious (a man who is a member of a reli
+congo	624	C same-form homonym	adj#1: Congo || noun#1: Congolese (language) || adj#2: dark black (color) || noun#2: congo (dance formerly performed by Louisiana African-Americans); Black
+actif	624	C same-form homonym	adj#1: active; active || noun#1: asset; active
+arrière	623	C same-form homonym	noun#1: back; rear; fullback || adj#1: back (near the rear)
+parisien	622	C same-form homonym	noun#1: Parisian (resident or native of Paris) || adj#1: of Paris; Parisian
+sac	621	C same-form homonym	noun#1: bag, sack; ten French francs || noun#2: plunder, loot
+orange	619	C same-form homonym	noun#1: orange (fruit) || noun#1: orange (colour) || adj#1: orange (orange-coloured)
+documentaire	619	C same-form homonym	adj#1: documentary || noun#1: documentary (production, publication etc.)
+italien	610	C same-form homonym	adj#1: Italian || noun#1: Italian (language) || noun#1: Italian (person)
+plastique	595	C same-form homonym	adj#1: plastic; plastic, permanent, irreversible || noun#1: material that can be moulded into a desired form, plastic; a synthetic || noun#1: the shape of a human body, physique; formal beauty
+incident	592	C same-form homonym	noun#1: incident || adj#1: incidental; incident
+problématique	588	C same-form homonym	adj#1: problematic; problematical || noun#1: question, issue
+fier	586	C same-form homonym	adj#1: proud, gratified, honoured; proud, prideful, arrogant || verb#2: to trust (someone), to rely (on someone)
+septième	579	C same-form homonym	adj#1: seventh || noun#1: seventh
+biais	579	C same-form homonym	noun#1: means, way; angle, aspect, way || adj#1: slant, slanting
+producteur	569	C same-form homonym	noun#1: producer || adj#1: productive
+lever	566	C same-form homonym	verb#1: to raise, lift; to rise, stand up || noun#1: the act of getting up in the morning
+volant	563	C same-form homonym	adj#1: flying || noun#1: steering wheel; flywheel
+civil	563	C same-form homonym	adj#1: civil; lay || noun#1: civilian
+menu	562	C same-form homonym	adj#1: slim, small, fine; minor, trifling || noun#1: detailed list; menu; a set meal on a menu
+conséquent	559	C same-form homonym	adj#1: Acting or operating in a consistent or logical manner; coherent; Ensui || noun#1: a countersubject; a consequent (the second term in various semantic or
+rire	549	C same-form homonym	verb#1: to laugh || noun#1: laugh
+juif	549	C same-form homonym	adj#1: Jewish (following the religion of Judaism); stingy, miserly, avariciou || noun#1: Jew (follower of Judaism) || noun#1: Jew (a person with a Jewish cultural or ancestral connection)
+chat	546	C same-form homonym	noun#1: cat (feline); cat, tom, tomcat || noun#2: chat (online discussion)
+bar	546	C same-form homonym	noun#1: bar (establishment); bar (counter) || noun#2: bass (fish) || noun#3: bar (unit)
+content	540	C same-form homonym	adj#1: content, satisfied, pleased || verb#2: third-person plural present/subjunctive of conter
+fixe	538	C same-form homonym	adj#1: fixed || noun#2: fix; fixed line telephone (as opposed to mobile telephone)
+fou	533	C same-form homonym	adj#1: mad, crazy || noun#1: madman; jester (court entertainer) || noun#2: bishop; booby (bird)
+étudiant	530	C same-form homonym	noun#1: student || adj#1: studying (in the process of studying)
+immobilier	529	C same-form homonym	adj#1: real, in the sense of "tangible and immovable"; Pertaining to real est || noun#1: real estate, real property
+universitaire	526	C same-form homonym	adj#1: university || noun#1: university student or employee; university graduate
+souci	523	C same-form homonym	noun#1: worry; concern; a problem || noun#2: marigold (flower)
+pic	517	C same-form homonym	noun#1: woodpecker; pick (tool) || noun#2: peak, summit
+libéral	516	C same-form homonym	adj#1: libertarian, liberal; Libertarian, Liberal || noun#1: libertarian, liberal; Libertarian, Liberal
+instance	502	C same-form homonym	noun#1: urgent demand, insistence, plea; authority, forum, agency, body || noun#2: instance
+indépendant	500	C same-form homonym	adj#1: independent; self-employed || noun#1: freelancer; self-employed worker; sole trader
+détenu	499	C same-form homonym	adj#1: detained; imprisoned, confined || noun#1: detainee, prisoner, inmate
+intérieur	497	C same-form homonym	adj#1: interior || noun#1: interior, inside
+animal	497	C same-form homonym	noun#1: animal || adj#1: animal
+cru	494	C same-form homonym	adj#1: raw (uncooked, unprocessed) || noun#3: growth; vineyard; vintage
+titulaire	493	C same-form homonym	adj#1: tenured, permanent, titular; in the starting team, as opposed to a sub || noun#1: a permanent staff member; a holder (of an account, a name, a title, et
+idéal	492	C same-form homonym	noun#1: ideal || adj#1: ideal
+couvert	492	C same-form homonym	adj#1: covered; cloudy, overcast || noun#1: Set of cutlery, place setting; covering, shelter
+go	491	C same-form homonym	noun#1: go (board game) || noun#2: alternative form of gau || noun#3: girlfriend; girl, chick
+huitième	489	C same-form homonym	adj#1: eighth || noun#1: eighth
+claude	485	C same-form homonym	adj#1: dumb; idiotic; sottish || noun#1: dummy; fool; imbecil
+chronique	484	C same-form homonym	adj#1: chronic (that which continues over an extended period of time) || noun#1: chronicle; newspaper column || noun#1: a patient who has a chronic condition
+plat	481	C same-form homonym	adj#1: flat || noun#1: a flat area of ground; a flat thing; a flat dish or receptacle; dish o
+tournant	473	C same-form homonym	adj#1: turning; revolving (door) || noun#1: bend, turn, corner; turning point
+flamand	471	C same-form homonym	adj#1: Flemish || noun#1: Flemish (dialect) || noun#1: Fleming (resident or native of Flanders, Belgium)
+patient	468	C same-form homonym	adj#1: patient || noun#1: patient, outpatient; condemned man, person who has been sentenced to d
+sensible	466	C same-form homonym	adj#1: sensitive || noun#2: leading tone
+saint	466	C same-form homonym	noun#1: a male saint; masculine of sainte || adj#1: saintly (all meanings); holy
+amoureux	465	C same-form homonym	adj#1: love; in love || noun#1: lover (one who romantically loves a person)
+gagnant	464	C same-form homonym	noun#1: winner, victor || adj#1: winning; victorious
+conservateur	464	C same-form homonym	noun#1: keeper, curator, custodian; conservative || adj#1: conservative; Conservative
+mourir	462	C same-form homonym	verb#1: to die; to be dying; to be dying (of) || noun#1: the experience or process of dying (as opposed to the state of being d
+culte	462	C same-form homonym	noun#1: religion; cult (religious veneration given to a deity or saint) || adj#1: cult; iconic
+ressort	460	C same-form homonym	noun#1: resilience, elasticity; spring (coiled device) || noun#2: jurisdiction, responsibility, remit
+républicain	459	C same-form homonym	adj#1: Republican || noun#1: Republican
+sexe	454	C same-form homonym	noun#1: sex (the biological category); sex (men or women) || adj#1: pornographic; horny, sexually aroused
+logistique	452	C same-form homonym	adj#1: Relating to symbolic logic; logistic; Relating to the logistic functio || noun#2: logistics || adj#2: logistics
+spécifique	444	C same-form homonym	adj#1: specific, species; specific, particular || noun#1: a specific, a remedy for a particular disorder
+industriel	434	C same-form homonym	adj#1: industrial || noun#1: industrialist
+e	432	C same-form homonym	adj#1: abbreviation of est; east || noun#1: abbreviation of est; east
+fidèle	430	C same-form homonym	adj#1: loyal; faithful || noun#1: a believer
+portable	424	C same-form homonym	adj#1: portable || noun#1: ellipsis of téléphone portable: mobile phone; ellipsis of ordinateur p
+black	423	C same-form homonym	adj#1: of black people or culture || noun#1: black person || noun#1: alternative letter-case form of black
+volontaire	422	C same-form homonym	adj#1: voluntary, deliberate; volunteer || noun#1: volunteer
+turc	421	C same-form homonym	adj#1: of Turkey; Turkish || noun#1: Turkish; the Turkish language || noun#1: Turk, resident or native of Turkey
+mine	420	C same-form homonym	noun#1: mine (excavation or explosive); pencil lead || noun#2: appearance, physical aspect; expression
+islamiste	420	C same-form homonym	noun#1: Islamist || adj#1: Islamist
+routier	419	C same-form homonym	adj#1: road || noun#1: rutter; trucker, truck driver
+hospitalier	419	C same-form homonym	adj#1: hospital; hospitable || noun#1: hospitaler
+raté	417	C same-form homonym	adj#1: failed, screwed up; missed || noun#1: a failure, a washout, a loser
+fan	417	C same-form homonym	noun#1: fan (admirer, supporter) || noun#2: fan (ventilator)
+permanent	416	C same-form homonym	adj#1: permanent || noun#1: permanent
+pop	413	C same-form homonym	adj#1: pop (popular) || noun#1: pop, pop music
+désert	410	C same-form homonym	noun#1: desert || adj#2: deserted
+poche	408	C same-form homonym	noun#1: pocket (part of the clothing); pouch (small bag, or part of small bag) || adj#1: lame, boring, dull; bad, untalented, sucky
+rival	404	C same-form homonym	adj#1: rival || noun#1: rival
+phare	403	C same-form homonym	adj#1: leading, signature, key, flagship || noun#1: lighthouse; lantern (in a lighthouse)
+opposé	402	C same-form homonym	noun#1: opposite || adj#1: opposite
+extérieur	401	C same-form homonym	adj#1: exterior || noun#1: exterior, outside
+informatique	400	C same-form homonym	noun#1: computer science; ICT (information and communications technology) || adj#1: computer science
+massif	399	C same-form homonym	noun#1: massif || adj#1: massive
+créateur	391	C same-form homonym	noun#1: creator || adj#1: creative (e.g. des processus créateurs = creative processes)
+cacher	390	C same-form homonym	verb#1: to hide; to hide (oneself) || adj#2: alternative spelling of casher
+abandonné	390	C same-form homonym	adj#1: given up, abandoned || noun#1: abandonee, one who is abandoned
+moral	387	C same-form homonym	noun#1: morale, optimism || adj#1: moral; incorporeal
+criminel	387	C same-form homonym	adj#1: criminal (against the law); crime; criminal || noun#1: criminal (someone who commits a crime)
+sable	386	C same-form homonym	noun#1: sand || noun#2: the heraldic colour sable; black
+drôle	385	C same-form homonym	adj#1: funny, amusing; strange, weird, bizarre || noun#1: rascal, scoundrel; child, kid, lad
+suédois	384	C same-form homonym	noun#1: Swedish, the Swedish language || adj#1: Swedish || noun#1: male Swedish person
+malade	384	C same-form homonym	adj#1: ill, unwell, sick; Mentally disturbed; crazy; nuts; mental || noun#1: an ill or sick person; a patient; someone who is crazy; a nutcase
+légitime	383	C same-form homonym	adj#1: legitimate || noun#1: one's regular sexual or romantic partner (as opposed to a partner with
+flotte	383	C same-form homonym	noun#1: fleet || noun#2: water; rain
+superbe	380	C same-form homonym	adj#1: superb; excellent, impressive; haughty || noun#1: proud, arrogant person || noun#2: pride, arrogance
+iranien	380	C same-form homonym	adj#1: of Iran; Iranian || noun#1: Iranian (person)
+favori	378	C same-form homonym	adj#1: favo(u)rite || noun#1: favo(u)rite || noun#1: sideburns, side whiskers
+original	377	C same-form homonym	adj#1: original || noun#1: an unusual or eccentric person; an original manuscript
+souverain	376	C same-form homonym	adj#1: sovereign || noun#1: sovereign
+militant	375	C same-form homonym	adj#1: militant || noun#1: an activist, campaigner
+bière	375	C same-form homonym	noun#1: beer || noun#2: bier; coffin
+tester	374	C same-form homonym	verb#1: to test || verb#2: to write one's will
+expert	372	C same-form homonym	adj#1: expert || noun#1: expert
+adulte	371	C same-form homonym	adj#1: adult || noun#1: adult
+sec	368	C same-form homonym	adj#1: dry; dried, having had its moisture evaporated || noun#1: something that is dry
+préalable	367	C same-form homonym	adj#1: previous, prior; preliminary || noun#1: preliminary condition, prerequisite
+neuvième	367	C same-form homonym	adj#1: ninth || noun#1: ninth
+voile	364	C same-form homonym	noun#1: veil || noun#2: sail; sailing
+luxembourgeois	363	C same-form homonym	adj#1: of Luxembourg || noun#1: Luxembourgish (language) || noun#1: Person from or living in Luxembourg, Luxembourger
+issu	363	C same-form homonym	adj#1: from, originating from || verb#2: Issued, published.
+danois	362	C same-form homonym	noun#1: Danish, the Danish language || adj#1: Danish || noun#1: Dane (resident or native of Denmark)
+communiste	360	C same-form homonym	adj#1: communist || noun#1: communist; a member of the French communist party.
+plante	359	C same-form homonym	noun#1: sole of the foot || noun#2: plant
+clinique	357	C same-form homonym	adj#1: clinical || noun#1: clinic (small hospital)
+extrême	353	C same-form homonym	adj#1: extreme || noun#1: extreme
+statistique	352	C same-form homonym	noun#1: statistic; statistics || adj#1: statistical
+allié	351	C same-form homonym	adj#1: friendly; allied || noun#1: ally; ally (person who is not a member of the LGBT+ community but is s
+tabac	349	C same-form homonym	noun#1: tobacco (any plant of the genus Nicotiana); tobacco (leaves of certain || adj#1: having the color of tobacco || noun#2: violent fight
+panique	349	C same-form homonym	adj#1: pertaining to the god Pan; panicked || noun#1: panic
+bordeaux	349	C same-form homonym	adj#1: claret (color/colour) || noun#1: Bordeaux (wine)
+logiciel	348	C same-form homonym	noun#1: software (encoded computer instructions); computer program, piece of s || adj#1: software
+graphique	348	C same-form homonym	noun#1: graph (mathematical diagram) || adj#1: graphic
+curieux	347	C same-form homonym	adj#1: curious, inquisitive, intrigued, wondering; possessing curiosity; curi || noun#1: rubbernecker
+contenant	346	C same-form homonym	adj#1: containing || noun#1: container
+indien	345	C same-form homonym	noun#1: Indian (resident or native of India); Indian (indigenous person of the || adj#1: Indian (of, from or relating to India); Indian (related to Amerinds) || noun#1: Indian (Amerind)
+syrien	344	C same-form homonym	noun#1: Syrian (person) || adj#1: Syrian
+béton	344	C same-form homonym	noun#1: concrete || verb#2: only used in laisse béton
+sauvage	342	C same-form homonym	adj#1: wild, untouched, unspoiled, pristine; wild, untamed, not domesticated  || noun#1: barbarian, savage; hermit, recluse
+clos	342	C same-form homonym	adj#1: closed, shut; shut in, enclosed || noun#1: a piece of cultivated land surrounded by walls or hedges, especially a
+masculin	341	C same-form homonym	adj#1: male; masculine || noun#1: masculine (masculine word)
+franc	340	C same-form homonym	adj#1: Frankish, Franconian; free || noun#1: franc (any of several units of currency) || noun#1: Frank (member of a people that inhabited parts of what are now France,
+polonais	338	C same-form homonym	noun#1: Polish, the Polish language || adj#1: Polish || noun#1: Pole, resident or native of Poland
+paraître	338	C same-form homonym	verb#1: to appear (become visible); to be published || noun#1: appearance
+catholique	338	C same-form homonym	adj#1: Catholic || noun#1: Catholic
+supporter	335	C same-form homonym	verb#1: to support; to bear || noun#2: supporter, fan
+reporter	335	C same-form homonym	verb#1: to carry something back to where it was; to wear again || noun#2: a news reporter; a journalist
+manuel	335	C same-form homonym	adj#1: manual (performed with the hands); manual (peformed by a human rather  || noun#2: manual, handbook
+tunisien	334	C same-form homonym	noun#1: Tunisian (native or inhabitant of Tunisia) (usually male) || adj#1: of Tunisia; Tunisian
+restant	330	C same-form homonym	adj#1: remaining, left over || noun#1: remainder
+gestionnaire	328	C same-form homonym	noun#1: manager; manager || adj#1: management; managerial
+coupé	328	C same-form homonym	adj#1: divided into two equal parts horizontally, per fess; said of an escutc || noun#1: coupé (car)
+carré	328	C same-form homonym	adj#1: square; quadratic || noun#1: square; second power, power of 2
+brésilien	328	C same-form homonym	adj#1: of Brazil; Brazilian || noun#1: Brazilian Portuguese || noun#1: a Brazilian
+animé	327	C same-form homonym	adj#1: alive; animated || noun#2: anime
+battant	325	C same-form homonym	adj#1: beating || noun#1: a leaf (of a door or a window); a leaf (of a foldable table or a count
+absent	325	C same-form homonym	adj#1: absent; absent-minded || noun#1: absentee; missing person
+négatif	324	C same-form homonym	adj#1: negative; negative or zero. nonpositive || noun#1: negative
+adolescent	324	C same-form homonym	adj#1: adolescent || noun#1: adolescent
+trouble	322	C same-form homonym	noun#1: trouble; disorder || adj#2: murky, turbid, muddy, thick, clouded, cloudy; not clear
+ordinaire	322	C same-form homonym	adj#1: ordinary; mediocre, nondescript || noun#1: the ordinary, the usual
+mécanique	319	C same-form homonym	adj#1: mechanical (of or pertaining to a machine); mechanical, lifeless || noun#1: mechanics
+immédiat	317	C same-form homonym	adj#1: immediate || noun#1: time being
+exposé	317	C same-form homonym	adj#1: exposed || noun#1: presentation
+adresse	316	C same-form homonym	noun#1: direction; address (the description or instructions to determine a geo || noun#2: skill, adroitness || noun#3: address formal speech given before an audience
+liquide	311	C same-form homonym	adj#1: liquid (existing in the physical state of a liquid); liquid (said of m || noun#1: liquid (substance not of solid or gas state); cash || noun#1: liquid (class of consonant sounds)
+facilité	310	C same-form homonym	noun#1: ease, easiness || adj#1: facilitated
+démocrate	308	C same-form homonym	noun#1: democrat || adj#1: democratic
+foire	306	C same-form homonym	noun#1: a fair, an exposition; artisans' market || noun#2: diarrhoea; fuckup, mess
+pompe	305	C same-form homonym	noun#1: pump; push-up || noun#2: a solemn procession; pomp, vainglory || noun#3: shoe
+basket	305	C same-form homonym	noun#1: basketball || noun#2: sneaker (US), trainer (UK)
+automatique	305	C same-form homonym	adj#1: automatic; machine || noun#2: an automatic car, a car with automatic transmission
+marchand	304	C same-form homonym	adj#1: merchant; mercantile || noun#1: seller; vendor; merchant
+enseignant	304	C same-form homonym	noun#1: teacher || adj#1: teaching
+mineur	302	C same-form homonym	adj#1: minor; underage, minor, juvenile || noun#1: minor (as defined by the age of majority) || noun#2: miner
+conjoint	302	C same-form homonym	adj#1: joint (e.g. effort) || noun#1: spouse or unmarried, spouse-like partner
+bac	301	C same-form homonym	noun#1: ferry; vat || noun#2: high school exit exam in France; A level, matura; bachelor's degree
+manager	300	C same-form homonym	noun#1: manager || verb#1: to manage
+résident	299	C same-form homonym	noun#1: resident || adj#1: resident
+pauvre	299	C same-form homonym	adj#1: poor (financially deprived); lacking, scanty || noun#1: poor person; pauper; person deserving of pity
+thématique	297	C same-form homonym	adj#1: thematic || noun#1: structured group of themes
+tactique	297	C same-form homonym	noun#1: tactic || adj#1: tactical; tactic
+intéressé	295	C same-form homonym	adj#1: interested || noun#1: person who is keen or interested; the interested party, the person con
+défunt	295	C same-form homonym	adj#1: (of a person) late, deceased; (of a place, era etc.) which is dead and || noun#1: deceased
+croissant	295	C same-form homonym	noun#1: crescent; croissant || adj#1: increasing, augmenting
+romain	294	C same-form homonym	adj#1: of the city of Rome; Roman; of Ancient Rome; Roman || noun#1: Roman (resident or native of Rome)
+mail	294	C same-form homonym	noun#1: maul; pall mall mallet || noun#2: email
+tchèque	293	C same-form homonym	adj#1: Czech || noun#1: Czech, the Czech language || noun#1: Czech (resident or native of the Czech Republic)
+littoral	290	C same-form homonym	adj#1: littoral, coastal || noun#1: littoral
+voyant	289	C same-form homonym	adj#1: clairvoyant; showy, gaudy, conspicuous || noun#1: seer, clairvoyant; light (e.g. on a car dashboard)
+littéraire	284	C same-form homonym	adj#1: literary || noun#1: literary person (person who likes literature, especially in preference
+charme	284	C same-form homonym	noun#1: charm, attractive quality; enchantment; originally, magical incantatio || noun#2: Trees of genus Carpinus (hornbeam), of the Betulaceae family
+incapable	282	C same-form homonym	adj#1: unable, incapable || noun#1: incompetent (person)
+fantastique	282	C same-form homonym	adj#1: fantastic (related to fantasy or fantasies); related to the fantastiqu || noun#1: A genre of literature and film that is characterized by the intrusion 
+parent	280	C same-form homonym	noun#1: relative, relation, family member; parent || adj#1: related; similar
+métal	278	C same-form homonym	noun#1: metal; metal || noun#2: alternative spelling of metal
+élan	276	C same-form homonym	noun#1: spirit, verve; fervor, passion || noun#2: moose, elk
+joint	276	C same-form homonym	noun#2: seal || noun#3: joint, spliff (marijuana cigarette)
+partant	275	C same-form homonym	noun#1: runner, starter (in a foot race or horse race); a person who is leavin || adj#1: leaving, ready to leave; down, up for, game, keen, available
+manifeste	274	C same-form homonym	adj#1: manifest || noun#1: manifesto; manifest
+bio	274	C same-form homonym	adj#1: biological; organic || noun#1: the organic movement; organic food || noun#2: biology || noun#3: bio
+sonore	273	C same-form homonym	adj#1: resonant, echoing; resounding (slap, kiss etc.) || noun#1: soundbite
+vif	271	C same-form homonym	adj#1: alive; lively, brisk || noun#1: living person; flesh, living flesh
+réaliste	271	C same-form homonym	noun#1: realist (follower of realism) || adj#1: realistic
+inconnu	271	C same-form homonym	adj#1: unknown, obscure, unfamiliar, strange || noun#1: an unknown person, place, or thing; a stranger; the things one does no
+satellite	268	C same-form homonym	noun#1: satellite (moon or other celestial body); satellite (man-made apparatu || adj#1: satellite (man-made apparatus)
+ennemi	268	C same-form homonym	adj#1: enemy || noun#1: enemy
+régulier	267	C same-form homonym	adj#1: regular (conforming to rules); regular (both equilateral and equiangul || noun#1: one's regular sexual or romantic partner (as opposed to a partner with
+fragile	267	C same-form homonym	adj#1: fragile, breakable, brittle, delicate (that breaks easily); frail || noun#1: sensitive person, weak person
+correspondant	267	C same-form homonym	noun#1: pen pal; correspondent (journalist on the scene) || adj#1: corresponding; congruent
+chocolat	266	C same-form homonym	adj#1: chocolate; chocolate-coloured; deceived; tricked || noun#1: chocolate; hot chocolate
+suspense	265	C same-form homonym	noun#1: suspense (state of being suspended) || noun#2: suspense (emotion; feeling)
+étranger	264	C same-form homonym	adj#1: foreign; unacquainted || noun#1: foreigner; stranger
+serbe	262	C same-form homonym	noun#1: Serbian (person, of either gender) || noun#1: Serbian (language) || adj#1: Serbian
+concurrent	262	C same-form homonym	adj#1: concurrent, simultaneous; competitive, in competition || noun#1: competitor (person against whom one is competing)
+optique	261	C same-form homonym	adj#1: optic, optical || noun#1: optics; point of view, perspective
+hybride	261	C same-form homonym	adj#1: hybrid || noun#1: hybrid
+faille	261	C same-form homonym	noun#1: fault; flaw || noun#2: faille (fabric woven from silk)
+norvégien	258	C same-form homonym	noun#1: Norwegian (language) || adj#1: Norwegian || noun#1: Norwegian, resident or native of Norway
+tendre	257	C same-form homonym	adj#1: tender (soft, delicate) || verb#2: to tighten; to stretch out
+isolé	257	C same-form homonym	adj#1: isolated || noun#1: an independent rider in the Tour de France
+portugais	256	C same-form homonym	noun#1: Portuguese, the Portuguese language || adj#1: Portuguese || noun#1: a native of Portugal; a Portuguese
+soviétique	254	C same-form homonym	noun#1: Soviet (citizen of the Soviet Union) || adj#1: Soviet
+passager	253	C same-form homonym	noun#1: passenger; traveller || adj#1: whose presence in a location is only temporary; passing; of a short du
+effectif	253	C same-form homonym	noun#1: number of members of a group; lineup (of a team) || adj#1: real, actual
+instant	252	C same-form homonym	adj#1: pressing, insistent || noun#1: instant, minute, moment
+amateur	251	C same-form homonym	noun#1: lover of something; amateur; hobbyist || adj#1: amateur, amateurish
+synonyme	250	C same-form homonym	adj#1: synonymous || noun#1: synonym
+dixième	250	C same-form homonym	adj#1: tenth || noun#1: tenth
+optimiste	249	C same-form homonym	noun#1: optimist || adj#1: optimistic
+libanais	249	C same-form homonym	adj#1: Lebanese || noun#1: a Lebanese person
+lâche	245	C same-form homonym	adj#1: loose, slack; cowardly, low || noun#1: coward
+casse	244	C same-form homonym	noun#1: burglary, break-in || noun#1: breakage (act of breaking); ruckus; mayhem || noun#2: case
+mental	243	C same-form homonym	adj#1: mind; mental || noun#1: mind
+hébreu	243	C same-form homonym	noun#1: Hebrew, the Hebrew language; Greek (something incomprehensible, gibber || adj#1: Hebrew || noun#1: Hebrew (member of the Hebrews)
+porteur	242	C same-form homonym	noun#1: carrier (one who carries); porter (person who carries luggage and rela || adj#1: carrying (in the process or carrying); booming, flourishing, high-grow
+pétrolier	241	C same-form homonym	adj#1: petrol; oil || noun#1: oil tanker; oil worker
+géopolitique	240	C same-form homonym	adj#1: geopolitical || noun#1: geopolitics
+causer	240	C same-form homonym	verb#1: to cause (be the cause of) || verb#2: to speak (a language); to speak, talk, chat; to be waffling on about
+triple	239	C same-form homonym	adj#1: triple; thirty-second note || noun#1: triple
+spatial	238	C same-form homonym	adj#1: spatial; space, outer space || noun#1: the space industry
+bête	238	C same-form homonym	noun#1: beast, animal; fool || adj#1: stupid; inept (not very bright and lacking in judgement); silly; avoid
+travailleur	237	C same-form homonym	noun#1: worker, one who works || adj#1: hard-working, diligent
+gris	237	C same-form homonym	adj#1: grey / gray; drunk, tipsy || noun#1: gray / grey
+dîner	237	C same-form homonym	verb#1: to dine || noun#1: dinner, evening meal; lunch, midday meal
+crème	237	C same-form homonym	noun#1: cream; café crème || adj#1: cream (color/colour); cool
+officier	236	C same-form homonym	verb#1: to officiate || noun#2: officer
+flèche	236	C same-form homonym	noun#1: arrow (projectile or symbol); spire || noun#2: flitch
+poule	235	C same-form homonym	noun#1: hen (female chicken); chick, bird (woman) || noun#2: pool; pool, group (stage of a competition before the knockout stages)
+coordinateur	232	C same-form homonym	adj#1: coordinating || noun#1: coordinator
+bob	232	C same-form homonym	noun#1: bucket hat, fishing hat || noun#2: designated driver, DD
+préliminaire	231	C same-form homonym	adj#1: preliminary, prelim || noun#1: preliminary (part before the main part); foreplay
+canon	230	C same-form homonym	noun#1: cannon, (big) gun; barrel (of firearm) || noun#2: canon; canon || adj#3: hot, sexy || noun#4: glass of wine
+esthétique	229	C same-form homonym	adj#1: aesthetic (concerned with beauty) || noun#1: aesthetics (study of beauty)
+rayon	226	C same-form homonym	noun#1: ray, beam (of light, etc.); spoke (of wheel) || noun#2: honeycomb; shelf (for books, merchandise, etc.) || noun#3: row (for planting seeds in)
+égyptien	224	C same-form homonym	noun#1: Egyptian (person) || adj#1: of Egypt; Egyptian || noun#1: Egyptian, the Egyptian language
+souris	223	C same-form homonym	noun#1: mouse (rodent); computer mouse || noun#2: a smile
+extrait	221	C same-form homonym	noun#1: an extract; a clip || adj#2: extracted
+corse	221	C same-form homonym	adj#1: Corsican || noun#1: Corsican (language) || noun#2: Corsican (person)
+bail	220	C same-form homonym	noun#1: lease (contract); yonks, ages || noun#2: thing, stuff, affair
+homicide	219	C same-form homonym	noun#1: homicide (killing of one person by another, whether premeditated or un || noun#2: homicide, killer (person who kills another) || adj#2: killer; that kills
+express	219	C same-form homonym	adj#1: express, rapid || noun#1: express train or service; espresso
+lâcher	218	C same-form homonym	verb#1: to release; to loosen; to let go; to abandon, to let go || noun#1: synonym of lâchage
+rond	217	C same-form homonym	adj#1: round (shape); drunk || noun#1: circle; coin; (piece of) change, money
+gras	217	C same-form homonym	adj#1: fat; bold || noun#1: fat (animal tissue or substance resembling it)
+équivalent	216	C same-form homonym	adj#1: equivalent || noun#1: equivalent
+nu	216	C same-form homonym	adj#1: naked; nude; bare || noun#1: nude || noun#2: nu (Greek letter)
+viser	215	C same-form homonym	verb#1: to aim, to target; to watch, to stare || verb#2: to issue with a visa
+plancher	215	C same-form homonym	noun#1: plancher (floor made of wood); floor (the interior bottom or surface o || verb#2: to study something thoroughly, to work hard on something, to brainstor
+hebdomadaire	215	C same-form homonym	adj#1: weekly || noun#1: weekly magazine
+consultant	215	C same-form homonym	adj#1: consulting || noun#1: counselee, advisee (person who solicits advice from a professional); p
+variable	214	C same-form homonym	adj#1: variable || noun#1: variable (quantity that may assume any one of a set of values)
+grec	214	C same-form homonym	adj#1: Greek || noun#1: Ancient Greek; Modern Greek || noun#1: Greek (resident or native of Greece); a professional cheat.
+circulaire	214	C same-form homonym	adj#1: circular || noun#1: decree; election leaflet
+champagne	214	C same-form homonym	noun#1: champagne (“wine from the Champagne region of France”); sparkling wine || noun#2: an expanse of flat and open cultivated earth
+terminal	213	C same-form homonym	adj#1: terminal || noun#1: terminal
+meurtrier	213	C same-form homonym	adj#1: deadly, bloody (involving death), murderous || noun#1: murderer (person who commits murder)
+exemplaire	211	C same-form homonym	noun#1: copy; facsimile; exemplar; example || adj#1: exemplary; example
+coucher	211	C same-form homonym	verb#1: to lay, to lay down; to put to bed, to put up (a lodger) || noun#1: going to bed; bedding
+nocturne	210	C same-form homonym	adj#1: nocturnal; night || noun#1: nocturne || noun#1: opening hours at night; match of sport at night
+cri	209	C same-form homonym	noun#1: cry; shout; scream || noun#2: Cree (language) || adj#2: Cree || noun#1: a male Cree; masculine of Crie
+louer	208	C same-form homonym	verb#1: to rent; to lease || verb#2: to praise, to recommend
+féministe	204	C same-form homonym	adj#1: feminist || noun#1: feminist
+complice	204	C same-form homonym	adj#1: kindred, close; complicit || noun#1: accomplice
+sinistre	200	C same-form homonym	adj#1: scary; sinister, ominous || noun#1: accident, incident; disaster
+bénévole	200	C same-form homonym	adj#1: voluntary, unpaid (working or done without payment) || noun#1: volunteer (someone who works voluntarily without payment)
+attaché	200	C same-form homonym	adj#1: attached, attached to, bound, committed, connected, devoted, fastened, || noun#1: attaché, attache (employment of civil servant in several administratio
+ridicule	198	C same-form homonym	adj#1: ridiculous (all meanings) || noun#1: ridicule; absurd
+baie	197	C same-form homonym	noun#1: berry || noun#2: bay, bight (body of water) || noun#4: bay window
+flou	196	C same-form homonym	adj#1: fuzzy; blurred, blurry; unclear || noun#1: A visual appearance lacking in sharpness or precise detail; blurriness
+académique	195	C same-form homonym	noun#1: academic || adj#1: academic
+prometteur	193	C same-form homonym	adj#1: promising || noun#1: someone who makes false promises
+notable	193	C same-form homonym	adj#1: notable || noun#1: notable
+mobilier	193	C same-form homonym	noun#1: furniture || adj#1: movable; transferable
+musulman	192	C same-form homonym	noun#1: Muslim || adj#1: Muslim
+déjeuner	192	C same-form homonym	verb#1: to lunch, to eat lunch, to have lunch; to have breakfast || noun#2: lunch, luncheon; breakfast
+absolu	192	C same-form homonym	adj#1: absolute; absolute || noun#1: absolute (that which exists independent of references to other standar
+radical	189	C same-form homonym	adj#1: radical || noun#1: radical, root
+horaire	189	C same-form homonym	noun#1: schedule || adj#1: hourly; clockwise
+anonyme	189	C same-form homonym	adj#1: anonymous || noun#1: anonym
+partiel	188	C same-form homonym	adj#1: partial (part, no full) || noun#1: overtone (harmonic); midterm exam
+comble	188	C same-form homonym	noun#1: summit, peak (of a building); pinnacle || adj#1: packed, heaving, crowded
+asiatique	188	C same-form homonym	adj#1: of Asia; Asian; Asiatic || noun#1: Asian (resident or native of Asia)
+jet	187	C same-form homonym	noun#1: throw; spurt, spout, jet || noun#2: jet (airplane)
+boucher	186	C same-form homonym	noun#1: butcher || verb#2: to cork up; to bung
+monstre	185	C same-form homonym	noun#1: monster; hideous person, fiend || adj#1: enormous
+cloche	185	C same-form homonym	noun#1: bell (metal apparatus used to produce sound); a glass covering, origin || adj#1: clumsy, stupid
+mac	184	C same-form homonym	noun#1: clipping of maquereau (“pimp”) || noun#2: clipping of Macintosh
+boule	184	C same-form homonym	noun#1: ball, globe; bowl (in the game of bowls) || noun#2: butt, bum, ass
+solde	183	C same-form homonym	noun#1: balance (list of credits and debits); sale (discount period in e.g. a  || noun#2: pay of a soldier or other military person; pay generally
+fondamental	183	C same-form homonym	adj#1: fundamental || noun#1: fundamental (that which is fundamental)
+douzième	183	C same-form homonym	adj#1: twelfth || noun#1: twelfth
+tonne	182	C same-form homonym	noun#1: large barrel; tonne, metric ton || noun#2: a tonlet; a piece of medieval European armor of articulated lames or l
+lauréat	182	C same-form homonym	adj#1: prizewinning || noun#1: prizewinner, recipient of a prize, laureate
+intermédiaire	182	C same-form homonym	adj#1: intermediate || noun#1: intermediary
+mortel	181	C same-form homonym	adj#1: mortal; deadly || noun#1: human, mortal
+cave	181	C same-form homonym	adj#1: pitted; concave || noun#2: a cellar or basement; a wine cellar; or, a piece of furniture that ser || noun#3: an idiot, a stupid person; a law-abiding citizen, as opposed to a crim
+solitaire	180	C same-form homonym	adj#1: solitary, alone (living alone or being by oneself) || noun#1: loner, solitary person
+soft	180	C same-form homonym	noun#1: soft porn; software || adj#1: softcore (pornography)
+mensuel	180	C same-form homonym	adj#1: monthly || noun#1: a monthly: a newspaper or magazine that is published monthly
+robin	179	C same-form homonym	noun#1: sheep, calf || noun#2: lawyer
+pub	178	C same-form homonym	noun#1: Television ad or advert || noun#2: pub
+irlandais	178	C same-form homonym	noun#1: Irish, the Irish language || adj#1: Irish || noun#1: Irish person (resident or native of Ireland) (male or of unspecified g
+révolutionnaire	176	C same-form homonym	adj#1: of a revolution (in government); revolutionary; groundbreaking || noun#1: revolutionary
+éponyme	175	C same-form homonym	noun#1: eponym (person whose name is associated with something) || adj#1: eponymous
+marié	175	C same-form homonym	adj#1: married || noun#1: groom (husband to be)
+cousin	175	C same-form homonym	noun#1: cousin (male) || noun#2: cranefly; mosquito
+marin	173	C same-form homonym	adj#1: maritime; marine || noun#1: seaman || noun#1: navy
+vendeur	172	C same-form homonym	adj#1: sellable; able to sell a lot || noun#1: salesman; seller, vendor
+uniforme	170	C same-form homonym	adj#1: uniform (unvarying) || noun#1: a uniform
+sioniste	170	C same-form homonym	adj#1: Zionist || noun#1: Zionist
+externe	170	C same-form homonym	adj#1: external || noun#1: (a school student who doesn't stay in his establishment for meals or a
+raciste	169	C same-form homonym	adj#1: racist || noun#1: racist
+uni	167	C same-form homonym	adj#1: united || adj#2: having only one color, feature, etc. || noun#3: university
+salarié	167	C same-form homonym	adj#1: salaried, having a salary/wage || noun#1: employee
+écoute	166	C same-form homonym	noun#1: the act of listening; (always in plural) listening in, especially shor || noun#2: sheet (line to control a sail)
+méchant	166	C same-form homonym	adj#1: bad, mediocre; mean, unkind || noun#1: jerk (cruel person); baddie, bad guy, villain
+vétérinaire	165	C same-form homonym	adj#1: veterinary || noun#1: veterinarian, veterinary surgeon, vet (short form for the two previous
+autochtone	165	C same-form homonym	adj#1: from the earth, ground, soil; autochthonous, native, indigenous, abori || noun#1: a local, a native, an autochthon
+slovène	164	C same-form homonym	noun#1: Slovenian, the Slovenian language || adj#1: Slovenian || noun#1: Slovene, resident or native of Slovenia
+domestique	164	C same-form homonym	adj#1: domestic || noun#1: servant; maid; cleaner, housemaid
+australien	164	C same-form homonym	noun#1: Australian (native or inhabitant of Australia) (usually male) || adj#1: of Australia; Australian
+semblable	163	C same-form homonym	adj#1: similar || noun#1: something or someone that belongs to the same kind or species
+crâne	162	C same-form homonym	noun#1: skull, cranium || adj#1: gallant
+chaleureux	162	C same-form homonym	adj#1: Physically warm, radiating warmth.; agreeable for its own qualities. || noun#1: a warm, emotive person.; a soft, expressive style of literature or art
+inverse	161	C same-form homonym	adj#1: inverse, the other way round || noun#1: the inverse, the contrary
+aîné	161	C same-form homonym	adj#1: oldest, elder || noun#1: eldest boy; older brother
+fluide	160	C same-form homonym	noun#1: fluid; fluid || adj#1: fluid
+explosif	160	C same-form homonym	adj#1: explosive (with the capability to, or likely to, explode, literally or || noun#1: explosive (an explosive substance or device)
+impératif	159	C same-form homonym	adj#1: imperative || noun#1: imperative
+déterminant	158	C same-form homonym	adj#1: determining, decisive, deciding || noun#1: determiner; determinant
+chrétien	158	C same-form homonym	adj#1: Christian || noun#1: Christian || noun#1: Christian (member of the Christian religion)
+éthique	153	C same-form homonym	adj#1: ethical || noun#1: ethic
+roquette	153	C same-form homonym	noun#1: rocket (weapon) || noun#2: rocket (UK, Australia, NZ); arugula (US) (plant)
+vapeur	152	C same-form homonym	noun#1: steam; vapour || noun#2: steamship
+linguistique	151	C same-form homonym	adj#1: linguistic || noun#1: linguistics (scientific study of language)
+comptable	151	C same-form homonym	noun#1: accountant || adj#1: accounting, financial; countable
+régulateur	150	C same-form homonym	adj#1: of regulation; regulatory || noun#1: regulator, controller
+flamme	150	C same-form homonym	noun#1: flame; talent, brilliance || noun#3: veterinary lancet
+silencieux	148	C same-form homonym	adj#1: silent (without sound); quiet (not speaking) || noun#1: silencer, suppressor (for a gun); muffler
+bol	148	C same-form homonym	noun#1: bowl; luck || noun#2: bolus
+clin	147	C same-form homonym	noun#1: Found only in the expression clin d’œil (“wink, instant”). || noun#2: lapstrake, clinker
+centenaire	147	C same-form homonym	noun#1: centenary (period of 100 years, to mark an anniversary); centennial (1 || noun#1: centenarian (someone aged 100 years or more) || adj#1: 100-year-old
+mexicain	145	C same-form homonym	noun#1: Mexican, resident or native of Mexico || adj#1: Mexican
+génétique	145	C same-form homonym	adj#1: genetic || noun#1: genetics
+commerçant	145	C same-form homonym	adj#1: trading; mercantile || noun#1: trader, retailer; shopkeeper, storekeeper
+finlandais	144	C same-form homonym	adj#1: of Finland; Finnish || noun#1: Finn (resident or native of Finland)
+publicitaire	142	C same-form homonym	adj#1: publicity; advertising || noun#1: publicist, publicity agent, adman, adwoman
+goûter	142	C same-form homonym	verb#1: to taste, to try (to sample something orally); to taste like || noun#1: nuncheon; meal similar to breakfast taken around 4 P.M
+breton	141	C same-form homonym	noun#1: Breton (native or inhabitant of the region of Brittany, France) (usual || adj#1: Breton (of, from or relating to the region of Brittany, France) || noun#1: the Breton language
+pair	140	C same-form homonym	adj#1: even (divisible by two); even || noun#1: a peer, high nobleman/vassal (as in peer of the realm)
+grain	140	C same-form homonym	noun#1: grain; a small amount, a bit || noun#2: squall, thunderstorm
+basque	140	C same-form homonym	noun#1: Basque (person of either gender) || noun#1: skirt, skirts (of a jacket, morning coat etc.); basque (of waistcoat); || adj#2: Basque || noun#2: Basque (the language of the Basque people)
+pot	139	C same-form homonym	noun#1: pot, jar, vase, tin, can, carton (a container of any of various materi || noun#2: pot, weed (cannabis, marijuana)
+hongrois	139	C same-form homonym	noun#1: Hungarian, the language of Hungary || adj#1: Hungarian || noun#1: Hungarian, resident or native of Hungary (male or of unspecified gende
+caractéristique	139	C same-form homonym	noun#1: characteristic, trait || adj#1: characteristic
+poitrine	138	C same-form homonym	noun#1: chest, thorax, torso; breast, bosom || verb#2: first-person singular indicative/present of poitriner
+vierge	137	C same-form homonym	noun#1: virgin || adj#1: virgin; blank (of paper, recording/storage media, etc.) || noun#1: Virgo (person with this star sign)
+combiné	137	C same-form homonym	adj#1: combined || noun#1: compound; receiver
+rectangle	136	C same-form homonym	noun#1: rectangle || adj#1: right-angled (of a geometric figure)
+ouvrier	136	C same-form homonym	noun#1: worker, labourer (manual worker); workman; operator || adj#1: workers', working class
+textile	135	C same-form homonym	adj#1: able to be made into textiles; fibrous; textile || noun#1: textile, fabric; textile, non-nudist
+assise	134	C same-form homonym	noun#1: foundation (supporting base of a wall); base, basis, foundation || noun#2: fly excrement
+enthousiaste	133	C same-form homonym	adj#1: inspired, passionate (religiously or artistically); often construed wi || noun#1: One who is inspired by the Divinity; One who is enthusiastic or fanati
+ranger	132	C same-form homonym	verb#1: to order, to arrange; to put away, to put aside, to stack away, to sto || noun#2: a ranger, one who looks after a region
+tabou	131	C same-form homonym	adj#1: taboo (excluded or forbidden from use, approach or mention) || noun#1: taboo
+nazi	131	C same-form homonym	adj#1: Nazi || noun#1: Nazi || adj#2: alternative form of nasi (“syphilitic”) || noun#2: alternative form of nasi (“syphilitic”)
+argentin	131	C same-form homonym	adj#1: silvery; Argentine (from Argentina) || noun#1: Argentine, resident or native of Argentina
+voyageur	130	C same-form homonym	noun#1: traveller || adj#1: nomadic, wandering
+sage	130	C same-form homonym	adj#1: wise: prudent, cautious, and judicious; Chaste, modest, irreproachable || noun#1: a person who is prudent, cautious, and judicious; a sage (person)
+gamin	130	C same-form homonym	noun#1: street urchin, street kid; kid || adj#1: mischievous, naughty
+forestier	130	C same-form homonym	adj#1: forested; forest-dwelling || noun#1: male forester
+mire	129	C same-form homonym	noun#1: aim (action of aiming); foresight (of rifle) || noun#2: medieval physician
+imaginaire	128	C same-form homonym	adj#1: imaginary (created by and existing only in the imagination); imaginary || noun#1: imagination; imaginary number
+casier	128	C same-form homonym	noun#1: locker (for storage); lobster pot, lobster trap || noun#2: a wooden basket, bin or chest in which dairy products such as cheese a
+coco	127	C same-form homonym	noun#1: Fruit of the coconut palm, also called noix de coco; a kind of bean || noun#2: Commie || noun#3: cocaine || noun#4: egg
+chouette	127	C same-form homonym	noun#1: owl (specifically, those species of owls without ear tufts; those with || adj#2: great, cool, swell
+ressortir	126	C same-form homonym	verb#1: to go or come back out; to go/come out again; to take back out; to tak || verb#2: to come under the jurispendence [of]
+planétaire	126	C same-form homonym	adj#1: planetary; worldwide, global || noun#1: orrery; epicyclic gear, planetary gear
+dôme	126	C same-form homonym	noun#1: dome || noun#2: cathedral of a town or city, especially in Italy or Germany
+romantique	125	C same-form homonym	adj#1: romantic || noun#1: romantic
+rituel	125	C same-form homonym	adj#1: ritual || noun#1: ritual
+orthodoxe	124	C same-form homonym	adj#1: orthodox; Orthodox || noun#1: orthodox (person)
+anglophone	124	C same-form homonym	adj#1: Anglophone, English-speaking; said of a person, group, region, or the  || noun#1: an anglophone, an English-speaking person
+pionnier	123	C same-form homonym	noun#1: pioneer, soldier employed to form roads, dig trenches, and make bridge || adj#1: pioneering, avant-garde; first to colonize
+conservatoire	123	C same-form homonym	adj#1: conservative || noun#2: conservatory (for the maintenance of tradition); music academy
+piéton	122	C same-form homonym	adj#1: pedestrianized / pedestrianised || noun#1: pedestrian
+voleur	121	C same-form homonym	noun#1: robber, thief; flier (one who flies) || adj#1: thieving, thievish
+indicateur	121	C same-form homonym	noun#1: indicator, measure, index; gauge, indicator, meter || adj#1: indicative
+gentil	121	C same-form homonym	adj#1: noble; gallant, courteous; kind, sweet || noun#1: pagan, heretic; gentile
+soudanais	120	C same-form homonym	adj#1: Sudanese || noun#1: Sudanese
+pointer	120	C same-form homonym	verb#1: to point to/at; to indicate, to show, to point out || noun#2: pointer (dog)
+fonte	120	C same-form homonym	noun#1: melting, smelting, thawing; cast iron || noun#2: holster (on saddle)
+brutal	120	C same-form homonym	adj#1: brutal || noun#1: person who acts brutally
+écossais	119	C same-form homonym	adj#1: Scottish || noun#1: Scottish Gaelic language; Scots language || noun#1: Scotsman
+progressiste	119	C same-form homonym	adj#1: progressivist || noun#1: progressive, liberal
+foudre	119	C same-form homonym	noun#1: lightning || noun#1: thunderbolt || noun#2: foeder (large barrel used for aging beer or wine)
+dévastateur	119	C same-form homonym	adj#1: devastating || noun#1: devastator
+barbe	119	C same-form homonym	noun#1: beard; longer hair growing on the chin or face of some animals || adj#2: Barbary || noun#2: Barbary horse
+diamant	117	C same-form homonym	noun#1: diamond (gem); diamond (shape) || noun#2: excelsior (a small size of type, standardized as 3 point)
+cerise	117	C same-form homonym	adj#1: cerise colour || noun#1: cherry (fruit); cerise (color)
+irakien	116	C same-form homonym	adj#1: of Iraq; Iraqi || noun#1: Iraqi (Iraqi person)
+onzième	115	C same-form homonym	adj#1: eleventh || noun#1: eleventh
+noble	115	C same-form homonym	adj#1: noble, aristocratic; nonsynthetic, natural; fine || noun#1: noble (person who is noble)
+bourgeois	115	C same-form homonym	adj#1: bourgeois || noun#1: A member of the middle class; bourgeois
+résistant	114	C same-form homonym	noun#1: resistant (member of a resistance movement) || adj#1: resistant
+partisan	114	C same-form homonym	noun#1: supporter, proponent, advocate; fan || adj#1: partisan, partial; in favour of
+chic	114	C same-form homonym	adj#1: elegant, fancy, stylish, posh, swank; considerate || noun#1: elegance; skillfulness; adroitness
+cellulaire	114	C same-form homonym	adj#1: cellular || noun#1: cellular phone, mobile phone; ellipsis of téléphone cellulaire
+rhétorique	113	C same-form homonym	adj#1: rhetorical || noun#2: rhetoric
+frontalier	113	C same-form homonym	adj#1: border; near the border, on the border || noun#1: border-dweller (someone who lives near the border)
+adepte	113	C same-form homonym	adj#1: adept, capable, adroit || noun#1: expert, person who is adept; supporter, partisan, advocate, proponent 
+transparent	112	C same-form homonym	adj#1: transparent; see-through; translucid; allowing light to pass through || noun#1: paper having ruled lines put underneath a white sheet of paper in orde
+mutuel	112	C same-form homonym	adj#1: reciprocal; mutual || noun#1: short for Pari mutuel urbain
+laser	112	C same-form homonym	noun#1: laser (umbelliferous plant) || noun#2: laser || verb#3: to laser
+cardinal	112	C same-form homonym	adj#1: important; paramount; cardinal || noun#1: cardinal; cardinal number || noun#1: cardinal (color)
+bénéficiaire	112	C same-form homonym	adj#1: beneficial || noun#1: beneficiary, recipient (of a benefit)
+villageois	111	C same-form homonym	adj#1: villagelike, characteristic of a village || noun#1: villager (someone who lives in a village)
+intellectuel	111	C same-form homonym	adj#1: intellectual || noun#1: an intellectual (intelligent, learned person, especially one who disco
+greffe	110	C same-form homonym	noun#1: court clerk's office, court registrar's office; court clerk, court reg || noun#2: graft, scion; organ transplant, autoplasty
+malin	109	C same-form homonym	adj#1: nocive, pernicious; malignant || noun#1: shrewd person, smart person
+palier	108	C same-form homonym	noun#1: bearing; landing (on stairs) || adj#1: landing
+marteau	108	C same-form homonym	noun#1: a hammer used for pounding; a machine tool that pounds || adj#1: crazy; deranged
+boulanger	108	C same-form homonym	noun#1: baker (who bakes bread; contrast pâtissier) || verb#1: To prepare and bake bread.
+dépendant	107	C same-form homonym	adj#1: dependent || noun#1: dependent; one who is dependent
+diplômé	107	C same-form homonym	adj#1: having a diploma or a degree || noun#1: degree-holder, someone who has a degree
+dingue	107	C same-form homonym	adj#1: mad, crazy, nuts; incredible, unbelievable || noun#1: madman, maniac
+combustible	107	C same-form homonym	adj#1: combustible || noun#1: combustible
+cadet	107	C same-form homonym	adj#1: younger, youngest || noun#1: cadet, student officer; junior sportsperson, young player
+éphémère	106	C same-form homonym	adj#1: ephemeral (lasting for only a short time; transitory); existing for on || noun#1: mayfly
+polyvalent	106	C same-form homonym	adj#1: versatile, multipurpose; that has various uses, functions, or capaciti || noun#1: an employee who carries out various different functions
+décoller	106	C same-form homonym	verb#1: to take off (i.e. a plane); to leave || verb#2: to behead, to decapitate
+acadien	106	C same-form homonym	adj#1: of Acadia; Acadian || noun#1: Acadian (a native of Acadia)
+pesant	105	C same-form homonym	adj#1: heavy || noun#1: nightmare, delirium; only used in valoir son pesant d'or
+aire	105	C same-form homonym	noun#1: (surface) area; a flat surface || noun#2: eyrie, aerie
+territorial	104	C same-form homonym	adj#1: territorial (of, relating to or restricted to a specific geographic ar || noun#1: territorial
+lointain	104	C same-form homonym	adj#1: distant, remote, far-off; distant || noun#1: a far-off place
+rebelle	103	C same-form homonym	adj#1: rebellious || noun#1: rebel
+ras	103	C same-form homonym	adj#1: short; close-cropped (of hair etc.) || noun#2: ras (Ethiopian king or prince)
+latin	102	C same-form homonym	adj#1: Latin; Latino || noun#1: the Latin language; a male of South American or Mediterranean origins || noun#1: Latin (resident or native of Latium); resident or native of a Romance 
+réflexe	101	C same-form homonym	noun#1: reflex || adj#1: reflex
+aéronautique	101	C same-form homonym	adj#1: aeronautic, aeronautical || noun#1: aeronautics
+courbe	100	C same-form homonym	noun#1: curve || adj#1: curved; bent (not straight)

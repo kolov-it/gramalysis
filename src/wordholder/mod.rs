@@ -18,11 +18,13 @@ use crate::patch::{PatchError, Patches};
 
 const PATCHES_IT: &str = include_str!("../../data/it/lexicon-patches/wordholder.txt");
 const PATCHES_ES: &str = include_str!("../../data/es/lexicon-patches/wordholder.txt");
+const PATCHES_FR: &str = include_str!("../../data/fr/lexicon-patches/wordholder.txt");
 
 /// The corrections for this lexicon's known defects
 /// (`data/<lang>/lexicon-patches/wordholder.txt`).
 pub fn patches() -> Result<Patches, PatchError> {
     let mut patches = Patches::parse(Lang::It, "data/it/lexicon-patches/wordholder.txt", PATCHES_IT)?;
     patches.add_file(Lang::Es, "data/es/lexicon-patches/wordholder.txt", PATCHES_ES)?;
+    patches.add_file(Lang::Fr, "data/fr/lexicon-patches/wordholder.txt", PATCHES_FR)?;
     Ok(patches)
 }

@@ -1,0 +1,17 @@
+# Past participles whose adjective has drifted away from the verb's meaning.
+# For these, the adjective is its own word; the verb's participle still
+# exists where the sentence uses it as a verb.
+#
+# One adjective per line, masculine singular.
+parfait
+# Adjectives that stand before the noun with a meaning of their own
+# (un foutu mal de crâne, un prétendu expert, une sacrée chance), and cru
+# (raw: du poisson cru), which is not croire's participle, and bienvenu
+# (welcome), which is not the archaic bienvenir's.
+foutu
+fichu
+maudit
+prétendu
+sacré
+cru
+bienvenu

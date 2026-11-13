@@ -30,7 +30,7 @@ parses agree, and for a participle how it is used (`[used as: adjective]` in
 *le luci sono accese*) (in *Disse che non riusciva a trovare un lavoro*, `lavoro` could be
 the noun *work* or the verb *I work*; only the noun fits).
 
-Italian first, Spanish second ([below](#spanish)); the design is multilingual from the start.
+Italian first, then [Spanish](#spanish) and [French](#french); the design is multilingual from the start.
 
 **Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 118 rules)
 covers agreement and the dropped subject; articles (with the *il / lo / l'*
@@ -223,6 +223,83 @@ them in full):
 - **Accents**: a word is read as written; a missing accent that is a typo for
   another word is labelled with the intended word and noted `accent typo`
   (never an example).
+
+## French
+
+`cargo run -- fr "…"` parses French with `data/fr/grammar.gram` (452 rules) and
+the function words in `data/fr/closed.txt`. What is French-specific:
+
+- **Tokens:** elision is split off (*l'*, *d'*, *j'*, *qu'*, *jusqu'*,
+  *lorsqu'*, *puisqu'*), *aujourd'hui* and *quelqu'un* stay whole; a pronoun
+  joined to the verb by a hyphen keeps the hyphen and is attached to it
+  (*parlez* *-vous*, *donne* *-le* *-moi*, *a* *-il*: the euphonic *-t-* is
+  dropped), as are *-ci* and *-là* (*ce jour* *-là*). A final question mark
+  stays, so inversion is a question (*Parlez-vous français ?*) and the same
+  words without it an order (*Asseyez-vous.*).
+- **Function words:** *du*, *des*, *au*, *aux* are both the contraction
+  (*de* + *le*) and the article; *ne* … *pas / plus / jamais / rien / que*
+  around the verb or the auxiliary; clitic order *me te se nous vous* > *le
+  la les* > *lui leur* > *y* > *en* before the verb, *le* > *moi lui* > *y* >
+  *en* after an imperative.
+- **Sound:** *le / l'*, *ce / cet*, *mon amie* follow the next word's first
+  sound; an aspirated h or a consonantal y (*le héros*, *la hache*, *le yoga*) counts as a consonant
+  (`data/fr/aspirated-h.txt`).
+- **Subject:** French says it; a clause without one is an order, or has its
+  subject after the verb (inversion, *dit Tom*, *où coule le lait*).
+- **Participles** follow the Italian design, with French auxiliaries:
+  *avoir* + participle (which agrees only with a direct object before it:
+  *je les ai vues*, *les pommes que j'ai mangées*), *être* + participle of an
+  *être* verb, every pronominal verb with *être* (*elle s'est levée*), and
+  a reflexive participle agreeing with the subject (*elle s'est levée*), or
+  staying masculine singular when a complement follows (*elle s'est lavé les
+  mains*; without transitivity data a bare *ils se sont parlé* is not
+  accepted), and
+  *être* + participle of an *avoir* verb a passive when marked (*par* + agent,
+  *a été*, *fut*, *sera*) and otherwise a state, an adjective use (*la porte
+  est fermée*). Polite *vous* takes a plural verb and a singular predicate
+  (*vous êtes fatigué*): the predicate's number is kept apart from the verb's.
+
+**The auxiliaries are not in the lexicon yet**: the Word Holder API gives
+`grammar.auxiliaries` for Italian only. Until it does, every rule that selects
+on the auxiliary accepts both, so *être* + participle reads both as a compound
+tense and as a state, and such sentences stay ambiguous (most of the 7%
+below).
+
+On the French Tatoeba homograph set (4,384 sentences, 1,750 ambiguous forms of
+699 verbs that have a page on wordholder.com and no example sentence for that
+form) it decides the word in **80.9%** of the sentences, and **99.9%** of the
+decisions agree with the labels (3,544 of 3,546); 11.9% do not parse, 6.8% stay
+ambiguous.
+
+```sh
+cargo run --release -- eval fr data/fr/homograph-set.jsonl \
+  --labels data/fr/homograph-labels.tsv --fixture tests/fixtures/fr-set.json --out /tmp/eval-fr.jsonl
+cargo run -- --fixture tests/fixtures/fr-recorded.json --file examples/fr.txt fr
+```
+
+The files in `data/fr/` mirror `data/it/` (`tools/fr_homographs.py import`,
+`select`), plus `verified-examples.tsv`: the 2,195 sentences (1,195 forms of
+532 verbs) where gramalysis decides the word is the page verb and the label
+agrees, 5–20 words long, in the format wordy's verb-form-examples builder
+reads (`tools/fr_homographs.py verified`). Inflected participles (*vues*,
+*avertis*) are left out of it: a verb table's participle cell holds only the
+masculine singular.
+
+**French labelling conventions** (the header of `homograph-labels.tsv`):
+the Italian participle rules with the French auxiliaries above, plus a naming
+passive (*il était appelé le grain de la pauvreté*) as the verb; an *-ant*
+form is the verb (`non_finite.gerund`) with *en* or with the verb's
+complements, otherwise an adjective; an imperative has no subject (*Suis-moi*),
+a form with a subject or inversion is indicative or subjunctive; a pronominal
+verb's lemma is the verb without *se* (*elle s'est levée*: *lever*).
+
+The API's French answers have known defects, corrected as patches
+(`data/fr/lexicon-patches/wordholder.txt`) or, where they are systematic, in
+`lang/fr`: plural nouns that are also verb forms come back without the noun
+(*programmes*, *critiques*); a dictionary form gets a defaulted masculine
+singular (*facile*, *heureux*), which `lang/fr` leaves unknown; forms come
+back as an infinitive of themselves (*grandisses*); obsolete or non-French
+verbs beside the common one (*jetter*, *batter*).
 
 ## Using it as a library
 

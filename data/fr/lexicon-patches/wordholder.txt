@@ -1,0 +1,152 @@
+# Corrections to the Word Holder API's French answers (dictionary v19,
+# lemmatize as of wordy master 2026-11-12). Applied by gramalysis on top of the
+# API; `--no-patches` shows the API unpatched. Each line says why; delete a
+# line once the API answers it correctly.
+#
+# form  op  lemma  pos  features            (+ add, = replace all, - remove)
+
+# Adjectives the dictionary lacks for a present participle
+pressant  +  pressant  adj  # "quelque chose de plus pressant": only presser's participle is returned
+
+# Plural nouns the dictionary lacks when the plural is also a verb form
+# (only the verb's 2nd singular or 1st plural is returned). Systematic in the
+# API; listed here for the forms of the Tatoeba homograph set.
+alertes     +  alerte     noun  gender=feminine,number=plural   # only alerter is returned
+approches   +  approche   noun  gender=feminine,number=plural   # only approcher is returned
+baisses     +  baisse     noun  gender=feminine,number=plural   # only baisser is returned
+combats     +  combat     noun  gender=masculine,number=plural  # only combattre is returned
+critiques   +  critique   noun  number=plural                   # only critiquer is returned
+critiques   +  critique   adj   number=plural                   # only critiquer is returned
+dates       +  date       noun  gender=feminine,number=plural   # only dater is returned
+doutes      +  doute      noun  gender=masculine,number=plural  # only douter (and a bogus infinitive) is returned
+doutes      -  doutes     verb                                  # "doutes" returned as an infinitive of itself
+mentions    +  mention    noun  gender=feminine,number=plural   # only mentir is returned
+ménages     +  ménage     noun  gender=masculine,number=plural  # only ménager is returned
+notions     +  notion     noun  gender=feminine,number=plural   # only noter is returned
+pressions   +  pression   noun  gender=feminine,number=plural   # only presser is returned
+programmes  +  programme  noun  gender=masculine,number=plural  # only programmer is returned
+ruines      +  ruine      noun  gender=feminine,number=plural   # only ruiner is returned
+répliques   +  réplique   noun  gender=feminine,number=plural   # only répliquer is returned
+réserves    +  réserve    noun  gender=feminine,number=plural   # only réserver is returned
+soutiens    +  soutien    noun  gender=masculine,number=plural  # only soutenir is returned
+visas       +  visa       noun  gender=masculine,number=plural  # only viser is returned
+casses      +  casse      noun  gender=feminine,number=plural   # only casser is returned
+
+# Feminine adjectives the dictionary lacks when the form is also a verb form
+complètes   +  complet    adj   gender=feminine,number=plural   # only compléter is returned
+fréquente   +  fréquent   adj   gender=feminine,number=singular # only fréquenter is returned
+fréquentes  +  fréquent   adj   gender=feminine,number=plural   # only fréquenter is returned
+présentes   +  présent    adj   gender=feminine,number=plural   # only the noun présente and présenter are returned
+
+# Readings that are not French words
+resta  -  resta  noun  # no French noun resta; only rester's passé simple is right
+
+# Verbs returned beside the common one that are obsolete spellings, archaic or
+# not French; in modern text the form is always the common verb's.
+aille  -  ailler  verb  # rare verb whose forms coincide with aller's subjunctive
+aillent  -  ailler  verb  # rare verb whose forms coincide with aller's subjunctive
+ailles  -  ailler  verb  # rare verb whose forms coincide with aller's subjunctive
+assurent  -  assavoir  verb  # archaic verb (only in à savoir)
+battais  -  batter  verb  # not a French verb
+battant  -  batter  verb  # not a French verb
+batte  -  batter  verb  # not a French verb
+battions  -  batter  verb  # not a French verb
+connu  -  connoître  verb  # obsolete spelling of connaître
+connue  -  connoître  verb  # obsolete spelling of connaître
+connus  -  connoître  verb  # obsolete spelling of connaître
+connut  -  connoître  verb  # obsolete spelling of connaître
+connûmes  -  connoître  verb  # obsolete spelling of connaître
+jette  -  jetter  verb  # obsolete spelling of jeter
+jettent  -  jetter  verb  # obsolete spelling of jeter
+jettera  -  jetter  verb  # obsolete spelling of jeter
+jetterai  -  jetter  verb  # obsolete spelling of jeter
+jetterais  -  jetter  verb  # obsolete spelling of jeter
+jetterait  -  jetter  verb  # obsolete spelling of jeter
+jetteras  -  jetter  verb  # obsolete spelling of jeter
+jetterez  -  jetter  verb  # obsolete spelling of jeter
+jetterons  -  jetter  verb  # obsolete spelling of jeter
+jettes  -  jetter  verb  # obsolete spelling of jeter
+ouvrant  -  ouvrer  verb  # archaic verb whose forms coincide with ouvrir
+ouvre  -  ouvrer  verb  # archaic verb whose forms coincide with ouvrir
+ouvres  -  ouvrer  verb  # archaic verb whose forms coincide with ouvrir
+ouvrez  -  ouvrer  verb  # archaic verb whose forms coincide with ouvrir
+pesant  -  valoir_son_pesant_d'or  verb  # an idiom, not a reading of the word
+purent  -  purer  verb  # archaic verb whose forms coincide with pouvoir
+repu  -  repouvoir  verb  # not a French verb
+résolve  -  résolver  verb  # not a French verb (résoudre)
+résolviez  -  résolver  verb  # not a French verb (résoudre)
+résolvions  -  résolver  verb  # not a French verb (résoudre)
+résolvons  -  résolver  verb  # not a French verb (résoudre)
+sauraient  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+saurais  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+saurait  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+sauras  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+saurez  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+sauriez  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+saurions  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+saurons  -  saurer  verb  # rare verb whose forms coincide with savoir's future
+seyait  -  soir  verb  # soir is a noun, not a verb
+sied  -  soir  verb  # soir is a noun, not a verb
+siée  -  soir  verb  # soir is a noun, not a verb
+siéra  -  soir  verb  # soir is a noun, not a verb
+soir  -  soir  verb  # soir is a noun, not a verb
+va  -  vader  verb  # not a French verb
+vais  -  vader  verb  # not a French verb
+verra  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verrai  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verrais  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verrait  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verras  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verre  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verres  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verrez  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verriez  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+verrons  -  verrer  verb  # rare technical verb whose passé simple coincides with voir's future
+vont  -  vader  verb  # not a French verb
+
+# Forms returned as an infinitive of themselves (the API reads a form-of
+# entry as a lemma). doutes is above.
+accusé  -  accusé  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+aies  -  aies  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+aimez  -  aimez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+aimé  -  aimé  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+ayez  -  ayez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+ayons  -  ayons  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+commit  -  commit  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+content  -  content  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+dit  -  dit  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+expliques  -  expliques  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+expliquez  -  expliquez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+finisses  -  finisses  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+grandisses  -  grandisses  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+grandit  -  grandit  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+issu  -  issu  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+ken  -  ken  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+mentis  -  mentis  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+parlez  -  parlez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+pensé  -  pensé  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+permettant  -  permettant  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+plait  =  plaire  verb  mood=indicative,tense=present,person=third,number=singular  # reform spelling of plaît (s'il vous plait); returned only as an infinitive of itself
+poitrine  -  poitrine  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+réfléchisses  -  réfléchisses  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+serrai  -  serrai  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+soit  -  soit  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+souffres  -  souffres  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+traitez  -  traitez  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+voilà  -  voilà  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+évolué  -  évolué  verb  # returned as an infinitive with itself as the lemma; it is not an infinitive
+
+# Readings too rare to keep beside a function word
+hier  -  hier  verb  # archaic verb (to ram paving stones); hier is the adverb yesterday, and as a verb it gave adverbs a direct object
+la  -  la  noun  # the note la (A): every article la would also be a bare noun (à la nage read as à + la + verb)
+partis   +  parti   noun  gender=masculine,number=plural  # plural noun missing (only partir is returned)
+œuvres   -  œuvre   noun                                  # returned as masculine
+œuvres   +  œuvre   noun  gender=feminine,number=plural   # une œuvre, les œuvres complètes
+
+# Nouns returned only as plural (a plural-only sense) though the form is singular
+poussière    +  poussière    noun  gender=feminine,number=singular  # only the plural-only sense is returned
+information  +  information  noun  gender=feminine,number=singular  # only the plural-only sense is returned
+actualité    +  actualité    noun  gender=feminine,number=singular  # only the plural-only sense is returned
+
+# Regional readings outside standard French
+été  -  aller  verb  # Louisiana French "il a été" = he went; in standard French été is être's participle or the noun
