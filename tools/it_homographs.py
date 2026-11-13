@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Italian verb forms that have no example sentence on a Word Holder verb page
-because the form is ambiguous, and Tatoeba sentences containing them.
+"""Verb forms that have no example sentence on a Word Holder verb page because
+the form is ambiguous, and Tatoeba sentences containing them. Italian by
+default; `--lang es` (before the step) works on data/es/ the same way.
 
 Two steps:
 
@@ -16,6 +17,9 @@ Two steps:
   select   builds data/it/homograph-set.jsonl from data/it/ alone:
              python3 tools/it_homographs.py select [--size 5000]
 
+  python3 tools/it_homographs.py --lang es import|select ... does the same for
+  Spanish (es-prepared.jsonl.gz, homographs-es.tsv, the es verb pages).
+
 Only the standard library; deterministic for the same inputs.
 """
 
@@ -28,14 +32,22 @@ import sys
 from collections import Counter, defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA = os.path.join(ROOT, "data", "it")
-VERBS = os.path.join(DATA, "verbs.json")
-HOMOGRAPHS = os.path.join(DATA, "homographs.tsv")
-PAGE_FORMS = os.path.join(DATA, "page-example-forms.tsv")
-OTHER_VERBS = os.path.join(DATA, "form-other-verbs.tsv")
-POOL = os.path.join(DATA, "tatoeba-pool.jsonl.gz")
-CANDIDATES = os.path.join(DATA, "ambiguous-forms.tsv")
-SET = os.path.join(DATA, "homograph-set.jsonl")
+
+
+def use_language(code):
+    """Points the file names below at data/<code>/."""
+    global DATA, VERBS, HOMOGRAPHS, PAGE_FORMS, OTHER_VERBS, POOL, CANDIDATES, SET
+    DATA = os.path.join(ROOT, "data", code)
+    VERBS = os.path.join(DATA, "verbs.json")
+    HOMOGRAPHS = os.path.join(DATA, "homographs.tsv")
+    PAGE_FORMS = os.path.join(DATA, "page-example-forms.tsv")
+    OTHER_VERBS = os.path.join(DATA, "form-other-verbs.tsv")
+    POOL = os.path.join(DATA, "tatoeba-pool.jsonl.gz")
+    CANDIDATES = os.path.join(DATA, "ambiguous-forms.tsv")
+    SET = os.path.join(DATA, "homograph-set.jsonl")
+
+
+use_language("it")
 
 WORD = re.compile(r"[^\W\d_]+(?:'[^\W\d_]+)?", re.UNICODE)
 POOL_PER_GROUP = 8   # pool sentences per form and spaCy reading (verb / other)
@@ -51,7 +63,9 @@ def cells(table):
             continue
         for tense, persons in tenses.items():
             for person, form in persons.items():
-                yield f"{mood}.{tense}.{person}", form
+                # A cell with two spellings (es diera / diese) holds both.
+                for one in form.split(" / "):
+                    yield f"{mood}.{tense}.{person}", one
 
 
 def one_word(form):
@@ -265,6 +279,7 @@ def cmd_select(a):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("--lang", default="it", choices=["it", "es"])
     sub = p.add_subparsers(dest="cmd", required=True)
     i = sub.add_parser("import")
     for name in ("verb-pages", "conjugations", "page-examples", "homographs", "tatoeba"):
@@ -272,6 +287,7 @@ def main():
     s = sub.add_parser("select")
     s.add_argument("--size", type=int, default=5000)
     a = p.parse_args()
+    use_language(a.lang)
     {"import": cmd_import, "select": cmd_select}[a.cmd](a)
 
 

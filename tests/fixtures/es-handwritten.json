@@ -1,0 +1,4451 @@
+{
+  "es": {
+    "1": [],
+    "10": [],
+    "a": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "A",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "a",
+        "partOfSpeech": "noun"
+      },
+      {
+        "lemma": "a",
+        "partOfSpeech": "prep"
+      },
+      {
+        "lemma": "a",
+        "partOfSpeech": "intj"
+      }
+    ],
+    "abierta": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "abierta",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "abierto",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "abrir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "abierto": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "abierto",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "abierto",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "abrir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "adónde": [
+      {
+        "lemma": "adónde",
+        "partOfSpeech": "adv"
+      }
+    ],
+    "agradecido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "agradecido",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "agradecer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "agua": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "agua",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "aguar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "aguar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "ahorro": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "ahorro",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ahorrar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "alejado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "alejado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "alejar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "aquí": [
+      {
+        "lemma": "aquí",
+        "partOfSpeech": "adv"
+      }
+    ],
+    "atendido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "atender",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "ayer": [
+      {
+        "lemma": "ayer",
+        "partOfSpeech": "adv"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "ayer",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "bajo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "bajo",
+        "partOfSpeech": "adj"
+      },
+      {
+        "lemma": "bajo",
+        "partOfSpeech": "adv"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "bajo",
+        "partOfSpeech": "noun"
+      },
+      {
+        "lemma": "bajo",
+        "partOfSpeech": "prep"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "bajar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "bien": [
+      {
+        "lemma": "bien",
+        "partOfSpeech": "adv"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "bien",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "bien",
+        "partOfSpeech": "adj"
+      },
+      {
+        "lemma": "bien",
+        "partOfSpeech": "conj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "bien",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "bueno": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "bueno",
+        "partOfSpeech": "adj"
+      },
+      {
+        "lemma": "bueno",
+        "partOfSpeech": "intj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Bueno",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Bueno",
+        "partOfSpeech": "name"
+      }
+    ],
+    "buscas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "plural"
+          ]
+        },
+        "lemma": "busca",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "plural"
+          ]
+        },
+        "lemma": "busca",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "buscar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "cada": [
+      {
+        "lemma": "cada",
+        "partOfSpeech": "det"
+      },
+      {
+        "lemma": "cada",
+        "partOfSpeech": "adv"
+      }
+    ],
+    "caer": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "caer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "caerse": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "infinitive",
+            "reflexive"
+          ]
+        },
+        "lemma": "caer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "caersed": [],
+    "cansado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "cansado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "cansar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "cargado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "cargado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "cargar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "casa": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "casa",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "casar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "casar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "caér": [],
+    "caérse": [],
+    "caérsed": [],
+    "caérseos": [],
+    "caérsete": [],
+    "cerrada": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "cerrado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "cerrar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "cerrado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "cerrado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "cerrado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "cerrar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "cinco": [
+      {
+        "lemma": "cinco",
+        "partOfSpeech": "num"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "cinco",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "comido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "comido",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "comer",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "comedir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "como": [
+      {
+        "lemma": "Como",
+        "partOfSpeech": "name"
+      },
+      {
+        "lemma": "como",
+        "partOfSpeech": "adv"
+      },
+      {
+        "lemma": "como",
+        "partOfSpeech": "conj"
+      },
+      {
+        "lemma": "como",
+        "partOfSpeech": "prep"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "comer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "comprar": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "comprar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "compré": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "preterite",
+            "singular"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "comprar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "con": [
+      {
+        "lemma": "con",
+        "partOfSpeech": "prep"
+      }
+    ],
+    "construida": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "construido",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "participle",
+            "singular"
+          ],
+          "tense": "past"
+        },
+        "lemma": "construir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "continuado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "continuar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "cuant": [],
+    "cuánt": [],
+    "cuántas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "cuánto",
+        "partOfSpeech": "det"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "cuántas",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "cuántos": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "cuánto",
+        "partOfSpeech": "det"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "interrogative",
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "cuánto",
+        "partOfSpeech": "adv"
+      }
+    ],
+    "da": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "dame": [
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "object-first-person",
+            "object-singular",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "de": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "de",
+        "partOfSpeech": "noun"
+      },
+      {
+        "lemma": "de",
+        "partOfSpeech": "prep"
+      }
+    ],
+    "dejar": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "dejar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "demasiadas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "demasiado",
+        "partOfSpeech": "adj"
+      }
+    ],
+    "deme": [
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "object-first-person",
+            "object-singular",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "demo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "demo",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "demos": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "demo",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "plural",
+            "present",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "demose": [],
+    "den": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "plural",
+            "present",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "third-person"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "denme": [
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "object-first-person",
+            "object-singular",
+            "plural",
+            "third-person"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "di": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "preterite",
+            "singular"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "decir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "lemma": "di",
+        "partOfSpeech": "particle"
+      }
+    ],
+    "difícil": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "difícil",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "difícil",
+        "partOfSpeech": "adj"
+      }
+    ],
+    "dá": [],
+    "dáme": [],
+    "dámelo": [
+      {
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "dé": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "dar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "démo": [],
+    "démos": [],
+    "démose": [],
+    "démoselo": [],
+    "días": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "día",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "dólares": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "dólar",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "dónde": [
+      {
+        "lemma": "dónde",
+        "partOfSpeech": "adv"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "dónde",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "el": [
+      {
+        "lemma": "el",
+        "partOfSpeech": "article"
+      }
+    ],
+    "ella": [
+      {
+        "lemma": "ella",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "eres": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "ere",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "es": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "e",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "esperado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "esperado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "esperar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "esperar": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "esperar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "estad": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "estado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "estado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "Estado",
+        "partOfSpeech": "name"
+      }
+    ],
+    "estados": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "estado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "participle",
+            "plural"
+          ],
+          "tense": "past"
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "estar": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "estarle": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "dative",
+            "infinitive",
+            "object-singular",
+            "object-third-person"
+          ]
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "estoy": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "está": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "estád": [],
+    "estár": [],
+    "exagerado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "exagerado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "exagerado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "exagerar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "feliz": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "feliz",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "feliz",
+        "partOfSpeech": "adj"
+      }
+    ],
+    "flores": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "flor",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "flores",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "florar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Flores",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Flores",
+        "partOfSpeech": "name"
+      },
+      {
+        "lemma": "Flores",
+        "partOfSpeech": "name"
+      }
+    ],
+    "fría": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "fría",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "frío",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "freír",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "freír",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "freír",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "fue": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "preterite",
+            "singular",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "ir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "preterite",
+            "singular",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "fueron": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "preterite",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "ir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "preterite",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "gravemen": [],
+    "gravemente": [
+      {
+        "lemma": "gravemente",
+        "partOfSpeech": "adv"
+      }
+    ],
+    "gravemén": [],
+    "ha": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "haber": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "haberlo": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "accusative",
+            "infinitive",
+            "object-masculine",
+            "object-singular",
+            "object-third-person"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "haberme": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "infinitive",
+            "object-first-person",
+            "object-singular"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "haberse": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "infinitive",
+            "reflexive"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "habido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "habiendo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "gerund"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "habér": [],
+    "hagas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "present",
+            "second-person",
+            "singular",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "hacer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "hay": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "impersonal",
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "he": [
+      {
+        "lemma": "he",
+        "partOfSpeech": "adv"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "he",
+        "partOfSpeech": "noun"
+      },
+      {
+        "lemma": "he",
+        "partOfSpeech": "intj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "herido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "herido",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "herir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "hermana": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "hermana",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "hermanar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "hermanar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "hora": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "hora",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "independien": [],
+    "independiente": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "independiente",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "independiente",
+        "partOfSpeech": "adj"
+      }
+    ],
+    "independién": [],
+    "ir": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "ir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "iros": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "iro",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "infinitive",
+            "object-plural",
+            "object-second-person"
+          ]
+        },
+        "lemma": "ir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "object-plural",
+            "object-second-person",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "ir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "la": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "article"
+      },
+      {
+        "lemma": "la",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "accusative"
+          ]
+        },
+        "lemma": "ella",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "las": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "las",
+        "partOfSpeech": "article"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "las",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "accusative",
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "ellas",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "accusative",
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "ustedes",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "la",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "leer": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "leer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "leerlo": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "accusative",
+            "infinitive",
+            "object-masculine",
+            "object-singular",
+            "object-third-person"
+          ]
+        },
+        "lemma": "leer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "leyendo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "gerund"
+          ]
+        },
+        "lemma": "leer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "leyéndo": [],
+    "leyéndolo": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "gerund",
+          "rawTags": [
+            "accusative",
+            "gerund",
+            "object-masculine",
+            "object-singular",
+            "object-third-person"
+          ]
+        },
+        "lemma": "leer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "leér": [],
+    "libro": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "libro",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "librar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "llegó": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "preterite",
+            "singular",
+            "third-person"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "llegar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "lo": [
+      {
+        "lemma": "lo",
+        "partOfSpeech": "article"
+      }
+    ],
+    "los": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "el",
+        "partOfSpeech": "article"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "accusative"
+          ]
+        },
+        "lemma": "él",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "accusative"
+          ]
+        },
+        "lemma": "ustedes",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "neuter",
+            "plural"
+          ]
+        },
+        "lemma": "los",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "neuter",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "neuter",
+            "plural"
+          ]
+        },
+        "lemma": "los",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "madrid": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "Madrid",
+        "partOfSpeech": "name"
+      }
+    ],
+    "manten": [],
+    "mantente": [
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "object-second-person",
+            "object-singular",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "mantener",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "mantén": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "mantener",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "mary": [],
+    "maría": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "María",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "María",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "maría",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "mañana": [
+      {
+        "lemma": "mañana",
+        "partOfSpeech": "adv"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "mañana",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "mañana",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "me": [
+      {
+        "grammar": {
+          "clitic": false,
+          "rawTags": [
+            "accusative",
+            "objective",
+            "personal"
+          ]
+        },
+        "lemma": "yo",
+        "partOfSpeech": "pron"
+      },
+      {
+        "lemma": "me",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "medid": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "plural",
+            "second-person"
+          ]
+        },
+        "lemma": "medir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "medios": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "medio",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "medio",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "medios",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "medíd": [],
+    "mes": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "mes",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "mi": [
+      {
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": [
+            "singular"
+          ]
+        },
+        "lemma": "mi",
+        "partOfSpeech": "det"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "mi",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "mi",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "mostrado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "mostrar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "mucha": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "mucho",
+        "partOfSpeech": "det"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "mucho",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "mucho",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "muy": [
+      {
+        "lemma": "muy",
+        "partOfSpeech": "adv"
+      }
+    ],
+    "médico": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "médico",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "médico",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "médico",
+        "partOfSpeech": "adj"
+      }
+    ],
+    "mí": [
+      {
+        "lemma": "mí",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "mía": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "mía",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "mío",
+        "partOfSpeech": "det"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "mío",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "mío": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "mío",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "mío",
+        "partOfSpeech": "det"
+      }
+    ],
+    "no": [
+      {
+        "lemma": "no",
+        "partOfSpeech": "adv"
+      },
+      {
+        "lemma": "no",
+        "partOfSpeech": "intj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "no",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "nosotr": [],
+    "nosotros": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "nosotros",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "nosótr": [],
+    "o": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "o",
+        "partOfSpeech": "noun"
+      },
+      {
+        "lemma": "o",
+        "partOfSpeech": "conj"
+      },
+      {
+        "lemma": "o",
+        "partOfSpeech": "adv"
+      }
+    ],
+    "pan": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "pan",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "persona": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "persona",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "persona",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "podemos": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "plural",
+            "present",
+            "subjunctive"
+          ],
+          "tense": "present"
+        },
+        "lemma": "podar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "imperative",
+            "plural"
+          ]
+        },
+        "lemma": "podar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "plural",
+            "present"
+          ],
+          "tense": "present"
+        },
+        "lemma": "poder",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "Podemos",
+        "partOfSpeech": "name"
+      }
+    ],
+    "poder": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "poder",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "poder",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "por": [
+      {
+        "lemma": "por",
+        "partOfSpeech": "prep"
+      },
+      {
+        "lemma": "por",
+        "partOfSpeech": "intj"
+      }
+    ],
+    "preparado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "preparado",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "preparado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "preparar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "problemas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "problema",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "puede": [
+      {
+        "lemma": "puede",
+        "partOfSpeech": "intj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "poder",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "poder",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "puedo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "poder",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "puerta": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "puerta",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Puerta",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "Puerta",
+        "partOfSpeech": "name"
+      }
+    ],
+    "que": [
+      {
+        "lemma": "que",
+        "partOfSpeech": "conj"
+      },
+      {
+        "lemma": "que",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "quedado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "quedar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "quiero": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "querer",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "quién": [
+      {
+        "lemma": "quién",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "qué": [
+      {
+        "lemma": "qué",
+        "partOfSpeech": "det"
+      },
+      {
+        "lemma": "qué",
+        "partOfSpeech": "adv"
+      },
+      {
+        "lemma": "qué",
+        "partOfSpeech": "pron"
+      },
+      {
+        "lemma": "qué",
+        "partOfSpeech": "intj"
+      }
+    ],
+    "recibido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "recibir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "recibo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "recibo",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "recibir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "obsolete",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "recebir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "rega": [],
+    "regalos": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "regalo",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "accusative",
+            "imperative",
+            "object-masculine",
+            "object-plural",
+            "object-third-person",
+            "second-person",
+            "singular",
+            "with-voseo"
+          ]
+        },
+        "lemma": "regar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "regá": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular",
+            "with-voseo"
+          ]
+        },
+        "lemma": "regar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "resultado": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "resultado",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "resultar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "reunión": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "reunión",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "Reunión",
+        "partOfSpeech": "name"
+      }
+    ],
+    "roma": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "Roma",
+        "partOfSpeech": "name"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "romo",
+        "partOfSpeech": "adj"
+      }
+    ],
+    "romanos": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "romano",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "romano",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "Romanos",
+        "partOfSpeech": "name"
+      }
+    ],
+    "salvo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "salvo",
+        "partOfSpeech": "adj"
+      },
+      {
+        "lemma": "salvo",
+        "partOfSpeech": "adv"
+      },
+      {
+        "lemma": "salvo",
+        "partOfSpeech": "conj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "salvar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "se": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural",
+            "singular"
+          ]
+        },
+        "lemma": "se",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural",
+            "singular"
+          ]
+        },
+        "lemma": "se",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural",
+            "singular"
+          ]
+        },
+        "lemma": "se",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine",
+            "plural",
+            "singular"
+          ]
+        },
+        "lemma": "se",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "se",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "se",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "ser": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "ser",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "serme": [
+      {
+        "grammar": {
+          "clitic": true,
+          "formKind": "infinitive",
+          "rawTags": [
+            "infinitive",
+            "object-first-person",
+            "object-singular"
+          ]
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "sido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "sien": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine"
+          ]
+        },
+        "lemma": "sien",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "siendo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "gerund"
+          ]
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "siente": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "sentar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "subjunctive",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "first-person",
+            "present",
+            "singular",
+            "subjunctive",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "sentar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "imperative",
+            "singular",
+            "third-person"
+          ]
+        },
+        "lemma": "sentar",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "sentir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": true,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "sentir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "sintiendo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "gerund"
+          ]
+        },
+        "lemma": "sentir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "sién": [],
+    "son": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "son",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "plural",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "plural",
+            "present",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "soy": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "suyo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "suyo",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "suyo",
+        "partOfSpeech": "det"
+      }
+    ],
+    "sé": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "saber",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "archaic",
+            "imperative",
+            "obsolete",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "saber",
+        "partOfSpeech": "verb"
+      },
+      {
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "ser",
+        "partOfSpeech": "verb"
+      },
+      {
+        "lemma": "sé",
+        "partOfSpeech": "intj"
+      }
+    ],
+    "sér": [],
+    "tantas": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "plural",
+          "rawTags": [
+            "feminine",
+            "plural"
+          ]
+        },
+        "lemma": "tanto",
+        "partOfSpeech": "det"
+      }
+    ],
+    "tener": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "infinitive",
+          "rawTags": []
+        },
+        "lemma": "tener",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "tengo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tener",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "tiene": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tener",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "tienes": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tener",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "toco": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "toco",
+        "partOfSpeech": "noun"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "tocar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "tod": [],
+    "toda": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "singular"
+          ]
+        },
+        "lemma": "todo",
+        "partOfSpeech": "det"
+      }
+    ],
+    "todos": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "todo",
+        "partOfSpeech": "det"
+      }
+    ],
+    "tom": [],
+    "tu": [
+      {
+        "grammar": {
+          "clitic": false,
+          "number": "singular",
+          "rawTags": [
+            "singular"
+          ]
+        },
+        "lemma": "tu",
+        "partOfSpeech": "det"
+      }
+    ],
+    "tód": [],
+    "tú": [
+      {
+        "lemma": "tú",
+        "partOfSpeech": "pron"
+      },
+      {
+        "lemma": "tú",
+        "partOfSpeech": "intj"
+      }
+    ],
+    "un": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "article"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "un",
+        "partOfSpeech": "num"
+      }
+    ],
+    "usted": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "usted",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "usted",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "vi": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "preterite",
+            "singular"
+          ],
+          "tense": "preterite"
+        },
+        "lemma": "ver",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "vienes": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "indicative",
+            "present",
+            "second-person",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "venir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "y": [
+      {
+        "lemma": "y",
+        "partOfSpeech": "conj"
+      }
+    ],
+    "ya": [
+      {
+        "lemma": "ya",
+        "partOfSpeech": "adv"
+      },
+      {
+        "lemma": "ya",
+        "partOfSpeech": "conj"
+      },
+      {
+        "lemma": "ya",
+        "partOfSpeech": "intj"
+      }
+    ],
+    "yo": [
+      {
+        "lemma": "yo",
+        "partOfSpeech": "pron"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine"
+          ]
+        },
+        "lemma": "yo",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "él": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "masculine",
+            "singular"
+          ]
+        },
+        "lemma": "él",
+        "partOfSpeech": "pron"
+      }
+    ],
+    "ír": [],
+    "útil": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "útil",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "útil",
+        "partOfSpeech": "adj"
+      }
+    ]
+  }
+}
