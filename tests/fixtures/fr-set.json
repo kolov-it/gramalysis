@@ -285523,6 +285523,31 @@
         "surface": "train"
       }
     ],
+    "trains": [
+      {
+        "confidence": "high",
+        "form": {
+          "label": "masculine plural",
+          "tags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "masculine",
+            "plural"
+          ]
+        },
+        "lemma": "train",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "trains"
+      }
+    ],
     "traira": [
       {
         "confidence": "high",

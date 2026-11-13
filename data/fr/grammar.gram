@@ -170,8 +170,8 @@ rule question.qu-est-ce-qui: S[inv=yes] -> QPron Verb[lemma=être, person=3, num
 rule question.wh-phrase: S[inv=yes] -> WhP S[imp=no]
   "A question phrase opens the question (Quel livre lis-tu ? Combien de temps faut-il ?)."
 
-rule question.wh-phrase-subject: S[inv=yes] -> WhP VP[finite=yes, form=fin, subj=no, person=3]
-  "A question phrase as the subject (Quel train part à midi ?)."
+rule question.wh-phrase-subject: S[inv=yes] -> WhP[number=?n, gender=?g] VP[finite=yes, form=fin, subj=no, person=3, number=?n, pnum=?n, gender=?g]
+  "A question phrase as the subject; the verb agrees with it (Quel train part à midi ? Quels trains partent ?)."
 
 rule question.preposition: S[inv=yes] -> Prep Wh S[imp=no]
   "A preposition + question word opens the question (À quoi penses-tu ? Avec qui parles-tu ?)."
@@ -191,13 +191,13 @@ rule wh.pronoun: Wh -> QPron
 rule wh.phrase: Wh -> WhP
   "A question phrase."
 
-rule whp.determiner: WhP -> QDet[number=?n, gender=?g] Nom[number=?n, gender=?g]
+rule whp.determiner: WhP[number=?n, gender=?g] -> QDet[number=?n, gender=?g] Nom[number=?n, gender=?g]
   "quel + noun (quel livre, quelle heure)."
 
-rule whp.combien: WhP -> QQuant Prep[lemma=de] Nom
+rule whp.combien: WhP[number=?n, gender=?g] -> QQuant Prep[lemma=de] Nom[number=?n, gender=?g]
   "combien de + noun (combien de temps)."
 
-rule whp.lequel: WhP -> QPron[lemma=lequel]
+rule whp.lequel: WhP[number=?n, gender=?g] -> QPron[lemma=lequel, number=?n, gender=?g]
   "lequel, laquelle = which one."
 
 # ------------------------------------------------------- noun phrases
@@ -968,6 +968,12 @@ rule vp.object-adverb-first: VP[finite=?f, form=?fm, mood=?m, person=?p, number=
 
 rule vp.copula-nonfinite: VP[finite=no, form=?fm, subj=no] -> Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] AP[participle_etre=no]
   "An infinitive or -ant linking verb + adjective (peut paraître étrange, étant malade)."
+
+rule vp.copula-nonfinite-negated: VP[finite=no, form=inf, subj=no] -> Neg NegAdv[only=no] Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf] AP[participle_etre=no]
+  "ne pas before an infinitive linking verb + adjective (elle semble ne pas être heureuse)."
+
+rule vp.copula-nonfinite-negated-noun: VP[finite=no, form=inf, subj=no] -> Neg NegAdv[only=no] Verb[lemma=être|devenir|rester, form=inf] NP[case=obl]
+  "ne pas before an infinitive linking verb + noun phrase (pour ne pas être un fardeau)."
 
 rule vp.copula-nonfinite-clitic: VP[finite=no, form=?fm, subj=no] -> Clitics[attached=no, reflexive=no, acc=no] Verb[lemma=être|devenir|sembler|paraître|rester|demeurer, form=inf|prespart|ger, form=?fm] AP[participle_etre=no]
   "An indirect pronoun before an infinitive linking verb + adjective (elle semble en être heureuse)."

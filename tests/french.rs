@@ -311,3 +311,16 @@ async fn complex_inversion_checks_the_pronoun_against_the_noun() {
     assert!(!parses(&run("La femme est-il heureuse ?").await));
     assert!(!parses(&run("La femme parle-t-il ?").await));
 }
+
+#[tokio::test]
+async fn a_question_phrase_subject_agrees_with_its_verb() {
+    assert!(parses(&run("Quel train part ?").await));
+    assert!(!parses(&run("Quel train partent ?").await));
+}
+
+#[tokio::test]
+async fn ne_pas_before_an_infinitive_linking_verb() {
+    let a = run("Elle semble ne pas être heureuse.").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "heureuse")[0].starts_with("heureux Adj"));
+}

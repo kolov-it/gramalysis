@@ -1188,6 +1188,59 @@
           "clitic": false
         }
       }
+    ],
+    "part": [
+      {
+        "lemma": "partir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "partent": [
+      {
+        "lemma": "partir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "plural",
+          "clitic": false
+        }
+      }
+    ],
+    "train": [
+      {
+        "lemma": "train",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "être": [
+      {
+        "lemma": "être",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "formKind": "infinitive",
+          "clitic": false
+        }
+      }
     ]
   }
 }
