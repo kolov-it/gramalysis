@@ -324,3 +324,32 @@ async fn ne_pas_before_an_infinitive_linking_verb() {
     assert!(parses(&a));
     assert!(agreed(&a, "heureuse")[0].starts_with("heureux Adj"));
 }
+
+#[tokio::test]
+async fn one_auxiliary_for_two_participles() {
+    assert!(parses(&run("J'ai mangé et bu.").await));
+}
+
+#[tokio::test]
+async fn coordinated_third_person_subjects_take_a_third_person_verb() {
+    assert!(parses(&run("Le chat et le chien sont là.").await));
+    assert!(!parses(&run("Le chat et le chien êtes là.").await));
+}
+
+#[tokio::test]
+async fn past_infinitive_with_avoir_does_not_agree() {
+    assert!(parses(&run("Elle veut avoir mangé.").await));
+    assert!(!parses(&run("Elle veut avoir mangées.").await));
+}
+
+#[tokio::test]
+async fn question_phrase_as_the_subject_of_an_indirect_question() {
+    assert!(parses(&run("Je sais quel train part.").await));
+}
+
+#[tokio::test]
+async fn reflexive_object_before_a_predicative_adjective() {
+    let a = run("Je me vois fatigué.").await;
+    assert!(parses(&a));
+    assert!(agreed(&a, "fatigué")[0].starts_with("fatiguer Verb"));
+}

@@ -1241,6 +1241,102 @@
           "clitic": false
         }
       }
+    ],
+    "bu": [
+      {
+        "lemma": "boire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle"
+        }
+      }
+    ],
+    "chat": [
+      {
+        "lemma": "chat",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "chien": [
+      {
+        "lemma": "chien",
+        "partOfSpeech": "noun",
+        "grammar": {
+          "rawTags": [
+            "masculine"
+          ],
+          "gender": "masculine",
+          "number": "singular",
+          "clitic": false
+        }
+      }
+    ],
+    "vois": [
+      {
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      },
+      {
+        "lemma": "voir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "second",
+          "number": "singular"
+        }
+      }
+    ],
+    "sais": [
+      {
+        "lemma": "savoir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "clitic": false,
+          "mood": "indicative",
+          "tense": "present",
+          "person": "first",
+          "number": "singular"
+        }
+      }
+    ],
+    "veut": [
+      {
+        "lemma": "vouloir",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "mood": "indicative",
+          "tense": "present",
+          "person": "third",
+          "number": "singular",
+          "clitic": false
+        }
+      }
     ]
   }
 }
