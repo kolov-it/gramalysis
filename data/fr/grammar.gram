@@ -470,11 +470,17 @@ rule v.inverted-perfect-avoir: V[lemma=?l, finite=yes, form=fin, mood=?m, person
 rule v.inverted-perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
   "Inverted avoir, an adverb, the participle (As-tu déjà mangé ?)."
 
-rule v.proclitic-inverted-perfect-avoir: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=?a, neg=no] -> Clitics[attached=no, reflexive=no, acc=?a, anum=?on, agen=?og, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule v.proclitic-inverted-perfect-avoir: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=yes, neg=no] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A pronoun, then inverted avoir and the participle (L'as-tu vue ? M'avez-vous appelé ?)."
 
-rule v.proclitic-inverted-perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=?a, neg=?ng] -> Clitics[attached=no, reflexive=no, acc=?a, anum=?on, agen=?og, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
+rule v.proclitic-inverted-perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=yes, neg=?ng] -> Clitics[attached=no, reflexive=no, acc=yes, anum=?on, agen=?og, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=?on, gender=?og]
   "A pronoun, inverted avoir, an adverb or pas, then the participle, which agrees with a direct object pronoun (L'as-tu déjà vue ? Ne l'as-tu pas vu ?)."
+
+rule v.indirect-inverted-perfect-avoir: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=no] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
+  "An indirect pronoun (lui, leur, y, en), inverted avoir and the participle, which does not agree (Lui as-tu écrit ?)."
+
+rule v.indirect-inverted-perfect-avoir-adverb: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, subj=yes, acc=no, neg=?ng] -> Clitics[attached=no, reflexive=no, acc=no, refl=?r, obj=?o] Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Pron[attached=yes, case=nom, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=?l, form=pastpart, takes_avoir=yes, number=sg, gender=m]
+  "The same with an adverb or pas (Ne lui as-tu pas écrit ?)."
 
 rule v.inverted-perfect-etre: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, pnum=?pn, subj=yes, acc=no, neg=no] -> Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=?l, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
   "A compound tense with être, inverted (Est-il parti ?)."
@@ -630,14 +636,26 @@ rule cop.perfect: Cop[mood=?m, person=?p, number=?n, subj=no, marked=yes, neg=no
 rule cop.perfect-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=yes, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=être, form=pastpart]
   "être in a compound tense, inverted (A-t-elle été malade ?)."
 
-rule cop.perfect-other: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=no] -> Verb[lemma=avoir|être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart]
-  "Another linking verb in a compound tense (il est devenu, elle a semblé)."
+rule cop.perfect-inverted-adverb: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=yes, neg=?ng, pnum=?pn, gender=?g] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Mod[neg=?ng] Verb[lemma=être, form=pastpart]
+  "être in a compound tense, inverted, with an adverb or pas (A-t-elle déjà été heureuse ?)."
 
-rule cop.perfect-other-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=?ng] -> Verb[lemma=avoir|être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart]
-  "Another linking verb in a compound tense with an adverb or pas (il est déjà devenu, il n'est pas resté)."
+rule cop.perfect-other: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=no] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_avoir=yes, number=sg, gender=m]
+  "A linking verb that takes avoir in a compound tense; its participle does not agree (elle a semblé heureuse)."
 
-rule cop.perfect-other-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=no, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=avoir|être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart]
-  "Another linking verb in a compound tense, inverted (Est-elle devenue riche ?)."
+rule cop.perfect-other-etre: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+  "A linking verb that takes être in a compound tense; its participle agrees with the subject (elle est devenue heureuse)."
+
+rule cop.perfect-other-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_avoir=yes, number=sg, gender=m]
+  "A linking verb that takes avoir in a compound tense with an adverb or pas (elle n'a pas semblé heureuse)."
+
+rule cop.perfect-other-etre-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=no, neg=?ng, pnum=?pn, gender=?g] -> Verb[lemma=être, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+  "A linking verb that takes être in a compound tense with an adverb or pas; the participle agrees (il est déjà devenu, elle n'est pas restée)."
+
+rule cop.perfect-other-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=no, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=avoir, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_avoir=yes, number=sg, gender=m]
+  "A linking verb that takes avoir in a compound tense, inverted (A-t-elle semblé heureuse ?)."
+
+rule cop.perfect-other-etre-inverted: Cop[mood=?m, person=?p, number=?n, subj=yes, marked=no, neg=no, pnum=?pn, gender=?g] -> Verb[lemma=être, finite=yes, mood=ind|cnd|sub, mood=?m, person=?p, number=?n] Pron[attached=yes, case=nom, person=?p, number=?n, pnum=?pn, gender=?g] Verb[lemma=devenir|sembler|paraître|rester|demeurer, form=pastpart, takes_etre=yes, number=?pn, gender=?g]
+  "A linking verb that takes être in a compound tense, inverted; the participle agrees (Est-elle devenue riche ?)."
 
 rule cop.perfect-adverb: Cop[mood=?m, person=?p, number=?n, subj=no, marked=yes, neg=?ng] -> Verb[lemma=avoir, finite=yes, mood=?m, person=?p, number=?n] Mod[neg=?ng] Verb[lemma=être, form=pastpart]
   "être in a compound tense with an adverb (il a toujours été, je n'ai jamais été)."

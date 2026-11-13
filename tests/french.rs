@@ -208,3 +208,16 @@ async fn inverted_compound_passive_agrees_with_its_subject() {
 async fn other_linking_verb_in_a_compound_tense_with_pas() {
     assert!(parses(&run("Il n'est pas devenu heureux.").await));
 }
+
+#[tokio::test]
+async fn an_indirect_pronoun_before_inverted_avoir_leaves_the_participle_unagreed() {
+    assert!(parses(&run("Lui as-tu écrit ?").await));
+    assert!(!parses(&run("Lui as-tu écrite ?").await));
+    assert!(parses(&run("L'as-tu écrite ?").await));
+}
+
+#[tokio::test]
+async fn a_linking_verb_with_etre_agrees_in_its_compound_tense() {
+    assert!(!parses(&run("Elle est devenu heureuse.").await));
+    assert!(parses(&run("Il est devenu heureux.").await));
+}

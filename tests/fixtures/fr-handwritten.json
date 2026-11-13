@@ -883,6 +883,34 @@
           "clitic": false
         }
       }
+    ],
+    "écrit": [
+      {
+        "lemma": "écrire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "masculine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
+    ],
+    "écrite": [
+      {
+        "lemma": "écrire",
+        "partOfSpeech": "verb",
+        "grammar": {
+          "rawTags": [],
+          "tense": "past",
+          "number": "singular",
+          "gender": "feminine",
+          "formKind": "past-participle",
+          "clitic": false
+        }
+      }
     ]
   }
 }
