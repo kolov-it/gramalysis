@@ -38,7 +38,7 @@ rule np.numeral: NP[person=3, number=pl, gender=?g] -> Num Nom[number=pl, gender
 rule nom.noun: Nom[number=?n, gender=?g, onset=?o] -> Noun[number=?n, gender=?g, onset=?o]
   "A noun."
 
-rule nom.adjective-after: Nom[after_participle=?x, number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] AP[participle=?x, number=?n, gender=?g]
+rule nom.adjective-after: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] AP[number=?n, gender=?g]
   "An adjective after its noun agrees with it in gender and number."
 
 rule nom.adjective-before: Nom[number=?n, gender=?g, onset=?o] -> Adj[number=?n, gender=?g, onset=?o] Nom[number=?n, gender=?g]
@@ -212,8 +212,8 @@ rule np.bare: NP[case=obl, person=3, number=?n, gender=?g] -> Nom[number=?n, gen
 rule np.coordination: NP[number=pl] -> NP Conj[type=coord] NP
   "Two noun phrases joined by e, o, ma (Tom e Mary, io e lui)."
 
-rule nom.prepositional-phrase: Nom[number=?n, gender=?g, onset=?o] -> Nom[after_participle=no, number=?n, gender=?g, onset=?o] PP
-  "A phrase with a preposition describes the noun (la casa di Tom, il libro sul tavolo). Right after a participle it belongs to the participle instead (il fiume passante per Parigi)."
+rule nom.prepositional-phrase: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] PP
+  "A phrase with a preposition describes the noun (la casa di Tom, il libro sul tavolo). After a participle it can also describe the noun, so un suono soffocato di pianti is both a muffled sound of crying and a sound suffocated by crying."
 
 rule np.relative: NP[person=?p, number=?n, gender=?g, case=?c] -> NP[person=?p, number=?n, gender=?g, case=?c] Rel
   "A clause with che or cui describes the noun (il libro che leggo)."

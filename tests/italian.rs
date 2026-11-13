@@ -241,3 +241,21 @@ async fn present_participle_agrees_in_number() {
     assert!(!run("Guardava il treno fuggente.").await.parses.is_empty());
     assert!(run("Guardava le foglie fuggente.").await.parses.is_empty());
 }
+
+/// A phrase right after a participle belongs to the participle or to the noun,
+/// and both readings are returned: un suono soffocato di pianti is a sound
+/// suffocated by crying or a muffled sound of crying.
+#[tokio::test]
+async fn phrase_after_a_participle_has_both_readings() {
+    let lexicon = FixtureLexicon::load(Path::new("tests/fixtures/it-literature.json")).unwrap();
+    let sentence = "A questo punto si sentì nella camera un suono soffocato di pianti e singhiozzi.";
+    let a = analyze(&lexicon, &Italian::load().unwrap(), sentence).await.unwrap();
+    assert!(a.unknown.is_empty(), "unknown {:?}", a.unknown);
+    let c = a.chosen.iter().find(|c| c.token == "soffocato").unwrap();
+    assert!(participle_as_verb(&a, "soffocato", "soffocare"), "{c:?}");
+    assert!(
+        c.uses.iter().any(|uses| uses.iter().any(|u| u == "ap.participle"))
+            || c.readings.iter().any(|r| r[0].cat == "Adj"),
+        "{c:?}"
+    );
+}
