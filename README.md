@@ -34,7 +34,7 @@ the noun *work* or the verb *I work*; only the noun fits).
 
 Italian first, then [Spanish](#spanish) and [French](#french); the design is multilingual from the start.
 
-**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 118 rules)
+**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 119 rules)
 covers agreement and the dropped subject; articles (with the *il / lo / l'*
 choice by the next word's first sound), demonstratives, quantifiers and
 possessives; clitic pronouns before and after the verb; compound tenses, the

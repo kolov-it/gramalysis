@@ -245,8 +245,19 @@ fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: boo
                 .zip(&c.uses)
                 .map(|(r, uses)| {
                     let text = r.iter().map(|m| format!("{} {} {}", m.lemma, m.cat, feats::display(&m.feats))).collect::<Vec<_>>().join(" + ");
-                    if uses.iter().any(|u| u == "ap.participle") {
-                        let how: Vec<&str> = uses.iter().map(|u| if u == "ap.participle" { "adjective" } else { u.as_str() }).collect();
+                    let adjective =
+                        |u: &String| u == "ap.participle" || u == "ap.present-participle";
+                    if uses.iter().any(adjective) {
+                        let how: Vec<&str> = uses
+                            .iter()
+                            .map(|u| {
+                                if adjective(u) {
+                                    "adjective"
+                                } else {
+                                    u.as_str()
+                                }
+                            })
+                            .collect();
                         format!("{text} [used as: {}]", how.join(", "))
                     } else {
                         text

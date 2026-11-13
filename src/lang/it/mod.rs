@@ -13,7 +13,7 @@ pub use tokenize::tokenize;
 use std::collections::HashSet;
 
 use crate::lang::Language;
-use crate::morph::{Analysis, Lang, PartOfSpeech, Reading};
+use crate::morph::{Analysis, FormKind, Lang, Number, PartOfSpeech, Reading};
 use crate::syntax::feats::{self, FeatMap};
 use crate::syntax::grammar::{Grammar, GrammarError};
 use crate::syntax::lattice::{Lattice, Morpheme};
@@ -107,7 +107,8 @@ impl Italian {
                 if listed {
                     continue;
                 }
-                readings.extend(self.morphemes(&lower, token, reading));
+                let reading = present_participle_features(reading.clone(), &lower);
+                readings.extend(self.morphemes(&lower, token, &reading));
             }
             merge_participle_adjectives(&mut readings, &self.drifted);
             // Words from the lexicon carry the sound they start with, for the
@@ -200,7 +201,9 @@ impl Italian {
 ///   `ap.participle` refuses;
 /// - a present participle (pesante, corrente): in Italian it is almost always
 ///   an adjective, and a verb only with the verb's complements
-///   (`partp.present`: il fiume passante per Parigi).
+///   (`partp.present`: il fiume passante per Parigi). The participle itself
+///   can be used like an adjective too (`ap.present-participle`), which
+///   covers the forms without an adjective entry (il treno fuggente).
 ///
 /// Adjectives are marked `participle=<verb>` when the token is also that
 /// verb's participle, `participle=no` otherwise, so `ap.complement` can leave
@@ -226,6 +229,37 @@ fn merge_participle_adjectives(readings: &mut Vec<Vec<Morpheme>>, drifted: &Hash
             m.feats.insert("drifted".to_owned(), "yes".to_owned());
         }
     }
+}
+
+/// Present participles and the adjectives made from them (tremante,
+/// sorridente) have one form for both genders, -nte in the singular and -nti
+/// in the plural. The lexicon leaves that out in two ways, corrected here:
+/// - a present participle comes without a number (fuggente), so it would
+///   agree with a plural noun; the ending gives it;
+/// - the plural of such an adjective can come back masculine only (tremanti:
+///   masculine plural), so it would refuse a feminine noun (le foglie
+///   tremanti); its gender is left unknown.
+fn present_participle_features(mut reading: Reading, form: &str) -> Reading {
+    let number = if form.ends_with("nte") {
+        Number::Singular
+    } else if form.ends_with("nti") {
+        Number::Plural
+    } else {
+        return reading;
+    };
+    match reading.pos {
+        PartOfSpeech::Verb if reading.features.form_kind == Some(FormKind::PresentParticiple) => {
+            reading.features.number.get_or_insert(number);
+        }
+        PartOfSpeech::Adjective
+            if number == Number::Plural
+                && reading.lemma.strip_suffix('e') == form.strip_suffix('i') =>
+        {
+            reading.features.gender = None;
+        }
+        _ => {}
+    }
+    reading
 }
 
 /// A past participle's masculine singular: participles inflect like
