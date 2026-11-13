@@ -639,3 +639,29 @@ async fn subject_control_reaches_through_a_prepositional_infinitive() {
     assert!(parses(&run("Je veux essayer de me laver.").await));
     assert!(!parses(&run("Je veux essayer de se laver.").await));
 }
+
+#[tokio::test]
+async fn a_reflexive_past_infinitive_is_controlled_by_the_subject() {
+    assert!(parses(&run("Je crois m'être levé.").await));
+    assert!(!parses(&run("Je crois s'être levé.").await));
+}
+
+#[tokio::test]
+async fn est_ce_que_keeps_the_clause_mood() {
+    assert!(parses(&run("Est-ce qu'il est heureux ?").await));
+    assert!(!parses(&run("Est-ce qu'il soit heureux ?").await));
+}
+
+#[tokio::test]
+async fn quantities_below_two_take_a_singular_noun() {
+    assert!(parses(&run("Il reste 1,5 heure.").await));
+    assert!(parses(&run("Il reste 0 minute.").await));
+    assert!(!parses(&run("Il reste 0 minutes.").await));
+    assert!(parses(&run("Il reste 2 minutes.").await));
+    assert!(parses(&run("Il reste 100 000 minutes.").await));
+}
+
+#[tokio::test]
+async fn where_and_whatever_clauses_take_the_subjunctive() {
+    assert!(parses(&run("Où que tu ailles, je te suivrai.").await));
+}

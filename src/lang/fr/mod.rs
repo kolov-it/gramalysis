@@ -192,8 +192,12 @@ impl French {
             // A number written in digits (3, 1966, 9,4 %), whatever else the
             // lexicon reads it as (20 as a noun, 2 as de).
             if token.chars().any(|c| c.is_ascii_digit()) {
-                // 1 takes a singular noun (1 lettre), every other number a plural.
-                let number = if lower == "1" { "sg" } else { "pl" };
+                // A quantity below two takes a singular noun (1 lettre, 0 minute,
+                // 1,5 heure), every other number a plural. 000 is a group of a
+                // larger number (100 000 yens), not zero.
+                let group = lower.len() > 1 && lower.starts_with('0') && !lower.starts_with("0,");
+                let below_two = !group && lower.replace(',', ".").parse::<f64>().is_ok_and(|v| v.abs() < 2.0);
+                let number = if below_two { "sg" } else { "pl" };
                 let feats = FeatMap::from([("number".to_owned(), number.to_owned())]);
                 readings.push(vec![Morpheme { surface: token.clone(), lemma: lower.clone(), cat: "Num".to_owned(), feats }]);
             }
