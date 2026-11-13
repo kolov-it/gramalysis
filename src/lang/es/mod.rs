@@ -159,9 +159,14 @@ impl Spanish {
                         let obj = if m.lemma == "ir" { "no" } else { "yes" };
                         m.feats.insert("obj".to_owned(), obj.to_owned());
                         if m.lemma == "haber" {
-                            // ha only forms compound tenses; there is = hay.
-                            let exist = if m.surface.to_lowercase() == "ha" { "no" } else { "yes" };
+                            // ha only forms compound tenses, hay only says
+                            // there is: exist and perf (auxiliary of a
+                            // compound tense) tell them apart.
+                            let surface = m.surface.to_lowercase();
+                            let exist = if surface == "ha" { "no" } else { "yes" };
+                            let perf = if surface == "hay" { "no" } else { "yes" };
                             m.feats.insert("exist".to_owned(), exist.to_owned());
+                            m.feats.insert("perf".to_owned(), perf.to_owned());
                         }
                     }
                 }

@@ -5,7 +5,8 @@
 # A feature a word does not have is unknown and matches anything, so rules
 # select on features every candidate word carries: every verb has `class`
 # (ser, estar, haber or lex) and `obj` (no for ir, which never takes a
-# direct object), every conjugated form has form=fin, every
+# direct object), haber has `exist` (no for ha) and `perf` (no for hay),
+# every conjugated form has form=fin, every
 # clitic has `attached`, every adjective phrase has `participle`.
 
 start S
@@ -209,19 +210,19 @@ rule v.enclitic-nonfinite: V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=
 rule v.enclitic-imperative: V[obj=?ob, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=imp, person=?p, number=?n] -> Verb[class=lex|estar|ser, obj=?ob, lemma=?l, form=fin, mood=imp|sub, person=?p, number=?n] Clitics[attached=yes, case=?k, refl=?p, obj!=?p]
   "Clitic pronouns attach to the end of an affirmative command (dámelo, siéntese, hagámoslo)."
 
-rule v.perfect: V[obj=?ob, aux=haber, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[class=lex|estar|haber, obj=?ob, lemma=?l, form=pastpart, gender=m, number=sg]
+rule v.perfect: V[obj=?ob, aux=haber, lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, perf=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[class=lex|estar|haber, obj=?ob, lemma=?l, form=pastpart, gender=m, number=sg]
   "A compound tense: haber + past participle, which does not agree (he cerrado, había llegado, habiendo dicho)."
 
-rule v.perfect-proclitic: V[obj=?ob, aux=haber, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[class=haber, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[class=lex|estar|haber, obj=?ob, lemma=?l, form=pastpart, gender=m, number=sg]
+rule v.perfect-proclitic: V[obj=?ob, aux=haber, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[class=haber, perf=yes, form=fin, mood=ind|sub|cnd, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[class=lex|estar|haber, obj=?ob, lemma=?l, form=pastpart, gender=m, number=sg]
   "Clitic pronouns before haber in a compound tense (lo he hecho, me he levantado)."
 
-rule v.perfect-enclitic: V[obj=?ob, aux=haber, lemma=?l, clitic_case=?k, finite=no, form=?fm] -> Verb[class=haber, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, case=?k] Verb[class=lex|estar|haber, obj=?ob, lemma=?l, form=pastpart, gender=m, number=sg]
+rule v.perfect-enclitic: V[obj=?ob, aux=haber, lemma=?l, clitic_case=?k, finite=no, form=?fm] -> Verb[class=haber, perf=yes, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, case=?k] Verb[class=lex|estar|haber, obj=?ob, lemma=?l, form=pastpart, gender=m, number=sg]
   "Clitics on haber in a compound infinitive or gerund (haberlo hecho, habiéndose ido)."
 
 rule v.progressive: V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=estar|lex, lemma=estar|seguir|ir|andar|venir|llevar|continuar, finite=?f, form=?fm, mood=?m, person=?p, number=?n] V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=ger]
   "estar, seguir, ir, andar, venir or llevar + gerund: an action in progress (estoy leyendo, sigue lloviendo)."
 
-rule v.progressive-perfect: V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[lemma=estar, form=pastpart, gender=m, number=sg] V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=ger]
+rule v.progressive-perfect: V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, perf=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[lemma=estar, form=pastpart, gender=m, number=sg] V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=ger]
   "haber estado + gerund (he estado trabajando)."
 
 rule clitics.reflexive: Clitics[reflexive=yes, attached=?a, refl=?p, case=?k] -> Pron[attached=?a, clitic=yes, case=?k, case=refl, person=?p]
@@ -345,13 +346,13 @@ rule vp.existential-progressive: VP[finite=?f, form=?fm, mood=?m, person=3, numb
 rule vp.haber-que: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=haber, exist=yes, finite=?f, form=?fm, mood=?m, person=3, number=sg] Conj[lemma=que] VP[form=inf]
   "hay que + infinitive: one has to (hay que estudiar)."
 
-rule vp.haber-que-perfect: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=3, number=sg] Verb[class=haber, form=pastpart, gender=m, number=sg] Conj[lemma=que] VP[form=inf]
+rule vp.haber-que-perfect: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=haber, perf=yes, finite=?f, form=?fm, mood=?m, person=3, number=sg] Verb[class=haber, form=pastpart, gender=m, number=sg] Conj[lemma=que] VP[form=inf]
   "ha habido que + infinitive: one has had to (ha habido que esperar)."
 
 rule vp.haber-de: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Prep[lemma=de] VP[form=inf]
   "haber de + infinitive: must, will (he de reconocer)."
 
-rule vp.existential-perfect: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=3, number=sg] Verb[class=haber, form=pastpart, gender=m, number=sg] NP[case=obl]
+rule vp.existential-perfect: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=haber, perf=yes, finite=?f, form=?fm, mood=?m, person=3, number=sg] Verb[class=haber, form=pastpart, gender=m, number=sg] NP[case=obl]
   "ha habido + a noun phrase: there has been (ha habido un accidente)."
 
 # ------------------------------------------------- ser: what something is
@@ -364,7 +365,7 @@ rule vp.existential-perfect: VP[finite=?f, form=?fm, mood=?m, person=3, number=s
 rule serv.verb: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=ser, finite=?f, form=?fm, mood=?m, person=?p, number=?n]
   "ser."
 
-rule serv.perfect: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[class=ser, form=pastpart, gender=m, number=sg]
+rule serv.perfect: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, perf=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[class=ser, form=pastpart, gender=m, number=sg]
   "ser in a compound tense (ha sido, había sido)."
 
 rule serv.proclitic: SerV[finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, reflexive=no, case=dat] SerV[form=fin, mood=?m, person=?p, number=?n]
@@ -394,13 +395,25 @@ rule vp.ser-lo: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Pron[a
 rule serv.enclitic: SerV[finite=no, form=?fm] -> Verb[class=ser, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, reflexive=no, case=dat]
   "A dative clitic attached to ser (puede serme útil, siéndole fiel)."
 
-rule serv.perfect-enclitic: SerV[finite=no, form=?fm] -> Verb[class=haber, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, reflexive=no, case=dat] Verb[class=ser, form=pastpart, gender=m, number=sg]
+rule serv.perfect-enclitic: SerV[finite=no, form=?fm] -> Verb[class=haber, perf=yes, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, reflexive=no, case=dat] Verb[class=ser, form=pastpart, gender=m, number=sg]
   "A dative clitic on haber before sido (puede haberme sido útil)."
 
 rule serv.impersonal-se: SerV[finite=yes, form=fin, mood=?m, person=3, number=sg] -> Pron[lemma=se, case=refl, attached=no] SerV[form=fin, mood=?m, person=3, number=sg]
   "Impersonal se with ser: one is (aquí se es feliz)."
 
-rule vp.ser-lo-perfect-enclitic: VP[finite=no, form=?fm] -> Verb[class=haber, finite=no, form=inf|ger, form=?fm] Pron[lemma=lo, attached=yes, case=acc, gender=m, number=sg] Verb[class=ser, form=pastpart, gender=m, number=sg]
+rule vp.estar-lo: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Pron[lemma=lo, attached=no, case=acc, gender=m, number=sg] Cop[lemma=estar, form=fin, mood=?m, person=?p, number=?n]
+  "lo stands for estar's predicate (lo estoy, lo puedo estar)."
+
+rule vp.existential-climbed: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Clitics[attached=no, case=acc] V[lemma=poder|deber|soler|ir|volver|dejar, finite=?f, form=?fm, mood=?m, person=3, number=sg] Verb[class=haber, exist=yes, form=inf]
+  "The object of existential haber climbs onto the modal (los puede haber)."
+
+rule clause.exclamation-copula: S -> QDet[lemma=qué] AP SerV
+  "qué + adjective + ser (¡Qué difícil es!)."
+
+rule clause.exclamation-copula-subject: S -> QDet[lemma=qué] AP[number=?n, gender=?g] SerV[person=?p, number=?n] NP[case=nom, person=?p, number=?n, gender=?g]
+  "qué + adjective + ser + subject (¡Qué bonita es tu casa!)."
+
+rule vp.ser-lo-perfect-enclitic: VP[finite=no, form=?fm] -> Verb[class=haber, perf=yes, finite=no, form=inf|ger, form=?fm] Pron[lemma=lo, attached=yes, case=acc, gender=m, number=sg] Verb[class=ser, form=pastpart, gender=m, number=sg]
   "lo on haber stands for ser's predicate (puedo haberlo sido)."
 
 rule serv.negation: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Adv[neg=yes] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
@@ -466,10 +479,10 @@ rule cop.proclitic: Cop[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, numb
 rule cop.enclitic: Cop[lemma=?l, finite=no, form=?fm] -> Verb[class=estar|lex, lemma=estar|quedar|sentir|ver|encontrar|volver|poner|hacer|mantener, lemma=?l, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, case=refl|dat]
   "A reflexive or dative clitic attached to an infinitive linking verb (estarle agradecido, quedarse quieto, sentirse solo)."
 
-rule cop.perfect: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[class=estar|lex, lemma=estar|parecer|quedar|resultar|seguir|andar|sentir|ver|encontrar|permanecer|mostrar|volver|poner|hacer|mantener|lucir|continuar, lemma=?l, form=pastpart, gender=m, number=sg]
+rule cop.perfect: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=haber, perf=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Verb[class=estar|lex, lemma=estar|parecer|quedar|resultar|seguir|andar|sentir|ver|encontrar|permanecer|mostrar|volver|poner|hacer|mantener|lucir|continuar, lemma=?l, form=pastpart, gender=m, number=sg]
   "A linking verb in a compound tense (ha estado, ha quedado)."
 
-rule cop.perfect-proclitic: Cop[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no] Verb[class=haber, finite=yes, mood=?m, person=?p, number=?n] Verb[class=estar|lex, lemma=estar|parecer|quedar|resultar|seguir|andar|sentir|ver|encontrar|permanecer|mostrar|volver|poner|hacer|mantener|lucir|continuar, lemma=?l, form=pastpart, gender=m, number=sg]
+rule cop.perfect-proclitic: Cop[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no] Verb[class=haber, perf=yes, finite=yes, mood=?m, person=?p, number=?n] Verb[class=estar|lex, lemma=estar|parecer|quedar|resultar|seguir|andar|sentir|ver|encontrar|permanecer|mostrar|volver|poner|hacer|mantener|lucir|continuar, lemma=?l, form=pastpart, gender=m, number=sg]
   "A clitic before a linking verb in a compound tense (se ha quedado, me he sentido)."
 
 rule cop.modal: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> V[lemma=poder|deber|soler|parecer|querer|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|temer|odiar|merecer, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Cop[lemma=?l, form=inf]
@@ -478,7 +491,7 @@ rule cop.modal: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n
 rule cop.progressive: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=estar|lex, lemma=estar|seguir|andar|ir|venir, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Cop[lemma=?l, form=ger]
   "A linking verb in progress keeps its complement (me estoy sintiendo cansado, se está poniendo nervioso)."
 
-rule cop.perfect-enclitic: Cop[lemma=?l, finite=no, form=?fm] -> Verb[class=haber, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, case=refl|dat] Verb[class=estar|lex, lemma=estar|parecer|quedar|resultar|seguir|andar|sentir|ver|encontrar|permanecer|mostrar|volver|poner|hacer|mantener|lucir|continuar, lemma=?l, form=pastpart, gender=m, number=sg]
+rule cop.perfect-enclitic: Cop[lemma=?l, finite=no, form=?fm] -> Verb[class=haber, perf=yes, finite=no, form=inf|ger, form=?fm] Clitics[attached=yes, case=refl|dat] Verb[class=estar|lex, lemma=estar|parecer|quedar|resultar|seguir|andar|sentir|ver|encontrar|permanecer|mostrar|volver|poner|hacer|mantener|lucir|continuar, lemma=?l, form=pastpart, gender=m, number=sg]
   "A clitic on haber before a linking verb's participle (puede haberse quedado cansado)."
 
 rule cop.negation: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Adv[neg=yes] Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n]

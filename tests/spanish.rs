@@ -494,3 +494,26 @@ async fn every_linking_verb_in_a_compound_tense() {
     assert!(!run("Ha continuado feliz.").await.parses.is_empty());
     assert!(!run("Se ha mostrado feliz.").await.parses.is_empty());
 }
+
+#[tokio::test]
+async fn attributive_lo_with_estar() {
+    assert!(!run("Lo estoy.").await.parses.is_empty());
+    assert!(!run("Lo puedo estar.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn existential_object_climbs() {
+    assert!(!run("Los puede haber.").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn an_exclamation_with_ser() {
+    assert!(!run("¡Qué difícil es!").await.parses.is_empty());
+}
+
+#[tokio::test]
+async fn hay_is_never_an_auxiliary() {
+    let a = run("No hay estado independiente.").await;
+    assert!(agreed(&a, "estado")[0].starts_with("estado Noun"));
+    assert!(run("Hay comido.").await.parses.is_empty());
+}

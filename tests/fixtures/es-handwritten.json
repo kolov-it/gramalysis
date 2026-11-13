@@ -702,6 +702,50 @@
         "partOfSpeech": "noun"
       }
     ],
+    "comido": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": []
+        },
+        "lemma": "comido",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "past-participle",
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "participle",
+            "past"
+          ],
+          "tense": "past"
+        },
+        "lemma": "comer",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "first",
+          "rawTags": [
+            "first-person",
+            "indicative",
+            "present",
+            "singular"
+          ],
+          "tense": "present"
+        },
+        "lemma": "comedir",
+        "partOfSpeech": "verb"
+      }
+    ],
     "como": [
       {
         "lemma": "Como",
@@ -2010,6 +2054,26 @@
         "partOfSpeech": "verb"
       }
     ],
+    "hay": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "impersonal",
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "haber",
+        "partOfSpeech": "verb"
+      }
+    ],
     "he": [
       {
         "lemma": "he",
@@ -2151,6 +2215,36 @@
         "partOfSpeech": "noun"
       }
     ],
+    "independien": [],
+    "independiente": [
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "feminine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "independiente",
+        "partOfSpeech": "adj"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "feminine",
+            "masculine"
+          ]
+        },
+        "lemma": "independiente",
+        "partOfSpeech": "adj"
+      }
+    ],
+    "independién": [],
     "ir": [
       {
         "grammar": {
