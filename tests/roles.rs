@@ -295,3 +295,25 @@ async fn spanish_and_french_have_no_roles_yet() {
         .unwrap();
     assert!(a.roles.iter().all(|r| r.roles.iter().all(Option::is_none)));
 }
+
+#[tokio::test]
+async fn contracted_prepositions_keep_their_phrase_role() {
+    // dalla = da + la: the preposition and the article sit in two children
+    // marked agent, and the word is the agent.
+    let a = set("Tom è amato dalla ragazza.").await;
+    differs(&a, "dalla", Agent, &[Adverbial]);
+    differs(&a, "ragazza", Agent, &[Adverbial]);
+    assert!(token(&a, "dalla").roles.iter().all(Option::is_some));
+    agreed(
+        &set("Tom è nella casa.").await,
+        &[("nella", Some(Adverbial)), ("casa", Some(Adverbial))],
+    );
+    agreed(
+        &set("Tom è alla stazione.").await,
+        &[("alla", Some(Adverbial)), ("stazione", Some(Adverbial))],
+    );
+    // a + il: an adverbial phrase, or part of the object (il libro al ragazzo).
+    let a = set("Ho dato il libro al ragazzo.").await;
+    differs(&a, "al", Adverbial, &[DirectObject]);
+    assert!(token(&a, "al").roles.iter().all(Option::is_some));
+}

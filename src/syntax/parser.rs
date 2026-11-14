@@ -379,7 +379,8 @@ impl Tree {
 
     /// Each token's role in this parse: the innermost phrase with a role that
     /// holds all of the token's morphemes (`dammelo` is the verb group, though
-    /// its `me` and `lo` have roles of their own). `None` outside any role.
+    /// its `me` and `lo` have roles of their own), or the role every one of its
+    /// morphemes has. `None` outside any role.
     pub fn token_roles(&self, tokens: usize) -> Vec<Option<Role>> {
         let mut total = vec![0usize; tokens];
         for (t, _) in self.leaves() {
@@ -387,7 +388,33 @@ impl Tree {
         }
         let mut out = vec![None; tokens];
         self.assign_roles(&total, &mut out);
+        // A token split across sibling phrases of the same role (`dalla` =
+        // da + la in `Prep:agent NP:agent`) has that role, though no one
+        // phrase holds it.
+        let mut morph_roles: Vec<Vec<Option<Role>>> = vec![Vec::new(); tokens];
+        self.morpheme_roles(None, &mut morph_roles);
+        for (t, roles) in morph_roles.iter().enumerate() {
+            if let [Some(first), rest @ ..] = roles.as_slice()
+                && rest.iter().all(|r| r == &Some(*first))
+            {
+                out[t] = Some(*first);
+            }
+        }
         out
+    }
+
+    /// For each token, the role of the innermost phrase with a role holding
+    /// each of its morphemes.
+    fn morpheme_roles(&self, inherited: Option<Role>, out: &mut [Vec<Option<Role>>]) {
+        let role = self.role().or(inherited);
+        match self {
+            Tree::Leaf { token, .. } => out[*token].push(role),
+            Tree::Node { children, .. } => {
+                for c in children {
+                    c.morpheme_roles(role, out);
+                }
+            }
+        }
     }
 
     /// Post-order, so a phrase deeper in the tree claims a token first.
