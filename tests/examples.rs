@@ -30,9 +30,14 @@ async fn run_in(
     texts: &[&str],
     options: Options,
 ) -> (Vec<Example>, u64) {
-    // Patched, as the command line uses it (aver → avere).
+    // `es` answers from tests/fixtures/es-set.json, `es-handwritten` from
+    // es-handwritten.json. Patched, as the command line uses it (aver → avere).
+    let (code, fixture) = match code.split_once('-') {
+        Some((lang, _)) => (lang, code.to_owned()),
+        None => (code, format!("{code}-set")),
+    };
     let fixture =
-        FixtureLexicon::load(Path::new(&format!("tests/fixtures/{code}-set.json"))).unwrap();
+        FixtureLexicon::load(Path::new(&format!("tests/fixtures/{fixture}.json"))).unwrap();
     let lexicon = PatchedLexicon::new(Box::new(fixture), wordholder::patches().unwrap());
     let language = lang::load(code.parse::<Lang>().unwrap()).unwrap();
     let query = Query {
@@ -502,6 +507,37 @@ async fn spanish_pronominal_table_form_with_another_clitic() {
         "No quiero pasarme el resto de mi vida [arrepintiéndome] de ello."
     );
     assert_eq!(e.status, Status::Decided);
+}
+
+#[tokio::test]
+async fn spanish_progressive_passive_keeps_siendo_in_the_group() {
+    let text = "La casa está siendo construida.";
+    let e = one("es-handwritten", "construir", None, text).await;
+    assert_eq!(marked(&e), "La casa [está] [siendo] [construida].");
+    assert_eq!(
+        roles(&e),
+        [Role::Auxiliary, Role::Auxiliary, Role::Participle]
+    );
+    assert_eq!(
+        (e.cells.as_slice(), e.status, e.voice),
+        (
+            ["indicative.present.3s".to_owned()].as_slice(),
+            Status::Decided,
+            Voice::Passive
+        )
+    );
+    // siendo is the passive's auxiliary here, no example of ser; as the
+    // copula it is.
+    let (found, _) = run_in("es-handwritten", "ser", None, &[text], all()).await;
+    assert!(found.is_empty(), "{found:?}");
+    let e = one("es-handwritten", "ser", None, "Está siendo difícil.").await;
+    assert_eq!(
+        (marked(&e).as_str(), e.cells.as_slice()),
+        (
+            "Está [siendo] difícil.",
+            ["non_finite.gerund".to_owned()].as_slice()
+        )
+    );
 }
 
 #[tokio::test]

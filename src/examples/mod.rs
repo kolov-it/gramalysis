@@ -210,6 +210,9 @@ struct VerbGroup {
 #[derive(Debug, Clone)]
 enum Slot {
     Aux(Vec<usize>, String),
+    /// An auxiliary between the governing one and the participle that is not
+    /// a participle itself (siendo in está siendo construida): `aux_layer`.
+    Layer(Vec<usize>, String),
     Participle(Vec<usize>, String),
     Coordinator,
 }
@@ -472,16 +475,23 @@ impl<'a> Extractor<'a> {
     /// phrases it passes the auxiliary up through (usually one).
     fn slots(&self, items: &HashMap<usize, &ChartItem>, item: &ChartItem) -> Vec<Vec<Slot>> {
         let rule = &self.language.grammar().rules[item.rule];
-        let aux_vars: HashSet<&str> = rule
-            .lhs
-            .constraints
-            .iter()
-            .filter(|(k, _)| k.starts_with("aux_"))
-            .filter_map(|(_, v)| match v {
-                Value::Var(v) => Some(v.as_str()),
-                _ => None,
-            })
-            .collect();
+        let vars_of = |layer: bool| -> HashSet<&str> {
+            rule.lhs
+                .constraints
+                .iter()
+                .filter(|(k, _)| k.starts_with("aux_") && (k == "aux_layer") == layer)
+                .filter_map(|(_, v)| match v {
+                    Value::Var(v) => Some(v.as_str()),
+                    _ => None,
+                })
+                .collect()
+        };
+        let (aux_vars, layer_vars) = (vars_of(false), vars_of(true));
+        let feeds = |cat: &Cat, vars: &HashSet<&str>| {
+            cat.constraints
+                .iter()
+                .any(|(_, v)| matches!(v, Value::Var(v) if vars.contains(v.as_str())))
+        };
         let mut out: Vec<Vec<Slot>> = vec![Vec::new()];
         for (at, cat) in rule.rhs.iter().enumerate() {
             let edges: Vec<usize> = item.children[at]
@@ -493,12 +503,9 @@ impl<'a> Extractor<'a> {
                 .collect();
             let slot = if cat.name == "Verb" && is_participle_slot(cat) {
                 Some(Slot::Participle(edges, rule.name.clone()))
-            } else if cat.name == "Verb"
-                && cat
-                    .constraints
-                    .iter()
-                    .any(|(_, v)| matches!(v, Value::Var(v) if aux_vars.contains(v.as_str())))
-            {
+            } else if cat.name == "Verb" && feeds(cat, &layer_vars) {
+                Some(Slot::Layer(edges, rule.name.clone()))
+            } else if cat.name == "Verb" && feeds(cat, &aux_vars) {
                 Some(Slot::Aux(edges, rule.name.clone()))
             } else if cat.name == "Conj" {
                 Some(Slot::Coordinator)
@@ -555,19 +562,27 @@ impl<'a> Extractor<'a> {
         // a stacked auxiliary (stato in è stato venduto); across one, a verb
         // of its own (sono venuto e partito).
         let rest = &slots[aux_at + 1..];
+        let mut perfect = false;
         for (i, slot) in rest.iter().enumerate() {
-            let Slot::Participle(edges, rule) = slot else {
-                continue;
+            let (edges, rule) = match slot {
+                Slot::Participle(edges, rule) => (edges, rule),
+                Slot::Layer(edges, rule) => {
+                    rules.push(rule.clone());
+                    layers.extend(edges);
+                    continue;
+                }
+                _ => continue,
             };
             rules.push(rule.clone());
             let stacked = rest[i + 1..]
                 .iter()
-                .find(|s| !matches!(s, Slot::Aux(..)))
+                .find(|s| !matches!(s, Slot::Aux(..) | Slot::Layer(..)))
                 .is_some_and(|s| matches!(s, Slot::Participle(..)));
             let is_aux =
                 |e: &usize| auxiliaries(lang).contains(&lattice.edges[*e].morph.lemma.as_str());
             if stacked && edges.iter().all(is_aux) {
                 layers.extend(edges);
+                perfect = true;
             } else {
                 participles.extend(edges);
             }
@@ -580,10 +595,13 @@ impl<'a> Extractor<'a> {
         } else {
             Voice::Active
         };
-        let compound = voice == Voice::Active || !layers.is_empty();
+        // A participle layer (stato, sido, été) makes a passive compound; a
+        // gerund one (siendo) does not.
+        let compound = voice == Voice::Active || perfect;
         let aux_feats: FeatMap = item
             .feats
             .iter()
+            .filter(|(k, _)| k.as_str() != "aux_layer")
             .filter_map(|(k, v)| k.strip_prefix("aux_").map(|k| (k.to_owned(), v.clone())))
             .collect();
         let aux_cell = cell_of(&aux_feats, lang);

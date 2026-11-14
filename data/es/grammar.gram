@@ -386,7 +386,7 @@ rule vp.ser-possessive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, g
 rule vp.ser-clock: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> SerV[finite=?f, form=?fm, mood=?m, person=3, number=sg] Prep[lemma=a] Det[definite=yes, gender=f] Num
   "ser + a + a clock time: when an event is (la reunión fue a las cinco). Only a time: ser + a + a place is ir."
 
-rule serv.progressive: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?fm] -> Verb[class=estar|lex, lemma=estar|seguir|ir|andar|venir|continuar, finite=?f, form=?fm, mood=?m, person=?p, number=?n, tense=?auxt] Verb[class=ser, form=ger]
+rule serv.progressive: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?fm, aux_layer=?auxl] -> Verb[class=estar|lex, lemma=estar|seguir|ir|andar|venir|continuar, finite=?f, form=?fm, mood=?m, person=?p, number=?n, tense=?auxt] Verb[class=ser, form=ger, form=?auxl]
   "estar / seguir + siendo: ser in progress, for the passive and the copula (está siendo construida, sigue siendo difícil)."
 
 rule vp.ser-lo: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Pron[attached=no, clitic=yes, case=acc, lemma=lo, gender=m, number=sg] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
