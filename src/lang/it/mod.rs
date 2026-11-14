@@ -24,6 +24,7 @@ const CLOSED: &str = include_str!("../../../data/it/closed.txt");
 const GRAMMAR: &str = include_str!("../../../data/it/grammar.gram");
 const DRIFTED: &str = include_str!("../../../data/it/drifted-participles.txt");
 const DI_VERBS: &str = include_str!("../../../data/it/di-verbs.tsv");
+const DATIVE_VERBS: &str = include_str!("../../../data/it/dative-verbs.tsv");
 const BARE_UTTERANCE: &str = include_str!("../../../data/it/bare-utterance-nouns.tsv");
 
 /// Categories the function-word list owns: the lexicon's readings in these
@@ -45,6 +46,8 @@ pub struct Italian {
     drifted: HashSet<String>,
     /// Verbs that take a di + noun phrase complement (parlare di).
     di_verbs: HashSet<String>,
+    /// Verbs that take an a + noun phrase indirect object (dare a Maria).
+    dative_verbs: HashSet<String>,
     /// Nouns and adjectives that make a sentence without an article
     /// (Grazie!, Buon viaggio!), as "lemma pos" pairs.
     bare_utterance: HashSet<(String, String)>,
@@ -80,6 +83,7 @@ impl Italian {
             closed: closed::parse(CLOSED)?,
             drifted: word_list(DRIFTED),
             di_verbs: first_column(DI_VERBS),
+            dative_verbs: first_column(DATIVE_VERBS),
             bare_utterance: lemma_pos_pairs(BARE_UTTERANCE),
             grammar: Grammar::parse(GRAMMAR)?,
         })
@@ -160,6 +164,8 @@ impl Italian {
         if reading.pos == PartOfSpeech::Verb {
             let takes = self.di_verbs.contains(&non_pronominal(&reading.lemma));
             host_feats.insert("takes_di".to_owned(), if takes { "yes" } else { "no" }.to_owned());
+            let takes = self.dative_verbs.contains(&non_pronominal(&reading.lemma));
+            host_feats.insert("takes_a".to_owned(), if takes { "yes" } else { "no" }.to_owned());
         }
         let pos = match reading.pos {
             PartOfSpeech::Noun => Some("noun"),
@@ -313,7 +319,8 @@ fn lemma_pos_pairs(text: &str) -> HashSet<(String, String)> {
         .collect()
 }
 
-/// The infinitive without its pronouns, as `di-verbs.tsv` lists it: the
+/// The infinitive without its pronouns, as `di-verbs.tsv` and
+/// `dative-verbs.tsv` list it: the
 /// lexicon gives pronominal verbs both ways (accorgersi, ricordare).
 fn non_pronominal(lemma: &str) -> String {
     for suffix in ["sene", "si", "ne"] {
@@ -338,6 +345,7 @@ mod tests {
         assert_eq!(it.closed["del"][0].len(), 2);
         assert!(it.closed["la"].len() >= 2);
         assert!(it.di_verbs.contains("parlare") && !it.di_verbs.contains("portare"));
+        assert!(it.dative_verbs.contains("dare") && !it.dative_verbs.contains("andare"));
         assert!(it.bare_utterance.contains(&("grazie".to_owned(), "noun".to_owned())));
     }
 

@@ -328,3 +328,36 @@ async fn di_phrases_partitives_and_verbless_sentences() {
     agreed(&lit("Sono arrivati dei ragazzi.").await, &[("ragazzi", Some(Subject))]);
     agreed(&lit("La forza del destino!").await, &[("forza", None), ("destino", None)]);
 }
+
+/// Issue #33: an a phrase after a verb that takes a dative
+/// (data/it/dative-verbs.tsv) is an indirect object, as well as an adverbial;
+/// after any other verb it is only an adverbial.
+#[tokio::test]
+async fn a_phrase_after_a_dative_verb_is_an_indirect_object() {
+    let has = |a: &SentenceAnalysis, word: &str, role: Role| {
+        let t = token(a, word);
+        assert!(
+            t.roles.contains(&Some(role)),
+            "{word}: {role} missing from {:?}",
+            t.roles
+        );
+    };
+    let a = set("Ho dato il libro a Maria.").await;
+    has(&a, "a", IndirectObject);
+    has(&a, "Maria", IndirectObject);
+    has(&a, "Maria", Adverbial);
+    // al = a + il: both halves take the phrase's role.
+    let a = set("Ho detto la verità al ragazzo.").await;
+    has(&a, "al", IndirectObject);
+    has(&a, "ragazzo", IndirectObject);
+    let a = set("Il film piace a Marco.").await;
+    has(&a, "Marco", IndirectObject);
+    agreed(&a, &[("film", Some(Subject)), ("piace", Some(Verb))]);
+    // Without a direct object, and fronted.
+    has(&set("Telefonai a Mary.").await, "Mary", IndirectObject);
+    let a = set("A Maria piace il film.").await;
+    has(&a, "Maria", IndirectObject);
+    has(&a, "film", Subject);
+    // andare does not take one: a Roma is where.
+    agreed(&set("Vado a Roma.").await, &[("a", Some(Adverbial)), ("Roma", Some(Adverbial))]);
+}
