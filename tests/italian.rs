@@ -337,6 +337,8 @@ async fn a_partitive_subject_after_the_verb() {
             .is_empty()
     );
     assert!(!run_literature("C'è del pane.").await.parses.is_empty());
+    assert!(run_literature("Sono arrivate dei ragazzi.").await.parses.is_empty());
+    assert!(run_literature("Sono arrivate i ragazzi.").await.parses.is_empty());
     let a = run_literature("La forza del destino!").await;
     assert!(
         !a.parses
