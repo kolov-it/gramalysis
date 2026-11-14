@@ -27,6 +27,9 @@ rule text.fragment: Text -> Frag
 rule frag.noun-phrase: Frag -> NP[case=nom]
   "A noun phrase on its own is a sentence: an exclamation or a title (La forza del destino!)."
 
+rule frag.bare-adjective: Frag -> Adj[utterance=yes, number=?n, gender=?g] Nom[number=?n, gender=?g]
+  "A few adjectives make the noun after them a sentence without an article: wishes and pity (Buon viaggio!, Povero diavolo!)."
+
 rule frag.bare-noun: Frag -> Nom[utterance=yes]
   "A few nouns are a sentence without an article: thanks, wishes, greetings, reactions, insults and endearments (Grazie per il vostro invito!, Pazienza!, Pezzo d'asino!, Tesoro mio!, Buon viaggio!). They are listed in data/it/bare-utterance-nouns.tsv."
 
@@ -73,7 +76,7 @@ rule nom.noun: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Noun[number=
 rule nom.adjective-after: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Nom[number=?n, gender=?g, onset=?o, utterance=?u] AP[number=?n, gender=?g]
   "An adjective after its noun agrees with it in gender and number."
 
-rule nom.adjective-before: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Adj[number=?n, gender=?g, onset=?o, utterance=?u] Nom[number=?n, gender=?g]
+rule nom.adjective-before: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Adj[number=?n, gender=?g, onset=?o] Nom[number=?n, gender=?g, utterance=?u]
   "An adjective before its noun agrees with it in gender and number."
 
 # ------------------------------------------------- prepositional phrases
@@ -213,25 +216,28 @@ rule vp.di-adverbial: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gen
 rule vp.adverb-di: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Adv[lemma=più|meno|prima|dopo|fuori|dentro|dietro|invece|oltre] PP[prep=di]
   "An adverb with its own di phrase after the verb (lavora più di me, parte prima di cena, chiude la porta dietro di sé)."
 
-rule diadv.noun: DiAdv -> Prep[lemma=di] Noun[lemma=notte|giorno|sera|mattina|mattino|pomeriggio|estate|inverno|primavera|autunno|domenica|lunedì|martedì|mercoledì|giovedì|venerdì|sabato|corsa|fretta|colpo|scatto|seguito|solito|continuo|accordo|cuore|proposito|persona|fronte|fianco|moda|stucco|sorpresa]
+rule diadv.noun: DiAdv[time=yes, number=?n, gender=?g] -> Prep[lemma=di] Noun[number=?n, gender=?g, lemma=notte|giorno|sera|mattina|mattino|pomeriggio|estate|inverno|primavera|autunno|domenica|lunedì|martedì|mercoledì|giovedì|venerdì|sabato|corsa|fretta|colpo|scatto|seguito|solito|continuo|accordo|cuore|proposito|persona|fronte|fianco|moda|stucco|sorpresa]
   "di + a time or manner noun (di notte, d'estate, di corsa, di fretta, di colpo, d'accordo, di cuore, di moda)."
 
-rule diadv.out-of: DiAdv -> Prep[lemma=di] Noun[lemma=casa|mano|bocca|occhio|mezzo|torno|dosso|vista]
+rule diadv.noun-adjective: DiAdv[time=yes, number=?n, gender=?g] -> DiAdv[time=yes, number=?n, gender=?g] AP[number=?n, gender=?g]
+  "The noun of such a phrase can take an adjective (di notte fonda, di corsa sfrenata)."
+
+rule diadv.out-of: DiAdv[time=no] -> Prep[lemma=di] Noun[lemma=casa|mano|bocca|occhio|mezzo|torno|dosso|vista]
   "di + a bare noun: out of, away from (uscire di casa, cadere di mano, perdere d'occhio, togliersi di mezzo)."
 
-rule diadv.adjective: DiAdv -> Prep[lemma=di] Adj[lemma=nuovo|solito|sicuro|certo|rado|recente|frequente|continuo]
+rule diadv.adjective: DiAdv[time=no] -> Prep[lemma=di] Adj[gender=m, number=sg, lemma=nuovo|solito|sicuro|certo|rado|recente|frequente|continuo]
   "di + an adjective as a fixed phrase (di nuovo, di solito, di sicuro, di rado)."
 
-rule diadv.participle: DiAdv -> Prep[lemma=di] Verb[lemma=nascondere, form=pastpart, gender=m, number=sg]
+rule diadv.participle: DiAdv[time=no] -> Prep[lemma=di] Verb[lemma=nascondere, form=pastpart, gender=m, number=sg]
   "di nascosto: secretly."
 
-rule diadv.adverb: DiAdv -> Prep[lemma=di] Adv[lemma=più|meno|nuovo|sicuro|certo|continuo|solito|qua|là|sopra|sotto]
+rule diadv.adverb: DiAdv[time=no] -> Prep[lemma=di] Adv[lemma=più|meno|nuovo|sicuro|certo|continuo|solito|qua|là|sopra|sotto]
   "di + an adverb (di più, di meno, di qua, di sopra)."
 
-rule diadv.yes-no: DiAdv -> Prep[lemma=di] Intj[lemma=sì|no]
+rule diadv.yes-no: DiAdv[time=no] -> Prep[lemma=di] Intj[lemma=sì|no]
   "di sì, di no after a verb of saying or thinking (penso di sì, ha detto di no)."
 
-rule diadv.from-to: DiAdv -> Prep[lemma=di] Nom Prep[lemma=in] Nom
+rule diadv.from-to: DiAdv[time=no] -> Prep[lemma=di] Nom Prep[lemma=in] Nom
   "di … in …: from one to the next (di fiore in fiore, di casa in casa)."
 
 rule vp.adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Adv[neg=no]
@@ -301,7 +307,7 @@ rule pp.di-pronoun: PP[prep=?x, infinitive=no] -> Prep[lemma=?x, lemma=verso|su|
 rule np.pronoun-of: NP[person=3, number=?n, gender=?g, case=?c] -> Pron[clitic=no, lemma=qualcosa|niente|nulla|qualcuno|nessuno|ognuno|ciascuno|uno|alcuno|quello|questo|molto|tanto|poco|altro, number=?n, gender=?g, case=?c] PP[prep=di, infinitive=no]
   "A pronoun with di + a noun phrase: which of them, or what of it (ciascuno di noi, quello di Tom, nulla del suo passato)."
 
-rule np.indefinite-adjective: NP[person=3, number=sg, case=?c] -> Pron[clitic=no, lemma=qualcosa|niente|nulla|qualcuno|nessuno, case=?c] Prep[lemma=di] AP
+rule np.indefinite-adjective: NP[person=3, number=sg, case=?c] -> Pron[clitic=no, lemma=qualcosa|niente|nulla|qualcuno|nessuno, case=?c] Prep[lemma=di] AP[number=sg, gender=m]
   "qualcosa, niente, nulla + di + an adjective (qualcosa di nuovo, nulla di sospetto)."
 
 rule pp.bare: PP[prep=?x, infinitive=no] -> Prep[lemma=?x] Nom

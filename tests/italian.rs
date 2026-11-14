@@ -403,6 +403,8 @@ async fn listed_bare_nouns_are_sentences() {
         "Pezzo d'asino!",
         "Tesoro mio!",
         "Povero diavolo!",
+        "Cordiali saluti!",
+        "Sinceri auguri!",
     ] {
         assert!(!run_literature(sentence).await.parses.is_empty(), "{sentence}");
     }
@@ -417,4 +419,13 @@ async fn proofread_di_verbs() {
     for sentence in ["Ha scritto di politica.", "Ringrazio di tutto."] {
         assert!(!run_literature(sentence).await.parses.is_empty(), "{sentence}");
     }
+}
+
+/// A listed time phrase keeps its adjective (di notte fonda), and qualcosa /
+/// nulla di + an adjective takes the masculine singular.
+#[tokio::test]
+async fn di_phrases_keep_agreement_and_modifiers() {
+    assert!(!run_literature("Esce di notte fonda.").await.parses.is_empty());
+    assert!(!run_literature("Non notai nulla di sospetto.").await.parses.is_empty());
+    assert!(run_literature("Non notai nulla di sospetta.").await.parses.is_empty());
 }
