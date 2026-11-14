@@ -252,6 +252,27 @@ async fn spanish_perfect_progressive_is_named_after_its_auxiliaries() {
 }
 
 #[tokio::test]
+async fn spanish_progressive_passive_keeps_its_progressive() {
+    let a = run(Lang::Es, "El programa está siendo grabado.").await;
+    let [g] = a.verb_groups[0].as_slice() else {
+        panic!("{:?}", a.verb_groups[0])
+    };
+    check(
+        g,
+        &Expected {
+            tokens: vec![2, 3, 4],
+            auxiliaries: vec![2, 3],
+            participle: Some(4),
+            verb: 4,
+            lemma: "grabar",
+            cell: Some("indicative.present.3s"),
+            voice: Voice::Passive,
+            progressive: true,
+        },
+    );
+}
+
+#[tokio::test]
 async fn french_compound_tense_with_a_clitic_before_the_auxiliary() {
     let a = run(Lang::Fr, "Je l'ai fait à sa demande.").await;
     let ai = a.tokens.iter().position(|t| t == "ai").unwrap();

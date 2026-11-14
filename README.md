@@ -184,6 +184,7 @@ verbs:
 | ***Avete** mai **letto** una poesia?* | `Avete` + `letto` | leggere | `indicative.present_perfect.2p` | active |
 | *Il libro **fu letto*** | `fu` + `letto` | leggere | `indicative.past_historic.3s` | passive |
 | *Il libro **è stato letto*** | `è` + `stato` + `letto` | leggere | `indicative.present_perfect.3s` | passive |
+| *El programa **está siendo grabado*** | `está` + `siendo` + `grabado` | grabar | `indicative.present.3s`, progressive | passive |
 | *I prezzi **stanno crescendo*** | `stanno` + `crescendo` | crescere | `indicative.present.3p`, progressive | active |
 | ***Ha estado lloviendo*** | `Ha` + `estado` + `lloviendo` | llover | `indicative.present_perfect.3s`, progressive | active |
 
@@ -205,7 +206,11 @@ verbs:
   one group with `progressive: true`: the auxiliaries and the gerund, the
   gerund's lemma, and the cell of the auxiliaries (*stanno* present, *ha
   estado* present perfect). The tense tables have no progressive cells, so
-  the cell says the tense and the flag says progressive.
+  the cell says the tense and the flag says progressive. A Spanish
+  progressive passive (*está siendo grabado*) is a passive with
+  `progressive: true`: the participle is the main verb, *está siendo* the
+  auxiliaries. Italian and French have no progressive passive in the
+  grammar.
 - A participle a parse uses like an adjective (*le luci accese*) is not a
   verb of that parse; an auxiliary is never a group of its own.
 

@@ -44,6 +44,7 @@ pub enum Voice {
 /// | ***Ho dato** il libro a Maria* | 0 | 1 | 1 | dare | `indicative.present_perfect.1s` | active | no |
 /// | *Il libro **è stato letto*** | 2, 3 | 4 | 4 | leggere | `indicative.present_perfect.3s` | passive | no |
 /// | *Il libro **fu letto*** | 2 | 3 | 3 | leggere | `indicative.past_historic.3s` | passive | no |
+/// | *El programa **está siendo grabado*** | 2, 3 | 4 | 4 | grabar | `indicative.present.3s` | passive | yes |
 /// | *I prezzi **stanno crescendo*** | 2 | | 3 | crescere | `indicative.present.3p` | active | yes |
 /// | ***Ha estado lloviendo*** | 0, 1 | | 2 | llover | `indicative.present_perfect.3s` | active | yes |
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
@@ -77,7 +78,10 @@ pub struct VerbGroup {
     pub cell: Option<String>,
     pub voice: Voice,
     /// *stare*/*estar* (or a Spanish *seguir*, *ir*, …) + gerund. The cell is
-    /// the auxiliaries' tense; the gerund is the `verb`.
+    /// the auxiliaries' tense; the gerund is the `verb`. Also set on a
+    /// progressive passive (Spanish *está siendo grabado*): there the
+    /// auxiliaries are the progressive (*está siendo*), the participle is the
+    /// `verb`, and the cell is the auxiliary's tense (`indicative.present.3s`).
     pub progressive: bool,
 }
 
@@ -102,6 +106,10 @@ pub(crate) struct Construction {
     /// trabajando): its auxiliaries are kept from being examples of their own
     /// verbs; the gerund stays an example of its verb. No participles.
     pub progressive: bool,
+    /// Its auxiliaries are a progressive passed up from an inner item (está
+    /// siendo in está siendo grabado, `serv.progressive`): a progressive
+    /// passive, with its participle. The extractor does not read it.
+    pub progressive_auxiliary: bool,
     /// The lattice nodes the chart item spans.
     pub start: usize,
     pub end: usize,
@@ -140,12 +148,18 @@ pub(crate) fn constructions(
         if only_passed_up {
             continue;
         }
-        let progressive = item.feats.get("aux_progressive").map(String::as_str) == Some("yes");
+        let progressive = is_progressive(item);
+        let progressive_auxiliary = !progressive && passes_up_progressive(grammar, &by_id, item);
         for slots in slots(grammar, &by_id, item) {
             if progressive {
                 out.extend(progressive_group(lang, item, &slots));
             } else {
-                out.extend(verb_group(lang, lattice, item, &slots));
+                out.extend(
+                    verb_group(lang, lattice, item, &slots).map(|c| Construction {
+                        progressive_auxiliary,
+                        ..c
+                    }),
+                );
             }
         }
     }
@@ -236,7 +250,7 @@ pub(crate) fn parse_groups(
                 lemma: lattice.edges[e].morph.lemma.clone(),
                 cell: c.cell.clone(),
                 voice: c.voice,
-                progressive: c.progressive,
+                progressive: c.progressive || c.progressive_auxiliary,
             });
         }
     }
@@ -414,8 +428,32 @@ fn verb_group(
         cell,
         aux_cell,
         progressive: false,
+        progressive_auxiliary: false,
         start: item.start,
         end: item.end,
+    })
+}
+
+fn is_progressive(item: &ChartItem) -> bool {
+    item.feats.get("aux_progressive").map(String::as_str) == Some("yes")
+}
+
+/// Whether a phrase that passes the auxiliary up to `item` is a progressive
+/// (`SerV` ← `serv.progressive` in está siendo grabado), at any depth.
+fn passes_up_progressive(
+    grammar: &Grammar,
+    items: &HashMap<usize, &ChartItem>,
+    item: &ChartItem,
+) -> bool {
+    let rule = &grammar.rules[item.rule];
+    rule.rhs.iter().enumerate().any(|(at, cat)| {
+        passes_up(cat)
+            && item.children[at].iter().any(|c| match c {
+                ItemChild::Item(c) => items.get(c).is_some_and(|child| {
+                    is_progressive(child) || passes_up_progressive(grammar, items, child)
+                }),
+                ItemChild::Edge(_) => false,
+            })
     })
 }
 
@@ -453,6 +491,7 @@ fn progressive_group(lang: Lang, item: &ChartItem, slots: &[Slot]) -> Option<Con
         cell,
         aux_cell,
         progressive: true,
+        progressive_auxiliary: false,
         start: item.start,
         end: item.end,
     })
