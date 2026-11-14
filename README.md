@@ -318,9 +318,10 @@ src/
   lang/             the Language trait; it/ = Italian (tokenizer, function
                     words, clitics, first sounds, participles); es/ = Spanish
   analysis.rs       the pipeline: analyze(lexicon, language, sentence)
-  wordholder/       the Word Holder API as a lexicon   [feature wordholder]
+  wordholder/       Word Holder's lemmatize contract   [feature wordholder]
     client.rs         HTTP client (RapidAPI or the API's origin)
-    dto.rs            the API's wire format → readings
+                                                     [feature wordholder-http]
+    dto.rs            the API's wire format → readings (public)
     fixture.rs        recorded answers, for tests and offline runs
   bin/syntango/     the command line: parse, record, eval  [feature cli]
 data/it/            grammar.gram, closed.txt (function words),
@@ -331,17 +332,27 @@ tools/              it_homographs.py: builds the Tatoeba set (--lang es for
                     agree with their labels, for wordy
 ```
 
-| Feature | Contents |
-|---|---|
-| none | everything except `wordholder/` and the binary. No network code. |
-| `wordholder` | the API client and the recorded-answers lexicon. |
-| `cli` (default) | the `syntango` binary; implies `wordholder`. |
+| Feature | Contains | Adds dependencies |
+|---|---|---|
+| *(none)* | `Lexicon` trait, languages, grammars, parser, `analyze`, `PatchedLexicon` and the patch-file format | — |
+| `wordholder` | Word Holder's lemmatize contract: the wire types and their conversion to readings (`analyses_from_batch`), the Word Holder patch files and `wordholder::patches()`, `FixtureLexicon` | `serde_json` |
+| `wordholder-http` | `WordHolderLexicon`, the HTTP client (RapidAPI or origin); implies `wordholder` | `reqwest` |
+| `cli` (default) | the `syntango` binary; implies `wordholder-http` | `tokio`, `clap` |
 
-To bring your own lexicon, depend on the generic part only and implement
-`morph::Lexicon`:
+Library users take `default-features = false` plus the feature they need:
+
+- **Your own lexicon:** no feature. Implement `morph::Lexicon`; `PatchedLexicon`
+  works with a patch file of your own.
+- **Word Holder data in process, or offline tests:** `wordholder`. Produce a
+  `/v1/lemmatize:batch`-shaped answer however you like (`BatchResponse::new`,
+  or deserialize the JSON), turn it into readings with `analyses_from_batch`,
+  and wrap your lexicon in `PatchedLexicon` with `wordholder::patches()`; or
+  use `FixtureLexicon` on recorded answers. The patches are written against
+  the readings this conversion produces, so use them together.
+- **Word Holder over HTTP:** `wordholder-http`.
 
 ```toml
-syntango = { git = "https://github.com/kolov-it/syntango", default-features = false }
+syntango = { git = "https://github.com/kolov-it/syntango", default-features = false, features = ["wordholder"] }
 ```
 
 ## How it works
