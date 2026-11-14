@@ -148,10 +148,10 @@ rule v.passive-perfect: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, p
 rule v.perfect-infinitive: V[finite=no, form=inf, takes_di=?d, aux_mood=?auxm, aux_tense=?auxt, aux_person=?auxp, aux_number=?auxn, aux_form=?auxf] -> Verb[lemma=avere|essere, form=inf, mood=?auxm, tense=?auxt, person=?auxp, number=?auxn, form=?auxf] Verb[form=pastpart, takes_di=?d]
   "The perfect infinitive: avere or essere + past participle (di aver commesso, dopo essere arrivato)."
 
-rule v.progressive: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Verb[lemma=stare, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=ger, takes_di=?d]
+rule v.progressive: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?auxf, aux_progressive=yes] -> Verb[lemma=stare, finite=yes, mood=?m, person=?p, number=?n, tense=?auxt, form=?auxf] Verb[lemma=?l, form=ger, takes_di=?d]
   "stare + gerund: an action in progress (stanno crescendo)."
 
-rule v.proclitic-progressive: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Clitics[attached=no, refl=?r, obj=?o] Verb[lemma=stare, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=ger, takes_di=?d]
+rule v.proclitic-progressive: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d, aux_mood=?m, aux_tense=?auxt, aux_person=?r, aux_number=?n, aux_form=?auxf, aux_progressive=yes] -> Clitics[attached=no, refl=?r, obj=?o] Verb[lemma=stare, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o, tense=?auxt, form=?auxf] Verb[lemma=?l, form=ger, takes_di=?d]
   "Clitics before stare + gerund (lo sto facendo)."
 
 rule v.proclitic-perfect-avere-adverb: V[aux=avere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d, aux_mood=?m, aux_tense=?auxt, aux_person=?r, aux_number=?n, aux_form=?auxf] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[lemma=avere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o, tense=?auxt, form=?auxf] Adv[neg=no]:adverbial Verb[lemma=?l, form=pastpart, takes_avere=yes, takes_di=?d]

@@ -540,6 +540,45 @@ async fn spanish_progressive_passive_keeps_siendo_in_the_group() {
     );
 }
 
+/// The auxiliary of a progressive is not an example of its verb, like ho in
+/// ho mangiato; the gerund is an example of its own verb.
+#[tokio::test]
+async fn progressive_auxiliaries_are_not_examples_of_their_verb() {
+    let text = "Estoy buscando un regalo para mi madre.";
+    let (found, _) = run_in("es", "estar", None, &[text], all()).await;
+    assert!(found.is_empty(), "{found:?}");
+    let e = one("es", "buscar", None, text).await;
+    assert_eq!(marked(&e), "Estoy [buscando] un regalo para mi madre.");
+    assert_eq!(
+        (e.cells.as_slice(), e.status),
+        (["non_finite.gerund".to_owned()].as_slice(), Status::Decided)
+    );
+    let e = one("es", "estar", None, "Estoy cansado.").await;
+    assert_eq!(marked(&e), "[Estoy] cansado.");
+
+    let text = "Tom sta suonando il violino adesso.";
+    let (found, _) = run_in("it", "stare", None, &[text], all()).await;
+    assert!(found.is_empty(), "{found:?}");
+    let e = one("it", "suonare", None, text).await;
+    assert_eq!(marked(&e), "Tom sta [suonando] il violino adesso.");
+
+    // he estado + gerund: estado is the progressive's auxiliary. Another
+    // parse attaches the gerund to ha estado as an adverbial: ambiguous, so
+    // only with include_ambiguous, and the progressive reading is listed.
+    let text = "Ha estado lloviendo desde ayer.";
+    let (found, _) = run_in("es", "estar", None, &[text], Options::default()).await;
+    assert!(found.is_empty(), "{found:?}");
+    let e = one("es", "estar", None, text).await;
+    assert_eq!(e.status, Status::Ambiguous);
+    assert!(
+        e.other_readings
+            .iter()
+            .any(|r| r == "auxiliary of a progressive"),
+        "{:?}",
+        e.other_readings
+    );
+}
+
 #[tokio::test]
 async fn french_imperative_liaison() {
     let e = one("fr", "aller", None, "Vas-y !").await;

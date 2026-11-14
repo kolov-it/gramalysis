@@ -219,10 +219,10 @@ rule v.perfect-proclitic: V[obj=?ob, aux=haber, lemma=?l, clitic_case=?k, finite
 rule v.perfect-enclitic: V[obj=?ob, aux=haber, lemma=?l, clitic_case=?k, finite=no, form=?fm, aux_mood=?auxm, aux_tense=?auxt, aux_person=?auxp, aux_number=?auxn, aux_form=?fm] -> Verb[class=haber, perf=yes, finite=no, form=inf|ger, form=?fm, mood=?auxm, tense=?auxt, person=?auxp, number=?auxn] Clitics[attached=yes, case=?k] Verb[class=lex|estar|haber, obj=?ob, lemma=?l, form=pastpart, gender=m, number=sg]
   "Clitics on haber in a compound infinitive or gerund (haberlo hecho, habiéndose ido)."
 
-rule v.progressive: V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=estar|lex, lemma=estar|seguir|ir|andar|venir|llevar|continuar, finite=?f, form=?fm, mood=?m, person=?p, number=?n] V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=ger]
+rule v.progressive: V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?fm, aux_progressive=yes] -> Verb[class=estar|lex, lemma=estar|seguir|ir|andar|venir|llevar|continuar, finite=?f, form=?fm, mood=?m, person=?p, number=?n, tense=?auxt] V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=ger]
   "estar, seguir, ir, andar, venir or llevar + gerund: an action in progress (estoy leyendo, sigue lloviendo)."
 
-rule v.progressive-perfect: V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?fm] -> Verb[class=haber, perf=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n, tense=?auxt] Verb[lemma=estar, form=pastpart, gender=m, number=sg] V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=ger]
+rule v.progressive-perfect: V[obj=?ob, lemma=?l, clitic_case=?k, finite=?f, form=?fm, mood=?m, person=?p, number=?n, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?fm, aux_progressive=yes] -> Verb[class=haber, perf=yes, finite=?f, form=?fm, mood=?m, person=?p, number=?n, tense=?auxt] Verb[lemma=estar, form=pastpart, gender=m, number=sg] V[obj=?ob, lemma=?l, clitic_case=?k, finite=no, form=ger]
   "haber estado + gerund (he estado trabajando)."
 
 rule clitics.reflexive: Clitics[reflexive=yes, attached=?a, refl=?p, case=?k] -> Pron[attached=?a, clitic=yes, case=?k, case=refl, person=?p]
@@ -340,7 +340,7 @@ rule vp.tener-que-climbed: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n
 rule vp.object-predicative-personal: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[obj=yes, lemma=hacer|dejar|tener|encontrar|ver|sentir|considerar|llevar|mantener|poner|volver|creer|querer|preferir|imaginar|declarar|nombrar|elegir|llamar|traer, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Prep[lemma=a] NP[case=obl, number=?on, gender=?og] AP[number=?on, gender=?og]
   "Verb + a + a person + an adjective saying how that person is (vi a María feliz)."
 
-rule vp.existential-progressive: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=estar|lex, lemma=estar|seguir|ir|venir, finite=?f, form=?fm, mood=?m, person=3, number=sg] Verb[class=haber, form=ger] NP[case=obl]
+rule vp.existential-progressive: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg, aux_mood=?m, aux_tense=?auxt, aux_person=?auxp, aux_number=?auxn, aux_form=?fm, aux_progressive=yes] -> Verb[class=estar|lex, lemma=estar|seguir|ir|venir, finite=?f, form=?fm, mood=?m, person=3, number=sg, tense=?auxt, person=?auxp, number=?auxn] Verb[class=haber, form=ger] NP[case=obl]
   "estar / seguir + habiendo + a noun phrase: there is, in progress (está habiendo problemas)."
 
 rule vp.haber-que: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Verb[class=haber, exist=yes, finite=?f, form=?fm, mood=?m, person=3, number=sg] Conj[lemma=que] VP[form=inf]
@@ -386,7 +386,7 @@ rule vp.ser-possessive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, g
 rule vp.ser-clock: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> SerV[finite=?f, form=?fm, mood=?m, person=3, number=sg] Prep[lemma=a] Det[definite=yes, gender=f] Num
   "ser + a + a clock time: when an event is (la reunión fue a las cinco). Only a time: ser + a + a place is ir."
 
-rule serv.progressive: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?fm, aux_layer=?auxl] -> Verb[class=estar|lex, lemma=estar|seguir|ir|andar|venir|continuar, finite=?f, form=?fm, mood=?m, person=?p, number=?n, tense=?auxt] Verb[class=ser, form=ger, form=?auxl]
+rule serv.progressive: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?fm, aux_layer=?auxl, aux_progressive=yes] -> Verb[class=estar|lex, lemma=estar|seguir|ir|andar|venir|continuar, finite=?f, form=?fm, mood=?m, person=?p, number=?n, tense=?auxt] Verb[class=ser, form=ger, form=?auxl]
   "estar / seguir + siendo: ser in progress, for the passive and the copula (está siendo construida, sigue siendo difícil)."
 
 rule vp.ser-lo: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Pron[attached=no, clitic=yes, case=acc, lemma=lo, gender=m, number=sg] SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n]
@@ -488,7 +488,7 @@ rule cop.perfect-proclitic: Cop[lemma=?l, finite=yes, form=fin, mood=?m, person=
 rule cop.modal: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> V[lemma=poder|deber|soler|parecer|querer|desear|preferir|necesitar|esperar|pensar|intentar|lograr|conseguir|temer|odiar|merecer, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Cop[lemma=?l, form=inf]
   "A modal before a linking verb (puede estar, debe estar)."
 
-rule cop.progressive: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n] -> Verb[class=estar|lex, lemma=estar|seguir|andar|ir|venir, finite=?f, form=?fm, mood=?m, person=?p, number=?n] Cop[lemma=?l, form=ger]
+rule cop.progressive: Cop[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?fm, aux_progressive=yes] -> Verb[class=estar|lex, lemma=estar|seguir|andar|ir|venir, finite=?f, form=?fm, mood=?m, person=?p, number=?n, tense=?auxt] Cop[lemma=?l, form=ger]
   "A linking verb in progress keeps its complement (me estoy sintiendo cansado, se está poniendo nervioso)."
 
 rule cop.perfect-enclitic: Cop[lemma=?l, finite=no, form=?fm, aux_mood=?auxm, aux_tense=?auxt, aux_person=?auxp, aux_number=?auxn, aux_form=?fm] -> Verb[class=haber, perf=yes, finite=no, form=inf|ger, form=?fm, mood=?auxm, tense=?auxt, person=?auxp, number=?auxn] Clitics[attached=yes, case=refl|dat] Verb[class=estar|lex, lemma=estar|parecer|quedar|resultar|seguir|andar|sentir|ver|encontrar|permanecer|mostrar|volver|poner|hacer|mantener|lucir|continuar, lemma=?l, form=pastpart, gender=m, number=sg]

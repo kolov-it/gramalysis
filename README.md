@@ -445,8 +445,11 @@ on stderr:
   indicative or subjunctive. Ambiguity is reported, never resolved; only
   decided examples are printed unless `--include-ambiguous`.
 - **Auxiliaries are not examples of their verb**: *ho* in *ho mangiato* is the
-  auxiliary of *mangiare*, not an example of *avere* (where some parse reads
-  it as the verb itself, the *avere* example is ambiguous).
+  auxiliary of *mangiare*, not an example of *avere*, and likewise the
+  auxiliary of a progressive (`aux_progressive=yes` in the grammar): *sto* in
+  *sto mangiando*, *estoy* and *he estado* in *estoy / he estado trabajando*;
+  the gerund is an example of its own verb (`non_finite.gerund`). Where some
+  parse reads the word as the verb itself, its example is ambiguous.
 - **The cell** is named as the table names it, and a simple-tense word must
   be written as the table writes that cell: an inflected participle (*fatta*,
   *mangiati*) is not the `past_participle` cell, which holds the masculine

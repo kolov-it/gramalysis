@@ -203,6 +203,10 @@ struct VerbGroup {
     /// The cell the group is in, when the auxiliary's cell names one.
     cell: Option<String>,
     aux_cell: Option<String>,
+    /// A progressive (sto mangiando, estoy trabajando, he estado
+    /// trabajando): its auxiliaries are kept from being examples of their own
+    /// verbs; the gerund stays an example of its verb. No participles.
+    progressive: bool,
 }
 
 /// A verb item's words in rule order, through the phrases that pass the
@@ -464,8 +468,13 @@ impl<'a> Extractor<'a> {
             if only_passed_up {
                 continue;
             }
+            let progressive = item.feats.get("aux_progressive").map(String::as_str) == Some("yes");
             for slots in self.slots(&items, item) {
-                out.extend(self.verb_group(&a.lattice, item, &slots));
+                if progressive {
+                    out.extend(progressive_group(item, &slots));
+                } else {
+                    out.extend(self.verb_group(&a.lattice, item, &slots));
+                }
             }
         }
         out
@@ -622,6 +631,7 @@ impl<'a> Extractor<'a> {
             voice,
             cell,
             aux_cell,
+            progressive: false,
         })
     }
 
@@ -683,11 +693,17 @@ impl<'a> Extractor<'a> {
                 .filter(|g| g.aux == e || g.layers.contains(&e))
             {
                 grouped.extend(g.rules.iter().map(String::as_str));
-                let of = &a.lattice.edges[g.participles[0]].morph.lemma;
-                out.insert(Interpretation::Other(format!(
-                    "auxiliary of {of} {}",
-                    group_name(g)
-                )));
+                let description = match g.participles.first() {
+                    Some(&p) if !g.progressive => {
+                        format!(
+                            "auxiliary of {} {}",
+                            a.lattice.edges[p].morph.lemma,
+                            group_name(g)
+                        )
+                    }
+                    _ => "auxiliary of a progressive".to_owned(),
+                };
+                out.insert(Interpretation::Other(description));
             }
             let rest: Vec<String> = a
                 .edge_rules
@@ -726,6 +742,37 @@ impl<'a> Extractor<'a> {
         }
         out.into_iter().collect()
     }
+}
+
+/// A progressive's auxiliaries: the verb that carries the tense and any
+/// participle before the gerund (estado in he estado trabajando). An
+/// auxiliary layer (siendo) is the gerund itself, a verb of its own.
+fn progressive_group(item: &ChartItem, slots: &[Slot]) -> Option<VerbGroup> {
+    let mut edges = Vec::new();
+    let mut rules = Vec::new();
+    for slot in slots {
+        if let Slot::Aux(e, rule) | Slot::Participle(e, rule) = slot {
+            edges.extend(e);
+            rules.push(rule.clone());
+        }
+    }
+    let (&aux, layers) = edges.split_first()?;
+    rules.sort();
+    rules.dedup();
+    Some(VerbGroup {
+        rules,
+        aux,
+        layers: layers.to_vec(),
+        participles: Vec::new(),
+        voice: if item.feats.get("voice").map(String::as_str) == Some("passive") {
+            Voice::Passive
+        } else {
+            Voice::Active
+        },
+        cell: None,
+        aux_cell: None,
+        progressive: true,
+    })
 }
 
 /// A category the rule passes an auxiliary's features or a voice through
