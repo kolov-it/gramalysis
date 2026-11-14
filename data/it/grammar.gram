@@ -216,28 +216,34 @@ rule vp.di-adverbial: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gen
 rule vp.adverb-di: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Adv[lemma=più|meno|prima|dopo|fuori|dentro|dietro|invece|oltre] PP[prep=di]
   "An adverb with its own di phrase after the verb (lavora più di me, parte prima di cena, chiude la porta dietro di sé)."
 
-rule diadv.noun: DiAdv[time=yes, number=?n, gender=?g] -> Prep[lemma=di] Noun[number=?n, gender=?g, lemma=notte|giorno|sera|mattina|mattino|pomeriggio|estate|inverno|primavera|autunno|domenica|lunedì|martedì|mercoledì|giovedì|venerdì|sabato|corsa|fretta|colpo|scatto|seguito|solito|continuo|accordo|cuore|proposito|persona|fronte|fianco|moda|stucco|sorpresa]
+rule diadv.noun: DiAdv -> Prep[lemma=di] DiNoun
   "di + a time or manner noun (di notte, d'estate, di corsa, di fretta, di colpo, d'accordo, di cuore, di moda)."
 
-rule diadv.noun-adjective: DiAdv[time=yes, number=?n, gender=?g] -> DiAdv[time=yes, number=?n, gender=?g] AP[number=?n, gender=?g]
-  "The noun of such a phrase can take an adjective (di notte fonda, di corsa sfrenata)."
+rule dinoun.noun: DiNoun[number=?n, gender=?g] -> Noun[number=?n, gender=?g, lemma=notte|giorno|sera|mattina|mattino|pomeriggio|estate|inverno|primavera|autunno|domenica|lunedì|martedì|mercoledì|giovedì|venerdì|sabato|corsa|fretta|colpo|scatto|seguito|solito|continuo|accordo|cuore|proposito|persona|fronte|fianco|moda|stucco|sorpresa]
+  "A noun of such a phrase."
 
-rule diadv.out-of: DiAdv[time=no] -> Prep[lemma=di] Noun[lemma=casa|mano|bocca|occhio|mezzo|torno|dosso|vista]
+rule dinoun.adjective-before: DiNoun[number=?n, gender=?g] -> Adj[number=?n, gender=?g] DiNoun[number=?n, gender=?g]
+  "It can take an adjective before it (di comune accordo, di buon cuore)."
+
+rule dinoun.adjective-after: DiNoun[number=?n, gender=?g] -> DiNoun[number=?n, gender=?g] AP[number=?n, gender=?g]
+  "Or an adjective after it (di notte fonda)."
+
+rule diadv.out-of: DiAdv -> Prep[lemma=di] Noun[lemma=casa|mano|bocca|occhio|mezzo|torno|dosso|vista]
   "di + a bare noun: out of, away from (uscire di casa, cadere di mano, perdere d'occhio, togliersi di mezzo)."
 
-rule diadv.adjective: DiAdv[time=no] -> Prep[lemma=di] Adj[gender=m, number=sg, lemma=nuovo|solito|sicuro|certo|rado|recente|frequente|continuo]
+rule diadv.adjective: DiAdv -> Prep[lemma=di] Adj[gender=m, number=sg, lemma=nuovo|solito|sicuro|certo|rado|recente|frequente|continuo]
   "di + an adjective as a fixed phrase (di nuovo, di solito, di sicuro, di rado)."
 
-rule diadv.participle: DiAdv[time=no] -> Prep[lemma=di] Verb[lemma=nascondere, form=pastpart, gender=m, number=sg]
+rule diadv.participle: DiAdv -> Prep[lemma=di] Verb[lemma=nascondere, form=pastpart, gender=m, number=sg]
   "di nascosto: secretly."
 
-rule diadv.adverb: DiAdv[time=no] -> Prep[lemma=di] Adv[lemma=più|meno|nuovo|sicuro|certo|continuo|solito|qua|là|sopra|sotto]
+rule diadv.adverb: DiAdv -> Prep[lemma=di] Adv[lemma=più|meno|nuovo|sicuro|certo|continuo|solito|qua|là|sopra|sotto]
   "di + an adverb (di più, di meno, di qua, di sopra)."
 
-rule diadv.yes-no: DiAdv[time=no] -> Prep[lemma=di] Intj[lemma=sì|no]
+rule diadv.yes-no: DiAdv -> Prep[lemma=di] Intj[lemma=sì|no]
   "di sì, di no after a verb of saying or thinking (penso di sì, ha detto di no)."
 
-rule diadv.from-to: DiAdv[time=no] -> Prep[lemma=di] Nom Prep[lemma=in] Nom
+rule diadv.from-to: DiAdv -> Prep[lemma=di] Nom Prep[lemma=in] Nom
   "di … in …: from one to the next (di fiore in fiore, di casa in casa)."
 
 rule vp.adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Adv[neg=no]
@@ -248,20 +254,23 @@ rule vp.negation: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=
 
 # ------------------------------------------------- adjective phrases
 
-rule ap.adjective: AP[participle=?x, number=?n, gender=?g] -> Adj[participle=?x, number=?n, gender=?g]
+rule ap.adjective: AP[participle=?x, participle_di=no, number=?n, gender=?g] -> Adj[participle=?x, number=?n, gender=?g]
   "An adjective."
 
-rule ap.participle: AP[participle=?l, participle_essere=?e, number=?n, gender=?g] -> Verb[lemma=?l, form=pastpart, drifted=no, takes_essere=?e, number=?n, gender=?g]
+rule ap.participle: AP[participle=?l, participle_essere=?e, participle_di=?d, number=?n, gender=?g] -> Verb[lemma=?l, form=pastpart, drifted=no, takes_essere=?e, takes_di=?d, number=?n, gender=?g]
   "A past participle used like an adjective; it is still the verb's participle (le luci accese: accendere, participio passato). Not for adjectives whose meaning drifted (esatto)."
 
-rule ap.present-participle: AP[participle=?l, number=?n, gender=?g] -> Verb[lemma=?l, form=prespart, number=?n, gender=?g]
+rule ap.present-participle: AP[participle=?l, participle_di=no, number=?n, gender=?g] -> Verb[lemma=?l, form=prespart, number=?n, gender=?g]
   "A present participle used like an adjective, a state (il treno fuggente: fuggire, participio presente); with the verb's complements it is a participle phrase instead (tremanti nel vento)."
 
-rule ap.adverb: AP[number=?n, gender=?g] -> Adv[neg=no] AP[number=?n, gender=?g]
+rule ap.adverb: AP[participle_di=no, number=?n, gender=?g] -> Adv[neg=no] AP[number=?n, gender=?g]
   "An adverb before an adjective (molto bello, più alto, troppo caro)."
 
-rule ap.complement: AP[number=?n, gender=?g] -> AP[participle=no, number=?n, gender=?g] PP
+rule ap.complement: AP[participle_di=no, number=?n, gender=?g] -> AP[participle=no, number=?n, gender=?g] PP
   "A phrase after an adjective (pieno di gente, più alto di te). After a participle the phrase makes it a participle phrase instead (scritto in inglese)."
+
+rule ap.participle-di: AP[participle_essere=?e, participle_di=no, number=?n, gender=?g] -> AP[participle_essere=?e, participle_di=yes, number=?n, gender=?g] PP[prep=di, infinitive=no]
+  "A participle used like an adjective keeps the di phrase its verb takes (rimane circondata di gente, il cielo è coperto di nuvole)."
 
 # ------------------------------------------------- more noun phrases
 
@@ -301,7 +310,7 @@ rule rel.cui: Rel -> Prep RelPron[lemma=cui] S
 rule np.more-than: NP[person=3, number=?n, gender=?g] -> Adv[lemma=più|meno] Prep[lemma=di] NP[number=?n, gender=?g]
   "più di or meno di before a quantity (più di cento persone, in meno di trenta minuti)."
 
-rule pp.di-pronoun: PP[prep=?x, infinitive=no] -> Prep[lemma=?x, lemma=verso|su|sopra|sotto|contro|dietro|dentro|entro|senza|presso|dopo|prima|fuori|oltre] Prep[lemma=di] Pron[clitic=no]
+rule pp.di-pronoun: PP[prep=?x, infinitive=no] -> Prep[lemma=?x, lemma=verso|su|sopra|sotto|contro|dietro|dentro|entro|senza|presso|dopo|prima|fuori|oltre] Prep[lemma=di] Pron[clitic=no, case=obl]
   "Some prepositions take di before a stressed pronoun (verso di te, su di me, contro di lui, dietro di sé)."
 
 rule np.pronoun-of: NP[person=3, number=?n, gender=?g, case=?c] -> Pron[clitic=no, lemma=qualcosa|niente|nulla|qualcuno|nessuno|ognuno|ciascuno|uno|alcuno|quello|questo|molto|tanto|poco|altro, number=?n, gender=?g, case=?c] PP[prep=di, infinitive=no]
@@ -383,7 +392,7 @@ rule whp.determiner: WhP -> QDet[number=?n, gender=?g] Nom[number=?n, gender=?g]
 rule whp.che-cosa: WhP -> QDet[lemma=che] QPron[lemma=cosa]
   "che cosa = what."
 
-rule ap.coordination: AP[number=?n, gender=?g] -> AP[number=?n, gender=?g] Conj[type=coord] AP[number=?n, gender=?g]
+rule ap.coordination: AP[participle_di=no, number=?n, gender=?g] -> AP[number=?n, gender=?g] Conj[type=coord] AP[number=?n, gender=?g]
   "Two adjectives joined by e or o (intelligente e pratico, sani e salvi)."
 
 rule np.list: NP[number=pl] -> NP Punct NPList
