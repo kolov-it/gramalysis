@@ -331,7 +331,7 @@ rule vp.existential: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Ve
 rule vp.existential-bare: VP[finite=yes, form=fin, mood=?m, person=3, number=sg] -> Verb[class=haber, exist=yes, finite=yes, mood=?m, person=3, number=sg]:verb
   "hay on its own, its noun phrase already said (no hay, ¿hay?)."
 
-rule vp.existential-clitic: VP[finite=yes, form=fin, mood=?m, person=3, number=sg] -> Clitics[attached=no, case=acc] Verb[class=haber, exist=yes, finite=yes, mood=?m, person=3, number=sg]:verb
+rule vp.existential-clitic: VP[finite=yes, form=fin, mood=?m, person=3, number=sg] -> Clitics[attached=no, case=acc]:verb Verb[class=haber, exist=yes, finite=yes, mood=?m, person=3, number=sg]:verb
   "lo hay, las hay."
 
 rule vp.infinitive-perception: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[clitic_case=acc, lemma=ver|oír|hacer|dejar|escuchar|mirar|sentir|mandar|permitir|prohibir|impedir|ordenar|aconsejar, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]:verb VP[form=inf]
@@ -416,7 +416,7 @@ rule serv.impersonal-se: SerV[finite=yes, form=fin, mood=?m, person=3, number=sg
 rule vp.estar-lo: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Pron[lemma=lo, attached=no, case=acc, gender=m, number=sg]:subject-complement Cop[lemma=estar, form=fin, mood=?m, person=?p, number=?n]:verb
   "lo stands for estar's predicate (lo estoy, lo puedo estar)."
 
-rule vp.existential-climbed: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Clitics[attached=no, case=acc] V[lemma=poder|deber|soler|ir|volver|dejar, finite=?f, form=?fm, mood=?m, person=3, number=sg]:verb Verb[class=haber, exist=yes, form=inf]:verb
+rule vp.existential-climbed: VP[finite=?f, form=?fm, mood=?m, person=3, number=sg] -> Clitics[attached=no, case=acc]:verb V[lemma=poder|deber|soler|ir|volver|dejar, finite=?f, form=?fm, mood=?m, person=3, number=sg]:verb Verb[class=haber, exist=yes, form=inf]:verb
   "The object of existential haber climbs onto the modal (los puede haber)."
 
 rule clause.exclamation-copula: S -> QDet[lemma=qué]:subject-complement AP:subject-complement SerV:verb

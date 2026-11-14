@@ -673,3 +673,68 @@ async fn fr_adverbials() {
         ],
     );
 }
+
+/// A reflexive clitic has no role of its own, so it takes the role of the
+/// verb group around it. Clitics and verb groups placed directly in a phrase
+/// that is not itself a verb group must therefore carry a mark, or their
+/// words would get no role (je me suis rendu heureux: me).
+#[test]
+fn clitics_and_verb_groups_outside_a_verb_group_are_marked() {
+    use syntango::syntax::grammar::Grammar;
+    // InfChain is not one: its rules mark each V in it.
+    const VERB_GROUPS: [&str; 5] = ["V", "Cop", "SerV", "VAgr", "PassP"];
+    const CLITICS: [&str; 2] = ["Clitics", "EnCl"];
+    let mut unmarked = Vec::new();
+    for lang in ["it", "es", "fr"] {
+        let path = format!("data/{lang}/grammar.gram");
+        let g = Grammar::parse(&std::fs::read_to_string(&path).unwrap()).unwrap();
+        for rule in &g.rules {
+            let inside = VERB_GROUPS.contains(&rule.lhs.name.as_str())
+                || CLITICS.contains(&rule.lhs.name.as_str());
+            if inside {
+                continue;
+            }
+            for c in &rule.rhs {
+                let n = c.name.as_str();
+                if (VERB_GROUPS.contains(&n) || CLITICS.contains(&n)) && c.role.is_none() {
+                    unmarked.push(format!("{lang} {}: {n}", rule.name));
+                }
+            }
+        }
+    }
+    assert!(unmarked.is_empty(), "no role mark: {unmarked:#?}");
+}
+
+#[tokio::test]
+async fn fr_reflexives_beside_the_verbs_join_the_verb_group() {
+    let lexicon = FixtureLexicon::load(Path::new("tests/fixtures/fr-handwritten.json")).unwrap();
+    let a = analyze(
+        &lexicon,
+        &French::load().unwrap(),
+        "Je me suis rendu heureux.",
+    )
+    .await
+    .unwrap();
+    agreed(
+        &a,
+        &[
+            ("Je", Some(Subject)),
+            ("me", Some(Verb)),
+            ("suis", Some(Verb)),
+            ("rendu", Some(Verb)),
+            ("heureux", Some(ObjectComplement)),
+        ],
+    );
+    agreed(
+        &fr("Elle se rend utile.").await,
+        &[
+            ("se", Some(Verb)),
+            ("rend", Some(Verb)),
+            ("utile", Some(ObjectComplement)),
+        ],
+    );
+    // voici has no verb group: its pronoun is its object, whatever its case.
+    let a = fr("Me voici.").await;
+    assert!(token(&a, "Me").roles.iter().all(Option::is_some));
+    agreed(&fr("Le voilà.").await, &[("Le", Some(DirectObject))]);
+}
