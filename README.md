@@ -167,6 +167,10 @@ the one a verb page needs: *which verb, or not a verb at all*.
   participle).
 - A **present participle** is an adjective (*pesante*, *corrente*) unless it
   carries the verb's complements (*il fiume passante per Parigi*).
+- A phrase right after a participle can belong to the participle or to the
+  noun, and both readings are returned: *un suono soffocato di pianti* is a
+  sound suffocated by crying (verb use) or a muffled sound of crying
+  (adjective use).
 
 ## Spanish
 
