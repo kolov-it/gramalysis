@@ -350,6 +350,12 @@ impl Forest<'_> {
 
     /// Up to `limit` parses as trees.
     pub fn trees(&self, lattice: &Lattice, limit: usize) -> Vec<Tree> {
+        self.parses(lattice, limit).into_iter().map(|(t, _)| t).collect()
+    }
+
+    /// Up to `limit` parses, each as a tree and as the chart items it is
+    /// built from ([`Derivation`]), in the order of [`Forest::trees`].
+    pub fn parses(&self, lattice: &Lattice, limit: usize) -> Vec<(Tree, Derivation)> {
         let mut out = Vec::new();
         for &r in &self.roots {
             for t in self.item_trees(r, lattice, limit - out.len().min(limit)) {
@@ -362,49 +368,77 @@ impl Forest<'_> {
         out
     }
 
-    fn item_trees(&self, id: usize, lattice: &Lattice, limit: usize) -> Vec<Tree> {
-        let rule = &self.grammar.rules[self.keys[id].rule];
+    fn item_trees(&self, id: usize, lattice: &Lattice, limit: usize) -> Vec<(Tree, Derivation)> {
+        let key = &self.keys[id];
+        let rule = &self.grammar.rules[key.rule];
         self.children_lists(id, lattice, limit)
             .into_iter()
-            .map(|children| Tree::Node {
-                cat: rule.lhs.name.clone(),
-                feats: lhs_feats(&rule.lhs, &self.keys[id].env),
-                rule: rule.name.clone(),
-                explanation: rule.explanation.clone(),
-                role: None,
-                children,
+            .map(|(children, picked, mut derivation)| {
+                derivation.items.insert(id, DerivedItem { rule: key.rule, children: picked });
+                let tree = Tree::Node {
+                    cat: rule.lhs.name.clone(),
+                    feats: lhs_feats(&rule.lhs, &key.env),
+                    rule: rule.name.clone(),
+                    explanation: rule.explanation.clone(),
+                    role: None,
+                    children,
+                };
+                (tree, derivation)
             })
             .collect()
     }
 
-    /// The children of an item, for up to `limit` derivations.
-    fn children_lists(&self, id: usize, lattice: &Lattice, limit: usize) -> Vec<Vec<Tree>> {
+    /// The children of an item, for up to `limit` derivations: as trees, as
+    /// the chart children they are, and the items below them.
+    fn children_lists(&self, id: usize, lattice: &Lattice, limit: usize) -> Vec<(Vec<Tree>, Vec<ItemChild>, Derivation)> {
         if self.keys[id].dot == 0 || limit == 0 {
-            return vec![Vec::new()];
+            return vec![(Vec::new(), Vec::new(), Derivation::default())];
         }
         let key = &self.keys[id];
         let mark = self.grammar.rules[key.rule].rhs[key.dot - 1].role;
         let mut out = Vec::new();
         for &(prev, child) in &self.back[id] {
-            let lasts: Vec<Tree> = match child {
+            let lasts: Vec<(Tree, ItemChild, Derivation)> = match child {
                 Child::Edge(e) => {
-                    vec![Tree::Leaf { token: lattice.edges[e].token, morph: lattice.edges[e].morph.clone(), role: None }]
+                    let leaf = Tree::Leaf { token: lattice.edges[e].token, morph: lattice.edges[e].morph.clone(), role: None };
+                    vec![(leaf, ItemChild::Edge(e), Derivation::default())]
                 }
-                Child::Item(c) => self.item_trees(c, lattice, limit),
+                Child::Item(c) => {
+                    self.item_trees(c, lattice, limit).into_iter().map(|(t, d)| (t, ItemChild::Item(c), d)).collect()
+                }
             };
-            for mut last in lasts {
+            for (mut last, picked, below) in lasts {
                 last.set_role(mark, &self.grammar.case_roles);
-                for mut prefix in self.children_lists(prev, lattice, limit) {
+                for (mut prefix, mut prefix_picked, mut derivation) in self.children_lists(prev, lattice, limit) {
                     if out.len() >= limit {
                         return out;
                     }
                     prefix.push(last.clone());
-                    out.push(prefix);
+                    prefix_picked.push(picked);
+                    derivation.items.extend(below.items.iter().map(|(k, v)| (*k, v.clone())));
+                    out.push((prefix, prefix_picked, derivation));
                 }
             }
         }
         out
     }
+}
+
+/// The chart items one parse is built from ([`Forest::parses`]): each
+/// complete item, by id ([`ChartItem::id`]), with the one child it has at each
+/// right-hand-side position in this parse.
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct Derivation {
+    pub items: BTreeMap<usize, DerivedItem>,
+}
+
+/// A complete chart item as one parse uses it.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct DerivedItem {
+    /// Index into the grammar's rules.
+    pub rule: usize,
+    /// Per right-hand-side position, the child this parse has there.
+    pub children: Vec<ItemChild>,
 }
 
 /// Checks `cat`'s constraints against `feats`, extending `env`. A feature the
