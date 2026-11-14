@@ -83,6 +83,10 @@ struct ParseArgs {
     /// After the trees, every word's reading(s) across the parses.
     #[arg(long)]
     readings: bool,
+    /// After the trees, every word's grammatical role (subject, verb,
+    /// direct-object…) across the parses.
+    #[arg(long)]
+    roles: bool,
     /// The full analysis as JSON instead of trees.
     #[arg(long)]
     json: bool,
@@ -206,12 +210,12 @@ async fn run(cli: Cli) -> Result<(), Box<dyn std::error::Error>> {
         if i > 0 {
             println!();
         }
-        print_analysis(text, &a, args.explain, args.readings);
+        print_analysis(text, &a, args.explain, args.readings, args.roles);
     }
     Ok(())
 }
 
-fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: bool) {
+fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: bool, roles: bool) {
     println!("{text}");
     if !a.unknown.is_empty() {
         println!("  unknown words: {}", a.unknown.join(", "));
@@ -267,6 +271,19 @@ fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: boo
             let mark = if c.agreed { "✓" } else if rs.is_empty() { "?" } else { "~" };
             println!("  {mark} {}: {}", c.token, rs.join("  |  "));
         }
+    }
+    if roles {
+        print_roles(a);
+    }
+}
+
+fn print_roles(a: &SentenceAnalysis) {
+    println!("\nroles (✓ = every parse agrees, - = no role):");
+    for t in &a.roles {
+        let rs: Vec<String> = t.roles.iter().map(|r| r.map_or("-".to_owned(), |r| r.to_string())).collect();
+        let mark = if t.agreed { "✓" } else if rs.is_empty() { "?" } else { "~" };
+        let rs = if rs.is_empty() { "no parse".to_owned() } else { rs.join("  |  ") };
+        println!("  {mark} {}: {rs}", t.token);
     }
 }
 
