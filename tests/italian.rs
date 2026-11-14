@@ -433,6 +433,7 @@ async fn di_phrases_keep_agreement_and_modifiers() {
     assert!(!run_literature("Mangia di tanto in tanto.").await.parses.is_empty());
     assert!(!run_literature("Mangia di tutto.").await.parses.is_empty());
     assert!(!run_literature("Agiva di conseguenza.").await.parses.is_empty());
+    assert!(!run_literature("Lavorano di buona lena.").await.parses.is_empty());
     assert!(!run_literature("Penso di sì.").await.parses.is_empty());
     assert!(run_literature("Mangia di sì.").await.parses.is_empty());
     assert!(!run_literature("Vedo il cane nonché il gatto.").await.parses.is_empty());
