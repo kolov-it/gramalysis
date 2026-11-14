@@ -395,3 +395,48 @@ async fn a_phrase_after_a_dative_verb_is_an_indirect_object() {
     // andare does not take one: a Roma is where.
     agreed(&set("Vado a Roma.").await, &[("a", Some(Adverbial)), ("Roma", Some(Adverbial))]);
 }
+
+/// The categories of the readings the parses use for `word`.
+fn categories(a: &SentenceAnalysis, word: &str) -> Vec<String> {
+    let choice = a.chosen.iter().find(|c| c.token == word).unwrap_or_else(|| panic!("no token {word}"));
+    choice.readings.iter().map(|r| r[0].cat.clone()).collect()
+}
+
+/// A capitalised word in mid-sentence that the lexicon knows as a name is
+/// only that name: Maria, not maria (marijuana) as a bare noun after a, which
+/// read `a Maria` as part of the object (#30). A lowercase word there is never
+/// a name: amato, not the surname Amato (#31).
+#[tokio::test]
+async fn case_tells_names_in_mid_sentence() {
+    let a = set("Ho dato il libro a Maria.").await;
+    assert_eq!(categories(&a, "Maria"), ["ProperNoun"]);
+    let a = set("Tom è amato da tutti.").await;
+    assert!(!categories(&a, "amato").iter().any(|c| c == "ProperNoun"));
+    // After an article, after an opening quote and inside a title-cased run,
+    // a capital marks no name: the word keeps its other readings.
+    agreed(&set("Trascorrerò il Natale con la mia famiglia.").await, &[("Natale", Some(DirectObject))]);
+    agreed(
+        &set("FMI significa \"Fondo Monetario Internazionale\".").await,
+        &[("Fondo", Some(DirectObject)), ("Internazionale", Some(DirectObject))],
+    );
+}
+
+/// essere takes no direct object: its noun phrase is a subject complement,
+/// finite or not; the agent after da is oblique, so it is read once (#31).
+#[tokio::test]
+async fn essere_takes_no_direct_object() {
+    let a = set("Tom è amato da tutti.").await;
+    for t in &a.roles {
+        assert!(!t.roles.contains(&Some(DirectObject)), "{}: {:?}", t.token, t.roles);
+    }
+    let tutti = a.chosen.iter().find(|c| c.token == "tutti").unwrap();
+    assert_eq!(tutti.readings.len(), 1, "{:?}", tutti.readings);
+    assert_eq!(tutti.readings[0][0].feats.get("case").map(String::as_str), Some("obl"));
+    agreed(&set("Mary potrebbe essere una modella.").await, &[("modella", Some(SubjectComplement))]);
+    agreed(&set("Decisi di essere un avvocato.").await, &[("avvocato", Some(SubjectComplement))]);
+    agreed(
+        &set("Voglio essere sempre un avvocato.").await,
+        &[("sempre", Some(Adverbial)), ("avvocato", Some(SubjectComplement))],
+    );
+    agreed(&set("Questo è un libro.").await, &[("libro", Some(SubjectComplement))]);
+}

@@ -8,11 +8,11 @@ mod tokenize;
 
 pub use clitics::split_enclitics;
 pub use sound::onset;
-pub use tokenize::tokenize;
+pub use tokenize::{after_quote, tokenize};
 
 use std::collections::HashSet;
 
-use crate::lang::Language;
+use crate::lang::{Case, Language};
 use crate::morph::{Analysis, FormKind, Lang, Number, PartOfSpeech, Reading};
 use crate::syntax::feats::{self, FeatMap};
 use crate::syntax::grammar::{Grammar, GrammarError};
@@ -72,8 +72,8 @@ impl Language for Italian {
         tokens.iter().filter(|t| !is_punct(t)).map(|t| t.to_lowercase()).collect()
     }
 
-    fn lattice(&self, tokens: &[String], analyses: &[Analysis]) -> Lattice {
-        self.build_lattice(tokens, analyses)
+    fn lattice(&self, text: &str, tokens: &[String], analyses: &[Analysis]) -> Lattice {
+        self.build_lattice(tokens, &after_quote(text), analyses)
     }
 }
 
@@ -89,7 +89,7 @@ impl Italian {
         })
     }
 
-    fn build_lattice(&self, tokens: &[String], analyses: &[Analysis]) -> Lattice {
+    fn build_lattice(&self, tokens: &[String], after_quote: &[bool], analyses: &[Analysis]) -> Lattice {
         let mut lattice = Lattice::new();
         let mut words = analyses.iter();
         for (i, token) in tokens.iter().enumerate() {
@@ -113,7 +113,14 @@ impl Italian {
                     r
                 }));
             }
-            for reading in analysis.map(|a| a.readings.as_slice()).unwrap_or_default() {
+            let lexicon = analysis.map(|a| a.readings.as_slice()).unwrap_or_default();
+            // After an article a capital marks no name: a name takes one only
+            // as a noun would (il Natale, la Guerra Civile, la Scozia).
+            let after_article = i > 0
+                && self.closed.get(&tokens[i - 1].to_lowercase()).is_some_and(|rs| rs.iter().any(|r| r.last().is_some_and(|m| m.cat == "Det")));
+            let case = Case::of(tokens, i, after_quote.get(i).copied().unwrap_or(false) || after_article);
+            let known_name = lexicon.iter().any(|r| r.pos == PartOfSpeech::ProperNoun);
+            for reading in lexicon.iter().filter(|r| case.keeps(r.pos == PartOfSpeech::ProperNoun, known_name)) {
                 let cat = feats::category(&reading.pos);
                 if closed.is_some() && OWNED_CATS.contains(&cat.as_str()) {
                     continue;
@@ -137,8 +144,11 @@ impl Italian {
                     first.feats.insert("onset".to_owned(), onset(&lower).to_owned());
                 }
             }
+            // A capitalised word the lexicon does not know as a name is one
+            // anywhere but at the start; one it knows already has the name
+            // reading, with its gender.
             let capitalised = token.chars().next().is_some_and(char::is_uppercase);
-            if capitalised && (i > 0 || readings.is_empty()) {
+            if capitalised && !known_name && (i > 0 || readings.is_empty()) {
                 let mut feats = FeatMap::new();
                 feats.insert("onset".to_owned(), onset(&lower).to_owned());
                 readings.push(vec![Morpheme { surface: token.clone(), lemma: token.clone(), cat: "ProperNoun".to_owned(), feats }]);
