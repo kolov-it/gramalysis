@@ -267,9 +267,19 @@ impl<'a> Extractor<'a> {
             return Ok(Outcome::NoParse);
         }
         let spans = token_spans(&sentence.text, &a.tokens)?;
+        // A construction nested in another's phrase (Spanish serv.perfect, ha
+        // sido, inside the passive ha sido construido) only serves that one.
+        let nested = |g: &Group| {
+            a.participle_groups.iter().any(|outer| {
+                outer.inner_rules.contains(&g.rule)
+                    && outer.edges.len() > g.edges.len()
+                    && g.edges.iter().all(|e| outer.edges.contains(e))
+            })
+        };
         let groups: Vec<VerbGroup> = a
             .participle_groups
             .iter()
+            .filter(|g| !nested(g))
             .filter_map(|g| self.verb_group(&a.lattice, g))
             .collect();
         let text = &sentence.text;
@@ -445,12 +455,15 @@ impl<'a> Extractor<'a> {
         let is_participle = |m: &Morpheme| {
             m.cat == "Verb" && m.feats.get("form").map(String::as_str) == Some("pastpart")
         };
-        let aux = *group
-            .edges
+        // The auxiliary that governs the participles is the last one before
+        // them; what comes before it belongs to other verbs (ha querido in
+        // ha querido ser elegido).
+        let last_participle = group.edges.iter().rposition(|&e| is_participle(morph(e)))?;
+        let aux_at = group.edges[..last_participle]
             .iter()
-            .find(|&&e| is_aux(morph(e)) && !is_participle(morph(e)))?;
-        let pps: Vec<usize> = group
-            .edges
+            .rposition(|&e| is_aux(morph(e)) && !is_participle(morph(e)))?;
+        let aux = group.edges[aux_at];
+        let pps: Vec<usize> = group.edges[aux_at + 1..]
             .iter()
             .copied()
             .filter(|&e| is_participle(morph(e)))

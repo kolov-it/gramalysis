@@ -414,6 +414,59 @@ async fn french_participle_with_an_irregular_agreement() {
 }
 
 #[tokio::test]
+async fn spanish_nested_auxiliary_is_not_an_example_of_ser() {
+    let text = "El puente ha sido construido.";
+    let e = one("es", "construir", None, text).await;
+    assert_eq!(marked(&e), "El puente [ha] [sido] [construido].");
+    assert_eq!(
+        (e.cells.as_slice(), e.voice),
+        (
+            ["indicative.present_perfect.3s".to_owned()].as_slice(),
+            Voice::Passive
+        )
+    );
+    let (found, _) = run_in("es", "ser", None, &[text], all()).await;
+    assert!(found.is_empty(), "{found:?}");
+}
+
+#[tokio::test]
+async fn the_auxiliary_next_to_the_participle_names_the_tense() {
+    let e = one("es", "elegir", None, "Ha querido ser elegido.").await;
+    assert_eq!(marked(&e), "Ha querido [ser] [elegido].");
+    assert_eq!(
+        (e.cells.as_slice(), e.voice),
+        (
+            ["non_finite.infinitive".to_owned()].as_slice(),
+            Voice::Passive
+        )
+    );
+}
+
+#[tokio::test]
+async fn french_imperative_liaison() {
+    let e = one("fr", "aller", None, "Vas-y !").await;
+    assert_eq!(
+        (marked(&e).as_str(), e.cells.as_slice()),
+        ("[Vas]-y !", ["imperative.present.2s".to_owned()].as_slice())
+    );
+    let e = one("fr", "donner", None, "Donnes-en !").await;
+    assert_eq!(
+        (marked(&e).as_str(), e.cells.as_slice()),
+        (
+            "[Donnes]-en !",
+            ["imperative.present.2s".to_owned()].as_slice()
+        )
+    );
+}
+
+#[tokio::test]
+async fn pronominal_verb_in_a_compound_tense() {
+    let e = one("it", "farsi", None, "Si sono fatti male.").await;
+    assert_eq!(marked(&e), "Si [sono] [fatti] male.");
+    assert_eq!(e.cells, ["indicative.present_perfect.3p"]);
+}
+
+#[tokio::test]
 async fn sentences_without_the_form_are_not_parsed_and_limit_stops() {
     let texts = [
         "Il gatto dorme.",

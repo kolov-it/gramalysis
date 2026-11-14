@@ -102,6 +102,10 @@ impl Forms {
                 .iter()
                 .flat_map(|s| &s.hosts)
                 .any(|h| self.unaccented.contains(&es::strip_accent(h))),
+            // An imperative takes an -s before y and en (vas-y, donnes-en).
+            Lang::Fr => token
+                .strip_suffix('s')
+                .is_some_and(|t| self.forms.contains(t)),
             _ => false,
         }
     }
@@ -143,11 +147,18 @@ impl Target {
         }
         let table = find(tables, &query.infinitive)?;
         let mut all = table_cells(table);
+        // A pronominal verb's table writes the participle with its clitic
+        // (fattosi); in a compound tense it stands alone (si è fatto).
+        let pronominal = base_verb(&query.infinitive, lang) != query.infinitive;
         let participles: HashSet<String> = all
             .get("non_finite.past_participle")
             .into_iter()
             .flatten()
-            .flat_map(|p| inflected_participles(lang, p))
+            .map(|p| match it::split_enclitics(p) {
+                Some((host, _)) if lang == Lang::It && pronominal => host,
+                _ => p.clone(),
+            })
+            .flat_map(|p| inflected_participles(lang, &p))
             .collect();
         let mut auxiliary = HashSet::new();
         for aux in auxiliaries(lang) {
@@ -233,6 +244,8 @@ impl Target {
                 let (f, s) = (es::strip_accent(f), es::strip_accent(surface));
                 f == s || f == format!("{s}s") || f == format!("{s}d")
             }
+            // vas-y, donnes-en: the imperative's liaison -s.
+            (Lang::Fr, _) => cell.starts_with("imperative.") && surface == format!("{f}s"),
             _ => false,
         })
     }
