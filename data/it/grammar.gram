@@ -232,9 +232,9 @@ rule vp.adverb-di: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender
   "An adverb with its own di phrase after the verb (lavora più di me, parte prima di cena, chiude la porta dietro di sé)."
 
 rule diadv.noun: DiAdv -> Prep[lemma=di] DiNoun
-  "di + a time or manner noun (di notte, d'estate, di corsa, di fretta, di colpo, d'accordo, di cuore, di moda, di gusto, di passaggio)."
+  "di + a time or manner noun (di notte, d'estate, di corsa, di fretta, di colpo, d'accordo, di cuore, di moda, di gusto, di passaggio, di conseguenza, di regola, di fatto)."
 
-rule dinoun.noun: DiNoun[number=?n, gender=?g] -> Noun[number=?n, gender=?g, lemma=notte|giorno|sera|mattina|mattino|pomeriggio|estate|inverno|primavera|autunno|domenica|lunedì|martedì|mercoledì|giovedì|venerdì|sabato|corsa|fretta|colpo|scatto|seguito|solito|continuo|accordo|cuore|proposito|persona|fronte|fianco|moda|stucco|sorpresa|gusto|voglia|getto|passaggio|ritorno|fila|traverso|sfuggita|soppiatto]
+rule dinoun.noun: DiNoun[number=?n, gender=?g] -> Noun[number=?n, gender=?g, lemma=notte|giorno|sera|mattina|mattino|pomeriggio|estate|inverno|primavera|autunno|domenica|lunedì|martedì|mercoledì|giovedì|venerdì|sabato|corsa|fretta|colpo|scatto|seguito|solito|continuo|accordo|cuore|proposito|persona|fronte|fianco|moda|stucco|sorpresa|gusto|voglia|getto|passaggio|ritorno|fila|traverso|sfuggita|soppiatto|conseguenza|fatto|regola|norma|grado|botto|lato|soprassalto|sbieco|riflesso]
   "A noun of such a phrase."
 
 rule dinoun.adjective-before: DiNoun[number=?n, gender=?g] -> Adj[number=?n, gender=?g] DiNoun[number=?n, gender=?g]
