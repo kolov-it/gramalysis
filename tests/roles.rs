@@ -712,16 +712,20 @@ async fn fr_subject_and_object_complements() {
 
 #[tokio::test]
 async fn fr_passive_with_an_agent() {
+    // est aimé is a passive, or a compound tense of a verb taking être
+    // (the lexicon does not say which verbs do), after which par is an
+    // adverbial; both readings are kept.
+    let a = fr("Il est aimé par tous.").await;
     agreed(
-        &fr("Il est aimé par tous.").await,
+        &a,
         &[
             ("Il", Some(Subject)),
             ("est", Some(Verb)),
             ("aimé", Some(Verb)),
-            ("par", Some(Agent)),
-            ("tous", Some(Agent)),
         ],
     );
+    differs(&a, "par", Agent, &[Adverbial]);
+    differs(&a, "tous", Agent, &[Adverbial]);
     // The grammar has no agent with de yet: de tous is an adverbial, and
     // aimé a passive or an adjective.
     let a = fr("Il est aimé de tous.").await;
@@ -760,7 +764,9 @@ fn clitics_and_verb_groups_outside_a_verb_group_are_marked() {
     use syntango::syntax::grammar::Grammar;
     // InfChain is not one: its rules mark each V in it.
     const VERB_GROUPS: [&str; 5] = ["V", "Cop", "SerV", "VAgr", "PassP"];
-    const CLITICS: [&str; 2] = ["Clitics", "EnCl"];
+    // Mod (between the auxiliary and the participle) marks its adverbs
+    // itself; a floating tous in it has no role and joins the verb group.
+    const CLITICS: [&str; 3] = ["Clitics", "EnCl", "Mod"];
     let mut unmarked = Vec::new();
     for lang in ["it", "es", "fr"] {
         let path = format!("data/{lang}/grammar.gram");
@@ -814,4 +820,78 @@ async fn fr_reflexives_beside_the_verbs_join_the_verb_group() {
     let a = fr("Me voici.").await;
     assert!(token(&a, "Me").roles.iter().all(Option::is_some));
     agreed(&fr("Le voilà.").await, &[("Le", Some(DirectObject))]);
+}
+
+/// tous between the auxiliary and the participle can stand for the subject
+/// (ils ont tous mangé) or an object (sa mort nous a tous surpris), and
+/// mod.all cannot tell which: it has no role of its own and joins the verb
+/// group, while the adverbs and ne … pas beside it stay adverbials.
+#[tokio::test]
+async fn fr_floating_tous_between_auxiliary_and_participle() {
+    agreed(
+        &fr("Ils ont tous mangé.").await,
+        &[
+            ("Ils", Some(Subject)),
+            ("ont", Some(Verb)),
+            ("tous", Some(Verb)),
+            ("mangé", Some(Verb)),
+        ],
+    );
+    let a = fr("Sa mort nous a tous surpris.").await;
+    let tous = token(&a, "tous");
+    assert!(tous.roles.contains(&Some(Verb)), "{:?}", tous.roles);
+    assert!(!tous.roles.contains(&Some(Adverbial)), "{:?}", tous.roles);
+    agreed(
+        &fr("J'ai déjà mangé.").await,
+        &[
+            ("ai", Some(Verb)),
+            ("déjà", Some(Adverbial)),
+            ("mangé", Some(Verb)),
+        ],
+    );
+    agreed(
+        &fr("Je n'ai pas mangé.").await,
+        &[
+            ("n'", Some(Adverbial)),
+            ("pas", Some(Adverbial)),
+            ("mangé", Some(Verb)),
+        ],
+    );
+}
+
+/// par + a noun phrase is the agent only after a passive; after an active
+/// verb it is an adverbial.
+#[tokio::test]
+async fn fr_par_is_an_agent_only_after_a_passive() {
+    agreed(
+        &fr("Je passe par la gare.").await,
+        &[
+            ("passe", Some(Verb)),
+            ("par", Some(Adverbial)),
+            ("la", Some(Adverbial)),
+            ("gare", Some(Adverbial)),
+        ],
+    );
+    agreed(
+        &fr("Il a été tué par le gardien.").await,
+        &[
+            ("tué", Some(Verb)),
+            ("par", Some(Agent)),
+            ("gardien", Some(Agent)),
+        ],
+    );
+}
+
+/// An attached lo on haber (haberlo) is part of the verb group, like
+/// dámelo: a word split across phrases of different roles would have none.
+#[tokio::test]
+async fn es_attached_predicate_lo_is_the_verb_group() {
+    agreed(
+        &es("tests/fixtures/es-handwritten.json", "Puedo haberlo sido.").await,
+        &[
+            ("Puedo", Some(Verb)),
+            ("haberlo", Some(Verb)),
+            ("sido", Some(Verb)),
+        ],
+    );
 }

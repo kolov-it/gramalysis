@@ -158,7 +158,9 @@ personal *a* (*veo **a María***) a direct object or an adverbial, both
 returned; an *a* phrase after a verb of giving is an adverbial until
 Spanish has a dative-verb list. French: *ne* and *pas* are adverbials inside
 the verb group, a subject pronoun after the verb (*parlez-**vous***) is the
-subject, *y* is an adverbial, and *en*, like Italian *ne*, belongs to the
+subject, a *par* phrase is the agent after a passive and an adverbial after an
+active verb (*je passe **par la gare***), a floating *tous* between the
+auxiliary and the participle belongs to the verb group, *y* is an adverbial, and *en*, like Italian *ne*, belongs to the
 verb group, since its case does not say whether it is an object, a *de*
 phrase or where from.
 

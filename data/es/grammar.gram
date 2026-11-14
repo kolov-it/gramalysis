@@ -425,7 +425,9 @@ rule clause.exclamation-copula: S -> QDet[lemma=qué]:subject-complement AP:subj
 rule clause.exclamation-copula-subject: S -> QDet[lemma=qué]:subject-complement AP[number=?n, gender=?g]:subject-complement SerV[person=?p, number=?n]:verb NP[case=nom, person=?p, number=?n, gender=?g]:subject
   "qué + adjective + ser + subject (¡Qué bonita es tu casa!)."
 
-rule vp.ser-lo-perfect-enclitic: VP[finite=no, form=?fm, aux_mood=?auxm, aux_tense=?auxt, aux_person=?auxp, aux_number=?auxn, aux_form=?fm] -> Verb[class=haber, perf=yes, finite=no, form=inf|ger, form=?fm, mood=?auxm, tense=?auxt, person=?auxp, number=?auxn]:verb Pron[lemma=lo, attached=yes, case=acc, gender=m, number=sg]:subject-complement Verb[class=ser, form=pastpart, gender=m, number=sg]:verb
+# The lo here is part of the word haberlo, and a word split across phrases
+# of different roles would have none; like dámelo, the word is the verb group.
+rule vp.ser-lo-perfect-enclitic: VP[finite=no, form=?fm, aux_mood=?auxm, aux_tense=?auxt, aux_person=?auxp, aux_number=?auxn, aux_form=?fm] -> Verb[class=haber, perf=yes, finite=no, form=inf|ger, form=?fm, mood=?auxm, tense=?auxt, person=?auxp, number=?auxn]:verb Pron[lemma=lo, attached=yes, case=acc, gender=m, number=sg]:verb Verb[class=ser, form=pastpart, gender=m, number=sg]:verb
   "lo on haber stands for ser's predicate (puedo haberlo sido)."
 
 rule serv.negation: SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n, aux_mood=?auxm, aux_tense=?auxt, aux_person=?auxp, aux_number=?auxn, aux_form=?auxf] -> Adv[neg=yes]:adverbial SerV[finite=?f, form=?fm, mood=?m, person=?p, number=?n, aux_mood=?auxm, aux_tense=?auxt, aux_person=?auxp, aux_number=?auxn, aux_form=?auxf]
