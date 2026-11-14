@@ -58,6 +58,15 @@ pub enum ParseError {
 
 const MAX_ITEMS: usize = 2_000_000;
 
+/// A verb group around a past participle ([`Forest::participle_groups`]).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Group {
+    /// The rule that built it (`v.perfect-avere`, `vp.passive`).
+    pub rule: String,
+    /// The lattice edges it consumed, in sentence order.
+    pub edges: Vec<usize>,
+}
+
 /// Every parse of a sentence, shared.
 pub struct Forest<'g> {
     grammar: &'g Grammar,
@@ -244,6 +253,113 @@ impl Forest<'_> {
                 }
             }
         }
+        out
+    }
+
+    /// The verb groups built around a past participle: every application,
+    /// in some parse, of a rule that takes a `Verb[form=pastpart]`, each
+    /// derivation once, as the lattice edges it consumed in sentence order.
+    /// A phrase before the last participle (Spanish `SerV`: fue, ha sido) is
+    /// opened up into its edges; one after it (an agent, an object) is not.
+    /// This is how compound tenses and passives are read off a parse
+    /// without the grammar naming them.
+    pub fn participle_groups(&self) -> Vec<Group> {
+        let takes_participle = |cat: &Cat| {
+            cat.name == "Verb"
+                && cat.constraints.iter().any(|(k, v)| k == "form" && matches!(v, Value::Any(a) if a.iter().any(|x| x == "pastpart")))
+        };
+        let mut seen = HashSet::new();
+        let mut complete = Vec::new();
+        let mut stack: Vec<usize> = self.roots.clone();
+        while let Some(id) = stack.pop() {
+            if !seen.insert(id) {
+                continue;
+            }
+            if self.keys[id].dot == self.grammar.rules[self.keys[id].rule].rhs.len() {
+                complete.push(id);
+            }
+            for &(prev, child) in &self.back[id] {
+                stack.push(prev);
+                if let Child::Item(c) = child {
+                    stack.push(c);
+                }
+            }
+        }
+        complete.sort_unstable();
+        let mut paths = HashMap::new();
+        let mut terminals = HashMap::new();
+        let mut out = Vec::new();
+        let mut emitted = HashSet::new();
+        for id in complete {
+            let rule = &self.grammar.rules[self.keys[id].rule];
+            let Some(last) = rule.rhs.iter().rposition(takes_participle) else { continue };
+            for path in self.paths(id, &mut paths) {
+                let mut lists: Vec<Vec<usize>> = vec![Vec::new()];
+                for (i, child) in path.iter().enumerate() {
+                    let parts = match *child {
+                        Child::Edge(e) => vec![vec![e]],
+                        Child::Item(c) if i < last => self.terminals(c, &mut paths, &mut terminals),
+                        Child::Item(_) => vec![Vec::new()],
+                    };
+                    lists = lists
+                        .iter()
+                        .flat_map(|l| parts.iter().map(move |p| l.iter().chain(p).copied().collect()))
+                        .collect();
+                }
+                for edges in lists {
+                    if emitted.insert((rule.name.clone(), edges.clone())) {
+                        out.push(Group { rule: rule.name.clone(), edges });
+                    }
+                }
+            }
+        }
+        out
+    }
+
+    /// Every derivation of an item, as its children in order.
+    fn paths(&self, id: usize, memo: &mut HashMap<usize, Vec<Vec<Child>>>) -> Vec<Vec<Child>> {
+        if self.keys[id].dot == 0 {
+            return vec![Vec::new()];
+        }
+        if let Some(p) = memo.get(&id) {
+            return p.clone();
+        }
+        let mut out = Vec::new();
+        for &(prev, child) in &self.back[id] {
+            for mut p in self.paths(prev, memo) {
+                p.push(child);
+                out.push(p);
+            }
+        }
+        memo.insert(id, out.clone());
+        out
+    }
+
+    /// Every derivation of a complete item, as the lattice edges under it.
+    fn terminals(
+        &self,
+        id: usize,
+        paths: &mut HashMap<usize, Vec<Vec<Child>>>,
+        memo: &mut HashMap<usize, Vec<Vec<usize>>>,
+    ) -> Vec<Vec<usize>> {
+        if let Some(t) = memo.get(&id) {
+            return t.clone();
+        }
+        let mut out = Vec::new();
+        for path in self.paths(id, paths) {
+            let mut lists: Vec<Vec<usize>> = vec![Vec::new()];
+            for child in path {
+                let parts = match child {
+                    Child::Edge(e) => vec![vec![e]],
+                    Child::Item(c) => self.terminals(c, paths, memo),
+                };
+                lists = lists.iter().flat_map(|l| parts.iter().map(move |p| l.iter().chain(p).copied().collect())).collect();
+            }
+            out.extend(lists);
+        }
+        out.sort();
+        out.dedup();
+        memo.insert(id, out.clone());
         out
     }
 

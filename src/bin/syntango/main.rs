@@ -9,6 +9,7 @@ use std::process::ExitCode;
 
 use clap::{ArgGroup, Args, Parser, Subcommand};
 
+use syntango::examples::tenses::tenses;
 use syntango::examples::{Options, Query};
 use syntango::lang::{self, Language};
 use syntango::morph::{Lang, Lexicon};
@@ -67,6 +68,15 @@ enum Command {
         no_patches: bool,
         #[command(flatten)]
         backend: Backend,
+    },
+    /// List a language's tenses: the identifier --tense takes, the native and
+    /// English names, simple or compound, and for a compound tense the
+    /// auxiliary's tense it is built from.
+    Tenses {
+        lang: Lang,
+        /// As a JSON array.
+        #[arg(long)]
+        json: bool,
     },
     /// Find example sentences for a verb in a corpus and print them as JSON
     /// lines: the sentence, where the verb form is in it, which cell it is,
@@ -223,6 +233,24 @@ async fn run(cli: Cli) -> Result<(), Box<dyn std::error::Error>> {
             };
             let items = eval::load_items(&set)?;
             return eval::run(&items, &labels, lexicon.as_ref(), language.as_ref(), out.as_deref()).await;
+        }
+        Some(Command::Tenses { lang, json }) => {
+            let all = tenses(lang);
+            if all.is_empty() {
+                return Err(format!("{} is not supported yet; supported: it, es, fr", lang.code()).into());
+            }
+            if json {
+                println!("{}", serde_json::to_string_pretty(all)?);
+                return Ok(());
+            }
+            for t in all {
+                let kind = match t.auxiliary_tense {
+                    Some(aux) => format!("compound: auxiliary in {aux}"),
+                    None => "simple".to_owned(),
+                };
+                println!("{:<32} {:<42} {:<26} {kind}", t.id, t.native, t.english);
+            }
+            return Ok(());
         }
         Some(Command::Examples {
             lang,

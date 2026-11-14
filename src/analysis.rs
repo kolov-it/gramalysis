@@ -7,7 +7,7 @@ use serde::Serialize;
 use crate::lang::Language;
 use crate::morph::{Lexicon, LexiconError};
 use crate::syntax::lattice::{Edge, Lattice, Morpheme};
-use crate::syntax::parser::{self, ParseError, Tree};
+use crate::syntax::parser::{self, Group, ParseError, Tree};
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
@@ -29,6 +29,15 @@ pub struct SentenceAnalysis {
     pub parses: Vec<Tree>,
     /// Per token, the readings used by at least one parse.
     pub chosen: Vec<TokenChoice>,
+    /// Lattice edges any parse uses.
+    #[serde(skip)]
+    pub used_edges: HashSet<usize>,
+    /// For each used edge, the rules that consumed it.
+    #[serde(skip)]
+    pub edge_rules: HashMap<usize, HashSet<String>>,
+    /// The verb groups around a past participle (compound tenses, passives).
+    #[serde(skip)]
+    pub participle_groups: Vec<Group>,
 }
 
 /// Parses kept as trees; the rest are counted, and still count for `chosen`.
@@ -61,8 +70,11 @@ pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str)
     let forest = parser::parse(language.grammar(), &lattice)?;
     let parse_count = forest.count();
     let parses = forest.trees(&lattice, MAX_TREES);
-    let chosen = choices(&tokens, &lattice, &forest.used_edges(), &forest.edge_rules(), !forest.is_empty());
-    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen })
+    let used_edges = forest.used_edges();
+    let edge_rules = forest.edge_rules();
+    let chosen = choices(&tokens, &lattice, &used_edges, &edge_rules, !forest.is_empty());
+    let participle_groups = forest.participle_groups();
+    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen, used_edges, edge_rules, participle_groups })
 }
 
 /// Per token, the readings (paths of morphemes through the token) that the

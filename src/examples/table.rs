@@ -1,10 +1,12 @@
 //! Verb tables (`data/<lang>/verbs.json`) and their cells, named as the
-//! tables name them: `indicative.past_historic.3s`, `non_finite.gerund`.
+//! tables name them (`indicative.past_historic.3s`, `non_finite.gerund`),
+//! plus the compound tenses the tables leave out ([`super::tenses`]).
 
-use std::collections::{BTreeMap, BTreeSet, HashSet};
+use std::collections::{BTreeMap, HashSet};
 
 use serde::Deserialize;
 
+use super::tenses::{Kind, auxiliaries, tense_of, tenses};
 use crate::lang::{es, it};
 use crate::morph::Lang;
 use crate::syntax::feats::FeatMap;
@@ -36,104 +38,65 @@ pub enum TenseForms {
 pub enum QueryError {
     #[error("no verb table for `{0}`")]
     UnknownVerb(String),
-    #[error("`{infinitive}` has no `{tense}`; its tenses: {}", available.join(", "))]
+    #[error("`{tense}` is not a tense of this language; the tenses: {}", available.join(", "))]
     UnknownTense {
-        infinitive: String,
         tense: String,
         available: Vec<String>,
     },
+    #[error("the table of `{infinitive}` has no `{tense}`")]
+    NotInTable { infinitive: String, tense: String },
 }
 
-/// What to look for: a verb, and optionally a tense (`indicative.past_historic`)
-/// or a single cell (`indicative.past_historic.3s`, `non_finite.gerund`).
+/// What to look for: a verb, and optionally a tense (`indicative.past_historic`,
+/// `indicative.present_perfect`) or a single cell (`indicative.past_historic.3s`,
+/// `non_finite.gerund`).
 #[derive(Debug, Clone)]
 pub struct Query {
     pub infinitive: String,
     pub tense: Option<String>,
 }
 
-/// A query resolved against the verb's table.
-#[derive(Debug)]
-pub struct Target {
-    pub lang: Lang,
-    pub infinitive: String,
-    /// The verb as a parse's lemma is compared with it ([`page_verb`]).
-    pub base: String,
-    /// The cells asked for, each with its forms (lower case).
-    pub cells: BTreeMap<String, Vec<String>>,
+/// Checks a `--tense` value: a tense of `lang` ([`tenses`]), or one of its
+/// cells (the tense and a person, `indicative.present.3s`).
+pub fn check_tense(lang: Lang, tense: &str) -> Result<(), QueryError> {
+    let known = tenses(lang)
+        .iter()
+        .any(|t| t.id == tense || t.id == tense_of(tense));
+    if known {
+        return Ok(());
+    }
+    Err(QueryError::UnknownTense {
+        tense: tense.to_owned(),
+        available: tenses(lang).iter().map(|t| t.id.to_owned()).collect(),
+    })
+}
+
+/// Word forms to match tokens against, clitics attached allowed.
+#[derive(Debug, Default)]
+struct Forms {
     forms: HashSet<String>,
     /// Spanish: the forms without accents, for hosts the clitics put an
     /// accent on (da → dámelo).
     unaccented: HashSet<String>,
 }
 
-impl Target {
-    pub fn new(tables: &VerbTables, lang: Lang, query: &Query) -> Result<Self, QueryError> {
-        let table = tables
-            .verbs
-            .iter()
-            .find(|v| v.infinitive == query.infinitive)
-            .ok_or_else(|| QueryError::UnknownVerb(query.infinitive.clone()))?;
-        let mut all: BTreeMap<String, Vec<String>> = BTreeMap::new();
-        for (mood, tenses) in &table.conjugation {
-            for (tense, forms) in tenses {
-                match forms {
-                    TenseForms::Persons(persons) => {
-                        for (person, form) in persons {
-                            all.insert(format!("{mood}.{tense}.{person}"), words(form));
-                        }
-                    }
-                    TenseForms::Single(form) => {
-                        all.insert(format!("{mood}.{tense}"), words(form));
-                    }
-                }
-            }
-        }
-        let cells: BTreeMap<String, Vec<String>> = match &query.tense {
-            None => all,
-            Some(tense) => {
-                let prefix = format!("{tense}.");
-                let chosen: BTreeMap<String, Vec<String>> = all
-                    .iter()
-                    .filter(|(c, _)| *c == tense || c.starts_with(&prefix))
-                    .map(|(c, f)| (c.clone(), f.clone()))
-                    .collect();
-                if chosen.is_empty() {
-                    let available: BTreeSet<&str> = all.keys().map(|c| tense_of(c)).collect();
-                    return Err(QueryError::UnknownTense {
-                        infinitive: query.infinitive.clone(),
-                        tense: tense.clone(),
-                        available: available.into_iter().map(str::to_owned).collect(),
-                    });
-                }
-                chosen
-            }
-        };
-        let forms: HashSet<String> = cells.values().flatten().cloned().collect();
+impl Forms {
+    fn new(forms: HashSet<String>) -> Self {
         let unaccented = forms.iter().map(|f| es::strip_accent(f)).collect();
-        Ok(Self {
-            lang,
-            infinitive: query.infinitive.clone(),
-            base: page_verb(&query.infinitive, lang),
-            cells,
-            forms,
-            unaccented,
-        })
+        Self { forms, unaccented }
     }
 
     /// Whether a token (lower case) may be one of the forms: the form itself,
-    /// or the form with clitics attached (farlo, dámelo). Only a prefilter;
-    /// the parse decides.
-    pub fn may_be(&self, token: &str) -> bool {
+    /// or the form with clitics attached (farlo, dammelo, dámelo).
+    fn may_be(&self, lang: Lang, token: &str) -> bool {
         if self.forms.contains(token) {
             return true;
         }
-        match self.lang {
+        match lang {
             Lang::It => it::split_enclitics(token).is_some_and(|(host, _)| {
-                // far → fare, por → porre: an infinitive drops its -e before clitics.
-                self.forms.contains(&host)
-                    || self.forms.contains(&format!("{host}e"))
-                    || self.forms.contains(&format!("{host}re"))
+                it_host_spellings(&host)
+                    .iter()
+                    .any(|f| self.forms.contains(f))
             }),
             Lang::Es => es::split_enclitics(token)
                 .iter()
@@ -144,46 +107,189 @@ impl Target {
     }
 }
 
+/// How an Italian table may write the host clitics were split from: far →
+/// fare, por → porre, and the short imperatives da → dai, da', di → di'.
+fn it_host_spellings(host: &str) -> Vec<String> {
+    let mut out = vec![host.to_owned(), format!("{host}e"), format!("{host}re")];
+    if ["da", "fa", "sta", "va", "di"].contains(&host) {
+        out.push(format!("{host}i"));
+        out.push(format!("{host}'"));
+    }
+    out
+}
+
+/// A query resolved against the verb's table.
+#[derive(Debug)]
+pub struct Target {
+    pub lang: Lang,
+    pub infinitive: String,
+    /// The verb as a parse's lemma is compared with it ([`page_verb`]).
+    pub base: String,
+    /// The cells asked for. A simple cell has its forms (lower case); a
+    /// compound one has none (it is the auxiliary + the participle).
+    pub cells: BTreeMap<String, Vec<String>>,
+    simple: Forms,
+    /// The past participle in every gender and number.
+    participles: HashSet<String>,
+    /// Every form of the auxiliaries.
+    auxiliary: Forms,
+}
+
 impl Target {
+    pub fn new(tables: &VerbTables, lang: Lang, query: &Query) -> Result<Self, QueryError> {
+        if let Some(tense) = &query.tense {
+            check_tense(lang, tense)?;
+        }
+        let table = find(tables, &query.infinitive)?;
+        let mut all = table_cells(table);
+        let participles: HashSet<String> = all
+            .get("non_finite.past_participle")
+            .into_iter()
+            .flatten()
+            .flat_map(|p| inflected_participles(lang, p))
+            .collect();
+        let mut auxiliary = HashSet::new();
+        for aux in auxiliaries(lang) {
+            auxiliary.extend(table_cells(find(tables, aux)?).into_values().flatten());
+        }
+        // A compound tense has the persons of its auxiliary's tense.
+        let aux_cells = table_cells(find(tables, auxiliaries(lang)[0])?);
+        for t in tenses(lang).iter().filter(|t| t.kind == Kind::Compound) {
+            let aux = t.auxiliary_tense.unwrap_or_default();
+            for cell in aux_cells.keys().filter(|c| tense_of(c) == aux) {
+                let person = &cell[aux.len()..];
+                all.insert(format!("{}{person}", t.id), Vec::new());
+            }
+        }
+        let cells: BTreeMap<String, Vec<String>> = match &query.tense {
+            None => all,
+            Some(tense) => {
+                let chosen: BTreeMap<String, Vec<String>> = all
+                    .into_iter()
+                    .filter(|(c, _)| c == tense || tense_of(c) == tense)
+                    .collect();
+                if chosen.is_empty() {
+                    return Err(QueryError::NotInTable {
+                        infinitive: query.infinitive.clone(),
+                        tense: tense.clone(),
+                    });
+                }
+                chosen
+            }
+        };
+        Ok(Self {
+            lang,
+            infinitive: query.infinitive.clone(),
+            base: page_verb(&query.infinitive, lang),
+            simple: Forms::new(cells.values().flatten().cloned().collect()),
+            cells,
+            participles,
+            auxiliary: Forms::new(auxiliary),
+        })
+    }
+
+    /// Whether a token (lower case) may be one of the simple forms asked
+    /// for. Only a prefilter; the parse decides.
+    pub fn may_be(&self, token: &str) -> bool {
+        self.simple.may_be(self.lang, token)
+    }
+
+    /// Whether a token (lower case) may be the verb's past participle, in any
+    /// gender and number: the heart of a compound tense or a passive.
+    pub fn may_be_participle(&self, token: &str) -> bool {
+        self.participles.contains(token)
+    }
+
+    /// Whether a token (lower case) may be a form of an auxiliary.
+    pub fn may_be_auxiliary(&self, token: &str) -> bool {
+        self.auxiliary.may_be(self.lang, token)
+    }
+
+    pub fn is_participle(&self, surface: &str) -> bool {
+        self.participles.contains(surface)
+    }
+
     /// Whether a verb morpheme's surface (lower case) is how the table writes
-    /// `cell`: the form itself, or, for a `host` that clitics were split from,
-    /// what the clitics left of it (far in farlo, dá in dámelo, démo in
-    /// démonos, senta in sentaos). An inflected
-    /// participle (fatti, mangiata) is not: the cell holds the masculine
-    /// singular only.
-    pub fn written_as(&self, cell: &str, surface: &str, host: bool) -> bool {
+    /// `cell`. `token` (lower case) is given when clitics were split off the
+    /// word: then the whole word may be the table's spelling (fatti,
+    /// arrepintámonos), or the host what the clitics left of it (far in
+    /// farlo, da in dammelo, dá in dámelo, démo in démonos). An inflected
+    /// participle (fatti, mangiata) is not the `past_participle` cell, which
+    /// holds the masculine singular only.
+    pub fn written_as(&self, cell: &str, surface: &str, token: Option<&str>) -> bool {
         let Some(forms) = self.cells.get(cell) else {
             return false;
         };
-        forms.iter().any(|f| match self.lang {
+        forms.iter().any(|f| match (self.lang, token) {
             _ if f == surface => true,
-            // A cell can itself carry clitics (farsi, fatti): its host counts.
-            Lang::It if host => {
-                *f == format!("{surface}e")
-                    || *f == format!("{surface}re")
+            (_, Some(t)) if f == t => true,
+            (Lang::It, Some(_)) => {
+                it_host_spellings(surface).contains(f)
                     || it::split_enclitics(f).is_some_and(|(h, _)| h == surface)
             }
-            Lang::Es if host => {
+            (Lang::Es, Some(_)) => {
                 let (f, s) = (es::strip_accent(f), es::strip_accent(surface));
-                f == s
-                    || f == format!("{s}s")
-                    || f == format!("{s}d")
-                    || es::split_enclitics(&f)
-                        .iter()
-                        .flat_map(|split| &split.hosts)
-                        .any(|h| es::strip_accent(h) == s)
+                f == s || f == format!("{s}s") || f == format!("{s}d")
             }
             _ => false,
         })
     }
 }
 
-/// `indicative.present.3s` → `indicative.present`; `non_finite.gerund` stays.
-fn tense_of(cell: &str) -> &str {
-    match cell.rsplit_once('.') {
-        Some((tense, _)) if tense.contains('.') => tense,
-        _ => cell,
+fn find<'t>(tables: &'t VerbTables, infinitive: &str) -> Result<&'t VerbTable, QueryError> {
+    tables
+        .verbs
+        .iter()
+        .find(|v| v.infinitive == infinitive)
+        .ok_or_else(|| QueryError::UnknownVerb(infinitive.to_owned()))
+}
+
+/// Cell → the verb words written in it.
+fn table_cells(table: &VerbTable) -> BTreeMap<String, Vec<String>> {
+    let mut all = BTreeMap::new();
+    for (mood, tenses) in &table.conjugation {
+        for (tense, forms) in tenses {
+            match forms {
+                TenseForms::Persons(persons) => {
+                    for (person, form) in persons {
+                        all.insert(format!("{mood}.{tense}.{person}"), words(form));
+                    }
+                }
+                TenseForms::Single(form) => {
+                    all.insert(format!("{mood}.{tense}"), words(form));
+                }
+            }
+        }
     }
+    all
+}
+
+/// A past participle in every gender and number, from the masculine
+/// singular the table gives: fatto → fatta, fatti, fatte; hecho → hecha,
+/// hechos, hechas; vu → vue, vus, vues; pris → prise, prises.
+fn inflected_participles(lang: Lang, ms: &str) -> Vec<String> {
+    let mut out = vec![ms.to_owned()];
+    match lang {
+        Lang::It => {
+            if let Some(stem) = ms.strip_suffix('o') {
+                out.extend(["a", "i", "e"].iter().map(|e| format!("{stem}{e}")));
+            }
+        }
+        Lang::Es => {
+            if let Some(stem) = ms.strip_suffix('o') {
+                out.extend(["a", "os", "as"].iter().map(|e| format!("{stem}{e}")));
+            }
+        }
+        Lang::Fr => {
+            out.push(format!("{ms}e"));
+            out.push(format!("{ms}es"));
+            if !ms.ends_with(['s', 'x']) {
+                out.push(format!("{ms}s"));
+            }
+        }
+        _ => {}
+    }
+    out
 }
 
 /// The verb words of a table cell: `abandonara / abandonase` is two forms,
@@ -263,22 +369,28 @@ mod tests {
     use super::*;
 
     fn tables() -> VerbTables {
+        let persons =
+            |f: &str| serde_json::json!({"1s": f, "2s": f, "3s": f, "1p": f, "2p": f, "3p": f});
         serde_json::from_value(serde_json::json!({"verbs": [
             {"infinitive": "fare", "conjugation": {
                 "indicative": {"past_historic": {"3s": "fece", "3p": "fecero"}, "present": {"3s": "fa"}},
-                "imperative": {"present": {"2s": "fa"}},
-                "non_finite": {"infinitive": "fare", "gerund": "facendo"}}},
+                "imperative": {"present": {"2s": "fai"}},
+                "non_finite": {"infinitive": "fare", "gerund": "facendo", "past_participle": "fatto"}}},
             {"infinitive": "farsi", "conjugation": {"indicative": {"present": {"3s": "si fa"}},
                 "imperative": {"present": {"2s": "fatti"}}, "non_finite": {"infinitive": "farsi"}}},
-            {"infinitive": "dire", "conjugation": {"imperative": {"present": {"2s": "di'"}}}}
+            {"infinitive": "dire", "conjugation": {"imperative": {"present": {"2s": "di'"}}}},
+            {"infinitive": "avere", "conjugation": {"indicative": {"present": persons("ha")},
+                "non_finite": {"infinitive": "avere", "gerund": "avendo"}}},
+            {"infinitive": "essere", "conjugation": {"indicative": {"present": persons("è")}}},
+            {"infinitive": "venire", "conjugation": {"indicative": {"present": persons("viene")}}}
         ]}))
         .unwrap()
     }
 
-    fn target(lang: Lang, infinitive: &str, tense: Option<&str>) -> Result<Target, QueryError> {
+    fn target(infinitive: &str, tense: Option<&str>) -> Result<Target, QueryError> {
         Target::new(
             &tables(),
-            lang,
+            Lang::It,
             &Query {
                 infinitive: infinitive.to_owned(),
                 tense: tense.map(str::to_owned),
@@ -288,52 +400,102 @@ mod tests {
 
     #[test]
     fn a_tense_selects_its_cells() {
-        let t = target(Lang::It, "fare", Some("indicative.past_historic")).unwrap();
+        let t = target("fare", Some("indicative.past_historic")).unwrap();
         assert_eq!(
             t.cells.keys().collect::<Vec<_>>(),
             ["indicative.past_historic.3p", "indicative.past_historic.3s"]
         );
-        let t = target(Lang::It, "fare", Some("non_finite.gerund")).unwrap();
+        let t = target("fare", Some("non_finite.gerund")).unwrap();
         assert_eq!(t.cells.keys().collect::<Vec<_>>(), ["non_finite.gerund"]);
-        let t = target(Lang::It, "fare", None).unwrap();
+        let t = target("fare", Some("indicative.present_perfect")).unwrap();
         assert_eq!(t.cells.len(), 6);
+        assert!(t.cells.contains_key("indicative.present_perfect.3s"));
+        let t = target("fare", Some("non_finite.perfect_infinitive")).unwrap();
+        assert_eq!(
+            t.cells.keys().collect::<Vec<_>>(),
+            ["non_finite.perfect_infinitive"]
+        );
+        let t = target("fare", Some("indicative.past_historic.3s")).unwrap();
+        assert_eq!(
+            t.cells.keys().collect::<Vec<_>>(),
+            ["indicative.past_historic.3s"]
+        );
     }
 
     #[test]
     fn an_unknown_tense_lists_the_tenses() {
-        let e = target(Lang::It, "fare", Some("subjunctive.present"))
+        let e = target("fare", Some("indicative.passato_prossimo"))
             .unwrap_err()
             .to_string();
-        assert!(
-            e.contains("indicative.past_historic, indicative.present"),
-            "{e}"
-        );
+        assert!(e.contains("indicative.present_perfect"), "{e}");
         assert!(e.contains("non_finite.gerund"), "{e}");
-        assert!(target(Lang::It, "dare", None).is_err());
+        assert!(matches!(
+            target("fare", Some("subjunctive.present")),
+            Err(QueryError::NotInTable { .. })
+        ));
+        assert!(matches!(
+            target("dare", None),
+            Err(QueryError::UnknownVerb(_))
+        ));
     }
 
     #[test]
-    fn prefilter_allows_attached_clitics() {
-        let t = target(Lang::It, "fare", None).unwrap();
+    fn prefilter_allows_attached_clitics_and_inflected_participles() {
+        let t = target("fare", None).unwrap();
         for yes in ["fece", "farlo", "fallo", "facendolo", "fa"] {
             assert!(t.may_be(yes), "{yes}");
         }
-        for no in ["fame", "fatto", "ferro"] {
+        for no in ["fame", "ferro"] {
             assert!(!t.may_be(no), "{no}");
         }
-        assert!(t.written_as("non_finite.infinitive", "far", true));
-        let farsi = target(Lang::It, "farsi", None).unwrap();
-        assert!(farsi.written_as("imperative.present.2s", "fa", true));
-        assert!(farsi.written_as("non_finite.infinitive", "far", true));
-        assert!(!farsi.written_as("imperative.present.2s", "fa", false));
+        for p in ["fatto", "fatta", "fatti", "fatte"] {
+            assert!(t.may_be_participle(p), "{p}");
+        }
+        assert!(
+            t.may_be_auxiliary("ha")
+                && t.may_be_auxiliary("avendolo")
+                && !t.may_be_auxiliary("casa")
+        );
+    }
+
+    #[test]
+    fn hosts_and_clitic_bearing_cells() {
+        let t = target("fare", None).unwrap();
+        assert!(t.written_as("non_finite.infinitive", "far", Some("farlo")));
+        assert!(!t.written_as("non_finite.infinitive", "far", None));
+        assert!(t.written_as("imperative.present.2s", "fa", Some("fallo")));
+        let farsi = target("farsi", None).unwrap();
+        assert!(farsi.written_as("imperative.present.2s", "fa", Some("fatti")));
+        assert!(farsi.written_as("non_finite.infinitive", "far", Some("farsi")));
+        assert!(!farsi.written_as("imperative.present.2s", "fa", None));
         assert_eq!(
-            target(Lang::It, "dire", None).unwrap().cells["imperative.present.2s"],
+            target("dire", None).unwrap().cells["imperative.present.2s"],
             ["di'"]
         );
-        assert!(!t.written_as("non_finite.infinitive", "far", false));
+        assert!(target("dire", None).unwrap().written_as(
+            "imperative.present.2s",
+            "di",
+            Some("dillo")
+        ));
         assert_eq!(
-            target(Lang::It, "farsi", None).unwrap().cells["indicative.present.3s"],
+            target("farsi", None).unwrap().cells["indicative.present.3s"],
             ["fa"]
+        );
+    }
+
+    #[test]
+    fn participles_in_every_gender_and_number() {
+        assert_eq!(
+            inflected_participles(Lang::Es, "hecho"),
+            ["hecho", "hecha", "hechos", "hechas"]
+        );
+        assert_eq!(
+            inflected_participles(Lang::Fr, "pris"),
+            ["pris", "prise", "prises"]
+        );
+        assert_eq!(
+            inflected_participles(Lang::Fr, "vu"),
+            ["vu", "vue", "vues", "vus"]
         );
     }
 
