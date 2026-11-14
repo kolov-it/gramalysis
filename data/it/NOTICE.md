@@ -9,6 +9,7 @@ and keep their sources' licences.
 | `tatoeba-pool.jsonl.gz`, `homograph-set.jsonl` (the `text` field of each sentence) | [Tatoeba](https://tatoeba.org), Italian sentences, export of 2026-10-09. Each sentence keeps its Tatoeba id (`id` / `tatoeba_id`, page `https://tatoeba.org/sentences/show/<id>`) and its author (`author`). | [CC BY 2.0 FR](https://creativecommons.org/licenses/by/2.0/fr/) |
 | the `spacy` / `tokens` fields of those files | tokens, part-of-speech tags and lemmas from spaCy `it_core_news_md` 3.8.0 run over the Tatoeba sentences | as the sentences |
 | `verbs.json` | Italian conjugation tables from [Wiktionary](https://en.wiktionary.org/) via [Kaikki.org](https://kaikki.org/), as published in the Word Holder dictionary, version v19 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| `di-verbs.tsv` | verbs that take a *di* phrase, from sense notes and usage examples of Italian verbs in [Wiktionary](https://en.wiktionary.org/) via [Kaikki.org](https://kaikki.org/) (extract of 2026-10-07), plus verbs the labelled sentences show with one | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | `homographs.tsv`, `form-other-verbs.tsv`, `ambiguous-forms.tsv` | derived from the same Wiktionary data (and, for `ambiguous-forms.tsv`, spaCy's tags over Tatoeba) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | `page-example-forms.tsv` | which verb forms already show an example sentence on wordholder.com verb pages | Apache-2.0 |
 

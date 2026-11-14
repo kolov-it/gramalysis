@@ -4,8 +4,29 @@
 # refl/gen/loc, finite yes/no, form inf/ger/pastpart/…, mood ind/sub/cnd/imp.
 # A feature a word does not have (e.g. a noun's gender when the dictionary
 # does not give it) is unknown and matches anything.
+#
+# takes_di yes/no: the verb takes a di phrase (data/it/di-verbs.tsv). prep: a
+# prepositional phrase's preposition. partitive yes: del pane, dei ragazzi.
 
-start S
+start Text
+
+# -------------------------------------------------------------- sentences
+#
+# A sentence is a clause, or a noun phrase without a verb: an exclamation, a
+# title, a list. Both are returned when both fit (La veste di seta per mia
+# moglie! is a dress of silk and "he dresses her in silk").
+
+rule text.clause: Text -> S
+  "A sentence with a verb."
+
+rule text.fragment: Text -> Frag
+  "A sentence without a verb."
+
+rule frag.noun-phrase: Frag -> NP[case=nom]
+  "A noun phrase on its own is a sentence: an exclamation or a title (La forza del destino!)."
+
+rule frag.list: Frag -> Frag Punct[lemma=;|:] NP
+  "After ; or : another noun phrase: the next item of a list, or a new name for what came before (La rovina in due case; lo scompiglio in tutto il paesello)."
 
 # ---------------------------------------------------------------- clauses
 
@@ -242,8 +263,8 @@ rule np.predeterminer: NP[person=3, number=?n, gender=?g] -> Predet[number=?n, g
 rule np.bare: NP[case=obl, person=3, number=?n, gender=?g] -> Nom[number=?n, gender=?g]
   "A noun without an article, as an object or after a preposition (ho fame, mangio mele, prendo spunto); not as a subject."
 
-rule np.coordination: NP[number=pl] -> NP Conj[type=coord] NP
-  "Two noun phrases joined by e, o, ma (Tom e Mary, io e lui)."
+rule np.coordination: NP[number=pl] -> NP Conj[type=coord, lemma=e|o|ma|né|oppure|ossia|ovvero] NP
+  "Two noun phrases joined by e, o, ma (Tom e Mary, io e lui). Only these: a word the dictionary calls a conjunction without saying which kind (quasi, pure) does not join noun phrases."
 
 rule nom.prepositional-phrase: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] PP
   "A phrase with a preposition describes the noun (la casa di Tom, il libro sul tavolo). After a participle it can also describe the noun, so un suono soffocato di pianti is both a muffled sound of crying and a sound suffocated by crying."
@@ -304,6 +325,9 @@ rule clause.subordinate-first: S -> Conj[type=sub] S Punct S
 rule clause.comma: S -> S Punct S
   "Two clauses separated by a comma."
 
+rule clause.noun-phrase-after: S -> S Punct[lemma=;|:] NP
+  "After a clause, ; or : and a noun phrase that names what the clause spoke of, or adds to it (Descrissi una lotta fra il leone e la tigre: argomento in armonia con la mia natura)."
+
 rule clause.vocative-first: S -> ProperNoun Punct S
   "Addressing someone first, then a comma (Tom, vieni qui)."
 
@@ -348,7 +372,7 @@ rule ap.coordination: AP[number=?n, gender=?g] -> AP[number=?n, gender=?g] Conj[
 rule np.list: NP[number=pl] -> NP Punct NPList
   "A list of noun phrases separated by commas, the last joined by e or o (cibo, feste e balli)."
 
-rule nplist.last: NPList -> NP Conj[type=coord] NP
+rule nplist.last: NPList -> NP Conj[type=coord, lemma=e|o|ma|né|oppure|ossia|ovvero] NP
   "The end of a list: … e …"
 
 rule nplist.more: NPList -> NP Punct NPList
@@ -442,6 +466,9 @@ rule vp.floating-quantifier: VP[finite=?f, form=?fm, mood=?m, person=?p, number=
 
 rule vp.naming-passive: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Verb[lemma=essere|venire, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=dire|chiamare|considerare|nominare|eleggere|ritenere|definire, form=pastpart, number=?n, gender=?g, takes_di=?d] NP
   "essere detto / chiamato / considerato + a noun: what the subject is called or considered (è detta petroliera)."
+
+rule clause.phrase-after-comma: S -> S Punct[lemma!=.|?|!] PP[prep!=di]
+  "A comma, then a phrase with a preposition that adds how or where to the clause (rispose il ragazzo, con voce concitata)."
 
 rule clause.phrase-first-comma: S -> PP Punct S
   "A phrase with a preposition at the start, then a comma (Durante il viaggio verso Parigi, ci siamo fermati)."

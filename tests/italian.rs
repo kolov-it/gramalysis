@@ -28,14 +28,14 @@ fn agreed(a: &SentenceAnalysis, token: &str) -> Vec<String> {
 async fn fece_is_fare_third_singular() {
     let a = run("Tom fece del volontariato.").await;
     assert!(!a.parses.is_empty());
-    assert_eq!(agreed(&a, "fece"), ["fare Verb finite=yes,form=fin,mood=ind,number=sg,person=3,tense=past"]);
+    assert_eq!(agreed(&a, "fece"), ["fare Verb finite=yes,form=fin,mood=ind,number=sg,person=3,takes_di=no,tense=past"]);
 }
 
 #[tokio::test]
 async fn subject_agreement_picks_present_over_imperative() {
     let a = run("La ragazza ama il cane.").await;
     assert!(!a.parses.is_empty());
-    assert_eq!(agreed(&a, "ama"), ["amare Verb finite=yes,form=fin,mood=ind,number=sg,person=3,tense=pres"]);
+    assert_eq!(agreed(&a, "ama"), ["amare Verb finite=yes,form=fin,mood=ind,number=sg,person=3,takes_di=no,tense=pres"]);
     assert_eq!(agreed(&a, "La"), ["il Det definite=yes,gender=f,next=c,number=sg"]);
 }
 
@@ -50,7 +50,7 @@ async fn enclitics_on_an_imperative() {
     let a = run("Dammelo!").await;
     assert!(!a.parses.is_empty());
     let r = agreed(&a, "Dammelo");
-    assert_eq!(r[0], "dare Verb finite=yes,form=fin,mood=imp,number=sg,person=2");
+    assert_eq!(r[0], "dare Verb finite=yes,form=fin,mood=imp,number=sg,person=2,takes_di=yes");
     assert!(r[1].starts_with("mi Pron") && r[1].contains("case=dat"));
     assert!(r[2].starts_with("lo Pron") && r[2].contains("case=acc"));
 }
@@ -59,7 +59,7 @@ async fn enclitics_on_an_imperative() {
 async fn ricordati_is_the_imperative_here() {
     let a = run("Ricordati di me.").await;
     assert!(!a.parses.is_empty());
-    assert_eq!(agreed(&a, "Ricordati")[0], "ricordare Verb finite=yes,form=fin,mood=imp,number=sg,person=2");
+    assert_eq!(agreed(&a, "Ricordati")[0], "ricordare Verb finite=yes,form=fin,mood=imp,number=sg,person=2,takes_di=yes");
 }
 
 #[tokio::test]
@@ -67,14 +67,14 @@ async fn che_clause_negation_and_infinitive() {
     let a = run("Disse che non riusciva a trovare un lavoro.").await;
     assert!(!a.parses.is_empty());
     assert_eq!(agreed(&a, "lavoro"), ["lavoro Noun gender=m,number=sg"]);
-    assert_eq!(agreed(&a, "trovare"), ["trovare Verb finite=no,form=inf"]);
+    assert_eq!(agreed(&a, "trovare"), ["trovare Verb finite=no,form=inf,takes_di=no"]);
 }
 
 #[tokio::test]
 async fn clitic_before_a_compound_tense() {
     let a = run("L'ho fatto.").await;
     assert!(!a.parses.is_empty());
-    assert_eq!(agreed(&a, "fatto"), ["fare Verb finite=no,form=pastpart,gender=m,number=sg"]);
+    assert_eq!(agreed(&a, "fatto"), ["fare Verb finite=no,form=pastpart,gender=m,number=sg,takes_di=no"]);
 }
 
 #[tokio::test]
@@ -258,4 +258,135 @@ async fn phrase_after_a_participle_has_both_readings() {
             || c.readings.iter().any(|r| r[0].cat == "Adj"),
         "{c:?}"
     );
+}
+
+async fn run_literature(text: &str) -> SentenceAnalysis {
+    let lexicon = FixtureLexicon::load(Path::new("tests/fixtures/it-literature.json")).unwrap();
+    let a = analyze(&lexicon, &Italian::load().unwrap(), text)
+        .await
+        .unwrap();
+    assert!(a.unknown.is_empty(), "{text}: unknown {:?}", a.unknown);
+    a
+}
+
+/// The lemma/category pairs the parses read `token` as.
+fn readings_of(a: &SentenceAnalysis, token: &str) -> Vec<String> {
+    let c = a.chosen.iter().find(|c| c.token == token).unwrap();
+    c.readings
+        .iter()
+        .map(|r| format!("{} {}", r[0].cat, r[0].lemma))
+        .collect()
+}
+
+/// A noun phrase is a whole sentence (#10): la forza is the noun, not "(he)
+/// forces her", since forzare takes no di phrase and del destino is no
+/// partitive subject.
+#[tokio::test]
+async fn a_noun_phrase_is_a_sentence() {
+    for (sentence, token, noun) in [
+        ("La forza del destino!", "forza", "Noun forza"),
+        ("La porta di casa mia!", "porta", "Noun porta"),
+    ] {
+        let a = run_literature(sentence).await;
+        let readings = readings_of(&a, token);
+        assert!(
+            readings.contains(&noun.to_owned()),
+            "{sentence}: {readings:?}"
+        );
+        assert!(
+            !readings.iter().any(|r| r.starts_with("Verb")),
+            "{sentence}: {readings:?}"
+        );
+    }
+}
+
+/// Both readings stay when both are Italian: a dress of silk, and vestire di
+/// seta, "he dresses her in silk".
+#[tokio::test]
+async fn a_noun_phrase_and_a_clause_are_both_returned() {
+    let a = run_literature("La veste di seta per mia moglie!").await;
+    let readings = readings_of(&a, "veste");
+    assert!(readings.contains(&"Noun veste".to_owned()), "{readings:?}");
+    assert!(
+        readings.contains(&"Verb vestire".to_owned()),
+        "{readings:?}"
+    );
+}
+
+/// A di phrase after the verb needs a verb that takes it (parlare di), or a
+/// fixed time or manner phrase (di notte).
+#[tokio::test]
+async fn a_di_phrase_after_the_verb() {
+    assert!(!run_literature("Parla del destino.").await.parses.is_empty());
+    assert!(!run_literature("Esce di notte.").await.parses.is_empty());
+    assert!(
+        run_literature("Lo forza del destino.")
+            .await
+            .parses
+            .is_empty()
+    );
+}
+
+/// A partitive subject after the verb is plural, or follows c'è.
+#[tokio::test]
+async fn a_partitive_subject_after_the_verb() {
+    assert!(
+        !run_literature("Sono arrivati dei ragazzi.")
+            .await
+            .parses
+            .is_empty()
+    );
+    assert!(!run_literature("C'è del pane.").await.parses.is_empty());
+    let a = run_literature("La forza del destino!").await;
+    assert!(
+        !a.parses
+            .iter()
+            .any(|p| p.rules().iter().any(|(r, _)| *r == "clause.subject-after")),
+        "del destino read as the subject"
+    );
+}
+
+/// After ; or : a noun phrase follows a clause or another noun phrase.
+#[tokio::test]
+async fn a_noun_phrase_after_a_semicolon_or_colon() {
+    for (sentence, token, noun) in [
+        (
+            "No, — rispose il ragazzo, con voce concitata; — la Guida di Torino.",
+            "Guida",
+            "Noun guida",
+        ),
+        (
+            "Descrissi Una lotta fra il leone e la tigre: argomento in armonia con la mia natura, si capisce.",
+            "argomento",
+            "Noun argomento",
+        ),
+        (
+            "La rovina in due case; lo scompiglio in tutto il paesello per tutta una notte....",
+            "scompiglio",
+            "Noun scompiglio",
+        ),
+    ] {
+        let a = run_literature(sentence).await;
+        let readings = readings_of(&a, token);
+        assert!(
+            readings.contains(&noun.to_owned()),
+            "{sentence}: {readings:?}"
+        );
+    }
+}
+
+/// di after some prepositions and pronouns: su di me, ciascuno di noi,
+/// nulla di sospetto.
+#[tokio::test]
+async fn di_after_prepositions_and_pronouns() {
+    for sentence in [
+        "Conti su di me.",
+        "Il vescovo domandò a ciascuno di noi come ci chiamassimo.",
+        "Non notai nulla di sospetto.",
+    ] {
+        assert!(
+            !run_literature(sentence).await.parses.is_empty(),
+            "{sentence}"
+        );
+    }
 }

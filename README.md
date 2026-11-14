@@ -34,19 +34,21 @@ the noun *work* or the verb *I work*; only the noun fits).
 
 Italian first, then [Spanish](#spanish) and [French](#french); the design is multilingual from the start.
 
-**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 119 rules)
+**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 143 rules)
 covers agreement and the dropped subject; articles (with the *il / lo / l'*
 choice by the next word's first sound), demonstratives, quantifiers and
 possessives; clitic pronouns before and after the verb; compound tenses, the
 passive and *stare* + gerund; participles used like adjectives, participle
 phrases and participle clauses (*Arrivato a casa, …*; *dopo mangiato*);
 infinitive complements, *che* and *cui* clauses, indirect questions,
-questions, subordinate clauses, commas, coordination and time expressions.
+questions, subordinate clauses, commas, coordination and time expressions;
+sentences without a verb (*La forza del destino!*, a noun phrase after `;` or
+`:`).
 
 On the [Tatoeba homograph set](#measuring-it-the-tatoeba-homograph-set)
 (5,000 sentences built around ambiguous verb forms) it decides the ambiguous
-word in **70%** of the sentences, and **99.2%** of those decisions agree with
-the labels (3,340 of 3,368).
+word in **71%** of the sentences, and **99.2%** of those decisions agree with
+the labels (3,347 of 3,374).
 
 ## Goal: anyone can run every example
 
@@ -171,6 +173,20 @@ the one a verb page needs: *which verb, or not a verb at all*.
   noun, and both readings are returned: *un suono soffocato di pianti* is a
   sound suffocated by crying (verb use) or a muffled sound of crying
   (adjective use).
+- A **noun phrase is a sentence** too (an exclamation, a title, a list after
+  `;` or `:`), next to the clause readings: *La forza del destino!* is a noun
+  phrase only, *La veste di seta per mia moglie!* is both a dress of silk and
+  "he dresses her in silk" (*vestire di*). A noun phrase sentence needs an
+  article or another determiner; after `;` or `:` a bare noun is enough
+  (*…: argomento in armonia con la mia natura*).
+- A **di phrase after a verb** needs a verb that takes one
+  (`data/it/di-verbs.tsv`: *parlare di*, *vestire di*, *morire di*), or a fixed
+  time or manner phrase (*di notte*, *di corsa*, *di nuovo*, *uscire di casa*).
+  Otherwise it belongs to the noun before it: *la porta di casa mia* is not
+  "(he) carries her of my house". *di* + infinitive is not affected.
+- A **partitive subject after the verb** is plural (*sono arrivati dei
+  ragazzi*) or follows *c'è* (*c'è del pane*); *del destino* is not "some
+  destiny".
 
 ## Spanish
 
