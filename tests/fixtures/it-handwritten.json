@@ -2964,6 +2964,108 @@
         "source": "kaikki",
         "surface": "bersaglieri"
       }
+    ],
+    "martedì": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "martedì",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "martedì"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "martedì",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "martedì"
+      }
+    ],
+    "giovedì": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "giovedì",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "giovedì"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "giovedì",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "giovedì"
+      }
+    ],
+    "venerdì": [
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "singular",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "venerdì",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "venerdì"
+      },
+      {
+        "confidence": "high",
+        "grammar": {
+          "clitic": false,
+          "gender": "masculine",
+          "number": "plural",
+          "rawTags": [
+            "invariable",
+            "masculine"
+          ]
+        },
+        "lemma": "venerdì",
+        "partOfSpeech": "noun",
+        "source": "kaikki",
+        "surface": "venerdì"
+      }
     ]
   }
 }
