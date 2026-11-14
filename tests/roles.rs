@@ -400,5 +400,9 @@ async fn essere_takes_no_direct_object() {
     assert_eq!(tutti.readings[0][0].feats.get("case").map(String::as_str), Some("obl"));
     agreed(&set("Mary potrebbe essere una modella.").await, &[("modella", Some(SubjectComplement))]);
     agreed(&set("Decisi di essere un avvocato.").await, &[("avvocato", Some(SubjectComplement))]);
+    agreed(
+        &set("Voglio essere sempre un avvocato.").await,
+        &[("sempre", Some(Adverbial)), ("avvocato", Some(SubjectComplement))],
+    );
     agreed(&set("Questo è un libro.").await, &[("libro", Some(SubjectComplement))]);
 }
