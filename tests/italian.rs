@@ -430,6 +430,8 @@ async fn di_phrases_keep_agreement_and_modifiers() {
     assert!(!run_literature("Rimane circondata di gente.").await.parses.is_empty());
     assert!(run_literature("Conti su di io.").await.parses.is_empty());
     assert!(!run_literature("Mangia di gusto.").await.parses.is_empty());
+    assert!(!run_literature("Mangia di tanto in tanto.").await.parses.is_empty());
+    assert!(!run_literature("Vedo il cane nonché il gatto.").await.parses.is_empty());
     assert!(run_literature("Mangio più di tu.").await.parses.is_empty());
     assert!(!run_literature("Mangio più di te.").await.parses.is_empty());
     assert!(!run_literature("Non notai nulla di sospetto.").await.parses.is_empty());

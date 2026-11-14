@@ -246,6 +246,12 @@ rule diadv.yes-no: DiAdv -> Prep[lemma=di] Intj[lemma=sì|no]
 rule diadv.from-to: DiAdv -> Prep[lemma=di] Nom Prep[lemma=in] Nom
   "di … in …: from one to the next (di fiore in fiore, di casa in casa)."
 
+rule diadv.now-and-then: DiAdv -> Prep[lemma=di] Adv[lemma=tanto] Prep[lemma=in] Adv[lemma=tanto]
+  "di tanto in tanto: now and then."
+
+rule diadv.now-and-then-quando: DiAdv -> Prep[lemma=di] QAdv[lemma=quando] Prep[lemma=in] QAdv[lemma=quando]
+  "di quando in quando: now and then."
+
 rule vp.adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Adv[neg=no]
   "An adverb after the verb."
 
@@ -289,8 +295,8 @@ rule np.predeterminer: NP[person=3, number=?n, gender=?g] -> Predet[number=?n, g
 rule np.bare: NP[case=obl, person=3, number=?n, gender=?g] -> Nom[number=?n, gender=?g]
   "A noun without an article, as an object or after a preposition (ho fame, mangio mele, prendo spunto); not as a subject."
 
-rule np.coordination: NP[number=pl] -> NP Conj[type=coord, lemma=e|o|ma|né|oppure|ossia|ovvero] NP
-  "Two noun phrases joined by e, o, ma (Tom e Mary, io e lui). Only these: a word the dictionary calls a conjunction without saying which kind (quasi, pure) does not join noun phrases."
+rule np.coordination: NP[number=pl] -> NP Conj[type=coord, lemma=e|o|ma|né|oppure|ossia|ovvero|nonché] NP
+  "Two noun phrases joined by e, o, ma (Tom e Mary, io e lui). Only these and nonché: a word the dictionary calls a conjunction without saying which kind (quasi, pure) does not join noun phrases."
 
 rule nom.prepositional-phrase: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Nom[number=?n, gender=?g, onset=?o, utterance=?u] PP
   "A phrase with a preposition describes the noun (la casa di Tom, il libro sul tavolo). After a participle it can also describe the noun, so un suono soffocato di pianti is both a muffled sound of crying and a sound suffocated by crying."
@@ -398,7 +404,7 @@ rule ap.coordination: AP[participle_di=no, number=?n, gender=?g] -> AP[number=?n
 rule np.list: NP[number=pl] -> NP Punct NPList
   "A list of noun phrases separated by commas, the last joined by e or o (cibo, feste e balli)."
 
-rule nplist.last: NPList -> NP Conj[type=coord, lemma=e|o|ma|né|oppure|ossia|ovvero] NP
+rule nplist.last: NPList -> NP Conj[type=coord, lemma=e|o|ma|né|oppure|ossia|ovvero|nonché] NP
   "The end of a list: … e …"
 
 rule nplist.more: NPList -> NP Punct NPList
