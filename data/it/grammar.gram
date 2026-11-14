@@ -46,7 +46,7 @@ rule nom.adjective-before: Nom[number=?n, gender=?g, onset=?o] -> Adj[number=?n,
 
 # ------------------------------------------------- prepositional phrases
 
-rule pp.basic: PP -> Prep NP[case=obl]
+rule pp.basic: PP[prep=?x, infinitive=no] -> Prep[lemma=?x] NP[case=obl]
   "A preposition takes a noun phrase (di + il = del, a + la = alla)."
 
 # --------------------------------------------- the verb and its clitics
@@ -56,73 +56,73 @@ rule pp.basic: PP -> Prep NP[case=obl]
 # `obj`, the person of a 1st or 2nd person clitic that is not reflexive (it
 # must differ from the verb's: mi dai, but not *mi do for "I give me").
 
-rule v.plain: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
+rule v.plain: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Verb[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d]
   "A verb."
 
-rule cop.verb: Cop[mood=?m, person=?p, number=?n] -> Verb[lemma=essere|sembrare|diventare|restare|rimanere|stare, finite=yes, mood=?m, person=?p, number=?n]
+rule cop.verb: Cop[mood=?m, person=?p, number=?n, takes_di=?d] -> Verb[lemma=essere|sembrare|diventare|restare|rimanere|stare, finite=yes, mood=?m, person=?p, number=?n, takes_di=?d]
   "A linking verb: essere, sembrare, diventare, restare, rimanere, stare."
 
-rule cop.adverb: Cop[mood=?m, person=?p, number=?n] -> Cop[mood=?m, person=?p, number=?n] Adv[neg=no]
+rule cop.adverb: Cop[mood=?m, person=?p, number=?n, takes_di=?d] -> Cop[mood=?m, person=?p, number=?n, takes_di=?d] Adv[neg=no]
   "An adverb right after the linking verb (è solo, è molto)."
 
-rule v.adverb-after: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Adv[neg=no]
+rule v.adverb-after: V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[lemma=?l, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Adv[neg=no]
   "An adverb right after the verb (è solo, parla bene, ho già)."
 
-rule v.perfect-avere-adverb: V[aux=avere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Verb[lemma=avere, finite=yes, mood=?m, person=?p, number=?n] Adv[neg=no] Verb[lemma=?l, form=pastpart, takes_avere=yes]
+rule v.perfect-avere-adverb: V[aux=avere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Verb[lemma=avere, finite=yes, mood=?m, person=?p, number=?n] Adv[neg=no] Verb[lemma=?l, form=pastpart, takes_avere=yes, takes_di=?d]
   "An adverb between avere and the participle (ho già fatto, non ho mai visto)."
 
-rule v.perfect-essere-adverb: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Adv[neg=no] Verb[lemma=?l, form=pastpart, takes_essere=yes, number=?n, gender=?g]
+rule v.perfect-essere-adverb: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Adv[neg=no] Verb[lemma=?l, form=pastpart, takes_essere=yes, number=?n, gender=?g, takes_di=?d]
   "An adverb between essere and the participle (è già partita)."
 
-rule v.proclitic: V[lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[lemma=?l, form=fin, mood=ind|sub|cnd, person=?p, number=?n, gender=?g, person=?r, person!=?o]
+rule v.proclitic: V[lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[lemma=?l, form=fin, mood=ind|sub|cnd, person=?p, number=?n, gender=?g, person=?r, person!=?o, takes_di=?d]
   "Clitic pronouns go before a conjugated verb (me lo dà)."
 
-rule v.enclitic-nonfinite: V[clitic_case=?k, finite=no, form=?fm] -> Verb[finite=no, form=?fm] Clitics[attached=yes, case=?k]
+rule v.enclitic-nonfinite: V[clitic_case=?k, finite=no, form=?fm, takes_di=?d] -> Verb[finite=no, form=?fm, takes_di=?d] Clitics[attached=yes, case=?k]
   "Clitic pronouns attach to the end of an infinitive or gerund (prenderlo, prendendolo)."
 
-rule v.enclitic-imperative: V[clitic_case=?k, finite=yes, form=fin, mood=imp, person=?p, number=?n] -> Verb[mood=imp, person=?p, number=?n] Clitics[attached=yes, case=?k, refl=?p, obj!=?p]
+rule v.enclitic-imperative: V[clitic_case=?k, finite=yes, form=fin, mood=imp, person=?p, number=?n, takes_di=?d] -> Verb[mood=imp, person=?p, number=?n, takes_di=?d] Clitics[attached=yes, case=?k, refl=?p, obj!=?p]
   "Clitic pronouns attach to the end of an affirmative imperative (dammelo, ricordati)."
 
-rule v.perfect-avere: V[aux=avere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Verb[lemma=avere, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avere=yes]
+rule v.perfect-avere: V[aux=avere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Verb[lemma=avere, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avere=yes, takes_di=?d]
   "A compound tense with avere, for verbs that take avere: avere + past participle (ho fatto)."
 
-rule v.perfect-essere: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_essere=yes, number=?n, gender=?g]
+rule v.perfect-essere: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_essere=yes, number=?n, gender=?g, takes_di=?d]
   "A compound tense with essere, for verbs that take essere (arrivare, salire, andare): the participle agrees with the subject (è arrivata, sono salite)."
 
-rule v.passive-venire: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=venire, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avere=yes, number=?n, gender=?g]
+rule v.passive-venire: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Verb[lemma=venire, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avere=yes, number=?n, gender=?g, takes_di=?d]
   "The passive with venire + past participle: always an action (vennero bruciate, vengono pulite)."
 
-rule v.passive-event: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere, finite=yes, tense=pret|fut, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avere=yes, number=?n, gender=?g]
+rule v.passive-event: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Verb[lemma=essere, finite=yes, tense=pret|fut, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=pastpart, takes_avere=yes, number=?n, gender=?g, takes_di=?d]
   "The passive with essere in the passato remoto or the future: an event, not a state (furono bruciate, sarà comunicato)."
 
-rule v.passive-perfect: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=essere, form=pastpart, number=?n, gender=?g] Verb[lemma=?l, form=pastpart, takes_avere=yes, number=?n, gender=?g]
+rule v.passive-perfect: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=essere, form=pastpart, number=?n, gender=?g] Verb[lemma=?l, form=pastpart, takes_avere=yes, number=?n, gender=?g, takes_di=?d]
   "The passive in a compound tense: è stato + participle (è stato bloccato, sono state vendute)."
 
-rule v.perfect-infinitive: V[finite=no, form=inf] -> Verb[lemma=avere|essere, form=inf] Verb[form=pastpart]
+rule v.perfect-infinitive: V[finite=no, form=inf, takes_di=?d] -> Verb[lemma=avere|essere, form=inf] Verb[form=pastpart, takes_di=?d]
   "The perfect infinitive: avere or essere + past participle (di aver commesso, dopo essere arrivato)."
 
-rule v.progressive: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Verb[lemma=stare, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=ger]
+rule v.progressive: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Verb[lemma=stare, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=?l, form=ger, takes_di=?d]
   "stare + gerund: an action in progress (stanno crescendo)."
 
-rule v.proclitic-progressive: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, refl=?r, obj=?o] Verb[lemma=stare, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=ger]
+rule v.proclitic-progressive: V[lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Clitics[attached=no, refl=?r, obj=?o] Verb[lemma=stare, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=ger, takes_di=?d]
   "Clitics before stare + gerund (lo sto facendo)."
 
-rule v.proclitic-perfect-avere-adverb: V[aux=avere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[lemma=avere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Adv[neg=no] Verb[lemma=?l, form=pastpart, takes_avere=yes]
+rule v.proclitic-perfect-avere-adverb: V[aux=avere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[lemma=avere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Adv[neg=no] Verb[lemma=?l, form=pastpart, takes_avere=yes, takes_di=?d]
   "Clitic pronouns before avere in a compound tense (l'ho fatto, mi hai quasi ucciso)."
 
-rule v.proclitic-perfect-essere-adverb: V[aux=essere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, reflexive=no, case=?k, refl=?r, obj=?o] Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Adv[neg=no] Verb[lemma=?l, form=pastpart, takes_essere=yes]
+rule v.proclitic-perfect-essere-adverb: V[aux=essere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Clitics[attached=no, reflexive=no, case=?k, refl=?r, obj=?o] Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Adv[neg=no] Verb[lemma=?l, form=pastpart, takes_essere=yes, takes_di=?d]
   "Clitic pronouns before essere in a compound tense of an essere verb (ci sono andato, ne sono uscita)."
 
-rule v.reflexive-perfect-adverb: V[aux=essere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, reflexive=yes, case=?k, refl=?r, obj=?o] Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Adv[neg=no] Verb[lemma=?l, form=pastpart]
+rule v.reflexive-perfect-adverb: V[aux=essere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Clitics[attached=no, reflexive=yes, case=?k, refl=?r, obj=?o] Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Adv[neg=no] Verb[lemma=?l, form=pastpart, takes_di=?d]
   "A reflexive verb takes essere in compound tenses, whatever its own auxiliary (mi sono alzato, si è svolta)."
 
-rule v.proclitic-perfect-avere: V[aux=avere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[lemma=avere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_avere=yes]
+rule v.proclitic-perfect-avere: V[aux=avere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Clitics[attached=no, case=?k, refl=?r, obj=?o] Verb[lemma=avere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_avere=yes, takes_di=?d]
   "Clitic pronouns before avere in a compound tense (l'ho fatto)."
 
-rule v.proclitic-perfect-essere: V[aux=essere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, reflexive=no, case=?k, refl=?r, obj=?o] Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_essere=yes]
+rule v.proclitic-perfect-essere: V[aux=essere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Clitics[attached=no, reflexive=no, case=?k, refl=?r, obj=?o] Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_essere=yes, takes_di=?d]
   "Clitic pronouns before essere in a compound tense of an essere verb (ci sono andato, ne sono uscita)."
 
-rule v.reflexive-perfect: V[aux=essere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n] -> Clitics[attached=no, reflexive=yes, case=?k, refl=?r, obj=?o] Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart]
+rule v.reflexive-perfect: V[aux=essere, lemma=?l, clitic_case=?k, finite=yes, form=fin, mood=?m, person=?p, number=?n, takes_di=?d] -> Clitics[attached=no, reflexive=yes, case=?k, refl=?r, obj=?o] Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n, person=?r, person!=?o] Verb[lemma=?l, form=pastpart, takes_di=?d]
   "A reflexive verb takes essere in compound tenses, whatever its own auxiliary (mi sono alzato, si è svolta)."
 
 rule clitics.reflexive: Clitics[reflexive=yes, attached=?a, refl=?p, case=?k] -> Pron[attached=?a, clitic=yes, combining=no, case=?k, case=refl, person=?p]
@@ -145,34 +145,67 @@ rule clitics.two-other: Clitics[reflexive=no, attached=?a, case=?k] -> Pron[atta
 
 # ----------------------------------------------------------- verb phrases
 
-rule vp.verb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
+rule vp.verb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d]
   "A verb on its own."
 
-rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[aux=avere, clitic_case=dat|refl|gen|loc, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] NP[case=obl]
+rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[aux=avere, clitic_case=dat|refl|gen|loc, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] NP[case=obl]
   "The verb takes a direct object, unless lo/la/li/le already is its object (l'ho fatto, not *l'ho un fatto)."
 
-rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=volere|potere|dovere|sapere|solere|fare|lasciare|sentire|vedere|udire|guardare|ascoltare|osservare|preferire|desiderare|osare|amare|odiare|adorare|piacere|bisognare|occorrere|sembrare|parere, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] VP[form=inf]
+rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[lemma=volere|potere|dovere|sapere|solere|fare|lasciare|sentire|vedere|udire|guardare|ascoltare|osservare|preferire|desiderare|osare|amare|odiare|adorare|piacere|bisognare|occorrere|sembrare|parere, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] VP[form=inf]
   "A verb followed by an infinitive without a preposition: modal, perception and causative verbs and a few others (voglio partire, lo vedo arrivare, fammi sapere)."
 
-rule vp.preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Prep[lemma=a|di|da] VP[form=inf]
+rule vp.preposition-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Prep[lemma=a|di|da] VP[form=inf]
   "A verb followed by a, di or da and an infinitive (riusciva a trovare, ha deciso di partire)."
 
-rule vp.che-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Conj[lemma=che] S
+rule vp.che-clause: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Conj[lemma=che] S
   "The verb introduces a clause with che (disse che…)."
 
-rule vp.copula: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Cop[mood=?m, person=?p, number=?n] AP[participle_essere=no, number=?n, gender=?g]
+rule vp.copula: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Cop[mood=?m, person=?p, number=?n, takes_di=?d] AP[participle_essere=no, number=?n, gender=?g]
   "With essere, sembrare, diventare, restare, rimanere or stare, the adjective agrees with the subject in gender and number (la casa è bella). A participle here is a state (le luci sono accese) only for verbs that take avere; for an essere verb it is a compound tense (sono salite)."
 
-rule vp.copula-noun: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Cop[mood=?m, person=?p, number=?n] NP[case=nom|obl]
+rule vp.copula-noun: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Cop[mood=?m, person=?p, number=?n, takes_di=?d] NP[case=nom|obl]
   "essere + a noun phrase says what the subject is (è un graffio)."
 
-rule vp.prepositional-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] PP
-  "A prepositional phrase adds where, when, for whom or how."
+rule vp.prepositional-phrase: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] PP[prep!=di]
+  "A prepositional phrase adds where, when, for whom or how. Not one with di: that one belongs to the noun before it (la porta di casa), or the verb takes it (parlare di)."
 
-rule vp.adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Adv[neg=no]
+rule vp.di-complement: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=yes] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=yes] PP[prep=di, infinitive=no]
+  "A verb that takes di: what it is about, made of, full of or caused by (parlare di te, vestire di seta, riempire di vino, morire di fame). The verbs are listed in data/it/di-verbs.tsv."
+
+rule vp.di-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] PP[prep=di, infinitive=yes]
+  "di + infinitive after the verb and its complements (ho detto a Tom di venire)."
+
+rule vp.di-adverbial: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] DiAdv
+  "A fixed phrase with di says when or how, after any verb (esce di notte, corre di fretta, lo fa di nuovo)."
+
+rule vp.adverb-di: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Adv[lemma=più|meno|prima|dopo|fuori|dentro|dietro|invece|oltre] PP[prep=di]
+  "An adverb with its own di phrase after the verb (lavora più di me, parte prima di cena, chiude la porta dietro di sé)."
+
+rule diadv.noun: DiAdv -> Prep[lemma=di] Noun[lemma=notte|giorno|sera|mattina|mattino|pomeriggio|estate|inverno|primavera|autunno|domenica|lunedì|martedì|mercoledì|giovedì|venerdì|sabato|corsa|fretta|colpo|scatto|seguito|solito|continuo|accordo|cuore|proposito|persona|fronte|fianco|moda|stucco|sorpresa]
+  "di + a time or manner noun (di notte, d'estate, di corsa, di fretta, di colpo, d'accordo, di cuore, di moda)."
+
+rule diadv.out-of: DiAdv -> Prep[lemma=di] Noun[lemma=casa|mano|bocca|occhio|mezzo|torno|dosso|vista]
+  "di + a bare noun: out of, away from (uscire di casa, cadere di mano, perdere d'occhio, togliersi di mezzo)."
+
+rule diadv.adjective: DiAdv -> Prep[lemma=di] Adj[lemma=nuovo|solito|sicuro|certo|rado|recente|frequente|continuo]
+  "di + an adjective as a fixed phrase (di nuovo, di solito, di sicuro, di rado)."
+
+rule diadv.participle: DiAdv -> Prep[lemma=di] Verb[lemma=nascondere, form=pastpart, gender=m, number=sg]
+  "di nascosto: secretly."
+
+rule diadv.adverb: DiAdv -> Prep[lemma=di] Adv[lemma=più|meno|nuovo|sicuro|certo|continuo|solito|qua|là|sopra|sotto]
+  "di + an adverb (di più, di meno, di qua, di sopra)."
+
+rule diadv.yes-no: DiAdv -> Prep[lemma=di] Intj[lemma=sì|no]
+  "di sì, di no after a verb of saying or thinking (penso di sì, ha detto di no)."
+
+rule diadv.from-to: DiAdv -> Prep[lemma=di] Nom Prep[lemma=in] Nom
+  "di … in …: from one to the next (di fiore in fiore, di casa in casa)."
+
+rule vp.adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Adv[neg=no]
   "An adverb after the verb."
 
-rule vp.negation: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> Adv[lemma=non] VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g]
+rule vp.negation: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Adv[lemma=non] VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d]
   "non goes right before the verb and its clitics."
 
 # ------------------------------------------------- adjective phrases
@@ -227,10 +260,22 @@ rule rel.object: Rel -> RelPron[lemma=che] S
 rule rel.cui: Rel -> Prep RelPron[lemma=cui] S
   "preposition + cui (il modo in cui canti, la ragazza di cui parlo)."
 
-rule pp.bare: PP -> Prep Nom
+rule np.more-than: NP[person=3, number=?n, gender=?g] -> Adv[lemma=più|meno] Prep[lemma=di] NP[number=?n, gender=?g]
+  "più di or meno di before a quantity (più di cento persone, in meno di trenta minuti)."
+
+rule pp.di-pronoun: PP[prep=?x, infinitive=no] -> Prep[lemma=?x, lemma=verso|su|sopra|sotto|contro|dietro|dentro|entro|senza|presso|dopo|prima|fuori|oltre] Prep[lemma=di] Pron[clitic=no]
+  "Some prepositions take di before a stressed pronoun (verso di te, su di me, contro di lui, dietro di sé)."
+
+rule np.pronoun-of: NP[person=3, number=?n, gender=?g, case=?c] -> Pron[clitic=no, lemma=qualcosa|niente|nulla|qualcuno|nessuno|ognuno|ciascuno|uno|alcuno|quello|questo|molto|tanto|poco|altro, number=?n, gender=?g, case=?c] PP[prep=di, infinitive=no]
+  "A pronoun with di + a noun phrase: which of them, or what of it (ciascuno di noi, quello di Tom, nulla del suo passato)."
+
+rule np.indefinite-adjective: NP[person=3, number=sg, case=?c] -> Pron[clitic=no, lemma=qualcosa|niente|nulla|qualcuno|nessuno, case=?c] Prep[lemma=di] AP
+  "qualcosa, niente, nulla + di + an adjective (qualcosa di nuovo, nulla di sospetto)."
+
+rule pp.bare: PP[prep=?x, infinitive=no] -> Prep[lemma=?x] Nom
   "A preposition before a noun without an article (a casa, in macchina, con piacere)."
 
-rule pp.infinitive: PP -> Prep VP[form=inf]
+rule pp.infinitive: PP[prep=?x, infinitive=yes] -> Prep[lemma=?x] VP[form=inf]
   "A preposition before an infinitive (per fare, senza dire)."
 
 # ------------------------------------------------- clauses: more shapes
@@ -304,23 +349,26 @@ rule nplist.more: NPList -> NP Punct NPList
   "A list item followed by a comma."
 
 # extraposed infinitive, copula with clitics and in compound tenses
-rule vp.copula-infinitive: VP[finite=yes, form=fin, mood=?m, person=3, number=sg] -> Cop[mood=?m, person=3, number=sg] AP VP[form=inf]
+rule vp.copula-infinitive: VP[finite=yes, form=fin, mood=?m, person=3, number=sg, takes_di=?d] -> Cop[mood=?m, person=3, number=sg, takes_di=?d] AP VP[form=inf]
   "essere + adjective + infinitive: the infinitive is the real subject (è sbagliato dire bugie)."
 
-rule cop.proclitic: Cop[mood=?m, person=?p, number=?n] -> Clitics[attached=no] Cop[mood=?m, person=?p, number=?n]
+rule cop.di-adverbial: Cop[mood=?m, person=?p, number=?n, takes_di=?d] -> Cop[mood=?m, person=?p, number=?n, takes_di=?d] DiAdv
+  "A fixed di phrase right after the linking verb (è diventato di nuovo attivo, è di solito puntuale)."
+
+rule cop.proclitic: Cop[mood=?m, person=?p, number=?n, takes_di=?d] -> Clitics[attached=no] Cop[mood=?m, person=?p, number=?n, takes_di=?d]
   "A clitic before the linking verb (mi è sconosciuto, mi sembra strano)."
 
-rule cop.perfect: Cop[mood=?m, person=?p, number=?n] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=essere|sembrare|diventare|restare|rimanere|stare|risultare, form=pastpart, number=?n]
+rule cop.perfect: Cop[mood=?m, person=?p, number=?n, takes_di=?d] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=essere|sembrare|diventare|restare|rimanere|stare|risultare, form=pastpart, number=?n, takes_di=?d]
   "A linking verb in a compound tense (è stato, è diventata, è risultato)."
 
 # indirect questions
-rule vp.indirect-question: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Wh S
+rule vp.indirect-question: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Wh S
   "A question inside the sentence (dimmi cosa mangi, non so quale prendere)."
 
-rule vp.indirect-question-adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] QAdv S
+rule vp.indirect-question-adverb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] QAdv S
   "A question with dove, quando, come or perché inside the sentence (non so dove sia)."
 
-rule vp.indirect-question-preposition: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] Prep Wh S
+rule vp.indirect-question-preposition: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Prep Wh S
   "A question with a preposition inside the sentence (non so a cosa serva)."
 
 # subordinate clause first, no comma; exclamations; sentences in a row
@@ -337,7 +385,7 @@ rule time.det-noun: TimeNP -> Det Noun[lemma=giorno|notte|mattina|sera|pomeriggi
 rule time.adjective: TimeNP -> TimeNP AP
   "A time expression with an adjective (la settimana scorsa)."
 
-rule vp.time: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] TimeNP
+rule vp.time: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] TimeNP
   "A time expression after the verb says when or how often (mi esercito ogni giorno)."
 
 rule clause.time-first: S -> TimeNP S
@@ -374,26 +422,26 @@ rule clause.participle-first: S -> PartP Punct S
 rule clause.absolute-participle: S -> Verb[form=pastpart, drifted=no, number=?n, gender=?g] NP[case=nom, number=?n, gender=?g] Punct S
   "An absolute participle with its own noun phrase, agreeing with it in gender and number (Finito il lavoro, siamo usciti; Giunta la sera, tornammo a casa)."
 
-rule pp.dopo-participle: PP -> Prep[lemma=dopo] Verb[form=pastpart, drifted=no]
+rule pp.dopo-participle: PP[prep=dopo, infinitive=no] -> Prep[lemma=dopo] Verb[form=pastpart, drifted=no]
   "dopo + past participle: after doing it (dopo mangiato)."
 
-rule vp.passive-agent: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[form=pastpart, takes_avere=yes, number=?n, gender=?g] Prep[lemma=da] NP
+rule vp.passive-agent: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[form=pastpart, takes_avere=yes, number=?n, gender=?g, takes_di=?d] Prep[lemma=da] NP
   "essere + past participle + da + agent: the passive (è amato da tutti)."
 
-rule vp.copula-infinitive-adjective: VP[finite=no, form=inf] -> Verb[lemma=essere|sembrare|diventare|restare|rimanere|stare, form=inf] AP[participle_essere=no]
+rule vp.copula-infinitive-adjective: VP[finite=no, form=inf, takes_di=?d] -> Verb[lemma=essere|sembrare|diventare|restare|rimanere|stare, form=inf, takes_di=?d] AP[participle_essere=no]
   "An infinitive linking verb + adjective (essere imbarazzate)."
 
-rule vp.floating-quantifier: VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g] Pron[lemma=tutto, number=pl]
+rule vp.floating-quantifier: VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, takes_di=?d] Pron[lemma=tutto, number=pl]
   "tutti / tutte after the verb, for the whole plural subject (se ne sono andati tutti)."
 
-rule vp.naming-passive: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere|venire, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=dire|chiamare|considerare|nominare|eleggere|ritenere|definire, form=pastpart, number=?n, gender=?g] NP
+rule vp.naming-passive: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Verb[lemma=essere|venire, finite=yes, mood=?m, person=?p, number=?n] Verb[lemma=dire|chiamare|considerare|nominare|eleggere|ritenere|definire, form=pastpart, number=?n, gender=?g, takes_di=?d] NP
   "essere detto / chiamato / considerato + a noun: what the subject is called or considered (è detta petroliera)."
 
 rule clause.phrase-first-comma: S -> PP Punct S
   "A phrase with a preposition at the start, then a comma (Durante il viaggio verso Parigi, ci siamo fermati)."
 
-rule vp.object-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] -> V[lemma=rendere|fare|trovare|considerare|lasciare|tenere|avere|vedere|volere, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g] NP[case=obl, number=?on, gender=?og] AP[number=?on, gender=?og]
+rule vp.object-predicative: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[lemma=rendere|fare|trovare|considerare|lasciare|tenere|avere|vedere|volere, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] NP[case=obl, number=?on, gender=?og] AP[number=?on, gender=?og]
   "Verb + object + an adjective saying what the object is or becomes (rendere le cose peggiori, ho le mani legate, ha lasciato la porta aperta)."
 
-rule v.perfect-coordinated: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[form=pastpart, takes_essere=yes, number=?n, gender=?g] Conj[type=coord] Verb[lemma=?l, form=pastpart, takes_essere=yes, number=?n, gender=?g]
+rule v.perfect-coordinated: V[aux=essere, lemma=?l, finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n] Verb[form=pastpart, takes_essere=yes, number=?n, gender=?g] Conj[type=coord] Verb[lemma=?l, form=pastpart, takes_essere=yes, number=?n, gender=?g, takes_di=?d]
   "One auxiliary for two participles (sono nato e cresciuto)."

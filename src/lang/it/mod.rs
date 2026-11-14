@@ -23,6 +23,7 @@ use tokenize::is_punct;
 const CLOSED: &str = include_str!("../../../data/it/closed.txt");
 const GRAMMAR: &str = include_str!("../../../data/it/grammar.gram");
 const DRIFTED: &str = include_str!("../../../data/it/drifted-participles.txt");
+const DI_VERBS: &str = include_str!("../../../data/it/di-verbs.tsv");
 
 /// Categories the function-word list owns: the lexicon's readings in these
 /// categories are replaced by the list's, its other readings (`la` the
@@ -41,6 +42,8 @@ pub struct Italian {
     closed: FunctionWords,
     /// Participle adjectives whose meaning drifted from the verb (esatto).
     drifted: HashSet<String>,
+    /// Verbs that take a di + noun phrase complement (parlare di).
+    di_verbs: HashSet<String>,
 
     grammar: Grammar,
 }
@@ -69,7 +72,12 @@ impl Language for Italian {
 
 impl Italian {
     pub fn load() -> Result<Self, DataError> {
-        Ok(Self { closed: closed::parse(CLOSED)?, drifted: word_list(DRIFTED), grammar: Grammar::parse(GRAMMAR)? })
+        Ok(Self {
+            closed: closed::parse(CLOSED)?,
+            drifted: word_list(DRIFTED),
+            di_verbs: first_column(DI_VERBS),
+            grammar: Grammar::parse(GRAMMAR)?,
+        })
     }
 
     fn build_lattice(&self, tokens: &[String], analyses: &[Analysis]) -> Lattice {
@@ -143,6 +151,10 @@ impl Italian {
                 let takes = reading.features.auxiliaries.iter().any(|a| a == aux);
                 host_feats.insert(format!("takes_{aux}"), if takes { "yes" } else { "no" }.to_owned());
             }
+        }
+        if reading.pos == PartOfSpeech::Verb {
+            let takes = self.di_verbs.contains(&non_pronominal(&reading.lemma));
+            host_feats.insert("takes_di".to_owned(), if takes { "yes" } else { "no" }.to_owned());
         }
         let lemma = reading.lemma.clone();
         let host = |s: &str, feats: FeatMap| Morpheme {
@@ -273,6 +285,24 @@ fn word_list(text: &str) -> HashSet<String> {
     text.lines().map(str::trim).filter(|l| !l.is_empty() && !l.starts_with('#')).map(str::to_owned).collect()
 }
 
+fn first_column(text: &str) -> HashSet<String> {
+    word_list(text).iter().filter_map(|l| l.split('\t').next()).map(str::to_owned).collect()
+}
+
+/// The infinitive without its pronouns, as `di-verbs.tsv` lists it: the
+/// lexicon gives pronominal verbs both ways (accorgersi, ricordare).
+fn non_pronominal(lemma: &str) -> String {
+    for suffix in ["sene", "si", "ne"] {
+        if let Some(stem) = lemma.strip_suffix(suffix)
+            && stem.ends_with('r')
+        {
+            let ending = if stem.ends_with("or") || stem.ends_with("ur") { "re" } else { "e" };
+            return format!("{stem}{ending}");
+        }
+    }
+    lemma.to_owned()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -283,5 +313,14 @@ mod tests {
         assert_eq!(it.closed["del"].len(), 1);
         assert_eq!(it.closed["del"][0].len(), 2);
         assert!(it.closed["la"].len() >= 2);
+        assert!(it.di_verbs.contains("parlare") && !it.di_verbs.contains("portare"));
+    }
+
+    #[test]
+    fn pronominal_verbs_lose_their_pronouns() {
+        assert_eq!(non_pronominal("accorgersi"), "accorgere");
+        assert_eq!(non_pronominal("fregarsene"), "fregare");
+        assert_eq!(non_pronominal("disporsi"), "disporre");
+        assert_eq!(non_pronominal("parlare"), "parlare");
     }
 }

@@ -1,0 +1,166 @@
+# Verbs that take a di + noun phrase complement (parlare di, vestire di seta,
+# riempire di, fidarsi di). Only these verbs take a di phrase after them in
+# the grammar (vp.di-complement); a di phrase after any other verb belongs to
+# the noun before it, or is a free time or manner phrase (di notte, di corsa).
+# di + infinitive (decidere di partire) is not affected.
+#
+# One verb per line as the infinitive without -si/-ne (accorgersi -> accorgere,
+# fregarsene -> fregare), then where the evidence comes from:
+#   wiktionary-sense    a sense note "[with di ...]" or "(+ di)" in English
+#                       Wiktionary (Kaikki.org extract, Italian verbs), not for
+#                       an infinitive only
+#   wiktionary-example  a Wiktionary usage example with the verb + di + noun
+#   issue-10            named in the plan of kolov-it/syntango#10
+#   tatoeba             a sentence of homograph-set.jsonl attaches a di phrase
+#                       to the verb, and the verb selects it there
+#   literature          the same in literature/literature-set.jsonl
+#
+# DRAFT 2026-11-14, not complete: common verbs that Wiktionary does not mark
+# (occuparsi, pentirsi, vergognarsi, nutrirsi, ...) are missing until a
+# reviewed list is added.
+abbisognare	wiktionary-example
+abbondare	wiktionary-sense,wiktionary-example,tatoeba
+abusare	wiktionary-sense,tatoeba
+accontentare	wiktionary-sense
+accorgere	wiktionary-example,issue-10,tatoeba
+addolorare	wiktionary-example
+adornare	wiktionary-sense
+almanaccare	wiktionary-sense
+ammazzare	wiktionary-example
+approfittare	wiktionary-sense,wiktionary-example,tatoeba
+ardere	wiktionary-sense
+arricchire	wiktionary-example
+avanzare	tatoeba
+avvalere	wiktionary-sense
+avvedere	literature
+avvisare	tatoeba
+chiedere	wiktionary-sense,tatoeba
+colmare	wiktionary-example
+consistere	wiktionary-sense
+constare	wiktionary-sense
+coprire	issue-10
+crepare	wiktionary-sense,wiktionary-example
+curare	wiktionary-sense,wiktionary-example,tatoeba
+dare	wiktionary-sense,literature
+decidere	wiktionary-sense,wiktionary-example
+deliziare	wiktionary-sense
+derubare	wiktionary-sense,wiktionary-example
+diffidare	wiktionary-sense
+dimenticare	tatoeba
+dipingere	tatoeba
+dire	wiktionary-sense,tatoeba
+disamorare	wiktionary-sense
+discorrere	wiktionary-sense
+discutere	tatoeba
+disfare	wiktionary-sense
+disporre	wiktionary-sense,wiktionary-example,tatoeba
+dissertare	wiktionary-sense
+distaccare	wiktionary-sense
+diventare	tatoeba
+dubitare	wiktionary-sense
+empire	wiktionary-sense,wiktionary-example
+essere	tatoeba,literature
+fidare	wiktionary-sense,wiktionary-example,issue-10,tatoeba
+fornire	tatoeba
+fregare	wiktionary-sense,wiktionary-example
+fregiare	wiktionary-example
+fruire	wiktionary-sense
+fumare	wiktionary-sense
+giovare	wiktionary-example
+gloriare	wiktionary-sense
+godere	wiktionary-sense
+gonfiare	tatoeba
+imbevere	wiktionary-sense
+impadronire	wiktionary-sense
+imparruccare	wiktionary-sense
+impasticcare	wiktionary-sense
+impiastrare	wiktionary-sense
+impicciare	wiktionary-sense,wiktionary-example
+impinzare	wiktionary-sense
+importare	tatoeba
+impossessare	wiktionary-sense
+increscere	wiktionary-sense
+infarinare	wiktionary-sense
+informare	tatoeba
+ingentilire	wiktionary-sense
+ingolosire	wiktionary-sense
+innamorare	wiktionary-sense,wiktionary-example,issue-10
+inorgoglire	wiktionary-sense
+intendere	wiktionary-sense
+invaghire	wiktionary-sense
+lagnare	wiktionary-sense
+lamentare	tatoeba
+mancare	wiktionary-sense,wiktionary-example,tatoeba
+morire	issue-10,tatoeba
+nappare	wiktionary-sense
+oberare	wiktionary-sense
+odorare	wiktionary-sense,wiktionary-example
+orbare	wiktionary-sense
+parlare	issue-10,tatoeba,literature
+patire	wiktionary-sense
+pensare	tatoeba,literature
+permeare	wiktionary-sense
+piangere	tatoeba
+pregare	literature
+privare	tatoeba
+profittare	wiktionary-sense
+pulire	wiktionary-sense
+puzzare	wiktionary-sense,wiktionary-example
+questionare	wiktionary-sense
+rammaricare	wiktionary-sense
+riardere	wiktionary-sense
+riboccare	wiktionary-sense
+ricolmare	wiktionary-sense
+ricordare	wiktionary-sense,issue-10,tatoeba
+ridere	issue-10,tatoeba,literature
+ridondare	wiktionary-sense
+riempire	wiktionary-example,issue-10
+rientrare	wiktionary-sense,wiktionary-example
+rifare	wiktionary-example
+rigonfiare	wiktionary-sense
+rilagnare	wiktionary-sense
+rimpadronire	wiktionary-sense
+rimpinzare	wiktionary-sense
+rimpossessare	wiktionary-sense
+riparlare	wiktionary-sense
+risentire	wiktionary-sense
+risovvenire	wiktionary-sense
+rispondere	wiktionary-sense
+rivalere	wiktionary-sense,wiktionary-example
+rodere	wiktionary-sense
+sapere	wiktionary-sense,tatoeba,literature
+sbarazzare	wiktionary-sense
+sbrigare	wiktionary-sense,wiktionary-example
+scapitare	wiktionary-sense
+scarseggiare	wiktionary-sense,wiktionary-example
+scemare	wiktionary-sense,wiktionary-example
+scendere	tatoeba
+schiattare	wiktionary-sense
+schiumare	wiktionary-example
+scoppiare	wiktionary-sense
+scordare	wiktionary-example
+servire	wiktionary-sense,tatoeba,literature
+sforare	wiktionary-sense
+sgusciare	wiktionary-sense
+slittare	wiktionary-sense,wiktionary-example
+smontare	wiktionary-sense,wiktionary-example
+soffrire	tatoeba
+sovrabbondare	wiktionary-sense
+sovraccaricare	wiktionary-sense,wiktionary-example
+sparlare	wiktionary-sense
+spasimare	wiktionary-sense
+stancare	tatoeba
+stare	tatoeba,literature
+straboccare	wiktionary-sense
+struggere	wiktionary-example
+subissare	wiktionary-sense
+tempestare	wiktionary-example
+tingere	wiktionary-sense,wiktionary-example
+traboccare	wiktionary-sense
+trattare	issue-10,tatoeba,literature
+tremare	issue-10
+usare	wiktionary-sense
+usufruire	wiktionary-sense
+vendicare	wiktionary-sense,wiktionary-example
+vestire	issue-10,tatoeba
+vivere	issue-10
