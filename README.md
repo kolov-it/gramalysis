@@ -345,10 +345,15 @@ after the auxiliary's tense they are built from:
 A cheap match picks the sentences worth parsing: a form of the verb (clitics
 attached allowed: *farlo*, *dámelo*), or its past participle in any gender and
 number with an auxiliary somewhere in the sentence. The parse decides. A
-compound tense or a passive is read off the parse: the grammar's rules that
-take a past participle group it with its auxiliaries (`Forest::participle_groups`),
-and the auxiliary's own tense names the compound tense, so the grammars did
-not change for it. One JSON line per example on stdout; counts and throughput
+compound tense or a passive is named by the grammar while it parses: every
+rule that joins an auxiliary and a past participle passes the auxiliary's
+features up (`aux_mood`, `aux_tense`, `aux_person`, `aux_number`,
+`aux_form`), and a passive rule marks `voice=passive`; Spanish `SerV` and
+`PassP` pass them through. The extractor reads these complete chart items
+(`Forest::items_where`) and never enumerates parses: an ambiguity such as
+*abbiamo* (indicative or subjunctive) is two items over the same words. The
+auxiliary's tense names the compound tense, and a participle stacked on
+another (*stato*, *sido*, *été*) makes a passive compound. One JSON line per example on stdout; counts and throughput
 on stderr:
 
 ```json

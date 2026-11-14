@@ -7,7 +7,7 @@ use serde::Serialize;
 use crate::lang::Language;
 use crate::morph::{Lexicon, LexiconError};
 use crate::syntax::lattice::{Edge, Lattice, Morpheme};
-use crate::syntax::parser::{self, Group, ParseError, Tree};
+use crate::syntax::parser::{self, ChartItem, ParseError, Tree};
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
@@ -35,10 +35,11 @@ pub struct SentenceAnalysis {
     /// For each used edge, the rules that consumed it.
     #[serde(skip)]
     pub edge_rules: HashMap<usize, HashSet<String>>,
-    /// The verb groups around a past participle (compound tenses, passives);
-    /// empty unless asked for ([`analyze_with_participle_groups`]).
+    /// The chart items of compound tenses and passives: the rules that pass
+    /// an auxiliary's features up (`aux_mood`, `aux_tense`, …) or mark a
+    /// passive (`voice`).
     #[serde(skip)]
-    pub participle_groups: Vec<Group>,
+    pub verb_items: Vec<ChartItem>,
 }
 
 /// Parses kept as trees; the rest are counted, and still count for `chosen`.
@@ -59,20 +60,6 @@ pub struct TokenChoice {
 }
 
 pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str) -> Result<SentenceAnalysis, Error> {
-    run(lexicon, language, text, false).await
-}
-
-/// [`analyze`], plus the verb groups around past participles
-/// (`participle_groups`), which only example extraction needs.
-pub async fn analyze_with_participle_groups(
-    lexicon: &dyn Lexicon,
-    language: &dyn Language,
-    text: &str,
-) -> Result<SentenceAnalysis, Error> {
-    run(lexicon, language, text, true).await
-}
-
-async fn run(lexicon: &dyn Lexicon, language: &dyn Language, text: &str, groups: bool) -> Result<SentenceAnalysis, Error> {
     let tokens = language.tokenize(text);
     let forms = language.lexicon_forms(&tokens);
     let form_refs: Vec<&str> = forms.iter().map(String::as_str).collect();
@@ -88,8 +75,8 @@ async fn run(lexicon: &dyn Lexicon, language: &dyn Language, text: &str, groups:
     let used_edges = forest.used_edges();
     let edge_rules = forest.edge_rules();
     let chosen = choices(&tokens, &lattice, &used_edges, &edge_rules, !forest.is_empty());
-    let participle_groups = if groups { forest.participle_groups(&lattice) } else { Vec::new() };
-    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen, used_edges, edge_rules, participle_groups })
+    let verb_items = forest.items_where(|r| r.lhs.constraints.iter().any(|(k, _)| k.starts_with("aux_") || k == "voice"));
+    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen, used_edges, edge_rules, verb_items })
 }
 
 /// Per token, the readings (paths of morphemes through the token) that the

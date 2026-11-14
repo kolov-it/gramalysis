@@ -1,4 +1,4 @@
-#![cfg(feature = "wordholder")]
+#![cfg(feature = "cli")]
 //! Example extraction on Tatoeba sentences, against the recorded answers for
 //! the homograph sets (tests/fixtures/<lang>-set.json).
 
@@ -471,6 +471,22 @@ async fn italian_bare_shortened_infinitive() {
     )
     .await;
     assert_eq!(marked(&e), "Ebbene, fai male a [far] così.");
+    assert_eq!(e.status, Status::Decided);
+}
+
+#[tokio::test]
+async fn spanish_pronominal_table_form_with_another_clitic() {
+    let e = one(
+        "es",
+        "arrepentirse",
+        Some("non_finite.gerund"),
+        "No quiero pasarme el resto de mi vida arrepintiéndome de ello.",
+    )
+    .await;
+    assert_eq!(
+        marked(&e),
+        "No quiero pasarme el resto de mi vida [arrepintiéndome] de ello."
+    );
     assert_eq!(e.status, Status::Decided);
 }
 

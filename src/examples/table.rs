@@ -89,7 +89,11 @@ impl Forms {
         let mut unaccented: HashSet<String> = forms.iter().map(|f| es::strip_accent(f)).collect();
         match lang {
             Lang::It => {
-                let hosts: Vec<String> = forms.iter().filter_map(|f| it::split_enclitics(f)).map(|(h, _)| h).collect();
+                let hosts: Vec<String> = forms
+                    .iter()
+                    .filter_map(|f| it::split_enclitics(f))
+                    .map(|(h, _)| h)
+                    .collect();
                 forms.extend(hosts);
             }
             Lang::Es => {
@@ -270,7 +274,10 @@ impl Target {
                 f == s
                     || f == format!("{s}s")
                     || f == format!("{s}d")
-                    || es::split_enclitics(&f).iter().flat_map(|split| &split.hosts).any(|h| es::strip_accent(h) == s)
+                    || es::split_enclitics(&f)
+                        .iter()
+                        .flat_map(|split| &split.hosts)
+                        .any(|h| es::strip_accent(h) == s)
             }
             // far così: the infinitive without its -e (porre: por).
             (Lang::It, None) => {
@@ -422,7 +429,8 @@ pub fn cell_of(feats: &FeatMap, lang: Lang) -> Option<String> {
     Some(format!("{mood}.{tense}.{}{number}", get("person")?))
 }
 
-#[cfg(test)]
+// The tables in these tests are JSON, read with serde_json (feature wordholder).
+#[cfg(all(test, feature = "wordholder"))]
 mod tests {
     use super::*;
 

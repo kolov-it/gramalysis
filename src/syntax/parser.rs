@@ -8,7 +8,7 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use serde::Serialize;
 
 use crate::syntax::feats::FeatMap;
-use crate::syntax::grammar::{Cat, Grammar, Value};
+use crate::syntax::grammar::{Cat, Grammar, Rule, Value};
 use crate::syntax::lattice::{Lattice, Morpheme};
 
 type Env = BTreeMap<String, String>;
@@ -58,16 +58,30 @@ pub enum ParseError {
 
 const MAX_ITEMS: usize = 2_000_000;
 
-/// A verb group around a past participle ([`Forest::participle_groups`]).
+/// A complete chart item some parse uses ([`Forest::items_where`]).
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Group {
-    /// The rule that built it (`v.perfect-avere`, `vp.passive`).
-    pub rule: String,
-    /// The lattice edges it consumed, in sentence order.
-    pub edges: Vec<usize>,
-    /// The rules of the phrases it opened up (`serv.plain`,
-    /// `passp.participle`): they consumed its edges on its behalf.
-    pub inner_rules: Vec<String>,
+pub struct ChartItem {
+    pub id: usize,
+    /// Index into the grammar's rules.
+    pub rule: usize,
+    /// Lattice nodes it spans.
+    pub start: usize,
+    pub end: usize,
+    /// Its category's features, as the rule set them.
+    pub feats: FeatMap,
+    /// Per right-hand-side position, every child any of its derivations has
+    /// there: alternatives side by side, never multiplied out.
+    pub children: Vec<Vec<ItemChild>>,
+    /// Where parses use it: (rule, right-hand-side position) of each item
+    /// that has it as a child. Empty for a whole-sentence item.
+    pub used_as: Vec<(usize, usize)>,
+}
+
+/// A child of a chart item: a lattice edge or another chart item.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+pub enum ItemChild {
+    Edge(usize),
+    Item(usize),
 }
 
 /// Every parse of a sentence, shared.
@@ -259,152 +273,71 @@ impl Forest<'_> {
         out
     }
 
-    /// The verb groups built around a past participle: every application,
-    /// in some parse, of a rule that takes a `Verb[form=pastpart]`, each
-    /// derivation once, as the verb and coordinator edges (`Verb`, `Conj`)
-    /// it consumed, in sentence order. Other words are left out, so the
-    /// readings of a noun phrase opened up on the way do not multiply the
-    /// groups.
-    /// A phrase before the last participle (Spanish `SerV`: fue, ha sido) is
-    /// opened up into its edges; one after it (an agent, an object) is not.
-    /// A passive rule (named `*passive*`) with no participle of its own has
-    /// every phrase opened up: its participles are inside them.
-    /// This is how compound tenses and passives are read off a parse
-    /// without the grammar naming them.
-    pub fn participle_groups(&self, lattice: &Lattice) -> Vec<Group> {
-        let relevant = |e: usize| matches!(lattice.edges[e].morph.cat.as_str(), "Verb" | "Conj");
-        let takes_participle = |cat: &Cat| {
-            cat.name == "Verb"
-                && cat.constraints.iter().any(|(k, v)| k == "form" && matches!(v, Value::Any(a) if a.iter().any(|x| x == "pastpart")))
-        };
+    /// The complete items some parse uses whose rule `keep`s, each with its
+    /// children per position. A scan of the chart: the work is bounded by
+    /// the chart's size, however many parses share the items.
+    pub fn items_where(&self, keep: impl Fn(&Rule) -> bool) -> Vec<ChartItem> {
         let mut seen = HashSet::new();
-        let mut complete = Vec::new();
+        let mut out = Vec::new();
+        let mut used_as: HashMap<usize, Vec<(usize, usize)>> = HashMap::new();
         let mut stack: Vec<usize> = self.roots.clone();
         while let Some(id) = stack.pop() {
             if !seen.insert(id) {
                 continue;
             }
-            if self.keys[id].dot == self.grammar.rules[self.keys[id].rule].rhs.len() {
-                complete.push(id);
+            let key = &self.keys[id];
+            let rule = &self.grammar.rules[key.rule];
+            if key.dot == rule.rhs.len() && keep(rule) {
+                out.push(ChartItem {
+                    id,
+                    rule: key.rule,
+                    start: key.start,
+                    end: key.end,
+                    feats: lhs_feats(&rule.lhs, &key.env),
+                    children: self.children(id),
+                    used_as: Vec::new(),
+                });
             }
             for &(prev, child) in &self.back[id] {
                 stack.push(prev);
                 if let Child::Item(c) = child {
+                    let at = (key.rule, key.dot - 1);
+                    let uses = used_as.entry(c).or_default();
+                    if !uses.contains(&at) {
+                        uses.push(at);
+                    }
                     stack.push(c);
                 }
             }
         }
-        complete.sort_unstable();
-        let mut paths = HashMap::new();
-        let mut terminals = HashMap::new();
-        let mut out = Vec::new();
-        let mut emitted = HashSet::new();
-        for id in complete {
-            let rule = &self.grammar.rules[self.keys[id].rule];
-            // A passive whose participles sit in phrases of their own
-            // (Spanish vp.passive-coordinated: SerV PassP Conj PassP) is
-            // opened up entirely.
-            let Some(last) = rule
-                .rhs
-                .iter()
-                .rposition(takes_participle)
-                .or_else(|| rule.name.contains("passive").then_some(rule.rhs.len()))
-            else {
-                continue;
-            };
-            for path in self.paths(id, &mut paths) {
-                let mut lists: Vec<Vec<usize>> = vec![Vec::new()];
-                let mut inner_rules = Vec::new();
-                for (i, child) in path.iter().enumerate() {
-                    let parts = match *child {
-                        Child::Edge(e) if relevant(e) => vec![vec![e]],
-                        Child::Edge(_) => vec![Vec::new()],
-                        Child::Item(c) if i < last => {
-                            inner_rules.extend(self.rules_under(c));
-                            self.terminals(c, &relevant, &mut paths, &mut terminals)
-                        }
-                        Child::Item(_) => vec![Vec::new()],
-                    };
-                    lists = product(&lists, &parts);
-                }
-                inner_rules.sort();
-                inner_rules.dedup();
-                for edges in lists {
-                    if emitted.insert((rule.name.clone(), edges.clone())) {
-                        out.push(Group { rule: rule.name.clone(), edges, inner_rules: inner_rules.clone() });
-                    }
-                }
-            }
+        for item in &mut out {
+            item.used_as = used_as.remove(&item.id).unwrap_or_default();
         }
+        out.sort_by_key(|i| i.id);
         out
     }
 
-    /// Every derivation of an item, as its children in order.
-    fn paths(&self, id: usize, memo: &mut HashMap<usize, Vec<Vec<Child>>>) -> Vec<Vec<Child>> {
-        if self.keys[id].dot == 0 {
-            return vec![Vec::new()];
-        }
-        if let Some(p) = memo.get(&id) {
-            return p.clone();
-        }
-        let mut out = Vec::new();
-        for &(prev, child) in &self.back[id] {
-            for mut p in self.paths(prev, memo) {
-                p.push(child);
-                out.push(p);
-            }
-        }
-        memo.insert(id, out.clone());
-        out
-    }
-
-    /// The rules of an item and of every item under it.
-    fn rules_under(&self, id: usize) -> Vec<String> {
+    /// Per position, the distinct children of an item's derivations.
+    fn children(&self, id: usize) -> Vec<Vec<ItemChild>> {
+        let mut out: Vec<Vec<ItemChild>> = vec![Vec::new(); self.keys[id].dot];
         let mut seen = HashSet::new();
-        let mut out = Vec::new();
         let mut stack = vec![id];
         while let Some(i) = stack.pop() {
-            if !seen.insert(i) {
+            if !seen.insert(i) || self.keys[i].dot == 0 {
                 continue;
             }
-            out.push(self.grammar.rules[self.keys[i].rule].name.clone());
+            let at = self.keys[i].dot - 1;
             for &(prev, child) in &self.back[i] {
-                stack.push(prev);
-                if let Child::Item(c) = child {
-                    stack.push(c);
-                }
-            }
-        }
-        out
-    }
-
-    /// Every derivation of a complete item, as the lattice edges under it.
-    fn terminals(
-        &self,
-        id: usize,
-        relevant: &dyn Fn(usize) -> bool,
-        paths: &mut HashMap<usize, Vec<Vec<Child>>>,
-        memo: &mut HashMap<usize, Vec<Vec<usize>>>,
-    ) -> Vec<Vec<usize>> {
-        if let Some(t) = memo.get(&id) {
-            return t.clone();
-        }
-        let mut out = Vec::new();
-        for path in self.paths(id, paths) {
-            let mut lists: Vec<Vec<usize>> = vec![Vec::new()];
-            for child in path {
-                let parts = match child {
-                    Child::Edge(e) if relevant(e) => vec![vec![e]],
-                    Child::Edge(_) => vec![Vec::new()],
-                    Child::Item(c) => self.terminals(c, relevant, paths, memo),
+                let part = match child {
+                    Child::Edge(e) => ItemChild::Edge(e),
+                    Child::Item(c) => ItemChild::Item(c),
                 };
-                lists = product(&lists, &parts);
+                if !out[at].contains(&part) {
+                    out[at].push(part);
+                }
+                stack.push(prev);
             }
-            out.extend(lists);
         }
-        out.sort();
-        out.dedup();
-        memo.insert(id, out.clone());
         out
     }
 
@@ -459,14 +392,6 @@ impl Forest<'_> {
         }
         out
     }
-}
-
-/// Every list of `heads` extended by every list of `tails`, each result once.
-fn product(heads: &[Vec<usize>], tails: &[Vec<usize>]) -> Vec<Vec<usize>> {
-    let mut out: Vec<Vec<usize>> = heads.iter().flat_map(|h| tails.iter().map(move |t| h.iter().chain(t).copied().collect())).collect();
-    out.sort();
-    out.dedup();
-    out
 }
 
 /// Checks `cat`'s constraints against `feats`, extending `env`. A feature the
@@ -575,14 +500,16 @@ mod tests {
         }
     }
 
-    /// Words the group does not need are left out, so an ambiguous phrase
-    /// before the participle does not multiply the groups: 16 words with two
-    /// readings each are 65,536 parses and one group.
+    /// A chart scan lists each complete item once with its children side by
+    /// side. Like a French object-agreement question (S -> WhP QMark NP
+    /// Verb(avoir) Verb(pastpart)), a long ambiguous phrase before the
+    /// auxiliary: 16 words with two readings each are 65,536 parses and
+    /// still one item.
     #[test]
-    fn participle_groups_do_not_multiply_with_the_readings_before() {
+    fn chart_items_do_not_multiply_with_the_readings() {
         let grammar = Grammar::parse(
             "start S\n\
-             rule s: S -> NP Verb[lemma=avere] Verb[form=pastpart]\n  \"x\"\n\
+             rule s: S[aux_tense=?t] -> NP Verb[lemma=avere, tense=?t] Verb[form=pastpart]\n  \"x\"\n\
              rule np.more: NP -> NP X\n  \"x\"\n\
              rule np.one: NP -> X\n  \"x\"\n",
         )
@@ -591,13 +518,16 @@ mod tests {
         for _ in 0..16 {
             lattice.push_token("x", vec![vec![morph("X", &[("a", "1")])], vec![morph("X", &[("a", "2")])]]);
         }
-        lattice.push_token("ho", vec![vec![morph("Verb", &[("form", "fin")])]]);
+        lattice.push_token("ho", vec![vec![morph("Verb", &[("form", "fin"), ("tense", "pres")])]]);
         lattice.edges.last_mut().unwrap().morph.lemma = "avere".to_owned();
         lattice.push_token("fatto", vec![vec![morph("Verb", &[("form", "pastpart")])]]);
         let forest = parse(&grammar, &lattice).unwrap();
         assert_eq!(forest.count(), 65_536);
-        let groups = forest.participle_groups(&lattice);
-        assert_eq!(groups.len(), 1, "{}", groups.len());
-        assert_eq!(groups[0].edges, [32, 33]);
+        let items = forest.items_where(|r| r.name == "s");
+        let [s] = items.as_slice() else { panic!("{items:?}") };
+        assert_eq!(s.feats.get("aux_tense").map(String::as_str), Some("pres"));
+        assert_eq!(s.children[1], [ItemChild::Edge(32)]);
+        assert_eq!(s.children[2], [ItemChild::Edge(33)]);
+        assert_eq!(forest.items_where(|r| r.name == "np.more").len(), 15);
     }
 }
