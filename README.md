@@ -307,6 +307,71 @@ singular (*facile*, *heureux*), which `lang/fr` leaves unknown; forms come
 back as an infinitive of themselves (*grandisses*); obsolete or non-French
 verbs beside the common one (*jetter*, *batter*).
 
+## Example sentences for a verb
+
+What syntango is for: sentences from a corpus that use a verb in a given form,
+for a verb page, with exactly where the form is so the page can highlight it.
+
+```sh
+cargo run --release -- examples it essere --tense indicative.past_historic \
+  --tatoeba data/it/tatoeba-pool.jsonl.gz --fixture tests/fixtures/it-set.json
+cargo run --release -- examples it fare --leipzig ita_news_2024_1M-sentences.txt --limit 50
+cargo run --release -- examples es dar --file my-sentences.txt --include-ambiguous
+```
+
+The forms come from the verb's table (`data/<lang>/verbs.json`, or
+`--verbs FILE`); `--tense` takes a tense (`indicative.past_historic`), a single
+cell (`indicative.past_historic.3s`) or a non-finite form (`non_finite.gerund`),
+and without it every cell counts. A cheap match of the tokens against the forms
+(clitics attached allowed: *farlo*, *dámelo*) picks the sentences worth
+parsing; the parse decides. One JSON line per word found, on stdout; the
+counts and throughput on stderr:
+
+```json
+{"source":"tatoeba","id":4381,"author":"Pharamp","text":"Per farlo, bisogna correre dei rischi.","infinitive":"fare","lemma":"fare","cells":["non_finite.infinitive"],"status":"decided","parses":3,"token":1,"form":"farlo","before":"Per ","after":", bisogna correre dei rischi.","char_start":4,"char_end":9,"verb":"far","clitics":["lo"]}
+{"source":"tatoeba","id":998266,"author":"Guybrush88","text":"Cosa direste se foste al mio posto?","infinitive":"essere","lemma":"essere","cells":["indicative.past_historic.2p"],"status":"ambiguous","parses":4,"token":3,"form":"foste","before":"Cosa direste se ","after":" al mio posto?","char_start":16,"char_end":21,"other_readings":["Verb essere subjunctive.imperfect.2p"]}
+```
+
+- **Where the form is**: `before` + `form` + `after` is exactly `text`, in any
+  encoding; `char_start`..`char_end` counts Unicode scalar values (Rust
+  `chars()`, Python string indices; JavaScript's UTF-16 indices are the same
+  only for text without characters outside the Basic Multilingual Plane).
+  `form` is the word as written, attached clitics included; for such a word
+  `verb` is the verb part as the parse split it and `clitics` the rest.
+- **`status`**: `decided` when every parse reads the word as this verb in one
+  cell; `ambiguous` when some parse reads it otherwise (`other_readings`: another
+  word, another cell, a participle used as an adjective). Ambiguity is reported,
+  never resolved; only decided words are printed unless `--include-ambiguous`.
+- **The cell** is named as the table names it. The word must be written as the
+  table writes that cell: an inflected participle (*fatta*, *mangiati*) is not
+  the `past_participle` cell, which holds the masculine singular only. A French
+  *-ant* form read as a present participle is the table's `non_finite.gerund`.
+- `source`, `id` and, for Tatoeba, `author` (CC BY attribution) say where the
+  sentence comes from. Tatoeba input is JSON lines with `id`, `author`, `text`;
+  Leipzig input is the upstream `id<TAB>sentence` file; `--file` takes one
+  sentence a line (the id is the line number). A `.gz` file is read as gzip.
+
+**Not yet supported:** compound tenses (*passato prossimo*, *pretérito
+perfecto*, *passé composé*, …): the tables have no cells for them, so *ho
+mangiato* is found only as the participle `non_finite.past_participle`.
+Inflected participles (*mangiata*, *vues*) are not looked for.
+
+As a library (`examples::Extractor`; `sentences` is any iterator of
+`Result<Sentence, BoxError>`, `extractor.examples(&sentence)` does one):
+
+```rust
+let tables: VerbTables = serde_json::from_str(&std::fs::read_to_string("data/it/verbs.json")?)?;
+let query = Query { infinitive: "essere".to_owned(), tense: Some("indicative.past_historic".to_owned()) };
+let extractor = Extractor::new(&lexicon, &italian, &tables, &query)?;
+let options = Options { limit: Some(20), include_ambiguous: false };
+let stats = extractor
+    .run(sentences, &options, |e| {
+        println!("{}[{}]{}", e.before, e.form, e.after);
+        Ok(())
+    })
+    .await?;
+```
+
 ## Using it as a library
 
 ```
@@ -318,11 +383,14 @@ src/
   lang/             the Language trait; it/ = Italian (tokenizer, function
                     words, clitics, first sounds, participles); es/ = Spanish
   analysis.rs       the pipeline: analyze(lexicon, language, sentence)
+  verbs.rs          what a verb page asks of a reading: base verb, participle use
+  examples/         example sentences for a verb: Extractor, verb tables and
+                    cells (table.rs), tokens back to text offsets (align.rs)
   wordholder/       the Word Holder API as a lexicon   [feature wordholder]
     client.rs         HTTP client (RapidAPI or the API's origin)
     dto.rs            the API's wire format → readings
     fixture.rs        recorded answers, for tests and offline runs
-  bin/syntango/     the command line: parse, record, eval  [feature cli]
+  bin/syntango/     the command line: parse, record, eval, examples  [feature cli]
 data/it/            grammar.gram, closed.txt (function words),
                     drifted-participles.txt, lexicon-patches/, the Tatoeba set
 data/es/            the same for Spanish
