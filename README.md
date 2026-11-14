@@ -141,7 +141,9 @@ takes its role from its case (`case-roles acc=direct-object,
 dat=indirect-object, loc=adverbial`): *l'*, *lo* are direct objects, *gli*
 indirect. A word with attached clitics (*dammelo*) is the verb group. A
 *di* phrase that the verb takes (*parla **di me***) or a fixed *di* phrase
-(*esce **di notte***) is an adverbial. A sentence without a verb
+(*esce **di notte***) is an adverbial. An *a* phrase after a verb that
+takes a dative (*ho dato il libro **a Maria***) is an indirect object or an
+adverbial, both returned. A sentence without a verb
 (*La forza del destino!*) gives its words no role, and neither does a noun
 phrase after `;` or `:`, which renames or lists rather than filling a role.
 
@@ -229,6 +231,13 @@ the one a verb page needs: *which verb, or not a verb at all*.
   time or manner phrase (*di notte*, *di corsa*, *di nuovo*, *uscire di casa*).
   Otherwise it belongs to the noun before it: *la porta di casa mia* is not
   "(he) carries her of my house". *di* + infinitive is not affected.
+- An **a phrase after a verb that takes a dative** is an indirect object
+  (`data/it/dative-verbs.tsv`: *dare*, *dire*, *mostrare*, *telefonare*,
+  *piacere*; from Wiktionary, the labelled sentences, and a model-generated
+  list checked by a second model): *Ho dato il libro a Maria*, *Ho detto la
+  verità al ragazzo*, *Il film piace a Marco*, and fronted, *A Maria piace il
+  film*. It keeps its adverbial reading as well, so both are returned; after
+  any other verb it is only an adverbial (*Vado a Roma*).
 - A **partitive subject after the verb** is plural (*sono arrivati dei
   ragazzi*) or follows *c'è* (*c'è del pane*); *del destino* is not "some
   destiny".

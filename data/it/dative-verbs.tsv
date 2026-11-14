@@ -1,0 +1,173 @@
+# Verbs that take an indirect object written as a + noun phrase: the person
+# or thing that receives, is told, is asked or is affected (dare il libro a
+# Maria, telefonare a Maria, piacere a Marco). A dative clitic can stand for
+# it (le do il libro, le telefono, gli piace). Only after these verbs does
+# the grammar read an a phrase as an indirect object (vp.a-indirect-object);
+# the a phrase keeps its adverbial reading too (dare il libro a casa), so a
+# sentence where both fit is ambiguous. A place (andare a Roma), an object
+# that ci stands for (pensare a Maria), a + infinitive and fixed activities
+# (giocare a calcio) are not indirect objects.
+#
+# One verb per line as the infinitive without -si/-ne (rivolgersi ->
+# rivolgere), then where the evidence comes from, then for model-proposed
+# verbs an example phrase:
+#   wiktionary-sense    a sense note "[with a 'to someone']" or "[with a]" in
+#                       English Wiktionary (Kaikki.org extract, Italian verbs)
+#                       where the a phrase is a person or thing a dative clitic
+#                       can replace
+#   wiktionary-example  a Wiktionary usage example with the verb + a + a person
+#   tatoeba             a sentence of homograph-set.jsonl has the verb with
+#                       a + a person as its indirect object
+#   literature          the same in literature/sentences.jsonl
+#   llm:generated+proofread
+#                       proposed by a language model (Claude Opus), with the
+#                       example phrase in the third column, and accepted by a
+#                       second, independent model (Claude Sonnet) that saw only
+#                       the list and rejected 9 of 68 proposals (2026-11-14)
+accadere	literature
+affezionare	wiktionary-sense
+affidare	llm:generated+proofread	affidare i bambini alla nonna
+aggradare	wiktionary-sense
+annunciare	llm:generated+proofread	annunciare la notizia ai colleghi
+anteporre	wiktionary-sense
+apparire	llm:generated+proofread	la Madonna apparve a una pastorella
+appartenere	wiktionary-sense
+appetire	wiktionary-sense
+appioppare	wiktionary-sense
+aprire	llm:generated+proofread	aprire la porta al postino
+arridere	wiktionary-sense
+assegnare	llm:generated+proofread	assegnare un compito agli studenti
+assomigliare	tatoeba
+attribuire	llm:generated+proofread	attribuire la colpa a Marco
+augurare	literature
+avvicinare	tatoeba,literature
+bastare	llm:generated+proofread	il pane basta a tutti
+calere	wiktionary-example
+capitare	tatoeba
+cedere	wiktionary-sense
+chiedere	tatoeba,literature
+comprare	llm:generated+proofread	comprare un regalo alla mamma
+comunicare	literature
+concedere	llm:generated+proofread	concedere un permesso al dipendente
+confessare	llm:generated+proofread	confessare tutto al prete
+confidare	llm:generated+proofread	confidare un segreto all'amica
+consegnare	literature
+consentire	llm:generated+proofread	consentire l'accesso ai visitatori
+consigliare	tatoeba
+convenire	llm:generated+proofread	la proposta conviene a tutti
+costare	llm:generated+proofread	il viaggio costa caro a Paolo
+credere	tatoeba
+cucinare	llm:generated+proofread	cucinare la pasta ai bambini
+dare	wiktionary-sense,tatoeba,literature
+dedicare	literature
+descrivere	llm:generated+proofread	descrivere la casa a un amico
+dimostrare	llm:generated+proofread	dimostrare affetto ai figli
+dire	wiktionary-example,tatoeba,literature
+disaggradare	wiktionary-sense
+disgradare	wiktionary-sense
+dispiacere	wiktionary-sense,literature
+distribuire	llm:generated+proofread	distribuire i volantini ai passanti
+disubbidire	wiktionary-sense
+domandare	literature
+donare	wiktionary-sense,tatoeba
+fare	literature
+fornire	llm:generated+proofread	fornire informazioni ai clienti
+garantire	llm:generated+proofread	garantire un lavoro ai giovani
+garbare	llm:generated+proofread	la cosa non garba a Luigi
+giovare	llm:generated+proofread	il riposo giova al malato
+giurare	llm:generated+proofread	giurare fedeltà al re
+gradire	wiktionary-sense
+gridare	literature
+impedire	literature
+imporre	llm:generated+proofread	imporre una regola ai figli
+importare	tatoeba,literature
+increscere	wiktionary-sense
+indicare	llm:generated+proofread	indicare la strada a un turista
+insegnare	tatoeba,literature
+interessare	wiktionary-sense
+intimare	wiktionary-example
+inviare	tatoeba
+lanciare	wiktionary-example
+lasciare	literature
+leggere	literature
+mancare	tatoeba
+mandare	llm:generated+proofread	mandare una lettera a Maria
+mentire	tatoeba
+mostrare	tatoeba,literature
+narrare	llm:generated+proofread	narrare una storia ai bambini
+nascondere	llm:generated+proofread	nascondere la verità alla polizia
+negare	llm:generated+proofread	negare un favore all'amico
+nuocere	wiktionary-sense
+obbedire	llm:generated+proofread	obbedire ai genitori
+occorrere	wiktionary-sense
+offrire	tatoeba,literature
+ordinare	llm:generated+proofread	ordinare al cameriere di portare il conto
+pagare	llm:generated+proofread	pagare l'affitto al padrone
+parere	wiktionary-sense,literature
+parlare	literature
+passare	llm:generated+proofread	passare il sale a Luca
+perdonare	literature
+permettere	tatoeba,literature
+pesare	wiktionary-sense
+piacere	tatoeba
+porgere	tatoeba,literature
+portare	tatoeba,literature
+preparare	llm:generated+proofread	preparare la cena agli ospiti
+presentare	llm:generated+proofread	presentare Maria a Luca
+prestare	tatoeba
+proibire	literature
+promettere	literature
+proporre	literature
+quadrare	wiktionary-sense
+raccomandare	tatoeba,literature
+raccontare	literature
+rassomigliare	wiktionary-sense
+regalare	wiktionary-example
+rendere	llm:generated+proofread	rendere il libro a Maria
+repellere	wiktionary-sense
+restituire	tatoeba,literature
+riaffidare	wiktionary-sense
+ricordare	llm:generated+proofread	ricordare l'appuntamento al dottore
+ridare	tatoeba
+riferire	llm:generated+proofread	riferire il messaggio al capo
+rifiutare	llm:generated+proofread	rifiutare un aiuto a un amico
+rincrescere	llm:generated+proofread	la partenza rincresce a tutti
+ripetere	llm:generated+proofread	ripetere la domanda allo studente
+ripugnare	wiktionary-sense
+rispondere	wiktionary-sense,literature
+rivelare	llm:generated+proofread	rivelare un segreto a Marco
+rivolgere	wiktionary-sense,tatoeba,literature
+rubare	llm:generated+proofread	rubare il portafoglio a un turista
+scottare	wiktionary-sense
+scrivere	tatoeba,literature
+seccare	llm:generated+proofread	la cosa secca a Giulia
+segnalare	llm:generated+proofread	segnalare un problema al tecnico
+sembrare	llm:generated+proofread	il film sembra noioso a Marco
+servire	wiktionary-sense,tatoeba,literature
+sfuggire	wiktionary-sense
+somigliare	wiktionary-sense
+sorridere	llm:generated+proofread	sorridere a una bambina
+sottrarre	llm:generated+proofread	sottrarre i soldi al fratello
+sovvenire	wiktionary-sense
+sparare	llm:generated+proofread	sparare a un ladro
+spedire	tatoeba,literature
+spettare	wiktionary-sense,wiktionary-example
+spiacere	llm:generated+proofread	la notizia spiace a tutti
+spiegare	tatoeba
+strappare	llm:generated+proofread	strappare la borsa a una signora
+stringere	literature
+succedere	wiktionary-sense
+suggerire	literature
+sussurrare	llm:generated+proofread	sussurrare una parola a Luca
+tagliare	llm:generated+proofread	tagliare i capelli a un cliente
+talentare	wiktionary-sense
+telefonare	wiktionary-sense,tatoeba
+tendere	llm:generated+proofread	tendere la mano a un amico
+tirare	literature
+toccare	wiktionary-sense,wiktionary-example,literature
+togliere	llm:generated+proofread	togliere il giocattolo al bambino
+trasmettere	llm:generated+proofread	trasmettere il sapere ai giovani
+ubbidire	wiktionary-sense
+urlare	llm:generated+proofread	urlare qualcosa ai vicini
+vendere	llm:generated+proofread	vendere la macchina a un collega
+vietare	llm:generated+proofread	vietare l'ingresso ai cani
