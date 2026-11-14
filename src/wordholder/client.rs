@@ -2,7 +2,7 @@
 
 use async_trait::async_trait;
 
-use super::dto::{analyses_from_batch, BatchItem, BatchRequest, BatchResponse, MAX_READINGS};
+use super::dto::{analyses_from_batch, BatchRequest, BatchResponse};
 use crate::morph::{Analysis, Lang, Lexicon, LexiconError};
 
 /// Configuration, all required:
@@ -68,11 +68,7 @@ impl WordHolderLexicon {
 
     /// Sends one chunk; the response body as JSON.
     async fn send(&self, lang: Lang, chunk: &[&str]) -> Result<serde_json::Value, LexiconError> {
-        let request = BatchRequest {
-            language: lang.code(),
-            items: chunk.iter().enumerate().map(|(i, f)| BatchItem { id: i.to_string(), text: f }).collect(),
-            limit: MAX_READINGS,
-        };
+        let request = BatchRequest::new(lang, chunk);
         let response = self.post("/v1/lemmatize:batch").json(&request).send().await.map_err(transport)?;
         let status = response.status();
         if !status.is_success() {

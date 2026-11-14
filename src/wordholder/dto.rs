@@ -1,17 +1,21 @@
-//! The API's wire format (`/v1/lemmatize:batch`) and its conversion to
-//! [`Reading`]s.
+//! Word Holder's lemmatize contract: the wire format of
+//! `/v1/lemmatize:batch` and its conversion to [`Reading`]s.
 
 use serde::{Deserialize, Serialize};
 
 use crate::morph::{
-    Analysis, FormKind, Features, Gender, LexiconError, Mood, Number, PartOfSpeech, Person, Reading, Tense,
+    Analysis, FormKind, Features, Gender, Lang, LexiconError, Mood, Number, PartOfSpeech, Person, Reading, Tense,
 };
 
-/// The API's most lemmas per form. A form with this many readings may have
-/// more that were cut off.
-pub(super) const MAX_READINGS: u8 = 10;
+/// The API's most lemmas per form, and the `limit` [`BatchRequest::new`]
+/// asks for. A form with this many readings may have more that were cut off.
+pub const MAX_READINGS: u8 = 10;
 
-pub(super) fn analyses_from_batch(forms: &[&str], body: BatchResponse) -> Result<Vec<Analysis>, LexiconError> {
+/// Converts the answer to a [`BatchRequest`] built by [`BatchRequest::new`]
+/// to one [`Analysis`] per form, in the order of `forms`. Result ids are the
+/// forms' indexes; a missing, repeated or unknown id is an error, as is a
+/// result count that differs from the form count.
+pub fn analyses_from_batch(forms: &[&str], body: BatchResponse) -> Result<Vec<Analysis>, LexiconError> {
     if body.results.len() != forms.len() {
         return Err(LexiconError::Protocol(format!(
             "sent {} forms, got {} results",
@@ -37,7 +41,9 @@ pub(super) fn analyses_from_batch(forms: &[&str], body: BatchResponse) -> Result
         .collect()
 }
 
-pub(super) fn reading_from_entry(entry: LemmaEntry) -> Reading {
+/// One lemma entry as a [`Reading`]: what the conversion and
+/// [`FixtureLexicon`](super::FixtureLexicon) do for each entry.
+pub fn reading_from_entry(entry: LemmaEntry) -> Reading {
     let (features, clitic, raw_tags) = match entry.grammar {
         Some(g) => (
             Features {
@@ -65,54 +71,105 @@ pub(super) fn reading_from_entry(entry: LemmaEntry) -> Reading {
     }
 }
 
-
-#[derive(Serialize)]
-pub(super) struct BatchRequest<'a> {
-    pub(super) language: &'static str,
-    pub(super) items: Vec<BatchItem<'a>>,
-    pub(super) limit: u8,
+/// The body of a `/v1/lemmatize:batch` request.
+#[derive(Debug, Clone, PartialEq, Serialize)]
+#[non_exhaustive]
+pub struct BatchRequest<'a> {
+    pub language: &'static str,
+    pub items: Vec<BatchItem<'a>>,
+    /// Most lemmas per form.
+    pub limit: u8,
 }
 
-#[derive(Serialize)]
-pub(super) struct BatchItem<'a> {
-    pub(super) id: String,
-    pub(super) text: &'a str,
+impl<'a> BatchRequest<'a> {
+    /// A request for `forms`, with ids `"0"`, `"1"`, … (their indexes, which
+    /// [`analyses_from_batch`] expects back) and `limit` [`MAX_READINGS`].
+    pub fn new(lang: Lang, forms: &[&'a str]) -> Self {
+        Self {
+            language: lang.code(),
+            items: forms.iter().enumerate().map(|(i, text)| BatchItem { id: i.to_string(), text }).collect(),
+            limit: MAX_READINGS,
+        }
+    }
 }
 
-#[derive(Deserialize)]
-pub(super) struct BatchResponse {
-    pub(super) results: Vec<BatchResult>,
+/// One form to lemmatize.
+#[derive(Debug, Clone, PartialEq, Serialize)]
+#[non_exhaustive]
+pub struct BatchItem<'a> {
+    pub id: String,
+    pub text: &'a str,
 }
 
-#[derive(Deserialize)]
-pub(super) struct BatchResult {
-    pub(super) id: String,
-    pub(super) lemmas: Vec<LemmaEntry>,
+/// The body of a `/v1/lemmatize:batch` answer. Fields the conversion does not
+/// read (`language`, and per result `input`, `status`, `known`) are ignored.
+#[derive(Debug, Clone, PartialEq, Deserialize)]
+#[non_exhaustive]
+pub struct BatchResponse {
+    pub results: Vec<BatchResult>,
 }
 
-#[derive(Deserialize)]
+impl BatchResponse {
+    pub fn new(results: Vec<BatchResult>) -> Self {
+        Self { results }
+    }
+}
+
+/// The answer for one [`BatchItem`]: every lemma the form can belong to,
+/// none for an unknown form.
+#[derive(Debug, Clone, PartialEq, Deserialize)]
+#[non_exhaustive]
+pub struct BatchResult {
+    /// The [`BatchItem::id`] it answers.
+    pub id: String,
+    pub lemmas: Vec<LemmaEntry>,
+}
+
+impl BatchResult {
+    pub fn new(id: String, lemmas: Vec<LemmaEntry>) -> Self {
+        Self { id, lemmas }
+    }
+}
+
+/// One reading of a form: its lemma, part of speech and, unless the form is
+/// the lemma itself and the source has no tags, its grammar.
+#[derive(Debug, Clone, PartialEq, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub(super) struct LemmaEntry {
-    pub(super) lemma: String,
-    pub(super) part_of_speech: String,
+#[non_exhaustive]
+pub struct LemmaEntry {
+    pub lemma: String,
+    /// The source's tag, as [`PartOfSpeech::from_tag`] reads it (`verb`,
+    /// `noun`, …).
+    pub part_of_speech: String,
     #[serde(default)]
-    pub(super) glosses: Vec<String>,
-    pub(super) grammar: Option<Grammar>,
+    pub glosses: Vec<String>,
+    pub grammar: Option<Grammar>,
 }
 
-#[derive(Deserialize)]
+impl LemmaEntry {
+    /// An entry without glosses or grammar; set them on the result.
+    pub fn new(lemma: String, part_of_speech: String) -> Self {
+        Self { lemma, part_of_speech, glosses: Vec::new(), grammar: None }
+    }
+}
+
+/// The form's features, as the API names them.
+#[derive(Debug, Clone, Default, PartialEq, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub(super) struct Grammar {
-    pub(super) raw_tags: Vec<String>,
-    pub(super) mood: Option<Mood>,
-    pub(super) tense: Option<Tense>,
-    pub(super) person: Option<Person>,
-    pub(super) number: Option<Number>,
-    pub(super) gender: Option<Gender>,
-    pub(super) form_kind: Option<FormKind>,
+#[non_exhaustive]
+pub struct Grammar {
+    /// The source's tags, unparsed.
+    pub raw_tags: Vec<String>,
+    pub mood: Option<Mood>,
+    pub tense: Option<Tense>,
+    pub person: Option<Person>,
+    pub number: Option<Number>,
+    pub gender: Option<Gender>,
+    pub form_kind: Option<FormKind>,
     #[serde(default)]
-    pub(super) auxiliaries: Vec<String>,
-    pub(super) clitic: bool,
+    pub auxiliaries: Vec<String>,
+    /// The form carries attached clitic pronouns (`prendendogliela`).
+    pub clitic: bool,
 }
 
 #[cfg(test)]
@@ -154,6 +211,15 @@ mod tests {
         assert_eq!(
             (f.mood, f.tense, f.person, f.number),
             (Some(Mood::Indicative), Some(Tense::Past), Some(Person::Third), Some(Number::Singular))
+        );
+    }
+
+    #[test]
+    fn request_ids_are_indexes() {
+        let request = BatchRequest::new(Lang::Es, &["a", "b"]);
+        assert_eq!(
+            serde_json::to_value(&request).unwrap(),
+            json!({"language": "es", "items": [{"id": "0", "text": "a"}, {"id": "1", "text": "b"}], "limit": 10})
         );
     }
 
