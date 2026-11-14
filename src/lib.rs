@@ -8,9 +8,12 @@
 //! - [`analysis`]: the pipeline, [`analyze`].
 //! - [`verbs`]: what a verb page asks of a reading (base verb, participle use).
 //! - [`examples`]: example sentences for a verb form, with where the form is.
-//! - [`wordholder`] (feature `wordholder`): the Word Holder API as a lexicon.
+//! - [`wordholder`] (feature `wordholder`): Word Holder's lemmatize contract
+//!   and patches; its HTTP client needs feature `wordholder-http`.
 //!
-//! Everything but `wordholder` is free of network code.
+//! Only feature `wordholder-http` brings network code.
+
+#![cfg_attr(docsrs, feature(doc_cfg))]
 
 pub mod analysis;
 pub mod examples;
@@ -20,6 +23,7 @@ pub mod patch;
 pub mod syntax;
 pub mod verbs;
 #[cfg(feature = "wordholder")]
+#[cfg_attr(docsrs, doc(cfg(feature = "wordholder")))]
 pub mod wordholder;
 
 pub use analysis::{analyze, Error, SentenceAnalysis, TokenChoice};
