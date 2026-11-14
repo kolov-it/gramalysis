@@ -2,13 +2,24 @@
 //! and the punctuation the grammar uses.
 
 pub fn tokenize(text: &str) -> Vec<String> {
+    split(text).into_iter().map(|(token, _)| token).collect()
+}
+
+/// For each token of [`tokenize`], whether an opening quote stands right
+/// before it: a quotation starts a sentence of its own.
+pub fn after_quote(text: &str) -> Vec<bool> {
+    split(text).into_iter().map(|(_, quoted)| quoted).collect()
+}
+
+fn split(text: &str) -> Vec<(String, bool)> {
     let text = text.replace('’', "'");
-    let mut tokens = Vec::new();
+    let mut tokens: Vec<(String, bool)> = Vec::new();
     // Dashes set off asides and dialogue in literary text; the grammar reads
     // the sentence without them.
     let text = text.replace(['—', '–'], " ");
     for raw in text.split_whitespace() {
         let word = raw.trim_start_matches(['"', '«', '(', '“']);
+        let mut quoted = raw[..raw.len() - word.len()].contains(['"', '«', '“']);
         let core = word.trim_end_matches(['.', ',', ';', ':', '!', '?', '"', '»', ')', '”']);
         let trailing = &word[core.len()..];
         let mut rest = core;
@@ -16,17 +27,17 @@ pub fn tokenize(text: &str) -> Vec<String> {
             if i + 1 >= rest.len() {
                 break;
             }
-            tokens.push(rest[..=i].to_owned());
+            tokens.push((rest[..=i].to_owned(), std::mem::take(&mut quoted)));
             rest = &rest[i + 1..];
         }
         if !rest.is_empty() {
-            tokens.push(modern_spelling(rest));
+            tokens.push((modern_spelling(rest), quoted));
         }
-        tokens.extend(trailing.chars().filter(|c| matches!(c, ',' | ';' | ':' | '.' | '?' | '!')).map(|c| c.to_string()));
+        tokens.extend(trailing.chars().filter(|c| matches!(c, ',' | ';' | ':' | '.' | '?' | '!')).map(|c| (c.to_string(), false)));
     }
     // Sentence-final punctuation ends the text; inside it, it separates
     // sentences (Come stai? Hai fatto buon viaggio?).
-    while tokens.last().is_some_and(|t| matches!(t.as_str(), "." | "?" | "!")) {
+    while tokens.last().is_some_and(|(t, _)| matches!(t.as_str(), "." | "?" | "!")) {
         tokens.pop();
     }
     tokens
@@ -56,6 +67,12 @@ mod tests {
     #[test]
     fn tokenizes_elision_and_punctuation() {
         assert_eq!(tokenize("L'ho visto, dell’anno scorso."), ["L'", "ho", "visto", ",", "dell'", "anno", "scorso"]);
+    }
+
+    #[test]
+    fn marks_words_after_an_opening_quote() {
+        assert_eq!(after_quote("FMI significa \"Fondo Monetario\"."), [false, false, true, false]);
+        assert_eq!(after_quote("Disse «L'ho visto»"), [false, true, false, false]);
     }
 
     #[test]

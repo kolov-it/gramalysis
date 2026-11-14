@@ -10,7 +10,7 @@ pub use tokenize::tokenize;
 
 use std::collections::{HashMap, HashSet};
 
-use crate::lang::Language;
+use crate::lang::{Case, Language};
 use crate::morph::{Analysis, FormKind, Lang, Mood, Number, PartOfSpeech, Person, Reading, Tense};
 use crate::syntax::feats::{self, FeatMap};
 use crate::syntax::grammar::{Grammar, GrammarError};
@@ -80,7 +80,7 @@ impl Language for Spanish {
         forms
     }
 
-    fn lattice(&self, tokens: &[String], analyses: &[Analysis]) -> Lattice {
+    fn lattice(&self, _text: &str, tokens: &[String], analyses: &[Analysis]) -> Lattice {
         let forms = self.lexicon_forms(tokens);
         let by_form: HashMap<&str, &Analysis> = forms.iter().map(String::as_str).zip(analyses).collect();
         self.build_lattice(tokens, &by_form)
@@ -116,7 +116,12 @@ impl Spanish {
                 }));
             }
             let enclitic = self.enclitic_readings(&lower, token, lexicon, by_form);
-            for reading in lexicon {
+            // After an article a capital marks no name (la India, el Corán).
+            let after_article = i > 0
+                && self.closed.get(&tokens[i - 1].to_lowercase()).is_some_and(|rs| rs.iter().any(|r| r.last().is_some_and(|m| m.cat == "Det")));
+            let case = Case::of(tokens, i, after_article);
+            let known_name = lexicon.iter().any(|r| r.pos == PartOfSpeech::ProperNoun);
+            for reading in lexicon.iter().filter(|r| case.keeps(r.pos == PartOfSpeech::ProperNoun, known_name)) {
                 let cat = feats::category(&reading.pos);
                 if closed.is_some() && OWNED_CATS.contains(&cat.as_str()) {
                     continue;
@@ -190,7 +195,8 @@ impl Spanish {
             }
             // A capital after . ? ! or : starts a sentence, like the first word.
             let starts_sentence = i == 0 || matches!(tokens[i - 1].as_str(), "." | "?" | "!" | ":");
-            if capitalised && (!starts_sentence || readings.is_empty()) {
+            // One the lexicon knows as a name already has that reading.
+            if capitalised && !known_name && (!starts_sentence || readings.is_empty()) {
                 let mut feats = FeatMap::new();
                 feats.insert("onset".to_owned(), onset(&lower).to_owned());
                 readings.push(vec![Morpheme { surface: token.clone(), lemma: token.clone(), cat: "ProperNoun".to_owned(), feats }]);
