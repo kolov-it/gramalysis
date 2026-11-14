@@ -81,8 +81,26 @@ struct Forms {
 }
 
 impl Forms {
-    fn new(forms: HashSet<String>) -> Self {
-        let unaccented = forms.iter().map(|f| es::strip_accent(f)).collect();
+    /// A form that carries clitics itself (arrepintiéndose, farsi) also
+    /// counts by its host, so the same verb with other clitics matches
+    /// (arrepintiéndome, farmi).
+    fn new(lang: Lang, forms: HashSet<String>) -> Self {
+        let mut forms = forms;
+        let mut unaccented: HashSet<String> = forms.iter().map(|f| es::strip_accent(f)).collect();
+        match lang {
+            Lang::It => {
+                let hosts: Vec<String> = forms.iter().filter_map(|f| it::split_enclitics(f)).map(|(h, _)| h).collect();
+                forms.extend(hosts);
+            }
+            Lang::Es => {
+                for f in forms.iter() {
+                    for split in es::split_enclitics(f) {
+                        unaccented.extend(split.hosts.iter().map(|h| es::strip_accent(h)));
+                    }
+                }
+            }
+            _ => {}
+        }
         Self { forms, unaccented }
     }
 
@@ -205,10 +223,10 @@ impl Target {
             lang,
             infinitive: query.infinitive.clone(),
             base: page_verb(&query.infinitive, lang),
-            simple: Forms::new(cells.values().flatten().cloned().collect()),
+            simple: Forms::new(lang, cells.values().flatten().cloned().collect()),
             cells,
             participles,
-            auxiliary: Forms::new(auxiliary),
+            auxiliary: Forms::new(lang, auxiliary),
         })
     }
 
@@ -249,7 +267,10 @@ impl Target {
             }
             (Lang::Es, Some(_)) => {
                 let (f, s) = (es::strip_accent(f), es::strip_accent(surface));
-                f == s || f == format!("{s}s") || f == format!("{s}d")
+                f == s
+                    || f == format!("{s}s")
+                    || f == format!("{s}d")
+                    || es::split_enclitics(&f).iter().flat_map(|split| &split.hosts).any(|h| es::strip_accent(h) == s)
             }
             // far così: the infinitive without its -e (porre: por).
             (Lang::It, None) => {
