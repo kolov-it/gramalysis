@@ -129,7 +129,8 @@ pub struct Target {
     /// compound one has none (it is the auxiliary + the participle).
     pub cells: BTreeMap<String, Vec<String>>,
     simple: Forms,
-    /// The past participle in every gender and number.
+    /// The past participle in every gender and number, for the prefilter;
+    /// in a parse, the lexicon's reading decides.
     participles: HashSet<String>,
     /// Every form of the auxiliaries.
     auxiliary: Forms,
@@ -151,6 +152,11 @@ impl Target {
         let mut auxiliary = HashSet::new();
         for aux in auxiliaries(lang) {
             auxiliary.extend(table_cells(find(tables, aux)?).into_values().flatten());
+            // Italian drops the infinitive's -e at will: aver commesso,
+            // esser partito.
+            if lang == Lang::It {
+                auxiliary.insert(aux.strip_suffix('e').unwrap_or(aux).to_owned());
+            }
         }
         // A compound tense has the persons of its auxiliary's tense.
         let aux_cells = table_cells(find(tables, auxiliaries(lang)[0])?);
@@ -203,10 +209,6 @@ impl Target {
     /// Whether a token (lower case) may be a form of an auxiliary.
     pub fn may_be_auxiliary(&self, token: &str) -> bool {
         self.auxiliary.may_be(self.lang, token)
-    }
-
-    pub fn is_participle(&self, surface: &str) -> bool {
-        self.participles.contains(surface)
     }
 
     /// Whether a verb morpheme's surface (lower case) is how the table writes
@@ -281,10 +283,20 @@ fn inflected_participles(lang: Lang, ms: &str) -> Vec<String> {
             }
         }
         Lang::Fr => {
-            out.push(format!("{ms}e"));
-            out.push(format!("{ms}es"));
-            if !ms.ends_with(['s', 'x']) {
-                out.push(format!("{ms}s"));
+            // dû, mû, crû lose the circumflex when they agree (due, dus);
+            // absous, dissous take a t (absoute).
+            let base = match ms.strip_suffix('û') {
+                Some(stem) => format!("{stem}u"),
+                None => ms.to_owned(),
+            };
+            let feminine = match base.strip_suffix("ous") {
+                Some(stem) => format!("{stem}oute"),
+                None => format!("{base}e"),
+            };
+            out.push(format!("{feminine}s"));
+            out.push(feminine);
+            if !base.ends_with(['s', 'x']) {
+                out.push(format!("{base}s"));
             }
         }
         _ => {}
@@ -456,6 +468,7 @@ mod tests {
                 && t.may_be_auxiliary("avendolo")
                 && !t.may_be_auxiliary("casa")
         );
+        assert!(t.may_be_auxiliary("aver") && t.may_be_auxiliary("esser"));
     }
 
     #[test]
@@ -491,11 +504,19 @@ mod tests {
         );
         assert_eq!(
             inflected_participles(Lang::Fr, "pris"),
-            ["pris", "prise", "prises"]
+            ["pris", "prises", "prise"]
         );
         assert_eq!(
             inflected_participles(Lang::Fr, "vu"),
-            ["vu", "vue", "vues", "vus"]
+            ["vu", "vues", "vue", "vus"]
+        );
+        assert_eq!(
+            inflected_participles(Lang::Fr, "dû"),
+            ["dû", "dues", "due", "dus"]
+        );
+        assert_eq!(
+            inflected_participles(Lang::Fr, "absous"),
+            ["absous", "absoutes", "absoute"]
         );
     }
 

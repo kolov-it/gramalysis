@@ -65,6 +65,9 @@ pub struct Group {
     pub rule: String,
     /// The lattice edges it consumed, in sentence order.
     pub edges: Vec<usize>,
+    /// The rules of the phrases it opened up (`serv.plain`,
+    /// `passp.participle`): they consumed its edges on its behalf.
+    pub inner_rules: Vec<String>,
 }
 
 /// Every parse of a sentence, shared.
@@ -261,6 +264,8 @@ impl Forest<'_> {
     /// derivation once, as the lattice edges it consumed in sentence order.
     /// A phrase before the last participle (Spanish `SerV`: fue, ha sido) is
     /// opened up into its edges; one after it (an agent, an object) is not.
+    /// A passive rule (named `*passive*`) with no participle of its own has
+    /// every phrase opened up: its participles are inside them.
     /// This is how compound tenses and passives are read off a parse
     /// without the grammar naming them.
     pub fn participle_groups(&self) -> Vec<Group> {
@@ -292,13 +297,27 @@ impl Forest<'_> {
         let mut emitted = HashSet::new();
         for id in complete {
             let rule = &self.grammar.rules[self.keys[id].rule];
-            let Some(last) = rule.rhs.iter().rposition(takes_participle) else { continue };
+            // A passive whose participles sit in phrases of their own
+            // (Spanish vp.passive-coordinated: SerV PassP Conj PassP) is
+            // opened up entirely.
+            let Some(last) = rule
+                .rhs
+                .iter()
+                .rposition(takes_participle)
+                .or_else(|| rule.name.contains("passive").then_some(rule.rhs.len()))
+            else {
+                continue;
+            };
             for path in self.paths(id, &mut paths) {
                 let mut lists: Vec<Vec<usize>> = vec![Vec::new()];
+                let mut inner_rules = Vec::new();
                 for (i, child) in path.iter().enumerate() {
                     let parts = match *child {
                         Child::Edge(e) => vec![vec![e]],
-                        Child::Item(c) if i < last => self.terminals(c, &mut paths, &mut terminals),
+                        Child::Item(c) if i < last => {
+                            inner_rules.extend(self.rules_under(c));
+                            self.terminals(c, &mut paths, &mut terminals)
+                        }
                         Child::Item(_) => vec![Vec::new()],
                     };
                     lists = lists
@@ -306,9 +325,11 @@ impl Forest<'_> {
                         .flat_map(|l| parts.iter().map(move |p| l.iter().chain(p).copied().collect()))
                         .collect();
                 }
+                inner_rules.sort();
+                inner_rules.dedup();
                 for edges in lists {
                     if emitted.insert((rule.name.clone(), edges.clone())) {
-                        out.push(Group { rule: rule.name.clone(), edges });
+                        out.push(Group { rule: rule.name.clone(), edges, inner_rules: inner_rules.clone() });
                     }
                 }
             }
@@ -332,6 +353,26 @@ impl Forest<'_> {
             }
         }
         memo.insert(id, out.clone());
+        out
+    }
+
+    /// The rules of an item and of every item under it.
+    fn rules_under(&self, id: usize) -> Vec<String> {
+        let mut seen = HashSet::new();
+        let mut out = Vec::new();
+        let mut stack = vec![id];
+        while let Some(i) = stack.pop() {
+            if !seen.insert(i) {
+                continue;
+            }
+            out.push(self.grammar.rules[self.keys[i].rule].name.clone());
+            for &(prev, child) in &self.back[i] {
+                stack.push(prev);
+                if let Child::Item(c) = child {
+                    stack.push(c);
+                }
+            }
+        }
         out
     }
 

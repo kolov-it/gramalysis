@@ -15,7 +15,8 @@ use syntango::examples::{
 };
 use syntango::lang;
 use syntango::morph::Lang;
-use syntango::wordholder::FixtureLexicon;
+use syntango::patch::PatchedLexicon;
+use syntango::wordholder::{self, FixtureLexicon};
 
 fn tables(lang: &str) -> VerbTables {
     let file = std::fs::File::open(format!("data/{lang}/verbs.json")).unwrap();
@@ -29,8 +30,10 @@ async fn run_in(
     texts: &[&str],
     options: Options,
 ) -> (Vec<Example>, u64) {
-    let lexicon =
+    // Patched, as the command line uses it (aver → avere).
+    let fixture =
         FixtureLexicon::load(Path::new(&format!("tests/fixtures/{code}-set.json"))).unwrap();
+    let lexicon = PatchedLexicon::new(Box::new(fixture), wordholder::patches().unwrap());
     let language = lang::load(code.parse::<Lang>().unwrap()).unwrap();
     let query = Query {
         infinitive: infinitive.to_owned(),
@@ -347,6 +350,67 @@ async fn french_compound_tenses_with_adverbs() {
         marked(&e),
         "Comment vas-tu ? [As]-tu [fait] un bon voyage ?"
     );
+}
+
+#[tokio::test]
+async fn spanish_coordinated_passive_shares_its_auxiliary() {
+    for (verb, marked_text) in [
+        ("herir", "[Fue] gravemente [herido] y atendido."),
+        ("atender", "[Fue] gravemente herido y [atendido]."),
+    ] {
+        let e = one("es", verb, None, "Fue gravemente herido y atendido.").await;
+        assert_eq!(marked(&e), marked_text);
+        assert_eq!(
+            (e.cells.as_slice(), e.status, e.voice),
+            (
+                ["indicative.preterite.3s".to_owned()].as_slice(),
+                Status::Decided,
+                Voice::Passive
+            )
+        );
+    }
+}
+
+#[tokio::test]
+async fn italian_shortened_auxiliary_infinitive() {
+    let e = one(
+        "it",
+        "commettere",
+        Some("non_finite.perfect_infinitive"),
+        "Riconobbe di aver commesso un errore.",
+    )
+    .await;
+    assert_eq!(marked(&e), "Riconobbe di [aver] [commesso] un errore.");
+    assert_eq!(e.cells, ["non_finite.perfect_infinitive"]);
+}
+
+#[tokio::test]
+async fn coordinated_participles_are_verbs_not_auxiliaries() {
+    let e = one(
+        "it",
+        "venire",
+        Some("indicative.present_perfect"),
+        "Sono venuto e partito.",
+    )
+    .await;
+    assert_eq!(marked(&e), "[Sono] [venuto] e partito.");
+    assert_eq!(roles(&e), [Role::Auxiliary, Role::Participle]);
+    let e = one(
+        "it",
+        "partire",
+        Some("indicative.present_perfect"),
+        "Sono venuto e partito.",
+    )
+    .await;
+    assert_eq!(marked(&e), "[Sono] venuto e [partito].");
+    assert_eq!(roles(&e), [Role::Auxiliary, Role::Participle]);
+}
+
+#[tokio::test]
+async fn french_participle_with_an_irregular_agreement() {
+    let e = one("fr", "devoir", None, "Les sommes nous sont dues.").await;
+    assert_eq!(marked(&e), "Les sommes nous [sont] [dues].");
+    assert_eq!(e.cells, ["indicative.present_perfect.3p"]);
 }
 
 #[tokio::test]

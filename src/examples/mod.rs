@@ -187,6 +187,8 @@ pub struct Stats {
 /// A verb group read as an auxiliary (+ more auxiliaries) + participle(s).
 struct VerbGroup {
     rule: String,
+    /// The rules of the phrases the group opened up.
+    inner_rules: Vec<String>,
     /// The auxiliary that carries the tense (ho, è, fue, a).
     aux: usize,
     /// Auxiliaries in participle form before the main participle (stato,
@@ -453,11 +455,22 @@ impl<'a> Extractor<'a> {
             .copied()
             .filter(|&e| is_participle(morph(e)))
             .collect();
-        // stato in è stato venduto: an auxiliary's participle before the
-        // main one.
+        // stato in è stato venduto: an auxiliary's participle that the next
+        // participle follows in the same verb. Across a coordinator it is a
+        // verb of its own (sono venuto e partito).
+        let coordinator_between = |from: usize, to: usize| {
+            let (i, j) = (
+                group.edges.iter().position(|&x| x == from),
+                group.edges.iter().position(|&x| x == to),
+            );
+            matches!((i, j), (Some(i), Some(j)) if group.edges[i..j].iter().any(|&x| morph(x).cat == "Conj"))
+        };
         let (mut layers, mut participles) = (Vec::new(), Vec::new());
         for (i, &e) in pps.iter().enumerate() {
-            if is_aux(morph(e)) && i + 1 < pps.len() {
+            let stacked = pps
+                .get(i + 1)
+                .is_some_and(|&next| !coordinator_between(e, next));
+            if is_aux(morph(e)) && stacked {
                 layers.push(e);
             } else {
                 participles.push(e);
@@ -482,6 +495,7 @@ impl<'a> Extractor<'a> {
         });
         Some(VerbGroup {
             rule: group.rule.clone(),
+            inner_rules: group.inner_rules.clone(),
             aux,
             layers,
             participles,
@@ -520,12 +534,9 @@ impl<'a> Extractor<'a> {
             let mut grouped: HashSet<&str> = HashSet::new();
             for g in groups.iter().filter(|g| g.participles.contains(&e)) {
                 grouped.insert(&g.rule);
+                grouped.extend(g.inner_rules.iter().map(String::as_str));
                 match &g.cell {
-                    Some(c)
-                        if this_verb
-                            && self.target.is_participle(&surface)
-                            && self.target.cells.contains_key(c) =>
-                    {
+                    Some(c) if this_verb && self.target.cells.contains_key(c) => {
                         let mut parts: Vec<(usize, Role)> =
                             std::iter::once((g.aux, Role::Auxiliary))
                                 .chain(g.layers.iter().map(|&l| (l, Role::Auxiliary)))
@@ -553,6 +564,7 @@ impl<'a> Extractor<'a> {
                 .filter(|g| g.aux == e || g.layers.contains(&e))
             {
                 grouped.insert(&g.rule);
+                grouped.extend(g.inner_rules.iter().map(String::as_str));
                 let of = &a.lattice.edges[g.participles[0]].morph.lemma;
                 out.insert(Interpretation::Other(format!(
                     "auxiliary of {of} {}",
