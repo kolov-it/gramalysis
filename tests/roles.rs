@@ -317,3 +317,14 @@ async fn contracted_prepositions_keep_their_phrase_role() {
     differs(&a, "al", Adverbial, &[DirectObject]);
     assert!(token(&a, "al").roles.iter().all(Option::is_some));
 }
+
+/// Issue #10: a verb's di phrase, a free di phrase, a postposed partitive
+/// subject, and a noun phrase standing as the whole sentence (no role).
+#[tokio::test]
+async fn di_phrases_partitives_and_verbless_sentences() {
+    let lit = |t| run("tests/fixtures/it-literature.json", t);
+    agreed(&lit("Parla di me.").await, &[("Parla", Some(Verb)), ("me", Some(Adverbial))]);
+    agreed(&lit("Esce di notte.").await, &[("Esce", Some(Verb)), ("notte", Some(Adverbial))]);
+    agreed(&lit("Sono arrivati dei ragazzi.").await, &[("ragazzi", Some(Subject))]);
+    agreed(&lit("La forza del destino!").await, &[("forza", None), ("destino", None)]);
+}

@@ -10,6 +10,8 @@
 //!
 //! A value is a constant (`nom`), a choice of constants (`acc|dat`) or a
 //! variable (`?p`) that must take the same value everywhere in the rule.
+//! `!=` negates: `prep!=di` refuses those constants, `person!=?o` the
+//! variable's value.
 //!
 //! A child can carry the grammatical role of the phrase it stands for, after
 //! its features: `NP[case=nom]:subject`, `Adv[lemma=non]:adverbial`. The
@@ -34,6 +36,8 @@ pub enum Value {
     Var(String),
     /// `k!=?v`: must differ from `?v` once both are known.
     NotVar(String),
+    /// `k!=a|b`: must be none of these constants.
+    NotAny(Vec<String>),
 }
 
 /// The role a rule gives one of its children.
@@ -177,7 +181,7 @@ fn parse_cats(text: &str) -> Result<Vec<Cat>, String> {
                     (Some(var), false) => Value::Var(var.to_owned()),
                     (Some(var), true) => Value::NotVar(var.to_owned()),
                     (None, false) => Value::Any(v.split('|').map(|s| s.trim().to_owned()).collect()),
-                    (None, true) => return Err(format!("`!=` takes a variable, got `{pair}`")),
+                    (None, true) => Value::NotAny(v.split('|').map(|s| s.trim().to_owned()).collect()),
                 };
                 constraints.push((k.trim().to_owned(), value));
             }
@@ -206,7 +210,7 @@ mod tests {
     #[test]
     fn reads_rules_constraints_and_explanations() {
         let g = Grammar::parse(
-            "start S\n# c\nrule a.b: S -> NP[case=nom, person=?p] VP[mood=ind|sub, person!=?q]\n  \"one\"\n  \"two\"\n",
+            "start S\n# c\nrule a.b: S -> NP[case=nom, person=?p] VP[mood=ind|sub, person!=?q, prep!=di|a]\n  \"one\"\n  \"two\"\n",
         )
         .unwrap();
         let r = &g.rules[0];
@@ -217,6 +221,10 @@ mod tests {
             Value::Any(vec!["ind".to_owned(), "sub".to_owned()])
         );
         assert_eq!(r.rhs[1].constraints[1].1, Value::NotVar("q".to_owned()));
+        assert_eq!(
+            r.rhs[1].constraints[2].1,
+            Value::NotAny(vec!["di".to_owned(), "a".to_owned()])
+        );
         assert_eq!(r.explanation, "one two");
         assert!(g.is_nonterminal("S") && !g.is_nonterminal("NP"));
     }

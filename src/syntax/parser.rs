@@ -337,6 +337,11 @@ fn unify(cat: &Cat, feats: &FeatMap, env: &Env) -> Option<Env> {
                     return None;
                 }
             }
+            Value::NotAny(refused) => {
+                if refused.iter().any(|r| r == actual) {
+                    return None;
+                }
+            }
         }
     }
     Some(env)
@@ -347,7 +352,7 @@ fn lhs_feats(lhs: &Cat, env: &Env) -> FeatMap {
     for (key, value) in &lhs.constraints {
         let resolved = match value {
             Value::Any(allowed) if allowed.len() == 1 => Some(allowed[0].clone()),
-            Value::Any(_) | Value::NotVar(_) => None,
+            Value::Any(_) | Value::NotVar(_) | Value::NotAny(_) => None,
             Value::Var(var) => env.get(var).cloned(),
         };
         if let Some(v) = resolved {
