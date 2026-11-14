@@ -14,7 +14,7 @@ wordholder = ["dep:serde_json"]
 # The Word Holder API over HTTP (RapidAPI or the API's origin).
 wordholder-http = ["wordholder", "dep:reqwest"]
 # The `syntango` command-line tool.
-cli = ["wordholder-http", "dep:tokio", "dep:clap"]
+cli = ["wordholder-http", "dep:tokio", "dep:clap", "dep:flate2"]
 
 [package.metadata.docs.rs]
 all-features = true
@@ -31,6 +31,7 @@ required-features = ["cli"]
 [dependencies]
 async-trait = "0.1.92"
 clap = { version = "4.6.7", features = ["derive"], optional = true }
+flate2 = { version = "1.1.11", optional = true }
 reqwest = { version = "0.13.5", default-features = false, features = ["json", "rustls", "http2"], optional = true }
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = { version = "1.0.154", optional = true }

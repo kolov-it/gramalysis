@@ -14,12 +14,8 @@ use serde::{Deserialize, Serialize};
 
 use syntango::lang::Language;
 use syntango::morph::{Lang, Lexicon};
+use syntango::verbs::{base_verb, verb_use};
 use syntango::{analyze, Error};
-
-/// The grammar rules for a participle used like an adjective: a past
-/// participle (le luci accese) and an Italian present participle (il treno
-/// fuggente).
-const ADJECTIVE_USES: [&str; 2] = ["ap.participle", "ap.present-participle"];
 
 #[derive(Deserialize)]
 pub struct Item {
@@ -106,38 +102,6 @@ fn same_for_a_verb_page(a: &Reading, b: &Reading, lang: Lang) -> bool {
     a.verb == b.verb && (!a.verb || base_verb(&a.lemma, lang) == base_verb(&b.lemma, lang))
 }
 
-/// A pronominal infinitive's base verb: mettersi → mettere, smetterla →
-/// smettere, andarsene → andare, porsi → porre; Spanish irse → ir,
-/// arreglárselas → arreglar. Dictionaries and labellers name such verbs
-/// either way; for a verb page they are the same verb.
-fn base_verb(lemma: &str, lang: Lang) -> String {
-    if lang == Lang::Es {
-        const CLITICS: [&str; 9] = ["selas", "selos", "sela", "selo", "las", "los", "se", "la", "lo"];
-        for c in CLITICS {
-            if let Some(stem) = lemma.strip_suffix(c)
-                && stem.len() >= 2
-                && stem.ends_with('r')
-            {
-                return syntango::lang::es::strip_accent(stem);
-            }
-        }
-        return syntango::lang::es::strip_accent(lemma);
-    }
-    const CLITICS: [&str; 14] =
-        ["sene", "sela", "selo", "cela", "celo", "gliela", "glielo", "si", "ci", "vi", "la", "lo", "le", "ne"];
-    for c in CLITICS {
-        if let Some(stem) = lemma.strip_suffix(c)
-            && stem.len() >= 3
-            && stem.ends_with('r')
-        {
-            // -rre verbs: porre, condurre, trarre.
-            let rre = ["por", "dur", "trar"].iter().any(|s| stem.ends_with(s));
-            return format!("{stem}{}", if rre { "re" } else { "e" });
-        }
-    }
-    lemma.to_owned()
-}
-
 fn spacy_reading(s: &Spacy) -> Reading {
     Reading { verb: matches!(s.pos.as_str(), "VERB" | "AUX"), lemma: s.lemma.to_lowercase() }
 }
@@ -186,21 +150,13 @@ async fn evaluate<'a>(
                 .zip(&choice.uses)
                 .filter_map(|(r, uses)| r.first().map(|m| (m, uses)))
                 .flat_map(|(m, uses)| {
-                    // A participle the grammar only used like an adjective (le
-                    // luci sono accese) is not the verb, for a verb page; used
-                    // both ways in this reading, the sentence is ambiguous.
-                    let participle = m.cat == "Verb"
-                        && matches!(
-                            m.feats.get("form").map(String::as_str),
-                            Some("pastpart" | "prespart")
-                        );
-                    let adjectival = uses.iter().any(|u| ADJECTIVE_USES.contains(&u.as_str()));
-                    let verbal = uses.iter().any(|u| !ADJECTIVE_USES.contains(&u.as_str()));
+                    // Used both ways in this reading, the sentence is ambiguous.
+                    let used = verb_use(m, uses);
                     let mut out = Vec::new();
-                    if !participle || verbal {
+                    if used.as_verb {
                         out.push(Reading { verb: m.cat == "Verb", lemma: m.lemma.to_lowercase() });
                     }
-                    if participle && adjectival {
+                    if used.as_adjective {
                         out.push(Reading { verb: false, lemma: m.surface.to_lowercase() });
                     }
                     out
@@ -285,7 +241,7 @@ fn summarize(results: &[ItemResult]) {
 
 #[cfg(test)]
 mod tests {
-    use super::{base_verb, Lang, Reading};
+    use super::Reading;
 
     #[test]
     fn non_verbal_answers_count_as_one() {
@@ -296,16 +252,5 @@ mod tests {
         readings.sort();
         readings.dedup_by(|a, b| a == b || (!a.verb && !b.verb));
         assert_eq!(readings.len(), 1);
-    }
-
-    #[test]
-    fn pronominal_infinitives_map_to_their_base_verb() {
-        for (a, b) in [("mettersi", "mettere"), ("smetterla", "smettere"), ("andarsene", "andare"),
-                       ("porsi", "porre"), ("prenderci", "prendere"), ("fare", "fare"), ("dire", "dire")] {
-            assert_eq!(base_verb(a, Lang::It), b, "{a}");
-        }
-        for (a, b) in [("irse", "ir"), ("arreglárselas", "arreglar"), ("reírse", "reir"), ("reír", "reir"), ("dar", "dar")] {
-            assert_eq!(base_verb(a, Lang::Es), b, "{a}");
-        }
     }
 }

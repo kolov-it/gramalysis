@@ -368,6 +368,120 @@ singular (*facile*, *heureux*), which `lang/fr` leaves unknown; forms come
 back as an infinitive of themselves (*grandisses*); obsolete or non-French
 verbs beside the common one (*jetter*, *batter*).
 
+## Example sentences for a verb
+
+What syntango is for: sentences from a corpus that use a verb in a given tense,
+for a verb page, with exactly where the verb is so the page can highlight it.
+
+```sh
+cargo run --release -- tenses it                 # the tenses and their identifiers (--json)
+cargo run --release -- examples it essere --tense indicative.past_historic \
+  --tatoeba data/it/tatoeba-pool.jsonl.gz --fixture tests/fixtures/it-set.json
+cargo run --release -- examples it mangiare --tense indicative.present_perfect \
+  --leipzig ita_news_2024_1M-sentences.txt --limit 50
+cargo run --release -- examples es hacer --file my-sentences.txt --include-ambiguous
+```
+
+`--tense` takes a tense identifier from `syntango tenses <lang>`
+(`indicative.past_historic`, `indicative.present_perfect`), one of its cells
+(`indicative.present_perfect.3s`) or a non-finite form (`non_finite.gerund`);
+an unknown one is an error that lists the valid ones. Without `--tense` every
+cell counts. The simple tenses are the cells of the verb's table
+(`data/<lang>/verbs.json`, or `--verbs FILE`); the compound tenses are named
+after the auxiliary's tense they are built from:
+
+| Identifier | Italian | Spanish | French | Auxiliary in |
+|---|---|---|---|---|
+| `indicative.present_perfect` | passato prossimo | pretérito perfecto compuesto | passé composé | `indicative.present` |
+| `indicative.pluperfect` | trapassato prossimo | pretérito pluscuamperfecto | plus-que-parfait | `indicative.imperfect` |
+| `indicative.past_anterior` | trapassato remoto | pretérito anterior | passé antérieur | `indicative.past_historic` (es `indicative.preterite`) |
+| `indicative.future_perfect` | futuro anteriore | futuro compuesto | futur antérieur | `indicative.future` |
+| `subjunctive.perfect` | congiuntivo passato | pretérito perfecto de subjuntivo | subjonctif passé | `subjunctive.present` |
+| `subjunctive.pluperfect` | congiuntivo trapassato | pluscuamperfecto de subjuntivo | subjonctif plus-que-parfait | `subjunctive.imperfect` |
+| `subjunctive.future_perfect` | | futuro compuesto de subjuntivo | | `subjunctive.future` |
+| `conditional.perfect` | condizionale passato | condicional compuesto | conditionnel passé | `conditional.present` |
+| `non_finite.perfect_infinitive` | infinito passato | infinitivo compuesto | infinitif passé | `non_finite.infinitive` |
+| `non_finite.perfect_gerund` | gerundio passato | gerundio compuesto | participe passé composé | `non_finite.gerund` |
+
+A cheap match picks the sentences worth parsing: a form of the verb (clitics
+attached allowed: *farlo*, *dámelo*), or its past participle in any gender and
+number with an auxiliary somewhere in the sentence. The parse decides. A
+compound tense or a passive is named by the grammar while it parses: every
+rule that joins an auxiliary and a past participle passes the auxiliary's
+features up (`aux_mood`, `aux_tense`, `aux_person`, `aux_number`,
+`aux_form`), and a passive rule marks `voice=passive`; Spanish `SerV` and
+`PassP` pass them through. The extractor reads these complete chart items
+(`Forest::items_where`) and never enumerates parses: an ambiguity such as
+*abbiamo* (indicative or subjunctive) is two items over the same words. The
+auxiliary's tense names the compound tense, and a participle stacked on
+another (*stato*, *sido*, *été*) makes a passive compound. One JSON line per example on stdout; counts and throughput
+on stderr:
+
+```json
+{"source":"my-sentences.txt","id":1,"text":"Non ho mai mangiato la pizza.","infinitive":"mangiare","lemma":"mangiare","cells":["indicative.present_perfect.1s"],"status":"decided","voice":"active","parses":1,"parts":[{"role":"auxiliary","token":1,"text":"ho","char_start":4,"char_end":6},{"role":"participle","token":3,"text":"mangiato","char_start":11,"char_end":19}],"segments":[{"text":"Non ","highlight":false},{"text":"ho","highlight":true,"role":"auxiliary"},{"text":" mai ","highlight":false},{"text":"mangiato","highlight":true,"role":"participle"},{"text":" la pizza.","highlight":false}]}
+{"source":"tatoeba","id":4381,"author":"Pharamp","text":"Per farlo, bisogna correre dei rischi.","infinitive":"fare","lemma":"fare","cells":["non_finite.infinitive"],"status":"decided","voice":"active","parses":3,"parts":[{"role":"verb","token":1,"text":"farlo","char_start":4,"char_end":9,"verb":"far","clitics":["lo"]}],"segments":[{"text":"Per ","highlight":false},{"text":"farlo","highlight":true,"role":"verb"},{"text":", bisogna correre dei rischi.","highlight":false}]}
+{"source":"tatoeba","id":998266,"author":"Guybrush88","text":"Cosa direste se foste al mio posto?","infinitive":"essere","lemma":"essere","cells":["indicative.past_historic.2p"],"status":"ambiguous","voice":"active","parses":4,"parts":[{"role":"verb","token":3,"text":"foste","char_start":16,"char_end":21}],"segments":[{"text":"Cosa direste se ","highlight":false},{"text":"foste","highlight":true,"role":"verb"},{"text":" al mio posto?","highlight":false}],"other_readings":["Verb essere subjunctive.imperfect.2p"]}
+```
+
+- **Where the verb is**: `parts` are its words, in order: one `verb` for a
+  simple tense; the `auxiliary` (or two: *è stato*, *ha sido*, *a été*) and
+  the `participle` for a compound tense or a passive. A word between them (an
+  adverb, a clitic, an inverted pronoun: *ho già mangiato*, *as-tu fait*) is
+  not a part. `segments` concatenate to `text`, the highlighted ones being the
+  parts, so a renderer needs no offsets; each part also has
+  `char_start`..`char_end` in Unicode scalar values (Rust `chars()`, Python
+  string indices; JavaScript's UTF-16 indices are the same only for text
+  without characters outside the Basic Multilingual Plane). A part with
+  attached clitics (*farlo*, *haberlo*) has `verb`, the verb part as the parse
+  split it, and `clitics`.
+- **`voice`**: `passive` for the participle with *essere*/*venire*, *ser*,
+  *être* (*fu scritto*, *è stato venduto*, *fue construido*, *a été levée*).
+  A passive's cell is its auxiliary's: *fu scritto* is
+  `indicative.past_historic.3s`, *è stato venduto* `indicative.present_perfect.3s`.
+- **`status`**: `decided` when every parse reads the word as this verb in one
+  cell and voice with the same auxiliaries; `ambiguous` when some parse reads
+  it otherwise (`other_readings`: another word, another cell, an adjective
+  use, an auxiliary). *Abbiamo già mangiato* is ambiguous: *abbiamo* is
+  indicative or subjunctive. Ambiguity is reported, never resolved; only
+  decided examples are printed unless `--include-ambiguous`.
+- **Auxiliaries are not examples of their verb**: *ho* in *ho mangiato* is the
+  auxiliary of *mangiare*, not an example of *avere*, and likewise the
+  auxiliary of a progressive (`aux_progressive=yes` in the grammar): *sto* in
+  *sto mangiando*, *estoy* and *he estado* in *estoy / he estado trabajando*;
+  the gerund is an example of its own verb (`non_finite.gerund`). Where some
+  parse reads the word as the verb itself, its example is ambiguous.
+- **The cell** is named as the table names it, and a simple-tense word must
+  be written as the table writes that cell: an inflected participle (*fatta*,
+  *mangiati*) is not the `past_participle` cell, which holds the masculine
+  singular only; in a compound tense or a passive any gender and number
+  counts. A French *-ant* form read as a present participle is the table's
+  `non_finite.gerund`.
+- `source`, `id` and, for Tatoeba, `author` (CC BY attribution) say where the
+  sentence comes from. Tatoeba input is JSON lines with `id`, `author`, `text`;
+  Leipzig input is the upstream `id<TAB>sentence` file; `--file` takes one
+  sentence a line (the id is the line number). A `.gz` file is read as gzip.
+
+**Not yet supported:** the perfect imperative (*abbi fatto*, *aie fini*), and
+*stare* / *estar* + gerund as a tense of its own.
+
+As a library (`examples::Extractor`; `sentences` is any iterator of
+`Result<Sentence, BoxError>`, `extractor.examples(&sentence)` does one;
+`examples::tenses::tenses(lang)` is the tense list):
+
+```rust
+let tables: VerbTables = serde_json::from_str(&std::fs::read_to_string("data/it/verbs.json")?)?;
+let query = Query { infinitive: "essere".to_owned(), tense: Some("indicative.past_historic".to_owned()) };
+let extractor = Extractor::new(&lexicon, &italian, &tables, &query)?;
+let options = Options { limit: Some(20), include_ambiguous: false };
+let stats = extractor
+    .run(sentences, &options, |e| {
+        let marked: String = e.segments.iter().map(|s| if s.highlight { format!("[{}]", s.text) } else { s.text.clone() }).collect();
+        println!("{marked}");
+        Ok(())
+    })
+    .await?;
+```
+
 ## Using it as a library
 
 ```
@@ -379,12 +493,16 @@ src/
   lang/             the Language trait; it/ = Italian (tokenizer, function
                     words, clitics, first sounds, participles); es/ = Spanish
   analysis.rs       the pipeline: analyze(lexicon, language, sentence)
+  verbs.rs          what a verb page asks of a reading: base verb, participle use
+  examples/         example sentences for a verb: Extractor, the tense list
+                    (tenses.rs), verb tables and cells (table.rs), tokens
+                    back to text offsets (align.rs)
   wordholder/       Word Holder's lemmatize contract   [feature wordholder]
     client.rs         HTTP client (RapidAPI or the API's origin)
                                                      [feature wordholder-http]
     dto.rs            the API's wire format → readings (public)
     fixture.rs        recorded answers, for tests and offline runs
-  bin/syntango/     the command line: parse, record, eval  [feature cli]
+  bin/syntango/     the command line: parse, record, eval, tenses, examples  [feature cli]
 data/it/            grammar.gram, closed.txt (function words),
                     drifted-participles.txt, lexicon-patches/, the Tatoeba set
 data/es/            the same for Spanish

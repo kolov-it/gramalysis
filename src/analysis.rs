@@ -7,7 +7,7 @@ use serde::Serialize;
 use crate::lang::Language;
 use crate::morph::{Lexicon, LexiconError};
 use crate::syntax::lattice::{Edge, Lattice, Morpheme};
-use crate::syntax::parser::{self, ParseError, Tree};
+use crate::syntax::parser::{self, ChartItem, ParseError, Tree};
 use crate::syntax::role::Role;
 
 #[derive(Debug, thiserror::Error)]
@@ -30,6 +30,17 @@ pub struct SentenceAnalysis {
     pub parses: Vec<Tree>,
     /// Per token, the readings used by at least one parse.
     pub chosen: Vec<TokenChoice>,
+    /// Lattice edges any parse uses.
+    #[serde(skip)]
+    pub used_edges: HashSet<usize>,
+    /// For each used edge, the rules that consumed it.
+    #[serde(skip)]
+    pub edge_rules: HashMap<usize, HashSet<String>>,
+    /// The chart items of compound tenses and passives: the rules that pass
+    /// an auxiliary's features up (`aux_mood`, `aux_tense`, …) or mark a
+    /// passive (`voice`).
+    #[serde(skip)]
+    pub verb_items: Vec<ChartItem>,
     /// Per token, its grammatical role in the kept parses.
     pub roles: Vec<TokenRoles>,
 }
@@ -80,9 +91,12 @@ pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str)
     let forest = parser::parse(language.grammar(), &lattice)?;
     let parse_count = forest.count();
     let parses = forest.trees(&lattice, MAX_TREES);
-    let chosen = choices(&tokens, &lattice, &forest.used_edges(), &forest.edge_rules(), !forest.is_empty());
+    let used_edges = forest.used_edges();
+    let edge_rules = forest.edge_rules();
+    let chosen = choices(&tokens, &lattice, &used_edges, &edge_rules, !forest.is_empty());
+    let verb_items = forest.items_where(|r| r.lhs.constraints.iter().any(|(k, _)| k.starts_with("aux_") || k == "voice"));
     let roles = token_roles(&tokens, &parses);
-    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen, roles })
+    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen, used_edges, edge_rules, verb_items, roles })
 }
 
 fn token_roles(tokens: &[String], parses: &[Tree]) -> Vec<TokenRoles> {

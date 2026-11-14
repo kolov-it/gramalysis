@@ -8,7 +8,7 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use serde::Serialize;
 
 use crate::syntax::feats::FeatMap;
-use crate::syntax::grammar::{Cat, Grammar, RoleMark, Value};
+use crate::syntax::grammar::{Cat, Grammar, RoleMark, Rule, Value};
 use crate::syntax::lattice::{Lattice, Morpheme};
 use crate::syntax::role::Role;
 
@@ -64,6 +64,32 @@ pub enum ParseError {
 }
 
 const MAX_ITEMS: usize = 2_000_000;
+
+/// A complete chart item some parse uses ([`Forest::items_where`]).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ChartItem {
+    pub id: usize,
+    /// Index into the grammar's rules.
+    pub rule: usize,
+    /// Lattice nodes it spans.
+    pub start: usize,
+    pub end: usize,
+    /// Its category's features, as the rule set them.
+    pub feats: FeatMap,
+    /// Per right-hand-side position, every child any of its derivations has
+    /// there: alternatives side by side, never multiplied out.
+    pub children: Vec<Vec<ItemChild>>,
+    /// Where parses use it: (rule, right-hand-side position) of each item
+    /// that has it as a child. Empty for a whole-sentence item.
+    pub used_as: Vec<(usize, usize)>,
+}
+
+/// A child of a chart item: a lattice edge or another chart item.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+pub enum ItemChild {
+    Edge(usize),
+    Item(usize),
+}
 
 /// Every parse of a sentence, shared.
 pub struct Forest<'g> {
@@ -249,6 +275,74 @@ impl Forest<'_> {
                         out.entry(e).or_default().insert(rule.clone());
                     }
                 }
+            }
+        }
+        out
+    }
+
+    /// The complete items some parse uses whose rule `keep`s, each with its
+    /// children per position. A scan of the chart: the work is bounded by
+    /// the chart's size, however many parses share the items.
+    pub fn items_where(&self, keep: impl Fn(&Rule) -> bool) -> Vec<ChartItem> {
+        let mut seen = HashSet::new();
+        let mut out = Vec::new();
+        let mut used_as: HashMap<usize, Vec<(usize, usize)>> = HashMap::new();
+        let mut stack: Vec<usize> = self.roots.clone();
+        while let Some(id) = stack.pop() {
+            if !seen.insert(id) {
+                continue;
+            }
+            let key = &self.keys[id];
+            let rule = &self.grammar.rules[key.rule];
+            if key.dot == rule.rhs.len() && keep(rule) {
+                out.push(ChartItem {
+                    id,
+                    rule: key.rule,
+                    start: key.start,
+                    end: key.end,
+                    feats: lhs_feats(&rule.lhs, &key.env),
+                    children: self.children(id),
+                    used_as: Vec::new(),
+                });
+            }
+            for &(prev, child) in &self.back[id] {
+                stack.push(prev);
+                if let Child::Item(c) = child {
+                    let at = (key.rule, key.dot - 1);
+                    let uses = used_as.entry(c).or_default();
+                    if !uses.contains(&at) {
+                        uses.push(at);
+                    }
+                    stack.push(c);
+                }
+            }
+        }
+        for item in &mut out {
+            item.used_as = used_as.remove(&item.id).unwrap_or_default();
+        }
+        out.sort_by_key(|i| i.id);
+        out
+    }
+
+    /// Per position, the distinct children of an item's derivations.
+    fn children(&self, id: usize) -> Vec<Vec<ItemChild>> {
+        let mut out: Vec<Vec<ItemChild>> = vec![Vec::new(); self.keys[id].dot];
+        let mut seen = HashSet::new();
+        let mut stack = vec![id];
+        while let Some(i) = stack.pop() {
+            if !seen.insert(i) || self.keys[i].dot == 0 {
+                continue;
+            }
+            let at = self.keys[i].dot - 1;
+            for &(prev, child) in &self.back[i] {
+                let part = match child {
+                    Child::Edge(e) => ItemChild::Edge(e),
+                    Child::Item(c) => ItemChild::Item(c),
+                };
+                if !out[at].contains(&part) {
+                    out[at].push(part);
+                }
+                stack.push(prev);
             }
         }
         out
@@ -500,4 +594,49 @@ impl Tree {
 
 fn role_suffix(role: Option<Role>) -> String {
     role.map(|r| format!(":{r}")).unwrap_or_default()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn morph(cat: &str, feats: &[(&str, &str)]) -> Morpheme {
+        Morpheme {
+            surface: cat.to_lowercase(),
+            lemma: cat.to_lowercase(),
+            cat: cat.to_owned(),
+            feats: feats.iter().map(|(k, v)| ((*k).to_owned(), (*v).to_owned())).collect(),
+        }
+    }
+
+    /// A chart scan lists each complete item once with its children side by
+    /// side. Like a French object-agreement question (S -> WhP QMark NP
+    /// Verb(avoir) Verb(pastpart)), a long ambiguous phrase before the
+    /// auxiliary: 16 words with two readings each are 65,536 parses and
+    /// still one item.
+    #[test]
+    fn chart_items_do_not_multiply_with_the_readings() {
+        let grammar = Grammar::parse(
+            "start S\n\
+             rule s: S[aux_tense=?t] -> NP Verb[lemma=avere, tense=?t] Verb[form=pastpart]\n  \"x\"\n\
+             rule np.more: NP -> NP X\n  \"x\"\n\
+             rule np.one: NP -> X\n  \"x\"\n",
+        )
+        .unwrap();
+        let mut lattice = Lattice::new();
+        for _ in 0..16 {
+            lattice.push_token("x", vec![vec![morph("X", &[("a", "1")])], vec![morph("X", &[("a", "2")])]]);
+        }
+        lattice.push_token("ho", vec![vec![morph("Verb", &[("form", "fin"), ("tense", "pres")])]]);
+        lattice.edges.last_mut().unwrap().morph.lemma = "avere".to_owned();
+        lattice.push_token("fatto", vec![vec![morph("Verb", &[("form", "pastpart")])]]);
+        let forest = parse(&grammar, &lattice).unwrap();
+        assert_eq!(forest.count(), 65_536);
+        let items = forest.items_where(|r| r.name == "s");
+        let [s] = items.as_slice() else { panic!("{items:?}") };
+        assert_eq!(s.feats.get("aux_tense").map(String::as_str), Some("pres"));
+        assert_eq!(s.children[1], [ItemChild::Edge(32)]);
+        assert_eq!(s.children[2], [ItemChild::Edge(33)]);
+        assert_eq!(forest.items_where(|r| r.name == "np.more").len(), 15);
+    }
 }

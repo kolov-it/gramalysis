@@ -2,12 +2,15 @@
 //! tree out.
 
 mod eval;
+mod examples;
 
 use std::path::{Path, PathBuf};
 use std::process::ExitCode;
 
-use clap::{Args, Parser, Subcommand};
+use clap::{ArgGroup, Args, Parser, Subcommand};
 
+use syntango::examples::tenses::tenses;
+use syntango::examples::{Options, Query};
 use syntango::lang::{self, Language};
 use syntango::morph::{Lang, Lexicon};
 use syntango::syntax::feats;
@@ -57,6 +60,56 @@ enum Command {
         /// Write one JSON line per sentence here.
         #[arg(long, value_name = "FILE")]
         out: Option<PathBuf>,
+        /// Answer from recorded API answers instead of calling the API.
+        #[arg(long, value_name = "FILE")]
+        fixture: Option<PathBuf>,
+        /// Use the lexicon's answers as they are, without data/<lang>/lexicon-patches.
+        #[arg(long)]
+        no_patches: bool,
+        #[command(flatten)]
+        backend: Backend,
+    },
+    /// List a language's tenses: the identifier --tense takes, the native and
+    /// English names, simple or compound, and for a compound tense the
+    /// auxiliary's tense it is built from.
+    Tenses {
+        lang: Lang,
+        /// As a JSON array.
+        #[arg(long)]
+        json: bool,
+    },
+    /// Find example sentences for a verb in a corpus and print them as JSON
+    /// lines: the sentence, where the verb form is in it, which cell it is,
+    /// and whether every parse reads it so (`decided`) or not (`ambiguous`).
+    /// Counts and throughput go to stderr.
+    #[command(group(ArgGroup::new("corpus").required(true).args(["tatoeba", "leipzig", "file"])))]
+    Examples {
+        lang: Lang,
+        /// The verb as its table names it, e.g. essere, farsi.
+        infinitive: String,
+        /// Only this tense or cell, e.g. indicative.past_historic,
+        /// indicative.past_historic.3s, non_finite.gerund.
+        #[arg(long)]
+        tense: Option<String>,
+        /// Tatoeba sentences: JSON lines with id, author, text (.gz is read
+        /// as gzip), e.g. data/it/tatoeba-pool.jsonl.gz.
+        #[arg(long, value_name = "FILE")]
+        tatoeba: Option<PathBuf>,
+        /// Leipzig corpus sentences: id<TAB>sentence (.gz is read as gzip).
+        #[arg(long, value_name = "FILE")]
+        leipzig: Option<PathBuf>,
+        /// One sentence a line; the id is the line number.
+        #[arg(long, value_name = "FILE")]
+        file: Option<PathBuf>,
+        /// The verb tables [default: data/<lang>/verbs.json].
+        #[arg(long, value_name = "FILE")]
+        verbs: Option<PathBuf>,
+        /// Stop after N examples.
+        #[arg(long, value_name = "N")]
+        limit: Option<usize>,
+        /// Print ambiguous examples too.
+        #[arg(long)]
+        include_ambiguous: bool,
         /// Answer from recorded API answers instead of calling the API.
         #[arg(long, value_name = "FILE")]
         fixture: Option<PathBuf>,
@@ -184,6 +237,54 @@ async fn run(cli: Cli) -> Result<(), Box<dyn std::error::Error>> {
             };
             let items = eval::load_items(&set)?;
             return eval::run(&items, &labels, lexicon.as_ref(), language.as_ref(), out.as_deref()).await;
+        }
+        Some(Command::Tenses { lang, json }) => {
+            let all = tenses(lang);
+            if all.is_empty() {
+                return Err(format!("{} is not supported yet; supported: it, es, fr", lang.code()).into());
+            }
+            if json {
+                println!("{}", serde_json::to_string_pretty(all)?);
+                return Ok(());
+            }
+            for t in all {
+                let kind = match t.auxiliary_tense {
+                    Some(aux) => format!("compound: auxiliary in {aux}"),
+                    None => "simple".to_owned(),
+                };
+                println!("{:<32} {:<42} {:<26} {kind}", t.id, t.native, t.english);
+            }
+            return Ok(());
+        }
+        Some(Command::Examples {
+            lang,
+            infinitive,
+            tense,
+            tatoeba,
+            leipzig,
+            file,
+            verbs,
+            limit,
+            include_ambiguous,
+            fixture,
+            no_patches,
+            backend,
+        }) => {
+            let corpus = match (tatoeba, leipzig, file) {
+                (Some(p), None, None) => examples::Corpus::Tatoeba(p),
+                (None, Some(p), None) => examples::Corpus::Leipzig(p),
+                (None, None, Some(p)) => examples::Corpus::Lines(p),
+                _ => return Err("give one of --tatoeba, --leipzig, --file".into()),
+            };
+            let language = lang::load(lang)?;
+            let lexicon = lexicon(fixture.as_deref(), &backend, no_patches)?;
+            let request = examples::Request {
+                query: Query { infinitive, tense },
+                corpus,
+                verbs: verbs.unwrap_or_else(|| PathBuf::from(format!("data/{}/verbs.json", lang.code()))),
+                options: Options { limit, include_ambiguous },
+            };
+            return examples::run(request, lexicon.as_ref(), language.as_ref()).await;
         }
         None => {}
     }
