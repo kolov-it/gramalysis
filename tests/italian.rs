@@ -66,7 +66,7 @@ async fn ricordati_is_the_imperative_here() {
 async fn che_clause_negation_and_infinitive() {
     let a = run("Disse che non riusciva a trovare un lavoro.").await;
     assert!(!a.parses.is_empty());
-    assert_eq!(agreed(&a, "lavoro"), ["lavoro Noun gender=m,number=sg"]);
+    assert_eq!(agreed(&a, "lavoro"), ["lavoro Noun gender=m,number=sg,utterance=no"]);
     assert_eq!(agreed(&a, "trovare"), ["trovare Verb finite=no,form=inf,takes_di=no"]);
 }
 
@@ -390,5 +390,31 @@ async fn di_after_prepositions_and_pronouns() {
             !run_literature(sentence).await.parses.is_empty(),
             "{sentence}"
         );
+    }
+}
+
+/// A few nouns are a sentence without an article
+/// (data/it/bare-utterance-nouns.tsv); any other noun is not, so vivo stays
+/// the verb.
+#[tokio::test]
+async fn listed_bare_nouns_are_sentences() {
+    for sentence in [
+        "Grazie per il vostro invito.",
+        "Pezzo d'asino!",
+        "Tesoro mio!",
+        "Povero diavolo!",
+    ] {
+        assert!(!run_literature(sentence).await.parses.is_empty(), "{sentence}");
+    }
+    let a = run_literature("Vivo con i miei genitori.").await;
+    assert_eq!(readings_of(&a, "Vivo"), ["Verb vivere"]);
+}
+
+/// Verbs from the generated and proofread part of di-verbs.tsv take a di
+/// phrase (scrivere di politica, ringraziare di tutto).
+#[tokio::test]
+async fn proofread_di_verbs() {
+    for sentence in ["Ha scritto di politica.", "Ringrazio di tutto."] {
+        assert!(!run_literature(sentence).await.parses.is_empty(), "{sentence}");
     }
 }

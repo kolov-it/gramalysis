@@ -14,32 +14,59 @@
 #   tatoeba             a sentence of homograph-set.jsonl attaches a di phrase
 #                       to the verb, and the verb selects it there
 #   literature          the same in literature/literature-set.jsonl
-#
-# DRAFT 2026-11-14, not complete: common verbs that Wiktionary does not mark
-# (occuparsi, pentirsi, vergognarsi, nutrirsi, ...) are missing until a
-# reviewed list is added.
+#   llm:generated+proofread
+#                       proposed by a language model (Claude Opus) over the
+#                       verbs of verbs.json and common pronominal verbs, with
+#                       the example phrase in the third column, and accepted
+#                       by a second, independent model (Claude Sonnet) that
+#                       rejected 6 of 78 proposals (2026-11-14)
 abbisognare	wiktionary-example
 abbondare	wiktionary-sense,wiktionary-example,tatoeba
 abusare	wiktionary-sense,tatoeba
 accontentare	wiktionary-sense
 accorgere	wiktionary-example,issue-10,tatoeba
+accusare	llm:generated+proofread	accusare qualcuno di furto
 addolorare	wiktionary-example
 adornare	wiktionary-sense
+alimentare	llm:generated+proofread	alimentarsi di frutta e verdura
 almanaccare	wiktionary-sense
+ammalare	llm:generated+proofread	ammalarsi di influenza
 ammazzare	wiktionary-example
+annoiare	llm:generated+proofread	annoiarsi di tutto
+appassionare	llm:generated+proofread	appassionarsi di musica
 approfittare	wiktionary-sense,wiktionary-example,tatoeba
+appropriare	llm:generated+proofread	appropriarsi del denaro
 ardere	wiktionary-sense
+armare	llm:generated+proofread	armarsi di pazienza
 arricchire	wiktionary-example
+arrossire	llm:generated+proofread	arrossire di vergogna
+assicurare	llm:generated+proofread	assicurarsi della verità
+aumentare	llm:generated+proofread	aumentare di dieci euro
 avanzare	tatoeba
 avvalere	wiktionary-sense
 avvedere	literature
+avvertire	llm:generated+proofread	avvertire qualcuno del pericolo
 avvisare	tatoeba
+beneficiare	llm:generated+proofread	beneficiare di un aiuto
+brillare	llm:generated+proofread	brillare di luce propria
+bruciare	llm:generated+proofread	bruciare di desiderio
+calare	llm:generated+proofread	calare di tre chili
+cambiare	llm:generated+proofread	cambiare di posto, cambiare d'idea
+campare	llm:generated+proofread	campare di poco
+caricare	llm:generated+proofread	caricare qualcuno di lavoro
+chiacchierare	llm:generated+proofread	chiacchierare di politica
 chiedere	wiktionary-sense,tatoeba
+cibare	llm:generated+proofread	cibarsi di erba
+circondare	llm:generated+proofread	circondare qualcuno di attenzioni
 colmare	wiktionary-example
+comporre	llm:generated+proofread	comporsi di tre parti
 consistere	wiktionary-sense
 constare	wiktionary-sense
+convincere	llm:generated+proofread	convincere qualcuno della sua innocenza
 coprire	issue-10
+cospargere	llm:generated+proofread	cospargere di zucchero
 crepare	wiktionary-sense,wiktionary-example
+crescere	llm:generated+proofread	crescere di due centimetri
 curare	wiktionary-sense,wiktionary-example,tatoeba
 dare	wiktionary-sense,literature
 decidere	wiktionary-sense,wiktionary-example
@@ -47,6 +74,7 @@ deliziare	wiktionary-sense
 derubare	wiktionary-sense,wiktionary-example
 diffidare	wiktionary-sense
 dimenticare	tatoeba
+diminuire	llm:generated+proofread	diminuire di peso
 dipingere	tatoeba
 dire	wiktionary-sense,tatoeba
 disamorare	wiktionary-sense
@@ -57,8 +85,11 @@ disporre	wiktionary-sense,wiktionary-example,tatoeba
 dissertare	wiktionary-sense
 distaccare	wiktionary-sense
 diventare	tatoeba
+domandare	llm:generated+proofread	domandare di qualcuno
+dotare	llm:generated+proofread	dotare la scuola di computer
 dubitare	wiktionary-sense
 empire	wiktionary-sense,wiktionary-example
+esplodere	llm:generated+proofread	esplodere di rabbia
 essere	tatoeba,literature
 fidare	wiktionary-sense,wiktionary-example,issue-10,tatoeba
 fornire	tatoeba
@@ -66,12 +97,15 @@ fregare	wiktionary-sense,wiktionary-example
 fregiare	wiktionary-example
 fruire	wiktionary-sense
 fumare	wiktionary-sense
+gioire	llm:generated+proofread	gioire della notizia
 giovare	wiktionary-example
 gloriare	wiktionary-sense
 godere	wiktionary-sense
 gonfiare	tatoeba
+gridare	llm:generated+proofread	gridare di gioia
 imbevere	wiktionary-sense
 impadronire	wiktionary-sense
+impallidire	llm:generated+proofread	impallidire di paura
 imparruccare	wiktionary-sense
 impasticcare	wiktionary-sense
 impiastrare	wiktionary-sense
@@ -79,38 +113,60 @@ impicciare	wiktionary-sense,wiktionary-example
 impinzare	wiktionary-sense
 importare	tatoeba
 impossessare	wiktionary-sense
+incaricare	llm:generated+proofread	incaricare qualcuno di un compito
+incolpare	llm:generated+proofread	incolpare qualcuno del furto
 increscere	wiktionary-sense
 infarinare	wiktionary-sense
+infischiare	llm:generated+proofread	infischiarsene delle regole
 informare	tatoeba
 ingentilire	wiktionary-sense
 ingolosire	wiktionary-sense
 innamorare	wiktionary-sense,wiktionary-example,issue-10
 inorgoglire	wiktionary-sense
 intendere	wiktionary-sense
+interessare	llm:generated+proofread	interessarsi di politica
 invaghire	wiktionary-sense
 lagnare	wiktionary-sense
 lamentare	tatoeba
+leggere	llm:generated+proofread	ho letto di quel caso sul giornale
+liberare	llm:generated+proofread	liberarsi di un peso
+macchiare	llm:generated+proofread	macchiarsi di un delitto
 mancare	wiktionary-sense,wiktionary-example,tatoeba
+meravigliare	llm:generated+proofread	meravigliarsi di tutto
 morire	issue-10,tatoeba
+munire	llm:generated+proofread	munire i soldati di armi
+mutare	llm:generated+proofread	mutare di colore
 nappare	wiktionary-sense
+necessitare	llm:generated+proofread	necessitare di cure
+nutrire	llm:generated+proofread	nutrirsi di pane
 oberare	wiktionary-sense
+occupare	llm:generated+proofread	occuparsi dei bambini
 odorare	wiktionary-sense,wiktionary-example
 orbare	wiktionary-sense
+ornare	llm:generated+proofread	ornare la sala di fiori
 parlare	issue-10,tatoeba,literature
 patire	wiktionary-sense
 pensare	tatoeba,literature
+pentire	llm:generated+proofread	pentirsi dei propri errori
 permeare	wiktionary-sense
+persuadere	llm:generated+proofread	persuadersi della verità
 piangere	tatoeba
 pregare	literature
+preoccupare	llm:generated+proofread	preoccuparsi del futuro
 privare	tatoeba
 profittare	wiktionary-sense
+profumare	llm:generated+proofread	profumare di rose
 pulire	wiktionary-sense
 puzzare	wiktionary-sense,wiktionary-example
 questionare	wiktionary-sense
+raccontare	llm:generated+proofread	raccontare di sé
+ragionare	llm:generated+proofread	ragionare di politica
+rallegrare	llm:generated+proofread	rallegrarsi del successo
 rammaricare	wiktionary-sense
 riardere	wiktionary-sense
 riboccare	wiktionary-sense
 ricolmare	wiktionary-sense
+ricoprire	llm:generated+proofread	ricoprire di fiori
 ricordare	wiktionary-sense,issue-10,tatoeba
 ridere	issue-10,tatoeba,literature
 ridondare	wiktionary-sense
@@ -122,13 +178,17 @@ rilagnare	wiktionary-sense
 rimpadronire	wiktionary-sense
 rimpinzare	wiktionary-sense
 rimpossessare	wiktionary-sense
+ringraziare	llm:generated+proofread	ringraziare qualcuno del regalo
 riparlare	wiktionary-sense
 risentire	wiktionary-sense
 risovvenire	wiktionary-sense
 rispondere	wiktionary-sense
 rivalere	wiktionary-sense,wiktionary-example
 rodere	wiktionary-sense
+salire	llm:generated+proofread	salire di due gradi
+saltare	llm:generated+proofread	saltare di gioia
 sapere	wiktionary-sense,tatoeba,literature
+saziare	llm:generated+proofread	saziarsi di dolci
 sbarazzare	wiktionary-sense
 sbrigare	wiktionary-sense,wiktionary-example
 scapitare	wiktionary-sense
@@ -139,28 +199,42 @@ schiattare	wiktionary-sense
 schiumare	wiktionary-example
 scoppiare	wiktionary-sense
 scordare	wiktionary-example
+scrivere	llm:generated+proofread	scrivere di politica
+scusare	llm:generated+proofread	scusarsi del ritardo
+sentire	llm:generated+proofread	hai sentito dell'incidente?
 servire	wiktionary-sense,tatoeba,literature
 sforare	wiktionary-sense
 sgusciare	wiktionary-sense
+sincerare	llm:generated+proofread	sincerarsi dei fatti
 slittare	wiktionary-sense,wiktionary-example
 smontare	wiktionary-sense,wiktionary-example
 soffrire	tatoeba
+sognare	llm:generated+proofread	ho sognato di te
+sorridere	llm:generated+proofread	sorridere delle sue paure
+sospettare	llm:generated+proofread	sospettare di qualcuno
 sovrabbondare	wiktionary-sense
 sovraccaricare	wiktionary-sense,wiktionary-example
 sparlare	wiktionary-sense
 spasimare	wiktionary-sense
+spogliare	llm:generated+proofread	spogliare qualcuno dei suoi beni
 stancare	tatoeba
 stare	tatoeba,literature
 straboccare	wiktionary-sense
 struggere	wiktionary-example
+stupire	llm:generated+proofread	stupirsi di tutto
 subissare	wiktionary-sense
+superare	llm:generated+proofread	superare qualcuno di dieci punti
 tempestare	wiktionary-example
 tingere	wiktionary-sense,wiktionary-example
 traboccare	wiktionary-sense
 trattare	issue-10,tatoeba,literature
 tremare	issue-10
+urlare	llm:generated+proofread	urlare di dolore
 usare	wiktionary-sense
 usufruire	wiktionary-sense
+vantare	llm:generated+proofread	vantarsi dei propri successi
+variare	llm:generated+proofread	variare di prezzo
 vendicare	wiktionary-sense,wiktionary-example
+vergognare	llm:generated+proofread	vergognarsi di sé
 vestire	issue-10,tatoeba
 vivere	issue-10

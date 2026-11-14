@@ -5,7 +5,9 @@
 # A feature a word does not have (e.g. a noun's gender when the dictionary
 # does not give it) is unknown and matches anything.
 #
-# takes_di yes/no: the verb takes a di phrase (data/it/di-verbs.tsv). prep: a
+# takes_di yes/no: the verb takes a di phrase (data/it/di-verbs.tsv).
+# utterance yes/no: the noun is a sentence without an article
+# (data/it/bare-utterance-nouns.tsv). prep: a
 # prepositional phrase's preposition. partitive yes: del pane, dei ragazzi.
 
 start Text
@@ -24,6 +26,9 @@ rule text.fragment: Text -> Frag
 
 rule frag.noun-phrase: Frag -> NP[case=nom]
   "A noun phrase on its own is a sentence: an exclamation or a title (La forza del destino!)."
+
+rule frag.bare-noun: Frag -> Nom[utterance=yes]
+  "A few nouns are a sentence without an article: thanks, wishes, greetings, reactions, insults and endearments (Grazie per il vostro invito!, Pazienza!, Pezzo d'asino!, Tesoro mio!, Buon viaggio!). They are listed in data/it/bare-utterance-nouns.tsv."
 
 rule frag.list: Frag -> Frag Punct[lemma=;|:] NP
   "After ; or : another noun phrase: the next item of a list, or a new name for what came before (La rovina in due case; lo scompiglio in tutto il paesello)."
@@ -62,13 +67,13 @@ rule partnp.relative: PartNP[number=?n, gender=?g] -> PartNP[number=?n, gender=?
 rule np.numeral: NP[person=3, number=pl, gender=?g] -> Num Nom[number=pl, gender=?g]
   "A number before a plural noun."
 
-rule nom.noun: Nom[number=?n, gender=?g, onset=?o] -> Noun[number=?n, gender=?g, onset=?o]
+rule nom.noun: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Noun[number=?n, gender=?g, onset=?o, utterance=?u]
   "A noun."
 
-rule nom.adjective-after: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] AP[number=?n, gender=?g]
+rule nom.adjective-after: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Nom[number=?n, gender=?g, onset=?o, utterance=?u] AP[number=?n, gender=?g]
   "An adjective after its noun agrees with it in gender and number."
 
-rule nom.adjective-before: Nom[number=?n, gender=?g, onset=?o] -> Adj[number=?n, gender=?g, onset=?o] Nom[number=?n, gender=?g]
+rule nom.adjective-before: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Adj[number=?n, gender=?g, onset=?o, utterance=?u] Nom[number=?n, gender=?g]
   "An adjective before its noun agrees with it in gender and number."
 
 # ------------------------------------------------- prepositional phrases
@@ -260,7 +265,7 @@ rule np.possessive: NP[person=3, number=?n, gender=?g] -> Det[number=?n, gender=
 rule np.possessive-bare: NP[person=3, number=?n, gender=?g] -> Poss[number=?n, gender=?g] Nom[number=?n, gender=?g]
   "A possessive without an article, as with a singular family noun (mia madre)."
 
-rule nom.possessive-after: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] Poss[number=?n, gender=?g]
+rule nom.possessive-after: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Nom[number=?n, gender=?g, onset=?o, utterance=?u] Poss[number=?n, gender=?g]
   "A possessive after the noun (a casa mia)."
 
 rule np.predeterminer: NP[person=3, number=?n, gender=?g] -> Predet[number=?n, gender=?g] NP[number=?n, gender=?g]
@@ -272,7 +277,7 @@ rule np.bare: NP[case=obl, person=3, number=?n, gender=?g] -> Nom[number=?n, gen
 rule np.coordination: NP[number=pl] -> NP Conj[type=coord, lemma=e|o|ma|né|oppure|ossia|ovvero] NP
   "Two noun phrases joined by e, o, ma (Tom e Mary, io e lui). Only these: a word the dictionary calls a conjunction without saying which kind (quasi, pure) does not join noun phrases."
 
-rule nom.prepositional-phrase: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] PP
+rule nom.prepositional-phrase: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Nom[number=?n, gender=?g, onset=?o, utterance=?u] PP
   "A phrase with a preposition describes the noun (la casa di Tom, il libro sul tavolo). After a participle it can also describe the noun, so un suono soffocato di pianti is both a muffled sound of crying and a sound suffocated by crying."
 
 rule np.relative: NP[person=?p, number=?n, gender=?g, case=?c] -> NP[person=?p, number=?n, gender=?g, case=?c, partitive=no] Rel
@@ -434,7 +439,7 @@ rule clause.time-first: S -> TimeNP S
 # il fiume passante per Parigi (= che passa). Mood participio; tense passato
 # (passive or completed meaning) or presente (active, at the same time).
 
-rule nom.participle-phrase: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] PartP[number=?n, gender=?g]
+rule nom.participle-phrase: Nom[number=?n, gender=?g, onset=?o, utterance=?u] -> Nom[number=?n, gender=?g, onset=?o, utterance=?u] PartP[number=?n, gender=?g]
   "A participle phrase after the noun shortens a relative clause (un giornale scritto in inglese = che è stato scritto in inglese)."
 
 rule partp.past: PartP[number=?n, gender=?g] -> Verb[form=pastpart, drifted=no, number=?n, gender=?g] Compl
