@@ -164,6 +164,84 @@ auxiliary and the participle belongs to the verb group, *y* is an adverbial, and
 verb group, since its case does not say whether it is an object, a *de*
 phrase or where from.
 
+## Verb forms
+
+Every kept parse lists its verbs (`SentenceAnalysis::verb_groups`, one list
+per parse in the order of `parses`): each simple verb, compound tense,
+passive and progressive is one group with its tokens, the main verb's lemma,
+its cell and its voice. A parse is never preferred to another, so each
+interpretation keeps its own reading of the verbs.
+
+```text
+$ syntango --fixture tests/fixtures/it-set.json --verbs it "Il libro è stato letto."
+…
+verbs:
+  è stato letto: leggere indicative.present_perfect.3s passive
+
+parse 2 of 7
+…
+verbs:
+  è stato: essere indicative.present_perfect.3s active
+```
+
+```json
+{"tokens":[0,1],"auxiliaries":[0],"participle":1,"verb":1,"lemma":"dare","cell":"indicative.present_perfect.1s","voice":"active","progressive":false}
+```
+
+| Sentence | Tokens | Lemma | Cell | Voice |
+|---|---|---|---|---|
+| *La ragazza **ama** il cane* | `ama` | amare | `indicative.present.3s` | active |
+| ***Ho dato** il libro a Maria* | `Ho` + `dato` | dare | `indicative.present_perfect.1s` | active |
+| ***Avete** mai **letto** una poesia?* | `Avete` + `letto` | leggere | `indicative.present_perfect.2p` | active |
+| *Il libro **fu letto*** | `fu` + `letto` | leggere | `indicative.past_historic.3s` | passive |
+| *Il libro **è stato letto*** | `è` + `stato` + `letto` | leggere | `indicative.present_perfect.3s` | passive |
+| *El programa **está siendo grabado*** | `está` + `siendo` + `grabado` | grabar | `indicative.present.3s`, progressive | passive |
+| *I prezzi **stanno crescendo*** | `stanno` + `crescendo` | crescere | `indicative.present.3p`, progressive | active |
+| ***Ha estado lloviendo*** | `Ha` + `estado` + `lloviendo` | llover | `indicative.present_perfect.3s`, progressive | active |
+
+- **Tokens**: `tokens` is the whole group in sentence order, split into
+  `auxiliaries`, `participle` (a compound tense or a passive) and `verb`,
+  the main verb's token (the simple verb, the participle, or a progressive's
+  gerund). A word between them is not in the group (*Avete mai letto*). Two
+  participles coordinated after one auxiliary are two groups that share it:
+  *Sono nato e cresciuto* is *nascere* (`Sono`, `nato`) and *crescere*
+  (`Sono`, `cresciuto`).
+- **Lemma**: the main verb's, never the auxiliary's.
+- **Cell**: as `syntango tenses` names the tenses, plus person and number.
+  A compound tense is named after its auxiliary's tense (the table under
+  *Example sentences for a verb*); a passive's cell is the tense of the
+  passive, so *è stato letto* is a present perfect; a non-finite verb is
+  `non_finite.infinitive`, `non_finite.gerund` and so on. `null` when no cell
+  is known, as for an auxiliary read as an imperative.
+- **Progressives** (*stare*, *estar*, Spanish *seguir*, *ir*, … + gerund) are
+  one group with `progressive: true`: the auxiliaries and the gerund, the
+  gerund's lemma, and the cell of the auxiliaries (*stanno* present, *ha
+  estado* present perfect). The tense tables have no progressive cells, so
+  the cell says the tense and the flag says progressive. A Spanish
+  progressive passive (*está siendo grabado*) is a passive with
+  `progressive: true`: the participle is the main verb, *está siendo* the
+  auxiliaries. Italian and French have no progressive passive in the
+  grammar. Stacked progressives are one group too: *sigue estando
+  lloviendo* is *llover* with *sigue estando* as auxiliaries.
+- **One group per verb chain**, however the grammar nests or wraps it: a
+  construction inside another (*ha sido* in *ha sido construido*, *está
+  siendo* in *está siendo grabado*) is part of it, a wrapper that passes the
+  auxiliary up without building a construction (*no* in *no está siendo
+  difícil*) loses nothing, and a construction whose main verb is another's
+  auxiliary (*sigue estando* + *estando lloviendo*) is stacked onto it. Over
+  the homograph sets, every word a parse uses as a verb is in exactly one
+  group, the auxiliary of coordinated participles excepted, and the words
+  one rule joins are in the same group (`tests/verb_groups.rs`).
+- A participle a parse uses like an adjective (*le luci accese*) is not a
+  verb of that parse; an auxiliary is never a group of its own.
+
+The groups come from the grammar's rules, the same ones the example
+extractor reads: a rule that joins an auxiliary and a participle passes the
+auxiliary's features up (`aux_mood`, `aux_tense`, `aux_person`,
+`aux_number`, `aux_form`) and marks `voice=passive` or
+`aux_progressive=yes`. `--json` includes `verb_groups`; `--verbs` prints them
+after each tree.
+
 ## Lexicon patches
 
 Every lexicon has defects: a reading it lacks (*scorsero* without *scorrere*), a
@@ -513,6 +591,7 @@ src/
   lang/             the Language trait; it/ = Italian (tokenizer, function
                     words, clitics, first sounds, participles); es/ = Spanish
   analysis.rs       the pipeline: analyze(lexicon, language, sentence)
+  verb_groups.rs    each parse's verbs: simple, compound, passive, progressive
   verbs.rs          what a verb page asks of a reading: base verb, participle use
   examples/         example sentences for a verb: Extractor, the tense list
                     (tenses.rs), verb tables and cells (table.rs), tokens

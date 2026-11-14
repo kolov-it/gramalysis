@@ -16,7 +16,7 @@ use syntango::morph::{Lang, Lexicon};
 use syntango::syntax::feats;
 use syntango::patch::PatchedLexicon;
 use syntango::wordholder::{self, FixtureLexicon, WordHolderLexicon, BATCH_ENV, KEY_ENV, URL_ENV};
-use syntango::{analyze, SentenceAnalysis};
+use syntango::{analyze, SentenceAnalysis, Voice};
 
 /// Parse sentences and print their grammar trees.
 ///
@@ -140,6 +140,11 @@ struct ParseArgs {
     /// direct-object…) across the parses.
     #[arg(long)]
     roles: bool,
+    /// After each tree, its verbs: every simple verb, compound tense,
+    /// passive and progressive, with its lemma and cell (`verb_groups` in
+    /// the JSON).
+    #[arg(long)]
+    verbs: bool,
     /// The full analysis as JSON instead of trees.
     #[arg(long)]
     json: bool,
@@ -311,12 +316,12 @@ async fn run(cli: Cli) -> Result<(), Box<dyn std::error::Error>> {
         if i > 0 {
             println!();
         }
-        print_analysis(text, &a, args.explain, args.readings, args.roles);
+        print_analysis(text, &a, args.explain, args.readings, args.roles, args.verbs);
     }
     Ok(())
 }
 
-fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: bool, roles: bool) {
+fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: bool, roles: bool, verbs: bool) {
     println!("{text}");
     if !a.unknown.is_empty() {
         println!("  unknown words: {}", a.unknown.join(", "));
@@ -339,6 +344,9 @@ fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: boo
                     println!("  · {rule}: {why}");
                 }
             }
+        }
+        if verbs {
+            print_verbs(a, i);
         }
     }
     if readings {
@@ -375,6 +383,27 @@ fn print_analysis(text: &str, a: &SentenceAnalysis, explain: bool, readings: boo
     }
     if roles {
         print_roles(a);
+    }
+}
+
+/// `ho … dato: dare indicative.present_perfect.1s active`, one line per verb.
+fn print_verbs(a: &SentenceAnalysis, parse: usize) {
+    println!("verbs:");
+    for g in &a.verb_groups[parse] {
+        let mut words = String::new();
+        for (i, &t) in g.tokens.iter().enumerate() {
+            if i > 0 {
+                words.push_str(if t == g.tokens[i - 1] + 1 { " " } else { " … " });
+            }
+            words.push_str(&a.tokens[t]);
+        }
+        let cell = g.cell.as_deref().unwrap_or("(no known cell)");
+        let voice = match g.voice {
+            Voice::Active => "active",
+            Voice::Passive => "passive",
+        };
+        let progressive = if g.progressive { " progressive" } else { "" };
+        println!("  {words}: {} {cell} {voice}{progressive}", g.lemma);
     }
 }
 

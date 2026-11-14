@@ -9,6 +9,7 @@ use crate::morph::{Lexicon, LexiconError};
 use crate::syntax::lattice::{Edge, Lattice, Morpheme};
 use crate::syntax::parser::{self, ChartItem, ParseError, Tree};
 use crate::syntax::role::Role;
+use crate::verb_groups::{VerbGroup, parse_groups};
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
@@ -36,13 +37,19 @@ pub struct SentenceAnalysis {
     /// For each used edge, the rules that consumed it.
     #[serde(skip)]
     pub edge_rules: HashMap<usize, HashSet<String>>,
-    /// The chart items of compound tenses and passives: the rules that pass
-    /// an auxiliary's features up (`aux_mood`, `aux_tense`, …) or mark a
-    /// passive (`voice`).
+    /// The chart items of compound tenses, passives and progressives: the
+    /// rules that pass an auxiliary's features up (`aux_mood`, `aux_tense`,
+    /// …) or mark a passive (`voice`).
     #[serde(skip)]
     pub verb_items: Vec<ChartItem>,
     /// Per token, its grammatical role in the kept parses.
     pub roles: Vec<TokenRoles>,
+    /// Per kept parse (same order as [`SentenceAnalysis::parses`]), its
+    /// verbs: every simple verb, compound tense, passive and progressive, each
+    /// with its tokens, lemma, cell and voice, in sentence order of the main
+    /// verb. *Ho dato il libro a Maria* has one, tokens 0–1, *dare*
+    /// `indicative.present_perfect.1s`, active. See [`VerbGroup`].
+    pub verb_groups: Vec<Vec<VerbGroup>>,
 }
 
 /// Parses kept as trees; the rest are counted, and still count for `chosen`.
@@ -90,13 +97,17 @@ pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str)
         .collect();
     let forest = parser::parse(language.grammar(), &lattice)?;
     let parse_count = forest.count();
-    let parses = forest.trees(&lattice, MAX_TREES);
+    let (parses, derivations): (Vec<Tree>, Vec<_>) = forest.parses(&lattice, MAX_TREES).into_iter().unzip();
     let used_edges = forest.used_edges();
     let edge_rules = forest.edge_rules();
     let chosen = choices(&tokens, &lattice, &used_edges, &edge_rules, !forest.is_empty());
     let verb_items = forest.items_where(|r| r.lhs.constraints.iter().any(|(k, _)| k.starts_with("aux_") || k == "voice"));
     let roles = token_roles(&tokens, &parses);
-    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen, used_edges, edge_rules, verb_items, roles })
+    let verb_groups = derivations
+        .iter()
+        .map(|d| parse_groups(language.grammar(), language.lang(), &lattice, &verb_items, d))
+        .collect();
+    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen, used_edges, edge_rules, verb_items, roles, verb_groups })
 }
 
 fn token_roles(tokens: &[String], parses: &[Tree]) -> Vec<TokenRoles> {
