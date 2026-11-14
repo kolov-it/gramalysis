@@ -293,7 +293,11 @@ impl<'a> Extractor<'a> {
                 match &cell {
                     Some(c)
                         if page_verb(&m.lemma, lang) == self.target.base
-                            && self.target.written_as(c, &m.surface.to_lowercase()) =>
+                            && self.target.written_as(
+                                c,
+                                &m.surface.to_lowercase(),
+                                r.len() > 1,
+                            ) =>
                     {
                         cells.insert(c.clone());
                         reading.get_or_insert(r);

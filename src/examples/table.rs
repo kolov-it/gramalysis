@@ -146,23 +146,34 @@ impl Target {
 
 impl Target {
     /// Whether a verb morpheme's surface (lower case) is how the table writes
-    /// `cell`: the form itself, or the host the clitics left of it (far in
-    /// farlo, Dá in Dámelo, Démo in Démonos, senta in sentaos). An inflected
+    /// `cell`: the form itself, or, for a `host` that clitics were split from,
+    /// what the clitics left of it (far in farlo, dá in dámelo, démo in
+    /// démonos, senta in sentaos). An inflected
     /// participle (fatti, mangiata) is not: the cell holds the masculine
     /// singular only.
-    pub fn written_as(&self, cell: &str, surface: &str) -> bool {
+    pub fn written_as(&self, cell: &str, surface: &str, host: bool) -> bool {
         let Some(forms) = self.cells.get(cell) else {
             return false;
         };
         forms.iter().any(|f| match self.lang {
-            Lang::It => {
-                *f == surface || *f == format!("{surface}e") || *f == format!("{surface}re")
+            _ if f == surface => true,
+            // A cell can itself carry clitics (farsi, fatti): its host counts.
+            Lang::It if host => {
+                *f == format!("{surface}e")
+                    || *f == format!("{surface}re")
+                    || it::split_enclitics(f).is_some_and(|(h, _)| h == surface)
             }
-            Lang::Es => {
+            Lang::Es if host => {
                 let (f, s) = (es::strip_accent(f), es::strip_accent(surface));
-                f == s || f == format!("{s}s") || f == format!("{s}d")
+                f == s
+                    || f == format!("{s}s")
+                    || f == format!("{s}d")
+                    || es::split_enclitics(&f)
+                        .iter()
+                        .flat_map(|split| &split.hosts)
+                        .any(|h| es::strip_accent(h) == s)
             }
-            _ => f == surface,
+            _ => false,
         })
     }
 }
@@ -181,7 +192,12 @@ fn tense_of(cell: &str) -> &str {
 fn words(cell: &str) -> Vec<String> {
     cell.split('/')
         .filter_map(|alt| alt.split_whitespace().last())
-        .map(|w| w.rsplit('\'').next().unwrap_or(w))
+        // An elided pronoun before the verb goes (s'enfuit); an apostrophe
+        // that ends the verb stays (di', fa').
+        .map(|w| match w.rsplit_once('\'') {
+            Some((_, verb)) if !verb.is_empty() => verb,
+            _ => w,
+        })
         .map(|w| w.split('-').next().unwrap_or(w))
         .filter(|w| !w.is_empty())
         .map(str::to_lowercase)
@@ -252,7 +268,9 @@ mod tests {
                 "indicative": {"past_historic": {"3s": "fece", "3p": "fecero"}, "present": {"3s": "fa"}},
                 "imperative": {"present": {"2s": "fa"}},
                 "non_finite": {"infinitive": "fare", "gerund": "facendo"}}},
-            {"infinitive": "farsi", "conjugation": {"indicative": {"present": {"3s": "si fa"}}}}
+            {"infinitive": "farsi", "conjugation": {"indicative": {"present": {"3s": "si fa"}},
+                "imperative": {"present": {"2s": "fatti"}}, "non_finite": {"infinitive": "farsi"}}},
+            {"infinitive": "dire", "conjugation": {"imperative": {"present": {"2s": "di'"}}}}
         ]}))
         .unwrap()
     }
@@ -303,6 +321,16 @@ mod tests {
         for no in ["fame", "fatto", "ferro"] {
             assert!(!t.may_be(no), "{no}");
         }
+        assert!(t.written_as("non_finite.infinitive", "far", true));
+        let farsi = target(Lang::It, "farsi", None).unwrap();
+        assert!(farsi.written_as("imperative.present.2s", "fa", true));
+        assert!(farsi.written_as("non_finite.infinitive", "far", true));
+        assert!(!farsi.written_as("imperative.present.2s", "fa", false));
+        assert_eq!(
+            target(Lang::It, "dire", None).unwrap().cells["imperative.present.2s"],
+            ["di'"]
+        );
+        assert!(!t.written_as("non_finite.infinitive", "far", false));
         assert_eq!(
             target(Lang::It, "farsi", None).unwrap().cells["indicative.present.3s"],
             ["fa"]
