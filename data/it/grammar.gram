@@ -64,6 +64,9 @@ rule np.partitive: NP[person=3, number=?n, gender=?g, partitive=yes] -> PartNP[n
 rule partnp.article: PartNP[number=?n, gender=?g] -> Prep[lemma=di] Det[definite=yes, number=?n, gender=?g, next=?o] Nom[number=?n, gender=?g, onset=?o]
   "di + the definite article before a noun means 'some': the partitive article (del pane, delle cose)."
 
+rule partnp.everything: PartNP[number=sg] -> Prep[lemma=di] Pron[lemma=tutto, number=sg, case=obl]
+  "di tutto: a bit of everything (mangia di tutto, c'è di tutto)."
+
 rule partnp.relative: PartNP[number=?n, gender=?g] -> PartNP[number=?n, gender=?g] Rel
   "A clause with che or cui describes the partitive's noun (dei ragazzi che giocano)."
 
@@ -213,6 +216,9 @@ rule vp.di-infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, ge
 rule vp.di-adverbial: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] DiAdv
   "A fixed phrase with di says when or how, after any verb (esce di notte, corre di fretta, lo fa di nuovo)."
 
+rule vp.yes-no: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> V[lemma=dire|pensare|credere|sperare|rispondere|temere|parere|sembrare|fare|decidere|giurare|dubitare|immaginare|supporre|ritenere, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Prep[lemma=di] Intj[lemma=sì|no]
+  "di sì, di no after a verb of saying, thinking or hoping (penso di sì, ha detto di no, mi sembra di sì)."
+
 rule vp.adverb-di: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d] Adv[lemma=più|meno|prima|dopo|fuori|dentro|dietro|invece|oltre] PP[prep=di]
   "An adverb with its own di phrase after the verb (lavora più di me, parte prima di cena, chiude la porta dietro di sé)."
 
@@ -240,8 +246,6 @@ rule diadv.participle: DiAdv -> Prep[lemma=di] Verb[lemma=nascondere, form=pastp
 rule diadv.adverb: DiAdv -> Prep[lemma=di] Adv[lemma=più|meno|nuovo|sicuro|certo|continuo|solito|qua|là|sopra|sotto]
   "di + an adverb (di più, di meno, di qua, di sopra)."
 
-rule diadv.yes-no: DiAdv -> Prep[lemma=di] Intj[lemma=sì|no]
-  "di sì, di no after a verb of saying or thinking (penso di sì, ha detto di no)."
 
 rule diadv.from-to: DiAdv -> Prep[lemma=di] Nom Prep[lemma=in] Nom
   "di … in …: from one to the next (di fiore in fiore, di casa in casa)."
