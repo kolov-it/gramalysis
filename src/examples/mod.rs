@@ -6,8 +6,10 @@
 //! - [`align`]: tokens back to their place in the original text.
 //!
 //! A simple tense is one word; a compound tense (ho mangiato) or a passive
-//! (fu chiesto, è stato venduto) is an auxiliary and the past participle, read
-//! off the parse's verb groups ([`crate::syntax::parser::Forest::participle_groups`]):
+//! (fu chiesto, è stato venduto) is an auxiliary and the past participle. The
+//! grammar names it while it parses: its rules pass the auxiliary's features
+//! up (`aux_mood`, `aux_tense`, …) and mark `voice=passive`, and the extractor
+//! reads those chart items ([`crate::syntax::parser::Forest::items_where`]);
 //! the auxiliary's tense names the compound tense. A cheap string match picks
 //! the sentences worth parsing (a form of the verb, clitics attached allowed;
 //! or its participle in any gender and number with an auxiliary somewhere);
