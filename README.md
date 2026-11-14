@@ -150,8 +150,17 @@ phrase after `;` or `:`, which renames or lists rather than filling a role.
 `SentenceAnalysis::roles` has, per token, the distinct roles the kept parses
 give it (the first parse's first; `null` where a parse gives none) and
 whether they all agree; parses are never ranked, so a word read two ways
-keeps both roles. No parse, no roles. Italian is marked; Spanish and French
-are not yet, so their words have no role.
+keeps both roles. No parse, no roles.
+
+Spanish and French are marked the same way. Spanish: *lo/la/los/las* are
+direct objects, *le/les* and the *se* of *se lo doy* indirect objects, the
+personal *a* (*veo **a María***) a direct object or an adverbial, both
+returned; an *a* phrase after a verb of giving is an adverbial until
+Spanish has a dative-verb list. French: *ne* and *pas* are adverbials inside
+the verb group, a subject pronoun after the verb (*parlez-**vous***) is the
+subject, *y* is an adverbial, and *en*, like Italian *ne*, belongs to the
+verb group, since its case does not say whether it is an object, a *de*
+phrase or where from.
 
 ## Lexicon patches
 

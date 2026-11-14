@@ -1,10 +1,11 @@
 #![cfg(feature = "wordholder")]
 //! Grammatical roles per token, against recorded API answers: the examples of
-//! issue #28 and of `examples/it.txt`.
+//! issue #28 and of `examples/it.txt`, and their Spanish and French
+//! counterparts (issue #37).
 
 use std::path::Path;
 
-use syntango::lang::it::Italian;
+use syntango::lang::{es::Spanish, fr::French, it::Italian};
 use syntango::wordholder::FixtureLexicon;
 use syntango::{Role, SentenceAnalysis, TokenRoles, analyze};
 
@@ -13,6 +14,24 @@ use Role::*;
 async fn run(fixture: &str, text: &str) -> SentenceAnalysis {
     let lexicon = FixtureLexicon::load(Path::new(fixture)).unwrap();
     analyze(&lexicon, &Italian::load().unwrap(), text)
+        .await
+        .unwrap()
+}
+
+async fn es(fixture: &str, text: &str) -> SentenceAnalysis {
+    let lexicon = FixtureLexicon::load(Path::new(fixture)).unwrap();
+    analyze(&lexicon, &Spanish::load().unwrap(), text)
+        .await
+        .unwrap()
+}
+
+async fn es_set(text: &str) -> SentenceAnalysis {
+    es("tests/fixtures/es-set.json", text).await
+}
+
+async fn fr(text: &str) -> SentenceAnalysis {
+    let lexicon = FixtureLexicon::load(Path::new("tests/fixtures/fr-set.json")).unwrap();
+    analyze(&lexicon, &French::load().unwrap(), text)
         .await
         .unwrap()
 }
@@ -276,27 +295,6 @@ async fn serialized_in_kebab_case() {
 }
 
 #[tokio::test]
-async fn spanish_and_french_have_no_roles_yet() {
-    use syntango::lang::{es::Spanish, fr::French};
-    let lexicon = FixtureLexicon::load(Path::new("tests/fixtures/es-recorded.json")).unwrap();
-    let a = analyze(&lexicon, &Spanish::load().unwrap(), "¡Dámelo!")
-        .await
-        .unwrap();
-    assert!(!a.parses.is_empty());
-    assert!(a.roles.iter().all(|r| r.roles == [None]));
-    let lexicon = FixtureLexicon::load(Path::new("tests/fixtures/fr-recorded.json")).unwrap();
-    let text = std::fs::read_to_string("examples/fr.txt").unwrap();
-    let first = text
-        .lines()
-        .find(|l| !l.trim().is_empty() && !l.starts_with('#'))
-        .unwrap();
-    let a = analyze(&lexicon, &French::load().unwrap(), first)
-        .await
-        .unwrap();
-    assert!(a.roles.iter().all(|r| r.roles.iter().all(Option::is_none)));
-}
-
-#[tokio::test]
 async fn contracted_prepositions_keep_their_phrase_role() {
     // dalla = da + la: the preposition and the article sit in two children
     // marked agent, and the word is the agent.
@@ -360,4 +358,318 @@ async fn a_phrase_after_a_dative_verb_is_an_indirect_object() {
     has(&a, "film", Subject);
     // andare does not take one: a Roma is where.
     agreed(&set("Vado a Roma.").await, &[("a", Some(Adverbial)), ("Roma", Some(Adverbial))]);
+}
+
+// ------------------------------------------------------------ Spanish (#37)
+
+#[tokio::test]
+async fn es_subject_verb_object() {
+    // La niña ama al perro: perro is not a person, and vp.object-personal
+    // wants the object's person to differ from the verb's, so al perro is
+    // only an adverbial for now; an inanimate object shows the plain shape.
+    agreed(
+        &es_set("La niña lee un libro.").await,
+        &[
+            ("La", Some(Subject)),
+            ("niña", Some(Subject)),
+            ("lee", Some(Verb)),
+            ("un", Some(DirectObject)),
+            ("libro", Some(DirectObject)),
+        ],
+    );
+}
+
+#[tokio::test]
+async fn es_personal_a_is_a_direct_object_or_an_adverbial() {
+    let a = es_set("Veo a María.").await;
+    agreed(&a, &[("Veo", Some(Verb))]);
+    differs(&a, "a", DirectObject, &[Adverbial]);
+    differs(&a, "María", DirectObject, &[Adverbial]);
+}
+
+#[tokio::test]
+async fn es_verb_groups() {
+    agreed(
+        &es_set("Juan está leyendo.").await,
+        &[
+            ("Juan", Some(Subject)),
+            ("está", Some(Verb)),
+            ("leyendo", Some(Verb)),
+        ],
+    );
+    agreed(
+        &es_set("Lo puedo leer.").await,
+        &[
+            ("Lo", Some(DirectObject)),
+            ("puedo", Some(Verb)),
+            ("leer", Some(Verb)),
+        ],
+    );
+}
+
+#[tokio::test]
+async fn es_clitics_take_their_role_from_their_case() {
+    agreed(
+        &es_set("Lo he hecho.").await,
+        &[
+            ("Lo", Some(DirectObject)),
+            ("he", Some(Verb)),
+            ("hecho", Some(Verb)),
+        ],
+    );
+    agreed(
+        &es_set("Le dije la verdad.").await,
+        &[
+            ("Le", Some(IndirectObject)),
+            ("dije", Some(Verb)),
+            ("la", Some(DirectObject)),
+            ("verdad", Some(DirectObject)),
+        ],
+    );
+    // se for le before lo (sedat) is the indirect object.
+    agreed(
+        &es_set("Se lo doy.").await,
+        &[
+            ("Se", Some(IndirectObject)),
+            ("lo", Some(DirectObject)),
+            ("doy", Some(Verb)),
+        ],
+    );
+    // me is acc or dat: both parses are kept.
+    let a = es_set("Me lo dio.").await;
+    let me = token(&a, "Me");
+    assert!(!me.agreed);
+    assert!(
+        me.roles.contains(&Some(DirectObject)) && me.roles.contains(&Some(IndirectObject)),
+        "{:?}",
+        me.roles
+    );
+    agreed(&a, &[("lo", Some(DirectObject)), ("dio", Some(Verb))]);
+    // Attached clitics make the word the verb group.
+    agreed(
+        &es("tests/fixtures/es-recorded.json", "¡Dámelo!").await,
+        &[("Dámelo", Some(Verb))],
+    );
+}
+
+#[tokio::test]
+async fn es_subject_and_object_complements() {
+    agreed(
+        &es_set("Es médico.").await,
+        &[("Es", Some(Verb)), ("médico", Some(SubjectComplement))],
+    );
+    agreed(
+        &es_set("La puerta está cerrada.").await,
+        &[
+            ("puerta", Some(Subject)),
+            ("está", Some(Verb)),
+            ("cerrada", Some(SubjectComplement)),
+        ],
+    );
+    let a = es_set("Dejó la puerta abierta.").await;
+    agreed(&a, &[("Dejó", Some(Verb))]);
+    differs(&a, "abierta", ObjectComplement, &[DirectObject]);
+}
+
+#[tokio::test]
+async fn es_passive_with_an_agent() {
+    let a = es_set("Fue amado por todos.").await;
+    agreed(&a, &[("Fue", Some(Verb))]);
+    // As in Italian, amado is also read as an adjective and por todos as a
+    // free phrase; every reading is reported.
+    differs(&a, "amado", Verb, &[SubjectComplement]);
+    differs(&a, "por", Agent, &[Adverbial]);
+    differs(&a, "todos", Agent, &[Adverbial]);
+}
+
+#[tokio::test]
+async fn es_adverbials() {
+    agreed(
+        &es_set("Vivo en Madrid.").await,
+        &[
+            ("Vivo", Some(Verb)),
+            ("en", Some(Adverbial)),
+            ("Madrid", Some(Adverbial)),
+        ],
+    );
+    agreed(
+        &es_set("Juan no está en casa.").await,
+        &[
+            ("Juan", Some(Subject)),
+            ("no", Some(Adverbial)),
+            ("está", Some(Verb)),
+            ("casa", Some(Adverbial)),
+        ],
+    );
+    // An a phrase is an adverbial, even after a verb of giving or saying:
+    // Spanish has no dative-verb list yet (Italian #33). Here a casa is also
+    // read as a personal-a object.
+    let a = es_set("Ayer fui a casa.").await;
+    agreed(&a, &[("Ayer", Some(Adverbial)), ("fui", Some(Verb))]);
+    differs(&a, "casa", Adverbial, &[DirectObject]);
+}
+
+// ------------------------------------------------------------- French (#37)
+
+#[tokio::test]
+async fn fr_subject_verb_object() {
+    agreed(
+        &fr("La fille aime le chien.").await,
+        &[
+            ("La", Some(Subject)),
+            ("fille", Some(Subject)),
+            ("aime", Some(Verb)),
+            ("le", Some(DirectObject)),
+            ("chien", Some(DirectObject)),
+        ],
+    );
+}
+
+#[tokio::test]
+async fn fr_inverted_subject_and_negation() {
+    agreed(
+        &fr("Parlez-vous français ?").await,
+        &[
+            ("Parlez", Some(Verb)),
+            ("-vous", Some(Subject)),
+            ("français", Some(DirectObject)),
+            ("?", None),
+        ],
+    );
+    // ne … pas are adverbials inside the verb group.
+    agreed(
+        &fr("Je ne le vois pas.").await,
+        &[
+            ("Je", Some(Subject)),
+            ("ne", Some(Adverbial)),
+            ("le", Some(DirectObject)),
+            ("vois", Some(Verb)),
+            ("pas", Some(Adverbial)),
+        ],
+    );
+}
+
+#[tokio::test]
+async fn fr_clitics_take_their_role_from_their_case() {
+    agreed(
+        &fr("Je l'ai fait.").await,
+        &[
+            ("Je", Some(Subject)),
+            ("l'", Some(DirectObject)),
+            ("ai", Some(Verb)),
+            ("fait", Some(Verb)),
+        ],
+    );
+    agreed(
+        &fr("Je lui ai dit la vérité.").await,
+        &[
+            ("lui", Some(IndirectObject)),
+            ("ai", Some(Verb)),
+            ("dit", Some(Verb)),
+            ("la", Some(DirectObject)),
+            ("vérité", Some(DirectObject)),
+        ],
+    );
+    agreed(
+        &fr("Il m'a donné un livre.").await,
+        &[
+            ("m'", Some(IndirectObject)),
+            ("donné", Some(Verb)),
+            ("livre", Some(DirectObject)),
+        ],
+    );
+    agreed(
+        &fr("Donne-le-moi.").await,
+        &[
+            ("Donne", Some(Verb)),
+            ("-le", Some(DirectObject)),
+            ("-moi", Some(IndirectObject)),
+        ],
+    );
+    // y (loc) is an adverbial; en (gen) and a reflexive belong to the verb
+    // group, like Italian ne and si.
+    agreed(
+        &fr("J'y vais.").await,
+        &[("y", Some(Adverbial)), ("vais", Some(Verb))],
+    );
+    agreed(
+        &fr("Il y a un chat.").await,
+        &[
+            ("Il", Some(Subject)),
+            ("y", Some(Adverbial)),
+            ("a", Some(Verb)),
+            ("chat", Some(DirectObject)),
+        ],
+    );
+    agreed(
+        &fr("J'en veux.").await,
+        &[("en", Some(Verb)), ("veux", Some(Verb))],
+    );
+    agreed(
+        &fr("Je me lave.").await,
+        &[("me", Some(Verb)), ("lave", Some(Verb))],
+    );
+}
+
+#[tokio::test]
+async fn fr_subject_and_object_complements() {
+    agreed(
+        &fr("Il est médecin.").await,
+        &[
+            ("Il", Some(Subject)),
+            ("est", Some(Verb)),
+            ("médecin", Some(SubjectComplement)),
+        ],
+    );
+    let a = fr("Il trouve la maison belle.").await;
+    agreed(
+        &a,
+        &[
+            ("trouve", Some(Verb)),
+            ("la", Some(DirectObject)),
+            ("maison", Some(DirectObject)),
+        ],
+    );
+    differs(&a, "belle", ObjectComplement, &[DirectObject]);
+}
+
+#[tokio::test]
+async fn fr_passive_with_an_agent() {
+    agreed(
+        &fr("Il est aimé par tous.").await,
+        &[
+            ("Il", Some(Subject)),
+            ("est", Some(Verb)),
+            ("aimé", Some(Verb)),
+            ("par", Some(Agent)),
+            ("tous", Some(Agent)),
+        ],
+    );
+    // The grammar has no agent with de yet: de tous is an adverbial, and
+    // aimé a passive or an adjective.
+    let a = fr("Il est aimé de tous.").await;
+    agreed(&a, &[("de", Some(Adverbial)), ("tous", Some(Adverbial))]);
+    differs(&a, "aimé", Verb, &[SubjectComplement]);
+}
+
+#[tokio::test]
+async fn fr_adverbials() {
+    agreed(
+        &fr("J'habite à Paris.").await,
+        &[
+            ("J'", Some(Subject)),
+            ("habite", Some(Verb)),
+            ("à", Some(Adverbial)),
+            ("Paris", Some(Adverbial)),
+        ],
+    );
+    agreed(
+        &fr("Il n'est pas à la maison.").await,
+        &[
+            ("n'", Some(Adverbial)),
+            ("est", Some(Verb)),
+            ("pas", Some(Adverbial)),
+            ("maison", Some(Adverbial)),
+        ],
+    );
 }
