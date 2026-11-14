@@ -8,8 +8,9 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use serde::Serialize;
 
 use crate::syntax::feats::FeatMap;
-use crate::syntax::grammar::{Cat, Grammar, Value};
+use crate::syntax::grammar::{Cat, Grammar, RoleMark, Value};
 use crate::syntax::lattice::{Lattice, Morpheme};
+use crate::syntax::role::Role;
 
 type Env = BTreeMap<String, String>;
 
@@ -42,11 +43,17 @@ pub enum Tree {
         feats: FeatMap,
         rule: String,
         explanation: String,
+        /// The role the parent's rule gives this phrase.
+        #[serde(skip_serializing_if = "Option::is_none")]
+        role: Option<Role>,
         children: Vec<Tree>,
     },
     Leaf {
         token: usize,
         morph: Morpheme,
+        /// The role the parent's rule gives this word.
+        #[serde(skip_serializing_if = "Option::is_none")]
+        role: Option<Role>,
     },
 }
 
@@ -270,6 +277,7 @@ impl Forest<'_> {
                 feats: lhs_feats(&rule.lhs, &self.keys[id].env),
                 rule: rule.name.clone(),
                 explanation: rule.explanation.clone(),
+                role: None,
                 children,
             })
             .collect()
@@ -280,13 +288,18 @@ impl Forest<'_> {
         if self.keys[id].dot == 0 || limit == 0 {
             return vec![Vec::new()];
         }
+        let key = &self.keys[id];
+        let mark = self.grammar.rules[key.rule].rhs[key.dot - 1].role;
         let mut out = Vec::new();
         for &(prev, child) in &self.back[id] {
             let lasts: Vec<Tree> = match child {
-                Child::Edge(e) => vec![Tree::Leaf { token: lattice.edges[e].token, morph: lattice.edges[e].morph.clone() }],
+                Child::Edge(e) => {
+                    vec![Tree::Leaf { token: lattice.edges[e].token, morph: lattice.edges[e].morph.clone(), role: None }]
+                }
                 Child::Item(c) => self.item_trees(c, lattice, limit),
             };
-            for last in lasts {
+            for mut last in lasts {
+                last.set_role(mark, &self.grammar.case_roles);
                 for mut prefix in self.children_lists(prev, lattice, limit) {
                     if out.len() >= limit {
                         return out;
@@ -346,10 +359,65 @@ fn lhs_feats(lhs: &Cat, env: &Env) -> FeatMap {
 
 
 impl Tree {
+    fn set_role(&mut self, mark: Option<RoleMark>, case_roles: &BTreeMap<String, Role>) {
+        let (slot, feats) = match self {
+            Tree::Node { role, feats, .. } => (role, &*feats),
+            Tree::Leaf { role, morph, .. } => (role, &morph.feats),
+        };
+        *slot = match mark {
+            None => None,
+            Some(RoleMark::Role(r)) => Some(r),
+            Some(RoleMark::ByCase) => feats.get("case").and_then(|c| case_roles.get(c)).copied(),
+        };
+    }
+
+    pub fn role(&self) -> Option<Role> {
+        match self {
+            Tree::Node { role, .. } | Tree::Leaf { role, .. } => *role,
+        }
+    }
+
+    /// Each token's role in this parse: the innermost phrase with a role that
+    /// holds all of the token's morphemes (`dammelo` is the verb group, though
+    /// its `me` and `lo` have roles of their own). `None` outside any role.
+    pub fn token_roles(&self, tokens: usize) -> Vec<Option<Role>> {
+        let mut total = vec![0usize; tokens];
+        for (t, _) in self.leaves() {
+            total[t] += 1;
+        }
+        let mut out = vec![None; tokens];
+        self.assign_roles(&total, &mut out);
+        out
+    }
+
+    /// Post-order, so a phrase deeper in the tree claims a token first.
+    /// Returns how many of each token's morphemes this subtree holds.
+    fn assign_roles(&self, total: &[usize], out: &mut [Option<Role>]) -> Vec<usize> {
+        let mut held = vec![0usize; total.len()];
+        match self {
+            Tree::Leaf { token, .. } => held[*token] += 1,
+            Tree::Node { children, .. } => {
+                for c in children {
+                    for (h, n) in held.iter_mut().zip(c.assign_roles(total, out)) {
+                        *h += n;
+                    }
+                }
+            }
+        }
+        if let Some(role) = self.role() {
+            for t in 0..total.len() {
+                if held[t] > 0 && held[t] == total[t] && out[t].is_none() {
+                    out[t] = Some(role);
+                }
+            }
+        }
+        held
+    }
+
     /// The morphemes the parse chose, in sentence order.
     pub fn leaves(&self) -> Vec<(usize, &Morpheme)> {
         match self {
-            Tree::Leaf { token, morph } => vec![(*token, morph)],
+            Tree::Leaf { token, morph, .. } => vec![(*token, morph)],
             Tree::Node { children, .. } => children.iter().flat_map(|c| c.leaves()).collect(),
         }
     }
@@ -374,21 +442,30 @@ impl Tree {
     fn render_into(&self, out: &mut String, depth: usize) {
         let pad = "  ".repeat(depth);
         match self {
-            Tree::Leaf { morph, .. } => {
+            Tree::Leaf { morph, role, .. } => {
                 out.push_str(&format!(
-                    "{pad}{} {} ({} {})\n",
+                    "{pad}{} {} ({} {}){}\n",
                     morph.cat,
                     morph.surface,
                     morph.lemma,
-                    crate::syntax::feats::display(&morph.feats)
+                    crate::syntax::feats::display(&morph.feats),
+                    role_suffix(*role)
                 ));
             }
-            Tree::Node { cat, feats, rule, children, .. } => {
-                out.push_str(&format!("{pad}{cat}[{}]  ← {rule}\n", crate::syntax::feats::display(feats)));
+            Tree::Node { cat, feats, rule, role, children, .. } => {
+                out.push_str(&format!(
+                    "{pad}{cat}[{}]{}  ← {rule}\n",
+                    crate::syntax::feats::display(feats),
+                    role_suffix(*role)
+                ));
                 for c in children {
                     c.render_into(out, depth + 1);
                 }
             }
         }
     }
+}
+
+fn role_suffix(role: Option<Role>) -> String {
+    role.map(|r| format!(":{r}")).unwrap_or_default()
 }

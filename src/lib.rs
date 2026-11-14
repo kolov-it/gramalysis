@@ -22,4 +22,5 @@ pub mod syntax;
 #[cfg_attr(docsrs, doc(cfg(feature = "wordholder")))]
 pub mod wordholder;
 
-pub use analysis::{analyze, Error, SentenceAnalysis, TokenChoice};
+pub use analysis::{analyze, Error, SentenceAnalysis, TokenChoice, TokenRoles};
+pub use syntax::role::Role;

@@ -12,25 +12,27 @@ have. Every result carries the rule that produced it, so a learner can ask *why*
 $ syntango it "La ragazza ama il cane."
 La ragazza ama il cane.
 S[]  ← clause.subject
-  NP[gender=f,number=sg,person=3]  ← np.article
+  NP[gender=f,number=sg,person=3]:subject  ← np.article
     Det La (il definite=yes,gender=f,next=c,number=sg)
     Nom[gender=f,number=sg]  ← nom.noun
       Noun ragazza (ragazza gender=f,number=sg)
   VP[finite=yes,form=fin,mood=ind,number=sg,person=3]  ← vp.object
-    V[finite=yes,form=fin,mood=ind,number=sg,person=3]  ← v.plain
+    V[finite=yes,form=fin,mood=ind,number=sg,person=3]:verb  ← v.plain
       Verb ama (amare finite=yes,form=fin,mood=ind,number=sg,person=3,tense=pres)
-    NP[gender=m,number=sg,person=3]  ← np.article
+    NP[gender=m,number=sg,person=3]:direct-object  ← np.article
       Det il (il definite=yes,gender=m,next=c,number=sg)
       Nom[gender=m,number=sg]  ← nom.noun
         Noun cane (cane gender=m,number=sg)
 ```
 
-Each node shows its category, its features and the rule that built it.
+Each node shows its category, its features, its grammatical role if it has
+one (`:subject`, `:verb`, `:direct-object`) and the rule that built it.
 `--explain` adds why each rule applies ("The verb agrees with its subject in
 person and number."); `--readings` lists how each word was read and whether all
 parses agree, and for a participle how it is used (`[used as: adjective]` in
 *le luci sono accese*) (in *Disse che non riusciva a trovare un lavoro*, `lavoro` could be
 the noun *work* or the verb *I work*; only the noun fits).
+`--roles` lists each word's grammatical role across the parses (below).
 
 Italian first, then [Spanish](#spanish) and [French](#french); the design is multilingual from the start.
 
@@ -108,6 +110,40 @@ limit continues where it stopped:
 cargo run -- record tests/fixtures/it-recorded.json it "Una frase nuova."
 cargo run -- record tests/fixtures/it-set.json it --set data/it/homograph-set.jsonl
 ```
+
+## Grammatical roles
+
+Each word gets the role of the phrase it belongs to: `subject`, `verb` (the
+verb group: *ha mangiato*, *sta leggendo*, *è amato*), `direct-object`,
+`indirect-object`, `subject-complement` (*è **un graffio***, *le luci sono
+**accese***), `object-complement` (*rendere le cose **peggiori***), `agent`
+(*è amato **da tutti***) or `adverbial` (*a casa*, *ieri*, *non*); a
+conjunction or anything outside a role has none.
+
+```text
+$ syntango --fixture tests/fixtures/it-set.json --roles it "Gli ho detto la verità."
+…
+roles (✓ = every parse agrees, - = no role):
+  ✓ Gli: indirect-object
+  ✓ ho: verb
+  ✓ detto: verb
+  ✓ la: direct-object
+  ✓ verità: direct-object
+```
+
+The grammar declares them, on the children of its rules:
+`S -> NP[case=nom, …]:subject VP[…]`. A word takes the role of the innermost
+marked phrase that holds it, so in *Disse che non riusciva a trovare un
+lavoro* `lavoro` is the object of *trovare*. A clitic pronoun marked `:case`
+takes its role from its case (`case-roles acc=direct-object,
+dat=indirect-object, loc=adverbial`): *l'*, *lo* are direct objects, *gli*
+indirect. A word with attached clitics (*dammelo*) is the verb group.
+
+`SentenceAnalysis::roles` has, per token, the distinct roles the kept parses
+give it (the first parse's first; `null` where a parse gives none) and
+whether they all agree; parses are never ranked, so a word read two ways
+keeps both roles. No parse, no roles. Italian is marked; Spanish and French
+are not yet, so their words have no role.
 
 ## Lexicon patches
 

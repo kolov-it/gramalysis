@@ -5,3 +5,4 @@ pub mod feats;
 pub mod grammar;
 pub mod lattice;
 pub mod parser;
+pub mod role;
