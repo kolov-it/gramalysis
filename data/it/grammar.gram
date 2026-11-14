@@ -29,7 +29,7 @@ rule np.pronoun: NP[person=?p, number=?n, gender=?g, case=?c] -> Pron[clitic=no,
 rule np.article: NP[person=3, number=?n, gender=?g] -> Det[number=?n, gender=?g, next=?o] Nom[number=?n, gender=?g, onset=?o]
   "The article agrees with its noun in gender and number, and its form follows the next word's first sound: il/i/un before a consonant (il cane), lo/gli/uno before s + consonant, z, gn, ps (lo zio, lo studente), l'/gli before a vowel (l'amico)."
 
-rule np.partitive: NP[person=3, number=?n, gender=?g] -> Prep[lemma=di] Det[definite=yes, number=?n, gender=?g, next=?o] Nom[number=?n, gender=?g, onset=?o]
+rule np.partitive: NP[person=3, number=?n, gender=?g, partitive=yes] -> Prep[lemma=di] Det[definite=yes, number=?n, gender=?g, next=?o] Nom[number=?n, gender=?g, onset=?o]
   "di + the definite article before a noun means 'some': the partitive article (del pane, delle cose)."
 
 rule np.numeral: NP[person=3, number=pl, gender=?g] -> Num Nom[number=pl, gender=?g]
@@ -248,7 +248,7 @@ rule np.coordination: NP[number=pl] -> NP Conj[type=coord] NP
 rule nom.prepositional-phrase: Nom[number=?n, gender=?g, onset=?o] -> Nom[number=?n, gender=?g, onset=?o] PP
   "A phrase with a preposition describes the noun (la casa di Tom, il libro sul tavolo). After a participle it can also describe the noun, so un suono soffocato di pianti is both a muffled sound of crying and a sound suffocated by crying."
 
-rule np.relative: NP[person=?p, number=?n, gender=?g, case=?c] -> NP[person=?p, number=?n, gender=?g, case=?c] Rel
+rule np.relative: NP[person=?p, number=?n, gender=?g, case=?c, partitive=?x] -> NP[person=?p, number=?n, gender=?g, case=?c, partitive=?x] Rel
   "A clause with che or cui describes the noun (il libro che leggo)."
 
 rule rel.subject: Rel -> RelPron[lemma=che] VP[finite=yes, form=fin]
@@ -280,8 +280,14 @@ rule pp.infinitive: PP[prep=?x, infinitive=yes] -> Prep[lemma=?x] VP[form=inf]
 
 # ------------------------------------------------- clauses: more shapes
 
-rule clause.subject-after: S -> VP[finite=yes, form=fin, person=?p, number=?n, gender=?g] NP[case=nom, person=?p, number=?n, gender=?g]
+rule clause.subject-after: S -> VP[finite=yes, form=fin, person=?p, number=?n, gender=?g] NP[case=nom, partitive=no, person=?p, number=?n, gender=?g]
   "The subject can come after the verb (è arrivato Marco)."
+
+rule clause.partitive-subject-after: S -> VP[finite=yes, form=fin, person=3, number=pl] NP[case=nom, partitive=yes, number=pl]
+  "A partitive subject after the verb is plural (sono arrivati dei ragazzi): del destino is not 'some destiny'."
+
+rule clause.ce-partitive: S -> Pron[lemma=ci, clitic=yes, attached=no] Verb[lemma=essere, finite=yes, person=3, number=sg] NP[case=nom, partitive=yes, number=sg]
+  "c'è + a singular partitive: there is some of a mass (c'è del pane, c'era della brava gente). Elsewhere a singular partitive is not a subject after the verb."
 
 rule clause.phrase-first: S -> PP S
   "A phrase with a preposition at the start of the clause (Dopo cena cammino sulla spiaggia)."
