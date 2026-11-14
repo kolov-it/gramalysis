@@ -229,6 +229,40 @@ async fn adverbials() {
     );
 }
 
+/// Issue #32: a day or weekday and a part of the day are one adverbial, at the
+/// start or the end of the clause.
+#[tokio::test]
+async fn day_and_part_of_day() {
+    agreed(
+        &set("Ieri sera siamo andati al cinema con gli amici.").await,
+        &[
+            ("Ieri", Some(Adverbial)),
+            ("sera", Some(Adverbial)),
+            ("siamo", Some(Verb)),
+            ("andati", Some(Verb)),
+        ],
+    );
+    agreed(
+        &set("Siamo andati al cinema ieri sera.").await,
+        &[("ieri", Some(Adverbial)), ("sera", Some(Adverbial))],
+    );
+    for (text, day, part) in [
+        ("Ieri mattina siamo andati.", "Ieri", "mattina"),
+        ("Domani mattina parto.", "Domani", "mattina"),
+        ("Oggi pomeriggio lavoro.", "Oggi", "pomeriggio"),
+        ("Ieri notte ho dormito.", "Ieri", "notte"),
+        ("Domenica sera siamo andati al cinema.", "Domenica", "sera"),
+        ("Lunedì mattina parto.", "Lunedì", "mattina"),
+    ] {
+        agreed(
+            &set(text).await,
+            &[(day, Some(Adverbial)), (part, Some(Adverbial))],
+        );
+    }
+    // stamattina already names the part of the day.
+    assert!(set("Stamattina sera siamo andati.").await.parses.is_empty());
+}
+
 #[tokio::test]
 async fn innermost_role_in_a_nested_clause() {
     let a = recorded("Disse che non riusciva a trovare un lavoro.").await;

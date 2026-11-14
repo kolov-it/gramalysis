@@ -39,6 +39,13 @@ async fn subject_agreement_picks_present_over_imperative() {
     assert_eq!(agreed(&a, "La"), ["il Det definite=yes,gender=f,next=c,number=sg"]);
 }
 
+/// Issue #32: a weekday and a part of the day say when.
+#[tokio::test]
+async fn weekday_and_part_of_day() {
+    assert!(!run("Venerdì sera usciamo.").await.parses.is_empty());
+    assert!(!run("Usciamo venerdì sera.").await.parses.is_empty());
+}
+
 #[tokio::test]
 async fn participle_agrees_after_essere() {
     assert!(!run("La ragazza è arrivata.").await.parses.is_empty());

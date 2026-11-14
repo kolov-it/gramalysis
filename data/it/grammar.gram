@@ -465,6 +465,12 @@ rule time.det-noun: TimeNP -> Det Noun[lemma=giorno|notte|mattina|sera|pomeriggi
 rule time.adjective: TimeNP -> TimeNP AP
   "A time expression with an adjective (la settimana scorsa)."
 
+rule time.day-part: TimeNP -> Adv[lemma=ieri|oggi|domani|dopodomani] Noun[number=sg, lemma=mattina|pomeriggio|sera|notte]
+  "A day and a part of it, without a preposition, say when (ieri sera, domani mattina, oggi pomeriggio). Stamattina, stasera and stanotte already hold the part of the day."
+
+rule time.weekday-part: TimeNP -> Noun[number=sg, lemma=domenica|lunedì|martedì|mercoledì|giovedì|venerdì|sabato] Noun[number=sg, lemma=mattina|pomeriggio|sera|notte]
+  "A weekday and a part of it say when (domenica sera, lunedì mattina)."
+
 rule vp.time: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta] TimeNP:adverbial
   "A time expression after the verb says when or how often (mi esercito ogni giorno)."
 
