@@ -12,41 +12,45 @@ have. Every result carries the rule that produced it, so a learner can ask *why*
 $ syntango it "La ragazza ama il cane."
 La ragazza ama il cane.
 S[]  ← clause.subject
-  NP[gender=f,number=sg,person=3]  ← np.article
+  NP[gender=f,number=sg,person=3]:subject  ← np.article
     Det La (il definite=yes,gender=f,next=c,number=sg)
     Nom[gender=f,number=sg]  ← nom.noun
       Noun ragazza (ragazza gender=f,number=sg)
   VP[finite=yes,form=fin,mood=ind,number=sg,person=3]  ← vp.object
-    V[finite=yes,form=fin,mood=ind,number=sg,person=3]  ← v.plain
+    V[finite=yes,form=fin,mood=ind,number=sg,person=3]:verb  ← v.plain
       Verb ama (amare finite=yes,form=fin,mood=ind,number=sg,person=3,tense=pres)
-    NP[gender=m,number=sg,person=3]  ← np.article
+    NP[gender=m,number=sg,person=3]:direct-object  ← np.article
       Det il (il definite=yes,gender=m,next=c,number=sg)
       Nom[gender=m,number=sg]  ← nom.noun
         Noun cane (cane gender=m,number=sg)
 ```
 
-Each node shows its category, its features and the rule that built it.
+Each node shows its category, its features, its grammatical role if it has
+one (`:subject`, `:verb`, `:direct-object`) and the rule that built it.
 `--explain` adds why each rule applies ("The verb agrees with its subject in
 person and number."); `--readings` lists how each word was read and whether all
 parses agree, and for a participle how it is used (`[used as: adjective]` in
 *le luci sono accese*) (in *Disse che non riusciva a trovare un lavoro*, `lavoro` could be
 the noun *work* or the verb *I work*; only the noun fits).
+`--roles` lists each word's grammatical role across the parses (below).
 
 Italian first, then [Spanish](#spanish) and [French](#french); the design is multilingual from the start.
 
-**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 119 rules)
+**Status:** prototype, Italian. The grammar (`data/it/grammar.gram`, 154 rules)
 covers agreement and the dropped subject; articles (with the *il / lo / l'*
 choice by the next word's first sound), demonstratives, quantifiers and
 possessives; clitic pronouns before and after the verb; compound tenses, the
 passive and *stare* + gerund; participles used like adjectives, participle
 phrases and participle clauses (*Arrivato a casa, …*; *dopo mangiato*);
 infinitive complements, *che* and *cui* clauses, indirect questions,
-questions, subordinate clauses, commas, coordination and time expressions.
+questions, subordinate clauses, commas, coordination and time expressions;
+sentences without a verb (*La forza del destino!*, a noun phrase after `;` or
+`:`).
 
 On the [Tatoeba homograph set](#measuring-it-the-tatoeba-homograph-set)
 (5,000 sentences built around ambiguous verb forms) it decides the ambiguous
-word in **70%** of the sentences, and **99.2%** of those decisions agree with
-the labels (3,340 of 3,368).
+word in **71%** of the sentences, and **99.2%** of those decisions agree with
+the labels (3,347 of 3,373).
 
 ## Goal: anyone can run every example
 
@@ -108,6 +112,44 @@ limit continues where it stopped:
 cargo run -- record tests/fixtures/it-recorded.json it "Una frase nuova."
 cargo run -- record tests/fixtures/it-set.json it --set data/it/homograph-set.jsonl
 ```
+
+## Grammatical roles
+
+Each word gets the role of the phrase it belongs to: `subject`, `verb` (the
+verb group: *ha mangiato*, *sta leggendo*, *è amato*), `direct-object`,
+`indirect-object`, `subject-complement` (*è **un graffio***, *le luci sono
+**accese***), `object-complement` (*rendere le cose **peggiori***), `agent`
+(*è amato **da tutti***) or `adverbial` (*a casa*, *ieri*, *non*); a
+conjunction or anything outside a role has none.
+
+```text
+$ syntango --fixture tests/fixtures/it-set.json --roles it "Gli ho detto la verità."
+…
+roles (✓ = every parse agrees, - = no role):
+  ✓ Gli: indirect-object
+  ✓ ho: verb
+  ✓ detto: verb
+  ✓ la: direct-object
+  ✓ verità: direct-object
+```
+
+The grammar declares them, on the children of its rules:
+`S -> NP[case=nom, …]:subject VP[…]`. A word takes the role of the innermost
+marked phrase that holds it, so in *Disse che non riusciva a trovare un
+lavoro* `lavoro` is the object of *trovare*. A clitic pronoun marked `:case`
+takes its role from its case (`case-roles acc=direct-object,
+dat=indirect-object, loc=adverbial`): *l'*, *lo* are direct objects, *gli*
+indirect. A word with attached clitics (*dammelo*) is the verb group. A
+*di* phrase that the verb takes (*parla **di me***) or a fixed *di* phrase
+(*esce **di notte***) is an adverbial. A sentence without a verb
+(*La forza del destino!*) gives its words no role, and neither does a noun
+phrase after `;` or `:`, which renames or lists rather than filling a role.
+
+`SentenceAnalysis::roles` has, per token, the distinct roles the kept parses
+give it (the first parse's first; `null` where a parse gives none) and
+whether they all agree; parses are never ranked, so a word read two ways
+keeps both roles. No parse, no roles. Italian is marked; Spanish and French
+are not yet, so their words have no role.
 
 ## Lexicon patches
 
@@ -171,6 +213,25 @@ the one a verb page needs: *which verb, or not a verb at all*.
   noun, and both readings are returned: *un suono soffocato di pianti* is a
   sound suffocated by crying (verb use) or a muffled sound of crying
   (adjective use).
+- A **noun phrase is a sentence** too (an exclamation, a title, a list after
+  `;` or `:`), next to the clause readings: *La forza del destino!* is a noun
+  phrase only, *La veste di seta per mia moglie!* is both a dress of silk and
+  "he dresses her in silk" (*vestire di*). A noun phrase sentence needs an
+  article or another determiner, except for the nouns in
+  `data/it/bare-utterance-nouns.tsv` (thanks, wishes, greetings, reactions,
+  insults and endearments: *Grazie per il vostro invito!*, *Pezzo d'asino!*,
+  *Buon viaggio!*); *Vivo in un appartamento* stays a clause. After `;` or `:`
+  a bare noun is enough (*…: argomento in armonia con la mia natura*).
+- A **di phrase after a verb** needs a verb that takes one
+  (`data/it/di-verbs.tsv`: *parlare di*, *vestire di*, *morire di*; from
+  Wiktionary, the labelled sentences, and a model-generated list checked by a
+  second model), or a fixed
+  time or manner phrase (*di notte*, *di corsa*, *di nuovo*, *uscire di casa*).
+  Otherwise it belongs to the noun before it: *la porta di casa mia* is not
+  "(he) carries her of my house". *di* + infinitive is not affected.
+- A **partitive subject after the verb** is plural (*sono arrivati dei
+  ragazzi*) or follows *c'è* (*c'è del pane*); *del destino* is not "some
+  destiny".
 
 ## Spanish
 

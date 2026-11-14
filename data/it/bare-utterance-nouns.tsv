@@ -1,0 +1,42 @@
+# Nouns that can be a whole sentence without an article (frag.bare-noun):
+# thanks, wishes and greetings, reactions, and the heads of insults and
+# endearments. The noun keeps its usual modifiers: Grazie per il vostro
+# invito!, Tesoro mio!, Pezzo d'asino! Any other noun needs an article or
+# another determiner to be a sentence on its own (Vivo in un appartamento is
+# a clause, not "alive in an apartment").
+#
+# An adjective on the list makes the noun after it one too: Buon viaggio!,
+# Povero diavolo!
+#
+# lemma, part of speech (noun or adj), where it comes from:
+#   owner       the owner's list on kolov-it/syntango#25
+#   tatoeba     a sentence of homograph-set.jsonl that is such an utterance
+#   literature  the same in literature/literature-set.jsonl
+grazie	noun	owner,tatoeba
+augurio	noun	owner,tatoeba
+complimento	noun	owner
+congratulazione	noun	owner
+salute	noun	owner
+benvenuto	noun	owner
+buongiorno	noun	owner
+buonasera	noun	owner
+buonanotte	noun	owner
+arrivederci	noun	owner
+peccato	noun	owner
+pazienza	noun	owner
+coraggio	noun	owner
+silenzio	noun	owner
+aiuto	noun	owner
+attenzione	noun	owner
+vergogna	noun	owner
+pezzo	noun	owner,literature
+tesoro	noun	owner
+amore	noun	owner
+razza	noun	owner
+abbraccio	noun	tatoeba
+saluto	noun	owner
+nume	noun	literature
+povero	adj	owner
+buono	adj	owner
+buon	adj	owner
+caro	adj	owner

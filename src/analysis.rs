@@ -8,6 +8,7 @@ use crate::lang::Language;
 use crate::morph::{Lexicon, LexiconError};
 use crate::syntax::lattice::{Edge, Lattice, Morpheme};
 use crate::syntax::parser::{self, ChartItem, ParseError, Tree};
+use crate::syntax::role::Role;
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
@@ -40,6 +41,8 @@ pub struct SentenceAnalysis {
     /// passive (`voice`).
     #[serde(skip)]
     pub verb_items: Vec<ChartItem>,
+    /// Per token, its grammatical role in the kept parses.
+    pub roles: Vec<TokenRoles>,
 }
 
 /// Parses kept as trees; the rest are counted, and still count for `chosen`.
@@ -59,6 +62,22 @@ pub struct TokenChoice {
     pub uses: Vec<Vec<String>>,
 }
 
+/// A token's grammatical role across the parses kept as trees
+/// ([`SentenceAnalysis::parses`]).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct TokenRoles {
+    pub token: String,
+    /// Each distinct role the token has in a kept parse, the first parse's
+    /// first; `None` where a parse gives it no role (a conjunction, a
+    /// comma). Empty when the sentence does not parse. A token's role is
+    /// that of the innermost phrase with a role holding it: in *Disse che non
+    /// riusciva a trovare un lavoro*, `lavoro` is the direct object of
+    /// `trovare`.
+    pub roles: Vec<Option<Role>>,
+    /// Every kept parse gives the token the same role.
+    pub agreed: bool,
+}
+
 pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str) -> Result<SentenceAnalysis, Error> {
     let tokens = language.tokenize(text);
     let forms = language.lexicon_forms(&tokens);
@@ -76,7 +95,25 @@ pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str)
     let edge_rules = forest.edge_rules();
     let chosen = choices(&tokens, &lattice, &used_edges, &edge_rules, !forest.is_empty());
     let verb_items = forest.items_where(|r| r.lhs.constraints.iter().any(|(k, _)| k.starts_with("aux_") || k == "voice"));
-    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen, used_edges, edge_rules, verb_items })
+    let roles = token_roles(&tokens, &parses);
+    Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen, used_edges, edge_rules, verb_items, roles })
+}
+
+fn token_roles(tokens: &[String], parses: &[Tree]) -> Vec<TokenRoles> {
+    let per_parse: Vec<Vec<Option<Role>>> = parses.iter().map(|p| p.token_roles(tokens.len())).collect();
+    tokens
+        .iter()
+        .enumerate()
+        .map(|(t, token)| {
+            let mut roles: Vec<Option<Role>> = Vec::new();
+            for parse in &per_parse {
+                if !roles.contains(&parse[t]) {
+                    roles.push(parse[t]);
+                }
+            }
+            TokenRoles { token: token.clone(), agreed: roles.len() == 1, roles }
+        })
+        .collect()
 }
 
 /// Per token, the readings (paths of morphemes through the token) that the
