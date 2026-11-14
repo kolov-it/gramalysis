@@ -35,7 +35,8 @@ pub struct SentenceAnalysis {
     /// For each used edge, the rules that consumed it.
     #[serde(skip)]
     pub edge_rules: HashMap<usize, HashSet<String>>,
-    /// The verb groups around a past participle (compound tenses, passives).
+    /// The verb groups around a past participle (compound tenses, passives);
+    /// empty unless asked for ([`analyze_with_participle_groups`]).
     #[serde(skip)]
     pub participle_groups: Vec<Group>,
 }
@@ -58,6 +59,20 @@ pub struct TokenChoice {
 }
 
 pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str) -> Result<SentenceAnalysis, Error> {
+    run(lexicon, language, text, false).await
+}
+
+/// [`analyze`], plus the verb groups around past participles
+/// (`participle_groups`), which only example extraction needs.
+pub async fn analyze_with_participle_groups(
+    lexicon: &dyn Lexicon,
+    language: &dyn Language,
+    text: &str,
+) -> Result<SentenceAnalysis, Error> {
+    run(lexicon, language, text, true).await
+}
+
+async fn run(lexicon: &dyn Lexicon, language: &dyn Language, text: &str, groups: bool) -> Result<SentenceAnalysis, Error> {
     let tokens = language.tokenize(text);
     let forms = language.lexicon_forms(&tokens);
     let form_refs: Vec<&str> = forms.iter().map(String::as_str).collect();
@@ -73,7 +88,7 @@ pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str)
     let used_edges = forest.used_edges();
     let edge_rules = forest.edge_rules();
     let chosen = choices(&tokens, &lattice, &used_edges, &edge_rules, !forest.is_empty());
-    let participle_groups = forest.participle_groups();
+    let participle_groups = if groups { forest.participle_groups(&lattice) } else { Vec::new() };
     Ok(SentenceAnalysis { tokens, unknown, lattice, parse_count, parses, chosen, used_edges, edge_rules, participle_groups })
 }
 

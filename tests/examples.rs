@@ -443,6 +443,38 @@ async fn the_auxiliary_next_to_the_participle_names_the_tense() {
 }
 
 #[tokio::test]
+async fn a_lexical_verb_before_a_passive_keeps_its_compound_tense() {
+    let e = one(
+        "es",
+        "querer",
+        Some("indicative.present_perfect"),
+        "Ha querido ser elegido.",
+    )
+    .await;
+    assert_eq!(marked(&e), "[Ha] [querido] ser elegido.");
+    assert_eq!(
+        (e.cells.as_slice(), e.status),
+        (
+            ["indicative.present_perfect.3s".to_owned()].as_slice(),
+            Status::Decided
+        )
+    );
+}
+
+#[tokio::test]
+async fn italian_bare_shortened_infinitive() {
+    let e = one(
+        "it",
+        "fare",
+        Some("non_finite.infinitive"),
+        "Ebbene, fai male a far così.",
+    )
+    .await;
+    assert_eq!(marked(&e), "Ebbene, fai male a [far] così.");
+    assert_eq!(e.status, Status::Decided);
+}
+
+#[tokio::test]
 async fn french_imperative_liaison() {
     let e = one("fr", "aller", None, "Vas-y !").await;
     assert_eq!(

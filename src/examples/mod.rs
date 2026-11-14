@@ -22,7 +22,7 @@ use std::collections::{BTreeMap, BTreeSet, HashSet};
 
 use serde::Serialize;
 
-use crate::analysis::{self, SentenceAnalysis, analyze};
+use crate::analysis::{self, SentenceAnalysis, analyze_with_participle_groups};
 use crate::lang::Language;
 use crate::morph::Lexicon;
 use crate::syntax::lattice::{Lattice, Morpheme};
@@ -259,7 +259,7 @@ impl<'a> Extractor<'a> {
         if candidates.is_empty() {
             return Ok(Outcome::NotCandidate);
         }
-        let a = analyze(self.lexicon, self.language, &sentence.text).await?;
+        let a = analyze_with_participle_groups(self.lexicon, self.language, &sentence.text).await?;
         if !a.unknown.is_empty() {
             return Ok(Outcome::UnknownWord(a.unknown));
         }
@@ -267,21 +267,23 @@ impl<'a> Extractor<'a> {
             return Ok(Outcome::NoParse);
         }
         let spans = token_spans(&sentence.text, &a.tokens)?;
-        // A construction nested in another's phrase (Spanish serv.perfect, ha
-        // sido, inside the passive ha sido construido) only serves that one.
-        let nested = |g: &Group| {
-            a.participle_groups.iter().any(|outer| {
-                outer.inner_rules.contains(&g.rule)
-                    && outer.edges.len() > g.edges.len()
-                    && g.edges.iter().all(|e| outer.edges.contains(e))
-            })
-        };
-        let groups: Vec<VerbGroup> = a
+        let all: Vec<VerbGroup> = a
             .participle_groups
             .iter()
-            .filter(|g| !nested(g))
             .filter_map(|g| self.verb_group(&a.lattice, g))
             .collect();
+        // A construction nested in another's phrase that only builds one of
+        // its stacked auxiliaries (Spanish serv.perfect, ha sido, in the
+        // passive ha sido construido) is that auxiliary, not a verb of its
+        // own. A lexical verb before the auxiliary keeps its own (ha querido
+        // in ha querido ser elegido).
+        let layer_only = |g: &VerbGroup| {
+            all.iter().any(|outer| {
+                outer.inner_rules.contains(&g.rule)
+                    && g.participles.iter().all(|p| outer.layers.contains(p))
+            })
+        };
+        let groups: Vec<&VerbGroup> = all.iter().filter(|g| !layer_only(g)).collect();
         let text = &sentence.text;
         let chars = |byte: usize| text[..byte].chars().count();
         let mut out = Vec::new();
@@ -522,7 +524,7 @@ impl<'a> Extractor<'a> {
     fn interpret(
         &self,
         a: &SentenceAnalysis,
-        groups: &[VerbGroup],
+        groups: &[&VerbGroup],
         t: usize,
         lower: &str,
     ) -> Vec<Interpretation> {

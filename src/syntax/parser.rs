@@ -261,14 +261,18 @@ impl Forest<'_> {
 
     /// The verb groups built around a past participle: every application,
     /// in some parse, of a rule that takes a `Verb[form=pastpart]`, each
-    /// derivation once, as the lattice edges it consumed in sentence order.
+    /// derivation once, as the verb and coordinator edges (`Verb`, `Conj`)
+    /// it consumed, in sentence order. Other words are left out, so the
+    /// readings of a noun phrase opened up on the way do not multiply the
+    /// groups.
     /// A phrase before the last participle (Spanish `SerV`: fue, ha sido) is
     /// opened up into its edges; one after it (an agent, an object) is not.
     /// A passive rule (named `*passive*`) with no participle of its own has
     /// every phrase opened up: its participles are inside them.
     /// This is how compound tenses and passives are read off a parse
     /// without the grammar naming them.
-    pub fn participle_groups(&self) -> Vec<Group> {
+    pub fn participle_groups(&self, lattice: &Lattice) -> Vec<Group> {
+        let relevant = |e: usize| matches!(lattice.edges[e].morph.cat.as_str(), "Verb" | "Conj");
         let takes_participle = |cat: &Cat| {
             cat.name == "Verb"
                 && cat.constraints.iter().any(|(k, v)| k == "form" && matches!(v, Value::Any(a) if a.iter().any(|x| x == "pastpart")))
@@ -313,17 +317,15 @@ impl Forest<'_> {
                 let mut inner_rules = Vec::new();
                 for (i, child) in path.iter().enumerate() {
                     let parts = match *child {
-                        Child::Edge(e) => vec![vec![e]],
+                        Child::Edge(e) if relevant(e) => vec![vec![e]],
+                        Child::Edge(_) => vec![Vec::new()],
                         Child::Item(c) if i < last => {
                             inner_rules.extend(self.rules_under(c));
-                            self.terminals(c, &mut paths, &mut terminals)
+                            self.terminals(c, &relevant, &mut paths, &mut terminals)
                         }
                         Child::Item(_) => vec![Vec::new()],
                     };
-                    lists = lists
-                        .iter()
-                        .flat_map(|l| parts.iter().map(move |p| l.iter().chain(p).copied().collect()))
-                        .collect();
+                    lists = product(&lists, &parts);
                 }
                 inner_rules.sort();
                 inner_rules.dedup();
@@ -380,6 +382,7 @@ impl Forest<'_> {
     fn terminals(
         &self,
         id: usize,
+        relevant: &dyn Fn(usize) -> bool,
         paths: &mut HashMap<usize, Vec<Vec<Child>>>,
         memo: &mut HashMap<usize, Vec<Vec<usize>>>,
     ) -> Vec<Vec<usize>> {
@@ -391,10 +394,11 @@ impl Forest<'_> {
             let mut lists: Vec<Vec<usize>> = vec![Vec::new()];
             for child in path {
                 let parts = match child {
-                    Child::Edge(e) => vec![vec![e]],
-                    Child::Item(c) => self.terminals(c, paths, memo),
+                    Child::Edge(e) if relevant(e) => vec![vec![e]],
+                    Child::Edge(_) => vec![Vec::new()],
+                    Child::Item(c) => self.terminals(c, relevant, paths, memo),
                 };
-                lists = lists.iter().flat_map(|l| parts.iter().map(move |p| l.iter().chain(p).copied().collect())).collect();
+                lists = product(&lists, &parts);
             }
             out.extend(lists);
         }
@@ -455,6 +459,14 @@ impl Forest<'_> {
         }
         out
     }
+}
+
+/// Every list of `heads` extended by every list of `tails`, each result once.
+fn product(heads: &[Vec<usize>], tails: &[Vec<usize>]) -> Vec<Vec<usize>> {
+    let mut out: Vec<Vec<usize>> = heads.iter().flat_map(|h| tails.iter().map(move |t| h.iter().chain(t).copied().collect())).collect();
+    out.sort();
+    out.dedup();
+    out
 }
 
 /// Checks `cat`'s constraints against `feats`, extending `env`. A feature the
@@ -547,5 +559,45 @@ impl Tree {
                 }
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn morph(cat: &str, feats: &[(&str, &str)]) -> Morpheme {
+        Morpheme {
+            surface: cat.to_lowercase(),
+            lemma: cat.to_lowercase(),
+            cat: cat.to_owned(),
+            feats: feats.iter().map(|(k, v)| ((*k).to_owned(), (*v).to_owned())).collect(),
+        }
+    }
+
+    /// Words the group does not need are left out, so an ambiguous phrase
+    /// before the participle does not multiply the groups: 16 words with two
+    /// readings each are 65,536 parses and one group.
+    #[test]
+    fn participle_groups_do_not_multiply_with_the_readings_before() {
+        let grammar = Grammar::parse(
+            "start S\n\
+             rule s: S -> NP Verb[lemma=avere] Verb[form=pastpart]\n  \"x\"\n\
+             rule np.more: NP -> NP X\n  \"x\"\n\
+             rule np.one: NP -> X\n  \"x\"\n",
+        )
+        .unwrap();
+        let mut lattice = Lattice::new();
+        for _ in 0..16 {
+            lattice.push_token("x", vec![vec![morph("X", &[("a", "1")])], vec![morph("X", &[("a", "2")])]]);
+        }
+        lattice.push_token("ho", vec![vec![morph("Verb", &[("form", "fin")])]]);
+        lattice.edges.last_mut().unwrap().morph.lemma = "avere".to_owned();
+        lattice.push_token("fatto", vec![vec![morph("Verb", &[("form", "pastpart")])]]);
+        let forest = parse(&grammar, &lattice).unwrap();
+        assert_eq!(forest.count(), 65_536);
+        let groups = forest.participle_groups(&lattice);
+        assert_eq!(groups.len(), 1, "{}", groups.len());
+        assert_eq!(groups[0].edges, [32, 33]);
     }
 }

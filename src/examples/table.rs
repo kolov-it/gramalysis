@@ -92,6 +92,13 @@ impl Forms {
         if self.forms.contains(token) {
             return true;
         }
+        // Italian drops an infinitive's -e at will (far così, aver detto).
+        if lang == Lang::It
+            && (self.forms.contains(&format!("{token}e"))
+                || self.forms.contains(&format!("{token}re")))
+        {
+            return true;
+        }
         match lang {
             Lang::It => it::split_enclitics(token).is_some_and(|(host, _)| {
                 it_host_spellings(&host)
@@ -243,6 +250,11 @@ impl Target {
             (Lang::Es, Some(_)) => {
                 let (f, s) = (es::strip_accent(f), es::strip_accent(surface));
                 f == s || f == format!("{s}s") || f == format!("{s}d")
+            }
+            // far così: the infinitive without its -e (porre: por).
+            (Lang::It, None) => {
+                cell == "non_finite.infinitive"
+                    && (*f == format!("{surface}e") || *f == format!("{surface}re"))
             }
             // vas-y, donnes-en: the imperative's liaison -s.
             (Lang::Fr, _) => cell.starts_with("imperative.") && surface == format!("{f}s"),
@@ -488,7 +500,10 @@ mod tests {
     fn hosts_and_clitic_bearing_cells() {
         let t = target("fare", None).unwrap();
         assert!(t.written_as("non_finite.infinitive", "far", Some("farlo")));
-        assert!(!t.written_as("non_finite.infinitive", "far", None));
+        // Bare far is the infinitive too (far così), but no other cell.
+        assert!(t.written_as("non_finite.infinitive", "far", None));
+        assert!(!t.written_as("indicative.present.3s", "f", None));
+        assert!(t.may_be("far") && !t.may_be("fa'r"));
         assert!(t.written_as("imperative.present.2s", "fa", Some("fallo")));
         let farsi = target("farsi", None).unwrap();
         assert!(farsi.written_as("imperative.present.2s", "fa", Some("fatti")));
