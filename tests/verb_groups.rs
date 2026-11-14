@@ -3,11 +3,14 @@
 //! the recorded answers for the homograph sets (tests/fixtures/<lang>-set.json),
 //! patched as the command line uses them.
 
+use std::collections::{BTreeMap, BTreeSet};
 use std::path::Path;
 
 use syntango::lang;
 use syntango::morph::Lang;
 use syntango::patch::PatchedLexicon;
+use syntango::syntax::parser::Tree;
+use syntango::verbs::verb_use;
 use syntango::wordholder::{self, FixtureLexicon};
 use syntango::{SentenceAnalysis, VerbGroup, Voice, analyze};
 
@@ -309,4 +312,190 @@ async fn verb_groups_are_in_the_json() {
             "progressive": false,
         })
     );
+}
+
+#[tokio::test]
+async fn spanish_copular_progressive_survives_negation() {
+    // serv.negation passes está siendo up without aux_progressive; the
+    // copula must still be one progressive group in every parse.
+    let a = run(Lang::Es, "No está siendo difícil.").await;
+    for groups in &a.verb_groups {
+        let [g] = groups.as_slice() else {
+            panic!("{groups:?}")
+        };
+        assert_eq!(
+            (
+                g.tokens.as_slice(),
+                g.auxiliaries.as_slice(),
+                g.verb,
+                g.lemma.as_str()
+            ),
+            ([1, 2].as_slice(), [1].as_slice(), 2, "ser")
+        );
+        assert!(g.progressive && g.participle.is_none(), "{g:?}");
+    }
+}
+
+#[tokio::test]
+async fn spanish_stacked_progressives_are_one_group() {
+    // sigue + (estando + lloviendo): v.progressive inside v.progressive.
+    let fixture = FixtureLexicon::load(Path::new("tests/fixtures/es-handwritten.json")).unwrap();
+    let lexicon = PatchedLexicon::new(Box::new(fixture), wordholder::patches().unwrap());
+    let language = lang::load(Lang::Es).unwrap();
+    let a = analyze(&lexicon, language.as_ref(), "Sigue estando lloviendo.")
+        .await
+        .unwrap();
+    let stacked: Vec<&VerbGroup> = a
+        .verb_groups
+        .iter()
+        .flatten()
+        .filter(|g| g.tokens == [0, 1, 2])
+        .collect();
+    assert!(!stacked.is_empty(), "{:?}", a.verb_groups);
+    for g in stacked {
+        assert_eq!(
+            (
+                g.auxiliaries.as_slice(),
+                g.verb,
+                g.lemma.as_str(),
+                g.progressive
+            ),
+            ([0, 1].as_slice(), 2, "llover", true)
+        );
+        assert!(
+            ["indicative.present.3s", "imperative.present.2s"]
+                .contains(&g.cell.as_deref().unwrap()),
+            "{g:?}"
+        );
+    }
+    for (tree, groups) in a.parses.iter().zip(&a.verb_groups) {
+        assert_one_group_per_verb(groups, tree, "Sigue estando lloviendo.");
+    }
+}
+
+/// The tokens a parse uses as a verb: `Verb` words, except a participle the
+/// parse only uses like an adjective (`ap.participle`).
+fn verb_tokens(tree: &Tree, parent: &str, out: &mut BTreeSet<usize>) {
+    match tree {
+        Tree::Node { rule, children, .. } => {
+            for c in children {
+                verb_tokens(c, rule, out);
+            }
+        }
+        Tree::Leaf { token, morph, .. } => {
+            if morph.cat == "Verb" && verb_use(morph, &[parent.to_owned()]).as_verb {
+                out.insert(*token);
+            }
+        }
+    }
+}
+
+/// The verb words each auxiliary rule joins directly: per node whose rule
+/// passes an auxiliary's features up or marks a voice (`aux_tense`,
+/// `voice`), its `Verb` children.
+fn joined(tree: &Tree, out: &mut Vec<Vec<usize>>) {
+    if let Tree::Node {
+        feats, children, ..
+    } = tree
+    {
+        if feats.keys().any(|k| k.starts_with("aux_") || k == "voice") {
+            out.push(
+                children
+                    .iter()
+                    .filter_map(|c| match c {
+                        Tree::Leaf { token, morph, .. } if morph.cat == "Verb" => Some(*token),
+                        _ => None,
+                    })
+                    .collect(),
+            );
+        }
+        for c in children {
+            joined(c, out);
+        }
+    }
+}
+
+/// Every word the parse uses as a verb is in exactly one group, every
+/// group's word is one, and the words an auxiliary rule joins are in one
+/// group, however the rules nest or wrap (está siendo under `serv.negation`,
+/// sigue + estando lloviendo). The one exception: participles coordinated
+/// after one auxiliary (sono nato e cresciuto) are groups that share it.
+fn assert_one_group_per_verb(groups: &[VerbGroup], tree: &Tree, text: &str) {
+    let mut verbs = BTreeSet::new();
+    verb_tokens(tree, "", &mut verbs);
+    let mut holders: BTreeMap<usize, Vec<&VerbGroup>> = BTreeMap::new();
+    for g in groups {
+        let mut parts = g.auxiliaries.clone();
+        parts.push(g.verb);
+        parts.sort();
+        assert_eq!(g.tokens, parts, "{text}: {g:?}");
+        assert!(g.participle.is_none_or(|p| p == g.verb), "{text}: {g:?}");
+        for &t in &g.tokens {
+            holders.entry(t).or_default().push(g);
+        }
+    }
+    let grouped: BTreeSet<usize> = holders.keys().copied().collect();
+    assert_eq!(grouped, verbs, "{text}: {groups:?}");
+    let mut joins = Vec::new();
+    joined(tree, &mut joins);
+    let main_of = |t: usize| groups.iter().find(|g| g.verb == t);
+    for words in joins {
+        for (i, &a) in words.iter().enumerate() {
+            for &b in &words[i + 1..] {
+                let together = groups
+                    .iter()
+                    .any(|g| g.tokens.contains(&a) && g.tokens.contains(&b));
+                let coordinated = match (main_of(a), main_of(b)) {
+                    (Some(x), Some(y)) => {
+                        !x.auxiliaries.is_empty() && x.auxiliaries == y.auxiliaries
+                    }
+                    _ => false,
+                };
+                assert!(
+                    together || coordinated,
+                    "{text}: {a} and {b} are joined but apart: {groups:?}"
+                );
+            }
+        }
+    }
+    for (t, gs) in holders {
+        if gs.len() > 1 {
+            assert!(
+                gs.iter()
+                    .all(|g| g.auxiliaries.contains(&t) && g.auxiliaries == gs[0].auxiliaries),
+                "{text}: token {t} is in {gs:?}"
+            );
+        }
+    }
+}
+
+/// The rule above over the homograph sets: every kept parse of every
+/// `STRIDE`th sentence (all 15,000 take three minutes unoptimized; with
+/// `STRIDE = 1` and `--release`, half a minute, and they pass).
+#[tokio::test]
+async fn every_verb_is_in_one_group_over_the_homograph_sets() {
+    for lang in [Lang::It, Lang::Es, Lang::Fr] {
+        let fixture = FixtureLexicon::load(Path::new(&format!(
+            "tests/fixtures/{}-set.json",
+            lang.code()
+        )))
+        .unwrap();
+        let lexicon = PatchedLexicon::new(Box::new(fixture), wordholder::patches().unwrap());
+        let language = lang::load(lang).unwrap();
+        let set =
+            std::fs::read_to_string(format!("data/{}/homograph-set.jsonl", lang.code())).unwrap();
+        let mut parses = 0;
+        const STRIDE: usize = 4;
+        for line in set.lines().step_by(STRIDE) {
+            let item: serde_json::Value = serde_json::from_str(line).unwrap();
+            let text = item["text"].as_str().unwrap();
+            let a = analyze(&lexicon, language.as_ref(), text).await.unwrap();
+            assert_eq!(a.verb_groups.len(), a.parses.len(), "{text}");
+            for (tree, groups) in a.parses.iter().zip(&a.verb_groups) {
+                assert_one_group_per_verb(groups, tree, text);
+                parses += 1;
+            }
+        }
+        assert!(parses > 2_000, "{}: only {parses} parses", lang.code());
+    }
 }

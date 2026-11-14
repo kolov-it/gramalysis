@@ -1536,6 +1536,19 @@
         "partOfSpeech": "verb"
       }
     ],
+    "estando": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "gerund"
+          ]
+        },
+        "lemma": "estar",
+        "partOfSpeech": "verb"
+      }
+    ],
     "estar": [
       {
         "grammar": {
@@ -2518,6 +2531,19 @@
           "tense": "preterite"
         },
         "lemma": "llegar",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "lloviendo": [
+      {
+        "grammar": {
+          "clitic": false,
+          "formKind": "gerund",
+          "rawTags": [
+            "gerund"
+          ]
+        },
+        "lemma": "llover",
         "partOfSpeech": "verb"
       }
     ],
@@ -3952,6 +3978,40 @@
           ]
         },
         "lemma": "sentir",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "sigue": [
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "indicative",
+          "number": "singular",
+          "person": "third",
+          "rawTags": [
+            "indicative",
+            "present",
+            "singular",
+            "third-person"
+          ],
+          "tense": "present"
+        },
+        "lemma": "seguir",
+        "partOfSpeech": "verb"
+      },
+      {
+        "grammar": {
+          "clitic": false,
+          "mood": "imperative",
+          "number": "singular",
+          "person": "second",
+          "rawTags": [
+            "imperative",
+            "second-person",
+            "singular"
+          ]
+        },
+        "lemma": "seguir",
         "partOfSpeech": "verb"
       }
     ],

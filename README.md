@@ -210,7 +210,17 @@ verbs:
   progressive passive (*está siendo grabado*) is a passive with
   `progressive: true`: the participle is the main verb, *está siendo* the
   auxiliaries. Italian and French have no progressive passive in the
-  grammar.
+  grammar. Stacked progressives are one group too: *sigue estando
+  lloviendo* is *llover* with *sigue estando* as auxiliaries.
+- **One group per verb chain**, however the grammar nests or wraps it: a
+  construction inside another (*ha sido* in *ha sido construido*, *está
+  siendo* in *está siendo grabado*) is part of it, a wrapper that passes the
+  auxiliary up without building a construction (*no* in *no está siendo
+  difícil*) loses nothing, and a construction whose main verb is another's
+  auxiliary (*sigue estando* + *estando lloviendo*) is stacked onto it. Over
+  the homograph sets, every word a parse uses as a verb is in exactly one
+  group, the auxiliary of coordinated participles excepted, and the words
+  one rule joins are in the same group (`tests/verb_groups.rs`).
 - A participle a parse uses like an adjective (*le luci accese*) is not a
   verb of that parse; an auxiliary is never a group of its own.
 

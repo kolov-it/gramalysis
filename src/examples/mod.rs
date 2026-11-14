@@ -244,7 +244,7 @@ impl<'a> Extractor<'a> {
         }
         let spans = token_spans(&sentence.text, &a.tokens)?;
         let all: Vec<Construction> =
-            constructions(self.language.grammar(), self.target.lang, &a.lattice, &a.verb_items);
+            constructions(self.language.grammar(), self.target.lang, &a.lattice, &a.verb_items, true);
         let groups: Vec<&Construction> = all.iter().collect();
         let text = &sentence.text;
         let chars = |byte: usize| text[..byte].chars().count();

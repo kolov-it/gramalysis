@@ -46,6 +46,8 @@ pub enum Voice {
 /// | *Il libro **fu letto*** | 2 | 3 | 3 | leggere | `indicative.past_historic.3s` | passive | no |
 /// | *El programa **está siendo grabado*** | 2, 3 | 4 | 4 | grabar | `indicative.present.3s` | passive | yes |
 /// | *I prezzi **stanno crescendo*** | 2 | | 3 | crescere | `indicative.present.3p` | active | yes |
+/// | ***Sigue estando lloviendo*** | 0, 1 | | 2 | llover | `indicative.present.3s` | active | yes |
+/// | *No **está siendo** difícil* | 1 | | 2 | ser | `indicative.present.3s` | active | yes |
 /// | ***Ha estado lloviendo*** | 0, 1 | | 2 | llover | `indicative.present_perfect.3s` | active | yes |
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 #[non_exhaustive]
@@ -106,10 +108,6 @@ pub(crate) struct Construction {
     /// trabajando): its auxiliaries are kept from being examples of their own
     /// verbs; the gerund stays an example of its verb. No participles.
     pub progressive: bool,
-    /// Its auxiliaries are a progressive passed up from an inner item (está
-    /// siendo in está siendo grabado, `serv.progressive`): a progressive
-    /// passive, with its participle. The extractor does not read it.
-    pub progressive_auxiliary: bool,
     /// The lattice nodes the chart item spans.
     pub start: usize,
     pub end: usize,
@@ -128,14 +126,20 @@ enum Slot {
 }
 
 /// The compound tenses, passives and progressives that `items` (verb chart
-/// items, [`crate::SentenceAnalysis::verb_items`]) build. A construction
-/// whose only use is to pass its auxiliary up to another (Spanish ha sido in
-/// ha sido construido) is part of that one, not a verb of its own.
+/// items, [`crate::SentenceAnalysis::verb_items`]) build, one per item.
+///
+/// With `skip_passed_up` (the example extractor), an item whose only use is
+/// to pass its auxiliary up to another (Spanish ha sido in ha sido
+/// construido) is left out as part of that one. Without it (one parse's
+/// [`VerbGroup`]s), every item gives its construction and [`chains`] joins
+/// them, so a wrapper that forwards no construction of its own (`serv.negation`
+/// in no está siendo difícil) loses nothing.
 pub(crate) fn constructions(
     grammar: &Grammar,
     lang: Lang,
     lattice: &Lattice,
     items: &[ChartItem],
+    skip_passed_up: bool,
 ) -> Vec<Construction> {
     let by_id: HashMap<usize, &ChartItem> = items.iter().map(|i| (i.id, i)).collect();
     let mut out = Vec::new();
@@ -145,21 +149,15 @@ pub(crate) fn constructions(
                 .used_as
                 .iter()
                 .all(|&(rule, at)| passes_up(&grammar.rules[rule].rhs[at]));
-        if only_passed_up {
+        if skip_passed_up && only_passed_up {
             continue;
         }
-        let progressive = is_progressive(item);
-        let progressive_auxiliary = !progressive && passes_up_progressive(grammar, &by_id, item);
+        let progressive = item.feats.get("aux_progressive").map(String::as_str) == Some("yes");
         for slots in slots(grammar, &by_id, item) {
             if progressive {
                 out.extend(progressive_group(lang, item, &slots));
             } else {
-                out.extend(
-                    verb_group(lang, lattice, item, &slots).map(|c| Construction {
-                        progressive_auxiliary,
-                        ..c
-                    }),
-                );
+                out.extend(verb_group(lang, lattice, item, &slots));
             }
         }
     }
@@ -199,58 +197,30 @@ pub(crate) fn parse_groups(
             })
         })
         .collect();
+    let token = |e: usize| lattice.edges[e].token;
+    let constructions = constructions(grammar, lang, lattice, &items, false);
     let mut claimed: HashSet<usize> = HashSet::new();
     let mut out = Vec::new();
-    let token = |e: usize| lattice.edges[e].token;
-    for c in constructions(grammar, lang, lattice, &items) {
-        let aux_tokens = || {
-            let mut a: Vec<usize> = std::iter::once(c.aux)
-                .chain(c.layers.iter().copied())
-                .map(token)
-                .collect();
-            a.sort();
-            a
-        };
-        let main: Vec<usize> = if c.progressive {
-            let edges = &c.layers;
-            consumer
-                .keys()
-                .copied()
-                .filter(|&e| {
-                    let edge = &lattice.edges[e];
-                    edge.from >= c.start
-                        && edge.to <= c.end
-                        && e != c.aux
-                        && !edges.contains(&e)
-                        && edge.morph.cat == "Verb"
-                        && edge.morph.feats.get("form").map(String::as_str) == Some("ger")
-                })
-                .min_by_key(|&e| lattice.edges[e].from)
-                .into_iter()
-                .collect()
-        } else {
-            c.participles.clone()
-        };
-        if main.is_empty() {
-            continue;
-        }
-        claimed.insert(c.aux);
-        claimed.extend(&c.layers);
-        for e in main {
-            claimed.insert(e);
-            let auxiliaries = aux_tokens();
+    for c in chains(lattice, &consumer, &constructions) {
+        claimed.extend(c.edges());
+        let mut auxiliaries: Vec<usize> = std::iter::once(c.aux)
+            .chain(c.layers.iter().copied())
+            .map(token)
+            .collect();
+        auxiliaries.sort();
+        for &e in &c.mains {
             let mut tokens = auxiliaries.clone();
             tokens.push(token(e));
             tokens.sort();
             out.push(VerbGroup {
                 tokens,
-                auxiliaries,
-                participle: (!c.progressive).then(|| token(e)),
+                auxiliaries: auxiliaries.clone(),
+                participle: c.participle.then(|| token(e)),
                 verb: token(e),
                 lemma: lattice.edges[e].morph.lemma.clone(),
                 cell: c.cell.clone(),
                 voice: c.voice,
-                progressive: c.progressive || c.progressive_auxiliary,
+                progressive: c.progressive,
             });
         }
     }
@@ -276,6 +246,123 @@ pub(crate) fn parse_groups(
     out.sort_by(|a, b| (a.verb, &a.tokens).cmp(&(b.verb, &b.tokens)));
     out.dedup();
     out
+}
+
+/// One verb chain of a parse, as lattice edges: the auxiliary that carries
+/// the tense, the auxiliaries after it, and the main verb(s) (two for
+/// participles coordinated after one auxiliary).
+#[derive(Debug, Clone)]
+struct Chain {
+    aux: usize,
+    layers: Vec<usize>,
+    mains: Vec<usize>,
+    /// The mains are past participles (a compound tense or a passive), not a
+    /// progressive's gerund.
+    participle: bool,
+    cell: Option<String>,
+    voice: Voice,
+    progressive: bool,
+}
+
+impl Chain {
+    fn edges(&self) -> HashSet<usize> {
+        std::iter::once(self.aux)
+            .chain(self.layers.iter().copied())
+            .chain(self.mains.iter().copied())
+            .collect()
+    }
+}
+
+/// One parse's constructions joined into chains, so each verb chain is one
+/// chain however the grammar nests it:
+///
+/// - a construction inside another (the `SerV` of está siendo in está siendo
+///   grabado, ha sido in ha sido construido, wrapped by `serv.negation` or
+///   not) is part of it; an inner progressive on the same auxiliary makes
+///   the outer one progressive;
+/// - a construction whose main verb is another's auxiliary is stacked on it
+///   (sigue estando + estando lloviendo = sigue estando lloviendo): the outer
+///   auxiliary carries the tense, the inner main verb is the main verb.
+fn chains(
+    lattice: &Lattice,
+    consumer: &HashMap<usize, usize>,
+    constructions: &[Construction],
+) -> Vec<Chain> {
+    let mut chains: Vec<Chain> = constructions
+        .iter()
+        .filter_map(|c| {
+            let mains = if c.progressive {
+                gerund(lattice, consumer, c).into_iter().collect()
+            } else {
+                c.participles.clone()
+            };
+            (!mains.is_empty()).then(|| Chain {
+                aux: c.aux,
+                layers: c.layers.clone(),
+                mains,
+                participle: !c.progressive,
+                cell: c.cell.clone(),
+                voice: c.voice,
+                progressive: c.progressive,
+            })
+        })
+        .collect();
+    // Inner constructions into the ones that hold them.
+    let mut i = 0;
+    while i < chains.len() {
+        let inner = chains[i].edges();
+        let holder = (0..chains.len()).find(|&j| {
+            let outer = chains[j].edges();
+            j != i && inner.is_subset(&outer) && (inner != outer || j < i)
+        });
+        match holder {
+            Some(j) => {
+                let removed = chains.remove(i);
+                let j = if j > i { j - 1 } else { j };
+                if removed.aux == chains[j].aux {
+                    chains[j].progressive |= removed.progressive;
+                }
+            }
+            None => i += 1,
+        }
+    }
+    // Stacked chains into one.
+    while let Some((a, b)) = (0..chains.len())
+        .flat_map(|a| (0..chains.len()).map(move |b| (a, b)))
+        .find(|&(a, b)| a != b && chains[a].mains == [chains[b].aux])
+    {
+        let inner = chains[b].clone();
+        let outer = &mut chains[a];
+        outer.layers.push(inner.aux);
+        outer.layers.extend(inner.layers);
+        outer.mains = inner.mains;
+        outer.participle = inner.participle;
+        outer.progressive |= inner.progressive;
+        if inner.voice == Voice::Passive {
+            outer.voice = Voice::Passive;
+        }
+        chains.remove(b);
+    }
+    chains
+}
+
+/// A progressive's gerund in this parse: the first gerund it spans after
+/// its auxiliaries. When that gerund is itself a progressive's auxiliary
+/// (estando in sigue estando lloviendo), [`chains`] stacks the two.
+fn gerund(lattice: &Lattice, consumer: &HashMap<usize, usize>, c: &Construction) -> Option<usize> {
+    consumer
+        .keys()
+        .copied()
+        .filter(|&e| {
+            let edge = &lattice.edges[e];
+            edge.from >= c.start
+                && edge.to <= c.end
+                && e != c.aux
+                && !c.layers.contains(&e)
+                && edge.morph.cat == "Verb"
+                && edge.morph.feats.get("form").map(String::as_str) == Some("ger")
+        })
+        .min_by_key(|&e| lattice.edges[e].from)
 }
 
 /// An item's words in rule order, one list per combination of the phrases
@@ -428,32 +515,8 @@ fn verb_group(
         cell,
         aux_cell,
         progressive: false,
-        progressive_auxiliary: false,
         start: item.start,
         end: item.end,
-    })
-}
-
-fn is_progressive(item: &ChartItem) -> bool {
-    item.feats.get("aux_progressive").map(String::as_str) == Some("yes")
-}
-
-/// Whether a phrase that passes the auxiliary up to `item` is a progressive
-/// (`SerV` ← `serv.progressive` in está siendo grabado), at any depth.
-fn passes_up_progressive(
-    grammar: &Grammar,
-    items: &HashMap<usize, &ChartItem>,
-    item: &ChartItem,
-) -> bool {
-    let rule = &grammar.rules[item.rule];
-    rule.rhs.iter().enumerate().any(|(at, cat)| {
-        passes_up(cat)
-            && item.children[at].iter().any(|c| match c {
-                ItemChild::Item(c) => items.get(c).is_some_and(|child| {
-                    is_progressive(child) || passes_up_progressive(grammar, items, child)
-                }),
-                ItemChild::Edge(_) => false,
-            })
     })
 }
 
@@ -491,7 +554,6 @@ fn progressive_group(lang: Lang, item: &ChartItem, slots: &[Slot]) -> Option<Con
         cell,
         aux_cell,
         progressive: true,
-        progressive_auxiliary: false,
         start: item.start,
         end: item.end,
     })
