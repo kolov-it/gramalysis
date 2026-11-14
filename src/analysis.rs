@@ -90,7 +90,7 @@ pub async fn analyze(lexicon: &dyn Lexicon, language: &dyn Language, text: &str)
     let forms = language.lexicon_forms(&tokens);
     let form_refs: Vec<&str> = forms.iter().map(String::as_str).collect();
     let analyses = lexicon.analyze(language.lang(), &form_refs).await?;
-    let lattice = language.lattice(&tokens, &analyses);
+    let lattice = language.lattice(text, &tokens, &analyses);
     let unknown = (0..tokens.len())
         .filter(|t| !lattice.edges.iter().any(|e| e.token == *t))
         .map(|t| tokens[t].clone())

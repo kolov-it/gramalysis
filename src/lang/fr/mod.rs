@@ -10,7 +10,7 @@ pub use tokenize::tokenize;
 
 use std::collections::HashSet;
 
-use crate::lang::Language;
+use crate::lang::{Case, Language};
 use crate::morph::{Analysis, Lang, Mood, Number, PartOfSpeech, Person, Reading, Tense};
 use crate::syntax::feats::{self, FeatMap};
 use crate::syntax::grammar::{Grammar, GrammarError};
@@ -62,7 +62,7 @@ impl Language for French {
         tokens.iter().filter(|t| !is_punct(t)).map(|t| t.trim_start_matches('-').to_lowercase()).collect()
     }
 
-    fn lattice(&self, tokens: &[String], analyses: &[Analysis]) -> Lattice {
+    fn lattice(&self, _text: &str, tokens: &[String], analyses: &[Analysis]) -> Lattice {
         self.build_lattice(tokens, analyses)
     }
 }
@@ -132,6 +132,11 @@ impl French {
             }
             let all_caps = token.chars().filter(|c| c.is_alphabetic()).all(char::is_uppercase);
             let capitalised = token.chars().next().is_some_and(char::is_uppercase);
+            // After an article a capital marks no name (la France, le Coran).
+            let after_article = i > 0
+                && self.closed.get(&tokens[i - 1].to_lowercase()).is_some_and(|rs| rs.iter().any(|r| r.last().is_some_and(|m| m.cat == "Det")));
+            let case = Case::of(tokens, i, after_article);
+            let known_name = analysis.is_some_and(|a| a.readings.iter().any(|r| r.pos == PartOfSpeech::ProperNoun));
             let lexicon: Vec<Reading> = analysis
                 .map(|a| a.readings.clone())
                 .unwrap_or_default()
@@ -143,6 +148,7 @@ impl French {
                 // …and with names (mariage: Mariage); a name stands only for
                 // a capitalised word.
                 .filter(|r| capitalised || r.pos != PartOfSpeech::ProperNoun)
+                .filter(|r| case.keeps(r.pos == PartOfSpeech::ProperNoun, known_name))
                 .collect();
             let lexicon = without_untagged_duplicates(lexicon, &lower);
             let before_y_en = tokens.get(i + 1).is_some_and(|n| matches!(n.to_lowercase().as_str(), "-y" | "-en"));
@@ -210,9 +216,11 @@ impl French {
                 readings.push(vec![Morpheme { surface: token.clone(), lemma: lower.clone(), cat: "Num".to_owned(), feats }]);
             }
             // A capitalised word is a name anywhere but at the start, where
-            // it is one only if the lexicon knows it capitalised (Sami).
+            // it is one only if the lexicon knows it capitalised (Sami). A
+            // name reading from the lexicon is already there, with its gender.
             let known_capitalised = lexicon.iter().any(|r| r.lemma.chars().next().is_some_and(char::is_uppercase));
-            if capitalised && (i > 0 || readings.is_empty() || known_capitalised) {
+            let named = readings.iter().any(|r| matches!(r.as_slice(), [m] if m.cat == "ProperNoun"));
+            if capitalised && !named && (i > 0 || readings.is_empty() || known_capitalised) {
                 let mut feats = FeatMap::new();
                 feats.insert("onset".to_owned(), first_sound.to_owned());
                 readings.push(vec![Morpheme { surface: token.clone(), lemma: token.clone(), cat: "ProperNoun".to_owned(), feats }]);

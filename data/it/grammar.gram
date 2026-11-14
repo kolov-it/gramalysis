@@ -197,8 +197,8 @@ rule clitics.two-other: Clitics[reflexive=no, attached=?a, case=?k] -> Pron[atta
 rule vp.verb: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta] -> V[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta]:verb
   "A verb on its own."
 
-rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta] -> V[aux=avere, clitic_case=dat|refl|gen|loc, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta]:verb NP[case=obl]:direct-object
-  "The verb takes a direct object, unless lo/la/li/le already is its object (l'ho fatto, not *l'ho un fatto)."
+rule vp.object: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta] -> V[aux=avere, lemma!=essere, clitic_case=dat|refl|gen|loc, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta]:verb NP[case=obl]:direct-object
+  "The verb takes a direct object, unless lo/la/li/le already is its object (l'ho fatto, not *l'ho un fatto). essere never takes one: its noun phrase is a subject complement (vp.copula-noun)."
 
 rule vp.infinitive: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta] -> V[lemma=volere|potere|dovere|sapere|solere|fare|lasciare|sentire|vedere|udire|guardare|ascoltare|osservare|preferire|desiderare|osare|amare|odiare|adorare|piacere|bisognare|occorrere|sembrare|parere, finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta]:verb VP[form=inf]
   "A verb followed by an infinitive without a preposition: modal, perception and causative verbs and a few others (voglio partire, lo vedo arrivare, fammi sapere)."
@@ -465,6 +465,12 @@ rule time.det-noun: TimeNP -> Det Noun[lemma=giorno|notte|mattina|sera|pomeriggi
 rule time.adjective: TimeNP -> TimeNP AP
   "A time expression with an adjective (la settimana scorsa)."
 
+rule time.day-part: TimeNP -> Adv[lemma=ieri|oggi|domani|dopodomani] Noun[number=sg, lemma=mattina|pomeriggio|sera|notte]
+  "A day and a part of it, without a preposition, say when (ieri sera, domani mattina, oggi pomeriggio). Stamattina, stasera and stanotte already hold the part of the day."
+
+rule time.weekday-part: TimeNP -> Noun[number=sg, lemma=domenica|lunedì|martedì|mercoledì|giovedì|venerdì|sabato] Noun[number=sg, lemma=mattina|pomeriggio|sera|notte]
+  "A weekday and a part of it say when (domenica sera, lunedì mattina)."
+
 rule vp.time: VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta] TimeNP:adverbial
   "A time expression after the verb says when or how often (mi esercito ogni giorno)."
 
@@ -505,11 +511,17 @@ rule clause.absolute-participle: S -> Verb[form=pastpart, drifted=no, number=?n,
 rule pp.dopo-participle: PP[prep=dopo, infinitive=no] -> Prep[lemma=dopo] Verb[form=pastpart, drifted=no]
   "dopo + past participle: after doing it (dopo mangiato)."
 
-rule vp.passive-agent: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?auxf, voice=passive] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n, tense=?auxt, form=?auxf]:verb Verb[form=pastpart, takes_avere=yes, number=?n, gender=?g, takes_di=?d, takes_a=?ta]:verb Prep[lemma=da]:agent NP:agent
+rule vp.passive-agent: VP[finite=yes, form=fin, mood=?m, person=?p, number=?n, gender=?g, takes_di=?d, takes_a=?ta, aux_mood=?m, aux_tense=?auxt, aux_person=?p, aux_number=?n, aux_form=?auxf, voice=passive] -> Verb[lemma=essere, finite=yes, mood=?m, person=?p, number=?n, tense=?auxt, form=?auxf]:verb Verb[form=pastpart, takes_avere=yes, number=?n, gender=?g, takes_di=?d, takes_a=?ta]:verb Prep[lemma=da]:agent NP[case=obl]:agent
   "essere + past participle + da + agent: the passive (è amato da tutti)."
 
 rule vp.copula-infinitive-adjective: VP[finite=no, form=inf, takes_di=?d, takes_a=?ta] -> Verb[lemma=essere|sembrare|diventare|restare|rimanere|stare, form=inf, takes_di=?d, takes_a=?ta]:verb AP[participle_essere=no]:subject-complement
   "An infinitive linking verb + adjective (essere imbarazzate)."
+
+rule vp.copula-nonfinite-noun: VP[finite=no, form=?fm, takes_di=?d, takes_a=?ta] -> Verb[lemma=essere, form=inf|ger, form=?fm, takes_di=?d, takes_a=?ta]:verb NP[case=nom|obl]:subject-complement
+  "essere as an infinitive or gerund + noun phrase: a subject complement, never an object (essere un avvocato, essendo un medico)."
+
+rule vp.copula-nonfinite-noun-adverb: VP[finite=no, form=?fm, takes_di=?d, takes_a=?ta] -> Verb[lemma=essere, form=inf|ger, form=?fm, takes_di=?d, takes_a=?ta]:verb Adv[neg=no]:adverbial NP[case=nom|obl]:subject-complement
+  "The same with an adverb between (essere sempre un avvocato). A rule of its own rather than V: a V from a compound infinitive has no lemma, and would let avere avuto take a subject complement."
 
 rule vp.floating-quantifier: VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, takes_di=?d, takes_a=?ta] -> VP[finite=?f, form=?fm, mood=?m, person=?p, number=pl, gender=?g, takes_di=?d, takes_a=?ta] Pron[lemma=tutto, number=pl]:subject
   "tutti / tutte after the verb, for the whole plural subject (se ne sono andati tutti)."
