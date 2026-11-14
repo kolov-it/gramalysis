@@ -236,7 +236,13 @@ async fn italian_clitic_before_the_auxiliary() {
 
 #[tokio::test]
 async fn italian_passive_of_a_simple_tense() {
-    let e = one("it", "scrivere", None, "Il libro fu scritto da lui.").await;
+    let e = one(
+        "it",
+        "scrivere",
+        Some("indicative.past_historic"),
+        "Il libro fu scritto da lui.",
+    )
+    .await;
     assert_eq!(marked(&e), "Il libro [fu] [scritto] da lui.");
     assert_eq!(
         (e.cells.as_slice(), e.voice),
@@ -244,6 +250,14 @@ async fn italian_passive_of_a_simple_tense() {
             ["indicative.past_historic.3s".to_owned()].as_slice(),
             Voice::Passive
         )
+    );
+    // Another parse reads fu + the participle phrase scritto da lui: the
+    // bare participle, so the example is ambiguous, not resolved.
+    let e = one("it", "scrivere", None, "Il libro fu scritto da lui.").await;
+    assert_eq!(e.status, Status::Ambiguous);
+    assert_eq!(
+        e.cells,
+        ["indicative.past_historic.3s", "non_finite.past_participle"]
     );
     // Some parses read fu as the auxiliary, others as the copula before an
     // adjective: for essere it is ambiguous.
