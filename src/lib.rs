@@ -6,9 +6,12 @@
 //! - [`lang`]: the [`lang::Language`] trait and each language ([`lang::it`], [`lang::es`], [`lang::fr`]).
 //! - [`patch`]: corrections to a lexicon's known defects, applied on top of it.
 //! - [`analysis`]: the pipeline, [`analyze`].
-//! - [`wordholder`] (feature `wordholder`): the Word Holder API as a lexicon.
+//! - [`wordholder`] (feature `wordholder`): Word Holder's lemmatize contract
+//!   and patches; its HTTP client needs feature `wordholder-http`.
 //!
-//! Everything but `wordholder` is free of network code.
+//! Only feature `wordholder-http` brings network code.
+
+#![cfg_attr(docsrs, feature(doc_cfg))]
 
 pub mod analysis;
 pub mod lang;
@@ -16,6 +19,7 @@ pub mod morph;
 pub mod patch;
 pub mod syntax;
 #[cfg(feature = "wordholder")]
+#[cfg_attr(docsrs, doc(cfg(feature = "wordholder")))]
 pub mod wordholder;
 
 pub use analysis::{analyze, Error, SentenceAnalysis, TokenChoice};
